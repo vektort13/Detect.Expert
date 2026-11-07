@@ -217,23 +217,55 @@ pnpm release:verify    # 先跑檢查，再在 release/ 產生兩個發行用 ZI
 
 技術說明（大多是俄文）：[API Guard](docs/coverage/api-blocking.md)、[自訂值](docs/coverage/api-custom.md)、[Antidetect](docs/coverage/antidetect.md)、[Proxy](docs/coverage/proxy.md)、[Geolocation API](docs/coverage/proxy-geolocation.md)、[Cookies](docs/coverage/cookies-workspace.md)、[Autosurfer](docs/coverage/autosurf.md)、[Browser Debug](docs/coverage/browser-debug.md)、[Cloudflare Precursor](docs/coverage/cloudflare-precursor.md)、[決策紀錄](docs/decisions/README.md)、[資料清單](docs/data-inventory.md)、[發行檔案](docs/release/README.md)、[Firefox 手冊](runbooks/firefox.md)。
 
-## 生態系
-
-相關網站：
-
-- **[anti.bot](https://anti.bot)**
-- **[antidetect.com](https://antidetect.com)**
-- **[detect.expert](https://detect.expert)**（專案網站）
-
-擴充功能的「聯絡」頁面列了這些網站和社群頻道。
-
 ## 作者與聯絡方式
 
-我是 **Vektor T13**，專案掛在組織 **Vektor T13 Technologies [Detect Expert]** 底下。GitHub：[@vektort13](https://github.com/vektort13)。
+<div align="center">
 
-- 錯誤回報、提問、想法：[GitHub Issues](https://github.com/vektort13/Detect.Expert/issues)。
-- 資安問題：請不要開公開 issue，改用 [GitHub Security Advisories](https://github.com/vektort13/Detect.Expert/security/advisories/new)，詳情見 [SECURITY.md](SECURITY.md)。
-- 社群：[Telegram](https://t.me/antidetect)、[Telegram 聊天室（英文）](https://t.me/multiacceng)、[Telegram 聊天室（俄文）](https://t.me/antidetectchat)、[Discord](https://discord.gg/6pENTcY7Zc)。YouTube：[中文](https://www.youtube.com/@VektorT13CN)、[English](https://www.youtube.com/@VektorT13ENG)、[Русский](https://www.youtube.com/@VektorT13)、[Tiếng Việt](https://www.youtube.com/@VektorT13VN)、[Español](https://www.youtube.com/@VektorT13ES)。
+<a href="https://github.com/vektort13"><img src="https://github.com/vektort13.png?size=200" width="96" height="96" alt="Vektor T13"></a>
+
+我是 **Vektor T13**，專案掛在組織 **Vektor T13 Technologies [Detect Expert]** 底下。歡迎提問、提想法、回報錯誤，挑最方便的管道就行。
+
+<h3 align="center">🌐 網站</h3>
+
+| 網站 | 內容 |
+|:---:|:---|
+| <a href="https://detect.expert"><img src="https://img.shields.io/badge/detect.expert-visit-2D66D2?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI%2BPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiLz48cGF0aCBkPSJNMiAxMmgyME0xMiAyYTE1LjMgMTUuMyAwIDAgMSA0IDEwIDE1LjMgMTUuMyAwIDAgMS00IDEwIDE1LjMgMTUuMyAwIDAgMS00LTEwIDE1LjMgMTUuMyAwIDAgMSA0LTEweiIvPjwvc3ZnPg%3D%3D&logoColor=white&labelColor=061028" alt="detect.expert"></a> | 專案網站 |
+| <a href="https://anti.bot"><img src="https://img.shields.io/badge/anti.bot-visit-7C3AED?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI%2BPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiLz48cGF0aCBkPSJNMiAxMmgyME0xMiAyYTE1LjMgMTUuMyAwIDAgMSA0IDEwIDE1LjMgMTUuMyAwIDAgMS00IDEwIDE1LjMgMTUuMyAwIDAgMS00LTEwIDE1LjMgMTUuMyAwIDAgMSA0LTEweiIvPjwvc3ZnPg%3D%3D&logoColor=white&labelColor=061028" alt="anti.bot"></a> | AI 使用者識別 |
+| <a href="https://antidetect.com"><img src="https://img.shields.io/badge/antidetect.com-visit-4F46E5?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI%2BPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiLz48cGF0aCBkPSJNMiAxMmgyME0xMiAyYTE1LjMgMTUuMyAwIDAgMSA0IDEwIDE1LjMgMTUuMyAwIDAgMS00IDEwIDE1LjMgMTUuMyAwIDAgMS00LTEwIDE1LjMgMTUuMyAwIDAgMSA0LTEweiIvPjwvc3ZnPg%3D%3D&logoColor=white&labelColor=061028" alt="antidetect.com"></a> | Antidetect |
+| <a href="https://grid.training"><img src="https://img.shields.io/badge/grid.training-visit-D97706?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI%2BPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiLz48cGF0aCBkPSJNMiAxMmgyME0xMiAyYTE1LjMgMTUuMyAwIDAgMSA0IDEwIDE1LjMgMTUuMyAwIDAgMS00IDEwIDE1LjMgMTUuMyAwIDAgMS00LTEwIDE1LjMgMTUuMyAwIDAgMSA0LTEweiIvPjwvc3ZnPg%3D%3D&logoColor=white&labelColor=061028" alt="grid.training"></a> | 線上研討會與課程 |
+| <a href="https://euqlid.space"><img src="https://img.shields.io/badge/euqlid.space-visit-0D9488?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI%2BPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiLz48cGF0aCBkPSJNMiAxMmgyME0xMiAyYTE1LjMgMTUuMyAwIDAgMSA0IDEwIDE1LjMgMTUuMyAwIDAgMS00IDEwIDE1LjMgMTUuMyAwIDAgMS00LTEwIDE1LjMgMTUuMyAwIDAgMSA0LTEweiIvPjwvc3ZnPg%3D%3D&logoColor=white&labelColor=061028" alt="euqlid.space"></a> | 全球 Wi-Fi 網路地圖 |
+
+<h3 align="center">💬 社群</h3>
+
+<p align="center">
+<a href="https://t.me/antidetect"><img src="https://img.shields.io/badge/Telegram-%E4%B8%BB%E7%BE%A4%E7%B5%84-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram"></a>
+<a href="https://t.me/multiacceng"><img src="https://img.shields.io/badge/Telegram-%E8%81%8A%E5%A4%A9%E5%AE%A4%EF%BC%88%E8%8B%B1%E6%96%87%EF%BC%89-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram"></a>
+<a href="https://t.me/antidetectchat"><img src="https://img.shields.io/badge/Telegram-%E8%81%8A%E5%A4%A9%E5%AE%A4%EF%BC%88%E4%BF%84%E6%96%87%EF%BC%89-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram"></a>
+<a href="https://discord.gg/6pENTcY7Zc"><img src="https://img.shields.io/badge/Discord-%E8%81%8A%E5%A4%A9%E5%AE%A4-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
+</p>
+
+<h3 align="center">▶️ YouTube</h3>
+
+<p align="center">
+<a href="https://www.youtube.com/@VektorT13ENG"><img src="https://img.shields.io/badge/YouTube-English-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube English"></a>
+<a href="https://www.youtube.com/@VektorT13"><img src="https://img.shields.io/badge/YouTube-%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube Русский"></a>
+<a href="https://www.youtube.com/@VektorT13VN"><img src="https://img.shields.io/badge/YouTube-Ti%E1%BA%BFng%20Vi%E1%BB%87t-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube Tiếng Việt"></a>
+<a href="https://www.youtube.com/@VektorT13CN"><img src="https://img.shields.io/badge/YouTube-%E4%B8%AD%E6%96%87-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube 中文"></a>
+<a href="https://www.youtube.com/@VektorT13ES"><img src="https://img.shields.io/badge/YouTube-Espa%C3%B1ol-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube Español"></a>
+</p>
+
+<h3 align="center">🧰 程式碼與支援</h3>
+
+<p align="center">
+<a href="https://github.com/vektort13"><img src="https://img.shields.io/badge/GitHub-%40vektort13-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"></a>
+<a href="https://github.com/vektort13/Detect.Expert/issues"><img src="https://img.shields.io/badge/Issues-%E9%8C%AF%E8%AA%A4%E3%80%81%E6%8F%90%E5%95%8F%E3%80%81%E6%83%B3%E6%B3%95-2D66D2?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2ZmZiI%2BPHBhdGggZD0iTTEyIDJhMTAgMTAgMCAxIDAgMCAyMCAxMCAxMCAwIDAgMCAwLTIwem0xIDE1aC0ydi0yaDJ2MnptMC00aC0yVjdoMnY2eiIvPjwvc3ZnPg%3D%3D&logoColor=white" alt="Issues"></a>
+<a href="https://github.com/vektort13/Detect.Expert/security/advisories/new"><img src="https://img.shields.io/badge/Security-%E7%A7%81%E4%B8%8B%E5%9B%9E%E5%A0%B1-B91C1C?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2ZmZiI%2BPHBhdGggZD0iTTEyIDEgMyA1djZjMCA1LjUgMy44IDEwLjcgOSAxMiA1LjItMS4zIDktNi41IDktMTJWNWwtOS00em0tMSAxNS00LTQgMS40LTEuNEwxMSAxMy4ybDQuNi00LjZMMTcgMTBsLTYgNnoiLz48L3N2Zz4%3D&logoColor=white" alt="Security"></a>
+<a href="https://github.com/vektort13/Detect.Expert/releases"><img src="https://img.shields.io/badge/Releases-%E4%B8%8B%E8%BC%89-2EA44F?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2ZmZiI%2BPHBhdGggZD0iTTE5IDloLTRWM0g5djZINWw3IDcgNy03ek01IDE4djJoMTR2LTJINXoiLz48L3N2Zz4%3D&logoColor=white" alt="Releases"></a>
+</p>
+
+<sub>發現資安問題？請不要開公開 issue，改用私人 advisory，詳情見 [SECURITY.md](SECURITY.md)。擴充功能的「聯絡」頁面也列了同樣的網站和頻道。</sub>
+
+</div>
 
 ## 請理性使用
 

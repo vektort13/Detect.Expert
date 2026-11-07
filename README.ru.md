@@ -217,23 +217,55 @@ pnpm release:verify    # проверки, затем оба ZIP выпуска 
 
 Технические заметки (в основном по-русски): [API Guard](docs/coverage/api-blocking.md), [свои значения](docs/coverage/api-custom.md), [Antidetect](docs/coverage/antidetect.md), [Proxy](docs/coverage/proxy.md), [Geolocation API](docs/coverage/proxy-geolocation.md), [Cookies](docs/coverage/cookies-workspace.md), [Автосерфер](docs/coverage/autosurf.md), [Browser Debug](docs/coverage/browser-debug.md), [Cloudflare Precursor](docs/coverage/cloudflare-precursor.md), [журнал решений](docs/decisions/README.md), [перечень данных](docs/data-inventory.md), [файлы выпуска](docs/release/README.md), [Firefox](runbooks/firefox.md).
 
-## Экосистема
-
-Связанные сайты:
-
-- **[anti.bot](https://anti.bot)**
-- **[antidetect.com](https://antidetect.com)**
-- **[detect.expert](https://detect.expert)**, сайт проекта
-
-На странице «Контакты» в расширении собраны эти сайты и каналы сообщества.
-
 ## Автор и контакты
 
-Я Vektor T13, проект живёт под организацией **Vektor T13 Technologies [Detect Expert]**. GitHub: [@vektort13](https://github.com/vektort13).
+<div align="center">
 
-- Ошибки, вопросы, идеи: [GitHub Issues](https://github.com/vektort13/Detect.Expert/issues).
-- Уязвимости: пожалуйста, не в публичный issue. Используйте [GitHub Security Advisories](https://github.com/vektort13/Detect.Expert/security/advisories/new), подробности в [SECURITY.md](SECURITY.md).
-- Сообщество: [Telegram](https://t.me/antidetect), [чат по-английски](https://t.me/multiacceng), [чат по-русски](https://t.me/antidetectchat), [Discord](https://discord.gg/6pENTcY7Zc). YouTube: [Русский](https://www.youtube.com/@VektorT13), [English](https://www.youtube.com/@VektorT13ENG), [Tiếng Việt](https://www.youtube.com/@VektorT13VN), [中文](https://www.youtube.com/@VektorT13CN), [Español](https://www.youtube.com/@VektorT13ES).
+<a href="https://github.com/vektort13"><img src="https://github.com/vektort13.png?size=200" width="96" height="96" alt="Vektor T13"></a>
+
+Я **Vektor T13**, проект живёт под организацией **Vektor T13 Technologies [Detect Expert]**. Вопросы, идеи и сообщения об ошибках приветствуются, выбирайте любой удобный канал.
+
+<h3 align="center">🌐 Сайты</h3>
+
+| Сайт | Что это |
+|:---:|:---|
+| <a href="https://detect.expert"><img src="https://img.shields.io/badge/detect.expert-visit-2D66D2?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI%2BPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiLz48cGF0aCBkPSJNMiAxMmgyME0xMiAyYTE1LjMgMTUuMyAwIDAgMSA0IDEwIDE1LjMgMTUuMyAwIDAgMS00IDEwIDE1LjMgMTUuMyAwIDAgMS00LTEwIDE1LjMgMTUuMyAwIDAgMSA0LTEweiIvPjwvc3ZnPg%3D%3D&logoColor=white&labelColor=061028" alt="detect.expert"></a> | сайт проекта |
+| <a href="https://anti.bot"><img src="https://img.shields.io/badge/anti.bot-visit-7C3AED?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI%2BPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiLz48cGF0aCBkPSJNMiAxMmgyME0xMiAyYTE1LjMgMTUuMyAwIDAgMSA0IDEwIDE1LjMgMTUuMyAwIDAgMS00IDEwIDE1LjMgMTUuMyAwIDAgMS00LTEwIDE1LjMgMTUuMyAwIDAgMSA0LTEweiIvPjwvc3ZnPg%3D%3D&logoColor=white&labelColor=061028" alt="anti.bot"></a> | ИИ-идентификатор пользователя |
+| <a href="https://antidetect.com"><img src="https://img.shields.io/badge/antidetect.com-visit-4F46E5?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI%2BPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiLz48cGF0aCBkPSJNMiAxMmgyME0xMiAyYTE1LjMgMTUuMyAwIDAgMSA0IDEwIDE1LjMgMTUuMyAwIDAgMS00IDEwIDE1LjMgMTUuMyAwIDAgMS00LTEwIDE1LjMgMTUuMyAwIDAgMSA0LTEweiIvPjwvc3ZnPg%3D%3D&logoColor=white&labelColor=061028" alt="antidetect.com"></a> | Антидетект |
+| <a href="https://grid.training"><img src="https://img.shields.io/badge/grid.training-visit-D97706?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI%2BPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiLz48cGF0aCBkPSJNMiAxMmgyME0xMiAyYTE1LjMgMTUuMyAwIDAgMSA0IDEwIDE1LjMgMTUuMyAwIDAgMS00IDEwIDE1LjMgMTUuMyAwIDAgMS00LTEwIDE1LjMgMTUuMyAwIDAgMSA0LTEweiIvPjwvc3ZnPg%3D%3D&logoColor=white&labelColor=061028" alt="grid.training"></a> | Вебинары и курсы |
+| <a href="https://euqlid.space"><img src="https://img.shields.io/badge/euqlid.space-visit-0D9488?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI%2BPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiLz48cGF0aCBkPSJNMiAxMmgyME0xMiAyYTE1LjMgMTUuMyAwIDAgMSA0IDEwIDE1LjMgMTUuMyAwIDAgMS00IDEwIDE1LjMgMTUuMyAwIDAgMS00LTEwIDE1LjMgMTUuMyAwIDAgMSA0LTEweiIvPjwvc3ZnPg%3D%3D&logoColor=white&labelColor=061028" alt="euqlid.space"></a> | Карта Wi-Fi сетей мира |
+
+<h3 align="center">💬 Сообщество</h3>
+
+<p align="center">
+<a href="https://t.me/antidetect"><img src="https://img.shields.io/badge/Telegram-%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D0%B0%D1%8F%20%D0%B3%D1%80%D1%83%D0%BF%D0%BF%D0%B0-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram"></a>
+<a href="https://t.me/multiacceng"><img src="https://img.shields.io/badge/Telegram-%D0%A7%D0%B0%D1%82%20(%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9)-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram"></a>
+<a href="https://t.me/antidetectchat"><img src="https://img.shields.io/badge/Telegram-%D0%A7%D0%B0%D1%82%20(%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram"></a>
+<a href="https://discord.gg/6pENTcY7Zc"><img src="https://img.shields.io/badge/Discord-%D0%A7%D0%B0%D1%82-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
+</p>
+
+<h3 align="center">▶️ YouTube</h3>
+
+<p align="center">
+<a href="https://www.youtube.com/@VektorT13ENG"><img src="https://img.shields.io/badge/YouTube-English-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube English"></a>
+<a href="https://www.youtube.com/@VektorT13"><img src="https://img.shields.io/badge/YouTube-%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube Русский"></a>
+<a href="https://www.youtube.com/@VektorT13VN"><img src="https://img.shields.io/badge/YouTube-Ti%E1%BA%BFng%20Vi%E1%BB%87t-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube Tiếng Việt"></a>
+<a href="https://www.youtube.com/@VektorT13CN"><img src="https://img.shields.io/badge/YouTube-%E4%B8%AD%E6%96%87-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube 中文"></a>
+<a href="https://www.youtube.com/@VektorT13ES"><img src="https://img.shields.io/badge/YouTube-Espa%C3%B1ol-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube Español"></a>
+</p>
+
+<h3 align="center">🧰 Код и поддержка</h3>
+
+<p align="center">
+<a href="https://github.com/vektort13"><img src="https://img.shields.io/badge/GitHub-%40vektort13-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"></a>
+<a href="https://github.com/vektort13/Detect.Expert/issues"><img src="https://img.shields.io/badge/Issues-%D0%BE%D1%88%D0%B8%D0%B1%D0%BA%D0%B8%2C%20%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B%2C%20%D0%B8%D0%B4%D0%B5%D0%B8-2D66D2?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2ZmZiI%2BPHBhdGggZD0iTTEyIDJhMTAgMTAgMCAxIDAgMCAyMCAxMCAxMCAwIDAgMCAwLTIwem0xIDE1aC0ydi0yaDJ2MnptMC00aC0yVjdoMnY2eiIvPjwvc3ZnPg%3D%3D&logoColor=white" alt="Issues"></a>
+<a href="https://github.com/vektort13/Detect.Expert/security/advisories/new"><img src="https://img.shields.io/badge/Security-%D1%81%D0%BE%D0%BE%D0%B1%D1%89%D0%B8%D1%82%D1%8C%20%D0%BF%D1%80%D0%B8%D0%B2%D0%B0%D1%82%D0%BD%D0%BE-B91C1C?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2ZmZiI%2BPHBhdGggZD0iTTEyIDEgMyA1djZjMCA1LjUgMy44IDEwLjcgOSAxMiA1LjItMS4zIDktNi41IDktMTJWNWwtOS00em0tMSAxNS00LTQgMS40LTEuNEwxMSAxMy4ybDQuNi00LjZMMTcgMTBsLTYgNnoiLz48L3N2Zz4%3D&logoColor=white" alt="Security"></a>
+<a href="https://github.com/vektort13/Detect.Expert/releases"><img src="https://img.shields.io/badge/Releases-%D0%B7%D0%B0%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B8-2EA44F?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2ZmZiI%2BPHBhdGggZD0iTTE5IDloLTRWM0g5djZINWw3IDcgNy03ek01IDE4djJoMTR2LTJINXoiLz48L3N2Zz4%3D&logoColor=white" alt="Releases"></a>
+</p>
+
+<sub>Нашли уязвимость? Пожалуйста, не в публичный issue, используйте приватный advisory, подробности в [SECURITY.md](SECURITY.md). На странице «Контакты» в расширении собраны те же сайты и каналы.</sub>
+
+</div>
 
 ## Пользуйтесь с умом
 
