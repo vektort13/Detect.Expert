@@ -1,0 +1,88 @@
+name: Bug report
+description: Something is broken or behaves weird
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time. A good report saves us both a lot of back and forth.
+        **Do not paste** cookies, proxy logins, tokens, API keys or full page URLs with private data. Blur them on screenshots too.
+  - type: input
+    id: version
+    attributes:
+      label: Extension version
+      description: Options, bottom of the page, or `chrome://extensions`.
+      placeholder: "2.0.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      options:
+        - Chrome
+        - Chromium / Edge / Brave / other Chromium
+        - Firefox
+    validations:
+      required: true
+  - type: input
+    id: browser-version
+    attributes:
+      label: Browser version
+      placeholder: "Chrome 153.0.xxxx.xx"
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - Windows 11
+        - Windows 10
+        - macOS
+        - Linux
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Which part?
+      options:
+        - Detector
+        - API Guard
+        - Firewall
+        - Antidetect
+        - Proxy manager
+        - Proxy companion (Windows)
+        - Cookies
+        - Autosurfer
+        - Browser Debug
+        - UI / translations
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: And what did you expect instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open ...
+        2. Click ...
+        3. See ...
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Console output / screenshots
+      description: Service worker console (`chrome://extensions` -> Inspect views) or the page console, whichever shows the error.
+      render: text

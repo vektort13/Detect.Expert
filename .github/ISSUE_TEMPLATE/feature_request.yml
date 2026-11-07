@@ -1,0 +1,29 @@
+name: Feature request
+description: Got an idea? Tell me what you're trying to do
+title: "[Idea] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do?
+      description: Start with the problem, not the solution. "I need X because Y" beats "add button Z".
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: How would you like it to work?
+    validations:
+      required: false
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: What do you do today instead?
+    validations:
+      required: false
+  - type: markdown
+    attributes:
+      value: |
+        Heads-up: the extension has no server, no telemetry and no remote code, and that is not changing.
+        Ideas that need any of those will most likely be a "no", sorry.
