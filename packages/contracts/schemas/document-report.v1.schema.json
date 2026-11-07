@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:detect-expert:contracts:document-report:v1",
+  "title": "DocumentReport v1 — stored per documentId in storage.session; the service worker is the only writer",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "documentKey",
+    "tabId",
+    "frameId",
+    "documentId",
+    "host",
+    "lifecycle",
+    "createdAt",
+    "updatedAt",
+    "revision",
+    "coverageState",
+    "coverageFlags",
+    "counters",
+    "findings",
+    "hosts",
+    "watermark",
+    "dropped"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "$ref": "urn:detect-expert:contracts:common:v1#/$defs/schemaVersion"
+    },
+    "documentKey": {
+      "$ref": "urn:detect-expert:contracts:common:v1#/$defs/documentKey"
+    },
+    "tabId": {
+      "$ref": "urn:detect-expert:contracts:common:v1#/$defs/nonNegInt"
+    },
+    "frameId": {
+      "$ref": "urn:detect-expert:contracts:common:v1#/$defs/nonNegInt"
+    },
+    "documentId": {
+      "$ref": "urn:detect-expert:contracts:common:v1#/$defs/id"
+    },
+    "host": {
+      "anyOf": [
+        {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/host"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "lifecycle": {
+      "$ref": "urn:detect-expert:contracts:common:v1#/$defs/documentLifecycle"
+    },
+    "createdAt": {
+      "$ref": "urn:detect-expert:contracts:common:v1#/$defs/timestampMs"
+    },
+    "updatedAt": {
+      "$ref": "urn:detect-expert:contracts:common:v1#/$defs/timestampMs"
+    },
+    "revision": {
+      "$ref": "urn:detect-expert:contracts:common:v1#/$defs/nonNegInt"
+    },
+    "coverageState": {
+      "$ref": "urn:detect-expert:contracts:common:v1#/$defs/coverageState"
+    },
+    "coverageFlags": {
+      "$ref": "urn:detect-expert:contracts:common:v1#/$defs/coverageFlags"
+    },
+    "counters": {
+      "type": "array",
+      "maxItems": 128,
+      "items": {
+        "$ref": "urn:detect-expert:contracts:common:v1#/$defs/counterEntry"
+      }
+    },
+    "findings": {
+      "type": "array",
+      "maxItems": 256,
+      "items": {
+        "$ref": "urn:detect-expert:contracts:common:v1#/$defs/finding"
+      }
+    },
+    "hosts": {
+      "type": "array",
+      "maxItems": 128,
+      "items": {
+        "$ref": "urn:detect-expert:contracts:common:v1#/$defs/hostEntry"
+      }
+    },
+    "watermark": {
+      "anyOf": [
+        {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/dedupWatermark"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "dropped": {
+      "$ref": "urn:detect-expert:contracts:common:v1#/$defs/droppedCounters"
+    }
+  }
+}

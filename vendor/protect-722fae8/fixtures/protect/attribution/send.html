@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>protect: attribution of sends</title>
+  </head>
+  <body>
+    <!--
+      ADR-020 §F (S10): stand of tests/extension/protect/attribution-send.spec.ts. Open it as
+      http://shop.example.com:<port>/protect/attribution/send.html (host-resolver maps *.example.* to loopback). Every case
+      sends to its own receiver host, so the cases never pair with each other:
+        collect-ext / -xhr / -beacon   from tracker-a.js (cdn.tracker-a.example.org): external ScriptRef;
+        collect-inline                 inline code of this document: document;
+        shop.example.com /attr/rel     a relative address from inline code: document;
+        collect-eval                   code created by eval: eval;
+        collect-blob                   a blob: script: opaque;
+        collect-amb                    tracker-a.js and tracker-b.js at the same moment: ambiguous.
+      The receivers answer 204 (tests/fixture-routes/attribution.mjs). No field, no value, no cookie.
+    -->
+    <h1>Attribution of sends</h1>
+    <pre id="result"></pre>
+    <script src="../../fixture-lib.js"></script>
+    <script>
+      (function () {
+        var F = window.__fixture;
+        var port = location.port;
+        var sent = [];
+        function load(src) {
+          return new Promise(function (resolve, reject) {
+            var s = document.createElement('script');
+            s.src = src;
+            s.onload = resolve;
+            s.onerror = reject;
+            document.head.appendChild(s);
+          });
+        }
+        function pause(ms) {
+          return new Promise(function (r) { setTimeout(r, ms); });
+        }
+        function receiver(host, path) {
+          return 'http://' + host + ':' + port + '/attr/' + path;
+        }
+        Promise.all([
+          load('http://cdn.tracker-a.example.org:' + port + '/protect/attribution/tracker-a.js'),
+          load('http://cdn.tracker-b.example.org:' + port + '/protect/attribution/tracker-b.js'),
+        ]).then(async function () {
+          window.trackerA.sendFetch(); sent.push('collect-ext.example.net/attr/fetch');
+          await pause(150);
+          window.trackerA.sendXhr(); sent.push('collect-xhr.example.net/attr/xhr');
+          await pause(150);
+          window.trackerA.sendBeacon(); sent.push('collect-beacon.example.net/attr/beacon');
+          await pause(150);
+          fetch(receiver('collect-inline.example.net', 'inline'), { mode: 'no-cors' }); sent.push('collect-inline.example.net/attr/inline');
+          await pause(150);
+          fetch('/attr/rel'); sent.push('shop.example.com/attr/rel');
+          await pause(150);
+          // eval-created code (the stand has no CSP).
+          (0, eval)("fetch('" + receiver('collect-eval.example.net', 'eval') + "', { mode: 'no-cors' })"); sent.push('collect-eval.example.net/attr/eval');
+          await pause(150);
+          var blobUrl = URL.createObjectURL(new Blob(["fetch('" + receiver('collect-blob.example.net', 'blob') + "', { mode: 'no-cors' });"], { type: 'text/javascript' }));
+          await load(blobUrl); sent.push('collect-blob.example.net/attr/blob');
+          await pause(150);
+          window.trackerA.sendAmbiguous(); window.trackerB.sendAmbiguous();
+          sent.push('collect-amb.example.net/attr/a', 'collect-amb.example.net/attr/b');
+          await pause(300);
+          F.publish({ fixture: 'protect-attribution-send', sent: sent });
+        }).catch(function (e) {
+          F.publish({ fixture: 'protect-attribution-send', error: String(e && e.message) });
+        });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+detect.expert — уведомления о встроенных компонентах (P10, ADR-002/016)
+
+Собственный код detect.expert распространяется по лицензии MIT (файл LICENSE). Ниже — лицензии сторонних компонентов.
+
+Preact 10.29.8 — MIT
+
+The MIT License (MIT)
+
+Copyright (c) 2015-present Jason Miller
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Public Suffix List — MPL-2.0. Исходный снимок без изменений: third-party/public_suffix_list.dat в пакете; в репозитории: packages/attribution/data/public_suffix_list.dat. Источник и дата: packages/attribution/data/SOURCE.md. Полный текст лицензии: third-party/PSL-LICENSE.txt в пакете.
+
+Detect.Expert logo: logo.svg and the derived icons/*.png. Logos and marks of third-party companies belong to their owners and are used only to identify services; the MIT license covers the source code, while the Detect.Expert name and logo remain with the author. The Preact and PSL licenses do not extend to the logo or to the project code.
+
+Autosurfer site catalogue: apps/production-extension/autosurf-sites-data.js and packages/catalog/data/autosurf-sites.* are data, not code. The MIT license covers the source code; the catalogue data keeps its own status (the source record marks it as "Proprietary") and is included in this repository with the permission of the rights holder.
+
+Дополнительные компоненты и данные (тексты лицензий лежат рядом с данными):
+- protobuf-es (@bufbuild/protobuf 2.15.0), Apache-2.0 и BSD-3-Clause; вшит в popup.js и sidepanel.js. Тексты: apps/production-extension/NOTICE.
+- Open Cookie Database, Apache-2.0. Тексты: apps/production-extension/COOKIE-CATALOG-LICENSE.txt, COOKIE-CATALOG-NOTICE.txt, packages/catalog/research/cookies-2026-10/LICENSE.
+- cookie-audit и CookieBlock, MIT. Тексты: packages/catalog/research/cookies-2026-10/cookie-audit-LICENSE, cookieblock-LICENSE, cookieblock-src-LICENSE.
+- Декларации cookie из публичного списка IAB Europe (GVL): отдельная открытая лицензия на список не заявлена. В репозитории хранятся только производные правила каталога (packages/catalog/data/cookies.v1.json); исходные снимки не публикуются, их хеши записаны в packages/catalog/research/cookies-2026-10/PUBLIC-SNAPSHOTS.json.
+- flag-icons, MIT. Тексты: apps/production-extension/icons/countries/LICENSE.txt, NOTICE.txt.
+- Font Awesome Free 6.7.2, CC BY 4.0. Текст: apps/production-extension/icons/brands/FONT-AWESOME-LICENSE.txt.
+- Simple Icons, CC0-1.0. Тексты: apps/production-extension/icons/brands/SIMPLE-ICONS-7cdc8ac6-LICENSE.txt, SIMPLE-ICONS-ac1bf3df-LICENSE.txt.
+- Chrome UX Report (Google) через Internet Health Report: списки популярных сайтов по странам, CC BY 4.0. Текст: apps/production-extension/autosurf-sites-LICENSE.txt.
+- tzdata (общественное достояние) и региональные данные CLDR. Описание: apps/production-extension/REGION-DATA-NOTICE.txt, packages/catalog/data/tzdata/SOURCE.md.
+- Логотипы и значки сторонних компаний (icons/brands, icons/systems): права принадлежат их владельцам. Происхождение: apps/production-extension/icons/brands/COMPANY-ARTWORK-NOTICE.txt, COMPANY-PROVENANCE.json, icons/systems/PROVENANCE.json.

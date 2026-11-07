@@ -1,0 +1,4526 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-09",
+  "scope": "Metadata-only primary-documentation expansion; no cookie values or remote runtime fetching",
+  "baselinePrimaryRules": 256,
+  "ruleCount": 184,
+  "sources": [
+    {
+      "owner": "Adobe Analytics",
+      "url": "https://experienceleague.adobe.com/en/docs/core-services/interface/data-collection/cookies/analytics",
+      "title": "Adobe Analytics cookies",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "s_ecid",
+        "s_cc",
+        "s_sq",
+        "s_vi",
+        "s_fid",
+        "s_ac"
+      ]
+    },
+    {
+      "owner": "Adobe Experience Cloud",
+      "url": "https://experienceleague.adobe.com/en/docs/id-service/using/intro/cookies",
+      "title": "Adobe Visitor ID cookies",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "AMCV_",
+        "AMCVS_",
+        "demdex"
+      ]
+    },
+    {
+      "owner": "Adobe Experience Platform",
+      "url": "https://experienceleague.adobe.com/en/docs/core-services/interface/data-collection/cookies/web-sdk",
+      "title": "Adobe Web SDK cookies",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "com.adobe.alloy.getTld",
+        "kndctr_",
+        "mbox",
+        "mboxEdgeCluster"
+      ]
+    },
+    {
+      "owner": "Microsoft Clarity",
+      "url": "https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-cookies",
+      "title": "Clarity cookies",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "CLID",
+        "ANONCHK",
+        "MR",
+        "SM"
+      ]
+    },
+    {
+      "owner": "Microsoft",
+      "url": "https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-cookies",
+      "title": "Clarity cookies",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "MUID"
+      ]
+    },
+    {
+      "owner": "Microsoft Advertising",
+      "url": "https://help.ads.microsoft.com/apex/index/3/en-in/53056",
+      "title": "Universal Event Tracking FAQ",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "_uetsid",
+        "_uetvid",
+        "_uetmsclkid"
+      ]
+    },
+    {
+      "owner": "LinkedIn",
+      "url": "https://www.linkedin.com/legal/l/cookie-table",
+      "title": "LinkedIn cookie table",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "bcookie",
+        "bscookie",
+        "JSESSIONID",
+        "lang",
+        "lidc",
+        "sdsc",
+        "li_gc",
+        "li_mc",
+        "UserMatchHistory",
+        "AnalyticsSyncHistory",
+        "lms_ads",
+        "lms_analytics",
+        "li_sugr",
+        "_guid",
+        "BizographicsOptOut",
+        "li_at",
+        "liap",
+        "leadgen.api_session",
+        "transaction_state",
+        "lihc_auth_str",
+        "lihc_auth_",
+        "li_a",
+        "li_ep_auth-cookie",
+        "fid",
+        "fcookie",
+        "ccookie",
+        "chp_token",
+        "li_cu",
+        "li_rm",
+        "recent_history_status"
+      ]
+    },
+    {
+      "owner": "LinkedIn",
+      "url": "https://www.linkedin.com/legal/l/cookie-table",
+      "title": "LinkedIn cookie table",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "li_fat_id",
+        "li_giant"
+      ]
+    },
+    {
+      "owner": "Oribi",
+      "url": "https://www.linkedin.com/legal/l/cookie-table",
+      "title": "LinkedIn cookie table",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "oribi_cookie_test",
+        "oribili_user_guid",
+        "ln_or"
+      ]
+    },
+    {
+      "owner": "Meta",
+      "url": "https://github.com/facebook/capi-param-builder/blob/main/client_js/README.md",
+      "title": "Meta Conversions API parameter builder",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "_fbp",
+        "_fbc"
+      ]
+    },
+    {
+      "owner": "TikTok",
+      "url": "https://ads.tiktok.com/resources/help/article/using-cookies-with-tiktok-pixel?lang=en",
+      "title": "TikTok Pixel cookies",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "_ttp",
+        "ttcsid_",
+        "ttcsid_",
+        "ttclid",
+        "_pangle"
+      ]
+    },
+    {
+      "owner": "Pinterest",
+      "url": "https://help.pinterest.com/en-gb/business/article/pinterest-tag-parameters-and-cookies",
+      "title": "Pinterest Tag cookies",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "_pinterest_sess",
+        "_pinterest_ct",
+        "_pinterest_ct_rt",
+        "_pinterest_ct_ua",
+        "_epik",
+        "_derived_epik",
+        "_pin_unauth",
+        "_routing_id",
+        "_pin_aem"
+      ]
+    },
+    {
+      "owner": "Amplitude",
+      "url": "https://amplitude.com/docs/sdks/analytics/browser/javascript-sdk",
+      "title": "Amplitude JavaScript SDK cookies",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "amp_"
+      ]
+    },
+    {
+      "owner": "Amplitude",
+      "url": "https://amplitude.com/docs/sdks/analytics/browser/cookies-and-consent-management-javascript-sdk",
+      "title": "Amplitude cookie management",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "AMP_"
+      ]
+    },
+    {
+      "owner": "Optimizely",
+      "url": "https://docs.optimizely.com/personalization/docs/E6Fk-cookies-and-localstorage-in-snippets",
+      "title": "Optimizely cookies and storage",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "optimizelyEndUserId"
+      ]
+    },
+    {
+      "owner": "Piwik PRO",
+      "url": "https://help.piwik.pro/support/privacy/cookies-created-for-visitors-by-piwik-pro/",
+      "title": "Piwik PRO visitor cookies",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "ppms_privacy_",
+        "ppms_privacy_bar_",
+        "stg_traffic_source_priority",
+        "stg_last_interaction",
+        "stg_returning_visitor",
+        "stg_fired__",
+        "stg_utm_campaign",
+        "stg_pk_campaign",
+        "stg_externalReferrer",
+        "_stg_optout"
+      ]
+    },
+    {
+      "owner": "Snowplow",
+      "url": "https://docs.snowplow.io/docs/sources/web-trackers/cookies-and-local-storage/",
+      "title": "Snowplow web tracker storage",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "_sp_id.",
+        "_sp_ses."
+      ]
+    },
+    {
+      "owner": "Tealium",
+      "url": "https://docs.tealium.com/iq-tag-management/data-layer/cookies/",
+      "title": "Tealium cookies",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "utag_main_ses_id",
+        "utag_main_v_id",
+        "utag_main__st",
+        "utag_main__se",
+        "utag_main__ss",
+        "utag_main__pn",
+        "utag_main__sn",
+        "utag_main_dc_group",
+        "utag_main_dc_visit",
+        "utag_main_dc_event",
+        "utag_main_dc_region",
+        "OPTOUTMULTI"
+      ]
+    },
+    {
+      "owner": "Tealium",
+      "url": "https://docs.tealium.com/platforms/javascript/api/cookie-functions/",
+      "title": "Tealium cookie functions",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "utag_main",
+        "utagdb"
+      ]
+    },
+    {
+      "owner": "Fullstory",
+      "url": "https://help.fullstory.com/hc/en-us/articles/360020829513-Why-Fullstory-uses-First-Party-Cookies",
+      "title": "Fullstory first-party cookies",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "fs_uid",
+        "fs_lua",
+        "fs_cid",
+        "usetiful-visitor-ident"
+      ]
+    },
+    {
+      "owner": "Klaviyo",
+      "url": "https://help.klaviyo.com/hc/en-us/articles/360034666712",
+      "title": "Klaviyo cookie documentation",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "__kla_id",
+        "__kla_off"
+      ]
+    },
+    {
+      "owner": "Klaviyo",
+      "url": "https://help.klaviyo.com/hc/en-us/articles/54975285267995",
+      "title": "Klaviyo First-Party ID",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "__kle_id"
+      ]
+    },
+    {
+      "owner": "Intercom",
+      "url": "https://www.intercom.com/help/en/articles/2361922-intercom-messenger-cookies",
+      "title": "Intercom Messenger cookies",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "intercom-id-",
+        "intercom-session-",
+        "intercom-device-id-"
+      ]
+    },
+    {
+      "owner": "Zendesk",
+      "url": "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy",
+      "title": "Zendesk product cookies",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "_zendesk_session",
+        "zendesk_thirdparty_test",
+        "_zendesk_shared_session",
+        "_zendesk_authenticated",
+        "_zendesk_login_session",
+        "_zendesk_nps_session",
+        "_zendesk_cookie",
+        "_zendesk_oidc_state",
+        "__zlcmid",
+        "__zlcprivacy",
+        "zte2095",
+        "_help_center_session",
+        "help_center_data",
+        "_answer_bot_service_session",
+        "_zdsession_talk_embeddables_service"
+      ]
+    },
+    {
+      "owner": "Salesforce Account Engagement",
+      "url": "https://help.salesforce.com/s/articleView?id=sf.pardot_basics_cookies.htm&language=en_US&type=5",
+      "title": "Account Engagement cookies",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "visitor_id",
+        "pi_opt_in",
+        "lpv",
+        "pardot"
+      ]
+    },
+    {
+      "owner": "Shopify",
+      "url": "https://www.shopify.com/legal/cookies",
+      "title": "Shopify cookie policy",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "__Host-Http-shop_binding",
+        "_shopify_essential",
+        "_shopify_test",
+        "_shopify_analytics",
+        "_shopify_marketing",
+        "cart",
+        "cart_currency",
+        "discount_code",
+        "localization",
+        "login_with_shop_finalize",
+        "shopify_pay",
+        "shopify_override_user_locale",
+        "_shop_app_essential",
+        "privacy_signal",
+        "_shop_app_analytics"
+      ]
+    },
+    {
+      "owner": "Shopify",
+      "url": "https://shopify.dev/docs/api/hydrogen-react/latest/utilities/gettrackingvalues",
+      "title": "Shopify tracking utility",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "_shopify_y",
+        "_shopify_s",
+        "_tracking_consent"
+      ]
+    },
+    {
+      "owner": "Stripe",
+      "url": "https://stripe.com/cookie-settings",
+      "title": "Stripe cookie settings",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "__stripe_mid",
+        "__stripe_sid",
+        "__stripe_orig_props",
+        "site_sid",
+        "__Host-auth_token",
+        "__Host-session",
+        "__Host-LinkSession",
+        "__Host-oauth_code_verifier",
+        "__Host-oauth_security_token",
+        "__Host-stripe.site.csrf",
+        "__Host-stripe.customerportal.sid",
+        "__Host-stripe.link_app.csrf",
+        "__Host-stripe.link_support_site.csrf",
+        "__Host-stripe.mkt.csrf",
+        "__Host-stripe.support_site.csrf",
+        "__Host-stripe.sources_redirect_site.csrf"
+      ]
+    },
+    {
+      "owner": "Akamai",
+      "url": "https://www.akamai.com/legal/manage-cookie-preferences",
+      "title": "Akamai cookie preferences",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "_abck",
+        "ak_bmsc",
+        "bm_sv",
+        "AKA_A2",
+        "bm_sz",
+        "BOOMR_CONSENT"
+      ]
+    },
+    {
+      "owner": "Osano",
+      "url": "https://docs.osano.com/en-US/osano/article/8e3LDxEd-osano-cookies",
+      "title": "Osano cookies",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "osano_consentmanager",
+        "osano_consentmanager_uuid",
+        "osano_consentmanager_expdate"
+      ]
+    },
+    {
+      "owner": "CookieHub",
+      "url": "https://docs.cookiehub.com/configure/domain-settings",
+      "title": "CookieHub consent storage",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "cookiehub"
+      ]
+    },
+    {
+      "owner": "iubenda",
+      "url": "https://www.iubenda.com/en/help/46731-how-to-retrieve-proof-of-a-cookie-preferences-for-specific-users/",
+      "title": "iubenda cookie preference proof",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "_iub_cs-"
+      ]
+    },
+    {
+      "owner": "Complianz",
+      "url": "https://complianz.io/legal/cookie-policy/?cmplz_region_redirect=true",
+      "title": "Complianz cookie policy",
+      "accessedAt": "2026-10-09",
+      "addedNames": [
+        "cmplz_functional",
+        "cmplz_preferences",
+        "cmplz_statistics",
+        "cmplz_marketing",
+        "cmplz_policy_id",
+        "cmplz_consented_services",
+        "cmplz_id",
+        "cmplz_saved_services",
+        "cmplz_user_data"
+      ]
+    }
+  ],
+  "exclusions": [
+    {
+      "vendor": "Piwik PRO / Matomo",
+      "reason": "Shared _pk_id/_pk_ses/_pk_cvar names cannot distinguish owners by name alone; existing attribution must not be silently overridden."
+    },
+    {
+      "vendor": "Mixpanel",
+      "reason": "mp_<token>_mixpanel requires both prefix and suffix; prefix-only mp_ would misattribute unrelated site cookies."
+    },
+    {
+      "vendor": "Snowplow",
+      "reason": "Generic sp collector cookie omitted because arbitrary custom collector domains are not identifiable from its name alone."
+    },
+    {
+      "vendor": "Imperva / PayPal",
+      "reason": "Authoritative per-cookie public product documentation not verified in this pass; community records remain candidates."
+    },
+    {
+      "vendor": "Zendesk / Fullstory / Osano / Complianz",
+      "reason": "Explicit localStorage/sessionStorage entries were excluded from physical-cookie rules."
+    },
+    {
+      "vendor": "Adobe / Salesforce",
+      "reason": "Mixed-purpose dynamic prefixes retain category unknown where the current matcher cannot distinguish suffix semantics."
+    },
+    {
+      "vendor": "Akamai",
+      "reason": "Public vendor site table supports akamai.com only, not all-domain bot-security semantics or token decoding."
+    }
+  ],
+  "entries": [
+    {
+      "id": "primary-expansion:001",
+      "name": "s_ecid",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Adobe Analytics",
+      "purpose": "Persistent Adobe visitor identifier",
+      "sourceUrls": [
+        "https://experienceleague.adobe.com/en/docs/core-services/interface/data-collection/cookies/analytics"
+      ],
+      "sources": [
+        {
+          "url": "https://experienceleague.adobe.com/en/docs/core-services/interface/data-collection/cookies/analytics",
+          "title": "Adobe Analytics cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:002",
+      "name": "s_cc",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "functional",
+      "owner": "Adobe Analytics",
+      "purpose": "Checks browser cookie availability",
+      "sourceUrls": [
+        "https://experienceleague.adobe.com/en/docs/core-services/interface/data-collection/cookies/analytics"
+      ],
+      "sources": [
+        {
+          "url": "https://experienceleague.adobe.com/en/docs/core-services/interface/data-collection/cookies/analytics",
+          "title": "Adobe Analytics cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:003",
+      "name": "s_sq",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Adobe Analytics",
+      "purpose": "Records prior Activity Map link",
+      "sourceUrls": [
+        "https://experienceleague.adobe.com/en/docs/core-services/interface/data-collection/cookies/analytics"
+      ],
+      "sources": [
+        {
+          "url": "https://experienceleague.adobe.com/en/docs/core-services/interface/data-collection/cookies/analytics",
+          "title": "Adobe Analytics cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:004",
+      "name": "s_vi",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Adobe Analytics",
+      "purpose": "Visitor identifier and timestamp",
+      "sourceUrls": [
+        "https://experienceleague.adobe.com/en/docs/core-services/interface/data-collection/cookies/analytics"
+      ],
+      "sources": [
+        {
+          "url": "https://experienceleague.adobe.com/en/docs/core-services/interface/data-collection/cookies/analytics",
+          "title": "Adobe Analytics cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:005",
+      "name": "s_fid",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Adobe Analytics",
+      "purpose": "Fallback analytics visitor identifier",
+      "sourceUrls": [
+        "https://experienceleague.adobe.com/en/docs/core-services/interface/data-collection/cookies/analytics"
+      ],
+      "sources": [
+        {
+          "url": "https://experienceleague.adobe.com/en/docs/core-services/interface/data-collection/cookies/analytics",
+          "title": "Adobe Analytics cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:006",
+      "name": "s_ac",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "functional",
+      "owner": "Adobe Analytics",
+      "purpose": "Temporary cookie domain check",
+      "sourceUrls": [
+        "https://experienceleague.adobe.com/en/docs/core-services/interface/data-collection/cookies/analytics"
+      ],
+      "sources": [
+        {
+          "url": "https://experienceleague.adobe.com/en/docs/core-services/interface/data-collection/cookies/analytics",
+          "title": "Adobe Analytics cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:007",
+      "name": "AMCV_",
+      "match": "prefix",
+      "domainContext": "any",
+      "domains": [],
+      "category": "unknown",
+      "owner": "Adobe Experience Cloud",
+      "purpose": "Visitor identity shared across Adobe products; purpose depends on enabled products",
+      "sourceUrls": [
+        "https://experienceleague.adobe.com/en/docs/id-service/using/intro/cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://experienceleague.adobe.com/en/docs/id-service/using/intro/cookies",
+          "title": "Adobe Visitor ID cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:008",
+      "name": "AMCVS_",
+      "match": "prefix",
+      "domainContext": "any",
+      "domains": [],
+      "category": "unknown",
+      "owner": "Adobe Experience Cloud",
+      "purpose": "Adobe identity service session flag; purpose depends on enabled products",
+      "sourceUrls": [
+        "https://experienceleague.adobe.com/en/docs/id-service/using/intro/cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://experienceleague.adobe.com/en/docs/id-service/using/intro/cookies",
+          "title": "Adobe Visitor ID cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:009",
+      "name": "demdex",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "demdex.net"
+      ],
+      "category": "advertising",
+      "owner": "Adobe Experience Cloud",
+      "purpose": "Audience identity synchronization",
+      "sourceUrls": [
+        "https://experienceleague.adobe.com/en/docs/id-service/using/intro/cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://experienceleague.adobe.com/en/docs/id-service/using/intro/cookies",
+          "title": "Adobe Visitor ID cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:010",
+      "name": "com.adobe.alloy.getTld",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "functional",
+      "owner": "Adobe Experience Platform",
+      "purpose": "Temporary top-level-domain helper",
+      "sourceUrls": [
+        "https://experienceleague.adobe.com/en/docs/core-services/interface/data-collection/cookies/web-sdk"
+      ],
+      "sources": [
+        {
+          "url": "https://experienceleague.adobe.com/en/docs/core-services/interface/data-collection/cookies/web-sdk",
+          "title": "Adobe Web SDK cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:011",
+      "name": "kndctr_",
+      "match": "prefix",
+      "domainContext": "any",
+      "domains": [],
+      "category": "unknown",
+      "owner": "Adobe Experience Platform",
+      "purpose": "Adobe SDK identity, routing, consent or personalization; suffix determines purpose",
+      "sourceUrls": [
+        "https://experienceleague.adobe.com/en/docs/core-services/interface/data-collection/cookies/web-sdk"
+      ],
+      "sources": [
+        {
+          "url": "https://experienceleague.adobe.com/en/docs/core-services/interface/data-collection/cookies/web-sdk",
+          "title": "Adobe Web SDK cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:012",
+      "name": "mbox",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "unknown",
+      "owner": "Adobe Experience Platform",
+      "purpose": "Adobe Target personalization and experimentation state",
+      "sourceUrls": [
+        "https://experienceleague.adobe.com/en/docs/core-services/interface/data-collection/cookies/web-sdk"
+      ],
+      "sources": [
+        {
+          "url": "https://experienceleague.adobe.com/en/docs/core-services/interface/data-collection/cookies/web-sdk",
+          "title": "Adobe Web SDK cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:013",
+      "name": "mboxEdgeCluster",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "functional",
+      "owner": "Adobe Experience Platform",
+      "purpose": "Adobe Target edge routing",
+      "sourceUrls": [
+        "https://experienceleague.adobe.com/en/docs/core-services/interface/data-collection/cookies/web-sdk"
+      ],
+      "sources": [
+        {
+          "url": "https://experienceleague.adobe.com/en/docs/core-services/interface/data-collection/cookies/web-sdk",
+          "title": "Adobe Web SDK cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:014",
+      "name": "CLID",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "clarity.ms"
+      ],
+      "category": "analytics",
+      "owner": "Microsoft Clarity",
+      "purpose": "Clarity initial visitor recognition",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-cookies",
+          "title": "Clarity cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:015",
+      "name": "ANONCHK",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "clarity.ms",
+        "bing.com"
+      ],
+      "category": "unknown",
+      "owner": "Microsoft Clarity",
+      "purpose": "Advertising identifier transfer flag; Clarity documents zero",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-cookies",
+          "title": "Clarity cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:016",
+      "name": "MR",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "clarity.ms",
+        "bing.com"
+      ],
+      "category": "unknown",
+      "owner": "Microsoft Clarity",
+      "purpose": "Refreshes Microsoft browser identifier",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-cookies",
+          "title": "Clarity cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:017",
+      "name": "SM",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "clarity.ms",
+        "bing.com"
+      ],
+      "category": "unknown",
+      "owner": "Microsoft Clarity",
+      "purpose": "Synchronizes Microsoft browser identifier",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-cookies",
+          "title": "Clarity cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:018",
+      "name": "MUID",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "clarity.ms",
+        "bing.com"
+      ],
+      "category": "unknown",
+      "owner": "Microsoft",
+      "purpose": "Microsoft browser identity used for advertising, analytics and operations",
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-cookies",
+          "title": "Clarity cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:019",
+      "name": "_uetsid",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "advertising",
+      "owner": "Microsoft Advertising",
+      "purpose": "Microsoft advertising session measurement",
+      "sourceUrls": [
+        "https://help.ads.microsoft.com/apex/index/3/en-in/53056"
+      ],
+      "sources": [
+        {
+          "url": "https://help.ads.microsoft.com/apex/index/3/en-in/53056",
+          "title": "Universal Event Tracking FAQ",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:020",
+      "name": "_uetvid",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "advertising",
+      "owner": "Microsoft Advertising",
+      "purpose": "Microsoft advertising visitor attribution",
+      "sourceUrls": [
+        "https://help.ads.microsoft.com/apex/index/3/en-in/53056"
+      ],
+      "sources": [
+        {
+          "url": "https://help.ads.microsoft.com/apex/index/3/en-in/53056",
+          "title": "Universal Event Tracking FAQ",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:021",
+      "name": "_uetmsclkid",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "advertising",
+      "owner": "Microsoft Advertising",
+      "purpose": "Microsoft ad click attribution",
+      "sourceUrls": [
+        "https://help.ads.microsoft.com/apex/index/3/en-in/53056"
+      ],
+      "sources": [
+        {
+          "url": "https://help.ads.microsoft.com/apex/index/3/en-in/53056",
+          "title": "Universal Event Tracking FAQ",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:022",
+      "name": "bcookie",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "linkedin.com"
+      ],
+      "category": "unknown",
+      "owner": "LinkedIn",
+      "purpose": "Abuse prevention and diagnostics",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:023",
+      "name": "bscookie",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "linkedin.com"
+      ],
+      "category": "security",
+      "owner": "LinkedIn",
+      "purpose": "Remembers two-factor verified browser",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:024",
+      "name": "JSESSIONID",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "linkedin.com"
+      ],
+      "category": "security",
+      "owner": "LinkedIn",
+      "purpose": "CSRF and signature validation",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:025",
+      "name": "lang",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "linkedin.com"
+      ],
+      "category": "functional",
+      "owner": "LinkedIn",
+      "purpose": "Interface language preference",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:026",
+      "name": "lidc",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "linkedin.com"
+      ],
+      "category": "functional",
+      "owner": "LinkedIn",
+      "purpose": "Data center routing",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:027",
+      "name": "sdsc",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "linkedin.com"
+      ],
+      "category": "functional",
+      "owner": "LinkedIn",
+      "purpose": "Database consistency routing",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:028",
+      "name": "li_gc",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "linkedin.com"
+      ],
+      "category": "consent",
+      "owner": "LinkedIn",
+      "purpose": "Guest cookie consent",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:029",
+      "name": "li_mc",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "linkedin.com"
+      ],
+      "category": "consent",
+      "owner": "LinkedIn",
+      "purpose": "Member consent cache",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:030",
+      "name": "UserMatchHistory",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "linkedin.com"
+      ],
+      "category": "advertising",
+      "owner": "LinkedIn",
+      "purpose": "Advertising identity synchronization",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:031",
+      "name": "AnalyticsSyncHistory",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "linkedin.com"
+      ],
+      "category": "analytics",
+      "owner": "LinkedIn",
+      "purpose": "Analytics synchronization timestamp",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:032",
+      "name": "lms_ads",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "linkedin.com"
+      ],
+      "category": "advertising",
+      "owner": "LinkedIn",
+      "purpose": "Recognizes members for advertising",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:033",
+      "name": "lms_analytics",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "linkedin.com"
+      ],
+      "category": "analytics",
+      "owner": "LinkedIn",
+      "purpose": "Recognizes members for analytics",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:034",
+      "name": "li_sugr",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "linkedin.com"
+      ],
+      "category": "unknown",
+      "owner": "LinkedIn",
+      "purpose": "Probabilistic visitor identity matching",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:035",
+      "name": "_guid",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "linkedin.com"
+      ],
+      "category": "advertising",
+      "owner": "LinkedIn",
+      "purpose": "Google Ads member recognition",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:036",
+      "name": "BizographicsOptOut",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "linkedin.com"
+      ],
+      "category": "consent",
+      "owner": "LinkedIn",
+      "purpose": "Non-member advertising opt-out",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:037",
+      "name": "li_at",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "linkedin.com"
+      ],
+      "category": "security",
+      "owner": "LinkedIn",
+      "purpose": "Member and API authentication",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:038",
+      "name": "liap",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "linkedin.com"
+      ],
+      "category": "necessary",
+      "owner": "LinkedIn",
+      "purpose": "Member login status",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:039",
+      "name": "leadgen.api_session",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "linkedin.com"
+      ],
+      "category": "functional",
+      "owner": "LinkedIn",
+      "purpose": "Lead generation application session",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:040",
+      "name": "transaction_state",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "linkedin.com"
+      ],
+      "category": "security",
+      "owner": "LinkedIn",
+      "purpose": "Third-party authorization handoff",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:041",
+      "name": "lihc_auth_str",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "linkedin.com"
+      ],
+      "category": "functional",
+      "owner": "LinkedIn",
+      "purpose": "Help Center chat session",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:042",
+      "name": "lihc_auth_",
+      "match": "prefix",
+      "domainContext": "domain",
+      "domains": [
+        "linkedin.com"
+      ],
+      "category": "functional",
+      "owner": "LinkedIn",
+      "purpose": "Help Center language and chat timing",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:043",
+      "name": "li_a",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "linkedin.com"
+      ],
+      "category": "security",
+      "owner": "LinkedIn",
+      "purpose": "Enterprise member authentication",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:044",
+      "name": "li_ep_auth-cookie",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "linkedin.com"
+      ],
+      "category": "security",
+      "owner": "LinkedIn",
+      "purpose": "Enterprise single sign-on",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:045",
+      "name": "fid",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "linkedin.com"
+      ],
+      "category": "security",
+      "owner": "LinkedIn",
+      "purpose": "Malicious activity detection",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:046",
+      "name": "fcookie",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "linkedin.com"
+      ],
+      "category": "security",
+      "owner": "LinkedIn",
+      "purpose": "Automated traffic detection",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:047",
+      "name": "ccookie",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "linkedin.com"
+      ],
+      "category": "security",
+      "owner": "LinkedIn",
+      "purpose": "CAPTCHA challenge state",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:048",
+      "name": "chp_token",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "linkedin.com"
+      ],
+      "category": "security",
+      "owner": "LinkedIn",
+      "purpose": "Two-factor or CAPTCHA completion",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:049",
+      "name": "li_cu",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "linkedin.com"
+      ],
+      "category": "security",
+      "owner": "LinkedIn",
+      "purpose": "CAPTCHA challenge routing",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:050",
+      "name": "li_rm",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "linkedin.com"
+      ],
+      "category": "necessary",
+      "owner": "LinkedIn",
+      "purpose": "Remembered login preference",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:051",
+      "name": "recent_history_status",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "linkedin.com"
+      ],
+      "category": "functional",
+      "owner": "LinkedIn",
+      "purpose": "Guest history preference",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:052",
+      "name": "li_fat_id",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "advertising",
+      "owner": "LinkedIn",
+      "purpose": "Conversion attribution and retargeting",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:053",
+      "name": "li_giant",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "advertising",
+      "owner": "LinkedIn",
+      "purpose": "Group-level advertising conversion attribution",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:054",
+      "name": "oribi_cookie_test",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "functional",
+      "owner": "Oribi",
+      "purpose": "Checks analytics cookie capability",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:055",
+      "name": "oribili_user_guid",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Oribi",
+      "purpose": "Analytics unique visitor recognition",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:056",
+      "name": "ln_or",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Oribi",
+      "purpose": "Checks analytics domain eligibility",
+      "sourceUrls": [
+        "https://www.linkedin.com/legal/l/cookie-table"
+      ],
+      "sources": [
+        {
+          "url": "https://www.linkedin.com/legal/l/cookie-table",
+          "title": "LinkedIn cookie table",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:057",
+      "name": "_fbp",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "advertising",
+      "owner": "Meta",
+      "purpose": "Meta advertising browser attribution",
+      "sourceUrls": [
+        "https://github.com/facebook/capi-param-builder/blob/main/client_js/README.md"
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/facebook/capi-param-builder/blob/main/client_js/README.md",
+          "title": "Meta Conversions API parameter builder",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:058",
+      "name": "_fbc",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "advertising",
+      "owner": "Meta",
+      "purpose": "Meta advertising click attribution",
+      "sourceUrls": [
+        "https://github.com/facebook/capi-param-builder/blob/main/client_js/README.md"
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/facebook/capi-param-builder/blob/main/client_js/README.md",
+          "title": "Meta Conversions API parameter builder",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:059",
+      "name": "_ttp",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "advertising",
+      "owner": "TikTok",
+      "purpose": "TikTok ad measurement and personalization",
+      "sourceUrls": [
+        "https://ads.tiktok.com/resources/help/article/using-cookies-with-tiktok-pixel?lang=en"
+      ],
+      "sources": [
+        {
+          "url": "https://ads.tiktok.com/resources/help/article/using-cookies-with-tiktok-pixel?lang=en",
+          "title": "TikTok Pixel cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:060",
+      "name": "ttcsid_",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "advertising",
+      "owner": "TikTok",
+      "purpose": "TikTok Pixel campaign measurement",
+      "sourceUrls": [
+        "https://ads.tiktok.com/resources/help/article/using-cookies-with-tiktok-pixel?lang=en"
+      ],
+      "sources": [
+        {
+          "url": "https://ads.tiktok.com/resources/help/article/using-cookies-with-tiktok-pixel?lang=en",
+          "title": "TikTok Pixel cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:061",
+      "name": "ttcsid_",
+      "match": "prefix",
+      "domainContext": "any",
+      "domains": [],
+      "category": "advertising",
+      "owner": "TikTok",
+      "purpose": "TikTok Pixel campaign measurement",
+      "sourceUrls": [
+        "https://ads.tiktok.com/resources/help/article/using-cookies-with-tiktok-pixel?lang=en"
+      ],
+      "sources": [
+        {
+          "url": "https://ads.tiktok.com/resources/help/article/using-cookies-with-tiktok-pixel?lang=en",
+          "title": "TikTok Pixel cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:062",
+      "name": "ttclid",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "advertising",
+      "owner": "TikTok",
+      "purpose": "TikTok ad click attribution",
+      "sourceUrls": [
+        "https://ads.tiktok.com/resources/help/article/using-cookies-with-tiktok-pixel?lang=en"
+      ],
+      "sources": [
+        {
+          "url": "https://ads.tiktok.com/resources/help/article/using-cookies-with-tiktok-pixel?lang=en",
+          "title": "TikTok Pixel cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:063",
+      "name": "_pangle",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "analytics.pangle-ads.com"
+      ],
+      "category": "advertising",
+      "owner": "TikTok",
+      "purpose": "Pangle advertising measurement",
+      "sourceUrls": [
+        "https://ads.tiktok.com/resources/help/article/using-cookies-with-tiktok-pixel?lang=en"
+      ],
+      "sources": [
+        {
+          "url": "https://ads.tiktok.com/resources/help/article/using-cookies-with-tiktok-pixel?lang=en",
+          "title": "TikTok Pixel cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:064",
+      "name": "_pinterest_sess",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "pinterest.com"
+      ],
+      "category": "unknown",
+      "owner": "Pinterest",
+      "purpose": "Pinterest login state and logged-out measurement",
+      "sourceUrls": [
+        "https://help.pinterest.com/en-gb/business/article/pinterest-tag-parameters-and-cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://help.pinterest.com/en-gb/business/article/pinterest-tag-parameters-and-cookies",
+          "title": "Pinterest Tag cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:065",
+      "name": "_pinterest_ct",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "pinterest.com"
+      ],
+      "category": "advertising",
+      "owner": "Pinterest",
+      "purpose": "In-app advertising visitor identity",
+      "sourceUrls": [
+        "https://help.pinterest.com/en-gb/business/article/pinterest-tag-parameters-and-cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://help.pinterest.com/en-gb/business/article/pinterest-tag-parameters-and-cookies",
+          "title": "Pinterest Tag cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:066",
+      "name": "_pinterest_ct_rt",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "pinterest.com"
+      ],
+      "category": "advertising",
+      "owner": "Pinterest",
+      "purpose": "Advertising website visitor identity",
+      "sourceUrls": [
+        "https://help.pinterest.com/en-gb/business/article/pinterest-tag-parameters-and-cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://help.pinterest.com/en-gb/business/article/pinterest-tag-parameters-and-cookies",
+          "title": "Pinterest Tag cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:067",
+      "name": "_pinterest_ct_ua",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "pinterest.com"
+      ],
+      "category": "advertising",
+      "owner": "Pinterest",
+      "purpose": "Unidentified advertising visitor identity",
+      "sourceUrls": [
+        "https://help.pinterest.com/en-gb/business/article/pinterest-tag-parameters-and-cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://help.pinterest.com/en-gb/business/article/pinterest-tag-parameters-and-cookies",
+          "title": "Pinterest Tag cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:068",
+      "name": "_epik",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "advertising",
+      "owner": "Pinterest",
+      "purpose": "Promoted traffic attribution",
+      "sourceUrls": [
+        "https://help.pinterest.com/en-gb/business/article/pinterest-tag-parameters-and-cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://help.pinterest.com/en-gb/business/article/pinterest-tag-parameters-and-cookies",
+          "title": "Pinterest Tag cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:069",
+      "name": "_derived_epik",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "advertising",
+      "owner": "Pinterest",
+      "purpose": "Enhanced advertising identity matching",
+      "sourceUrls": [
+        "https://help.pinterest.com/en-gb/business/article/pinterest-tag-parameters-and-cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://help.pinterest.com/en-gb/business/article/pinterest-tag-parameters-and-cookies",
+          "title": "Pinterest Tag cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:070",
+      "name": "_pin_unauth",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "advertising",
+      "owner": "Pinterest",
+      "purpose": "Groups unidentified advertising actions",
+      "sourceUrls": [
+        "https://help.pinterest.com/en-gb/business/article/pinterest-tag-parameters-and-cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://help.pinterest.com/en-gb/business/article/pinterest-tag-parameters-and-cookies",
+          "title": "Pinterest Tag cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:071",
+      "name": "_routing_id",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "pinterest.com"
+      ],
+      "category": "functional",
+      "owner": "Pinterest",
+      "purpose": "Pinterest release routing",
+      "sourceUrls": [
+        "https://help.pinterest.com/en-gb/business/article/pinterest-tag-parameters-and-cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://help.pinterest.com/en-gb/business/article/pinterest-tag-parameters-and-cookies",
+          "title": "Pinterest Tag cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:072",
+      "name": "_pin_aem",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "advertising",
+      "owner": "Pinterest",
+      "purpose": "Hashed enhanced-match customer information",
+      "sourceUrls": [
+        "https://help.pinterest.com/en-gb/business/article/pinterest-tag-parameters-and-cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://help.pinterest.com/en-gb/business/article/pinterest-tag-parameters-and-cookies",
+          "title": "Pinterest Tag cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:073",
+      "name": "amp_",
+      "match": "prefix",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Amplitude",
+      "purpose": "Legacy analytics device and session identity",
+      "sourceUrls": [
+        "https://amplitude.com/docs/sdks/analytics/browser/javascript-sdk"
+      ],
+      "sources": [
+        {
+          "url": "https://amplitude.com/docs/sdks/analytics/browser/javascript-sdk",
+          "title": "Amplitude JavaScript SDK cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:074",
+      "name": "AMP_",
+      "match": "prefix",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Amplitude",
+      "purpose": "Analytics device and session identity",
+      "sourceUrls": [
+        "https://amplitude.com/docs/sdks/analytics/browser/cookies-and-consent-management-javascript-sdk"
+      ],
+      "sources": [
+        {
+          "url": "https://amplitude.com/docs/sdks/analytics/browser/cookies-and-consent-management-javascript-sdk",
+          "title": "Amplitude cookie management",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:075",
+      "name": "optimizelyEndUserId",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Optimizely",
+      "purpose": "Experimentation visitor identity",
+      "sourceUrls": [
+        "https://docs.optimizely.com/personalization/docs/E6Fk-cookies-and-localstorage-in-snippets"
+      ],
+      "sources": [
+        {
+          "url": "https://docs.optimizely.com/personalization/docs/E6Fk-cookies-and-localstorage-in-snippets",
+          "title": "Optimizely cookies and storage",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:076",
+      "name": "ppms_privacy_",
+      "match": "prefix",
+      "domainContext": "any",
+      "domains": [],
+      "category": "consent",
+      "owner": "Piwik PRO",
+      "purpose": "Data collection consent preferences",
+      "sourceUrls": [
+        "https://help.piwik.pro/support/privacy/cookies-created-for-visitors-by-piwik-pro/"
+      ],
+      "sources": [
+        {
+          "url": "https://help.piwik.pro/support/privacy/cookies-created-for-visitors-by-piwik-pro/",
+          "title": "Piwik PRO visitor cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:077",
+      "name": "ppms_privacy_bar_",
+      "match": "prefix",
+      "domainContext": "any",
+      "domains": [],
+      "category": "consent",
+      "owner": "Piwik PRO",
+      "purpose": "Legacy consent banner state",
+      "sourceUrls": [
+        "https://help.piwik.pro/support/privacy/cookies-created-for-visitors-by-piwik-pro/"
+      ],
+      "sources": [
+        {
+          "url": "https://help.piwik.pro/support/privacy/cookies-created-for-visitors-by-piwik-pro/",
+          "title": "Piwik PRO visitor cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:078",
+      "name": "stg_traffic_source_priority",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Piwik PRO",
+      "purpose": "Traffic-source attribution priority",
+      "sourceUrls": [
+        "https://help.piwik.pro/support/privacy/cookies-created-for-visitors-by-piwik-pro/"
+      ],
+      "sources": [
+        {
+          "url": "https://help.piwik.pro/support/privacy/cookies-created-for-visitors-by-piwik-pro/",
+          "title": "Piwik PRO visitor cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:079",
+      "name": "stg_last_interaction",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Piwik PRO",
+      "purpose": "Last interaction timing",
+      "sourceUrls": [
+        "https://help.piwik.pro/support/privacy/cookies-created-for-visitors-by-piwik-pro/"
+      ],
+      "sources": [
+        {
+          "url": "https://help.piwik.pro/support/privacy/cookies-created-for-visitors-by-piwik-pro/",
+          "title": "Piwik PRO visitor cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:080",
+      "name": "stg_returning_visitor",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Piwik PRO",
+      "purpose": "Returning visitor indicator",
+      "sourceUrls": [
+        "https://help.piwik.pro/support/privacy/cookies-created-for-visitors-by-piwik-pro/"
+      ],
+      "sources": [
+        {
+          "url": "https://help.piwik.pro/support/privacy/cookies-created-for-visitors-by-piwik-pro/",
+          "title": "Piwik PRO visitor cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:081",
+      "name": "stg_fired__",
+      "match": "prefix",
+      "domainContext": "any",
+      "domains": [],
+      "category": "functional",
+      "owner": "Piwik PRO",
+      "purpose": "Tag Manager once-per-session trigger state",
+      "sourceUrls": [
+        "https://help.piwik.pro/support/privacy/cookies-created-for-visitors-by-piwik-pro/"
+      ],
+      "sources": [
+        {
+          "url": "https://help.piwik.pro/support/privacy/cookies-created-for-visitors-by-piwik-pro/",
+          "title": "Piwik PRO visitor cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:082",
+      "name": "stg_utm_campaign",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Piwik PRO",
+      "purpose": "UTM campaign attribution",
+      "sourceUrls": [
+        "https://help.piwik.pro/support/privacy/cookies-created-for-visitors-by-piwik-pro/"
+      ],
+      "sources": [
+        {
+          "url": "https://help.piwik.pro/support/privacy/cookies-created-for-visitors-by-piwik-pro/",
+          "title": "Piwik PRO visitor cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:083",
+      "name": "stg_pk_campaign",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Piwik PRO",
+      "purpose": "Piwik campaign attribution",
+      "sourceUrls": [
+        "https://help.piwik.pro/support/privacy/cookies-created-for-visitors-by-piwik-pro/"
+      ],
+      "sources": [
+        {
+          "url": "https://help.piwik.pro/support/privacy/cookies-created-for-visitors-by-piwik-pro/",
+          "title": "Piwik PRO visitor cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:084",
+      "name": "stg_externalReferrer",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Piwik PRO",
+      "purpose": "External referral attribution",
+      "sourceUrls": [
+        "https://help.piwik.pro/support/privacy/cookies-created-for-visitors-by-piwik-pro/"
+      ],
+      "sources": [
+        {
+          "url": "https://help.piwik.pro/support/privacy/cookies-created-for-visitors-by-piwik-pro/",
+          "title": "Piwik PRO visitor cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:085",
+      "name": "_stg_optout",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "consent",
+      "owner": "Piwik PRO",
+      "purpose": "Tracking opt-out preference",
+      "sourceUrls": [
+        "https://help.piwik.pro/support/privacy/cookies-created-for-visitors-by-piwik-pro/"
+      ],
+      "sources": [
+        {
+          "url": "https://help.piwik.pro/support/privacy/cookies-created-for-visitors-by-piwik-pro/",
+          "title": "Piwik PRO visitor cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:086",
+      "name": "_sp_id.",
+      "match": "prefix",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Snowplow",
+      "purpose": "Analytics visitor and visit history",
+      "sourceUrls": [
+        "https://docs.snowplow.io/docs/sources/web-trackers/cookies-and-local-storage/"
+      ],
+      "sources": [
+        {
+          "url": "https://docs.snowplow.io/docs/sources/web-trackers/cookies-and-local-storage/",
+          "title": "Snowplow web tracker storage",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:087",
+      "name": "_sp_ses.",
+      "match": "prefix",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Snowplow",
+      "purpose": "Analytics session continuity",
+      "sourceUrls": [
+        "https://docs.snowplow.io/docs/sources/web-trackers/cookies-and-local-storage/"
+      ],
+      "sources": [
+        {
+          "url": "https://docs.snowplow.io/docs/sources/web-trackers/cookies-and-local-storage/",
+          "title": "Snowplow web tracker storage",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:088",
+      "name": "utag_main_ses_id",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Tealium",
+      "purpose": "Analytics session start time",
+      "sourceUrls": [
+        "https://docs.tealium.com/iq-tag-management/data-layer/cookies/"
+      ],
+      "sources": [
+        {
+          "url": "https://docs.tealium.com/iq-tag-management/data-layer/cookies/",
+          "title": "Tealium cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:089",
+      "name": "utag_main_v_id",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Tealium",
+      "purpose": "Analytics visitor identifier",
+      "sourceUrls": [
+        "https://docs.tealium.com/iq-tag-management/data-layer/cookies/"
+      ],
+      "sources": [
+        {
+          "url": "https://docs.tealium.com/iq-tag-management/data-layer/cookies/",
+          "title": "Tealium cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:090",
+      "name": "utag_main__st",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Tealium",
+      "purpose": "Analytics session timeout",
+      "sourceUrls": [
+        "https://docs.tealium.com/iq-tag-management/data-layer/cookies/"
+      ],
+      "sources": [
+        {
+          "url": "https://docs.tealium.com/iq-tag-management/data-layer/cookies/",
+          "title": "Tealium cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:091",
+      "name": "utag_main__se",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Tealium",
+      "purpose": "Analytics session event count",
+      "sourceUrls": [
+        "https://docs.tealium.com/iq-tag-management/data-layer/cookies/"
+      ],
+      "sources": [
+        {
+          "url": "https://docs.tealium.com/iq-tag-management/data-layer/cookies/",
+          "title": "Tealium cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:092",
+      "name": "utag_main__ss",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Tealium",
+      "purpose": "First session page indicator",
+      "sourceUrls": [
+        "https://docs.tealium.com/iq-tag-management/data-layer/cookies/"
+      ],
+      "sources": [
+        {
+          "url": "https://docs.tealium.com/iq-tag-management/data-layer/cookies/",
+          "title": "Tealium cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:093",
+      "name": "utag_main__pn",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Tealium",
+      "purpose": "Analytics session page count",
+      "sourceUrls": [
+        "https://docs.tealium.com/iq-tag-management/data-layer/cookies/"
+      ],
+      "sources": [
+        {
+          "url": "https://docs.tealium.com/iq-tag-management/data-layer/cookies/",
+          "title": "Tealium cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:094",
+      "name": "utag_main__sn",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Tealium",
+      "purpose": "Analytics visitor session count",
+      "sourceUrls": [
+        "https://docs.tealium.com/iq-tag-management/data-layer/cookies/"
+      ],
+      "sources": [
+        {
+          "url": "https://docs.tealium.com/iq-tag-management/data-layer/cookies/",
+          "title": "Tealium cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:095",
+      "name": "utag_main_dc_group",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Tealium",
+      "purpose": "Analytics collection sampling group",
+      "sourceUrls": [
+        "https://docs.tealium.com/iq-tag-management/data-layer/cookies/"
+      ],
+      "sources": [
+        {
+          "url": "https://docs.tealium.com/iq-tag-management/data-layer/cookies/",
+          "title": "Tealium cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:096",
+      "name": "utag_main_dc_visit",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Tealium",
+      "purpose": "Analytics collection visit count",
+      "sourceUrls": [
+        "https://docs.tealium.com/iq-tag-management/data-layer/cookies/"
+      ],
+      "sources": [
+        {
+          "url": "https://docs.tealium.com/iq-tag-management/data-layer/cookies/",
+          "title": "Tealium cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:097",
+      "name": "utag_main_dc_event",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Tealium",
+      "purpose": "Analytics collection event count",
+      "sourceUrls": [
+        "https://docs.tealium.com/iq-tag-management/data-layer/cookies/"
+      ],
+      "sources": [
+        {
+          "url": "https://docs.tealium.com/iq-tag-management/data-layer/cookies/",
+          "title": "Tealium cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:098",
+      "name": "utag_main_dc_region",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "functional",
+      "owner": "Tealium",
+      "purpose": "Data enrichment region routing",
+      "sourceUrls": [
+        "https://docs.tealium.com/iq-tag-management/data-layer/cookies/"
+      ],
+      "sources": [
+        {
+          "url": "https://docs.tealium.com/iq-tag-management/data-layer/cookies/",
+          "title": "Tealium cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:099",
+      "name": "OPTOUTMULTI",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "consent",
+      "owner": "Tealium",
+      "purpose": "Visitor privacy preferences",
+      "sourceUrls": [
+        "https://docs.tealium.com/iq-tag-management/data-layer/cookies/"
+      ],
+      "sources": [
+        {
+          "url": "https://docs.tealium.com/iq-tag-management/data-layer/cookies/",
+          "title": "Tealium cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:100",
+      "name": "utag_main",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "unknown",
+      "owner": "Tealium",
+      "purpose": "Tag Manager session state and configurable data",
+      "sourceUrls": [
+        "https://docs.tealium.com/platforms/javascript/api/cookie-functions/"
+      ],
+      "sources": [
+        {
+          "url": "https://docs.tealium.com/platforms/javascript/api/cookie-functions/",
+          "title": "Tealium cookie functions",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:101",
+      "name": "utagdb",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "functional",
+      "owner": "Tealium",
+      "purpose": "Tag Manager debugging preference",
+      "sourceUrls": [
+        "https://docs.tealium.com/platforms/javascript/api/cookie-functions/"
+      ],
+      "sources": [
+        {
+          "url": "https://docs.tealium.com/platforms/javascript/api/cookie-functions/",
+          "title": "Tealium cookie functions",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:102",
+      "name": "fs_uid",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Fullstory",
+      "purpose": "Session replay visitor identity",
+      "sourceUrls": [
+        "https://help.fullstory.com/hc/en-us/articles/360020829513-Why-Fullstory-uses-First-Party-Cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://help.fullstory.com/hc/en-us/articles/360020829513-Why-Fullstory-uses-First-Party-Cookies",
+          "title": "Fullstory first-party cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:103",
+      "name": "fs_lua",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Fullstory",
+      "purpose": "Session replay activity timestamp",
+      "sourceUrls": [
+        "https://help.fullstory.com/hc/en-us/articles/360020829513-Why-Fullstory-uses-First-Party-Cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://help.fullstory.com/hc/en-us/articles/360020829513-Why-Fullstory-uses-First-Party-Cookies",
+          "title": "Fullstory first-party cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:104",
+      "name": "fs_cid",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "consent",
+      "owner": "Fullstory",
+      "purpose": "Device capture consent",
+      "sourceUrls": [
+        "https://help.fullstory.com/hc/en-us/articles/360020829513-Why-Fullstory-uses-First-Party-Cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://help.fullstory.com/hc/en-us/articles/360020829513-Why-Fullstory-uses-First-Party-Cookies",
+          "title": "Fullstory first-party cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:105",
+      "name": "usetiful-visitor-ident",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Fullstory",
+      "purpose": "Guides and surveys engagement identity",
+      "sourceUrls": [
+        "https://help.fullstory.com/hc/en-us/articles/360020829513-Why-Fullstory-uses-First-Party-Cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://help.fullstory.com/hc/en-us/articles/360020829513-Why-Fullstory-uses-First-Party-Cookies",
+          "title": "Fullstory first-party cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:106",
+      "name": "__kla_id",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "advertising",
+      "owner": "Klaviyo",
+      "purpose": "Visitor identity for marketing profiles and browsing attribution",
+      "sourceUrls": [
+        "https://help.klaviyo.com/hc/en-us/articles/360034666712"
+      ],
+      "sources": [
+        {
+          "url": "https://help.klaviyo.com/hc/en-us/articles/360034666712",
+          "title": "Klaviyo cookie documentation",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:107",
+      "name": "__kla_off",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "consent",
+      "owner": "Klaviyo",
+      "purpose": "Disables Klaviyo tracking",
+      "sourceUrls": [
+        "https://help.klaviyo.com/hc/en-us/articles/360034666712"
+      ],
+      "sources": [
+        {
+          "url": "https://help.klaviyo.com/hc/en-us/articles/360034666712",
+          "title": "Klaviyo cookie documentation",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:108",
+      "name": "__kle_id",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "advertising",
+      "owner": "Klaviyo",
+      "purpose": "Server-assisted returning shopper re-identification",
+      "sourceUrls": [
+        "https://help.klaviyo.com/hc/en-us/articles/54975285267995"
+      ],
+      "sources": [
+        {
+          "url": "https://help.klaviyo.com/hc/en-us/articles/54975285267995",
+          "title": "Klaviyo First-Party ID",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:109",
+      "name": "intercom-id-",
+      "match": "prefix",
+      "domainContext": "any",
+      "domains": [],
+      "category": "functional",
+      "owner": "Intercom",
+      "purpose": "Associates visitor with support conversations",
+      "sourceUrls": [
+        "https://www.intercom.com/help/en/articles/2361922-intercom-messenger-cookies",
+        "https://www.intercom.com/legal/product-privacy-notice"
+      ],
+      "sources": [
+        {
+          "url": "https://www.intercom.com/help/en/articles/2361922-intercom-messenger-cookies",
+          "title": "Intercom Messenger cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://www.intercom.com/legal/product-privacy-notice",
+          "title": "Intercom product privacy notice",
+          "claim": "Distinguishes cookies from local storage.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:110",
+      "name": "intercom-session-",
+      "match": "prefix",
+      "domainContext": "any",
+      "domains": [],
+      "category": "necessary",
+      "owner": "Intercom",
+      "purpose": "Maintains access to support conversations",
+      "sourceUrls": [
+        "https://www.intercom.com/help/en/articles/2361922-intercom-messenger-cookies",
+        "https://www.intercom.com/legal/product-privacy-notice"
+      ],
+      "sources": [
+        {
+          "url": "https://www.intercom.com/help/en/articles/2361922-intercom-messenger-cookies",
+          "title": "Intercom Messenger cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://www.intercom.com/legal/product-privacy-notice",
+          "title": "Intercom product privacy notice",
+          "claim": "Distinguishes cookies from local storage.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:111",
+      "name": "intercom-device-id-",
+      "match": "prefix",
+      "domainContext": "any",
+      "domains": [],
+      "category": "security",
+      "owner": "Intercom",
+      "purpose": "Messenger device identity for abuse prevention",
+      "sourceUrls": [
+        "https://www.intercom.com/help/en/articles/2361922-intercom-messenger-cookies",
+        "https://www.intercom.com/legal/product-privacy-notice"
+      ],
+      "sources": [
+        {
+          "url": "https://www.intercom.com/help/en/articles/2361922-intercom-messenger-cookies",
+          "title": "Intercom Messenger cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://www.intercom.com/legal/product-privacy-notice",
+          "title": "Intercom product privacy notice",
+          "claim": "Distinguishes cookies from local storage.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:112",
+      "name": "_zendesk_session",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "necessary",
+      "owner": "Zendesk",
+      "purpose": "Support session and CSRF state",
+      "sourceUrls": [
+        "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy"
+      ],
+      "sources": [
+        {
+          "url": "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy",
+          "title": "Zendesk product cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:113",
+      "name": "zendesk_thirdparty_test",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "functional",
+      "owner": "Zendesk",
+      "purpose": "Checks sign-in cookie capability",
+      "sourceUrls": [
+        "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy"
+      ],
+      "sources": [
+        {
+          "url": "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy",
+          "title": "Zendesk product cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:114",
+      "name": "_zendesk_shared_session",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "necessary",
+      "owner": "Zendesk",
+      "purpose": "Shared support authentication session",
+      "sourceUrls": [
+        "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy"
+      ],
+      "sources": [
+        {
+          "url": "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy",
+          "title": "Zendesk product cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:115",
+      "name": "_zendesk_authenticated",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "necessary",
+      "owner": "Zendesk",
+      "purpose": "Support authentication state",
+      "sourceUrls": [
+        "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy"
+      ],
+      "sources": [
+        {
+          "url": "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy",
+          "title": "Zendesk product cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:116",
+      "name": "_zendesk_login_session",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "security",
+      "owner": "Zendesk",
+      "purpose": "Login state and CSRF protection",
+      "sourceUrls": [
+        "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy"
+      ],
+      "sources": [
+        {
+          "url": "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy",
+          "title": "Zendesk product cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:117",
+      "name": "_zendesk_nps_session",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "necessary",
+      "owner": "Zendesk",
+      "purpose": "Survey landing session",
+      "sourceUrls": [
+        "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy"
+      ],
+      "sources": [
+        {
+          "url": "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy",
+          "title": "Zendesk product cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:118",
+      "name": "_zendesk_cookie",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "security",
+      "owner": "Zendesk",
+      "purpose": "Two-factor and device preferences",
+      "sourceUrls": [
+        "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy"
+      ],
+      "sources": [
+        {
+          "url": "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy",
+          "title": "Zendesk product cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:119",
+      "name": "_zendesk_oidc_state",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "security",
+      "owner": "Zendesk",
+      "purpose": "OIDC login CSRF protection",
+      "sourceUrls": [
+        "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy"
+      ],
+      "sources": [
+        {
+          "url": "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy",
+          "title": "Zendesk product cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:120",
+      "name": "__zlcmid",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "necessary",
+      "owner": "Zendesk",
+      "purpose": "Chat widget authentication identity",
+      "sourceUrls": [
+        "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy"
+      ],
+      "sources": [
+        {
+          "url": "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy",
+          "title": "Zendesk product cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:121",
+      "name": "__zlcprivacy",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "consent",
+      "owner": "Zendesk",
+      "purpose": "Chat cookie consent",
+      "sourceUrls": [
+        "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy"
+      ],
+      "sources": [
+        {
+          "url": "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy",
+          "title": "Zendesk product cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:122",
+      "name": "zte2095",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "functional",
+      "owner": "Zendesk",
+      "purpose": "Chat widget domain identity",
+      "sourceUrls": [
+        "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy"
+      ],
+      "sources": [
+        {
+          "url": "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy",
+          "title": "Zendesk product cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:123",
+      "name": "_help_center_session",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "zendesk.com"
+      ],
+      "category": "necessary",
+      "owner": "Zendesk",
+      "purpose": "Help Center session identity",
+      "sourceUrls": [
+        "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy"
+      ],
+      "sources": [
+        {
+          "url": "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy",
+          "title": "Zendesk product cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:124",
+      "name": "help_center_data",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "zendesk.com"
+      ],
+      "category": "analytics",
+      "owner": "Zendesk",
+      "purpose": "Search-to-ticket analytics",
+      "sourceUrls": [
+        "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy"
+      ],
+      "sources": [
+        {
+          "url": "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy",
+          "title": "Zendesk product cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:125",
+      "name": "_answer_bot_service_session",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "necessary",
+      "owner": "Zendesk",
+      "purpose": "Answer Bot session identity",
+      "sourceUrls": [
+        "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy"
+      ],
+      "sources": [
+        {
+          "url": "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy",
+          "title": "Zendesk product cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:126",
+      "name": "_zdsession_talk_embeddables_service",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "functional",
+      "owner": "Zendesk",
+      "purpose": "Voice widget load balancing",
+      "sourceUrls": [
+        "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy"
+      ],
+      "sources": [
+        {
+          "url": "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy",
+          "title": "Zendesk product cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:127",
+      "name": "visitor_id",
+      "match": "prefix",
+      "domainContext": "domain",
+      "domains": [
+        "pardot.com"
+      ],
+      "category": "unknown",
+      "owner": "Salesforce Account Engagement",
+      "purpose": "Marketing visitor identity or anti-impersonation hash",
+      "sourceUrls": [
+        "https://help.salesforce.com/s/articleView?id=sf.pardot_basics_cookies.htm&language=en_US&type=5"
+      ],
+      "sources": [
+        {
+          "url": "https://help.salesforce.com/s/articleView?id=sf.pardot_basics_cookies.htm&language=en_US&type=5",
+          "title": "Account Engagement cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:128",
+      "name": "pi_opt_in",
+      "match": "prefix",
+      "domainContext": "any",
+      "domains": [],
+      "category": "consent",
+      "owner": "Salesforce Account Engagement",
+      "purpose": "Marketing tracking consent",
+      "sourceUrls": [
+        "https://help.salesforce.com/s/articleView?id=sf.pardot_basics_cookies.htm&language=en_US&type=5"
+      ],
+      "sources": [
+        {
+          "url": "https://help.salesforce.com/s/articleView?id=sf.pardot_basics_cookies.htm&language=en_US&type=5",
+          "title": "Account Engagement cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:129",
+      "name": "lpv",
+      "match": "prefix",
+      "domainContext": "domain",
+      "domains": [
+        "pardot.com"
+      ],
+      "category": "analytics",
+      "owner": "Salesforce Account Engagement",
+      "purpose": "Deduplicates marketing page views",
+      "sourceUrls": [
+        "https://help.salesforce.com/s/articleView?id=sf.pardot_basics_cookies.htm&language=en_US&type=5"
+      ],
+      "sources": [
+        {
+          "url": "https://help.salesforce.com/s/articleView?id=sf.pardot_basics_cookies.htm&language=en_US&type=5",
+          "title": "Account Engagement cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:130",
+      "name": "pardot",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "necessary",
+      "owner": "Salesforce Account Engagement",
+      "purpose": "Account Engagement session state",
+      "sourceUrls": [
+        "https://help.salesforce.com/s/articleView?id=sf.pardot_basics_cookies.htm&language=en_US&type=5"
+      ],
+      "sources": [
+        {
+          "url": "https://help.salesforce.com/s/articleView?id=sf.pardot_basics_cookies.htm&language=en_US&type=5",
+          "title": "Account Engagement cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:131",
+      "name": "__Host-Http-shop_binding",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "security",
+      "owner": "Shopify",
+      "purpose": "Shop login browser binding",
+      "sourceUrls": [
+        "https://www.shopify.com/legal/cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://www.shopify.com/legal/cookies",
+          "title": "Shopify cookie policy",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:132",
+      "name": "_shopify_essential",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "necessary",
+      "owner": "Shopify",
+      "purpose": "Store session, checkout and integrity",
+      "sourceUrls": [
+        "https://www.shopify.com/legal/cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://www.shopify.com/legal/cookies",
+          "title": "Shopify cookie policy",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:133",
+      "name": "_shopify_test",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "functional",
+      "owner": "Shopify",
+      "purpose": "Checks browser cookie capability",
+      "sourceUrls": [
+        "https://www.shopify.com/legal/cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://www.shopify.com/legal/cookies",
+          "title": "Shopify cookie policy",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:134",
+      "name": "_shopify_analytics",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Shopify",
+      "purpose": "Storefront and checkout analytics",
+      "sourceUrls": [
+        "https://www.shopify.com/legal/cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://www.shopify.com/legal/cookies",
+          "title": "Shopify cookie policy",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:135",
+      "name": "_shopify_marketing",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "advertising",
+      "owner": "Shopify",
+      "purpose": "Storefront and checkout marketing",
+      "sourceUrls": [
+        "https://www.shopify.com/legal/cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://www.shopify.com/legal/cookies",
+          "title": "Shopify cookie policy",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:136",
+      "name": "cart",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "myshopify.com"
+      ],
+      "category": "necessary",
+      "owner": "Shopify",
+      "purpose": "Shopping cart state",
+      "sourceUrls": [
+        "https://www.shopify.com/legal/cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://www.shopify.com/legal/cookies",
+          "title": "Shopify cookie policy",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:137",
+      "name": "cart_currency",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "myshopify.com"
+      ],
+      "category": "functional",
+      "owner": "Shopify",
+      "purpose": "Shopping cart currency",
+      "sourceUrls": [
+        "https://www.shopify.com/legal/cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://www.shopify.com/legal/cookies",
+          "title": "Shopify cookie policy",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:138",
+      "name": "discount_code",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "myshopify.com"
+      ],
+      "category": "functional",
+      "owner": "Shopify",
+      "purpose": "Retains checkout discount",
+      "sourceUrls": [
+        "https://www.shopify.com/legal/cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://www.shopify.com/legal/cookies",
+          "title": "Shopify cookie policy",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:139",
+      "name": "localization",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "myshopify.com"
+      ],
+      "category": "functional",
+      "owner": "Shopify",
+      "purpose": "Shopping cart country",
+      "sourceUrls": [
+        "https://www.shopify.com/legal/cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://www.shopify.com/legal/cookies",
+          "title": "Shopify cookie policy",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:140",
+      "name": "login_with_shop_finalize",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "necessary",
+      "owner": "Shopify",
+      "purpose": "Finalizes Shop login",
+      "sourceUrls": [
+        "https://www.shopify.com/legal/cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://www.shopify.com/legal/cookies",
+          "title": "Shopify cookie policy",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:141",
+      "name": "shopify_pay",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "necessary",
+      "owner": "Shopify",
+      "purpose": "Returning Shop Pay login",
+      "sourceUrls": [
+        "https://www.shopify.com/legal/cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://www.shopify.com/legal/cookies",
+          "title": "Shopify cookie policy",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:142",
+      "name": "shopify_override_user_locale",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "functional",
+      "owner": "Shopify",
+      "purpose": "Merchant admin language",
+      "sourceUrls": [
+        "https://www.shopify.com/legal/cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://www.shopify.com/legal/cookies",
+          "title": "Shopify cookie policy",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:143",
+      "name": "_shop_app_essential",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "shop.app"
+      ],
+      "category": "necessary",
+      "owner": "Shopify",
+      "purpose": "Shop application session",
+      "sourceUrls": [
+        "https://www.shopify.com/legal/cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://www.shopify.com/legal/cookies",
+          "title": "Shopify cookie policy",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:144",
+      "name": "privacy_signal",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "shop.app"
+      ],
+      "category": "consent",
+      "owner": "Shopify",
+      "purpose": "Shop privacy choices",
+      "sourceUrls": [
+        "https://www.shopify.com/legal/cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://www.shopify.com/legal/cookies",
+          "title": "Shopify cookie policy",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:145",
+      "name": "_shop_app_analytics",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "shop.app"
+      ],
+      "category": "analytics",
+      "owner": "Shopify",
+      "purpose": "Shop application analytics",
+      "sourceUrls": [
+        "https://www.shopify.com/legal/cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://www.shopify.com/legal/cookies",
+          "title": "Shopify cookie policy",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:146",
+      "name": "_shopify_y",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Shopify",
+      "purpose": "Deprecated analytics visitor identity",
+      "sourceUrls": [
+        "https://shopify.dev/docs/api/hydrogen-react/latest/utilities/gettrackingvalues"
+      ],
+      "sources": [
+        {
+          "url": "https://shopify.dev/docs/api/hydrogen-react/latest/utilities/gettrackingvalues",
+          "title": "Shopify tracking utility",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:147",
+      "name": "_shopify_s",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Shopify",
+      "purpose": "Deprecated analytics session identity",
+      "sourceUrls": [
+        "https://shopify.dev/docs/api/hydrogen-react/latest/utilities/gettrackingvalues"
+      ],
+      "sources": [
+        {
+          "url": "https://shopify.dev/docs/api/hydrogen-react/latest/utilities/gettrackingvalues",
+          "title": "Shopify tracking utility",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:148",
+      "name": "_tracking_consent",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "consent",
+      "owner": "Shopify",
+      "purpose": "Legacy Shopify tracking consent",
+      "sourceUrls": [
+        "https://shopify.dev/docs/api/hydrogen-react/latest/utilities/gettrackingvalues"
+      ],
+      "sources": [
+        {
+          "url": "https://shopify.dev/docs/api/hydrogen-react/latest/utilities/gettrackingvalues",
+          "title": "Shopify tracking utility",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:149",
+      "name": "__stripe_mid",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "security",
+      "owner": "Stripe",
+      "purpose": "Payment fraud risk assessment",
+      "sourceUrls": [
+        "https://stripe.com/cookie-settings"
+      ],
+      "sources": [
+        {
+          "url": "https://stripe.com/cookie-settings",
+          "title": "Stripe cookie settings",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:150",
+      "name": "__stripe_sid",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "security",
+      "owner": "Stripe",
+      "purpose": "Payment fraud session assessment",
+      "sourceUrls": [
+        "https://stripe.com/cookie-settings"
+      ],
+      "sources": [
+        {
+          "url": "https://stripe.com/cookie-settings",
+          "title": "Stripe cookie settings",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:151",
+      "name": "__stripe_orig_props",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "stripe.com"
+      ],
+      "category": "analytics",
+      "owner": "Stripe",
+      "purpose": "Website referral attribution",
+      "sourceUrls": [
+        "https://stripe.com/cookie-settings"
+      ],
+      "sources": [
+        {
+          "url": "https://stripe.com/cookie-settings",
+          "title": "Stripe cookie settings",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:152",
+      "name": "site_sid",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "stripe.com"
+      ],
+      "category": "analytics",
+      "owner": "Stripe",
+      "purpose": "Website activity measurement",
+      "sourceUrls": [
+        "https://stripe.com/cookie-settings"
+      ],
+      "sources": [
+        {
+          "url": "https://stripe.com/cookie-settings",
+          "title": "Stripe cookie settings",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:153",
+      "name": "__Host-auth_token",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "stripe.com"
+      ],
+      "category": "security",
+      "owner": "Stripe",
+      "purpose": "Stripe API authentication",
+      "sourceUrls": [
+        "https://stripe.com/cookie-settings"
+      ],
+      "sources": [
+        {
+          "url": "https://stripe.com/cookie-settings",
+          "title": "Stripe cookie settings",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:154",
+      "name": "__Host-session",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "stripe.com"
+      ],
+      "category": "necessary",
+      "owner": "Stripe",
+      "purpose": "Stripe account session",
+      "sourceUrls": [
+        "https://stripe.com/cookie-settings"
+      ],
+      "sources": [
+        {
+          "url": "https://stripe.com/cookie-settings",
+          "title": "Stripe cookie settings",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:155",
+      "name": "__Host-LinkSession",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "stripe.com"
+      ],
+      "category": "necessary",
+      "owner": "Stripe",
+      "purpose": "Link payment login",
+      "sourceUrls": [
+        "https://stripe.com/cookie-settings"
+      ],
+      "sources": [
+        {
+          "url": "https://stripe.com/cookie-settings",
+          "title": "Stripe cookie settings",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:156",
+      "name": "__Host-oauth_code_verifier",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "dashboard.stripe.com"
+      ],
+      "category": "security",
+      "owner": "Stripe",
+      "purpose": "OAuth exchange protection",
+      "sourceUrls": [
+        "https://stripe.com/cookie-settings"
+      ],
+      "sources": [
+        {
+          "url": "https://stripe.com/cookie-settings",
+          "title": "Stripe cookie settings",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:157",
+      "name": "__Host-oauth_security_token",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "dashboard.stripe.com"
+      ],
+      "category": "security",
+      "owner": "Stripe",
+      "purpose": "OAuth exchange protection",
+      "sourceUrls": [
+        "https://stripe.com/cookie-settings"
+      ],
+      "sources": [
+        {
+          "url": "https://stripe.com/cookie-settings",
+          "title": "Stripe cookie settings",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:158",
+      "name": "__Host-stripe.site.csrf",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "stripe.com"
+      ],
+      "category": "security",
+      "owner": "Stripe",
+      "purpose": "Website CSRF protection",
+      "sourceUrls": [
+        "https://stripe.com/cookie-settings"
+      ],
+      "sources": [
+        {
+          "url": "https://stripe.com/cookie-settings",
+          "title": "Stripe cookie settings",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:159",
+      "name": "__Host-stripe.customerportal.sid",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "billing.stripe.com"
+      ],
+      "category": "security",
+      "owner": "Stripe",
+      "purpose": "Customer portal anti-phishing session",
+      "sourceUrls": [
+        "https://stripe.com/cookie-settings"
+      ],
+      "sources": [
+        {
+          "url": "https://stripe.com/cookie-settings",
+          "title": "Stripe cookie settings",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:160",
+      "name": "__Host-stripe.link_app.csrf",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "app.onelink.com"
+      ],
+      "category": "security",
+      "owner": "Stripe",
+      "purpose": "Link application CSRF protection",
+      "sourceUrls": [
+        "https://stripe.com/cookie-settings"
+      ],
+      "sources": [
+        {
+          "url": "https://stripe.com/cookie-settings",
+          "title": "Stripe cookie settings",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:161",
+      "name": "__Host-stripe.link_support_site.csrf",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "support.onelink.com"
+      ],
+      "category": "security",
+      "owner": "Stripe",
+      "purpose": "Link support CSRF protection",
+      "sourceUrls": [
+        "https://stripe.com/cookie-settings"
+      ],
+      "sources": [
+        {
+          "url": "https://stripe.com/cookie-settings",
+          "title": "Stripe cookie settings",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:162",
+      "name": "__Host-stripe.mkt.csrf",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "stripe.com",
+        "link.com",
+        "onelink.com"
+      ],
+      "category": "security",
+      "owner": "Stripe",
+      "purpose": "Marketing website CSRF protection",
+      "sourceUrls": [
+        "https://stripe.com/cookie-settings"
+      ],
+      "sources": [
+        {
+          "url": "https://stripe.com/cookie-settings",
+          "title": "Stripe cookie settings",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:163",
+      "name": "__Host-stripe.support_site.csrf",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "stripe.com"
+      ],
+      "category": "security",
+      "owner": "Stripe",
+      "purpose": "Support website CSRF protection",
+      "sourceUrls": [
+        "https://stripe.com/cookie-settings"
+      ],
+      "sources": [
+        {
+          "url": "https://stripe.com/cookie-settings",
+          "title": "Stripe cookie settings",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:164",
+      "name": "__Host-stripe.sources_redirect_site.csrf",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "hooks.stripe.com"
+      ],
+      "category": "security",
+      "owner": "Stripe",
+      "purpose": "Payment redirect CSRF protection",
+      "sourceUrls": [
+        "https://stripe.com/cookie-settings"
+      ],
+      "sources": [
+        {
+          "url": "https://stripe.com/cookie-settings",
+          "title": "Stripe cookie settings",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:165",
+      "name": "_abck",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "akamai.com"
+      ],
+      "category": "necessary",
+      "owner": "Akamai",
+      "purpose": "Akamai necessary site cookie",
+      "sourceUrls": [
+        "https://www.akamai.com/legal/manage-cookie-preferences"
+      ],
+      "sources": [
+        {
+          "url": "https://www.akamai.com/legal/manage-cookie-preferences",
+          "title": "Akamai cookie preferences",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:166",
+      "name": "ak_bmsc",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "akamai.com"
+      ],
+      "category": "necessary",
+      "owner": "Akamai",
+      "purpose": "Akamai necessary site cookie",
+      "sourceUrls": [
+        "https://www.akamai.com/legal/manage-cookie-preferences"
+      ],
+      "sources": [
+        {
+          "url": "https://www.akamai.com/legal/manage-cookie-preferences",
+          "title": "Akamai cookie preferences",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:167",
+      "name": "bm_sv",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "akamai.com"
+      ],
+      "category": "necessary",
+      "owner": "Akamai",
+      "purpose": "Akamai necessary site cookie",
+      "sourceUrls": [
+        "https://www.akamai.com/legal/manage-cookie-preferences"
+      ],
+      "sources": [
+        {
+          "url": "https://www.akamai.com/legal/manage-cookie-preferences",
+          "title": "Akamai cookie preferences",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:168",
+      "name": "AKA_A2",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "akamai.com"
+      ],
+      "category": "necessary",
+      "owner": "Akamai",
+      "purpose": "Akamai necessary site cookie",
+      "sourceUrls": [
+        "https://www.akamai.com/legal/manage-cookie-preferences"
+      ],
+      "sources": [
+        {
+          "url": "https://www.akamai.com/legal/manage-cookie-preferences",
+          "title": "Akamai cookie preferences",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:169",
+      "name": "bm_sz",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "akamai.com"
+      ],
+      "category": "unknown",
+      "owner": "Akamai",
+      "purpose": "Akamai policy lists performance category; security purpose unconfirmed",
+      "sourceUrls": [
+        "https://www.akamai.com/legal/manage-cookie-preferences"
+      ],
+      "sources": [
+        {
+          "url": "https://www.akamai.com/legal/manage-cookie-preferences",
+          "title": "Akamai cookie preferences",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:170",
+      "name": "BOOMR_CONSENT",
+      "match": "exact",
+      "domainContext": "domain",
+      "domains": [
+        "akamai.com"
+      ],
+      "category": "consent",
+      "owner": "Akamai",
+      "purpose": "Performance measurement consent",
+      "sourceUrls": [
+        "https://www.akamai.com/legal/manage-cookie-preferences"
+      ],
+      "sources": [
+        {
+          "url": "https://www.akamai.com/legal/manage-cookie-preferences",
+          "title": "Akamai cookie preferences",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:171",
+      "name": "osano_consentmanager",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "consent",
+      "owner": "Osano",
+      "purpose": "Consent categories and expiry",
+      "sourceUrls": [
+        "https://docs.osano.com/en-US/osano/article/8e3LDxEd-osano-cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://docs.osano.com/en-US/osano/article/8e3LDxEd-osano-cookies",
+          "title": "Osano cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:172",
+      "name": "osano_consentmanager_uuid",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "consent",
+      "owner": "Osano",
+      "purpose": "Consent record lookup identity",
+      "sourceUrls": [
+        "https://docs.osano.com/en-US/osano/article/8e3LDxEd-osano-cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://docs.osano.com/en-US/osano/article/8e3LDxEd-osano-cookies",
+          "title": "Osano cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:173",
+      "name": "osano_consentmanager_expdate",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "consent",
+      "owner": "Osano",
+      "purpose": "Deprecated consent expiry",
+      "sourceUrls": [
+        "https://docs.osano.com/en-US/osano/article/8e3LDxEd-osano-cookies"
+      ],
+      "sources": [
+        {
+          "url": "https://docs.osano.com/en-US/osano/article/8e3LDxEd-osano-cookies",
+          "title": "Osano cookies",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:174",
+      "name": "cookiehub",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "consent",
+      "owner": "CookieHub",
+      "purpose": "Cookie consent preferences",
+      "sourceUrls": [
+        "https://docs.cookiehub.com/configure/domain-settings"
+      ],
+      "sources": [
+        {
+          "url": "https://docs.cookiehub.com/configure/domain-settings",
+          "title": "CookieHub consent storage",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:175",
+      "name": "_iub_cs-",
+      "match": "prefix",
+      "domainContext": "any",
+      "domains": [],
+      "category": "consent",
+      "owner": "iubenda",
+      "purpose": "Cookie consent preferences",
+      "sourceUrls": [
+        "https://www.iubenda.com/en/help/46731-how-to-retrieve-proof-of-a-cookie-preferences-for-specific-users/"
+      ],
+      "sources": [
+        {
+          "url": "https://www.iubenda.com/en/help/46731-how-to-retrieve-proof-of-a-cookie-preferences-for-specific-users/",
+          "title": "iubenda cookie preference proof",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:176",
+      "name": "cmplz_functional",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "consent",
+      "owner": "Complianz",
+      "purpose": "Functional cookie consent",
+      "sourceUrls": [
+        "https://complianz.io/legal/cookie-policy/?cmplz_region_redirect=true"
+      ],
+      "sources": [
+        {
+          "url": "https://complianz.io/legal/cookie-policy/?cmplz_region_redirect=true",
+          "title": "Complianz cookie policy",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:177",
+      "name": "cmplz_preferences",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "consent",
+      "owner": "Complianz",
+      "purpose": "Preference cookie consent",
+      "sourceUrls": [
+        "https://complianz.io/legal/cookie-policy/?cmplz_region_redirect=true"
+      ],
+      "sources": [
+        {
+          "url": "https://complianz.io/legal/cookie-policy/?cmplz_region_redirect=true",
+          "title": "Complianz cookie policy",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:178",
+      "name": "cmplz_statistics",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "consent",
+      "owner": "Complianz",
+      "purpose": "Statistics cookie consent",
+      "sourceUrls": [
+        "https://complianz.io/legal/cookie-policy/?cmplz_region_redirect=true"
+      ],
+      "sources": [
+        {
+          "url": "https://complianz.io/legal/cookie-policy/?cmplz_region_redirect=true",
+          "title": "Complianz cookie policy",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:179",
+      "name": "cmplz_marketing",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "consent",
+      "owner": "Complianz",
+      "purpose": "Marketing cookie consent",
+      "sourceUrls": [
+        "https://complianz.io/legal/cookie-policy/?cmplz_region_redirect=true"
+      ],
+      "sources": [
+        {
+          "url": "https://complianz.io/legal/cookie-policy/?cmplz_region_redirect=true",
+          "title": "Complianz cookie policy",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:180",
+      "name": "cmplz_policy_id",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "consent",
+      "owner": "Complianz",
+      "purpose": "Accepted cookie policy version",
+      "sourceUrls": [
+        "https://complianz.io/legal/cookie-policy/?cmplz_region_redirect=true"
+      ],
+      "sources": [
+        {
+          "url": "https://complianz.io/legal/cookie-policy/?cmplz_region_redirect=true",
+          "title": "Complianz cookie policy",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:181",
+      "name": "cmplz_consented_services",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "consent",
+      "owner": "Complianz",
+      "purpose": "Per-service cookie consent",
+      "sourceUrls": [
+        "https://complianz.io/legal/cookie-policy/?cmplz_region_redirect=true"
+      ],
+      "sources": [
+        {
+          "url": "https://complianz.io/legal/cookie-policy/?cmplz_region_redirect=true",
+          "title": "Complianz cookie policy",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:182",
+      "name": "cmplz_id",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "consent",
+      "owner": "Complianz",
+      "purpose": "Consent record identity",
+      "sourceUrls": [
+        "https://complianz.io/legal/cookie-policy/?cmplz_region_redirect=true"
+      ],
+      "sources": [
+        {
+          "url": "https://complianz.io/legal/cookie-policy/?cmplz_region_redirect=true",
+          "title": "Complianz cookie policy",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:183",
+      "name": "cmplz_saved_services",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "consent",
+      "owner": "Complianz",
+      "purpose": "Saved service consent",
+      "sourceUrls": [
+        "https://complianz.io/legal/cookie-policy/?cmplz_region_redirect=true"
+      ],
+      "sources": [
+        {
+          "url": "https://complianz.io/legal/cookie-policy/?cmplz_region_redirect=true",
+          "title": "Complianz cookie policy",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary-expansion:184",
+      "name": "cmplz_user_data",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "functional",
+      "owner": "Complianz",
+      "purpose": "Consent banner configuration",
+      "sourceUrls": [
+        "https://complianz.io/legal/cookie-policy/?cmplz_region_redirect=true"
+      ],
+      "sources": [
+        {
+          "url": "https://complianz.io/legal/cookie-policy/?cmplz_region_redirect=true",
+          "title": "Complianz cookie policy",
+          "claim": "Documents this cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    }
+  ]
+}

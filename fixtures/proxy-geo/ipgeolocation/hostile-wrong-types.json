@@ -1,0 +1,36 @@
+{
+  "provider": "ipgeolocation",
+  "ip": "8.8.8.8",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": {
+    "ip": 123,
+    "location": {
+      "country_code2": 840,
+      "country_name": [
+        "x"
+      ],
+      "state_prov": {},
+      "city": true
+    },
+    "asn": {
+      "as_number": {},
+      "organization": 5
+    },
+    "company": "x",
+    "network": {
+      "is_cdn": "true",
+      "connection_type": 7
+    },
+    "security": {
+      "is_proxy": "false",
+      "is_vpn": 1,
+      "is_tor": null
+    },
+    "time_zone": {
+      "name": 42
+    }
+  }
+}

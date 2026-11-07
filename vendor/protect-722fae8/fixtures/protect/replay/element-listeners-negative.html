@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>protect: element listeners (negative)</title>
+  </head>
+  <body>
+    <!--
+      ADR-020 §E (S11): listeners only on fields and a plain div, a MutationObserver only on that div, and periodic
+      POSTs of 2 KiB to rec.example.net every 1.5 s × 5. Element listeners are not counted (only window / document).
+      Expected: signals-only with the periodic signal alone. Nothing reads a field value.
+    -->
+    <h1 id="title">Element listeners</h1>
+    <form action="#">
+      <label>E-mail <input id="email" name="email" type="email" autocomplete="email" /></label>
+      <label>Name <input id="name" name="name" type="text" autocomplete="name" /></label>
+    </form>
+    <div id="area" style="height: 60px; overflow: auto">area</div>
+    <pre id="result"></pre>
+    <script src="../../fixture-lib.js"></script>
+    <script src="replay-sim.js"></script>
+    <script>
+      (function () {
+        var F = window.__fixture;
+        var url = 'http://rec.example.net:' + location.port + '/replay/collect';
+        window.replaySim.listen('elements');
+        window.replaySim.observe(document.getElementById('area'));
+        window.replaySim.sendSeries({ url: url, count: 5, every: 1500, bytes: 2048 }).then(function (n) {
+          F.publish({ fixture: 'protect-replay-elements', sends: n });
+        });
+      })();
+    </script>
+  </body>
+</html>

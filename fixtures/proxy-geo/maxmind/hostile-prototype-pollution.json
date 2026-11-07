@@ -1,0 +1,10 @@
+{
+  "provider": "maxmind",
+  "ip": "8.8.8.8",
+  "service": "geoip-insights",
+  "status": 200,
+  "headers": {
+    "content-type": "application/vnd.maxmind.com-insights+json; charset=UTF-8; version=2.1"
+  },
+  "text": "{\"__proto__\":{\"polluted\":\"top\"},\"constructor\":{\"prototype\":{\"polluted\":\"ctor\"}},\"prototype\":{\"polluted\":\"proto\"},\"traits\":{\"ip_address\":\"8.8.8.8\",\"__proto__\":{\"is_public_proxy\":true,\"user_type\":\"hosting\"},\"isp\":\"Example ISP\"},\"country\":{\"iso_code\":\"US\",\"names\":{\"__proto__\":\"Pwned\",\"constructor\":\"Pwned\",\"en\":\"United States\"}},\"city\":{\"names\":{\"__proto__\":\"Pwned\",\"constructor\":\"Pwned\"}},\"anonymizer\":{\"__proto__\":{\"is_public_proxy\":true},\"is_tor_exit_node\":false}}"
+}

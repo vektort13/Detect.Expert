@@ -23,10 +23,13 @@ The built extension lands in `dist/chrome` (or `dist/firefox`). In Chrome open `
 
 ```bash
 node scripts/lint.mjs
+node scripts/build.mjs --profile local                 # once: audit.test.mjs reads dist/local
 node --test scripts/test/*.test.mjs scripts/production/test/*.test.mjs
 npx vitest run --config vitest.config.ts
 npx tsc -p tsconfig.json
 ```
+
+Before `node --test`, run `node scripts/build.mjs --profile local` once: `scripts/test/audit.test.mjs` needs the `dist/local` manifest that this legacy build produces.
 
 The `*-native.mjs` scripts in `scripts/test` start a real browser; run the ones that match what you changed (`node scripts/run-natives.mjs --list` shows the plan). Playwright and a Firefox install are needed for those.
 

@@ -1,0 +1,359 @@
+{
+  "schemaVersion": 1,
+  "accessedAt": "2026-10-09",
+  "caveat": "HTTP/name-presence validates source reachability, not cookie purpose; claims were reviewed against primary documentation. No HTML bodies, real cookies, authentication state, header values or API keys retained.",
+  "results": [
+    {
+      "url": "https://ads.tiktok.com/resources/help/article/using-cookies-with-tiktok-pixel?lang=en",
+      "finalUrl": "https://ads.tiktok.com/resources/help/article/using-cookies-with-tiktok-pixel?lang=en",
+      "status": 200,
+      "bytes": 2060510,
+      "sha256": "e977e8eecff04fa35740a91716ad8532cb46040c0a85f3f144447a3768de9640",
+      "namePresence": {
+        "found": 5,
+        "missing": []
+      }
+    },
+    {
+      "url": "https://amplitude.com/docs/sdks/analytics/browser/cookies-and-consent-management-javascript-sdk",
+      "finalUrl": "https://amplitude.com/docs/sdks/analytics/browser/cookies-and-consent-management-javascript-sdk",
+      "status": 200,
+      "bytes": 604822,
+      "sha256": "3ced11f727acc6217a80bcebd562a86d903b738d81d1bf8c589573ff1b63d3d3",
+      "namePresence": {
+        "found": 1,
+        "missing": []
+      }
+    },
+    {
+      "url": "https://amplitude.com/docs/sdks/analytics/browser/javascript-sdk",
+      "finalUrl": "https://amplitude.com/docs/sdks/analytics/browser/javascript-sdk",
+      "status": 200,
+      "bytes": 1077429,
+      "sha256": "920519483eb2b70fa8c423dcbde59057e1cf85fd7965ab233abf201010ae3268",
+      "namePresence": {
+        "found": 1,
+        "missing": []
+      }
+    },
+    {
+      "url": "https://complianz.io/legal/cookie-policy/?cmplz_region_redirect=true",
+      "finalUrl": "https://complianz.io/legal/cookie-policy/?cmplz_region_redirect=true",
+      "status": 200,
+      "bytes": 186393,
+      "sha256": "12c3afef981cc3adabedaf56ecaddf7b7775a6a79952b05597ac574c60eae26d",
+      "namePresence": {
+        "found": 9,
+        "missing": []
+      }
+    },
+    {
+      "url": "https://docs.cookiehub.com/configure/domain-settings",
+      "finalUrl": "https://docs.cookiehub.com/configure/domain-settings",
+      "status": 200,
+      "bytes": 173976,
+      "sha256": "671934183859de66d6edf0d23f2be53332b09cd95373fdb50d2c0be937a99adb",
+      "namePresence": {
+        "found": 1,
+        "missing": []
+      }
+    },
+    {
+      "url": "https://docs.optimizely.com/personalization/docs/E6Fk-cookies-and-localstorage-in-snippets",
+      "finalUrl": "https://docs.optimizely.com/personalization/docs/E6Fk-cookies-and-localstorage-in-snippets",
+      "status": 200,
+      "bytes": 269901,
+      "sha256": "fb792b13c1a8cc3c243398a0c6dc0b290e51014d186aef0a0f05bbabbae53eb8",
+      "namePresence": {
+        "found": 1,
+        "missing": []
+      }
+    },
+    {
+      "url": "https://docs.osano.com/en-US/osano/article/8e3LDxEd-osano-cookies",
+      "finalUrl": "https://docs.osano.com/en-US/osano/article/8e3LDxEd-osano-cookies",
+      "status": 200,
+      "bytes": 327012,
+      "sha256": "1010d5782569265a8b70ddf09a052c1567c9ae22e8256a76f2afe2231bc3e4da",
+      "namePresence": {
+        "found": 3,
+        "missing": []
+      }
+    },
+    {
+      "url": "https://docs.snowplow.io/docs/sources/web-trackers/cookies-and-local-storage/",
+      "finalUrl": "https://docs.snowplow.io/docs/sources/web-trackers/cookies-and-local-storage/",
+      "status": 200,
+      "bytes": 86646,
+      "sha256": "07eaaa7b66ded9fffda4dc44fe7ff5fac636658ee339f1c11f5fc7814557e00b",
+      "namePresence": {
+        "found": 2,
+        "missing": []
+      }
+    },
+    {
+      "url": "https://docs.tealium.com/iq-tag-management/data-layer/cookies/",
+      "finalUrl": "https://docs.tealium.com/iq-tag-management/data-layer/cookies/",
+      "status": 200,
+      "bytes": 107729,
+      "sha256": "c79ea379b4df94114d05a9854b0f079dd86194bc08f154f46dfdb1a6b4d1226d",
+      "namePresence": {
+        "found": 12,
+        "missing": []
+      }
+    },
+    {
+      "url": "https://docs.tealium.com/platforms/javascript/api/cookie-functions/",
+      "finalUrl": "https://docs.tealium.com/platforms/javascript/api/cookie-functions/",
+      "status": 200,
+      "bytes": 66517,
+      "sha256": "ed1041cbd99cdc10468b57d595822a0309968ffca0acbcf6c10b0b2a3a787e1e",
+      "namePresence": {
+        "found": 2,
+        "missing": []
+      }
+    },
+    {
+      "url": "https://experienceleague.adobe.com/en/docs/core-services/interface/data-collection/cookies/analytics",
+      "finalUrl": "https://experienceleague.adobe.com/en/docs/core-services/interface/data-collection/cookies/analytics",
+      "status": 200,
+      "bytes": 13660,
+      "sha256": "2cbd2ae0fb5da9898c1dc7bda6a7890df1fa5bf2a6f95a99c386965aca7eee69",
+      "namePresence": {
+        "found": 6,
+        "missing": []
+      }
+    },
+    {
+      "url": "https://experienceleague.adobe.com/en/docs/core-services/interface/data-collection/cookies/web-sdk",
+      "finalUrl": "https://experienceleague.adobe.com/en/docs/core-services/interface/data-collection/cookies/web-sdk",
+      "status": 200,
+      "bytes": 13563,
+      "sha256": "ccc32137a5e17ada0f3e1234dfb656f0b2c339a2f0a919de80a5111850ea57c3",
+      "namePresence": {
+        "found": 4,
+        "missing": []
+      }
+    },
+    {
+      "url": "https://experienceleague.adobe.com/en/docs/id-service/using/intro/cookies",
+      "finalUrl": "https://experienceleague.adobe.com/en/docs/id-service/using/intro/cookies",
+      "status": 200,
+      "bytes": 20170,
+      "sha256": "d03244b5811077c3ae99153c2e251ffe7329423f751d9ab74edb8f25be16dbad",
+      "namePresence": {
+        "found": 3,
+        "missing": []
+      }
+    },
+    {
+      "url": "https://github.com/facebook/capi-param-builder/blob/main/client_js/README.md",
+      "finalUrl": "https://github.com/facebook/capi-param-builder/blob/main/client_js/README.md",
+      "status": 200,
+      "bytes": 317761,
+      "sha256": "29ba448327310778ea8e69f927d4b3c0e33ec9f838acf3edd449f1a0c9bffe2d",
+      "namePresence": {
+        "found": 2,
+        "missing": []
+      }
+    },
+    {
+      "url": "https://help.ads.microsoft.com/apex/index/3/en-in/53056",
+      "finalUrl": "https://help.ads.microsoft.com/apex/index/3/en-in/53056",
+      "status": 200,
+      "bytes": 24875,
+      "sha256": "5d2477fdcb1122734523ea307ad49399e4d7e3241af01349dd2885bc6fe10853",
+      "namePresence": {
+        "found": 0,
+        "missing": [
+          "_uetsid",
+          "_uetvid",
+          "_uetmsclkid"
+        ]
+      }
+    },
+    {
+      "url": "https://help.fullstory.com/hc/en-us/articles/360020829513-Why-Fullstory-uses-First-Party-Cookies",
+      "finalUrl": "https://help.fullstory.com/hc/en-us/articles/360020829513-Why-Fullstory-uses-First-Party-Cookies",
+      "status": 200,
+      "bytes": 56360,
+      "sha256": "0fbfd783f945df59400be421f269a84742c84b2c7775146fd3b6881509a60fb3",
+      "namePresence": {
+        "found": 4,
+        "missing": []
+      }
+    },
+    {
+      "url": "https://help.klaviyo.com/hc/en-us/articles/360034666712",
+      "finalUrl": "https://help.klaviyo.com/hc/en-us/articles/360034666712",
+      "status": 200,
+      "bytes": 347363,
+      "sha256": "4e29f552d4fe5dc4dcd66f8eb65dbebbedb8efb405846e8c4aad46e12f2ba963",
+      "namePresence": {
+        "found": 2,
+        "missing": []
+      }
+    },
+    {
+      "url": "https://help.klaviyo.com/hc/en-us/articles/54975285267995",
+      "finalUrl": "https://help.klaviyo.com/hc/en-us/articles/54975285267995",
+      "status": 200,
+      "bytes": 341060,
+      "sha256": "212e086bd7c6be4ec417c1233a9003af5dcbd98d16925d3a6f6f871fd0345021",
+      "namePresence": {
+        "found": 1,
+        "missing": []
+      }
+    },
+    {
+      "url": "https://help.pinterest.com/en-gb/business/article/pinterest-tag-parameters-and-cookies",
+      "finalUrl": "https://help.pinterest.com/en-gb/business/article/pinterest-tag-parameters-and-cookies",
+      "status": 200,
+      "bytes": 147714,
+      "sha256": "c5bed473af89f70297ce175190b0b94994fc86232bc023424b72e7cc796f2570",
+      "namePresence": {
+        "found": 9,
+        "missing": []
+      }
+    },
+    {
+      "url": "https://help.piwik.pro/support/privacy/cookies-created-for-visitors-by-piwik-pro/",
+      "finalUrl": "https://help.piwik.pro/support/privacy/cookies-created-for-visitors-by-piwik-pro/",
+      "status": 200,
+      "bytes": 126545,
+      "sha256": "f6b8d14d592154074ab5b881afded9a13b647a5eb6bf419c9511e1f22558b2d5",
+      "namePresence": {
+        "found": 10,
+        "missing": []
+      }
+    },
+    {
+      "url": "https://help.salesforce.com/s/articleView?id=sf.pardot_basics_cookies.htm&language=en_US&type=5",
+      "finalUrl": "https://help.salesforce.com/s/articleView?id=sf.pardot_basics_cookies.htm&language=en_US&type=5",
+      "status": 200,
+      "bytes": 204901,
+      "sha256": "19884292810607f593ef1147fe78c30af2a219582976aa3a5e7d473267750aae",
+      "namePresence": {
+        "found": 1,
+        "missing": [
+          "visitor_id",
+          "pi_opt_in",
+          "lpv"
+        ]
+      }
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-cookies",
+      "finalUrl": "https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-cookies",
+      "status": 200,
+      "bytes": 40810,
+      "sha256": "36085ae41b9def827bac9fb4ccd04220a8edb5b3ed58a7a17466d8a205b16fa1",
+      "namePresence": {
+        "found": 5,
+        "missing": []
+      }
+    },
+    {
+      "url": "https://shopify.dev/docs/api/hydrogen-react/latest/utilities/gettrackingvalues",
+      "finalUrl": "https://shopify.dev/docs/api/hydrogen-react/latest/utilities/gettrackingvalues",
+      "status": 200,
+      "bytes": 349607,
+      "sha256": "21d2a1a7d3aeb7ceeb6c804687699c246ea9a01d3f5646b1279acd55fce73418",
+      "namePresence": {
+        "found": 3,
+        "missing": []
+      }
+    },
+    {
+      "url": "https://stripe.com/cookie-settings",
+      "finalUrl": "https://stripe.com/ae/cookie-settings",
+      "status": 200,
+      "bytes": 986077,
+      "sha256": "e74d1f1afe734438dc37e75b368c96d5b99270dbd7eb5fd7efa9976514a1aab7",
+      "namePresence": {
+        "found": 16,
+        "missing": []
+      }
+    },
+    {
+      "url": "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy",
+      "finalUrl": "https://support.zendesk.com/hc/en-us/articles/4408824378650-Zendesk-In-Product-Cookie-Policy",
+      "status": 200,
+      "bytes": 170304,
+      "sha256": "6659ba53421fb1557a4bd7f91551d8a7437dda179a0874fb49eb87ecb6c5c436",
+      "namePresence": {
+        "found": 15,
+        "missing": []
+      }
+    },
+    {
+      "url": "https://www.akamai.com/legal/manage-cookie-preferences",
+      "finalUrl": "https://www.akamai.com/legal/manage-cookie-preferences",
+      "status": 200,
+      "bytes": 227663,
+      "sha256": "8993b39cb6a18b8332f7916f9ae9e7124daef18f72131a1dd722425af62588ea",
+      "namePresence": {
+        "found": 6,
+        "missing": []
+      }
+    },
+    {
+      "url": "https://www.intercom.com/help/en/articles/2361922-intercom-messenger-cookies",
+      "finalUrl": "https://www.intercom.com/help/en/articles/2361922-intercom-messenger-cookies",
+      "status": 200,
+      "bytes": 339809,
+      "sha256": "9a5da6bd923add880214804e50220d5f0c006f2ce32b85a7f0587662f2019397",
+      "namePresence": {
+        "found": 3,
+        "missing": []
+      }
+    },
+    {
+      "url": "https://www.intercom.com/legal/product-privacy-notice",
+      "finalUrl": "https://www.intercom.com/legal/product-privacy-notice",
+      "status": 200,
+      "bytes": 957824,
+      "sha256": "d7bd6428a73f0d62996d53e841ddb159a699acbe6b62a10e859c574635068b01",
+      "namePresence": {
+        "found": 1,
+        "missing": [
+          "intercom-id-",
+          "intercom-session-"
+        ]
+      }
+    },
+    {
+      "url": "https://www.iubenda.com/en/help/46731-how-to-retrieve-proof-of-a-cookie-preferences-for-specific-users/",
+      "finalUrl": "https://www.iubenda.com/en/help/46731-how-to-retrieve-proof-of-a-cookie-preferences-for-specific-users/",
+      "status": 200,
+      "bytes": 284509,
+      "sha256": "398d456419977efaf8a1eb35a7b955c447f30c72aebfd2f67ebad16b62f34409",
+      "namePresence": {
+        "found": 1,
+        "missing": []
+      }
+    },
+    {
+      "url": "https://www.linkedin.com/legal/l/cookie-table",
+      "finalUrl": "https://www.linkedin.com/legal/l/cookie-table",
+      "status": 200,
+      "bytes": 97814,
+      "sha256": "9e89857a96d59e546bee1a975cf31aa4cbde6f2fea7c78b80b069b47a4352361",
+      "namePresence": {
+        "found": 35,
+        "missing": []
+      }
+    },
+    {
+      "url": "https://www.shopify.com/legal/cookies",
+      "finalUrl": "https://www.shopify.com/legal/cookies",
+      "status": 200,
+      "bytes": 448070,
+      "sha256": "961ae20e579e0c9b0e429cbfe25bfb0996e66ea63174de40abe7c9fa4e1aff3e",
+      "namePresence": {
+        "found": 15,
+        "missing": []
+      }
+    }
+  ]
+}

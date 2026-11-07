@@ -1,0 +1,80 @@
+/* ADR-063: local Browser Debug panels follow the management glass palette. */
+.browser-debug { display: grid; gap: 20px; min-width: 0; color: var(--text); }
+.browser-debug-header, .browser-debug-toolbar, .browser-debug-editor__heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; min-width: 0; }
+.browser-debug-header h2 { margin: 0; font-size: 24px; line-height: 1.3; letter-spacing: -.5px; }
+.browser-debug-header p { margin: 5px 0 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+.browser-debug-layout { display: grid; grid-template-columns: 182px minmax(0, 1fr); align-items: start; gap: 18px; min-width: 0; }
+.browser-debug-datasets { display: grid; gap: 4px; min-width: 0; padding: 7px; border: 1px solid var(--glass-line, var(--border)); border-radius: 18px; background: var(--glass, var(--surface)); }
+:root body .browser-debug-dataset { display: flex; align-items: center; justify-content: space-between; gap: 6px; min-width: 0; min-height: 38px; padding: 9px 10px; border: 1px solid transparent; border-radius: 11px; text-align: start; color: var(--muted); background: transparent; box-shadow: none; font: 550 13px/1.35 var(--font); cursor: pointer; overflow-wrap: anywhere; }
+:root body .browser-debug-dataset:not(:disabled):hover { color: var(--text); background: var(--surface-2); box-shadow: none; }
+:root body .browser-debug-dataset.is-selected { color: var(--accent); border-color: var(--glass-line, var(--border)); background: var(--surface-2); box-shadow: none; }
+.browser-debug-draft { padding: 2px 5px; border: 1px solid var(--border); border-radius: 6px; color: var(--muted); font-size: 12px; font-weight: 400; }
+.browser-debug-content { display: grid; gap: 16px; min-width: 0; padding: 22px; border: 1px solid var(--glass-line, var(--border)); border-radius: 20px; background: var(--glass, var(--surface)); box-shadow: var(--glass-shadow); }
+.browser-debug-toolbar h3, .browser-debug-editor h3, .browser-debug-export h3 { margin: 0; color: var(--text); font-size: 18px; line-height: 1.4; }
+.browser-debug-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; min-width: 0; }
+.browser-debug .button { max-width: 100%; min-height: 34px; white-space: normal; overflow-wrap: anywhere; font-size: 13px; line-height: 1.35; }
+/* Keep primary text readable when the shared dark-theme hover rule selects a pale accent. */
+@media (forced-colors: none) {
+  :root body .browser-debug .button--primary:not(:disabled) { color: #fff; border-color: transparent; background: linear-gradient(140deg, #2866ce, #1f50a6); filter: none; }
+}
+.browser-debug-filters { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; min-width: 0; }
+.browser-debug-filters label, .browser-debug-field { display: grid; align-content: start; gap: 6px; min-width: 0; color: var(--muted); font-size: 13px; line-height: 1.4; }
+.browser-debug input:not([type=checkbox]), .browser-debug select, .browser-debug textarea { width: 100%; min-width: 0; padding: 9px 10px; border: 1px solid var(--border); border-radius: 10px; color: var(--text); background: var(--surface); font: 400 13px/1.5 var(--font); }
+.browser-debug input[type=checkbox] { width: 16px; height: 16px; margin: 0; accent-color: var(--accent); }
+.browser-debug input:disabled, .browser-debug select:disabled { color: var(--muted); }
+.browser-debug input:focus-visible, .browser-debug select:focus-visible, .browser-debug textarea:focus-visible, .browser-debug button:focus-visible, .browser-debug summary:focus-visible, .browser-debug-table-scroll:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+.browser-debug-status, .browser-debug-count { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.browser-debug-access { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 14px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface-2); }
+.browser-debug-access p { margin: 0; font-size: 13px; line-height: 1.5; }
+.browser-debug-error { margin: 0; padding: 12px; border: 1px solid var(--danger); border-radius: 11px; color: var(--danger); background: var(--surface-2); font-size: 13px; line-height: 1.55; }
+.browser-debug-editor, .browser-debug-export { display: grid; gap: 15px; min-width: 0; padding: 18px; border: 1px solid var(--border); border-radius: 15px; background: var(--surface-2); }
+.browser-debug-editor__heading { align-items: flex-start; }
+.browser-debug-editor__heading p { margin: 0; max-width: 100%; color: var(--muted); font-size: 13px; line-height: 1.5; overflow-wrap: anywhere; }
+.browser-debug-editor__fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; min-width: 0; margin: 0; padding: 0; border: 0; }
+.browser-debug-field--check { display: flex; align-items: center; align-self: center; gap: 9px; min-height: 36px; }
+.browser-debug-destructive-note { margin: 0; color: var(--text); font-size: 13px; line-height: 1.55; }
+.browser-debug-diff h4 { margin: 0 0 8px; font-size: 13px; font-weight: 650; }
+.browser-debug-diff dl, .browser-debug-record-details { display: grid; gap: 7px; margin: 0; font-size: 12px; line-height: 1.55; }
+.browser-debug-diff dl > div, .browser-debug-record-details > div { display: grid; grid-template-columns: minmax(90px, .4fr) minmax(0, 1fr); gap: 9px; }
+.browser-debug-diff dt, .browser-debug-record-details dt { color: var(--muted); }
+.browser-debug-diff dd, .browser-debug-record-details dd { min-width: 0; margin: 0; color: var(--text); overflow-wrap: anywhere; }
+.browser-debug-diff ins { text-decoration: none; font-weight: 600; }
+.browser-debug-export textarea { min-height: 260px; resize: vertical; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 12px; }
+.browser-debug-results { display: grid; gap: 12px; min-width: 0; }
+.browser-debug-table-scroll { min-width: 0; max-width: 100%; overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; overscroll-behavior-inline: contain; }
+.browser-debug-table { width: 100%; border-collapse: collapse; table-layout: fixed; color: var(--text); font-size: 12px; line-height: 1.5; }
+.browser-debug-table th, .browser-debug-table td { min-width: 0; padding: 11px 10px; border-block-end: 1px solid var(--border); text-align: start; vertical-align: top; overflow-wrap: anywhere; }
+.browser-debug-table th { background: var(--surface-2); color: var(--muted); font-weight: 600; }
+.browser-debug-table tr:last-child td { border-block-end: 0; }
+.browser-debug-table td:last-child, .browser-debug-table th:last-child { width: 118px; }
+.browser-debug-value { white-space: pre-wrap; unicode-bidi: plaintext; overflow-wrap: anywhere; }
+.browser-debug-row-actions { min-width: 110px; }
+.browser-debug-row-actions > .button { display: inline-flex; margin-block-start: 6px; padding: 5px 7px; min-height: 28px; font-size: 12px; }
+.browser-debug-row-actions summary { cursor: pointer; color: var(--accent); min-height: 24px; }
+.browser-debug-record-details { margin-block-start: 10px; }
+.browser-debug-record-details > div { display: block; margin-block-start: 6px; }
+.browser-debug-pagination { display: flex; justify-content: space-between; align-items: center; gap: 12px; color: var(--muted); font-size: 13px; }
+@media (max-width: 760px) {
+  .browser-debug-layout { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .browser-debug-datasets { display: flex; overflow-x: auto; overscroll-behavior-inline: contain; border-radius: 14px; }
+  :root body .browser-debug-dataset { flex: none; max-width: 220px; min-height: 38px; white-space: nowrap; }
+  .browser-debug-content { padding: 16px; border-radius: 16px; }
+  .browser-debug-table { min-width: 640px; }
+}
+@media (max-width: 420px) {
+  .browser-debug-header { align-items: flex-start; }
+  .browser-debug-header h2 { font-size: 22px; }
+  .browser-debug-filters, .browser-debug-editor__fields { grid-template-columns: minmax(0, 1fr); }
+  .browser-debug-editor, .browser-debug-export { padding: 13px; }
+  .browser-debug-diff dl > div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+}
+@media (prefers-reduced-motion: reduce) { .browser-debug * { transition: none; scroll-behavior: auto; } }
+@media (forced-colors: active) {
+  .browser-debug-datasets, .browser-debug-content, .browser-debug-editor, .browser-debug-export, .browser-debug-access, .browser-debug-table th, .browser-debug-error { color: CanvasText; background: Canvas; border-color: CanvasText; box-shadow: none; }
+  :root body .browser-debug-dataset, :root body .browser-debug-dataset:not(:disabled):hover { color: ButtonText; background: ButtonFace; border-color: ButtonText; }
+  :root body .browser-debug-dataset.is-selected { color: ButtonText; background: ButtonFace; border-color: Highlight; outline: 2px solid Highlight; outline-offset: -3px; }
+  .browser-debug input:not([type=checkbox]), .browser-debug select, .browser-debug textarea { color: FieldText; background: Field; border-color: FieldText; }
+  .browser-debug-dataset:disabled, .browser-debug input:disabled, .browser-debug select:disabled { color: GrayText; }
+  .browser-debug-table-scroll, .browser-debug-table th, .browser-debug-table td { border-color: CanvasText; }
+  .browser-debug *:focus-visible { outline-color: Highlight; }
+}

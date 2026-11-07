@@ -1,0 +1,422 @@
+{
+  "extName": { "message": "detect.expert" },
+  "extDescription": {
+    "message": "Показывает наблюдаемые обращения к браузерным API и признаки известных сервисов на разрешённых сайтах."
+  },
+  "actionTitle": { "message": "Проверки на странице — detect.expert" },
+  "popupTitle": { "message": "Проверки на странице" },
+  "sidepanelTitle": { "message": "Наблюдения на странице" },
+  "optionsTitle": { "message": "Настройки detect.expert" },
+  "coverageTitle": { "message": "Покрытие наблюдения" },
+  "coverageOff": {
+    "message": "Наблюдение не ведётся: область не выбрана. «Не обнаружено» означает «не наблюдалось в доступной области за период»."
+  },
+  "scopeLabel": { "message": "Область наблюдения" },
+  "scope_start_title": { "message": "Что проверять?" },
+  "scope_start_hint": { "message": "Выберите область ниже" },
+  "host_access_needed": { "message": "Адрес сайта пока недоступен" },
+  "action_reload_short": { "message": "Перезагрузить" },
+  "scopeOff": { "message": "выключено" },
+  "scopeActiveTab": { "message": "с этого момента на текущей вкладке" },
+  "scopeSite": { "message": "всегда на этом сайте" },
+  "scopeAllSites": { "message": "на всех сайтах" },
+  "statusLoading": { "message": "загрузка…" },
+  "statusUnavailable": { "message": "недоступно" },
+  "vendorsSectionTitle": { "message": "Распознанные сервисы защиты и идентификации" },
+  "vendorsEmpty": { "message": "Совпадений не наблюдалось. Отсутствие совпадения не доказывает отсутствие антифрода." },
+  "disclaimerNoVerdict": {
+    "message": "Расширение только информирует: оно не выносит вердикт о безопасности сайта и не блокирует проверки."
+  },
+
+  "coverage_active_title": { "message": "Наблюдение ведётся" },
+  "coverage_active_desc": {
+    "message": "Датчики установлены с начала загрузки документа. Workers, WebAssembly, CSS и серверные проверки не наблюдаются."
+  },
+  "coverage_partial_title": { "message": "Частичное наблюдение" },
+  "coverage_partial_desc": {
+    "message": "Наблюдается часть документа: $DETAIL$. Отсутствие находок в недоступных областях ничего не означает.",
+    "placeholders": { "detail": { "content": "$1" } }
+  },
+  "coverage_late_start_title": { "message": "Наблюдение начато поздно" },
+  "coverage_late_start_desc": {
+    "message": "Датчики установлены после начала работы страницы. Ранние вызовы могли быть пропущены. Перезагрузите страницу для анализа с начала."
+  },
+  "coverage_late_start_active_tab_desc": {
+    "message": "Наблюдаем вызовы с момента включения до смены документа. Ранние вызовы могли быть пропущены. Чтобы наблюдать загрузку страницы, выберите «Всегда на этом сайте», затем перезагрузите её."
+  },
+  "coverage_paused_title": { "message": "Наблюдение приостановлено" },
+  "coverage_paused_desc": { "message": "Наблюдение приостановлено. Страница продолжает работу." },
+  "coverage_paused_reload": { "message": "Чтобы убрать датчики полностью, перезагрузите страницу." },
+  "coverage_unsupported_title": { "message": "На этой странице наблюдение недоступно" },
+  "coverage_unsupported_desc": {
+    "message": "Встроенные страницы Chrome, Web Store, другие расширения и некоторые специальные фреймы не поддерживают наблюдение."
+  },
+  "coverage_unsupported_chrome_desc": {
+    "message": "Эта версия Chrome не поддерживается ($VERSION$). Наблюдение недоступно.",
+    "placeholders": { "version": { "content": "$1" } }
+  },
+  "coverage_no_access_title": { "message": "Нет доступа к этой странице" },
+  "coverage_no_access_desc": {
+    "message": "Нет доступа к $HOST$. Отсутствие наблюдений ничего не означает. Выберите уровень наблюдения, чтобы начать.",
+    "placeholders": { "host": { "content": "$1" } }
+  },
+  "coverage_revoked_desc": {
+    "message": "Доступ к $HOST$ отозван. Новые данные не собираются. Чтобы убрать датчики полностью, перезагрузите страницу.",
+    "placeholders": { "host": { "content": "$1" } }
+  },
+  "coverage_degraded_title": { "message": "Наблюдение ограничено" },
+  "coverage_degraded_desc": {
+    "message": "Превышен лимит событий: часть данных отброшена ($DROPPED$). Этот период нельзя считать полностью наблюдаемым.",
+    "placeholders": { "dropped": { "content": "$1" } }
+  },
+  "coverage_context_changed": {
+    "message": "Контекст сменился: показан отчёт для $HOST$.",
+    "placeholders": { "host": { "content": "$1" } }
+  },
+  "coverage_managed_desc": { "message": "Часть настроек задана вашей организацией." },
+  "coverage_blind_spots_title": { "message": "Известные слепые зоны" },
+  "coverage_blind_spots_desc": {
+    "message": "Workers, WebAssembly, декларативный CSS, DNS-резолвер, TLS и серверный антифрод не наблюдаются этим расширением. Расширение может быть замечено сайтом."
+  },
+  "coverage_flags_title": { "message": "Ограничения покрытия" },
+  "coverage_partial_detail_unknown": { "message": "причина не указана" },
+  "coverage_flag_late_start": { "message": "датчики установлены поздно" },
+  "coverage_flag_hook_failed": {"message": "датчики сообщили об ограничении установки; диагностика контролируется страницей"},
+  "coverage_flag_throttled": { "message": "поток событий ограничен" },
+  "coverage_flag_unsupported_realm": { "message": "часть контекстов выполнения не поддерживается" },
+  "coverage_flag_channel_gap": {"message": "пробел или конфликт в канале страницы; данные контролируются страницей"},
+  "coverage_flag_truncated": { "message": "подробности сокращены из-за лимита памяти" },
+  "coverage_flag_paused": { "message": "наблюдение приостановлено" },
+  "coverage_flag_revoked": { "message": "доступ отозван" },
+  "coverage_flag_protocol_mismatch": { "message": "версия датчиков устарела, перезагрузите страницу" },
+  "coverage_flag_descriptor_nonconfigurable": { "message": "часть API нельзя наблюдать: защищённые дескрипторы" },
+  "coverage_flag_bridge_ring_overflow": { "message": "переполнен буфер передачи, часть данных потеряна" },
+  "coverage_flag_budget_exceeded": { "message": "превышен лимит данных наблюдения документа, часть сведений не сохранена" },
+  "coverage_flag_no_host_permission": { "message": "сеть ограничена разрешениями" },
+  "coverage_flag_restricted_page": { "message": "служебная страница браузера" },
+  "coverage_flag_worker_not_observed": { "message": "workers не наблюдаются" },
+
+  "state_scope_off_title": { "message": "Наблюдение выключено" },
+  "state_no_report_title": { "message": "Отчёт ещё не создан" },
+  "state_no_report_desc": {
+    "message": "Для этого документа наблюдений ещё нет. Если страница была открыта до включения наблюдения, перезагрузите её."
+  },
+  "state_unsupported_chrome_title": { "message": "Версия Chrome не поддерживается" },
+  "state_sw_unavailable_title": { "message": "Фоновый процесс не отвечает" },
+  "state_sw_unavailable_desc": {
+    "message": "Фоновый процесс расширения не ответил. Закройте и снова откройте это окно; если ошибка повторяется, перезапустите расширение."
+  },
+  "status_active": { "message": "наблюдение" },
+  "status_partial": { "message": "частично" },
+  "status_late_start": { "message": "поздний старт" },
+  "status_paused": { "message": "пауза" },
+  "status_unsupported": { "message": "недоступно" },
+  "status_no_access": { "message": "нет доступа" },
+  "status_degraded": { "message": "ограничено" },
+  "status_off": { "message": "выключено" },
+  "status_no_report": { "message": "нет отчёта" },
+  "status_error": { "message": "ошибка" },
+  "host_unknown": { "message": "хост неизвестен" },
+  "observed_since": {
+    "message": "Наблюдается с $TIME$",
+    "placeholders": { "time": { "content": "$1" } }
+  },
+  "document_label": { "message": "Документ" },
+
+  "empty_no_findings": { "message": "За этот период в доступной области находок нет" },
+  "empty_no_findings_hint": { "message": "Это не оценка безопасности сайта. Проверьте область наблюдения выше." },
+  "findings_title": { "message": "Что заметило расширение" },
+  "techniques_title": { "message": "Наблюдаемые техники" },
+  "techniques_none": { "message": "Техники не наблюдались в доступной области." },
+  "more_in_panel": {
+    "message": "Ещё $N$ — в боковой панели",
+    "placeholders": { "n": { "content": "$1" } }
+  },
+
+  "level_observation": { "message": "Наблюдение" },
+  "level_interpretation": { "message": "Интерпретация" },
+  "level_purpose": { "message": "Назначение в целом" },
+
+  "card_api_use_label": { "message": "Использован API" },
+  "card_api_use_generic": {
+    "message": "Использован $API$ — $COUNT$",
+    "placeholders": { "api": { "content": "$1" }, "count": { "content": "$2" } }
+  },
+  "card_api_use_canvas_export": {
+    "message": "Вызван экспорт canvas ($API$) — $COUNT$",
+    "placeholders": { "api": { "content": "$1" }, "count": { "content": "$2" } }
+  },
+  "card_api_use_canvas_readback": {
+    "message": "Вызвано чтение пикселей canvas ($API$) — $COUNT$",
+    "placeholders": { "api": { "content": "$1" }, "count": { "content": "$2" } }
+  },
+  "card_api_use_canvas_text": {"message": "Вызовы измерения или отрисовки текста на canvas — $COUNT$", "placeholders": {"count": {"content": "$1"}}},
+  "card_api_use_offscreen": {
+    "message": "Использован OffscreenCanvas в документе — $COUNT$",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "card_api_use_math": {
+    "message": "Серия вызовов Math.* — $COUNT$",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "card_api_use_webrtc": {
+    "message": "Использован WebRTC ($API$) — $COUNT$",
+    "placeholders": { "api": { "content": "$1" }, "count": { "content": "$2" } }
+  },
+  "card_api_use_local_probe": {
+    "message": "Обращения к локальным адресам — $COUNT$",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "card_api_use_dns": {
+    "message": "Запросы к уникальным поддоменам — $COUNT$",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "card_api_use_attempt_only": { "message": "Попытка: вызов завершился исключением, результат странице не передан" },
+  "card_api_use_generic_note": { "message": "Само по себе обращение к API — обычное дело и не доказывает слежку." },
+  "card_api_use_purpose": { "message": "В целом этот механизм может использоваться для распознавания браузера." },
+  "card_purpose_local_probe": {
+    "message": "В целом такая проба может использоваться для обнаружения локальных сервисов и окружения."
+  },
+  "card_purpose_dns": { "message": "В целом такая серия может использоваться для проверки DNS-резолвера." },
+
+  "card_fp_label": { "message": "Есть признаки вычисления отпечатка" },
+  "card_fp_generic": { "message": "Последовательность обращений похожа на построение отпечатка" },
+  "card_fp_canvas_sequence": { "message": "Серия чтений после отрисовки текста похожа на построение отпечатка" },
+  "card_fp_math_sequence": { "message": "Серия численных проверок похожа на известный шаблон" },
+  "card_fp_local_probe": { "message": "Серия попыток соединений с локальными адресами похожа на пробу локальной сети" },
+  "card_fp_dns_pattern": {
+    "message": "Наблюдается серия запросов к уникальным поддоменам; это бывает при DNS-тестах. Использованный резолвер расширению неизвестен."
+  },
+  "card_fp_webrtc": { "message": "Страница использовала WebRTC. Этот механизм может обращаться к сетевой информации." },
+  "card_fp_not_proven": { "message": "Назначение, уникальность и передача результата этим наблюдением не установлены." },
+  "card_fp_alternatives": {
+    "message": "Обычные объяснения: $ALTERNATIVES$",
+    "placeholders": { "alternatives": { "content": "$1" } }
+  },
+  "card_fp_insufficient": { "message": "Недостаточно данных для вывода" },
+  "confidence_low": { "message": "Низкая уверенность интерпретации" },
+  "confidence_medium": { "message": "Средняя уверенность интерпретации" },
+  "confidence_high": { "message": "Высокая уверенность интерпретации" },
+  "confidence_unassessed": { "message": "Уверенность не оценивалась" },
+
+  "card_vendor_found": {
+    "message": "Найдены признаки интеграции $VENDOR$",
+    "placeholders": { "vendor": { "content": "$1" } }
+  },
+  "card_vendor_purpose": {
+    "message": "Назначение сервиса — $PURPOSE$. Это не оценка безопасности сайта.",
+    "placeholders": { "purpose": { "content": "$1" } }
+  },
+  "card_vendor_threatmetrix_purpose": { "message": "оценка риска и цифровой идентичности" },
+  "card_vendor_purpose_generic": { "message": "защита от ботов, оценка риска или идентификация" },
+  "card_vendor_rules": {
+    "message": "Правила: $RULES$; источник совпадения: $SOURCE$",
+    "placeholders": { "rules": { "content": "$1" }, "source": { "content": "$2" } }
+  },
+  "card_vendor_match_documented_resource": { "message": "совпадение с документированным ресурсом" },
+  "card_vendor_match_multi_signal": { "message": "несколько независимых признаков" },
+  "card_vendor_match_weak_signal": { "message": "найден элемент интеграции (слабый признак, может быть подделан страницей)" },
+  "card_vendor_match_none": { "message": "совпадений нет" },
+  "card_vendor_not_linked": { "message": "Связь этого сервиса с другими наблюдениями на странице не установлена." },
+  "card_vendor_unknown": { "message": "Поставщик неизвестен" },
+  "card_vendor_no_trust": {
+    "message": "Распознанный сервис не является оценкой безопасности сайта и не означает, что все проверки выполняет этот сервис."
+  },
+
+  "integrity_browser_observed": { "message": "Наблюдалось браузером" },
+  "integrity_page_controlled": { "message": "Данные из контекста страницы, могут быть подделаны" },
+  "integrity_derived": { "message": "Вычислено расширением" },
+  "evidence_browser_network": { "message": "сетевые события браузера" },
+  "evidence_browser_navigation": { "message": "навигация браузера" },
+  "evidence_page_hook": { "message": "перехват API в контексте страницы" },
+  "evidence_page_dom": { "message": "DOM страницы" },
+  "evidence_derived": { "message": "производный вывод" },
+  "attribution_exact_resource": { "message": "Источник вызова: точный ресурс" },
+  "attribution_sampled_stack": { "message": "Источник вызова по выборке стека (может вводить в заблуждение)" },
+  "attribution_frame_only": { "message": "Известен только фрейм" },
+  "attribution_unknown": { "message": "Источник вызова неизвестен" },
+  "count_exact": { "message": "точный счётчик" },
+  "count_sampled": { "message": "выборочный счётчик" },
+  "count_lower_bound": { "message": "не менее, были потери" },
+  "count_value_sampled": {
+    "message": "около $N$ (выборка)",
+    "placeholders": { "n": { "content": "$1" } }
+  },
+  "count_value_lower_bound": {
+    "message": "не менее $N$",
+    "placeholders": { "n": { "content": "$1" } }
+  },
+  "phase_attempted": { "message": "попытка" },
+  "phase_returned_sync": { "message": "результат возвращён" },
+  "phase_threw_sync": { "message": "исключение" },
+  "phase_async_returned": { "message": "асинхронный результат" },
+  "phase_settlement_unobserved": { "message": "завершение не наблюдалось" },
+
+  "detail_show": { "message": "Подробности" },
+  "detail_api": { "message": "API" },
+  "detail_technique": { "message": "Техника" },
+  "detail_category": { "message": "Категория" },
+  "detail_evidence": { "message": "Источник данных" },
+  "detail_rule": { "message": "Правило" },
+  "detail_finding_id": { "message": "Находка" },
+  "detail_evidence_ids": { "message": "Наблюдения" },
+  "detail_counts": { "message": "Счётчики" },
+  "detail_phases": { "message": "Фазы" },
+  "detail_limitations": { "message": "Ограничения" },
+  "detail_alternatives": { "message": "Обычные объяснения" },
+  "detail_attribution": { "message": "Атрибуция" },
+  "detail_none": { "message": "нет" },
+  "category_graphics": { "message": "Графика, геометрия, шрифты" },
+  "category_audio": { "message": "Аудио, медиа и вычисления" },
+  "category_environment": { "message": "Среда браузера, экран и локализация" },
+  "category_permissions": { "message": "Разрешения, устройства, взаимодействия" },
+  "category_storage": { "message": "Хранилища и идентификаторы" },
+  "category_network": { "message": "Сеть (явно неполное покрытие)" },
+
+  "action_pause": {"message": "Приостановить наблюдение в текущем документе"},
+  "action_resume": { "message": "Возобновить наблюдение" },
+  "action_reload": { "message": "Перезагрузить для анализа с начала" },
+  "action_clear": { "message": "Удалить отчёт этого документа" },
+  "action_export": { "message": "Экспорт (предпросмотр)" },
+  "action_refresh": { "message": "Обновить" },
+  "action_apply": { "message": "Применить" },
+  "action_cancel": { "message": "Отмена" },
+  "action_dismiss": { "message": "Закрыть" },
+  "open_sidepanel": { "message": "Открыть панель" },
+  "open_options": { "message": "Настройки" },
+
+  "export_preview_title": { "message": "Предпросмотр экспорта" },
+  "export_preview_desc": {
+    "message": "В файл попадут только поля ниже (с удалёнными чувствительными данными). Полные URL, значения cookie, результаты API и содержимое ввода отсутствуют."
+  },
+  "export_host_warning": {
+    "message": "Файл содержит host страницы: $HOST$. Не передавайте файл без необходимости.",
+    "placeholders": { "host": { "content": "$1" } }
+  },
+  "export_fields_title": { "message": "Поля файла" },
+  "export_json_title": { "message": "Полное содержимое JSON" },
+  "export_save": { "message": "Сохранить файл" },
+  "export_document_changed": { "message": "Документ сменился. Откройте предпросмотр заново." },
+  "export_unavailable": { "message": "Экспорт недоступен: нет доступа к странице или нет отчёта." },
+  "export_saved": { "message": "Файл сохранён." },
+  "export_not_implemented": { "message": "Предпросмотр экспорта пока не поддерживается фоновым процессом." },
+
+  "mode_off": { "message": "Выключено" },
+  "mode_off_desc": { "message": "Фоновые наблюдения выключены. Отчёты не создаются." },
+  "mode_active_tab": { "message": "Проверять с этого момента" },
+  "mode_active_tab_desc": { "message": "Наблюдения после включения; ранние вызовы могли быть пропущены." },
+  "mode_site": { "message": "Всегда на этом сайте" },
+  "mode_site_desc": {
+    "message": "Перезагрузите страницу для анализа с начала. Ранние вызовы в разрешённых документах при следующей загрузке; сторонняя сеть может быть видна частично."
+  },
+  "mode_all": { "message": "На всех сайтах" },
+  "mode_all_desc": { "message": "Наиболее широкий доступ, без обещания полного покрытия workers, DNS и серверной логики." },
+  "scope_permission_denied": { "message": "Разрешение не выдано. Область не изменена." },
+  "scope_permission_granted_reload": { "message": "Доступ выдан. Перезагрузите страницу, чтобы анализ начался с начала" },
+  "scope_site_host_unknown": {
+    "message": "Хост текущей страницы неизвестен: сначала включите «Проверять с этого момента» или введите хост в настройках."
+  },
+  "scope_host_input_label": { "message": "Хост сайта" },
+  "scope_host_invalid": { "message": "Введите хост, например example.com" },
+  "scope_current": {
+    "message": "Текущая область: $MODE$",
+    "placeholders": { "mode": { "content": "$1" } }
+  },
+  "scope_hosts_list": { "message": "Сайты с постоянным наблюдением" },
+  "scope_hosts_none": { "message": "нет" },
+  "scope_granted_all": { "message": "Широкий доступ к сайтам выдан браузером." },
+  "scope_error": {
+    "message": "Не удалось изменить область: $CODE$",
+    "placeholders": { "code": { "content": "$1" } }
+  },
+  "scope_applied": { "message": "Область наблюдения обновлена." },
+  "scope_applied_reload": { "message": "Область наблюдения обновлена. Перезагрузите страницу, чтобы наблюдение началось с загрузки страницы." },
+
+  "options_onboarding_title": { "message": "Что делает расширение" },
+  "onboarding_limits": {
+    "message": "Расширение наблюдает уже выполняемые вызовы, не изменяет их результаты и ничего не блокирует. Для этого оно заменяет часть функций браузера обёртками: это может быть замечено сайтом и добавляет время выполнения. Полное покрытие не обещается."
+  },
+  "onboarding_no_server": { "message": "Расширение не отправляет результаты анализа и не обращается к серверам разработчика." },
+  "options_clear_session": { "message": "Очистить данные сессии" },
+  "options_clear_session_desc": { "message": "Удаляет все отчёты документов из памяти сессии. Настройки остаются." },
+  "options_clear_done": { "message": "Данные сессии удалены." },
+  "options_clear_unavailable": { "message": "Действие пока недоступно в этой сборке." },
+  "options_inventory_title": { "message": "Какие данные хранятся" },
+  "inventory_session": {
+    "message": "Отчёты документов — только в памяти сессии (chrome.storage.session). После 10 минут неактивности данные удаляются при следующем событии расширения с проверкой не чаще раза в 30 секунд, не ровно через 10 минут. Закрытие вкладки также запускает удаление; перезапуск браузера очищает сессию."
+  },
+  "inventory_local": { "message": "Настройки (область наблюдения, выбранные сайты) — chrome.storage.local до удаления пользователем." },
+  "inventory_never": {
+    "message": "Никогда не хранятся: пиксели canvas, аудио, аргументы и результаты Math, полные URL, значения cookie, заголовки, тела запросов, нажатия и текст форм, IP-адреса."
+  },
+  "inventory_export": { "message": "Файл экспорта содержит только поля, показанные в предпросмотре, включая host страницы." },
+  "inventory_sync": { "message": "Синхронизация через аккаунт Chrome, диск и внешние серверы не используются." },
+  "inventory_link": { "message": "Полный перечень: docs/data-inventory.md в репозитории проекта." },
+
+  "tab_overview": { "message": "Обзор" },
+  "tab_techniques": { "message": "Техники" },
+  "tab_sources": { "message": "Источники" },
+  "tab_limits": { "message": "Ограничения" },
+  "group_techniques": { "message": "Техники" },
+  "group_services": { "message": "Сервисы" },
+  "group_third_party": { "message": "Сторонние источники" },
+  "counts_unavailable": { "message": "нет данных в проекции" },
+  "search_label": { "message": "Поиск по техникам и API" },
+  "search_placeholder": { "message": "Техника, API или правило" },
+  "search_empty": { "message": "Ничего не найдено по запросу" },
+  "sources_hosts_title": { "message": "Хосты (наблюдал браузер)" },
+  "sources_none": {
+    "message": "Список сторонних хостов недоступен в этой проекции отчёта. Сетевые события видны только при разрешении на сайт и на источник запроса."
+  },
+  "sources_requests": {
+    "message": "запросов: $N$",
+    "placeholders": { "n": { "content": "$1" } }
+  },
+  "dropped_title": { "message": "Отброшено из-за лимитов" },
+  "dropped_observations": { "message": "наблюдения" },
+  "dropped_batches": { "message": "пакеты" },
+  "dropped_findings": { "message": "находки" },
+  "dropped_hosts": { "message": "хосты" },
+  "dropped_counters": { "message": "счётчики" },
+  "dropped_transport": { "message": "транспорт" },
+  "dropped_ring": { "message": "вытеснения кольца (нижняя граница)" },
+
+  "error_invalid_request": { "message": "Некорректный запрос" },
+  "error_unauthorized_sender": { "message": "Отправитель не авторизован" },
+  "error_not_found": { "message": "Отчёт не найден: документ мог смениться" },
+  "error_stale_revision": { "message": "Отчёт обновился, действие отменено" },
+  "error_document_mismatch": { "message": "Документ сменился, действие отменено" },
+  "error_no_access": { "message": "Нет доступа к странице" },
+  "error_not_implemented": { "message": "Действие пока не поддерживается" },
+  "error_unavailable": { "message": "Фоновый процесс не ответил" },
+
+  "scope_active_tab_toolbar": { "message": "Чтобы начать наблюдение в текущей вкладке, откройте расширение кнопкой на панели инструментов Chrome и выберите «Проверять с этого момента»." },
+  "export_include_host": { "message": "Включить в экспорт хост страницы:" },
+  "vendors_catalog_unavailable": { "message": "Каталог сервисов отключён: распознавание сервисов не выполнялось." },
+  "limitation_page_controlled_evidence": { "message": "Эти наблюдения получены из контекста страницы и могут быть подделаны ею." },
+  "limitation_purpose_unknown": { "message": "Цель вызовов API неизвестна." },
+  "limitation_uniqueness_not_established": { "message": "Уникальность и стабильность результатов не проверялись." },
+  "limitation_readback_attempted_failed": { "message": "Как минимум одна попытка чтения завершилась исключением; это не подтверждает успешное чтение." },
+  "limitation_uncalibrated_threshold": { "message": "Пороговые значения правил пока не откалиброваны на корпусе примеров." },
+  "limitation_coverage_incomplete": { "message": "Покрытие наблюдения неполное; часть вызовов могла быть пропущена." },
+  "limitation_catalog_disabled": { "message": "Каталог сервисов отключён; связь наблюдений с поставщиками не проверялась." },
+  "limitation_text_ops_undifferentiated": { "message": "Измерение и рисование текста учитываются вместе; их отдельные количества неизвестны." },
+  "limitation_no_time_window": { "message": "Счётчики охватывают время жизни документа и не показывают активность за отдельный короткий интервал." },
+  "alternative_high_volume_rendering": { "message": "Большое число операций с текстом также возможно при обычной работе редактора или построении графиков." },
+  "coverage_flag_network_limited": { "message": "сетевые наблюдения ограничены доступными разрешениями" },
+  "coverage_flag_frames_inaccessible": { "message": "часть фреймов недоступна для наблюдения" },
+
+  "aria_live_update": {
+    "message": "Отчёт обновлён. Находок: $N$; состояние наблюдения — $STATE$",
+    "placeholders": { "n": { "content": "$1" }, "state": { "content": "$2" } }
+  },
+  "badge_tooltip": {
+    "message": "Категорий с находками: $N$",
+    "placeholders": { "n": { "content": "$1" } }
+  },
+  "coverage_sensor_disabled_desc": {"message": "Датчик $SENSOR$ отключён ($REASON$). Обращения к этим API не наблюдаются.", "placeholders": {"sensor": {"content": "$1"}, "reason": {"content": "$2"}}},
+  "card_vendor_first_party": {"message": "Сигнатура поставщика обнаружена на endpoint домена сайта"},
+  "options_diagnostics_title": {"message": "Диагностика расширения"},
+  "options_diagnostics_desc": {"message": "Только версии и доступность фонового процесса. Адреса страниц и данные отчётов не включаются."},
+  "options_diagnostics_preview": {"message": "Показать диагностический отчёт"}
+}

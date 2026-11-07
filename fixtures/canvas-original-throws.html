@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>canvas-original-throws</title>
+  </head>
+  <body>
+    <h1>Original exception pass-through</h1>
+    <p>Calls canvas APIs with invalid arguments and wrong receivers and records error name/message plus return-type facts. A differential run compares this object with and without the extension.</p>
+    <pre id="result"></pre>
+    <script src="fixture-lib.js"></script>
+    <script>
+      (function () {
+        var F = window.__fixture;
+        var canvas = document.createElement('canvas');
+        canvas.width = 16;
+        canvas.height = 16;
+        var ctx = canvas.getContext('2d');
+        var proto2d = CanvasRenderingContext2D.prototype;
+        var protoCanvas = HTMLCanvasElement.prototype;
+        var cases = {};
+        cases.zeroSize = F.attempt(function () { return ctx.getImageData(0, 0, 0, 0); });
+        cases.missingArgs = F.attempt(function () { return ctx.getImageData(); });
+        cases.nanWidth = F.attempt(function () { return ctx.getImageData(0, 0, NaN, 4); });
+        cases.negativeHeightOk = F.attempt(function () { var d = ctx.getImageData(0, 0, 4, -4); return { isImageData: d instanceof ImageData, w: d.width, h: d.height }; });
+        cases.wrongReceiver = F.attempt(function () { return proto2d.getImageData.call({}, 0, 0, 1, 1); });
+        cases.wrongReceiverToDataURL = F.attempt(function () { return protoCanvas.toDataURL.call(document.createElement('div')); });
+        cases.toBlobMissingCallback = F.attempt(function () { return canvas.toBlob(); });
+        cases.toDataURLReturnsString = F.attempt(function () { var u = canvas.toDataURL('image/png'); return { isString: typeof u === 'string', prefixOk: u.indexOf('data:image/png') === 0 }; });
+        cases.toDataURLUnknownType = F.attempt(function () { var u = canvas.toDataURL('image/unknown-type'); return { isString: typeof u === 'string', prefixOk: u.indexOf('data:image/png') === 0 }; });
+        cases.getImageDataInstance = F.attempt(function () { var d = ctx.getImageData(0, 0, 2, 2); return { isImageData: d instanceof ImageData, byteLength: d.data.length, ctorName: d.constructor.name }; });
+        cases.measureTextInstance = F.attempt(function () { var m = ctx.measureText('x'); return { isTextMetrics: m instanceof TextMetrics, widthIsNumber: typeof m.width === 'number' }; });
+        cases.fillTextReturnsUndefined = F.attempt(function () { return ctx.fillText('x', 0, 8) === undefined; });
+        cases.fillTextMissingArgs = F.attempt(function () { return ctx.fillText('x'); });
+        cases.contextIdentity = F.attempt(function () { return canvas.getContext('2d') === ctx && ctx.canvas === canvas; });
+        cases.constructNotAllowed = F.attempt(function () { return new protoCanvas.toDataURL(); });
+        cases.newTargetOnMethod = F.attempt(function () { return new ctx.getImageData(0, 0, 1, 1); });
+        // Descriptor facts (name/length may be copied by a wrapper as a compatibility measure, ADR-006).
+        var d1 = Object.getOwnPropertyDescriptor(proto2d, 'getImageData');
+        var d2 = Object.getOwnPropertyDescriptor(protoCanvas, 'toDataURL');
+        var d3 = Object.getOwnPropertyDescriptor(proto2d, 'measureText');
+        var descriptors = {
+          getImageData: { name: proto2d.getImageData.name, length: proto2d.getImageData.length, writable: d1.writable, configurable: d1.configurable, enumerable: d1.enumerable },
+          toDataURL: { name: protoCanvas.toDataURL.name, length: protoCanvas.toDataURL.length, writable: d2.writable, configurable: d2.configurable, enumerable: d2.enumerable },
+          measureText: { name: proto2d.measureText.name, length: proto2d.measureText.length, writable: d3.writable, configurable: d3.configurable, enumerable: d3.enumerable }
+        };
+        F.publish({ fixture: 'canvas-original-throws', cases: cases, descriptors: descriptors });
+      })();
+    </script>
+  </body>
+</html>

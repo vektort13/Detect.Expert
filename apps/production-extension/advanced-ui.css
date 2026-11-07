@@ -1,0 +1,24 @@
+.advanced-inspector { margin-block: 1rem; }
+.advanced-inspector, .pro-advanced { container-type: inline-size; container-name: advanced; }
+.advanced-heading, .advanced-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; }
+.advanced-heading { justify-content: space-between; }
+.advanced-heading h2 { margin: .5rem 0; }
+.advanced-heading .button, .advanced-actions .button { white-space: normal; max-width: 100%; overflow-wrap: anywhere; }
+.advanced-card { min-width: 0; margin-block: .8rem; padding: 1rem; border: 1px solid var(--border, #d2d8e0); border-radius: 12px; }
+.advanced-card h3, .advanced-card h4 { margin: 0 0 .65rem; overflow-wrap: anywhere; }
+.advanced-event { font-weight: 650; }
+.advanced-facts { margin: 0; }
+.advanced-fact { display: grid; grid-template-columns: minmax(6rem, 35%) minmax(0, 1fr); gap: .25rem .75rem; padding-block: .35rem; }
+.advanced-fact dt { min-width: 0; overflow-wrap: anywhere; color: var(--muted, #526273); }
+.advanced-fact dd { min-width: 0; margin: 0; overflow-wrap: anywhere; }
+.advanced-fact dd p { margin: 0 0 .25rem; }
+.advanced-fact .advanced-fact { display: block; padding-block: .2rem; }
+.advanced-fact .advanced-fact dt, .advanced-fact .advanced-fact dd { display: inline; }
+.advanced-fact .advanced-fact dt::after { content: ': '; }
+.advanced-capabilities { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); gap: .5rem; }
+.cookie-probe-select { display: grid; gap: .35rem; margin-block: .75rem; }
+.cookie-probe-select select { box-sizing: border-box; min-width: 0; width: 100%; padding: .6rem; border: 1px solid var(--border, #d2d8e0); border-radius: 8px; background: var(--surface, white); color: inherit; }
+.cookie-probe-result[data-cookie-probe-result='restored-same'] { border-color: #ce2433; background: #ce24330c; }
+@media (max-width: 400px) { .advanced-fact { grid-template-columns: 1fr; gap: .1rem; } }
+@container advanced (max-width: 400px) { .advanced-fact { grid-template-columns: 1fr; gap: .1rem; } }
+@media print { .advanced-card { break-inside: avoid; } .advanced-actions, .cookie-probe-select { display: none; } }

@@ -1,0 +1,20 @@
+Detect.Expert local company artwork
+
+The icons are packaged locally for identification of the company or the
+explicitly named declaration author already recorded by the catalogue.
+The runtime does not download logos and does not infer companies from arbitrary
+domains or cookie-name hints.
+
+Original Font Awesome Free 6.7.2 SVGs and their CC-BY-4.0 attribution remain in
+PROVENANCE.json and FONT-AWESOME-LICENSE.txt.
+
+Additional Simple Icons are pinned to the exact commits listed in
+COMPANY-PROVENANCE.json. Their distributed licence texts are included as
+SIMPLE-ICONS-*-LICENSE.txt. Per-icon licence information and primary artwork
+references are retained in that provenance ledger.
+
+Other artwork comes from the named company's public site, a documented public
+brand catalogue or an offline public favicon cache for the verified company
+domain. COMPANY-PROVENANCE.json records the source, identity source, original
+and final homepage where available, file hash and any bitmap conversion.
+Copyright and trademark ownership remains with the respective company.

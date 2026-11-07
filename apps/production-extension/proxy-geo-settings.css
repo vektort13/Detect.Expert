@@ -1,0 +1,112 @@
+/* ADR-109: the Proxy Manager Geolocation API settings page. Shared theme tokens (ui.css, then themes.css for the seven palettes), logical
+   properties so right-to-left languages mirror, no external resource. Nothing here is colour-only: states also change the text. */
+.proxy-geo-settings-page { margin: 0; min-width: 280px; background: var(--surface-2); color: var(--text); font: 14px/1.55 var(--font); }
+.pg-shell { width: min(1100px, calc(100% - 64px)); margin-inline: auto; padding-block: 28px 56px; }
+.pg-shell *, .pg-shell *::before, .pg-shell *::after { box-sizing: border-box; }
+.pg-shell [hidden] { display: none !important; }
+
+.pg-header, .pg-heading, .pg-card-heading, .pg-master-row, .pg-provider-head, .pg-use-row, .pg-option { display: flex; justify-content: space-between; gap: 16px; min-width: 0; }
+.pg-header { align-items: center; padding-block-end: 26px; border-block-end: 1px solid var(--border); }
+.pg-brand { color: var(--text); font-size: 19px; font-weight: 750; text-decoration: none; letter-spacing: -.5px; }
+.pg-brand span { display: block; margin-block-start: 2px; color: var(--muted); font-size: 12px; font-weight: 400; letter-spacing: 0; }
+.pg-language { display: grid; gap: 4px; color: var(--muted); font-size: 12px; }
+.pg-language select { max-width: 210px; padding: 7px 10px; border: 1px solid var(--control-border); border-radius: 9px; color: var(--text); background: var(--surface); font: inherit; font-size: 13px; }
+.pg-heading { align-items: flex-end; flex-wrap: wrap; padding-block: 34px 26px; }
+.pg-heading h1 { margin: 3px 0 8px; font-size: clamp(26px, 4vw, 36px); font-weight: 720; line-height: 1.25; letter-spacing: -.8px; overflow-wrap: anywhere; }
+.pg-heading p { margin: 0; color: var(--muted); }
+.pg-heading .pg-eyebrow { color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: .06em; }
+.pg-subtitle { max-width: 72ch; }
+.pg-back { color: var(--accent); font-size: 13px; text-underline-offset: 4px; }
+.pg-message { margin: 0 0 20px; padding: 13px 18px; border: 1px solid var(--error-border); border-radius: 12px; background: var(--error-bg); color: var(--error); font-size: 13px; }
+
+.pg-content { display: grid; gap: 20px; min-width: 0; }
+.pg-card { min-width: 0; padding: 24px; border: 1px solid var(--border); border-radius: 18px; background: var(--surface); box-shadow: 0 8px 30px #18284006; }
+.pg-card h2, .pg-card h3, .pg-section-title { margin: 0; font-weight: 650; line-height: 1.4; overflow-wrap: anywhere; }
+.pg-card h2, .pg-section-title { font-size: 17px; }
+.pg-card h3 { font-size: 16px; }
+.pg-section-title { margin-block-end: 4px; }
+.pg-help { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.65; overflow-wrap: anywhere; }
+.pg-providers > .pg-help { margin-block-end: 14px; }
+.pg-list { display: grid; gap: 8px; margin: 14px 0 0; padding-inline-start: 20px; }
+.pg-list li { overflow-wrap: anywhere; }
+
+.pg-master-row { align-items: flex-start; }
+.pg-master-text { display: grid; justify-items: start; gap: 8px; min-width: 0; }
+.pg-chip { padding: 4px 12px; border: 1px solid transparent; border-radius: 999px; background: var(--surface-2); color: var(--muted); font-size: 12px; font-weight: 650; overflow-wrap: anywhere; }
+.pg-chip[data-state=ready] { background: var(--theme-positive-bg, var(--accent-soft)); color: var(--theme-positive, var(--accent)); }
+.pg-chip[data-state=no-key] { background: var(--attention-bg); color: var(--attention); }
+.pg-options { display: grid; gap: 16px; margin-block-start: 20px; padding-block-start: 20px; border-block-start: 1px solid var(--border); }
+.pg-option { align-items: flex-start; justify-content: flex-start; }
+.pg-option-text { display: grid; gap: 3px; min-width: 0; }
+.pg-option-label { font-weight: 600; overflow-wrap: anywhere; }
+
+.pg-switch { position: relative; flex: none; width: 46px; height: 28px; padding: 0; border: 1px solid var(--control-border); border-radius: 999px; background: var(--surface-2); cursor: pointer; }
+.pg-switch::after { content: ""; position: absolute; inset-block-start: 3px; inset-inline-start: 3px; width: 20px; height: 20px; border-radius: 50%; background: var(--muted); }
+.pg-switch[aria-checked=true] { background: var(--accent); border-color: var(--accent); }
+.pg-switch[aria-checked=true]::after { inset-inline-start: 21px; background: var(--accent-contrast); }
+.pg-switch:disabled { cursor: default; }
+
+.pg-providers { min-width: 0; }
+.pg-provider-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.pg-provider { display: grid; align-content: start; gap: 14px; }
+.pg-provider-head { align-items: center; flex-wrap: wrap; gap: 8px 14px; }
+.pg-provider-title { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 10px; min-width: 0; }
+.pg-docs { color: var(--accent); font-size: 13px; text-underline-offset: 3px; white-space: nowrap; }
+.pg-docs::after { content: " ↗" / ""; }
+.pg-use-row { align-items: center; }
+.pg-use { font-weight: 600; }
+
+.pg-star { --pg-star-fill: #bd7e00; --pg-star-edge: #6b4400; display: inline-flex; flex: none; width: 24px; height: 24px; }
+.pg-star svg { width: 100%; height: 100%; overflow: visible; fill: var(--pg-star-fill); stroke: var(--pg-star-edge); stroke-width: 1.1; stroke-linejoin: round; }
+:root:is([data-ui-theme-effective="system-dark"], [data-ui-theme-effective="aurora"], [data-ui-theme-effective="graphite"], [data-ui-theme-effective="glass"]) .pg-star { --pg-star-fill: #ffc933; --pg-star-edge: #ffe9a8; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-ui-theme]) .pg-star, :root[data-ui-theme="system"]:not([data-ui-theme-effective]) .pg-star { --pg-star-fill: #ffc933; --pg-star-edge: #ffe9a8; }
+}
+.pg-star-caption { padding: 2px 10px; border: 1px solid var(--border); border-radius: 999px; color: var(--muted); font-size: 12px; font-weight: 650; }
+
+.pg-fields { display: grid; gap: 12px; }
+.pg-field { display: grid; gap: 6px; font-size: 13px; font-weight: 600; }
+.pg-field input, .pg-field select { width: 100%; min-width: 0; height: 44px; padding: 10px 12px; border: 1px solid var(--control-border); border-radius: 10px; color: var(--text); background: var(--surface-2); font: 14px/1.5 var(--mono); }
+.pg-field select { font-family: var(--font); }
+.pg-field input[aria-invalid=true] { border-color: var(--error); box-shadow: 0 0 0 1px var(--error); }
+.pg-check { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; overflow-wrap: anywhere; }
+.pg-check input { flex: none; width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--accent); }
+.pg-key-row, .pg-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.pg-key { padding: 3px 10px; border-radius: 999px; background: var(--surface-2); color: var(--muted); font-size: 12px; font-weight: 650; }
+.pg-key[data-has=true] { background: var(--theme-positive-bg, var(--accent-soft)); color: var(--theme-positive, var(--accent)); }
+.pg-button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 40px; padding: 8px 16px; border: 1px solid var(--control-border); border-radius: 10px; color: var(--text); background: var(--surface); font: 600 13px/1.45 var(--font); cursor: pointer; }
+.pg-button-primary { background: var(--accent); border-color: var(--accent); color: var(--accent-contrast); }
+.pg-button:not(:disabled):hover { filter: brightness(.96); }
+.pg-button[data-armed=true] { border-color: var(--error); background: var(--error-bg); color: var(--error); }
+.pg-eye { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.pg-result { margin: 0; font-size: 13px; overflow-wrap: anywhere; }
+.pg-provider > .pg-result:empty { margin-block: -7px; } /* an empty live line takes no room, not even its two grid gaps */
+.pg-result[data-kind=ok] { color: var(--theme-positive, var(--text)); }
+.pg-result[data-kind=error] { color: var(--error); }
+.pg-status { margin: 0; color: var(--muted); font-size: 12px; overflow-wrap: anywhere; }
+.pg-status[data-status=error] { color: var(--attention); }
+.pg-data .pg-actions { margin-block-start: 14px; }
+.pg-data .pg-help + .pg-actions + .pg-help:not(:empty) { margin-block-start: 10px; }
+
+.pg-shell :disabled { opacity: .55; cursor: default; }
+.pg-shell :is(button, input, select, a):focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+@media (prefers-reduced-motion: no-preference) {
+  .pg-switch::after { transition: inset-inline-start .14s ease; }
+  .pg-button, .pg-switch { transition: background-color .14s ease, border-color .14s ease; }
+}
+
+@media (max-width: 860px) { .pg-provider-grid { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 760px) { .pg-shell { width: min(100% - 32px, 640px); padding-block-start: 18px; } .pg-card { padding: 20px; } .pg-heading { padding-block: 24px 20px; } }
+@media (max-width: 420px) {
+  .pg-header { align-items: flex-start; } .pg-language select { max-width: 150px; } .pg-brand { font-size: 16px; } .pg-brand span { font-size: 11px; }
+  .pg-card { padding: 16px; } .pg-actions .pg-button { flex: 1 1 100%; }
+}
+@media (forced-colors: active) {
+  .pg-star svg { forced-color-adjust: none; fill: CanvasText; stroke: CanvasText; }
+  /* themes.css forces ButtonFace on every button there, so the track cannot carry the state: the thumb does, by place and by colour. */
+  .pg-switch { forced-color-adjust: none; background: ButtonFace; border-color: ButtonText; }
+  .pg-switch::after { background: ButtonText; }
+  .pg-switch[aria-checked=true]::after { background: Highlight; }
+  .pg-chip, .pg-key, .pg-star-caption { border-color: CanvasText; }
+}
+@media print { .pg-language, .pg-back, .pg-actions, .pg-switch { display: none !important; } }

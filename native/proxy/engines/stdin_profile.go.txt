@@ -1,0 +1,24 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+package main
+
+import (
+	"bytes"
+	"errors"
+	"io"
+
+	"github.com/n0madic/go-openvpn/pkg/ovpn"
+)
+
+// readStdinProfile consumes one bounded, self-contained profile until EOF.
+// The host's stricter directive/path validation runs before launching us.
+func readStdinProfile(input io.Reader, options *ovpn.ParseOptions) (*ovpn.Parsed, error) {
+	data, err := io.ReadAll(io.LimitReader(input, 256*1024+1))
+	if err != nil {
+		return nil, err
+	}
+	defer clear(data)
+	if len(data) == 0 || len(data) > 256*1024 {
+		return nil, errors.New("stdin OpenVPN profile exceeds size limit or is empty")
+	}
+	return ovpn.Parse(bytes.NewReader(data), options)
+}

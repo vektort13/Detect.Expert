@@ -1,0 +1,445 @@
+/* Module «Защита» (ADR-020 §D; S09): the firewall card of the popup, its outcome, and the firewall part of the Options
+   tab «Защита». Built into protect.css after base.css. Extension palette only (ui.css tokens + --accent-bg of
+   base.css; light + dark follow prefers-color-scheme there): --accent / --accent-bg for the chosen scope and the
+   primary action (never red), --attention* for a request that was sent, --error* only for a rule that did not apply,
+   --border / --control-border for boundaries. No animation, no green. Text never below 12 px. */
+
+.fw {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.fw-card {
+  display: grid;
+  gap: 6px;
+  padding: 10px var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  min-width: 0;
+}
+
+.fw-card p,
+.fw-card dl,
+.fw-card dd,
+.fw-card ul {
+  margin: 0;
+}
+
+.fw-card__head {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-2);
+  align-items: start;
+}
+
+.fw-card__icon {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+.fw-icon {
+  display: block;
+}
+
+.fw-card__heading {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.fw-card__title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.fw-card__site {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-1) var(--space-2);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.fw-card__brand {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.fw-alert {
+  padding: var(--space-2) 10px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.fw-note,
+.fw-effect,
+.fw-allow-desc,
+.fw-scope__desc,
+.fw-receivers__hidden {
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.fw-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  padding: 0;
+  list-style: none;
+}
+
+.fw-chip {
+  padding: 1px var(--space-2);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-2);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.fw-rows {
+  display: grid;
+  gap: 2px;
+  padding: 6px var(--space-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.fw-row {
+  display: grid;
+  grid-template-columns: minmax(72px, 28%) 1fr;
+  gap: var(--space-2);
+}
+
+.fw-row__label {
+  color: var(--muted);
+}
+
+.fw-row__value {
+  display: grid;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.fw-row__host {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.fw-row__extra {
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.fw-evidence__summary {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.fw-evidence__body {
+  display: grid;
+  gap: 2px;
+  margin-top: var(--space-1);
+  padding: var(--space-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface-2);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.fw-evidence__request {
+  font-family: var(--mono);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.fw-receivers,
+.fw-scope {
+  display: grid;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-inline-size: 0;
+}
+
+.fw-scope__legend {
+  padding: 0;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.fw-receivers__list {
+  display: grid;
+  gap: 2px;
+  padding: 0;
+  list-style: none;
+  font-size: 12px;
+}
+
+.fw-receivers__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-2);
+  align-items: start;
+}
+
+.fw-receivers__item input {
+  margin: 2px 0 0;
+}
+
+.fw-receivers__host {
+  font-family: var(--mono);
+  font-weight: 600;
+}
+
+.fw-receivers__state {
+  color: var(--muted);
+}
+
+.fw-scope__options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.fw-scope__option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: var(--space-1) 6px;
+  border: 1px solid var(--control-border);
+  border-radius: 6px;
+  background: var(--surface);
+  font-size: 12px;
+  line-height: 1.3;
+  cursor: pointer;
+}
+
+.fw-scope__option input {
+  flex: none;
+  margin: 0;
+  accent-color: var(--accent);
+}
+
+.fw-scope__option--checked {
+  border-color: var(--accent);
+  background: var(--accent-bg);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.fw-scope__option:focus-within {
+  outline: 2px solid var(--focus);
+  outline-offset: 1px;
+}
+
+.fw-blocking,
+.fw-message {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* The decision row stays in the first screen of a 360 x 600 popup: sticky at the bottom of the viewport while the card
+   is taller than it (DOM order unchanged). Static in short viewports (zoom 200 %). */
+.fw-decision {
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2);
+  padding-block: 6px;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.fw-decision__scope {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--muted);
+}
+
+.fw-decision[data-fw-decision="ack"],
+.fw-decision[data-fw-decision="unavailable"] {
+  grid-template-columns: 1fr;
+}
+
+.fw-action {
+  min-height: 40px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.fw-action[aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+.fw-notices {
+  display: grid;
+  gap: var(--space-1);
+  padding: 0;
+  list-style: none;
+}
+
+.fw-notice {
+  display: grid;
+  gap: 2px;
+  padding: 6px var(--space-2);
+  border: 1px solid var(--attention-border);
+  border-inline-start-width: 4px;
+  border-radius: 6px;
+  background: var(--attention-bg);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.fw-notice .button--text {
+  justify-self: start;
+  padding-inline: 0;
+  min-height: 28px;
+}
+
+.fw-foot {
+  display: grid;
+  gap: 2px;
+  padding-top: 6px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+}
+
+.fw-foot__note {
+  color: var(--muted);
+}
+
+.fw-foot__actions,
+.fw-resolved__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-2);
+  margin: 0;
+}
+
+.fw-foot__actions .button--text {
+  min-height: 28px;
+  padding-inline: 0;
+  font-size: 12px;
+}
+
+.fw-resolved__title {
+  margin: 0;
+}
+
+.fw-snoozed {
+  display: grid;
+  gap: 2px;
+  padding: var(--space-2) var(--space-3);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  font-size: 12px;
+}
+
+.fw-snoozed__line {
+  margin: 0;
+}
+
+/* Options: firewall rules. */
+.fw-rules {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.fw-mode,
+.fw-today,
+.fw-list {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.fw-mode__warning {
+  margin: 0;
+  padding: var(--space-1) var(--space-2);
+  border-inline-start: 3px solid var(--attention-border);
+  color: var(--text);
+}
+
+.fw-list__controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  gap: var(--space-2);
+}
+
+.fw-list__rows {
+  display: grid;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fw-list__line {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 300px) {
+  .fw-row,
+  .fw-scope__options,
+  .fw-decision {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-height: 420px) {
+  .fw-decision {
+    position: static;
+  }
+}
+
+@media (forced-colors: active) {
+  .fw-card,
+  .fw-rows,
+  .fw-chip,
+  .fw-evidence__body,
+  .fw-scope__option,
+  .fw-notice,
+  .fw-snoozed,
+  .fw-mode__warning {
+    border-color: CanvasText;
+  }
+
+  .fw-scope__option--checked {
+    border-width: 2px;
+    border-color: Highlight;
+  }
+
+  .fw-card__icon {
+    border: 1px solid CanvasText;
+  }
+
+  .fw-decision {
+    background: Canvas;
+  }
+}

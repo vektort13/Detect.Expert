@@ -1,0 +1,301 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+package session_test
+
+import (
+	"bytes"
+	"context"
+	"crypto/rand"
+	"crypto/tls"
+	"errors"
+	"fmt"
+	"sync"
+	"testing"
+	"time"
+
+	"github.com/n0madic/go-openvpn/internal/control"
+	"github.com/n0madic/go-openvpn/internal/data"
+	"github.com/n0madic/go-openvpn/internal/proto"
+	"github.com/n0madic/go-openvpn/internal/reliable"
+	"github.com/n0madic/go-openvpn/internal/session"
+	"github.com/n0madic/go-openvpn/internal/transport"
+)
+
+func runDetectLegacyServer(
+	ctx context.Context,
+	tr transport.PacketConn,
+	wrap controlWrap,
+	cert tls.Certificate,
+	peerID uint32,
+	cipher string,
+	t *testing.T,
+) error {
+	t.Helper()
+
+	layer := reliable.New(reliable.Config{LocalSessionID: 0x5E5E5E5E5E5E5E5E})
+
+	// Active data slot is set after handshake; until then data packets are
+	// dropped (they shouldn't arrive that early anyway).
+	var slotMu sync.Mutex
+	var activeSlot *data.Slot
+	getSlot := func() *data.Slot {
+		slotMu.Lock()
+		defer slotMu.Unlock()
+		return activeSlot
+	}
+
+	pumpCtx, pumpCancel := context.WithCancel(ctx)
+	defer pumpCancel()
+
+	// Reader: demuxes control vs data.
+	go func() {
+		for {
+			pkt, err := tr.ReadPacket(pumpCtx)
+			if err != nil {
+				return
+			}
+			if len(pkt) < 1 {
+				continue
+			}
+			opcode, _ := proto.UnpackOpcodeKID(pkt[0])
+			if opcode.IsData() {
+				slot := getSlot()
+				if slot == nil {
+					continue
+				}
+				plain, err := slot.Open(pkt)
+				if err != nil {
+					t.Logf("server open: %v", err)
+					continue
+				}
+				echo, err := slot.Seal(plain)
+				if err != nil {
+					t.Logf("server seal: %v", err)
+					continue
+				}
+				if err := tr.WritePacket(pumpCtx, echo); err != nil {
+					return
+				}
+				continue
+			}
+			// Control: unwrap, parse, feed reliability.
+			opcodeKID, sid, _, plain, err := wrap.Unwrap(pkt)
+			if err != nil {
+				continue
+			}
+			_, kid := proto.UnpackOpcodeKID(opcodeKID)
+			in := reliable.InPacket{Opcode: opcode, KeyID: kid, SessionID: sid}
+			if opcode == proto.PAckV1 {
+				ap, err := proto.ParseAckPayload(plain)
+				if err != nil {
+					continue
+				}
+				in.Ack = ap
+			} else {
+				cp, err := proto.ParseControlPayload(plain)
+				if err != nil {
+					continue
+				}
+				in.Payload = cp
+			}
+			_ = layer.HandleInbound(in)
+		}
+	}()
+
+	// Writer: drains reliable.Outbound → wrap → transport.
+	go func() {
+		for {
+			select {
+			case <-pumpCtx.Done():
+				return
+			case out, ok := <-layer.Outbound():
+				if !ok {
+					return
+				}
+				var body []byte
+				var err error
+				if out.IsAck() {
+					body, err = proto.MarshalAckPayload(out.Ack)
+				} else {
+					body, err = proto.MarshalControlPayload(out.Payload)
+				}
+				if err != nil {
+					return
+				}
+				opcodeKID := proto.PackOpcodeKID(out.Opcode, out.KeyID)
+				wrapped := wrap.Wrap(opcodeKID, out.SessionID, body)
+				if err := tr.WritePacket(pumpCtx, wrapped); err != nil {
+					return
+				}
+			}
+		}
+	}()
+
+	// Ticker.
+	go func() {
+		ticker := time.NewTicker(10 * time.Millisecond)
+		defer ticker.Stop()
+		for {
+			select {
+			case <-pumpCtx.Done():
+				return
+			case <-ticker.C:
+				if err := layer.Tick(); err != nil {
+					return
+				}
+			}
+		}
+	}()
+
+	if err := layer.SendHardReset(proto.PControlHardResetServerV2); err != nil {
+		return err
+	}
+
+	adapter := reliable.NewAdapter(layer, tr.LocalAddr(), tr.RemoteAddr())
+	tlsCfg := &tls.Config{
+		Certificates: []tls.Certificate{cert},
+		MinVersion:   tls.VersionTLS13,
+	}
+	tlsConn := tls.Server(adapter, tlsCfg)
+	if err := tlsConn.HandshakeContext(ctx); err != nil {
+		return err
+	}
+	defer func() { _ = tlsConn.Close() }()
+
+	clientKM, err := control.ReadKeyMethod2(tlsConn, false, false)
+	if err != nil {
+		return err
+	}
+
+	serverKM := proto.KeyMethod2{
+		IsServer: true,
+		Options:  "V4,dev-type tun,link-mtu 1559,tun-mtu 1500,proto UDPv4,cipher " + cipher + ",auth SHA256,keysize 256,key-method 2,tls-server",
+		PeerInfo: "IV_VER=2.6.0\n",
+	}
+	_, _ = rand.Read(serverKM.Random1[:])
+	_, _ = rand.Read(serverKM.Random2[:])
+	serverKMBytes, _ := proto.MarshalKeyMethod2(serverKM)
+	if _, err := tlsConn.Write(serverKMBytes); err != nil {
+		return err
+	}
+
+	msg, err := control.ReadControlMessage(tlsConn)
+	if err != nil {
+		return err
+	}
+	if msg != "PUSH_REQUEST" {
+		return errors.New("expected PUSH_REQUEST, got: " + msg)
+	}
+	pushReply := "PUSH_REPLY,ifconfig 10.8.0.6 255.255.255.0,topology subnet,peer-id " + itoa(peerID) +
+		",cipher " + cipher + ",tun-mtu 1500,ping 10,ping-restart 60"
+	if err := control.WriteControlMessage(tlsConn, pushReply); err != nil {
+		return err
+	}
+
+	// Derive EKM keys and build server-side data slot (mirror of client).
+	cs := tlsConn.ConnectionState()
+	clientSID, _ := layer.RemoteSessionID()
+	material := control.DeriveLegacyDataKeys(clientKM, serverKM, clientSID, 0x5E5E5E5E5E5E5E5E)
+	mat := material[:]
+	_ = cs
+	err = nil
+	if err != nil {
+		return err
+	}
+	keyLen := 32 // AES-256-GCM
+	if cipher == "AES-128-GCM" {
+		keyLen = 16
+	}
+	// Client uses: Send=c2s, Recv=s2c. Server uses opposite.
+	serverSlot, err := data.NewSlot(data.SlotConfig{
+		KeyID:   0,
+		PeerID:  peerID,
+		Cipher:  cipher,
+		SendKey: mat[128 : 128+keyLen], // s2c (server outbound)
+		SendIV:  [data.ImplicitIVLen]byte(mat[192 : 192+data.ImplicitIVLen]),
+		RecvKey: mat[0:keyLen], // c2s (server inbound)
+		RecvIV:  [data.ImplicitIVLen]byte(mat[64 : 64+data.ImplicitIVLen]),
+	})
+	if err != nil {
+		return err
+	}
+	// Install the slot — the reader goroutine starts echoing data packets.
+	slotMu.Lock()
+	activeSlot = serverSlot
+	slotMu.Unlock()
+
+	// Block until ctx is done; reader/writer/ticker goroutines do all work.
+	<-ctx.Done()
+	return ctx.Err()
+}
+
+// itoa is the minimal stand-in for strconv.Itoa, kept inline to avoid an
+// extra import for the single use.
+func TestDetectLegacyPRFHandshake(t *testing.T) {
+	t.Parallel()
+	ctx, cancel := context.WithTimeout(t.Context(), 20*time.Second)
+	defer cancel()
+
+	serverAuth := detectPlainControl{}
+
+	cTr, sTr := transport.MemoryPair()
+	cert, pool := genSelfSignedCert(t)
+
+	const peerID = uint32(99)
+	serverErrCh := make(chan error, 1)
+	go func() {
+		serverErrCh <- runDetectLegacyServer(ctx, sTr, serverAuth, cert, peerID, "AES-256-GCM", t)
+	}()
+
+	cfg := session.Config{
+		Network:    "memory",
+		RemoteAddr: "memB",
+		TLSConfig: &tls.Config{
+			ServerName: "localhost",
+			RootCAs:    pool,
+			MinVersion: tls.VersionTLS13,
+		},
+		Ciphers: []string{"AES-256-GCM"},
+	}
+	sess, err := session.DialWithTransport(ctx, cfg, cTr)
+	if err != nil {
+		t.Fatalf("client Dial (tls-auth): %v", err)
+	}
+	defer func() { _ = sess.Close() }()
+
+	payload := []byte("tls-auth echo")
+	if _, err := sess.Write(payload); err != nil {
+		t.Fatalf("Write: %v", err)
+	}
+	buf := make([]byte, 1500)
+	done := make(chan error, 1)
+	go func() {
+		n, err := sess.Read(buf)
+		if err == nil && !bytes.Equal(buf[:n], payload) {
+			err = fmt.Errorf("echo mismatch: got %q", buf[:n])
+		}
+		done <- err
+	}()
+	select {
+	case err := <-done:
+		if err != nil {
+			t.Fatalf("Read: %v", err)
+		}
+	case <-ctx.Done():
+		t.Fatal("read timed out")
+	}
+
+	if pr := sess.PushReply(); pr.PeerID != peerID {
+		t.Errorf("PeerID = %d, want %d", pr.PeerID, peerID)
+	}
+
+	_ = sess.Close()
+	select {
+	case err := <-serverErrCh:
+		if err != nil && !errors.Is(err, context.Canceled) && !errors.Is(err, transport.ErrClosed) {
+			t.Logf("server returned: %v", err)
+		}
+	case <-time.After(2 * time.Second):
+		t.Log("server goroutine still running on test exit")
+	}
+}

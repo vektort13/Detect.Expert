@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cloudflare Precursor · Detect.Expert</title>
+  <link rel="stylesheet" href="ui.css">
+  <link rel="stylesheet" href="precursor-settings.css">
+</head>
+<body class="precursor-settings-page">
+  <main id="precursor-settings" class="pm-shell" aria-busy="true">
+    <header class="pm-header">
+      <a class="pm-brand" href="options.html#integrations" dir="ltr">Detect.Expert<span>Cloudflare Precursor</span></a>
+      <label class="pm-language"><span data-i18n="language"></span><select id="pm-language"></select></label>
+    </header>
+    <section class="pm-heading">
+      <div><p class="pm-eyebrow" data-i18n="source"></p><h1 data-i18n="title">Cloudflare Precursor</h1><p data-i18n="subtitle"></p></div>
+      <a class="pm-back" href="options.html#integrations" data-i18n="back"></a>
+    </section>
+    <p id="pm-message" class="pm-message" role="alert" hidden></p>
+    <div class="pm-grid">
+      <section class="pm-card pm-connection" aria-labelledby="pm-connection-title">
+        <div class="pm-card-heading"><h2 id="pm-connection-title" data-i18n="connection"></h2><span id="pm-status" class="pm-status" role="status" aria-live="polite"></span></div>
+        <form id="pm-form" autocomplete="off" novalidate>
+          <label class="pm-field"><span data-i18n="zone_id"></span><input id="pm-zone-id" type="text" inputmode="text" dir="ltr" maxlength="32" autocomplete="off" spellcheck="false" autocapitalize="none" aria-describedby="pm-access-help" required></label>
+          <label class="pm-field"><span data-i18n="token"></span><input id="pm-token" type="password" dir="ltr" maxlength="2048" autocomplete="off" spellcheck="false" autocapitalize="none" aria-describedby="pm-token-help pm-access-help" required></label>
+          <p id="pm-access-help" class="pm-help" data-i18n="access_help"></p>
+          <p id="pm-token-help" class="pm-help" data-i18n="token_help"></p>
+          <div class="pm-actions"><button id="pm-connect" class="pm-button pm-button-primary" type="submit" data-i18n="connect" disabled></button><button id="pm-disconnect" class="pm-button" type="button" data-i18n="disconnect" disabled></button></div>
+        </form>
+        <div class="pm-notification-row"><span id="pm-notifications-label" data-i18n="notifications"></span><button id="pm-notifications" class="pm-switch" role="switch" aria-checked="false" aria-labelledby="pm-notifications-label" type="button" disabled><span></span></button></div>
+      </section>
+      <section class="pm-card pm-current" aria-labelledby="pm-mode-title">
+        <div class="pm-card-heading"><h2 id="pm-mode-title" data-i18n="mode"></h2><span class="pm-source" data-i18n="source"></span></div>
+        <p id="pm-mode" class="pm-mode" data-mode="unknown" role="status" aria-live="polite">—</p>
+        <dl class="pm-details"><div><dt data-i18n="zone"></dt><dd id="pm-zone" dir="ltr">—</dd></div><div><dt data-i18n="last_checked"></dt><dd id="pm-checked">—</dd></div><div id="pm-last-known-row" hidden><dt data-i18n="last_known"></dt><dd id="pm-last-known">—</dd></div></dl>
+        <button id="pm-refresh" class="pm-button" type="button" data-i18n="refresh" disabled></button>
+      </section>
+      <section class="pm-card pm-history" aria-labelledby="pm-history-title">
+        <div class="pm-card-heading"><h2 id="pm-history-title" data-i18n="history"></h2><span id="pm-history-count" class="pm-count">0</span></div>
+        <p id="pm-empty" class="pm-help" data-i18n="history_empty"></p>
+        <div id="pm-history-table" class="pm-table-scroll" hidden><table><thead><tr><th scope="col" data-i18n="at"></th><th scope="col" data-i18n="from"></th><th scope="col" data-i18n="to"></th></tr></thead><tbody id="pm-history-body"></tbody></table></div>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="precursor-settings.js"></script>
+</body>
+</html>

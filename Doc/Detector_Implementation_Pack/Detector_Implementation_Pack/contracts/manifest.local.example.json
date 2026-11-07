@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "Detector — прозрачность приватности",
+  "version": "1.0.0",
+  "description": "Показывает наблюдаемые обращения к браузерным API и признаки известных сервисов на разрешённых сайтах.",
+  "minimum_chrome_version": "119",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "webRequest",
+    "webNavigation",
+    "sidePanel"
+  ],
+  "optional_host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Проверки приватности на странице"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "incognito": "not_allowed",
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'; connect-src 'none'; base-uri 'none'; frame-ancestors 'none';"
+  },
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  }
+}

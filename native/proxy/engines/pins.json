@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "platform": "windows-amd64",
+  "go": {
+    "version": "go1.26.3",
+    "url": "https://go.dev/dl/go1.26.3.windows-amd64.zip",
+    "filename": "go1.26.3.windows-amd64.zip",
+    "sha256": "20d2ceafb4ed41b96b879010927b28bc92a5be57a7c1801ce365a9ca51d3224a"
+  },
+  "openvpn": {
+    "commit": "383af88a500ab8798e6ebd2746368cd0a158ad80",
+    "url": "https://codeload.github.com/n0madic/go-openvpn/zip/383af88a500ab8798e6ebd2746368cd0a158ad80",
+    "filename": "openvpn-source.zip",
+    "sha256": "fa2a8e962cb0054fcec285aeb34784583eed7de5560bdc68bf72bad7593d2fa3",
+    "license": "AGPL-3.0-or-later"
+  },
+  "xray": {
+    "version": "v26.3.27",
+    "url": "https://github.com/XTLS/Xray-core/releases/download/v26.3.27/Xray-windows-64.zip",
+    "filename": "Xray-windows-64.zip",
+    "sha256": "d004c39288ce9ada487c6f398c7c545f7d749e44bdfdd59dbc9f865afba4e1ad",
+    "sourceUrl": "https://codeload.github.com/XTLS/Xray-core/zip/refs/tags/v26.3.27",
+    "sourceFilename": "xray-source.zip",
+    "sourceSha256": "9cad7fafde9705383cea42e809d1e5db366258c441ce9e4e75849bfb7ba01819",
+    "license": "MPL-2.0"
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "schemaVersion": 1,
+  "researchOnly": true,
+  "generatedAt": "2026-10-09T12:10:19.596Z",
+  "operation": "single-authorized-public-document-retry",
+  "priorSnapshotSha256": "1cfbba1c1d5ff89da5f46f2e37c4b075271ff80119679969f3b6aeab91c6fd55",
+  "limits": {
+    "uniqueUrls": 9,
+    "vendorRows": 10,
+    "concurrency": 2,
+    "requestTimeoutMs": 10000,
+    "maximumBodyBytes": 2097152,
+    "attemptsPerUrl": 1
+  },
+  "results": [
+    {
+      "sourceUrl": "https://tcf.adtech.app/gen/deviceStorageDisclosure/per.json",
+      "vendorIds": [
+        139
+      ],
+      "prior": [
+        {
+          "vendorId": 139,
+          "owner": "Permodo GmbH",
+          "status": "timeout"
+        }
+      ],
+      "startedAt": "2026-10-09T12:09:57.356Z",
+      "finishedAt": "2026-10-09T12:09:58.377Z",
+      "result": {
+        "status": "ok",
+        "finalUrl": "https://tcf.adtech.app/gen/deviceStorageDisclosure/per.json/",
+        "sha256": "1ae91b61d2e2eb83dff5a76d6a4200a0a8110bfb938b408d4df4a0c53c8538f7",
+        "bytes": 41,
+        "disclosures": []
+      }
+    },
+    {
+      "sourceUrl": "https://live.mrf.io/statics/marfeel/resources/lib/deviceStorage/touch.json",
+      "vendorIds": [
+        270
+      ],
+      "prior": [
+        {
+          "vendorId": 270,
+          "owner": "Marfeel Solutions, SL",
+          "status": "http-error",
+          "httpStatus": 500
+        }
+      ],
+      "startedAt": "2026-10-09T12:09:57.360Z",
+      "finishedAt": "2026-10-09T12:09:57.757Z",
+      "result": {
+        "status": "http-error",
+        "httpStatus": 500
+      }
+    },
+    {
+      "sourceUrl": "https://iab.fwmrm.net/g/devicedisclosure.json",
+      "vendorIds": [
+        285,
+        1246
+      ],
+      "prior": [
+        {
+          "vendorId": 285,
+          "owner": "Comcast International France SAS/FreeWheel Media",
+          "status": "http-error",
+          "httpStatus": 503
+        },
+        {
+          "vendorId": 1246,
+          "owner": "NBCUniversal Media LLC",
+          "status": "http-error",
+          "httpStatus": 503
+        }
+      ],
+      "startedAt": "2026-10-09T12:09:57.757Z",
+      "finishedAt": "2026-10-09T12:09:58.490Z",
+      "result": {
+        "status": "http-error",
+        "httpStatus": 503
+      }
+    },
+    {
+      "sourceUrl": "https://admin.pubwise.io/publisher/device-disclosure.json",
+      "vendorIds": [
+        842
+      ],
+      "prior": [
+        {
+          "vendorId": 842,
+          "owner": "PubWise, LLLP",
+          "status": "http-error",
+          "httpStatus": 502
+        }
+      ],
+      "startedAt": "2026-10-09T12:09:58.377Z",
+      "finishedAt": "2026-10-09T12:09:59.127Z",
+      "result": {
+        "status": "http-error",
+        "httpStatus": 502
+      }
+    },
+    {
+      "sourceUrl": "https://www.geoprove.io/deviceStorage.json",
+      "vendorIds": [
+        892
+      ],
+      "prior": [
+        {
+          "vendorId": 892,
+          "owner": "GeoProve Limited",
+          "status": "http-error",
+          "httpStatus": 503
+        }
+      ],
+      "startedAt": "2026-10-09T12:09:58.490Z",
+      "finishedAt": "2026-10-09T12:09:59.600Z",
+      "result": {
+        "status": "http-error",
+        "httpStatus": 503
+      }
+    },
+    {
+      "sourceUrl": "https://privacy.placesense.ai/devicestoragedisclosure",
+      "vendorIds": [
+        903
+      ],
+      "prior": [
+        {
+          "vendorId": 903,
+          "owner": "Placense Ltd",
+          "status": "http-error",
+          "httpStatus": 520
+        }
+      ],
+      "startedAt": "2026-10-09T12:09:59.128Z",
+      "finishedAt": "2026-10-09T12:09:59.595Z",
+      "result": {
+        "status": "http-error",
+        "httpStatus": 520
+      }
+    },
+    {
+      "sourceUrl": "https://api.convo.ink/v1/compliance/iab/device-storage-disclosure.json",
+      "vendorIds": [
+        1140
+      ],
+      "prior": [
+        {
+          "vendorId": 1140,
+          "owner": "Convo Ink",
+          "status": "timeout"
+        }
+      ],
+      "startedAt": "2026-10-09T12:09:59.595Z",
+      "finishedAt": "2026-10-09T12:10:09.596Z",
+      "result": {
+        "status": "timeout"
+      }
+    },
+    {
+      "sourceUrl": "https://www.bigossp.com/deviceStorage.json",
+      "vendorIds": [
+        1488
+      ],
+      "prior": [
+        {
+          "vendorId": 1488,
+          "owner": "Empathy Technology Pte.Ltd. (BIGO Ads)",
+          "status": "timeout"
+        }
+      ],
+      "startedAt": "2026-10-09T12:09:59.600Z",
+      "finishedAt": "2026-10-09T12:10:09.600Z",
+      "result": {
+        "status": "timeout"
+      }
+    },
+    {
+      "sourceUrl": "https://ads.thenexusengine.com/tcf-disclosure.json",
+      "vendorIds": [
+        1494
+      ],
+      "prior": [
+        {
+          "vendorId": 1494,
+          "owner": "THE NEXUS ENGINE LTD",
+          "status": "timeout"
+        }
+      ],
+      "startedAt": "2026-10-09T12:10:09.596Z",
+      "finishedAt": "2026-10-09T12:10:19.596Z",
+      "result": {
+        "status": "timeout"
+      }
+    }
+  ]
+}

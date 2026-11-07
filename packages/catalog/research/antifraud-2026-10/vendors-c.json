@@ -1,0 +1,1775 @@
+[
+  {
+    "id": "tencent-captcha",
+    "name": "Tencent Cloud CAPTCHA",
+    "provider": "Tencent Cloud",
+    "category": "captcha",
+    "officialWebsite": "https://cloud.tencent.com/product/captcha",
+    "sources": [
+      {
+        "url": "https://cloud.tencent.com/document/product/1110/104536",
+        "title": "CAPTCHA JavaScript address upgrade",
+        "claim": "The December 2024 address-upgrade notice documents TCaptcha.js and states that six earlier browser script addresses were retired in August 2023.",
+        "accessedAt": "2026-10-09"
+      },
+      {
+        "url": "https://www-sg.tencentcloud.com/ind/document/product/1159/67464",
+        "title": "Tencent CAPTCHA international JS upgrade",
+        "claim": "The international new-version client entry is TJNCaptcha-global.js; the provider also allows continued use of the original global version.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "script-resource",
+        "host": "turing.captcha.qcloud.com",
+        "path": "/TCaptcha.js",
+        "sourceUrl": "https://cloud.tencent.com/document/product/1110/104536",
+        "status": "documented-candidate",
+        "resourceType": "script",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Exact documented host and path; fixture verification is still required.",
+        "scheme": "https"
+      },
+      {
+        "kind": "script-resource",
+        "host": "ca.turing.captcha.qcloud.com",
+        "path": "/TJNCaptcha-global.js",
+        "sourceUrl": "https://www-sg.tencentcloud.com/ind/document/product/1159/67464",
+        "status": "documented-candidate",
+        "resourceType": "script",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Exact documented host and path; fixture verification is still required.",
+        "scheme": "https"
+      },
+      {
+        "kind": "script-resource",
+        "host": "ca.turing.captcha.qcloud.com",
+        "path": "/TCaptcha-global.js",
+        "sourceUrl": "https://www-sg.tencentcloud.com/ind/document/product/1159/67464",
+        "status": "documented-candidate",
+        "resourceType": "script",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Exact documented host and path; fixture verification is still required.",
+        "scheme": "https"
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "Retired ssl.captcha.qq.com, t.captcha.qq.com, t.captcha.qcloud.com, captcha.gtimg.com, captcha.myqcloud.com and captcha.cloudcachetci.com script addresses are historical evidence only."
+    ]
+  },
+  {
+    "id": "alibaba-cloud-captcha",
+    "name": "Alibaba Cloud CAPTCHA 2.0",
+    "provider": "Alibaba Cloud",
+    "category": "captcha",
+    "officialWebsite": "https://www.alibabacloud.com/product/captcha",
+    "sources": [
+      {
+        "url": "https://www.alibabacloud.com/help/en/captcha/captcha2-0/user-guide/new-architecture-for-web-and-h5-client-access",
+        "title": "Web and H5 client integration (V3 architecture)",
+        "claim": "The official V3 browser integration loads AliyunCaptcha.js and initializes AliyunCaptchaConfig and initAliyunCaptcha.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "script-resource",
+        "host": "o.alicdn.com",
+        "path": "/captcha-frontend/aliyunCaptcha/AliyunCaptcha.js",
+        "sourceUrl": "https://www.alibabacloud.com/help/en/captcha/captcha2-0/user-guide/new-architecture-for-web-and-h5-client-access",
+        "status": "documented-candidate",
+        "resourceType": "script",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Exact documented host and path; fixture verification is still required.",
+        "scheme": "https"
+      },
+      {
+        "kind": "global-name",
+        "name": "AliyunCaptchaConfig",
+        "sourceUrl": "https://www.alibabacloud.com/help/en/captcha/captcha2-0/user-guide/new-architecture-for-web-and-h5-client-access",
+        "status": "documented-candidate",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Page-controlled global name; insufficient alone and values must not be read."
+      },
+      {
+        "kind": "global-name",
+        "name": "initAliyunCaptcha",
+        "sourceUrl": "https://www.alibabacloud.com/help/en/captcha/captcha2-0/user-guide/new-architecture-for-web-and-h5-client-access",
+        "status": "documented-candidate",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Page-controlled global name; insufficient alone and values must not be read."
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "alicdn.com is shared infrastructure; hostname alone does not identify this product."
+    ]
+  },
+  {
+    "id": "baidu-waf-bot-protection",
+    "name": "Baidu Cloud WAF Bot Protection",
+    "provider": "Baidu Cloud",
+    "category": "bot-management",
+    "officialWebsite": "https://cloud.baidu.com/product/waf.html",
+    "sources": [
+      {
+        "url": "https://cloud.baidu.com/doc/WAF/s/Zm5m9fnhm",
+        "title": "Web application SDK integration",
+        "claim": "The official WAF guide documents JavaScript and asynchronous CAPTCHA challenge components, exact CDN scripts and a Tox API.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "script-resource",
+        "host": "sec-captcha-waf.cdn.bcebos.com",
+        "path": "/static/wb/1.0/nox_20241230.js",
+        "sourceUrl": "https://cloud.baidu.com/doc/WAF/s/Zm5m9fnhm",
+        "status": "documented-candidate",
+        "resourceType": "script",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Exact documented host and path; fixture verification is still required.",
+        "scheme": "https"
+      },
+      {
+        "kind": "script-resource",
+        "host": "sec-captcha-waf.cdn.bcebos.com",
+        "path": "/static/wb/1.0/tox_20241230.js",
+        "sourceUrl": "https://cloud.baidu.com/doc/WAF/s/Zm5m9fnhm",
+        "status": "documented-candidate",
+        "resourceType": "script",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Exact documented host and path; fixture verification is still required.",
+        "scheme": "https"
+      },
+      {
+        "kind": "global-name",
+        "name": "Tox",
+        "sourceUrl": "https://cloud.baidu.com/doc/WAF/s/Zm5m9fnhm",
+        "status": "documented-candidate",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Page-controlled global name; insufficient alone and values must not be read."
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "Scripts can be self-hosted; the SDK date is a documented version, not a stable future URL.",
+      "bcebos.com alone is a shared-storage hostname and not a bot protection signature."
+    ]
+  },
+  {
+    "id": "dingxiang-captcha",
+    "name": "Dingxiang CAPTCHA",
+    "provider": "Dingxiang",
+    "category": "captcha",
+    "officialWebsite": "https://www.dingxiang-inc.com/business/captcha",
+    "sources": [
+      {
+        "url": "https://www.dingxiang-inc.com/docs/detail/captcha",
+        "title": "Dingxiang intelligent CAPTCHA integration",
+        "claim": "Current Web/H5 integration loads the v5 CAPTCHA script and constructs _dx.Captcha.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "script-resource",
+        "host": "cdn.dingxiang-inc.com",
+        "path": "/ctu-group/captcha-ui/v5/index.js",
+        "sourceUrl": "https://www.dingxiang-inc.com/docs/detail/captcha",
+        "status": "documented-candidate",
+        "resourceType": "script",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Exact documented host and path; fixture verification is still required.",
+        "scheme": "https"
+      },
+      {
+        "kind": "global-name",
+        "name": "_dx",
+        "sourceUrl": "https://www.dingxiang-inc.com/docs/detail/captcha",
+        "status": "documented-candidate",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Page-controlled global name; insufficient alone and values must not be read."
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "The _dx name is page-controlled and needs an associated loaded CAPTCHA resource.",
+      "The API server is assigned in the customer console and must not be guessed."
+    ]
+  },
+  {
+    "id": "shumei-device-intelligence",
+    "name": "Shumei Device Fingerprint",
+    "provider": "Shumei",
+    "category": "device-intelligence",
+    "officialWebsite": "https://www.ishumei.com/",
+    "sources": [
+      {
+        "url": "https://help.ishumei.com/docs/tw/sdk/web/developDoc/",
+        "title": "Shumei device fingerprint Web SDK guide",
+        "claim": "The official Web SDK guide documents the static v3 script, regional collection hosts and SMSdk initialization.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "script-resource",
+        "host": "static.portal101.cn",
+        "path": "/dist/web/v3.0.0/fp.min.js",
+        "sourceUrl": "https://help.ishumei.com/docs/tw/sdk/web/developDoc/",
+        "status": "documented-candidate",
+        "resourceType": "script",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "The loader scheme is computed from document.location.protocol; the shown SDK configuration also supports selecting protocol.",
+        "scheme": "document-context"
+      },
+      {
+        "kind": "global-name",
+        "name": "SMSdk",
+        "sourceUrl": "https://help.ishumei.com/docs/tw/sdk/web/developDoc/",
+        "status": "documented-candidate",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Page-controlled global name; insufficient alone and values must not be read."
+      },
+      {
+        "kind": "global-name",
+        "name": "_smConf",
+        "sourceUrl": "https://help.ishumei.com/docs/tw/sdk/web/developDoc/",
+        "status": "documented-candidate",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Page-controlled global name; insufficient alone and values must not be read."
+      },
+      {
+        "kind": "network-resource",
+        "host": "fp-it.portal101.cn",
+        "path": "/deviceprofile/v4",
+        "sourceUrl": "https://help.ishumei.com/docs/tw/sdk/web/developDoc/",
+        "status": "documented-candidate",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Host and collection-path composition follows documented apiHost configuration; protocol is deployment-configurable and needs a fixture.",
+        "scheme": "document-context"
+      },
+      {
+        "kind": "network-resource",
+        "host": "fp-it-acc.portal101.cn",
+        "path": "/deviceprofile/v4",
+        "sourceUrl": "https://help.ishumei.com/docs/tw/sdk/web/developDoc/",
+        "status": "documented-candidate",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Host and collection-path composition follows documented apiHost configuration; protocol is deployment-configurable and needs a fixture.",
+        "scheme": "document-context"
+      },
+      {
+        "kind": "network-resource",
+        "host": "fp-na-it.portal101.cn",
+        "path": "/deviceprofile/v4",
+        "sourceUrl": "https://help.ishumei.com/docs/tw/sdk/web/developDoc/",
+        "status": "documented-candidate",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Host and collection-path composition follows documented apiHost configuration; protocol is deployment-configurable and needs a fixture.",
+        "scheme": "document-context"
+      },
+      {
+        "kind": "network-resource",
+        "host": "fp-na-it-acc.portal101.cn",
+        "path": "/deviceprofile/v4",
+        "sourceUrl": "https://help.ishumei.com/docs/tw/sdk/web/developDoc/",
+        "status": "documented-candidate",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Host and collection-path composition follows documented apiHost configuration; protocol is deployment-configurable and needs a fixture.",
+        "scheme": "document-context"
+      },
+      {
+        "kind": "network-resource",
+        "host": "api-device-eur.portal101.cn",
+        "path": "/deviceprofile/v4",
+        "sourceUrl": "https://help.ishumei.com/docs/tw/sdk/web/developDoc/",
+        "status": "documented-candidate",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Host and collection-path composition follows documented apiHost configuration; protocol is deployment-configurable and needs a fixture.",
+        "scheme": "document-context"
+      },
+      {
+        "kind": "network-resource",
+        "host": "fp-sa-it.portal101.cn",
+        "path": "/deviceprofile/v4",
+        "sourceUrl": "https://help.ishumei.com/docs/tw/sdk/web/developDoc/",
+        "status": "documented-candidate",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Host and collection-path composition follows documented apiHost configuration; protocol is deployment-configurable and needs a fixture.",
+        "scheme": "document-context"
+      },
+      {
+        "kind": "network-resource",
+        "host": "fp-sa-it-acc.portal101.cn",
+        "path": "/deviceprofile/v4",
+        "sourceUrl": "https://help.ishumei.com/docs/tw/sdk/web/developDoc/",
+        "status": "documented-candidate",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Host and collection-path composition follows documented apiHost configuration; protocol is deployment-configurable and needs a fixture.",
+        "scheme": "document-context"
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "Web SDK hosts can be customized for private deployment.",
+      "The documented collector path /deviceprofile/v4 needs a documented deployment host and same-document evidence; do not match the path globally."
+    ]
+  },
+  {
+    "id": "tongdun-device-intelligence",
+    "name": "Tongdun Device Fingerprint",
+    "provider": "Tongdun",
+    "category": "device-intelligence",
+    "officialWebsite": "https://www.tongdun.com/",
+    "sources": [
+      {
+        "url": "https://www.tongdun.com/platform/",
+        "title": "Tongdun core technologies",
+        "claim": "The provider describes device identifiers, proxy detection and real-time risk decisioning.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "Product capability is documented; no current exact browser loader was verified from this public source.",
+      "Do not silently treat Tongdun and TrustDecision regional deployments as identical."
+    ]
+  },
+  {
+    "id": "yandex-smartcaptcha",
+    "name": "Yandex SmartCaptcha",
+    "provider": "Yandex Cloud",
+    "category": "captcha",
+    "officialWebsite": "https://yandex.cloud/en/services/smartcaptcha",
+    "sources": [
+      {
+        "url": "https://yandex.cloud/en/docs/smartcaptcha/quickstart",
+        "title": "Getting started with Yandex SmartCaptcha",
+        "claim": "The official integration adds captcha.js from the SmartCaptcha host and a smart-captcha class element.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "script-resource",
+        "host": "smartcaptcha.cloud.yandex.ru",
+        "path": "/captcha.js",
+        "sourceUrl": "https://yandex.cloud/en/docs/smartcaptcha/quickstart",
+        "status": "documented-candidate",
+        "resourceType": "script",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Exact documented host and path; fixture verification is still required.",
+        "scheme": "https"
+      },
+      {
+        "kind": "dom-class-name",
+        "name": "smart-captcha",
+        "sourceUrl": "https://yandex.cloud/en/docs/smartcaptcha/quickstart",
+        "status": "documented-candidate",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Page-controlled DOM integration hint; insufficient alone and values must not be read."
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "The class is a page-controlled integration hint, not proof of a completed challenge."
+    ]
+  },
+  {
+    "id": "mtcaptcha",
+    "name": "MTCaptcha",
+    "provider": "MTCaptcha",
+    "category": "captcha",
+    "officialWebsite": "https://www.mtcaptcha.com/",
+    "sources": [
+      {
+        "url": "https://docs.mtcaptcha.com/faq",
+        "title": "MTCaptcha FAQ and CSP integration",
+        "claim": "Official client integration documents primary and secondary JavaScript loaders and their CSP hostnames.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "script-resource",
+        "host": "service.mtcaptcha.com",
+        "path": "/mtcv1/client/mtcaptcha.min.js",
+        "sourceUrl": "https://docs.mtcaptcha.com/faq",
+        "status": "documented-candidate",
+        "resourceType": "script",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Exact documented host and path; fixture verification is still required.",
+        "scheme": "https"
+      },
+      {
+        "kind": "script-resource",
+        "host": "service2.mtcaptcha.com",
+        "path": "/mtcv1/client/mtcaptcha2.min.js",
+        "sourceUrl": "https://docs.mtcaptcha.com/faq",
+        "status": "documented-candidate",
+        "resourceType": "script",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Exact documented host and path; fixture verification is still required.",
+        "scheme": "https"
+      },
+      {
+        "kind": "global-name",
+        "name": "mtcaptchaConfig",
+        "sourceUrl": "https://docs.mtcaptcha.com/faq",
+        "status": "documented-candidate",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Page-controlled global name; insufficient alone and values must not be read."
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "Alternative/custom integration layouts require separate verification."
+    ]
+  },
+  {
+    "id": "friendly-captcha",
+    "name": "Friendly Captcha",
+    "provider": "Friendly Captcha",
+    "category": "captcha",
+    "officialWebsite": "https://friendlycaptcha.com/",
+    "sources": [
+      {
+        "url": "https://developer.friendlycaptcha.com/docs/v2/getting-started/install",
+        "title": "Install the Friendly Captcha v2 widget",
+        "claim": "The official v2 integration documents the @friendlycaptcha/sdk site loader and the frc-captcha class; scripts may be self-hosted.",
+        "accessedAt": "2026-10-09"
+      },
+      {
+        "url": "https://developer.friendlycaptcha.com/docs/v2/risk-intelligence/getting-started/generate",
+        "title": "Generate a Friendly Captcha Risk Intelligence token",
+        "claim": "The Risk Intelligence integration uses the same site scripts as Friendly Captcha widgets, so loader presence alone cannot distinguish these products.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "dom-class-name",
+        "name": "frc-captcha",
+        "sourceUrl": "https://developer.friendlycaptcha.com/docs/v2/getting-started/install",
+        "status": "documented-candidate",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Page-controlled DOM integration hint; insufficient alone and values must not be read."
+      },
+      {
+        "kind": "script-resource",
+        "host": "cdn.jsdelivr.net",
+        "path": "/npm/@friendlycaptcha/sdk@1.0.2/site.min.js",
+        "sourceUrl": "https://developer.friendlycaptcha.com/docs/v2/getting-started/install",
+        "status": "documented-candidate",
+        "resourceType": "script",
+        "scope": "provider-family",
+        "lifecycle": "current",
+        "limitations": "Shared Friendly Captcha and Risk Intelligence SDK; exact documented host and path do not establish which product is enabled.",
+        "scheme": "https"
+      },
+      {
+        "kind": "script-resource",
+        "host": "cdn.jsdelivr.net",
+        "path": "/npm/@friendlycaptcha/sdk@1.0.2/site.compat.min.js",
+        "sourceUrl": "https://developer.friendlycaptcha.com/docs/v2/getting-started/install",
+        "status": "documented-candidate",
+        "resourceType": "script",
+        "scope": "provider-family",
+        "lifecycle": "current",
+        "limitations": "Shared Friendly Captcha and Risk Intelligence SDK; exact documented host and path do not establish which product is enabled.",
+        "scheme": "https"
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "The exact current 1.0.2 script URLs were read from the official HTML documentation on the access date.",
+      "Shared jsDelivr hosting requires the full product path; self-hosted scripts are supported.",
+      "Friendly Captcha and Risk Intelligence share the site SDK. Attribute the provider family unless a product-specific element or endpoint corroborates the product."
+    ]
+  },
+  {
+    "id": "altcha",
+    "name": "ALTCHA",
+    "provider": "ALTCHA",
+    "category": "captcha",
+    "officialWebsite": "https://altcha.org/",
+    "sources": [
+      {
+        "url": "https://altcha.org/docs/integration/widget/",
+        "title": "ALTCHA widget integration",
+        "claim": "The official widget guide documents the altcha-widget custom element and the versionless ALTCHA CDN artifact.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "script-resource",
+        "host": "cdn.jsdelivr.net",
+        "path": "/gh/altcha-org/altcha/dist/main/altcha.min.js",
+        "sourceUrl": "https://altcha.org/docs/integration/widget/",
+        "status": "documented-candidate",
+        "resourceType": "script",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Exact documented host and path; fixture verification is still required.",
+        "scheme": "https"
+      },
+      {
+        "kind": "dom-custom-element",
+        "name": "altcha-widget",
+        "sourceUrl": "https://altcha.org/docs/integration/widget/",
+        "status": "documented-candidate",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Page-controlled DOM integration hint; insufficient alone and values must not be read."
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "The CDN hostname is shared; exact product path is required.",
+      "Self-hosted widget and Sentinel endpoints are supported, so missing third-party traffic does not exclude integration."
+    ]
+  },
+  {
+    "id": "keycaptcha",
+    "name": "KeyCAPTCHA",
+    "provider": "KeyCAPTCHA",
+    "category": "captcha",
+    "officialWebsite": "https://www.keycaptcha.com/",
+    "sources": [
+      {
+        "url": "https://www.keycaptcha.com/common-captcha-api/",
+        "title": "KeyCAPTCHA common API",
+        "claim": "The common API guide documents a cap.js browser loader and configuration global names.",
+        "accessedAt": "2026-10-09"
+      },
+      {
+        "url": "https://www.keycaptcha.com/django-captcha/",
+        "title": "KeyCAPTCHA Django integration",
+        "claim": "The legacy official Django integration explicitly documents the HTTPS cap.js loader, while the common API shows the HTTP variant.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "script-resource",
+        "host": "backs.keycaptcha.com",
+        "path": "/swfs/cap.js",
+        "sourceUrl": "https://www.keycaptcha.com/common-captcha-api/",
+        "status": "documented-candidate",
+        "resourceType": "script",
+        "scope": "product",
+        "lifecycle": "legacy",
+        "limitations": "Explicit HTTP loader from legacy provider common API documentation; current deployment and browser compatibility remain unverified.",
+        "scheme": "http"
+      },
+      {
+        "kind": "global-name",
+        "name": "s_s_c_user_id",
+        "sourceUrl": "https://www.keycaptcha.com/common-captcha-api/",
+        "status": "documented-candidate",
+        "scope": "product",
+        "lifecycle": "legacy",
+        "limitations": "Page-controlled global name; insufficient alone and values must not be read."
+      },
+      {
+        "kind": "script-resource",
+        "scheme": "https",
+        "host": "backs.keycaptcha.com",
+        "path": "/swfs/cap.js",
+        "resourceType": "script",
+        "sourceUrl": "https://www.keycaptcha.com/django-captcha/",
+        "status": "documented-candidate",
+        "scope": "product",
+        "lifecycle": "legacy",
+        "limitations": "Explicit HTTPS loader from legacy provider Django documentation; current deployment and browser compatibility remain unverified."
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "Common API documents HTTP; legacy Django integration separately documents HTTPS. The provider pages were reachable through official indexed search results during recheck, while a direct fetch failed. Current deployment and browser compatibility need fixtures."
+    ]
+  },
+  {
+    "id": "cleantalk",
+    "name": "CleanTalk Anti-Spam",
+    "provider": "CleanTalk",
+    "category": "anti-spam",
+    "officialWebsite": "https://cleantalk.org/",
+    "sources": [
+      {
+        "url": "https://cleantalk.org/help/faq-work",
+        "title": "CleanTalk service FAQ",
+        "claim": "The official FAQ describes spam filtering and JavaScript browser checks.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "Browser integration varies by CMS/plugin; no exact universal loader verified from this source."
+    ]
+  },
+  {
+    "id": "descope-risk",
+    "name": "Descope Fingerprinting and Risk Detection",
+    "provider": "Descope",
+    "category": "authentication-risk",
+    "officialWebsite": "https://www.descope.com/",
+    "sources": [
+      {
+        "url": "https://docs.descope.com/fingerprinting",
+        "title": "Fingerprinting capabilities",
+        "claim": "Built-in riskInfo includes network-based bot signals, trusted-device recognition, impossible travel and optional fraud connectors.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "A Descope authentication SDK alone does not establish that any particular fraud connector or CAPTCHA is enabled.",
+      "No exact independently attributable anti-fraud browser loader verified."
+    ]
+  },
+  {
+    "id": "auth0-bot-detection",
+    "name": "Auth0 Bot Detection",
+    "provider": "Okta / Auth0",
+    "category": "authentication-risk",
+    "officialWebsite": "https://auth0.com/",
+    "sources": [
+      {
+        "url": "https://auth0.com/docs/secure/attack-protection/bot-detection/bot-detection-custom-login-pages",
+        "title": "Bot detection on custom login pages",
+        "claim": "Auth0 documents adaptive CAPTCHA integration through auth0.js renderCaptcha and provider-specific templates.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "cdn.auth0.com/js/auth0/ is a general authentication library, not proof Bot Detection is enabled.",
+      "A loaded third-party CAPTCHA should be attributed to that CAPTCHA provider, with Auth0 linkage requiring corroboration."
+    ]
+  },
+  {
+    "id": "authsignal",
+    "name": "Authsignal Risk and Policy Engine",
+    "provider": "Authsignal",
+    "category": "authentication-risk",
+    "officialWebsite": "https://www.authsignal.com/",
+    "sources": [
+      {
+        "url": "https://www.authsignal.com/features/no-code-rules-engine",
+        "title": "Authsignal no-code rules engine",
+        "claim": "The provider documents device novelty, known-bot user agents, anonymous IP signals and atypical or impossible travel rules.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "An Authsignal authentication integration alone does not prove a particular risk rule is active."
+    ]
+  },
+  {
+    "id": "stytch-device-fingerprinting",
+    "name": "Stytch Device Fingerprinting",
+    "provider": "Stytch",
+    "category": "device-intelligence",
+    "officialWebsite": "https://stytch.com/",
+    "sources": [
+      {
+        "url": "https://stytch.com/blog/what-is-device-fingerprinting/",
+        "title": "Stytch device fingerprinting implementation",
+        "claim": "The provider's implementation example includes the telemetry.js browser script for collecting device signals.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "script-resource",
+        "host": "elements.stytch.com",
+        "path": "/telemetry.js",
+        "sourceUrl": "https://stytch.com/blog/what-is-device-fingerprinting/",
+        "status": "documented-candidate",
+        "resourceType": "script",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Exact documented host and path; fixture verification is still required.",
+        "scheme": "https"
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "The generic Stytch authentication SDK is not interchangeable with this telemetry resource."
+    ]
+  },
+  {
+    "id": "workos-radar",
+    "name": "WorkOS Radar",
+    "provider": "WorkOS",
+    "category": "authentication-risk",
+    "officialWebsite": "https://workos.com/radar",
+    "sources": [
+      {
+        "url": "https://workos.com/changelog/radar",
+        "title": "WorkOS Radar launch",
+        "claim": "Radar is described as device-fingerprint-based protection for bots, account attacks and credential stuffing, integrated with AuthKit.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "General AuthKit use does not prove Radar is enabled.",
+      "No exact product-specific browser loader verified."
+    ]
+  },
+  {
+    "id": "verisoul",
+    "name": "Verisoul",
+    "provider": "Verisoul",
+    "category": "device-intelligence",
+    "officialWebsite": "https://www.verisoul.ai/",
+    "sources": [
+      {
+        "url": "https://support.verisoul.ai/articles/9359601980-integrating-verisoul-fraud-prevention-with-qualtrics",
+        "title": "Verisoul fraud prevention integration with Qualtrics",
+        "claim": "The official integration loads the production bundle with a verisoul-project-id attribute and collects device signals before server-side risk assessment.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "script-resource",
+        "host": "js.verisoul.ai",
+        "path": "/prod/bundle.js",
+        "sourceUrl": "https://support.verisoul.ai/articles/9359601980-integrating-verisoul-fraud-prevention-with-qualtrics",
+        "status": "documented-candidate",
+        "resourceType": "script",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Exact documented host and path; fixture verification is still required.",
+        "scheme": "https"
+      },
+      {
+        "kind": "dom-attribute-name",
+        "name": "verisoul-project-id",
+        "sourceUrl": "https://support.verisoul.ai/articles/9359601980-integrating-verisoul-fraud-prevention-with-qualtrics",
+        "status": "documented-candidate",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Page-controlled DOM integration hint; insufficient alone and values must not be read."
+      },
+      {
+        "kind": "global-name",
+        "name": "Verisoul",
+        "sourceUrl": "https://support.verisoul.ai/articles/9359601980-integrating-verisoul-fraud-prevention-with-qualtrics",
+        "status": "documented-candidate",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Page-controlled global name; insufficient alone and values must not be read."
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "The documented sandbox path is not added as a production signature without its own source/fixture."
+    ]
+  },
+  {
+    "id": "trustdecision-device-fingerprint",
+    "name": "TrustDecision Device Fingerprint",
+    "provider": "TrustDecision",
+    "category": "device-intelligence",
+    "officialWebsite": "https://trustdecision.com/",
+    "sources": [
+      {
+        "url": "https://en-doc.trustdecision.com/reference/devicefingerprint-overview-1",
+        "title": "TrustDecision Device Fingerprint overview",
+        "claim": "The official integration has a terminal SDK and a separate backend device information query, producing persistent device identifiers.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "Server query endpoints are not browser signatures.",
+      "A current Web SDK loader must be verified from a direct integration guide before a rule is enabled."
+    ]
+  },
+  {
+    "id": "trustfull-session",
+    "name": "Trustfull Session",
+    "provider": "Trustfull",
+    "category": "device-intelligence",
+    "officialWebsite": "https://trustfull.com/",
+    "sources": [
+      {
+        "url": "https://docs.trustfull.com/ip/docs/session-integration",
+        "title": "Trustfull Session integration",
+        "claim": "The official browser integration loads det.js and uses the tfbd command entry point before backend Session API risk assessment.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "script-resource",
+        "host": "det.trustfull.com",
+        "path": "/det.js",
+        "sourceUrl": "https://docs.trustfull.com/ip/docs/session-integration",
+        "status": "documented-candidate",
+        "resourceType": "script",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Exact documented host and path; fixture verification is still required.",
+        "scheme": "https"
+      },
+      {
+        "kind": "global-name",
+        "name": "tfbd",
+        "sourceUrl": "https://docs.trustfull.com/ip/docs/session-integration",
+        "status": "documented-candidate",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Page-controlled global name; insufficient alone and values must not be read."
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "The API at api.fido.id is backend-side and not a guaranteed browser resource."
+    ]
+  },
+  {
+    "id": "sumsub-fraud-prevention",
+    "name": "Sumsub Fraud Prevention and Device Intelligence",
+    "provider": "Sumsub",
+    "category": "identity-fraud",
+    "officialWebsite": "https://sumsub.com/fraud-prevention/",
+    "sources": [
+      {
+        "url": "https://docs.sumsub.com/docs/go-live",
+        "title": "Sumsub SDK fraud prevention capabilities",
+        "claim": "Current SDK integrations support document/liveness fraud checks, behavior analysis and device intelligence; device capture depends on configured verification levels.",
+        "accessedAt": "2026-10-09"
+      },
+      {
+        "url": "https://github.com/sumsub/agent-skills/blob/main/skills/sumsub-integrate-websdk/SKILL.md",
+        "title": "Sumsub maintained WebSDK integration example",
+        "claim": "The provider-maintained integration example documents the current builder script and snsWebSdk global for browser identity verification.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "script-resource",
+        "host": "static.sumsub.com",
+        "path": "/idensic/static/sns-websdk-builder.js",
+        "scope": "generic-sdk",
+        "sourceUrl": "https://github.com/sumsub/agent-skills/blob/main/skills/sumsub-integrate-websdk/SKILL.md",
+        "status": "documented-candidate",
+        "resourceType": "script",
+        "lifecycle": "current",
+        "limitations": "Recognizes the general SDK integration; optional fraud features require corroboration.",
+        "scheme": "https"
+      },
+      {
+        "kind": "global-name",
+        "name": "snsWebSdk",
+        "scope": "generic-sdk",
+        "sourceUrl": "https://github.com/sumsub/agent-skills/blob/main/skills/sumsub-integrate-websdk/SKILL.md",
+        "status": "documented-candidate",
+        "lifecycle": "current",
+        "limitations": "Recognizes the general SDK integration; optional fraud features require corroboration."
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "A generic Sumsub verification widget does not by itself establish that Device Intelligence is enabled.",
+      "WebSDK 1.0 became unavailable in October 2025; avoid promoting old v1 documentation as current."
+    ]
+  },
+  {
+    "id": "onfido-entrust",
+    "name": "Entrust / Onfido Smart Capture",
+    "provider": "Entrust",
+    "category": "identity-fraud",
+    "officialWebsite": "https://www.entrust.com/products/identity-verification",
+    "sources": [
+      {
+        "url": "https://documentation.identity.entrust.com/sdk/web/",
+        "title": "Onfido Smart Capture Web SDK",
+        "claim": "Current Web SDK uses sdk.onfido.com with a version path, provides fraud detection signals and documents the Onfido global initialization object.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "global-name",
+        "name": "Onfido",
+        "sourceUrl": "https://documentation.identity.entrust.com/sdk/web/",
+        "status": "documented-candidate",
+        "scope": "generic-sdk",
+        "lifecycle": "current",
+        "limitations": "Recognizes the general SDK integration; optional fraud features require corroboration."
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "A versioned SDK path must be matched with validated version grammar; the general host alone is not sufficient.",
+      "Former assets.onfido.com/web-sdk-releases paths are legacy pre-12.3.1 resources."
+    ]
+  },
+  {
+    "id": "veriff",
+    "name": "Veriff Identity Verification",
+    "provider": "Veriff",
+    "category": "identity-fraud",
+    "officialWebsite": "https://www.veriff.com/",
+    "sources": [
+      {
+        "url": "https://devdocs.veriff.com/docs/javascript-sdk-1",
+        "title": "Veriff JavaScript SDK",
+        "claim": "The official JS SDK guide documents the versioned browser library and its role in creating verification sessions.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "script-resource",
+        "host": "cdn.veriff.me",
+        "path": "/sdk/js/1.5/veriff.min.js",
+        "sourceUrl": "https://devdocs.veriff.com/docs/javascript-sdk-1",
+        "status": "documented-candidate",
+        "resourceType": "script",
+        "scope": "generic-sdk",
+        "lifecycle": "current",
+        "limitations": "Recognizes the general SDK integration; optional fraud features require corroboration.",
+        "scheme": "https"
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "The SDK proves a verification integration, not every optional fraud prevention product."
+    ]
+  },
+  {
+    "id": "idnow-risk-intelligence",
+    "name": "IDnow Risk Intelligence",
+    "provider": "IDnow",
+    "category": "identity-fraud",
+    "officialWebsite": "https://idnow.io/",
+    "sources": [
+      {
+        "url": "https://idnow.io/solutions/fraud-prevention/",
+        "title": "IDnow identity fraud prevention",
+        "claim": "The provider describes fraud checks using device, behavior and identity data across onboarding and account activity.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "No current exact browser signature verified from the product page."
+    ]
+  },
+  {
+    "id": "trulioo-fraud-intelligence",
+    "name": "Trulioo Fraud Intelligence",
+    "provider": "Trulioo",
+    "category": "identity-fraud",
+    "officialWebsite": "https://www.trulioo.com/",
+    "sources": [
+      {
+        "url": "https://www.trulioo.com/solutions/fraud-intelligence",
+        "title": "Trulioo Fraud Intelligence",
+        "claim": "The product combines identity, email, phone, IP and velocity risk indicators, exposed through the Trulioo API.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "Backend/API integration may have no browser-visible third-party resource.",
+      "A Trulioo identity capture SDK is not proof this risk service is enabled."
+    ]
+  },
+  {
+    "id": "au10tix",
+    "name": "AU10TIX Identity Verification and Serial Fraud Monitor",
+    "provider": "AU10TIX",
+    "category": "identity-fraud",
+    "officialWebsite": "https://www.au10tix.com/",
+    "sources": [
+      {
+        "url": "https://www.au10tix.com/data-security-and-privacy/",
+        "title": "AU10TIX identity fraud detection",
+        "claim": "The provider describes document, liveness, device, behavior and transaction analysis for identity fraud detection.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "No exact browser loader independently verified from this source."
+    ]
+  },
+  {
+    "id": "persona",
+    "name": "Persona Identity Verification",
+    "provider": "Persona",
+    "category": "identity-fraud",
+    "officialWebsite": "https://withpersona.com/",
+    "sources": [
+      {
+        "url": "https://docs.withpersona.com/embedded-flow",
+        "title": "Persona embedded flow overview",
+        "claim": "The current embedded-flow integration documents Persona.Client for browser verification and supports custom iframe hosts.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "global-name",
+        "name": "Persona",
+        "sourceUrl": "https://docs.withpersona.com/embedded-flow",
+        "status": "documented-candidate",
+        "scope": "generic-sdk",
+        "lifecycle": "current",
+        "limitations": "Recognizes the general SDK integration; optional fraud features require corroboration."
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "The page-controlled global is an integration hint; a loaded verification resource is needed for stronger attribution.",
+      "Custom iframe hosts are supported, so the default vendor hostname is incomplete."
+    ]
+  },
+  {
+    "id": "jumio",
+    "name": "Jumio Identity Verification",
+    "provider": "Jumio",
+    "category": "identity-fraud",
+    "officialWebsite": "https://www.jumio.com/",
+    "sources": [
+      {
+        "url": "https://developer.jumio.ai/docs/developer-resources/SDKs/web-sdk/introduction-web",
+        "title": "Getting started with the Jumio Web SDK",
+        "claim": "The current SDK implements verification using a jumio-sdk custom element and a self-hostable npm package.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "dom-custom-element",
+        "name": "jumio-sdk",
+        "sourceUrl": "https://developer.jumio.ai/docs/developer-resources/SDKs/web-sdk/introduction-web",
+        "status": "documented-candidate",
+        "scope": "generic-sdk",
+        "lifecycle": "current",
+        "limitations": "Recognizes the general SDK integration; optional fraud features require corroboration."
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "The custom element alone is a page-controlled integration hint.",
+      "Do not read the element's token attribute or capture biometric/document content."
+    ]
+  },
+  {
+    "id": "threatmark",
+    "name": "ThreatMark Behavioral Intelligence",
+    "provider": "ThreatMark",
+    "category": "behavioral-fraud",
+    "officialWebsite": "https://www.threatmark.com/",
+    "sources": [
+      {
+        "url": "https://www.threatmark.com/behavioral-intelligence-platform/",
+        "title": "ThreatMark Behavioral Intelligence Platform",
+        "claim": "The provider describes real-time device and behavioral fraud detection in banking journeys.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "Product existence is verified; browser resource identities are not verified from this page."
+    ]
+  },
+  {
+    "id": "fraudlabs-pro",
+    "name": "FraudLabs Pro",
+    "provider": "FraudLabs Pro / Hexasoft",
+    "category": "transaction-fraud",
+    "officialWebsite": "https://www.fraudlabspro.com/",
+    "sources": [
+      {
+        "url": "https://www.fraudlabspro.com/developer/javascript",
+        "title": "FraudLabs Pro Agent JavaScript",
+        "claim": "The developer guide documents s.js and the cookie name used for device validation in order screening.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "script-resource",
+        "host": "cdn.fraudlabspro.com",
+        "path": "/s.js",
+        "sourceUrl": "https://www.fraudlabspro.com/developer/javascript",
+        "status": "documented-candidate",
+        "resourceType": "script",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Exact documented host and path; fixture verification is still required.",
+        "scheme": "https"
+      },
+      {
+        "kind": "cookie-name",
+        "name": "flp_checksum",
+        "sourceUrl": "https://www.fraudlabspro.com/developer/javascript",
+        "status": "documented-candidate",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Cookie name only; collidable without the documented loaded agent."
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "Only the cookie name is a candidate; no cookie values are collected."
+    ]
+  },
+  {
+    "id": "ipqualityscore",
+    "name": "IPQualityScore Device Fingerprinting",
+    "provider": "IPQualityScore",
+    "category": "device-intelligence",
+    "officialWebsite": "https://www.ipqualityscore.com/",
+    "sources": [
+      {
+        "url": "https://www.ipqualityscore.com/documentation/device-fingerprint-api/overview",
+        "title": "IPQS Device Fingerprint API overview",
+        "claim": "The official guide documents browser fingerprint trackers and the page-level IPQ configuration object; tracker script URLs are generated in the account.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "global-name",
+        "name": "IPQ",
+        "sourceUrl": "https://www.ipqualityscore.com/documentation/device-fingerprint-api/overview",
+        "status": "documented-candidate",
+        "scope": "generic-sdk",
+        "lifecycle": "current",
+        "limitations": "Optional page-level configuration global shown in provider examples; a generic name and configuration alone cannot confirm SDK execution."
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "IPQ is a page-controlled configuration name and is insufficient by itself; require a vendor-specific loaded resource before attribution. The Startup identifier is used in SDK examples but its generic name is not retained as a distinct browser marker.",
+      "Tracker script URLs are account-generated and must not be guessed."
+    ]
+  },
+  {
+    "id": "ipinfo-privacy",
+    "name": "IPinfo Privacy Detection",
+    "provider": "IPinfo",
+    "category": "ip-risk-intelligence",
+    "officialWebsite": "https://ipinfo.io/",
+    "sources": [
+      {
+        "url": "https://ipinfo.io/developers/ipinfo-api",
+        "title": "IPinfo API overview",
+        "claim": "IPinfo API tiers provide privacy/anonymity data alongside geolocation and ASN data.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "Usually a backend lookup; IPinfo traffic alone does not prove privacy detection is requested.",
+      "No browser fingerprint or WebRTC signature verified."
+    ]
+  },
+  {
+    "id": "ip2proxy",
+    "name": "IP2Proxy Proxy Detection",
+    "provider": "IP2Location / Hexasoft",
+    "category": "ip-risk-intelligence",
+    "officialWebsite": "https://www.ip2location.com/databases/ip2proxy",
+    "sources": [
+      {
+        "url": "https://www.ip2location.com/web-service/ip2proxy",
+        "title": "IP2Proxy Proxy Detection Web Service",
+        "claim": "The service and downloadable database classify proxy, VPN, Tor and related IP categories.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "Backend database usage can be completely invisible in the browser.",
+      "New hosted-service registration is directed to IP2Location.io; existing IP2Proxy service is not assumed discontinued."
+    ]
+  },
+  {
+    "id": "fraudlogix",
+    "name": "Fraudlogix",
+    "provider": "Fraudlogix",
+    "category": "advertising-fraud",
+    "officialWebsite": "https://www.fraudlogix.com/",
+    "sources": [
+      {
+        "url": "https://www.fraudlogix.com/home/",
+        "title": "Fraudlogix real-time fraud prevention",
+        "claim": "The provider offers IP risk scoring, licensed blocklists and programmatic invalid-traffic detection.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "No exact publicly documented browser loader verified from this product page."
+    ]
+  },
+  {
+    "id": "cheq",
+    "name": "CHEQ",
+    "provider": "CHEQ",
+    "category": "advertising-fraud",
+    "officialWebsite": "https://cheq.ai/",
+    "sources": [
+      {
+        "url": "https://cheq.ai/dg-bot-detection/",
+        "title": "CHEQ bot detection",
+        "claim": "The provider describes bot and invalid-traffic protection for paid acquisition, forms and analytics.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "No exact browser loader verified from this product page.",
+      "ClickCease is separately documented as a CHEQ product rather than a wholly independent provider."
+    ]
+  },
+  {
+    "id": "pixalate",
+    "name": "Pixalate Ad Fraud Protection",
+    "provider": "Pixalate",
+    "category": "advertising-fraud",
+    "officialWebsite": "https://www.pixalate.com/",
+    "sources": [
+      {
+        "url": "https://www.pixalate.com/ad-fraud-protection-solution",
+        "title": "Pixalate ad fraud protection",
+        "claim": "The provider describes pre-bid blocking, post-bid analytics and invalid-traffic detection across web, app and CTV.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "API, server-to-server and client-side tag integration are distinct; no exact current browser loader verified."
+    ]
+  },
+  {
+    "id": "anura",
+    "name": "Anura",
+    "provider": "Anura",
+    "category": "advertising-fraud",
+    "officialWebsite": "https://www.anura.io/",
+    "sources": [
+      {
+        "url": "https://docs.anura.io/integration",
+        "title": "Anura integration guide",
+        "claim": "The official JavaScript integration loads request.js on the script host; a separate server-side/direct mode also exists.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "script-resource",
+        "host": "script.anura.io",
+        "path": "/request.js",
+        "sourceUrl": "https://docs.anura.io/integration",
+        "status": "documented-candidate",
+        "resourceType": "script",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Exact documented host and path; fixture verification is still required.",
+        "scheme": "https"
+      },
+      {
+        "kind": "global-name",
+        "name": "Anura",
+        "sourceUrl": "https://docs.anura.io/integration",
+        "status": "documented-candidate",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Page-controlled global name; insufficient alone and values must not be read."
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "Account, campaign and cachebuster query values are excluded from the signature.",
+      "The server-side Direct option can have no browser-visible JavaScript resource."
+    ]
+  },
+  {
+    "id": "trafficguard",
+    "name": "TrafficGuard",
+    "provider": "TrafficGuard",
+    "category": "advertising-fraud",
+    "officialWebsite": "https://www.trafficguard.ai/",
+    "sources": [
+      {
+        "url": "https://help.trafficguard.ai/en/articles/6760694-trafficguard-tg-site-tag",
+        "title": "TrafficGuard site tag",
+        "claim": "The current integration documents tg.js, an optional no-script event pixel and the dataTrafficGuard global queue.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "script-resource",
+        "host": "tgtag.io",
+        "path": "/tg.js",
+        "sourceUrl": "https://help.trafficguard.ai/en/articles/6760694-trafficguard-tg-site-tag",
+        "status": "documented-candidate",
+        "resourceType": "script",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Exact documented host and path; fixture verification is still required.",
+        "scheme": "https"
+      },
+      {
+        "kind": "image-resource",
+        "host": "p.tgtag.io",
+        "path": "/event",
+        "sourceUrl": "https://help.trafficguard.ai/en/articles/6760694-trafficguard-tg-site-tag",
+        "status": "documented-candidate",
+        "resourceType": "image",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Page-controlled DOM integration hint; insufficient alone and values must not be read.",
+        "scheme": "https"
+      },
+      {
+        "kind": "global-name",
+        "name": "dataTrafficGuard",
+        "sourceUrl": "https://help.trafficguard.ai/en/articles/6760694-trafficguard-tg-site-tag",
+        "status": "documented-candidate",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Page-controlled global name; insufficient alone and values must not be read."
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "A site tag establishes measurement integration; prevention mode is a separate customer setting."
+    ]
+  },
+  {
+    "id": "clickcease",
+    "name": "ClickCease",
+    "provider": "CHEQ",
+    "category": "advertising-fraud",
+    "officialWebsite": "https://www.clickcease.com/",
+    "sources": [
+      {
+        "url": "https://www.clickcease.com/faq.html",
+        "title": "ClickCease service FAQ",
+        "claim": "The provider documents a site tracking tag paired with advertising-platform integration for click fraud analysis and blocking.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "No exact tracking script URL verified from this source.",
+      "Do not treat a conversion-only tag as proof that fraud blocking is active."
+    ]
+  },
+  {
+    "id": "protected-media",
+    "name": "Protected Media",
+    "provider": "Protected Media",
+    "category": "advertising-fraud",
+    "officialWebsite": "https://www.protected.media/",
+    "sources": [
+      {
+        "url": "https://www.protected.media/solutions/",
+        "title": "Protected Media ad verification solutions",
+        "claim": "The provider offers traffic intelligence and invalid-traffic/fraud detection for desktop, web, app and CTV environments.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "No exact current public browser tag or WebRTC resource verified."
+    ]
+  },
+  {
+    "id": "alibaba-cloud-fraud-detection",
+    "name": "Alibaba Cloud Fraud Detection",
+    "provider": "Alibaba Cloud",
+    "category": "transaction-fraud",
+    "officialWebsite": "https://www.alibabacloud.com/product/fraud-detection",
+    "sources": [
+      {
+        "url": "https://www.alibabacloud.com/help/en/fraud-detection/product-overview/what-is-fraud-detection",
+        "title": "What is Alibaba Cloud Fraud Detection",
+        "claim": "The platform supports API risk models, decision workflows and client security SDK/JavaScript components.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "Browser component existence is documented; no current exact loader identity verified."
+    ]
+  },
+  {
+    "id": "netease-yidun-captcha",
+    "name": "NetEase Yidun CAPTCHA",
+    "provider": "NetEase Yidun",
+    "category": "captcha",
+    "officialWebsite": "https://dun.163.com/",
+    "sources": [
+      {
+        "url": "https://github.com/yidun/captcha-php-demo/blob/master/index.php",
+        "title": "Yidun official browser integration example",
+        "claim": "The provider repository documents the load.min.js script and initNECaptcha initialization function.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "script-resource",
+        "host": "cstaticdun.126.net",
+        "path": "/load.min.js",
+        "sourceUrl": "https://github.com/yidun/captcha-php-demo/blob/master/index.php",
+        "status": "documented-candidate",
+        "resourceType": "script",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "The official example uses a protocol-relative URL; scheme follows the embedding document. Fixtures are required.",
+        "scheme": "document-context"
+      },
+      {
+        "kind": "global-name",
+        "name": "initNECaptcha",
+        "sourceUrl": "https://github.com/yidun/captcha-php-demo/blob/master/index.php",
+        "status": "documented-candidate",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Page-controlled global name; insufficient alone and values must not be read."
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "Provider repository ownership was checked through github.com/yidun linking to dun.163.com.",
+      "The repository is an integration example; current customer-specific or private deployments need separate fixtures."
+    ]
+  },
+  {
+    "id": "trustdecision-bot-detection",
+    "name": "TrustDecision Bot Detection",
+    "provider": "TrustDecision",
+    "category": "bot-management",
+    "officialWebsite": "https://trustdecision.com/",
+    "sources": [
+      {
+        "url": "https://en-doc.trustdecision.com/reference/sign-web",
+        "title": "TrustDecision Bot Detection Web/H5 integration",
+        "claim": "The official integration lists regional botd.js entry scripts and the _TDBotD command object.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "script-resource",
+        "host": "static.trustdecision.com",
+        "path": "/sg/botd.js",
+        "sourceUrl": "https://en-doc.trustdecision.com/reference/sign-web",
+        "status": "documented-candidate",
+        "resourceType": "script",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Exact documented host and path; fixture verification is still required.",
+        "scheme": "https"
+      },
+      {
+        "kind": "script-resource",
+        "host": "static.trustdecision.com",
+        "path": "/idn/botd.js",
+        "sourceUrl": "https://en-doc.trustdecision.com/reference/sign-web",
+        "status": "documented-candidate",
+        "resourceType": "script",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Exact documented host and path; fixture verification is still required.",
+        "scheme": "https"
+      },
+      {
+        "kind": "script-resource",
+        "host": "static.trustdecision.com",
+        "path": "/us/botd.js",
+        "sourceUrl": "https://en-doc.trustdecision.com/reference/sign-web",
+        "status": "documented-candidate",
+        "resourceType": "script",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Exact documented host and path; fixture verification is still required.",
+        "scheme": "https"
+      },
+      {
+        "kind": "script-resource",
+        "host": "static.trustdecision.com",
+        "path": "/fra/botd.js",
+        "sourceUrl": "https://en-doc.trustdecision.com/reference/sign-web",
+        "status": "documented-candidate",
+        "resourceType": "script",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Exact documented host and path; fixture verification is still required.",
+        "scheme": "https"
+      },
+      {
+        "kind": "script-resource",
+        "host": "static.trustdecision.com",
+        "path": "/cn/botd.js",
+        "sourceUrl": "https://en-doc.trustdecision.com/reference/sign-web",
+        "status": "documented-candidate",
+        "resourceType": "script",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Exact documented host and path; fixture verification is still required.",
+        "scheme": "https"
+      },
+      {
+        "kind": "global-name",
+        "name": "_TDBotD",
+        "sourceUrl": "https://en-doc.trustdecision.com/reference/sign-web",
+        "status": "documented-candidate",
+        "scope": "product",
+        "lifecycle": "current",
+        "limitations": "Page-controlled global name; insufficient alone and values must not be read."
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "A Bot Detection loader does not establish that the separate Device Fingerprint SDK is active."
+    ]
+  },
+  {
+    "id": "gbg-idology-expectid",
+    "name": "GBG / IDology ExpectID",
+    "provider": "GBG / IDology",
+    "category": "identity-fraud",
+    "officialWebsite": "https://www.gbgplc.com/",
+    "sources": [
+      {
+        "url": "https://www.gbgplc.com/legal-and-regulatory/data-processing-agreement/",
+        "title": "GBG products and processing purposes",
+        "claim": "The current product grid names ExpectID identity checks, fraud risk detection services, consortium networks and transactional fraud-score features.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "No exact browser SDK signature verified.",
+      "ExpectID Email, GeoTrace and fraud scoring can be backend integrations; GBG or Loqate usage alone does not prove these services are active."
+    ]
+  },
+  {
+    "id": "baidu-afd",
+    "name": "Baidu Cloud AFD Business Risk Control",
+    "provider": "Baidu Cloud",
+    "category": "transaction-fraud",
+    "officialWebsite": "https://cloud.baidu.com/",
+    "sources": [
+      {
+        "url": "https://intl.cloud.baidu.com/zh/doc/AFD/s/Mk9bkjpv7-intl",
+        "title": "Baidu AFD login-protection integration API",
+        "claim": "The official API documentation describes backend login risk assessment and optional H5/miniprogram risk SDK evidence.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "Distinct from Baidu WAF browser challenge components.",
+      "No exact current AFD browser loader verified; backend endpoints are excluded from browser matching."
+    ]
+  }
+]

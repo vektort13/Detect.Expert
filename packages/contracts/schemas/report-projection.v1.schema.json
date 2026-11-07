@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:detect-expert:contracts:report-projection:v1",
+  "title": "ReportProjection v1 — read-only view bound to reportRevision",
+  "$ref": "urn:detect-expert:contracts:common:v1#/$defs/reportProjection"
+}

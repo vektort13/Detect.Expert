@@ -1,0 +1,7 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>P06: сторонний скрипт</title>
+<script>
+var script = document.createElement('script');
+script.src = 'http://' + (new URLSearchParams(location.search).get('host') || '127.0.0.1') + ':4174/vendor-sim.js';
+document.head.appendChild(script);
+</script></head><body><h1>Сторонний скрипт в верхнем документе</h1></body></html>

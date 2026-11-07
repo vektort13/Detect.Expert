@@ -1,0 +1,152 @@
+diff --git a/internal/control/handshake.go b/internal/control/handshake.go
+index 8a29be6..7b9b5bc 100644
+--- a/internal/control/handshake.go
++++ b/internal/control/handshake.go
+@@ -158,7 +158,7 @@ func Run(ctx context.Context, layer *reliable.Layer, localAddr, remoteAddr net.A
+ 	// pre_master is now embedded in the marshalled buffer (which crypto/tls
+ 	// owns) and the struct copy in the goroutine stack. Zero both so a heap
+ 	// dump or core file doesn't expose the secret long after the handshake.
+-	clear(clientKM.PreMaster[:])
++	defer clear(clientKM.PreMaster[:])
+ 	clear(clientKMBytes)
+ 
+ 	// 4. Receive server's KEY_METHOD 2.
+@@ -210,14 +210,14 @@ func Run(ctx context.Context, layer *reliable.Layer, localAddr, remoteAddr net.A
+ 	// 7. Derive data-channel keys via TLS-EKM.
+ 	emit(trace.StageDataKeys, nil)
+ 	cs := tlsConn.ConnectionState()
+-	keys, err := DeriveDataKeys(cs)
++	remoteSID, _ := layer.RemoteSessionID()
++	keys, err := DeriveNegotiatedDataKeys(cs, pushReply.Raw, clientKM, serverKM, layer.LocalSessionID(), remoteSID)
+ 	if err != nil {
+ 		emit(trace.StageDataKeys, err)
+ 		return nil, err
+ 	}
+ 
+ 	emit(trace.StageComplete, nil)
+-	remoteSID, _ := layer.RemoteSessionID()
+ 	return &Result{
+ 		TLSConn:     tlsConn,
+ 		KeyMaterial: keys,
+diff --git a/internal/session/rekey.go b/internal/session/rekey.go
+index 343d057..2c1cee9 100644
+--- a/internal/session/rekey.go
++++ b/internal/session/rekey.go
+@@ -260,9 +260,10 @@ func (m *rekeyManager) PerformSoftReset(ctx context.Context) error {
+ 	}
+ 	// Erase the pre_master copies (struct + marshalled wire buffer) — see
+ 	// the same pattern in control.Run().
+-	clear(clientKM.PreMaster[:])
++	defer clear(clientKM.PreMaster[:])
+ 	clear(cmBytes)
+-	if _, err := control.ReadKeyMethod2(newTLS, true, false); err != nil {
++	serverKM, err := control.ReadKeyMethod2(newTLS, true, false)
++	if err != nil {
+ 		_ = newTLS.Close()
+ 		s.retireLayer(newKID)
+ 		return fmt.Errorf("rekey: read server KEY_METHOD 2: %w", err)
+@@ -270,13 +271,14 @@ func (m *rekeyManager) PerformSoftReset(ctx context.Context) error {
+ 
+ 	// 5. Derive new data-channel keys via TLS-EKM on the new TLS session.
+ 	cs := newTLS.ConnectionState()
+-	mat, err := cs.ExportKeyingMaterial(control.ExportLabel, nil, control.DataKeyMaterialLen)
++	remoteSID, _ := newLayer.RemoteSessionID()
++	mat, err := control.DeriveNegotiatedDataKeys(cs, s.pushReply.Raw, clientKM, serverKM, s.localSID, remoteSID)
+ 	if err != nil {
+ 		_ = newTLS.Close()
+ 		s.retireLayer(newKID)
+ 		return fmt.Errorf("rekey: TLS-EKM: %w", err)
+ 	}
+-	defer clear(mat)
++	defer clear(mat[:])
+ 	keyLen, err := control.AEADKeyLen(s.cipher)
+ 	if err != nil {
+ 		_ = newTLS.Close()
+diff --git a/internal/control/control_test.go b/internal/control/control_test.go
+index c93dff4..4252c12 100644
+--- a/internal/control/control_test.go
++++ b/internal/control/control_test.go
+@@ -117,7 +117,7 @@ func TestRunFullHandshake(t *testing.T) {
+ 	cert, pool := genSelfSignedCert(t)
+ 
+ 	// Server simulator in a goroutine.
+-	const pushReply = "PUSH_REPLY,ifconfig 10.8.0.6 255.255.255.0,topology subnet,peer-id 42,cipher AES-256-GCM,tun-mtu 1500,ping 10,ping-restart 60,route-gateway 10.8.0.1"
++	const pushReply = "PUSH_REPLY,key-derivation tls-ekm,ifconfig 10.8.0.6 255.255.255.0,topology subnet,peer-id 42,cipher AES-256-GCM,tun-mtu 1500,ping 10,ping-restart 60,route-gateway 10.8.0.1"
+ 
+ 	var serverErr error
+ 	var serverEKM [256]byte
+@@ -210,7 +210,7 @@ func TestRunEmitsTracerEvents(t *testing.T) {
+ 	(&pumper{layer: serverLayer, tr: sTr, wrap: serverWrap}).run(ctx, t)
+ 
+ 	cert, pool := genSelfSignedCert(t)
+-	const pushReply = "PUSH_REPLY,ifconfig 10.8.0.7 255.255.255.0,topology subnet,peer-id 17,cipher AES-256-GCM,tun-mtu 1500,ping 10,ping-restart 60,route-gateway 10.8.0.1"
++	const pushReply = "PUSH_REPLY,key-derivation tls-ekm,ifconfig 10.8.0.7 255.255.255.0,topology subnet,peer-id 17,cipher AES-256-GCM,tun-mtu 1500,ping 10,ping-restart 60,route-gateway 10.8.0.1"
+ 
+ 	var wg sync.WaitGroup
+ 	wg.Go(func() {
+diff --git a/internal/session/session_test.go b/internal/session/session_test.go
+index bb5275d..b6f3f34 100644
+--- a/internal/session/session_test.go
++++ b/internal/session/session_test.go
+@@ -641,7 +641,7 @@ func runServerWithDataEcho(
+ 	if msg != "PUSH_REQUEST" {
+ 		return errors.New("expected PUSH_REQUEST, got: " + msg)
+ 	}
+-	pushReply := "PUSH_REPLY,ifconfig 10.8.0.6 255.255.255.0,topology subnet,peer-id " + itoa(peerID) +
++	pushReply := "PUSH_REPLY,key-derivation tls-ekm,ifconfig 10.8.0.6 255.255.255.0,topology subnet,peer-id " + itoa(peerID) +
+ 		",cipher " + cipher + ",tun-mtu 1500,ping 10,ping-restart 60"
+ 	if err := control.WriteControlMessage(tlsConn, pushReply); err != nil {
+ 		return err
+@@ -908,7 +908,7 @@ func continueServerSim(
+ 	if msg != "PUSH_REQUEST" {
+ 		return errors.New("expected PUSH_REQUEST")
+ 	}
+-	pushReply := "PUSH_REPLY,ifconfig 10.8.0.6 255.255.255.0,topology subnet,peer-id " + itoa(peerID) +
++	pushReply := "PUSH_REPLY,key-derivation tls-ekm,ifconfig 10.8.0.6 255.255.255.0,topology subnet,peer-id " + itoa(peerID) +
+ 		",cipher " + cipher + ",tun-mtu 1500,ping 10,ping-restart 60"
+ 	if err := control.WriteControlMessage(tlsConn, pushReply); err != nil {
+ 		return err
+@@ -1218,7 +1218,7 @@ func runRekeyAwareServer(
+ 			if msg != "PUSH_REQUEST" {
+ 				return errors.New("expected PUSH_REQUEST")
+ 			}
+-			pushReply := "PUSH_REPLY,ifconfig 10.8.0.6 255.255.255.0,topology subnet,peer-id " + itoa(peerID) +
++			pushReply := "PUSH_REPLY,key-derivation tls-ekm,ifconfig 10.8.0.6 255.255.255.0,topology subnet,peer-id " + itoa(peerID) +
+ 				",cipher " + cipher + ",tun-mtu 1500,ping 10,ping-restart 60"
+ 			if err := control.WriteControlMessage(tlsConn, pushReply); err != nil {
+ 				return err
+@@ -1510,7 +1510,7 @@ func minimalServerHandshake(
+ 	if _, err := control.ReadControlMessage(tlsConn); err != nil {
+ 		return nil, err
+ 	}
+-	pushReply := "PUSH_REPLY,ifconfig 10.8.0.6 255.255.255.0,topology subnet,peer-id 1,cipher AES-256-GCM,tun-mtu 1500,ping 10,ping-restart 60"
++	pushReply := "PUSH_REPLY,key-derivation tls-ekm,ifconfig 10.8.0.6 255.255.255.0,topology subnet,peer-id 1,cipher AES-256-GCM,tun-mtu 1500,ping 10,ping-restart 60"
+ 	if err := control.WriteControlMessage(tlsConn, pushReply); err != nil {
+ 		return nil, err
+ 	}
+diff --git a/internal/session/keepalive_test.go b/internal/session/keepalive_test.go
+index bf1fe04..aa8345a 100644
+--- a/internal/session/keepalive_test.go
++++ b/internal/session/keepalive_test.go
+@@ -198,7 +198,7 @@ func (ks *keepaliveServer) run(
+ 	if _, err := control.ReadControlMessage(tlsConn); err != nil {
+ 		return err
+ 	}
+-	pushReply := "PUSH_REPLY,ifconfig 10.8.0.6 255.255.255.0,topology subnet,peer-id " +
++	pushReply := "PUSH_REPLY,key-derivation tls-ekm,ifconfig 10.8.0.6 255.255.255.0,topology subnet,peer-id " +
+ 		itoa(peerID) + ",cipher " + cipher + ",tun-mtu 1500"
+ 	if ks.pingInterval > 0 {
+ 		pushReply += ",ping " + itoa(uint32(ks.pingInterval))
+diff --git a/test/auto_reconnect_test.go b/test/auto_reconnect_test.go
+index 43f6f77..951f9f3 100644
+--- a/test/auto_reconnect_test.go
++++ b/test/auto_reconnect_test.go
+@@ -379,7 +379,7 @@ func runOneSession(
+ 	if _, err := control.ReadControlMessage(tlsConn); err != nil {
+ 		return err
+ 	}
+-	pushReply := "PUSH_REPLY,ifconfig 10.8.0.6 255.255.255.0,topology subnet,peer-id 0,cipher AES-256-GCM,tun-mtu 1500,ping 10,ping-restart 60"
++	pushReply := "PUSH_REPLY,key-derivation tls-ekm,ifconfig 10.8.0.6 255.255.255.0,topology subnet,peer-id 0,cipher AES-256-GCM,tun-mtu 1500,ping 10,ping-restart 60"
+ 	if err := control.WriteControlMessage(tlsConn, pushReply); err != nil {
+ 		return err
+ 	}

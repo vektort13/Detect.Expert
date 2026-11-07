@@ -1,0 +1,15 @@
+/* Data-requests page layout only (ADR-020 §I); tokens and components come from ui.css and protect.css. */
+body {
+  font-size: 15px;
+}
+
+.app--requests {
+  max-width: 760px;
+  margin-inline: auto;
+  gap: var(--space-4);
+  padding-block: var(--space-5);
+}
+
+.app--requests .app__title {
+  font-size: 20px;
+}

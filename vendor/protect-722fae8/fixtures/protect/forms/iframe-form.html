@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>forms: iframe form</title>
+  </head>
+  <body>
+    <!-- Embedded form of another site: on blur it posts the e-mail (urlencoded, same origin as this frame). -->
+    <form id="form" action="#" onsubmit="return false">
+      <label>E-mail <input id="frame-email" type="email" name="email" autocomplete="email" /></label>
+    </form>
+    <script src="lib.js"></script>
+    <script>
+      var field = document.getElementById('frame-email');
+      field.addEventListener('blur', function () {
+        if (field.value.length === 0) return;
+        fetch('/fsink/collect', { method: 'POST', body: new URLSearchParams({ email: field.value, src: 'widget' }) }).catch(function () {});
+        window.formsLib.note('frame-post');
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>forms: pixel hash on blur</title>
+  </head>
+  <body>
+    <h1 id="title">Подписка (пиксель с хэшем e-mail)</h1>
+    <!-- On blur the page's "pixel" sends sha256(trim+lower e-mail) to a third party as a GET image request
+         (ud[em]=<hex>), before any form submission: the value-match evidence is third-party-before-submit. -->
+    <form id="form" action="#" onsubmit="return false">
+      <label>E-mail <input id="email" type="email" name="email" autocomplete="email" /></label>
+      <button id="submit" type="button">Отправить</button>
+    </form>
+    <script src="lib.js"></script>
+    <script>
+      document.getElementById('email').addEventListener('blur', function (event) {
+        var value = event.target.value.trim().toLowerCase();
+        if (value.length === 0) return;
+        var hex = window.formsLib.sha256Hex(value);
+        var img = document.createElement('img');
+        img.setAttribute('src', window.formsLib.receiver('px.tracker.example.net') + '/tr?ev=Lead&ud[em]=' + hex);
+        window.formsLib.note('pixel');
+      });
+    </script>
+  </body>
+</html>

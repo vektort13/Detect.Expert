@@ -1,0 +1,20 @@
+{
+  "provider": "ipdata",
+  "ip": "69.78.70.144",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": {
+    "ip": "69.78.70.144",
+    "city": "Farmersville",
+    "region": "Texas",
+    "country_name": "United States",
+    "continent_name": "North America",
+    "carrier": {
+      "name": "Verizon",
+      "mcc": "310",
+      "mnc": "004"
+    }
+  }
+}

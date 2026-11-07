@@ -1,0 +1,1005 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:detect-expert:contracts:protection:v1",
+  "title": "ADR-035 separate local protection policy and query channel",
+  "description": "Structural schema. Runtime additionally validates canonical unique hosts, removed <= installed and current browser sender/document/access/revision.",
+  "$defs": {
+    "settings": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "revision",
+        "enabled",
+        "preset",
+        "global",
+        "sites"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "preset": {
+          "enum": [
+            "custom",
+            "limited",
+            "strict"
+          ]
+        },
+        "global": {
+          "type": "array",
+          "maxItems": 15,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "feature",
+              "state"
+            ],
+            "properties": {
+              "feature": {
+                "type": "string",
+                "enum": [
+                  "window-management",
+                  "compute-pressure",
+                  "idle-detection",
+                  "local-fonts",
+                  "canvas-readback",
+                  "webgl",
+                  "webgpu",
+                  "audio",
+                  "webrtc",
+                  "webassembly",
+                  "battery",
+                  "network-information",
+                  "keyboard",
+                  "client-hints",
+                  "clipboard-read"
+                ]
+              },
+              "state": {
+                "enum": [
+                  "allow",
+                  "block"
+                ]
+              }
+            }
+          },
+          "allOf": [
+            {
+              "contains": {
+                "type": "object",
+                "properties": {
+                  "feature": {
+                    "const": "window-management"
+                  }
+                },
+                "required": [
+                  "feature"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "properties": {
+                  "feature": {
+                    "const": "compute-pressure"
+                  }
+                },
+                "required": [
+                  "feature"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "properties": {
+                  "feature": {
+                    "const": "idle-detection"
+                  }
+                },
+                "required": [
+                  "feature"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "properties": {
+                  "feature": {
+                    "const": "local-fonts"
+                  }
+                },
+                "required": [
+                  "feature"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "properties": {
+                  "feature": {
+                    "const": "canvas-readback"
+                  }
+                },
+                "required": [
+                  "feature"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "properties": {
+                  "feature": {
+                    "const": "webgl"
+                  }
+                },
+                "required": [
+                  "feature"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "properties": {
+                  "feature": {
+                    "const": "webgpu"
+                  }
+                },
+                "required": [
+                  "feature"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "properties": {
+                  "feature": {
+                    "const": "audio"
+                  }
+                },
+                "required": [
+                  "feature"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "properties": {
+                  "feature": {
+                    "const": "webrtc"
+                  }
+                },
+                "required": [
+                  "feature"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "properties": {
+                  "feature": {
+                    "const": "webassembly"
+                  }
+                },
+                "required": [
+                  "feature"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "properties": {
+                  "feature": {
+                    "const": "battery"
+                  }
+                },
+                "required": [
+                  "feature"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "properties": {
+                  "feature": {
+                    "const": "network-information"
+                  }
+                },
+                "required": [
+                  "feature"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "properties": {
+                  "feature": {
+                    "const": "keyboard"
+                  }
+                },
+                "required": [
+                  "feature"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "properties": {
+                  "feature": {
+                    "const": "client-hints"
+                  }
+                },
+                "required": [
+                  "feature"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "properties": {
+                  "feature": {
+                    "const": "clipboard-read"
+                  }
+                },
+                "required": [
+                  "feature"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            }
+          ]
+        },
+        "sites": {
+          "type": "array",
+          "maxItems": 128,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "host",
+              "disabled",
+              "rules"
+            ],
+            "properties": {
+              "host": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 253,
+                "pattern": "^(?:(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)(?:\\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)*|\\[[0-9a-f:.]{2,45}\\])$",
+                "description": "Runtime additionally requires WHATWG canonical hostname and uniqueness across site entries."
+              },
+              "disabled": {
+                "type": "boolean"
+              },
+              "rules": {
+                "type": "array",
+                "maxItems": 15,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "feature",
+                    "state"
+                  ],
+                  "properties": {
+                    "feature": {
+                      "type": "string",
+                      "enum": [
+                        "window-management",
+                        "compute-pressure",
+                        "idle-detection",
+                        "local-fonts",
+                        "canvas-readback",
+                        "webgl",
+                        "webgpu",
+                        "audio",
+                        "webrtc",
+                        "webassembly",
+                        "battery",
+                        "network-information",
+                        "keyboard",
+                        "client-hints",
+                        "clipboard-read"
+                      ]
+                    },
+                    "state": {
+                      "enum": [
+                        "allow",
+                        "block"
+                      ]
+                    }
+                  }
+                },
+                "allOf": [
+                  {
+                    "contains": {
+                      "type": "object",
+                      "properties": {
+                        "feature": {
+                          "const": "window-management"
+                        }
+                      },
+                      "required": [
+                        "feature"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "type": "object",
+                      "properties": {
+                        "feature": {
+                          "const": "compute-pressure"
+                        }
+                      },
+                      "required": [
+                        "feature"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "type": "object",
+                      "properties": {
+                        "feature": {
+                          "const": "idle-detection"
+                        }
+                      },
+                      "required": [
+                        "feature"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "type": "object",
+                      "properties": {
+                        "feature": {
+                          "const": "local-fonts"
+                        }
+                      },
+                      "required": [
+                        "feature"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "type": "object",
+                      "properties": {
+                        "feature": {
+                          "const": "canvas-readback"
+                        }
+                      },
+                      "required": [
+                        "feature"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "type": "object",
+                      "properties": {
+                        "feature": {
+                          "const": "webgl"
+                        }
+                      },
+                      "required": [
+                        "feature"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "type": "object",
+                      "properties": {
+                        "feature": {
+                          "const": "webgpu"
+                        }
+                      },
+                      "required": [
+                        "feature"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "type": "object",
+                      "properties": {
+                        "feature": {
+                          "const": "audio"
+                        }
+                      },
+                      "required": [
+                        "feature"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "type": "object",
+                      "properties": {
+                        "feature": {
+                          "const": "webrtc"
+                        }
+                      },
+                      "required": [
+                        "feature"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "type": "object",
+                      "properties": {
+                        "feature": {
+                          "const": "webassembly"
+                        }
+                      },
+                      "required": [
+                        "feature"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "type": "object",
+                      "properties": {
+                        "feature": {
+                          "const": "battery"
+                        }
+                      },
+                      "required": [
+                        "feature"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "type": "object",
+                      "properties": {
+                        "feature": {
+                          "const": "network-information"
+                        }
+                      },
+                      "required": [
+                        "feature"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "type": "object",
+                      "properties": {
+                        "feature": {
+                          "const": "keyboard"
+                        }
+                      },
+                      "required": [
+                        "feature"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "type": "object",
+                      "properties": {
+                        "feature": {
+                          "const": "client-hints"
+                        }
+                      },
+                      "required": [
+                        "feature"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "type": "object",
+                      "properties": {
+                        "feature": {
+                          "const": "clipboard-read"
+                        }
+                      },
+                      "required": [
+                        "feature"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "observations": {
+      "type": "array",
+      "maxItems": 15,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "feature",
+          "installed",
+          "unavailable",
+          "removed",
+          "blocked",
+          "stopped"
+        ],
+        "properties": {
+          "feature": {
+            "type": "string",
+            "enum": [
+              "window-management",
+              "compute-pressure",
+              "idle-detection",
+              "local-fonts",
+              "canvas-readback",
+              "webgl",
+              "webgpu",
+              "audio",
+              "webrtc",
+              "webassembly",
+              "battery",
+              "network-information",
+              "keyboard",
+              "client-hints",
+              "clipboard-read"
+            ]
+          },
+          "installed": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 16
+          },
+          "unavailable": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 16
+          },
+          "removed": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 16
+          },
+          "blocked": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "stopped": {
+            "type": "boolean"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "feature": {
+                "const": "window-management"
+              }
+            },
+            "required": [
+              "feature"
+            ]
+          },
+          "minContains": 0,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "feature": {
+                "const": "compute-pressure"
+              }
+            },
+            "required": [
+              "feature"
+            ]
+          },
+          "minContains": 0,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "feature": {
+                "const": "idle-detection"
+              }
+            },
+            "required": [
+              "feature"
+            ]
+          },
+          "minContains": 0,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "feature": {
+                "const": "local-fonts"
+              }
+            },
+            "required": [
+              "feature"
+            ]
+          },
+          "minContains": 0,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "feature": {
+                "const": "canvas-readback"
+              }
+            },
+            "required": [
+              "feature"
+            ]
+          },
+          "minContains": 0,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "feature": {
+                "const": "webgl"
+              }
+            },
+            "required": [
+              "feature"
+            ]
+          },
+          "minContains": 0,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "feature": {
+                "const": "webgpu"
+              }
+            },
+            "required": [
+              "feature"
+            ]
+          },
+          "minContains": 0,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "feature": {
+                "const": "audio"
+              }
+            },
+            "required": [
+              "feature"
+            ]
+          },
+          "minContains": 0,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "feature": {
+                "const": "webrtc"
+              }
+            },
+            "required": [
+              "feature"
+            ]
+          },
+          "minContains": 0,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "feature": {
+                "const": "webassembly"
+              }
+            },
+            "required": [
+              "feature"
+            ]
+          },
+          "minContains": 0,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "feature": {
+                "const": "battery"
+              }
+            },
+            "required": [
+              "feature"
+            ]
+          },
+          "minContains": 0,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "feature": {
+                "const": "network-information"
+              }
+            },
+            "required": [
+              "feature"
+            ]
+          },
+          "minContains": 0,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "feature": {
+                "const": "keyboard"
+              }
+            },
+            "required": [
+              "feature"
+            ]
+          },
+          "minContains": 0,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "feature": {
+                "const": "client-hints"
+              }
+            },
+            "required": [
+              "feature"
+            ]
+          },
+          "minContains": 0,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "feature": {
+                "const": "clipboard-read"
+              }
+            },
+            "required": [
+              "feature"
+            ]
+          },
+          "minContains": 0,
+          "maxContains": 1
+        }
+      ]
+    }
+  },
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "type",
+        "tabId"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "type": {
+          "const": "ui-protection-get"
+        },
+        "tabId": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "type",
+        "tabId",
+        "settings"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "type": {
+          "const": "ui-protection-set"
+        },
+        "tabId": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "settings": {
+          "$ref": "#/$defs/settings"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "type",
+        "tabId",
+        "documentId"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "type": {
+          "const": "ui-protection-reload"
+        },
+        "tabId": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "documentId": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_-]+$",
+          "minLength": 1,
+          "maxLength": 64
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "type"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "type": {
+          "const": "protection-query"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "type"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "type": {
+          "const": "protection-stop"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,355 @@
+/* ADR-102: external surfaces only; controls and shared theme preferences stay native. */
+@media screen {
+  :root body[data-external-menu] {
+    --external-canvas: color-mix(in srgb, var(--surface) 88%, var(--surface-2));
+    --external-card: color-mix(in srgb, var(--surface) 88%, transparent);
+    --external-line: color-mix(in srgb, var(--text) 11%, transparent);
+    --external-edge: color-mix(in srgb, var(--surface) 85%, transparent);
+    --external-inset: color-mix(in srgb, var(--text) 5%, var(--surface));
+    --external-shadow: 0 3px 14px rgb(12 24 44 / .045);
+    --external-selected: color-mix(in srgb, var(--accent) 7%, var(--surface));
+    --external-switch: color-mix(in srgb, var(--text) 17%, var(--surface));
+    --external-green: #17794b;
+    --external-thumb: #fff;
+    --external-thumb-line: color-mix(in srgb, var(--text) 70%, var(--surface));
+    --glass-line: var(--external-line);
+    --theme-panel-line: var(--external-line);
+    --theme-panel-shadow: var(--external-shadow);
+    --theme-active-glow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 22%, transparent);
+    --theme-hover-glow: 0 2px 8px rgb(12 24 44 / .07);
+    --theme-control-glow: none;
+    --popup-scroll-thumb: color-mix(in srgb, var(--text) 28%, var(--surface));
+    --popup-scroll-thumb-hover: color-mix(in srgb, var(--text) 42%, var(--surface));
+    --popup-scroll-track: transparent;
+    background: radial-gradient(ellipse at 0 0, color-mix(in srgb, var(--accent) 5%, transparent), transparent 65%), var(--external-canvas);
+    background-attachment: fixed;
+    color: var(--text);
+  }
+  :root body[data-external-menu] #root {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --ui-type-section-size: 17px;
+    --ui-type-section-weight: 650;
+    --ui-type-label-size: 13px;
+    --ui-type-label-weight: 600;
+    --ui-type-body-size: 13px;
+    --ui-type-hint-size: 12px;
+  }
+  :root body[data-external-menu] #root .inspector {
+    padding: 16px 14px 14px;
+    gap: 14px;
+  }
+
+  /* A two-row identity, with the original SVG and observation control intact. */
+  :root body[data-external-menu] #root .inspector-brand {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px 10px;
+    padding: 0 0 4px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    container-type: normal;
+  }
+  :root body[data-external-menu] #root :is(.inspector-brand__main, .inspector-brand__identity, .inspector-brand__content, .inspector-brand__title-row) {
+    display: contents;
+    background: transparent;
+    box-shadow: none;
+  }
+  :root body[data-external-menu] #root .inspector-brand__identity::before,
+  :root body[data-external-menu] #root .inspector-brand__identity::after { display: none; }
+  :root body[data-external-menu] #root .inspector-brand__logo {
+    grid-area: 1 / 1;
+    justify-self: start;
+    align-self: center;
+  }
+  :root body[data-external-menu] #root .inspector-brand h1 {
+    grid-area: 1 / 1;
+    min-width: 0;
+    margin: 0;
+    padding-inline-start: 56px;
+    font-size: 21px;
+    line-height: 1.25;
+    font-weight: 750;
+    letter-spacing: -.7px;
+    white-space: nowrap;
+  }
+  :root body[data-external-menu] #root .inspector-header-controls {
+    grid-area: 1 / 2;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 1px;
+    margin: 0;
+    padding: 2px;
+    max-width: 100%;
+    height: auto;
+    min-height: 36px;
+    border: 1px solid var(--external-line);
+    border-radius: 999px;
+    background: var(--external-card);
+    box-shadow: inset 0 1px 0 var(--external-edge), var(--external-shadow);
+    backdrop-filter: blur(16px) saturate(125%);
+  }
+  :root body[data-external-menu] #root :is(.inspector-settings-button, .inspector-pin-button, .inspector-header-controls .theme-picker__trigger) {
+    width: 28px;
+    min-width: 28px;
+    height: 30px;
+    min-height: 30px;
+    padding: 5px;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    box-shadow: none;
+    color: var(--muted);
+  }
+  :root body[data-external-menu] #root .inspector-header-controls .language-picker__trigger {
+    gap: 4px;
+    min-height: 30px;
+    padding: 4px 5px;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    box-shadow: none;
+    font-size: 12px;
+  }
+  :root body[data-external-menu] #root .inspector-brand__subtitle {
+    grid-area: 2 / 1;
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.4;
+    font-weight: 400;
+  }
+  :root body[data-external-menu] #root .observation-master {
+    grid-area: 2 / 2;
+    justify-self: end;
+  }
+  :root body[data-external-menu] #root .observation-switch {
+    width: 44px;
+    min-width: 44px;
+    height: 26px;
+    min-height: 26px;
+    padding: 3px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--external-switch);
+    box-shadow: inset 0 1px 2px rgb(0 0 0 / .06);
+  }
+  :root body[data-external-menu] #root .observation-switch[aria-checked=true] { background: var(--external-green); }
+  :root body[data-external-menu] #root .observation-switch__thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--external-thumb);
+    box-shadow: 0 1px 3px rgb(0 0 0 / .16);
+  }
+  :root body[data-external-menu] #root .observation-switch[aria-checked=true] .observation-switch__thumb { transform: translateX(18px); }
+  :root body[data-external-menu] #root .observation-switch:not([aria-checked=true]) .observation-switch__thumb { box-sizing: border-box; border: 1px solid var(--external-thumb-line); }
+  :root body[data-external-menu] #root .inspector-brand__links {
+    grid-area: 3 / 1 / auto / -1;
+    gap: 5px 12px;
+    margin: 0;
+  }
+  :root body[data-external-menu] #root .inspector-brand__link {
+    font-size: 12px;
+    line-height: 1.4;
+    font-weight: 500;
+    color: var(--muted);
+  }
+  :root body[data-external-menu] #root :is(.language-picker__panel, .theme-picker__panel) {
+    border-color: var(--external-line);
+    border-radius: 18px;
+    box-shadow: 0 12px 36px rgb(12 24 44 / .16);
+  }
+
+  :root body[data-external-menu] #root .inspector-mode-tabs .tabs {
+    gap: 3px;
+    padding: 4px;
+    border: 0;
+    border-radius: 14px;
+    background: var(--external-inset);
+    box-shadow: inset 0 1px 2px rgb(12 24 44 / .035);
+  }
+  :root body[data-external-menu] #root .inspector-mode-tabs .tabs__tab {
+    min-height: 34px;
+    padding: 7px 10px;
+    border: 0;
+    border-radius: 10px;
+    background: transparent;
+    box-shadow: none;
+    color: var(--muted);
+  }
+  :root body[data-external-menu] #root .inspector-mode-tabs .tabs__tab--active {
+    color: var(--text);
+    background: var(--surface);
+    box-shadow: 0 1px 4px rgb(12 24 44 / .12), inset 0 1px 0 var(--external-edge);
+  }
+  :root body[data-external-menu] #root .inspector-tools[data-inspector-tools] { gap: 8px; }
+  :root body[data-external-menu] #root .inspector-tools[data-inspector-tools] .blocking-launcher {
+    min-width: 0;
+    margin: 0;
+    padding: 3px;
+    border: 1px solid var(--external-line);
+    border-radius: 15px;
+    background: var(--external-card);
+    box-shadow: inset 0 1px 0 var(--external-edge), var(--external-shadow);
+  }
+  :root body[data-external-menu] #root .inspector-tools[data-inspector-tools] .blocking-launcher__controls {
+    grid-template-columns: minmax(0, 1fr) 58px;
+    align-items: center;
+    gap: 2px;
+  }
+  :root body[data-external-menu] #root .inspector-tools[data-inspector-tools] .blocking-launcher__open {
+    min-height: 42px;
+    padding: 7px 6px;
+    gap: 4px;
+    border: 0;
+    border-radius: 11px;
+    background: transparent;
+    box-shadow: none;
+    color: var(--text);
+    font-size: 12px;
+    line-height: 1.35;
+    font-weight: 600;
+  }
+  :root body[data-external-menu] #root .blocking-launcher__chevron { color: var(--muted); opacity: .7; }
+  :root body[data-external-menu] #root .inspector-tools[data-inspector-tools] .blocking-master {
+    position: relative;
+    width: 56px;
+    min-width: 56px;
+    height: 30px;
+    min-height: 30px;
+    padding: 0 3px 0 26px;
+    gap: 0;
+    border: 0;
+    border-radius: 999px;
+    background: var(--external-switch);
+    box-shadow: inset 0 1px 2px rgb(0 0 0 / .04);
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 750;
+    white-space: nowrap;
+    direction: ltr;
+  }
+  :root body[data-external-menu] #root .inspector-tools[data-inspector-tools] .blocking-master::before {
+    content: '';
+    position: absolute;
+    inset: 4px auto auto 4px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--external-thumb);
+    box-shadow: 0 1px 3px rgb(0 0 0 / .16);
+    transition: left .16s ease;
+  }
+  :root body[data-external-menu] #root .inspector-tools[data-inspector-tools] .blocking-master__dot { display: none; }
+  :root body[data-external-menu] #root .inspector-tools[data-inspector-tools] .blocking-master--on {
+    padding: 0 26px 0 3px;
+    color: #fff;
+    background: var(--external-green);
+  }
+  :root body[data-external-menu] #root .inspector-tools[data-inspector-tools] .blocking-master--on::before { left: 30px; }
+  :root body[data-external-menu] #root .inspector-tools[data-inspector-tools] .blocking-master--off::before { box-sizing: border-box; border: 1px solid var(--external-thumb-line); }
+  :root body[data-external-menu] #root .inspector-tools[data-inspector-tools] .blocking-master--attention {
+    padding-inline: 4px;
+    color: var(--attention);
+    background: var(--attention-bg);
+    box-shadow: inset 0 0 0 1px var(--attention-border);
+  }
+  :root body[data-external-menu] #root .inspector-tools[data-inspector-tools] .blocking-master--attention::before { display: none; }
+
+  :root body[data-external-menu] #root .inspector-mode-panel {
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  :root body[data-external-menu] #root :is(.recognized-vendors, .inspector-results, .identification-panel, .inspector-other-documents) {
+    min-width: 0;
+    border-color: var(--external-line);
+    background: transparent;
+    box-shadow: none;
+  }
+  :root body[data-external-menu] #root .inspector :is(h2, .recognized-vendors > h2) {
+    margin-block: 6px 0;
+    font-size: 17px;
+    line-height: 1.35;
+    font-weight: 700;
+    letter-spacing: -.3px;
+  }
+  :root body[data-external-menu] #root .identification-tabs { gap: 8px; margin-block: 12px 14px; }
+  :root body[data-external-menu] #root .identification-tab {
+    min-height: 58px;
+    padding: 10px;
+    gap: 8px;
+    border: 1px solid var(--external-line);
+    border-radius: 16px;
+    background: var(--external-card);
+    box-shadow: inset 0 1px 0 var(--external-edge), var(--external-shadow);
+    color: var(--text);
+  }
+  :root body[data-external-menu] #root .identification-tab--active {
+    border-color: color-mix(in srgb, var(--accent) 30%, var(--external-line));
+    background: var(--external-selected);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 12%, transparent);
+    color: var(--accent);
+  }
+  :root body[data-external-menu] #root .identification-tab__label { font-size: 12px; line-height: 1.4; font-weight: 600; }
+  :root body[data-external-menu] #root .identification-tab__icon { box-shadow: none; border-radius: 9px; }
+  :root body[data-external-menu] #root .identification-tab__count {
+    min-width: 22px;
+    height: 22px;
+    padding-inline: 5px;
+    border-radius: 8px;
+    background: var(--theme-negative-bg);
+    color: var(--theme-negative);
+    box-shadow: none;
+    font-size: 11px;
+    font-weight: 650;
+  }
+  :root body[data-external-menu] #root .identification-tab__count--empty { color: var(--muted); background: var(--external-inset); }
+  :root body[data-external-menu] #root :is(.inspector-empty, .inspector-context, .inspector .visual-preview) {
+    border-color: var(--external-line);
+    border-radius: 15px;
+    background: var(--external-card);
+    box-shadow: none;
+  }
+  :root body[data-external-menu] #root .inspector-footer { border-color: var(--external-line); }
+  :root body[data-external-menu] #root :is(button, .button):not(:disabled):not([aria-disabled=true]):hover {
+    border-color: color-mix(in srgb, var(--accent) 25%, var(--external-line));
+    box-shadow: none;
+  }
+  :root body[data-external-menu] #root :is(.blocking-launcher__open, .inspector-settings-button, .inspector-pin-button):not(:disabled):hover { background: var(--external-selected); }
+  :root body[data-external-menu] #root :is(button, a, input, select, summary):focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+  :root body[data-external-menu] #root :is(button, .button):disabled { opacity: .6; }
+
+  @media (max-width: 379px) {
+    :root body[data-external-menu] #root .inspector-brand { grid-template-columns: minmax(0, 1fr) auto; gap: 8px; }
+    :root body[data-external-menu] #root .inspector-header-controls { grid-area: 1 / 1 / auto / -1; }
+    :root body[data-external-menu] #root :is(.inspector-brand__logo, .inspector-brand h1) { grid-row: 2; }
+    :root body[data-external-menu] #root .inspector-brand__subtitle { grid-row: 3; }
+    :root body[data-external-menu] #root .observation-master { grid-row: 3; }
+    :root body[data-external-menu] #root .inspector-brand__links { grid-row: 4; }
+    :root body[data-external-menu] #root .inspector-tools[data-inspector-tools] .blocking-launcher__open { padding-inline: 3px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :root body[data-external-menu] #root *, :root body[data-external-menu] #root *::before, :root body[data-external-menu] #root *::after { transition: none; animation: none; }
+  }
+  @media (prefers-reduced-transparency: reduce) {
+    :root body[data-external-menu] { --external-card: var(--surface); }
+    :root body[data-external-menu] #root .inspector-header-controls { backdrop-filter: none; background: var(--surface); }
+  }
+  @media (prefers-contrast: more) {
+    :root body[data-external-menu] { --external-line: var(--control-border); --external-card: var(--surface); --external-edge: transparent; --external-shadow: none; }
+    :root body[data-external-menu] #root :is(.inspector-header-controls, .blocking-launcher, .identification-tab, .tabs__tab--active) { backdrop-filter: none; box-shadow: none; }
+  }
+  @media (forced-colors: active) {
+    :root body[data-external-menu] { background: Canvas; --external-line: ButtonText; --external-card: Canvas; --external-inset: Canvas; --external-selected: Canvas; --external-switch: ButtonFace; --external-green: ButtonFace; --external-thumb: ButtonText; }
+    :root body[data-external-menu] #root :is(button, .button, .inspector-header-controls, .blocking-launcher) { color: ButtonText; border: 1px solid ButtonText; box-shadow: none; backdrop-filter: none; }
+    :root body[data-external-menu] #root .inspector-tools[data-inspector-tools] .blocking-master { color: ButtonText; border: 1px solid ButtonText; }
+    :root body[data-external-menu] #root :is(.identification-tab--active, .tabs__tab--active) { outline: 2px solid Highlight; outline-offset: -3px; }
+  }
+}

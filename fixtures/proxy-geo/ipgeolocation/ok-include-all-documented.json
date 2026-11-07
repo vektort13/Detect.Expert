@@ -1,0 +1,177 @@
+{
+  "provider": "ipgeolocation",
+  "ip": "91.128.103.196",
+  "security": true,
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": {
+    "ip": "91.128.103.196",
+    "hostname": "91.128.103.196",
+    "location": {
+      "continent_code": "EU",
+      "continent_name": "Europe",
+      "country_code2": "SE",
+      "country_code3": "SWE",
+      "country_name": "Sweden",
+      "country_name_official": "Kingdom of Sweden",
+      "country_capital": "Stockholm",
+      "state_prov": "Stockholms län",
+      "state_code": "SE-AB",
+      "district": "Stockholm",
+      "city": "Stockholm",
+      "locality": "Stockholm",
+      "accuracy_radius": "2.516",
+      "confidence": "high",
+      "dma_code": "",
+      "zipcode": "164 40",
+      "latitude": "59.40510",
+      "longitude": "17.95510",
+      "is_eu": true,
+      "country_flag": "https://ipgeolocation.io/static/flags/se_64.png",
+      "geoname_id": "9972319",
+      "country_emoji": "🇸🇪"
+    },
+    "country_metadata": {
+      "calling_code": "+46",
+      "tld": ".se",
+      "languages": [
+        "sv-SE",
+        "se",
+        "sma",
+        "fi-SE"
+      ]
+    },
+    "network": {
+      "connection_type": "",
+      "route": "91.128.0.0/14",
+      "is_anycast": false,
+      "is_cdn": false,
+      "cdn_provider_name": ""
+    },
+    "currency": {
+      "code": "SEK",
+      "name": "Swedish Krona",
+      "symbol": "kr"
+    },
+    "asn": {
+      "as_number": "AS1257",
+      "organization": "Tele2 Sverige AB",
+      "country": "SE",
+      "type": "ISP",
+      "domain": "tele2.se",
+      "date_allocated": "2002-09-19",
+      "rir": "RIPE"
+    },
+    "company": {
+      "name": "Tele2 Sverige AB",
+      "type": "ISP",
+      "domain": "tele2.se"
+    },
+    "security": {
+      "threat_score": 0,
+      "is_tor": false,
+      "is_proxy": false,
+      "proxy_provider_names": [],
+      "proxy_confidence_score": 0,
+      "proxy_last_seen": "",
+      "proxy_days_seen_30d": 0,
+      "proxy_days_seen_7d": 0,
+      "proxy_provider_count_30d": 0,
+      "is_residential_proxy": false,
+      "is_vpn": false,
+      "vpn_provider_names": [],
+      "vpn_confidence_score": 0,
+      "vpn_last_seen": "",
+      "is_relay": false,
+      "relay_provider_name": "",
+      "is_anonymous": false,
+      "is_known_attacker": false,
+      "is_bot": false,
+      "bot_confidence_score": 0,
+      "bot_operator_name": "",
+      "bot_type": "",
+      "is_known_good_bot": false,
+      "bot_last_seen": "",
+      "is_spam": false,
+      "is_cloud_provider": false,
+      "cloud_provider_name": "",
+      "is_corporate_gateway": false,
+      "corporate_gateway_type": "",
+      "corporate_gateway_provider_name": ""
+    },
+    "abuse": {
+      "route": "91.128.0.0/14",
+      "country": "SE",
+      "name": "Tele2 IP Registry",
+      "organization": "ORG-NCC1-RIPE",
+      "kind": "group",
+      "address": "Tele2 Sverige AB, IP Registry, Torshamnsgatan 17 164 40 Kista SWEDEN",
+      "emails": [
+        "abuse@tele2.com"
+      ],
+      "phone_numbers": [
+        "+46856264210"
+      ]
+    },
+    "time_zone": {
+      "name": "Europe/Stockholm",
+      "offset": 1,
+      "offset_with_dst": 1,
+      "current_time": "2026-10-29 11:33:55.288+0100",
+      "current_time_unix": 1793270035.288,
+      "current_tz_abbreviation": "CET",
+      "current_tz_full_name": "Central European Standard Time",
+      "standard_tz_abbreviation": "CET",
+      "standard_tz_full_name": "Central European Standard Time",
+      "is_dst": false,
+      "dst_savings": 0,
+      "dst_exists": true,
+      "dst_tz_abbreviation": "CEST",
+      "dst_tz_full_name": "Central European Summer Time",
+      "dst_start": {
+        "utc_time": "2026-03-29 TIME 01:00",
+        "duration": "+1.00H",
+        "gap": true,
+        "date_time_after": "2026-03-29 TIME 03:00",
+        "date_time_before": "2026-03-29 TIME 02:00",
+        "overlap": false
+      },
+      "dst_end": {
+        "utc_time": "2026-10-25 TIME 01:00",
+        "duration": "-1.00H",
+        "gap": false,
+        "date_time_after": "2026-10-25 TIME 02:00",
+        "date_time_before": "2026-10-25 TIME 03:00",
+        "overlap": true
+      }
+    },
+    "user_agent": {
+      "user_agent_string": "node",
+      "name": "Hacker",
+      "type": "Hacker",
+      "version": "Hacker",
+      "version_major": "Hacker",
+      "device": {
+        "name": "Hacker",
+        "type": "Hacker",
+        "brand": "Hacker",
+        "cpu": "Unknown"
+      },
+      "engine": {
+        "name": "Hacker",
+        "type": "Hacker",
+        "version": "Hacker",
+        "version_major": "Hacker"
+      },
+      "operating_system": {
+        "name": "Hacker",
+        "type": "Hacker",
+        "version": "Hacker",
+        "version_major": "Hacker",
+        "build": "??"
+      }
+    }
+  }
+}

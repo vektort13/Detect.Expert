@@ -1,0 +1,34 @@
+{
+  "provider": "maxmind",
+  "ip": "8.8.8.8",
+  "service": "geoip-insights",
+  "status": 200,
+  "headers": {
+    "content-type": "application/vnd.maxmind.com-insights+json; charset=UTF-8; version=2.1"
+  },
+  "body": {
+    "country": {
+      "iso_code": "US",
+      "names": {
+        "en": "United States"
+      }
+    },
+    "anonymizer": {
+      "is_hosting_provider": true,
+      "residential": {
+        "confidence": 82,
+        "provider_name": "example"
+      }
+    },
+    "traits": {
+      "ip_address": "8.8.8.8",
+      "network": "8.8.8.0/24",
+      "autonomous_system_number": 15169,
+      "autonomous_system_organization": "Google LLC",
+      "isp": "Google LLC",
+      "organization": "Google LLC",
+      "connection_type": "Corporate",
+      "user_type": "hosting"
+    }
+  }
+}

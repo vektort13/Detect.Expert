@@ -1,0 +1,1561 @@
+{
+  "reviewedAt": "2026-10-09",
+  "previousPrimaryRules": 158,
+  "addedPrimaryRules": 98,
+  "entries": [
+    {
+      "id": "primary:159",
+      "name": "PHPSESSID",
+      "match": "exact",
+      "category": "functional",
+      "owner": "Site application (PHP convention)",
+      "sources": [
+        {
+          "url": "https://www.php.net/manual/en/session.configuration.php",
+          "title": "PHP runtime session configuration",
+          "claim": "session.name defaults to PHPSESSID and supplies the session cookie name.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:160",
+      "name": "JSESSIONID",
+      "match": "exact",
+      "category": "functional",
+      "owner": "Site application (Jakarta Servlet convention)",
+      "sources": [
+        {
+          "url": "https://jakarta.ee/specifications/servlet/5.0/jakarta-servlet-spec-5.0",
+          "title": "Jakarta Servlet specification 5.0 section 7.1.1",
+          "claim": "The standard servlet session tracking cookie name is JSESSIONID; containers may allow customization.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:161",
+      "name": "ASP.NET_SessionId",
+      "match": "exact",
+      "category": "functional",
+      "owner": "Site application (ASP.NET convention)",
+      "sources": [
+        {
+          "url": "https://learn.microsoft.com/en-us/previous-versions/iis/smooth-streaming-client/sessionstatesection-class-%5Biis-7-and-higher%5D",
+          "title": "Microsoft SessionStateSection documentation",
+          "claim": "CookieName defaults to ASP.NET_SessionId and identifies the session cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:162",
+      "name": ".AspNetCore.Session",
+      "match": "exact",
+      "category": "functional",
+      "owner": "Site application (ASP.NET Core convention)",
+      "sources": [
+        {
+          "url": "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/app-state?tabs=aspnetcore2x",
+          "title": "ASP.NET Core session state",
+          "claim": "SessionDefaults.CookieName is .AspNetCore.Session, carrying the identifier used to fetch app session data.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:163",
+      "name": "connect.sid",
+      "match": "exact",
+      "category": "functional",
+      "owner": "Site application (Express convention)",
+      "sources": [
+        {
+          "url": "https://expressjs.com/en/resources/middleware/session/",
+          "title": "Express session middleware",
+          "claim": "The default session ID cookie name is connect.sid; session data is stored server-side.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:164",
+      "name": "csrftoken",
+      "match": "exact",
+      "category": "security",
+      "owner": "Site application (Django convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/django/django/stable/5.2.x/django/conf/global_settings.py",
+          "title": "Django 5.2 default settings",
+          "claim": "CSRF_COOKIE_NAME is csrftoken; the source documents the configurable CSRF cookie defaults.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:165",
+      "name": "django_language",
+      "match": "exact",
+      "category": "functional",
+      "owner": "Site application (Django convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/django/django/stable/5.2.x/django/conf/global_settings.py",
+          "title": "Django 5.2 default settings",
+          "claim": "LANGUAGE_COOKIE_NAME is django_language.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:166",
+      "name": "XSRF-TOKEN",
+      "match": "exact",
+      "category": "security",
+      "owner": "Site application (CSRF convention)",
+      "sources": [
+        {
+          "url": "https://angular.dev/best-practices/security",
+          "title": "Angular security documentation",
+          "claim": "HttpClient reads a cookie named XSRF-TOKEN by default for anti-CSRF request headers.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://docs.spring.io/spring-security/reference/servlet/exploits/csrf.html",
+          "title": "Spring Security CSRF documentation",
+          "claim": "CookieCsrfTokenRepository defaults to a cookie named XSRF-TOKEN.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:167",
+      "name": "_csrf",
+      "match": "exact",
+      "category": "security",
+      "owner": "Site application (CSRF convention)",
+      "sources": [
+        {
+          "url": "https://github.com/expressjs/csurf/blob/master/README.md",
+          "title": "Archived Express csurf README",
+          "claim": "In cookie mode, the configurable key used to store the CSRF secret defaults to _csrf.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:168",
+      "name": ".ASPXAUTH",
+      "match": "exact",
+      "category": "security",
+      "owner": "Site application (ASP.NET convention)",
+      "sources": [
+        {
+          "url": "https://learn.microsoft.com/en-us/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages",
+          "title": "ASP.NET MVC XSRF/CSRF documentation",
+          "claim": "The official authentication example sets the Forms Authentication cookie .ASPXAUTH.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:169",
+      "name": ".AspNetCore.Antiforgery.",
+      "match": "prefix",
+      "category": "security",
+      "owner": "Site application (ASP.NET Core convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/v9.0.0/src/Antiforgery/src/AntiforgeryOptions.cs",
+          "title": "ASP.NET Core 9 AntiforgeryOptions source",
+          "claim": "DefaultCookiePrefix is .AspNetCore.Antiforgery. and a unique cookie name is generated from it.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:170",
+      "name": ".AspNetCore.Cookies",
+      "match": "exact",
+      "category": "security",
+      "owner": "Site application (ASP.NET Core convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/v9.0.0/src/Security/Authentication/Cookies/src/CookieAuthenticationDefaults.cs",
+          "title": "ASP.NET Core 9 CookieAuthenticationDefaults source",
+          "claim": "CookiePrefix is .AspNetCore. and the default authentication scheme is Cookies.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/v9.0.0/src/Security/Authentication/Cookies/src/PostConfigureCookieAuthenticationOptions.cs",
+          "title": "ASP.NET Core cookie authentication defaults",
+          "claim": "When no cookie name is configured, it is CookiePrefix plus the escaped authentication scheme name.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:171",
+      "name": ".AspNetCore.Identity.Application",
+      "match": "exact",
+      "category": "security",
+      "owner": "Site application (ASP.NET Core convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/v9.0.0/src/Identity/Core/src/IdentityCookiesBuilderExtensions.cs",
+          "title": "ASP.NET Core 9 Identity cookie configuration",
+          "claim": "IdentityCookiesBuilderExtensions configures this cookie for its named sign-in role.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/v9.0.0/src/Identity/Core/src/IdentityConstants.cs",
+          "title": "ASP.NET Core 9 IdentityConstants source",
+          "claim": "Identity schemes define Application, External, TwoFactorRememberMe and TwoFactorUserId.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/v9.0.0/src/Security/Authentication/Cookies/src/PostConfigureCookieAuthenticationOptions.cs",
+          "title": "ASP.NET Core cookie authentication defaults",
+          "claim": "When no cookie name is configured, it is CookiePrefix plus the escaped authentication scheme name.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/v9.0.0/src/Security/Authentication/Cookies/src/CookieAuthenticationDefaults.cs",
+          "title": "ASP.NET Core 9 cookie prefix source",
+          "claim": "The default cookie authentication prefix is .AspNetCore.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:172",
+      "name": "Identity.External",
+      "match": "exact",
+      "category": "security",
+      "owner": "Site application (ASP.NET Core convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/v9.0.0/src/Identity/Core/src/IdentityCookiesBuilderExtensions.cs",
+          "title": "ASP.NET Core 9 Identity cookie configuration",
+          "claim": "IdentityCookiesBuilderExtensions configures this cookie for its named sign-in role.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/v9.0.0/src/Identity/Core/src/IdentityConstants.cs",
+          "title": "ASP.NET Core 9 IdentityConstants source",
+          "claim": "Identity schemes define Application, External, TwoFactorRememberMe and TwoFactorUserId.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/v9.0.0/src/Security/Authentication/Cookies/src/PostConfigureCookieAuthenticationOptions.cs",
+          "title": "ASP.NET Core cookie authentication defaults",
+          "claim": "When no cookie name is configured, it is CookiePrefix plus the escaped authentication scheme name.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/v9.0.0/src/Security/Authentication/Cookies/src/CookieAuthenticationDefaults.cs",
+          "title": "ASP.NET Core 9 cookie prefix source",
+          "claim": "The default cookie authentication prefix is .AspNetCore.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:173",
+      "name": "Identity.TwoFactorRememberMe",
+      "match": "exact",
+      "category": "security",
+      "owner": "Site application (ASP.NET Core convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/v9.0.0/src/Identity/Core/src/IdentityCookiesBuilderExtensions.cs",
+          "title": "ASP.NET Core 9 Identity cookie configuration",
+          "claim": "IdentityCookiesBuilderExtensions configures this cookie for its named sign-in role.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/v9.0.0/src/Identity/Core/src/IdentityConstants.cs",
+          "title": "ASP.NET Core 9 IdentityConstants source",
+          "claim": "Identity schemes define Application, External, TwoFactorRememberMe and TwoFactorUserId.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/v9.0.0/src/Security/Authentication/Cookies/src/PostConfigureCookieAuthenticationOptions.cs",
+          "title": "ASP.NET Core cookie authentication defaults",
+          "claim": "When no cookie name is configured, it is CookiePrefix plus the escaped authentication scheme name.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/v9.0.0/src/Security/Authentication/Cookies/src/CookieAuthenticationDefaults.cs",
+          "title": "ASP.NET Core 9 cookie prefix source",
+          "claim": "The default cookie authentication prefix is .AspNetCore.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:174",
+      "name": "Identity.TwoFactorUserId",
+      "match": "exact",
+      "category": "security",
+      "owner": "Site application (ASP.NET Core convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/v9.0.0/src/Identity/Core/src/IdentityCookiesBuilderExtensions.cs",
+          "title": "ASP.NET Core 9 Identity cookie configuration",
+          "claim": "IdentityCookiesBuilderExtensions configures this cookie for its named sign-in role.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/v9.0.0/src/Identity/Core/src/IdentityConstants.cs",
+          "title": "ASP.NET Core 9 IdentityConstants source",
+          "claim": "Identity schemes define Application, External, TwoFactorRememberMe and TwoFactorUserId.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/v9.0.0/src/Security/Authentication/Cookies/src/PostConfigureCookieAuthenticationOptions.cs",
+          "title": "ASP.NET Core cookie authentication defaults",
+          "claim": "When no cookie name is configured, it is CookiePrefix plus the escaped authentication scheme name.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/v9.0.0/src/Security/Authentication/Cookies/src/CookieAuthenticationDefaults.cs",
+          "title": "ASP.NET Core 9 cookie prefix source",
+          "claim": "The default cookie authentication prefix is .AspNetCore.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:175",
+      "name": "authjs.session-token",
+      "match": "exact",
+      "category": "security",
+      "owner": "Site application (Auth.js convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/nextauthjs/next-auth/main/packages/core/src/lib/utils/cookie.ts",
+          "title": "Auth.js defaultCookies source",
+          "claim": "defaultCookies explicitly defines authjs.session-token for session-token.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:176",
+      "name": "authjs.session-token.",
+      "match": "prefix",
+      "category": "security",
+      "owner": "Site application (Auth.js convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/nextauthjs/next-auth/main/packages/core/src/lib/utils/cookie.ts",
+          "title": "Auth.js/NextAuth session cookie chunking source",
+          "claim": "SessionStore chunking constructs each cookie name as the session cookie name plus a dot and an index.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:177",
+      "name": "__Secure-authjs.session-token",
+      "match": "exact",
+      "category": "security",
+      "owner": "Site application (Auth.js convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/nextauthjs/next-auth/main/packages/core/src/lib/utils/cookie.ts",
+          "title": "Auth.js defaultCookies source",
+          "claim": "defaultCookies explicitly defines __Secure-authjs.session-token for session-token.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:178",
+      "name": "__Secure-authjs.session-token.",
+      "match": "prefix",
+      "category": "security",
+      "owner": "Site application (Auth.js convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/nextauthjs/next-auth/main/packages/core/src/lib/utils/cookie.ts",
+          "title": "Auth.js/NextAuth session cookie chunking source",
+          "claim": "SessionStore chunking constructs each cookie name as the session cookie name plus a dot and an index.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:179",
+      "name": "authjs.callback-url",
+      "match": "exact",
+      "category": "functional",
+      "owner": "Site application (Auth.js convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/nextauthjs/next-auth/main/packages/core/src/lib/utils/cookie.ts",
+          "title": "Auth.js defaultCookies source",
+          "claim": "defaultCookies explicitly defines authjs.callback-url for callback-url.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:180",
+      "name": "__Secure-authjs.callback-url",
+      "match": "exact",
+      "category": "functional",
+      "owner": "Site application (Auth.js convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/nextauthjs/next-auth/main/packages/core/src/lib/utils/cookie.ts",
+          "title": "Auth.js defaultCookies source",
+          "claim": "defaultCookies explicitly defines __Secure-authjs.callback-url for callback-url.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:181",
+      "name": "authjs.csrf-token",
+      "match": "exact",
+      "category": "security",
+      "owner": "Site application (Auth.js convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/nextauthjs/next-auth/main/packages/core/src/lib/utils/cookie.ts",
+          "title": "Auth.js defaultCookies source",
+          "claim": "defaultCookies explicitly defines authjs.csrf-token for csrf-token.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:182",
+      "name": "__Host-authjs.csrf-token",
+      "match": "exact",
+      "category": "security",
+      "owner": "Site application (Auth.js convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/nextauthjs/next-auth/main/packages/core/src/lib/utils/cookie.ts",
+          "title": "Auth.js defaultCookies source",
+          "claim": "defaultCookies explicitly defines __Host-authjs.csrf-token for csrf-token.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:183",
+      "name": "authjs.pkce.code_verifier",
+      "match": "exact",
+      "category": "security",
+      "owner": "Site application (Auth.js convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/nextauthjs/next-auth/main/packages/core/src/lib/utils/cookie.ts",
+          "title": "Auth.js defaultCookies source",
+          "claim": "defaultCookies explicitly defines authjs.pkce.code_verifier for pkce.code_verifier.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:184",
+      "name": "__Secure-authjs.pkce.code_verifier",
+      "match": "exact",
+      "category": "security",
+      "owner": "Site application (Auth.js convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/nextauthjs/next-auth/main/packages/core/src/lib/utils/cookie.ts",
+          "title": "Auth.js defaultCookies source",
+          "claim": "defaultCookies explicitly defines __Secure-authjs.pkce.code_verifier for pkce.code_verifier.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:185",
+      "name": "authjs.state",
+      "match": "exact",
+      "category": "security",
+      "owner": "Site application (Auth.js convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/nextauthjs/next-auth/main/packages/core/src/lib/utils/cookie.ts",
+          "title": "Auth.js defaultCookies source",
+          "claim": "defaultCookies explicitly defines authjs.state for state.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:186",
+      "name": "__Secure-authjs.state",
+      "match": "exact",
+      "category": "security",
+      "owner": "Site application (Auth.js convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/nextauthjs/next-auth/main/packages/core/src/lib/utils/cookie.ts",
+          "title": "Auth.js defaultCookies source",
+          "claim": "defaultCookies explicitly defines __Secure-authjs.state for state.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:187",
+      "name": "authjs.nonce",
+      "match": "exact",
+      "category": "security",
+      "owner": "Site application (Auth.js convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/nextauthjs/next-auth/main/packages/core/src/lib/utils/cookie.ts",
+          "title": "Auth.js defaultCookies source",
+          "claim": "defaultCookies explicitly defines authjs.nonce for nonce.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:188",
+      "name": "__Secure-authjs.nonce",
+      "match": "exact",
+      "category": "security",
+      "owner": "Site application (Auth.js convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/nextauthjs/next-auth/main/packages/core/src/lib/utils/cookie.ts",
+          "title": "Auth.js defaultCookies source",
+          "claim": "defaultCookies explicitly defines __Secure-authjs.nonce for nonce.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:189",
+      "name": "authjs.challenge",
+      "match": "exact",
+      "category": "security",
+      "owner": "Site application (Auth.js convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/nextauthjs/next-auth/main/packages/core/src/lib/utils/cookie.ts",
+          "title": "Auth.js defaultCookies source",
+          "claim": "defaultCookies explicitly defines authjs.challenge for challenge.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:190",
+      "name": "__Secure-authjs.challenge",
+      "match": "exact",
+      "category": "security",
+      "owner": "Site application (Auth.js convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/nextauthjs/next-auth/main/packages/core/src/lib/utils/cookie.ts",
+          "title": "Auth.js defaultCookies source",
+          "claim": "defaultCookies explicitly defines __Secure-authjs.challenge for challenge.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:191",
+      "name": "next-auth.session-token",
+      "match": "exact",
+      "category": "security",
+      "owner": "Site application (Auth.js convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/nextauthjs/next-auth/v4/packages/next-auth/src/core/lib/cookie.ts",
+          "title": "NextAuth v4 defaultCookies source",
+          "claim": "defaultCookies explicitly defines next-auth.session-token for session-token.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:192",
+      "name": "next-auth.session-token.",
+      "match": "prefix",
+      "category": "security",
+      "owner": "Site application (Auth.js convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/nextauthjs/next-auth/v4/packages/next-auth/src/core/lib/cookie.ts",
+          "title": "Auth.js/NextAuth session cookie chunking source",
+          "claim": "SessionStore chunking constructs each cookie name as the session cookie name plus a dot and an index.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:193",
+      "name": "__Secure-next-auth.session-token",
+      "match": "exact",
+      "category": "security",
+      "owner": "Site application (Auth.js convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/nextauthjs/next-auth/v4/packages/next-auth/src/core/lib/cookie.ts",
+          "title": "NextAuth v4 defaultCookies source",
+          "claim": "defaultCookies explicitly defines __Secure-next-auth.session-token for session-token.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:194",
+      "name": "__Secure-next-auth.session-token.",
+      "match": "prefix",
+      "category": "security",
+      "owner": "Site application (Auth.js convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/nextauthjs/next-auth/v4/packages/next-auth/src/core/lib/cookie.ts",
+          "title": "Auth.js/NextAuth session cookie chunking source",
+          "claim": "SessionStore chunking constructs each cookie name as the session cookie name plus a dot and an index.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:195",
+      "name": "next-auth.callback-url",
+      "match": "exact",
+      "category": "functional",
+      "owner": "Site application (Auth.js convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/nextauthjs/next-auth/v4/packages/next-auth/src/core/lib/cookie.ts",
+          "title": "NextAuth v4 defaultCookies source",
+          "claim": "defaultCookies explicitly defines next-auth.callback-url for callback-url.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:196",
+      "name": "__Secure-next-auth.callback-url",
+      "match": "exact",
+      "category": "functional",
+      "owner": "Site application (Auth.js convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/nextauthjs/next-auth/v4/packages/next-auth/src/core/lib/cookie.ts",
+          "title": "NextAuth v4 defaultCookies source",
+          "claim": "defaultCookies explicitly defines __Secure-next-auth.callback-url for callback-url.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:197",
+      "name": "next-auth.csrf-token",
+      "match": "exact",
+      "category": "security",
+      "owner": "Site application (Auth.js convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/nextauthjs/next-auth/v4/packages/next-auth/src/core/lib/cookie.ts",
+          "title": "NextAuth v4 defaultCookies source",
+          "claim": "defaultCookies explicitly defines next-auth.csrf-token for csrf-token.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:198",
+      "name": "__Host-next-auth.csrf-token",
+      "match": "exact",
+      "category": "security",
+      "owner": "Site application (Auth.js convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/nextauthjs/next-auth/v4/packages/next-auth/src/core/lib/cookie.ts",
+          "title": "NextAuth v4 defaultCookies source",
+          "claim": "defaultCookies explicitly defines __Host-next-auth.csrf-token for csrf-token.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:199",
+      "name": "next-auth.pkce.code_verifier",
+      "match": "exact",
+      "category": "security",
+      "owner": "Site application (Auth.js convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/nextauthjs/next-auth/v4/packages/next-auth/src/core/lib/cookie.ts",
+          "title": "NextAuth v4 defaultCookies source",
+          "claim": "defaultCookies explicitly defines next-auth.pkce.code_verifier for pkce.code_verifier.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:200",
+      "name": "__Secure-next-auth.pkce.code_verifier",
+      "match": "exact",
+      "category": "security",
+      "owner": "Site application (Auth.js convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/nextauthjs/next-auth/v4/packages/next-auth/src/core/lib/cookie.ts",
+          "title": "NextAuth v4 defaultCookies source",
+          "claim": "defaultCookies explicitly defines __Secure-next-auth.pkce.code_verifier for pkce.code_verifier.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:201",
+      "name": "next-auth.state",
+      "match": "exact",
+      "category": "security",
+      "owner": "Site application (Auth.js convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/nextauthjs/next-auth/v4/packages/next-auth/src/core/lib/cookie.ts",
+          "title": "NextAuth v4 defaultCookies source",
+          "claim": "defaultCookies explicitly defines next-auth.state for state.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:202",
+      "name": "__Secure-next-auth.state",
+      "match": "exact",
+      "category": "security",
+      "owner": "Site application (Auth.js convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/nextauthjs/next-auth/v4/packages/next-auth/src/core/lib/cookie.ts",
+          "title": "NextAuth v4 defaultCookies source",
+          "claim": "defaultCookies explicitly defines __Secure-next-auth.state for state.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:203",
+      "name": "next-auth.nonce",
+      "match": "exact",
+      "category": "security",
+      "owner": "Site application (Auth.js convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/nextauthjs/next-auth/v4/packages/next-auth/src/core/lib/cookie.ts",
+          "title": "NextAuth v4 defaultCookies source",
+          "claim": "defaultCookies explicitly defines next-auth.nonce for nonce.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:204",
+      "name": "__Secure-next-auth.nonce",
+      "match": "exact",
+      "category": "security",
+      "owner": "Site application (Auth.js convention)",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/nextauthjs/next-auth/v4/packages/next-auth/src/core/lib/cookie.ts",
+          "title": "NextAuth v4 defaultCookies source",
+          "claim": "defaultCookies explicitly defines __Secure-next-auth.nonce for nonce.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:205",
+      "name": "_hjSessionUser_",
+      "match": "prefix",
+      "category": "analytics",
+      "owner": "Hotjar",
+      "sources": [
+        {
+          "url": "https://help.hotjar.com/hc/en-us/articles/36819973371409-Cookies-Set-by-the-Hotjar-Tracking-Code",
+          "title": "Cookies set by the Hotjar Tracking Code",
+          "claim": "The current first-party cookie table documents _hjSessionUser_ and its visitor/session analytics role.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:206",
+      "name": "_hjSession_",
+      "match": "prefix",
+      "category": "analytics",
+      "owner": "Hotjar",
+      "sources": [
+        {
+          "url": "https://help.hotjar.com/hc/en-us/articles/36819973371409-Cookies-Set-by-the-Hotjar-Tracking-Code",
+          "title": "Cookies set by the Hotjar Tracking Code",
+          "claim": "The current first-party cookie table documents _hjSession_ and its visitor/session analytics role.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:207",
+      "name": "_hjHasCachedUserAttributes",
+      "match": "exact",
+      "category": "analytics",
+      "owner": "Hotjar",
+      "sources": [
+        {
+          "url": "https://help.hotjar.com/hc/en-us/articles/36819973371409-Cookies-Set-by-the-Hotjar-Tracking-Code",
+          "title": "Cookies set by the Hotjar Tracking Code",
+          "claim": "The current first-party cookie table documents _hjHasCachedUserAttributes and its visitor/session analytics role.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:208",
+      "name": "_hjUserAttributesHash",
+      "match": "exact",
+      "category": "analytics",
+      "owner": "Hotjar",
+      "sources": [
+        {
+          "url": "https://help.hotjar.com/hc/en-us/articles/36819973371409-Cookies-Set-by-the-Hotjar-Tracking-Code",
+          "title": "Cookies set by the Hotjar Tracking Code",
+          "claim": "The current first-party cookie table documents _hjUserAttributesHash and its visitor/session analytics role.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:209",
+      "name": "_hjCookieTest",
+      "match": "exact",
+      "category": "functional",
+      "owner": "Hotjar",
+      "sources": [
+        {
+          "url": "https://help.hotjar.com/hc/en-us/articles/36819973371409-Cookies-Set-by-the-Hotjar-Tracking-Code",
+          "title": "Cookies set by the Hotjar Tracking Code",
+          "claim": "The current first-party cookie table documents _hjCookieTest and its probe or survey UI role.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:210",
+      "name": "_hjLocalStorageTest",
+      "match": "exact",
+      "category": "functional",
+      "owner": "Hotjar",
+      "sources": [
+        {
+          "url": "https://help.hotjar.com/hc/en-us/articles/36819973371409-Cookies-Set-by-the-Hotjar-Tracking-Code",
+          "title": "Cookies set by the Hotjar Tracking Code",
+          "claim": "The current first-party cookie table documents _hjLocalStorageTest and its probe or survey UI role.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:211",
+      "name": "_hjSessionStorageTest",
+      "match": "exact",
+      "category": "functional",
+      "owner": "Hotjar",
+      "sources": [
+        {
+          "url": "https://help.hotjar.com/hc/en-us/articles/36819973371409-Cookies-Set-by-the-Hotjar-Tracking-Code",
+          "title": "Cookies set by the Hotjar Tracking Code",
+          "claim": "The current first-party cookie table documents _hjSessionStorageTest and its probe or survey UI role.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:212",
+      "name": "_hjTLDTest",
+      "match": "exact",
+      "category": "functional",
+      "owner": "Hotjar",
+      "sources": [
+        {
+          "url": "https://help.hotjar.com/hc/en-us/articles/36819973371409-Cookies-Set-by-the-Hotjar-Tracking-Code",
+          "title": "Cookies set by the Hotjar Tracking Code",
+          "claim": "The current first-party cookie table documents _hjTLDTest and its probe or survey UI role.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:213",
+      "name": "_hjClosedSurveyInvites",
+      "match": "exact",
+      "category": "functional",
+      "owner": "Hotjar",
+      "sources": [
+        {
+          "url": "https://help.hotjar.com/hc/en-us/articles/36819973371409-Cookies-Set-by-the-Hotjar-Tracking-Code",
+          "title": "Cookies set by the Hotjar Tracking Code",
+          "claim": "The current first-party cookie table documents _hjClosedSurveyInvites and its probe or survey UI role.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:214",
+      "name": "_hjDonePolls",
+      "match": "exact",
+      "category": "functional",
+      "owner": "Hotjar",
+      "sources": [
+        {
+          "url": "https://help.hotjar.com/hc/en-us/articles/36819973371409-Cookies-Set-by-the-Hotjar-Tracking-Code",
+          "title": "Cookies set by the Hotjar Tracking Code",
+          "claim": "The current first-party cookie table documents _hjDonePolls and its probe or survey UI role.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:215",
+      "name": "_hjMinimizedPolls",
+      "match": "exact",
+      "category": "functional",
+      "owner": "Hotjar",
+      "sources": [
+        {
+          "url": "https://help.hotjar.com/hc/en-us/articles/36819973371409-Cookies-Set-by-the-Hotjar-Tracking-Code",
+          "title": "Cookies set by the Hotjar Tracking Code",
+          "claim": "The current first-party cookie table documents _hjMinimizedPolls and its probe or survey UI role.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:216",
+      "name": "_cs_id",
+      "match": "exact",
+      "category": "analytics",
+      "owner": "Contentsquare",
+      "sources": [
+        {
+          "url": "https://docs.contentsquare.com/en/web/cookies/",
+          "title": "Contentsquare web cookie reference (2026-10-02)",
+          "claim": "The tag cookie reference explicitly documents _cs_id and its purpose as contentsquare visitor identifier and visit timestamps used for repeated-visit analytics.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:217",
+      "name": "_cs_s",
+      "match": "exact",
+      "category": "analytics",
+      "owner": "Contentsquare",
+      "sources": [
+        {
+          "url": "https://docs.contentsquare.com/en/web/cookies/",
+          "title": "Contentsquare web cookie reference (2026-10-02)",
+          "claim": "The tag cookie reference explicitly documents _cs_s and its purpose as contentsquare session state used to group page views and session-replay collection.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:218",
+      "name": "_cs_s_ctx",
+      "match": "exact",
+      "category": "analytics",
+      "owner": "Contentsquare",
+      "sources": [
+        {
+          "url": "https://docs.contentsquare.com/en/web/cookies/",
+          "title": "Contentsquare web cookie reference (2026-10-02)",
+          "claim": "The tag cookie reference explicitly documents _cs_s_ctx and its purpose as contentsquare session context containing the first page-view time, entry url and referrer in the documented design.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:219",
+      "name": "_cs_i",
+      "match": "exact",
+      "category": "analytics",
+      "owner": "Contentsquare",
+      "sources": [
+        {
+          "url": "https://docs.contentsquare.com/en/web/cookies/",
+          "title": "Contentsquare web cookie reference (2026-10-02)",
+          "claim": "The tag cookie reference explicitly documents _cs_i and its purpose as contentsquare cookie used to associate analytics with an identity supplied through the identify api.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:220",
+      "name": "_cs_cvars",
+      "match": "exact",
+      "category": "analytics",
+      "owner": "Contentsquare",
+      "sources": [
+        {
+          "url": "https://docs.contentsquare.com/en/web/cookies/",
+          "title": "Contentsquare web cookie reference (2026-10-02)",
+          "claim": "The tag cookie reference explicitly documents _cs_cvars and its purpose as contentsquare session custom variables used to segment analytics.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:221",
+      "name": "_cs_ep",
+      "match": "exact",
+      "category": "analytics",
+      "owner": "Contentsquare",
+      "sources": [
+        {
+          "url": "https://docs.contentsquare.com/en/web/cookies/",
+          "title": "Contentsquare web cookie reference (2026-10-02)",
+          "claim": "The tag cookie reference explicitly documents _cs_ep and its purpose as contentsquare visit-level custom properties used for product analytics.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:222",
+      "name": "_cs_c",
+      "match": "exact",
+      "category": "consent",
+      "owner": "Contentsquare",
+      "sources": [
+        {
+          "url": "https://docs.contentsquare.com/en/web/cookies/",
+          "title": "Contentsquare web cookie reference (2026-10-02)",
+          "claim": "The tag cookie reference explicitly documents _cs_c and its purpose as contentsquare preference for using session data within replays and the masking/consent mode.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:223",
+      "name": "_cs_ex",
+      "match": "exact",
+      "category": "consent",
+      "owner": "Contentsquare",
+      "sources": [
+        {
+          "url": "https://docs.contentsquare.com/en/web/cookies/",
+          "title": "Contentsquare web cookie reference (2026-10-02)",
+          "claim": "The tag cookie reference explicitly documents _cs_ex and its purpose as contentsquare visitor exclusion flag used to disable tracking when its configured condition applies.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:224",
+      "name": "_cs_optout",
+      "match": "exact",
+      "category": "consent",
+      "owner": "Contentsquare",
+      "sources": [
+        {
+          "url": "https://docs.contentsquare.com/en/web/cookies/",
+          "title": "Contentsquare web cookie reference (2026-10-02)",
+          "claim": "The tag cookie reference explicitly documents _cs_optout and its purpose as contentsquare opt-out preference used by the tag to disable collection.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:225",
+      "name": "_cs_t",
+      "match": "exact",
+      "category": "functional",
+      "owner": "Contentsquare",
+      "sources": [
+        {
+          "url": "https://docs.contentsquare.com/en/web/cookies/",
+          "title": "Contentsquare web cookie reference (2026-10-02)",
+          "claim": "The tag cookie reference explicitly documents _cs_t and its purpose as temporary contentsquare cookie-support probe, normally removed immediately.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:226",
+      "name": "_cs_same_site",
+      "match": "exact",
+      "category": "functional",
+      "owner": "Contentsquare",
+      "sources": [
+        {
+          "url": "https://docs.contentsquare.com/en/web/cookies/",
+          "title": "Contentsquare web cookie reference (2026-10-02)",
+          "claim": "The tag cookie reference explicitly documents _cs_same_site and its purpose as temporary contentsquare probe for browser samesite cookie support.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:227",
+      "name": "_cs_root-domain",
+      "match": "exact",
+      "category": "functional",
+      "owner": "Contentsquare",
+      "sources": [
+        {
+          "url": "https://docs.contentsquare.com/en/web/cookies/",
+          "title": "Contentsquare web cookie reference (2026-10-02)",
+          "claim": "The tag cookie reference explicitly documents _cs_root-domain and its purpose as temporary contentsquare main-domain probe used to configure tag cookie scope.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:228",
+      "name": "_cs_debug",
+      "match": "exact",
+      "category": "functional",
+      "owner": "Contentsquare",
+      "sources": [
+        {
+          "url": "https://docs.contentsquare.com/en/web/cookies/",
+          "title": "Contentsquare web cookie reference (2026-10-02)",
+          "claim": "The tag cookie reference explicitly documents _cs_debug and its purpose as manually set contentsquare debugging control for tag behavior.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:229",
+      "name": "_cs_inc",
+      "match": "exact",
+      "category": "functional",
+      "owner": "Contentsquare",
+      "sources": [
+        {
+          "url": "https://docs.contentsquare.com/en/web/cookies/",
+          "title": "Contentsquare web cookie reference (2026-10-02)",
+          "claim": "The tag cookie reference explicitly documents _cs_inc and its purpose as manually set contentsquare collection-inclusion control read by the tag; not an automatically issued visitor identifier.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:230",
+      "name": "_hp2_hld",
+      "match": "prefix",
+      "category": "functional",
+      "owner": "Contentsquare",
+      "sources": [
+        {
+          "url": "https://docs.contentsquare.com/en/web/cookies/",
+          "title": "Contentsquare web cookie reference (2026-10-02)",
+          "claim": "The tag cookie reference explicitly documents _hp2_hld and its purpose as temporary heap/contentsquare probe used to find a domain on which cookies may be set.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:231",
+      "name": "_hp5_event_props.",
+      "match": "prefix",
+      "category": "analytics",
+      "owner": "Contentsquare",
+      "sources": [
+        {
+          "url": "https://docs.contentsquare.com/en/web/cookies/",
+          "title": "Contentsquare web cookie reference (2026-10-02)",
+          "claim": "The tag cookie reference explicitly documents _hp5_event_props. and its purpose as heap/contentsquare event-properties cookie for the configured analytics environment.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:232",
+      "name": "_hp5_let.",
+      "match": "prefix",
+      "category": "analytics",
+      "owner": "Contentsquare",
+      "sources": [
+        {
+          "url": "https://docs.contentsquare.com/en/web/cookies/",
+          "title": "Contentsquare web cookie reference (2026-10-02)",
+          "claim": "The tag cookie reference explicitly documents _hp5_let. and its purpose as heap/contentsquare cookie recording the last event timestamp for its analytics environment.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:233",
+      "name": "_hp5_meta.",
+      "match": "prefix",
+      "category": "analytics",
+      "owner": "Contentsquare",
+      "sources": [
+        {
+          "url": "https://docs.contentsquare.com/en/web/cookies/",
+          "title": "Contentsquare web cookie reference (2026-10-02)",
+          "claim": "The tag cookie reference explicitly documents _hp5_meta. and its purpose as heap/contentsquare metadata cookie relating to the analytics visitor and session.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:234",
+      "name": "_cs_mk_aa",
+      "match": "exact",
+      "category": "analytics",
+      "owner": "Contentsquare",
+      "sources": [
+        {
+          "url": "https://docs.contentsquare.com/en/web/cookies/",
+          "title": "Contentsquare web cookie reference (2026-10-02)",
+          "claim": "The tag cookie reference explicitly documents _cs_mk_aa and its purpose as contentsquare adobe analytics integration marker limiting repeated dimension updates.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:235",
+      "name": "_cs_mk_ga",
+      "match": "exact",
+      "category": "analytics",
+      "owner": "Contentsquare",
+      "sources": [
+        {
+          "url": "https://docs.contentsquare.com/en/web/cookies/",
+          "title": "Contentsquare web cookie reference (2026-10-02)",
+          "claim": "The tag cookie reference explicitly documents _cs_mk_ga and its purpose as contentsquare google analytics integration marker limiting repeated dimension updates.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:236",
+      "name": "_cs_mk_pa",
+      "match": "exact",
+      "category": "analytics",
+      "owner": "Contentsquare",
+      "sources": [
+        {
+          "url": "https://docs.contentsquare.com/en/web/cookies/",
+          "title": "Contentsquare web cookie reference (2026-10-02)",
+          "claim": "The tag cookie reference explicitly documents _cs_mk_pa and its purpose as contentsquare piano analytics integration marker limiting repeated dimension updates.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:237",
+      "name": "_cs_rl_",
+      "match": "prefix",
+      "category": "analytics",
+      "owner": "Contentsquare",
+      "sources": [
+        {
+          "url": "https://docs.contentsquare.com/en/web/cookies/",
+          "title": "Contentsquare web cookie reference (2026-10-02)",
+          "claim": "The tag cookie reference explicitly documents _cs_rl_ and its purpose as contentsquare integration cookie containing a replay link for the connected service.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:238",
+      "name": "_cs_tld",
+      "match": "prefix",
+      "category": "functional",
+      "owner": "Contentsquare",
+      "sources": [
+        {
+          "url": "https://docs.contentsquare.com/en/web/cookies/",
+          "title": "Contentsquare web cookie reference (2026-10-02)",
+          "claim": "The tag cookie reference explicitly documents _cs_tld and its purpose as temporary contentsquare integration cookie used to choose the main domain for analytics integration cookies.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:239",
+      "name": "OptanonConsent",
+      "match": "exact",
+      "category": "consent",
+      "owner": "OneTrust",
+      "sources": [
+        {
+          "url": "https://my.onetrust.com/articles/en_US/knowledge/UUID-2dc719a8-4be5-8d16-1dc8-c7b4147b88e0",
+          "title": "OneTrust first-party cookie documentation",
+          "claim": "Documents the first-party OptanonConsent consent-preference cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:240",
+      "name": "OptanonAlertBoxClosed",
+      "match": "exact",
+      "category": "consent",
+      "owner": "OneTrust",
+      "sources": [
+        {
+          "url": "https://my.onetrust.com/articles/en_US/knowledge/UUID-2dc719a8-4be5-8d16-1dc8-c7b4147b88e0",
+          "title": "OneTrust first-party cookie documentation",
+          "claim": "Documents OptanonAlertBoxClosed as a first-party banner-interaction cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:241",
+      "name": "CookieConsent",
+      "match": "exact",
+      "category": "consent",
+      "owner": "Site consent manager (Cookiebot convention)",
+      "sources": [
+        {
+          "url": "https://support.cookiebot.com/hc/en-us/articles/360003782654-Logging-and-demonstration-of-user-consents",
+          "title": "Cookiebot consent logging documentation",
+          "claim": "CookieConsent is the first-party cookie used to save the consent key and state.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:242",
+      "name": "CookieConsentBulkTicket",
+      "match": "exact",
+      "category": "consent",
+      "owner": "Cookiebot",
+      "sources": [
+        {
+          "url": "https://support.cookiebot.com/hc/en-us/articles/360003782654-Logging-and-demonstration-of-user-consents",
+          "title": "Cookiebot cross-domain consent documentation",
+          "claim": "CookieConsentBulkTicket is documented for the optional cross-domain consent-sharing feature.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:243",
+      "name": "cookieyes-consent",
+      "match": "exact",
+      "category": "consent",
+      "owner": "CookieYes",
+      "sources": [
+        {
+          "url": "https://www.cookieyes.com/documentation/obtain-the-consent-id/",
+          "title": "CookieYes consent ID documentation",
+          "claim": "CookieYes documents cookieyes-consent as the necessary cookie set by its banner.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:244",
+      "name": "cookieyesID",
+      "match": "exact",
+      "category": "consent",
+      "owner": "CookieYes",
+      "sources": [
+        {
+          "url": "https://www.cookieyes.com/documentation/obtain-the-consent-id/",
+          "title": "CookieYes legacy consent ID documentation",
+          "claim": "The same FAQ documents cookieyesID for older CookieYes versions.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:245",
+      "name": "didomi_token",
+      "match": "exact",
+      "category": "consent",
+      "owner": "Didomi",
+      "sources": [
+        {
+          "url": "https://developers.didomi.io/cmp/web-sdk/consent-notice/cookies",
+          "title": "Didomi CMP cookies and storage",
+          "claim": "Lists didomi_token among the first-party consent cookies.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:246",
+      "name": "didomi_dcs",
+      "match": "exact",
+      "category": "consent",
+      "owner": "Didomi",
+      "sources": [
+        {
+          "url": "https://developers.didomi.io/cmp/web-sdk/consent-notice/cookies",
+          "title": "Didomi CMP cookies and storage",
+          "claim": "Lists didomi_dcs among the first-party consent cookies.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:247",
+      "name": "euconsent-v2",
+      "match": "exact",
+      "category": "consent",
+      "owner": "Site consent manager (IAB TCF convention)",
+      "sources": [
+        {
+          "url": "https://developers.didomi.io/cmp/web-sdk/consent-notice/cookies",
+          "title": "Didomi IAB consent cookie documentation",
+          "claim": "Didomi documents euconsent-v2 for IAB TCF vendors and purposes, separately from its own named cookies.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:248",
+      "name": "aws-waf-token",
+      "match": "exact",
+      "category": "security",
+      "owner": "Amazon Web Services",
+      "sources": [
+        {
+          "url": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-tokens-details.html",
+          "title": "AWS WAF token characteristics",
+          "claim": "The WAF token is stored in the aws-waf-token cookie and carries challenge/session information.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:249",
+      "name": "AWSELB",
+      "match": "exact",
+      "category": "functional",
+      "owner": "Amazon Web Services",
+      "sources": [
+        {
+          "url": "https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html",
+          "title": "AWS Classic Load Balancer sticky sessions",
+          "claim": "AWSELB maps sessions to a backend instance.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:250",
+      "name": "AWSELBCORS",
+      "match": "exact",
+      "category": "functional",
+      "owner": "Amazon Web Services",
+      "sources": [
+        {
+          "url": "https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html",
+          "title": "AWS Classic Load Balancer sticky sessions",
+          "claim": "Documents the additional AWSELBCORS cookie for SameSite=None; Secure cross-origin compatibility.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:251",
+      "name": "_GRECAPTCHA",
+      "match": "exact",
+      "category": "security",
+      "owner": "Google reCAPTCHA",
+      "sources": [
+        {
+          "url": "https://developers.google.com/recaptcha/docs/faq/",
+          "title": "Google reCAPTCHA FAQ",
+          "claim": "reCAPTCHA sets _GRECAPTCHA for risk analysis and supports the google.com or recaptcha.net domain.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:252",
+      "name": "usprivacy",
+      "match": "exact",
+      "category": "consent",
+      "owner": "Site consent manager (IAB convention)",
+      "sources": [
+        {
+          "url": "https://my.onetrust.com/articles/en_US/knowledge/UUID-2dc719a8-4be5-8d16-1dc8-c7b4147b88e0",
+          "title": "OneTrust cookies documentation",
+          "claim": "OneTrust documents usprivacy for the IAB CCPA script and vendor consent actions.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:253",
+      "name": "eupubconsent-v2",
+      "match": "exact",
+      "category": "consent",
+      "owner": "Site consent manager (IAB TCF convention)",
+      "sources": [
+        {
+          "url": "https://my.onetrust.com/articles/en_US/knowledge/UUID-2dc719a8-4be5-8d16-1dc8-c7b4147b88e0",
+          "title": "OneTrust cookies documentation",
+          "claim": "Documents eupubconsent-v2 as a first-party TCF v2 preferences cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:254",
+      "name": "OTAdditionalConsentString",
+      "match": "exact",
+      "category": "consent",
+      "owner": "OneTrust",
+      "sources": [
+        {
+          "url": "https://my.onetrust.com/articles/en_US/knowledge/UUID-2dc719a8-4be5-8d16-1dc8-c7b4147b88e0",
+          "title": "OneTrust cookies documentation",
+          "claim": "Documents OTAdditionalConsentString as the first-party Google Additional Consent string cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:255",
+      "name": "OneTrustWPCCPAGoogleOptOut",
+      "match": "exact",
+      "category": "consent",
+      "owner": "OneTrust",
+      "sources": [
+        {
+          "url": "https://my.onetrust.com/articles/en_US/knowledge/UUID-2dc719a8-4be5-8d16-1dc8-c7b4147b88e0",
+          "title": "OneTrust cookies documentation",
+          "claim": "Documents OneTrustWPCCPAGoogleOptOut as the opt-in/opt-out choice for the relevant cookie category.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    },
+    {
+      "id": "primary:256",
+      "name": "OTGPPConsent",
+      "match": "exact",
+      "category": "consent",
+      "owner": "OneTrust",
+      "sources": [
+        {
+          "url": "https://my.onetrust.com/articles/en_US/knowledge/UUID-2dc719a8-4be5-8d16-1dc8-c7b4147b88e0",
+          "title": "OneTrust cookies documentation",
+          "claim": "Documents OTGPPConsent as the cookie used by its configured GPP feature.",
+          "accessedAt": "2026-10-09"
+        }
+      ]
+    }
+  ]
+}

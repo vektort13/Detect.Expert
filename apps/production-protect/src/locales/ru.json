@@ -1,0 +1,49 @@
+{
+  "protect_launcher_title": {
+    "message": "Firewall"
+  },
+  "protect_launcher_desc": {
+    "message": "Необязательный модуль: фаервол для данных форм, история «Кто узнаёт», сигнал GPC, запросы о данных. Выключен, пока вы не включите его здесь."
+  },
+  "protect_launcher_open": {
+    "message": "Открыть настройки Firewall"
+  },
+  "protect_page_title": {
+    "message": "Firewall"
+  },
+  "protect_locale_fallback_note": {
+    "message": "Настройки Firewall доступны на русском и английском; для выбранного языка показан английский."
+  },
+  "protect_island_error": {
+    "message": "Firewall не смог показать этот раздел. Остальное расширение работает; перезапустите окно."
+  },
+  "fwp_page_title": {
+    "message": "Firewall — Detect.Expert"
+  },
+  "fwp_open_main": {
+    "message": "Все находки"
+  },
+  "fwp_open_main_label": {
+    "message": "Открыть основное окно Detect.Expert с находками этой вкладки"
+  },
+  "fwp_empty": {
+    "message": "На этой вкладке сейчас ни один адрес не ждёт решения фаервола."
+  },
+  "fwp_unavailable": {
+    "message": "Firewall сейчас не работает на этой вкладке: модуль выключен, не активен или фаервол выключен в его функциях."
+  },
+  "fwp_close": {
+    "message": "Закрыть"
+  },
+  "fwp_line_open": {
+    "message": "Открыть Firewall"
+  },
+  "fwp_line_notices": {
+    "message": "Firewall: уведомлений на этой вкладке — $N$",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  }
+}

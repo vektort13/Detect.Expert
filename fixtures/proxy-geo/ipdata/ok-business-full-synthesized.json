@@ -1,0 +1,74 @@
+{
+  "provider": "ipdata",
+  "ip": "8.8.8.8",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": {
+    "ip": "8.8.8.8",
+    "is_eu": false,
+    "city": "Mountain View",
+    "region": "California",
+    "region_code": "CA",
+    "region_type": "state",
+    "country_name": "United States",
+    "country_code": "US",
+    "continent_name": "North America",
+    "continent_code": "NA",
+    "latitude": 37.751,
+    "longitude": -97.822,
+    "postal": "94043",
+    "calling_code": "1",
+    "asn": {
+      "asn": "AS15169",
+      "name": "Google LLC",
+      "domain": "google.com",
+      "route": "8.8.8.0/24",
+      "type": "hosting"
+    },
+    "company": {
+      "name": "Google LLC",
+      "domain": "google.com",
+      "network": "8.8.8.0/24",
+      "type": "business"
+    },
+    "languages": [
+      {
+        "name": "English",
+        "native": "English"
+      }
+    ],
+    "currency": {
+      "name": "US Dollar",
+      "code": "USD",
+      "symbol": "$",
+      "native": "$",
+      "plural": "US dollars"
+    },
+    "time_zone": {
+      "name": "America/Los_Angeles",
+      "abbr": "PST",
+      "offset": "-0800",
+      "is_dst": false,
+      "current_time": "2026-11-06T04:29:02.916683-08:00"
+    },
+    "threat": {
+      "is_tor": false,
+      "is_vpn": false,
+      "is_icloud_relay": false,
+      "is_proxy": false,
+      "is_datacenter": true,
+      "is_anonymous": false,
+      "is_known_attacker": false,
+      "is_known_abuser": false,
+      "is_threat": false,
+      "is_bogon": false,
+      "blocklists": [],
+      "scores": {
+        "vpn_score": 0
+      }
+    },
+    "count": "1"
+  }
+}

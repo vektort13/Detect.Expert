@@ -2,7 +2,7 @@
 
 [English](proxy-companion.md) · [Русский](proxy-companion.ru.md)
 
-Помощник это небольшая программа для Windows, которая позволяет вкладке Proxy делать то, что браузер сам не умеет: SOCKS5 с паролем, HTTP/HTTPS-прокси с логином, VLESS и OpenVPN. Здесь быстрый путь. Все подробности (что в пакете, как он работает, лицензии, сборка) лежат в [README помощника](../../companion/README.ru.md).
+Помощник это небольшая программа для Windows, которая позволяет вкладке Proxy делать то, что браузер сам не умеет: SOCKS5 с паролем, HTTP/HTTPS-прокси с логином, VLESS и OpenVPN. Здесь быстрый путь. Все подробности (что в пакете, как он работает, лицензии, сборка) лежат в [README помощника](../../native/proxy/README.ru.md).
 
 ## Он мне нужен?
 
@@ -82,4 +82,4 @@ Remove-Item -Recurse -Force "$env:LOCALAPPDATA\Detect.Expert\ProxyCompanion"
 Remove-Item -Recurse -Force "$env:APPDATA\Detect.Expert\Proxy"     # логины, пароли, ссылки VLESS, конфиги OpenVPN: удалятся насовсем
 ```
 
-Подробнее: [README помощника](../../companion/README.ru.md), [FAQ](faq.ru.md).
+Подробнее: [README помощника](../../native/proxy/README.ru.md), [FAQ](faq.ru.md).

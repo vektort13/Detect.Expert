@@ -1,0 +1,19 @@
+{
+  "provider": "ipgeolocation",
+  "ip": "8.8.8.8",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": {
+    "ip": null,
+    "location": null,
+    "asn": null,
+    "company": null,
+    "network": null,
+    "security": null,
+    "time_zone": null,
+    "currency": null,
+    "country_metadata": null
+  }
+}

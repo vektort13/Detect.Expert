@@ -1,0 +1,6 @@
+/* Side panel layout only; tokens and components come from ui.css. */
+.app--panel {
+  max-width: 760px;
+  margin-inline: auto;
+  padding-block: var(--space-4);
+}

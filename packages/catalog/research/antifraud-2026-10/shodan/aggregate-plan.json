@@ -1,0 +1,1889 @@
+{
+  "schemaVersion": 1,
+  "mode": "plan",
+  "status": "not-run",
+  "catalogVersion": "research-2026-10-09.1",
+  "source": {
+    "provider": "Shodan",
+    "operation": "host-count",
+    "documentationUrl": "https://developer.shodan.io/api"
+  },
+  "requestCount": 100,
+  "requestLimit": 100,
+  "minimumRequestIntervalMs": 1000,
+  "entries": [
+    {
+      "host": "api-device-eur.portal101.cn",
+      "vendorIds": [
+        "shumei-device-intelligence"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "shumei-device-intelligence--3d21a77f945b",
+          "sourceUrls": [
+            "https://help.ishumei.com/docs/tw/sdk/web/developDoc/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "api-js.datadome.co",
+      "vendorIds": [
+        "datadome-bot-protect"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "datadome-bot-protect--34dd57aa5feb",
+          "sourceUrls": [
+            "https://docs.datadome.co/docs/javascript-tag"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "api.au.transmitsecurity.io",
+      "vendorIds": [
+        "transmit-security"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "transmit-security--98542e5b0bc5",
+          "sourceUrls": [
+            "https://developer.transmitsecurity.com/guides/risk/quick_start_web"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "api.ca.transmitsecurity.io",
+      "vendorIds": [
+        "transmit-security"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "transmit-security--0952ff22e6ca",
+          "sourceUrls": [
+            "https://developer.transmitsecurity.com/guides/risk/quick_start_web"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "api.eu.transmitsecurity.io",
+      "vendorIds": [
+        "transmit-security"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "transmit-security--a1d3be85e888",
+          "sourceUrls": [
+            "https://developer.transmitsecurity.com/guides/risk/quick_start_web"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "api.gasne1-ts01.transmitsecurity.io",
+      "vendorIds": [
+        "transmit-security"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "transmit-security--afe6c35ed312",
+          "sourceUrls": [
+            "https://developer.transmitsecurity.com/guides/risk/quick_start_web"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "api.sbx.transmitsecurity.io",
+      "vendorIds": [
+        "transmit-security"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "transmit-security--fe781dbd62d6",
+          "sourceUrls": [
+            "https://developer.transmitsecurity.com/guides/risk/quick_start_web"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "api.transmitsecurity.io",
+      "vendorIds": [
+        "transmit-security"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "transmit-security--db8546ed5f18",
+          "sourceUrls": [
+            "https://developer.transmitsecurity.com/guides/risk/quick_start_web"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "apps.pingone.com",
+      "vendorIds": [
+        "pingone-protect"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "pingone-protect--9c47c7f09a22",
+          "sourceUrls": [
+            "https://docs.pingidentity.com/pingone/threat_protection_using_pingone_protect/p1_protect_troubleshooting.html"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "aps.wowscale.com",
+      "vendorIds": [
+        "darwinium"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "darwinium--6d324832d6ed",
+          "sourceUrls": [
+            "https://docs.darwinium.com/docs/inserting-darwinium-js-profiling"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "b.stats.paypal.com",
+      "vendorIds": [
+        "paypal-fraudnet"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "paypal-fraudnet--f949e669b1d9",
+          "sourceUrls": [
+            "https://developer.paypal.com/platforms/checkout/apm/pay-upon-invoice/fraudnet/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "backs.keycaptcha.com",
+      "vendorIds": [
+        "keycaptcha"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "keycaptcha--9adaff00af40",
+          "sourceUrls": [
+            "https://www.keycaptcha.com/django-captcha/"
+          ]
+        },
+        {
+          "kind": "published-browser-host",
+          "signalId": "keycaptcha--d5493901d205",
+          "sourceUrls": [
+            "https://www.keycaptcha.com/common-captcha-api/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "beacon.riskified.com",
+      "vendorIds": [
+        "riskified"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "riskified--1fdbea7fe2e4",
+          "sourceUrls": [
+            "https://github.com/Riskified/beacon-agent/blob/main/beacon-integrate.md"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "c.paypal.com",
+      "vendorIds": [
+        "paypal-fraudnet"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "paypal-fraudnet--fd4deafd212a",
+          "sourceUrls": [
+            "https://developer.paypal.com/platforms/checkout/apm/pay-upon-invoice/fraudnet/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "c.riskified.com",
+      "vendorIds": [
+        "riskified"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "riskified--c2f3b1bb5a02",
+          "sourceUrls": [
+            "https://github.com/Riskified/beacon-agent/blob/main/beacon-integrate.md"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "ca.turing.captcha.qcloud.com",
+      "vendorIds": [
+        "tencent-captcha"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "tencent-captcha--924b46c0245c",
+          "sourceUrls": [
+            "https://www-sg.tencentcloud.com/ind/document/product/1159/67464"
+          ]
+        },
+        {
+          "kind": "published-browser-host",
+          "signalId": "tencent-captcha--c6bbca4477ab",
+          "sourceUrls": [
+            "https://intl.cloud.tencent.com/zh/document/product/1159/73397",
+            "https://www-sg.tencentcloud.com/ind/document/product/1159/67464"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "cdn-scripts.signifyd.com",
+      "vendorIds": [
+        "signifyd"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "signifyd--9840dc64ecf6",
+          "sourceUrls": [
+            "https://signifydapi.docs.apiary.io/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "cdn.deviceinf.com",
+      "vendorIds": [
+        "seon"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "seon--3aa869ae4fe9",
+          "sourceUrls": [
+            "https://docs.seon.io/api-reference/deprecated-versions"
+          ]
+        },
+        {
+          "kind": "published-browser-host",
+          "signalId": "seon--71065c75e544",
+          "sourceUrls": [
+            "https://docs.seon.io/api-reference/fraud-api"
+          ]
+        },
+        {
+          "kind": "published-browser-host",
+          "signalId": "seon--90b86f23053b",
+          "sourceUrls": [
+            "https://docs.seon.io/api-reference/deprecated-versions"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "cdn.dfsdk.com",
+      "vendorIds": [
+        "seon"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "seon--65537fc73d72",
+          "sourceUrls": [
+            "https://docs.seon.io/api-reference/fraud-api"
+          ]
+        },
+        {
+          "kind": "published-browser-host",
+          "signalId": "seon--b3802acede28",
+          "sourceUrls": [
+            "https://docs.seon.io/api-reference/deprecated-versions"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "cdn.dingxiang-inc.com",
+      "vendorIds": [
+        "dingxiang-captcha"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "dingxiang-captcha--1b663b384cdd",
+          "sourceUrls": [
+            "https://www.dingxiang-inc.com/docs/detail/captcha"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "cdn.fraudlabspro.com",
+      "vendorIds": [
+        "fraudlabs-pro"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "fraudlabs-pro--96634e752128",
+          "sourceUrls": [
+            "https://www.fraudlabspro.com/developer/javascript"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "cdn.getdeviceinf.com",
+      "vendorIds": [
+        "seon"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "seon--a234a7325a1e",
+          "sourceUrls": [
+            "https://docs.seon.io/api-reference/deprecated-versions"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "cdn.jsdelivr.net",
+      "vendorIds": [
+        "altcha",
+        "friendly-captcha"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "altcha--5c75303c9631",
+          "sourceUrls": [
+            "https://altcha.org/docs/integration/widget/"
+          ]
+        },
+        {
+          "kind": "published-browser-host",
+          "signalId": "friendly-captcha--0b1069e33b13",
+          "sourceUrls": [
+            "https://developer.friendlycaptcha.com/docs/v2/getting-started/install"
+          ]
+        },
+        {
+          "kind": "published-browser-host",
+          "signalId": "friendly-captcha--689b8f42082f",
+          "sourceUrls": [
+            "https://developer.friendlycaptcha.com/docs/v2/getting-started/install"
+          ]
+        },
+        {
+          "kind": "published-browser-host",
+          "signalId": "friendly-captcha--899841c12bbb",
+          "sourceUrls": [
+            "https://developer.friendlycaptcha.com/docs/v2/getting-started/install"
+          ]
+        },
+        {
+          "kind": "published-browser-host",
+          "signalId": "friendly-captcha--ec4ea1733114",
+          "sourceUrls": [
+            "https://developer.friendlycaptcha.com/docs/v2/getting-started/install"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "cdn.ravelin.net",
+      "vendorIds": [
+        "ravelin"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "ravelin--e83bc75083b7",
+          "sourceUrls": [
+            "https://developer.ravelin.com/merchant/libraries-and-sdks/ravelinjs/v0/usage-guide/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "cdn.seon.io",
+      "vendorIds": [
+        "seon"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "seon--8c331d5bd4f9",
+          "sourceUrls": [
+            "https://docs.seon.io/api-reference/deprecated-versions"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "cdn.seondf.com",
+      "vendorIds": [
+        "seon"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "seon--14a5f1c961f6",
+          "sourceUrls": [
+            "https://docs.seon.io/api-reference/deprecated-versions"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "cdn.seonintelligence.com",
+      "vendorIds": [
+        "seon"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "seon--0b21cbf5c715",
+          "sourceUrls": [
+            "https://docs.seon.io/api-reference/deprecated-versions"
+          ]
+        },
+        {
+          "kind": "published-browser-host",
+          "signalId": "seon--e1c5c90f6ca8",
+          "sourceUrls": [
+            "https://docs.seon.io/api-reference/fraud-api"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "cdn.sift.com",
+      "vendorIds": [
+        "sift"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "sift--4bef7d81b44a",
+          "sourceUrls": [
+            "https://developers.sift.com/docs/curl/decisions-api/overview/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "cdn.veriff.me",
+      "vendorIds": [
+        "veriff"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "veriff--cf687fcbf390",
+          "sourceUrls": [
+            "https://devdocs.veriff.com/docs/javascript-sdk-1"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "challenges.cloudflare.com",
+      "vendorIds": [
+        "cloudflare-turnstile"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cloudflare-turnstile--4432e82197c4",
+          "sourceUrls": [
+            "https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "checkoutshopper-live.adyen.com",
+      "vendorIds": [
+        "adyen-protect"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "adyen-protect--194d4528d8de",
+          "sourceUrls": [
+            "https://docs.adyen.com/risk-management/fraud-data-collection/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "checkoutshopper-test.adyen.com",
+      "vendorIds": [
+        "adyen-protect"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "adyen-protect--d4a9e6bf9b6c",
+          "sourceUrls": [
+            "https://docs.adyen.com/risk-management/fraud-data-collection/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "client-api.arkoselabs.com",
+      "vendorIds": [
+        "arkose-bot-manager"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "arkose-bot-manager--bb68f8ea3be7",
+          "sourceUrls": [
+            "https://developer.arkoselabs.com/docs/bot-manager-quickstart"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "cstaticdun.126.net",
+      "vendorIds": [
+        "netease-yidun-captcha"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "netease-yidun-captcha--3b2fa979df6e",
+          "sourceUrls": [
+            "https://github.com/yidun/captcha-php-demo/blob/master/index.php"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "d-ipv4.mmapiws.com",
+      "vendorIds": [
+        "maxmind-minfraud"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "maxmind-minfraud--f2451304a71c",
+          "sourceUrls": [
+            "https://dev.maxmind.com/minfraud/track-devices/web/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "d-ipv6.mmapiws.com",
+      "vendorIds": [
+        "maxmind-minfraud"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "maxmind-minfraud--faaf4b38be00",
+          "sourceUrls": [
+            "https://dev.maxmind.com/minfraud/track-devices/web/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "det.trustfull.com",
+      "vendorIds": [
+        "trustfull-session"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "trustfull-session--585be088f591",
+          "sourceUrls": [
+            "https://docs.trustfull.com/ip/docs/session-integration"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "device.maxmind.com",
+      "vendorIds": [
+        "maxmind-minfraud"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "maxmind-minfraud--2432a4a9502a",
+          "sourceUrls": [
+            "https://dev.maxmind.com/minfraud/track-devices/web/"
+          ]
+        },
+        {
+          "kind": "published-browser-host",
+          "signalId": "maxmind-minfraud--55eb28719cc0",
+          "sourceUrls": [
+            "https://dev.maxmind.com/minfraud/track-devices/web/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "elements.stytch.com",
+      "vendorIds": [
+        "stytch-device-fingerprinting"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "stytch-device-fingerprinting--c36a37ee71b4",
+          "sourceUrls": [
+            "https://stytch.com/blog/what-is-device-fingerprinting/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "fp-it-acc.portal101.cn",
+      "vendorIds": [
+        "shumei-device-intelligence"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "shumei-device-intelligence--16e8fecbcbb0",
+          "sourceUrls": [
+            "https://help.ishumei.com/docs/tw/sdk/web/developDoc/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "fp-it.portal101.cn",
+      "vendorIds": [
+        "shumei-device-intelligence"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "shumei-device-intelligence--b9ddf6ce6f70",
+          "sourceUrls": [
+            "https://help.ishumei.com/docs/tw/sdk/web/developDoc/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "fp-na-it-acc.portal101.cn",
+      "vendorIds": [
+        "shumei-device-intelligence"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "shumei-device-intelligence--3b373f9aa852",
+          "sourceUrls": [
+            "https://help.ishumei.com/docs/tw/sdk/web/developDoc/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "fp-na-it.portal101.cn",
+      "vendorIds": [
+        "shumei-device-intelligence"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "shumei-device-intelligence--008081830967",
+          "sourceUrls": [
+            "https://help.ishumei.com/docs/tw/sdk/web/developDoc/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "fp-sa-it-acc.portal101.cn",
+      "vendorIds": [
+        "shumei-device-intelligence"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "shumei-device-intelligence--f6bfba6a3c91",
+          "sourceUrls": [
+            "https://help.ishumei.com/docs/tw/sdk/web/developDoc/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "fp-sa-it.portal101.cn",
+      "vendorIds": [
+        "shumei-device-intelligence"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "shumei-device-intelligence--1a685f790166",
+          "sourceUrls": [
+            "https://help.ishumei.com/docs/tw/sdk/web/developDoc/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "fpjscdn.net",
+      "vendorIds": [
+        "fingerprint-device-intelligence"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "fingerprint-device-intelligence--50f7708c3e55",
+          "sourceUrls": [
+            "https://docs.fingerprint.com/docs/quick-start-guide"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "global.frcapi.com",
+      "vendorIds": [
+        "friendly-captcha-risk-intelligence"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "friendly-captcha-risk-intelligence--0d573c3d91d6",
+          "sourceUrls": [
+            "https://developer.friendlycaptcha.com/docs/v2/risk-intelligence/getting-started/generate"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "h-api.online-metrix.net",
+      "vendorIds": [
+        "threatmetrix"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "threatmetrix--b37b07e1f266",
+          "sourceUrls": [
+            "https://docs.pingidentity.com/integrations/threatmetrix/setup/pf_threatmetrix_ik_integrating_device_profiling_web_app_basic.html"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "h.online-metrix.net",
+      "vendorIds": [
+        "threatmetrix"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "threatmetrix--a480f1ffa007",
+          "sourceUrls": [
+            "https://docs.cielo.com.br/risco/docs/web-fingerprint"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "img.riskified.com",
+      "vendorIds": [
+        "riskified"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "riskified--70ae364dbc6c",
+          "sourceUrls": [
+            "https://github.com/Riskified/beacon-agent/blob/main/beacon-integrate.md"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "js.braintreegateway.com",
+      "vendorIds": [
+        "braintree-fraud-protection"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "braintree-fraud-protection--a1d8877f0049",
+          "sourceUrls": [
+            "https://developer.paypal.com/braintree/docs/guides/premium-fraud-management-tools/client-side/javascript/v3/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "js.datadome.co",
+      "vendorIds": [
+        "datadome-bot-protect"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "datadome-bot-protect--5a7a5bd1ba02",
+          "sourceUrls": [
+            "https://docs.datadome.co/docs/javascript-tag"
+          ]
+        },
+        {
+          "kind": "published-browser-host",
+          "signalId": "datadome-bot-protect--b2178febd12c",
+          "sourceUrls": [
+            "https://docs.datadome.co/docs/javascript-tag"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "js.hcaptcha.com",
+      "vendorIds": [
+        "hcaptcha"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "hcaptcha--a0b3a1e8e2f7",
+          "sourceUrls": [
+            "https://docs.hcaptcha.com/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "js.verisoul.ai",
+      "vendorIds": [
+        "verisoul"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "verisoul--8c7ad321cb05",
+          "sourceUrls": [
+            "https://support.verisoul.ai/articles/9359601980-integrating-verisoul-fraud-prevention-with-qualtrics"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "m.stripe.com",
+      "vendorIds": [
+        "stripe-radar"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "stripe-radar--fcd3d196f50c",
+          "sourceUrls": [
+            "https://docs.stripe.com/disputes/prevention/advanced-fraud-detection"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "o.alicdn.com",
+      "vendorIds": [
+        "alibaba-cloud-captcha"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "alibaba-cloud-captcha--283a168ddc06",
+          "sourceUrls": [
+            "https://help.aliyun.com/en/captcha/captcha2-0/user-guide/new-architecture-for-web-and-h5-client-access",
+            "https://www.alibabacloud.com/help/en/captcha/captcha2-0/user-guide/new-architecture-for-web-and-h5-client-access"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "p.tgtag.io",
+      "vendorIds": [
+        "trafficguard"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "trafficguard--1d2147c0683b",
+          "sourceUrls": [
+            "https://help.trafficguard.ai/en/articles/6760694-trafficguard-tg-site-tag"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "script.anura.io",
+      "vendorIds": [
+        "anura"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "anura--dd2652862537",
+          "sourceUrls": [
+            "https://docs.anura.io/integration"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "sdk.dv.socure.io",
+      "vendorIds": [
+        "socure"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "socure--9de226e50c49",
+          "sourceUrls": [
+            "https://help.socure.com/riskos/docs/digital-intelligence-web-sdk"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "sdk.incode.com",
+      "vendorIds": [
+        "incode"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "incode--641a0e3ac3f4",
+          "sourceUrls": [
+            "https://developer.incode.com/get-started-with-incode/quickstart/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "sec-captcha-waf.cdn.bcebos.com",
+      "vendorIds": [
+        "baidu-waf-bot-protection"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "baidu-waf-bot-protection--39712bbe26af",
+          "sourceUrls": [
+            "https://cloud.baidu.com/doc/WAF/s/Zm5m9fnhm"
+          ]
+        },
+        {
+          "kind": "published-browser-host",
+          "signalId": "baidu-waf-bot-protection--4f332d82cc18",
+          "sourceUrls": [
+            "https://cloud.baidu.com/doc/WAF/s/Zm5m9fnhm"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "service.mtcaptcha.com",
+      "vendorIds": [
+        "mtcaptcha"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "mtcaptcha--636452203916",
+          "sourceUrls": [
+            "https://docs.mtcaptcha.com/dev-guide",
+            "https://docs.mtcaptcha.com/faq"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "service2.mtcaptcha.com",
+      "vendorIds": [
+        "mtcaptcha"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "mtcaptcha--fec8de74f162",
+          "sourceUrls": [
+            "https://docs.mtcaptcha.com/faq"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "smartcaptcha.cloud.yandex.ru",
+      "vendorIds": [
+        "yandex-smartcaptcha"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "yandex-smartcaptcha--691f198124be",
+          "sourceUrls": [
+            "https://yandex.cloud/en/docs/smartcaptcha/concepts/widget-methods",
+            "https://yandex.cloud/en/docs/smartcaptcha/quickstart"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "ssl.kaptcha.com",
+      "vendorIds": [
+        "kount"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "kount--80196683524f",
+          "sourceUrls": [
+            "https://github.com/Kount/kount-ris-java-sdk/wiki/Kount-Data-Collector"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "static.geetest.com",
+      "vendorIds": [
+        "geetest-captcha-v4"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "geetest-captcha-v4--be252ba1de6f",
+          "sourceUrls": [
+            "https://docs.geetest.com/gt4/deploy/client/web"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "static.portal101.cn",
+      "vendorIds": [
+        "shumei-device-intelligence"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "shumei-device-intelligence--fa60e8489972",
+          "sourceUrls": [
+            "https://help.ishumei.com/docs/tw/sdk/web/developDoc/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "static.sumsub.com",
+      "vendorIds": [
+        "sumsub-fraud-prevention"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "sumsub-fraud-prevention--3afe8ab1978d",
+          "sourceUrls": [
+            "https://github.com/sumsub/agent-skills/blob/main/skills/sumsub-integrate-websdk/SKILL.md"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "static.trustdecision.com",
+      "vendorIds": [
+        "trustdecision-bot-detection"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "trustdecision-bot-detection--10a034db1a89",
+          "sourceUrls": [
+            "https://en-doc.trustdecision.com/reference/sign-web"
+          ]
+        },
+        {
+          "kind": "published-browser-host",
+          "signalId": "trustdecision-bot-detection--11738d98bc49",
+          "sourceUrls": [
+            "https://en-doc.trustdecision.com/reference/sign-web"
+          ]
+        },
+        {
+          "kind": "published-browser-host",
+          "signalId": "trustdecision-bot-detection--7534245ad59b",
+          "sourceUrls": [
+            "https://en-doc.trustdecision.com/reference/sign-web"
+          ]
+        },
+        {
+          "kind": "published-browser-host",
+          "signalId": "trustdecision-bot-detection--ef46121bb4c2",
+          "sourceUrls": [
+            "https://en-doc.trustdecision.com/reference/sign-web"
+          ]
+        },
+        {
+          "kind": "published-browser-host",
+          "signalId": "trustdecision-bot-detection--f9c3768de8f5",
+          "sourceUrls": [
+            "https://en-doc.trustdecision.com/reference/sign-web"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "tgtag.io",
+      "vendorIds": [
+        "trafficguard"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "trafficguard--2b20709d3d8b",
+          "sourceUrls": [
+            "https://help.trafficguard.ai/en/articles/6760694-trafficguard-tg-site-tag"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "tst.kaptcha.com",
+      "vendorIds": [
+        "kount"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "kount--3afa638f0af2",
+          "sourceUrls": [
+            "https://github.com/Kount/kount-ris-java-sdk/wiki/Kount-Data-Collector"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "turing.captcha.qcloud.com",
+      "vendorIds": [
+        "tencent-captcha"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "tencent-captcha--3df3d3bbb901",
+          "sourceUrls": [
+            "https://cloud.tencent.com/document/product/1110/36841"
+          ]
+        },
+        {
+          "kind": "published-browser-host",
+          "signalId": "tencent-captcha--80a2169eaf0d",
+          "sourceUrls": [
+            "https://cloud.tencent.com/document/product/1110/104536",
+            "https://cloud.tencent.com/document/product/1110/36841"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "www.google.com",
+      "vendorIds": [
+        "google-recaptcha-classic",
+        "google-recaptcha-enterprise"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "google-recaptcha-classic--1246c288daaf",
+          "sourceUrls": [
+            "https://developers.google.com/recaptcha/docs/display"
+          ]
+        },
+        {
+          "kind": "published-browser-host",
+          "signalId": "google-recaptcha-enterprise--48a955505c2f",
+          "sourceUrls": [
+            "https://docs.cloud.google.com/recaptcha/docs/instrument-web-pages"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "altcha.org",
+      "vendorIds": [
+        "altcha"
+      ],
+      "sources": [
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://altcha.org/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "auth0.com",
+      "vendorIds": [
+        "auth0-bot-detection"
+      ],
+      "sources": [
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://auth0.com/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "castle.io",
+      "vendorIds": [
+        "castle"
+      ],
+      "sources": [
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://castle.io/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "cheq.ai",
+      "vendorIds": [
+        "cheq"
+      ],
+      "sources": [
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://cheq.ai/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "cleantalk.org",
+      "vendorIds": [
+        "cleantalk"
+      ],
+      "sources": [
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://cleantalk.org/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "cloud.baidu.com",
+      "vendorIds": [
+        "baidu-afd",
+        "baidu-waf-bot-protection"
+      ],
+      "sources": [
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://cloud.baidu.com/"
+          ]
+        },
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://cloud.baidu.com/product/waf.html"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "cloud.tencent.com",
+      "vendorIds": [
+        "tencent-captcha"
+      ],
+      "sources": [
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://cloud.tencent.com/document/product/1110/36841"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "developer.arkoselabs.com",
+      "vendorIds": [
+        "arkose-bot-manager"
+      ],
+      "sources": [
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://developer.arkoselabs.com/docs/bot-manager-quickstart"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "developer.friendlycaptcha.com",
+      "vendorIds": [
+        "friendly-captcha",
+        "friendly-captcha-risk-intelligence"
+      ],
+      "sources": [
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://developer.friendlycaptcha.com/docs/v2/getting-started/install"
+          ]
+        },
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://developer.friendlycaptcha.com/docs/v2/risk-intelligence/getting-started/generate"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "developers.cloudflare.com",
+      "vendorIds": [
+        "cloudflare-bot-management",
+        "cloudflare-super-bot-fight-mode",
+        "cloudflare-turnstile"
+      ],
+      "sources": [
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://developers.cloudflare.com/bots/get-started/super-bot-fight-mode/"
+          ]
+        },
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/"
+          ]
+        },
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "developers.google.com",
+      "vendorIds": [
+        "google-recaptcha-classic"
+      ],
+      "sources": [
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://developers.google.com/recaptcha/docs/display"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "docs.aws.amazon.com",
+      "vendorIds": [
+        "aws-waf-bot-control",
+        "aws-waf-captcha-challenge",
+        "aws-waf-fraud-control-acfp",
+        "aws-waf-fraud-control-atp"
+      ],
+      "sources": [
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://docs.aws.amazon.com/waf/latest/developerguide/waf-acfp.html"
+          ]
+        },
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://docs.aws.amazon.com/waf/latest/developerguide/waf-atp.html"
+          ]
+        },
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://docs.aws.amazon.com/waf/latest/developerguide/waf-bot-control.html"
+          ]
+        },
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://docs.aws.amazon.com/waf/latest/developerguide/waf-js-captcha-api.html"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "docs.cloud.f5.com",
+      "vendorIds": [
+        "f5-distributed-cloud-bot-defense"
+      ],
+      "sources": [
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://docs.cloud.f5.com/docs-v2/bot-defense/plan-bot-advanced/web"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "docs.cloud.google.com",
+      "vendorIds": [
+        "google-recaptcha-enterprise"
+      ],
+      "sources": [
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://docs.cloud.google.com/recaptcha/docs/instrument-web-pages"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "docs.datadome.co",
+      "vendorIds": [
+        "datadome-account-protect",
+        "datadome-bot-protect"
+      ],
+      "sources": [
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://docs.datadome.co/docs/account-protect-login"
+          ]
+        },
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://docs.datadome.co/docs/javascript-tag"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "docs.fingerprint.com",
+      "vendorIds": [
+        "fingerprint-device-intelligence"
+      ],
+      "sources": [
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://docs.fingerprint.com/docs/quick-start-guide"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "docs.geetest.com",
+      "vendorIds": [
+        "geetest-captcha-v4"
+      ],
+      "sources": [
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://docs.geetest.com/gt4/deploy/client/web"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "docs.hcaptcha.com",
+      "vendorIds": [
+        "hcaptcha"
+      ],
+      "sources": [
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://docs.hcaptcha.com/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "docs.humansecurity.com",
+      "vendorIds": [
+        "human-account-defender",
+        "human-bot-defender",
+        "human-code-defender",
+        "human-sightline-cyberfraud"
+      ],
+      "sources": [
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://docs.humansecurity.com/home"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "docs.mtcaptcha.com",
+      "vendorIds": [
+        "mtcaptcha"
+      ],
+      "sources": [
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://docs.mtcaptcha.com/dev-guide"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "docs.netacea.com",
+      "vendorIds": [
+        "netacea-bot-management"
+      ],
+      "sources": [
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://docs.netacea.com/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "dun.163.com",
+      "vendorIds": [
+        "netease-yidun-captcha"
+      ],
+      "sources": [
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://dun.163.com/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "help.aliyun.com",
+      "vendorIds": [
+        "alibaba-cloud-captcha"
+      ],
+      "sources": [
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://help.aliyun.com/en/captcha/captcha2-0/user-guide/new-architecture-for-web-and-h5-client-access"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "idnow.io",
+      "vendorIds": [
+        "idnow-risk-intelligence"
+      ],
+      "sources": [
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://idnow.io/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "incode.com",
+      "vendorIds": [
+        "incode"
+      ],
+      "sources": [
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://incode.com/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "ipinfo.io",
+      "vendorIds": [
+        "ipinfo-privacy"
+      ],
+      "sources": [
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://ipinfo.io/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "kount.com",
+      "vendorIds": [
+        "kount"
+      ],
+      "sources": [
+        {
+          "kind": "official-website",
+          "sourceUrls": [
+            "https://kount.com/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    }
+  ],
+  "generatedAt": "2026-10-08T22:33:46.240Z"
+}

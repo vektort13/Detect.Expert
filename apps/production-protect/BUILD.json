@@ -1,0 +1,202 @@
+{
+  "schema": 1,
+  "adr": "ADR-047",
+  "note": "Provenance of the module «Защита» files in apps/production-extension; written by scripts/production/build-protect.mjs, verified by its --check.",
+  "commit": "722fae8cd8044bcc2d2ae388ba2e0e89e204d3d4",
+  "vendorManifestSha256": "56bebf80e80a1ead185968e2e7ef32a6ab698dda6ba4a3808ae11d9e7d231b46",
+  "vendorTreeSha256": "d334d3be64ea5d5b85932a9361f99f82c0bee06342eb1bec96550e1612887acd",
+  "esbuild": "0.28.2",
+  "preact": "10.29.8",
+  "options": {
+    "bundle": true,
+    "minify": false,
+    "minifySyntax": true,
+    "treeShaking": true,
+    "target": [
+      "chrome119"
+    ],
+    "charset": "utf8",
+    "legalComments": "none",
+    "jsx": "automatic",
+    "jsxImportSource": "preact",
+    "sourcemap": false
+  },
+  "defines": {
+    "process.env.NODE_ENV": "\"production\"",
+    "__BUILD_PROFILE__": "\"local\"",
+    "__EARLY_CAPTURE__": "false (true in protect.main.js)",
+    "__PROTECT_OVERLAY__": "false"
+  },
+  "redirects": {
+    "packages/ui/src/i18n.ts": "apps/production-protect/src/ui/i18n-shim.ts",
+    "packages/ui/src/messaging.ts": "apps/production-protect/src/patches/ui-messaging.ts",
+    "packages/sensors/src/protect/config.ts": "apps/production-protect/src/hook-config.ts",
+    "packages/collector/src/protect/env.ts": "apps/production-protect/src/patches/packages/collector/src/protect/env.ts",
+    "packages/collector/src/protect/classify.ts": "apps/production-protect/src/patches/packages/collector/src/protect/classify.ts",
+    "packages/collector/src/protect/field-value.ts": "apps/production-protect/src/patches/packages/collector/src/protect/field-value.ts",
+    "apps/extension/entrypoints/test-only/protect-tripwire.core.ts": "apps/production-protect/src/patches/apps/extension/entrypoints/test-only/protect-tripwire.core.ts",
+    "packages/background/src/protect/value-match/decode.ts": "apps/production-protect/src/patches/value-match/decode.ts",
+    "packages/background/src/protect/value-match/matcher.ts": "apps/production-protect/src/patches/value-match/matcher.ts",
+    "packages/background/src/protect/controller.ts": "apps/production-protect/src/patches/protect-controller.ts",
+    "packages/ui/src/components/protect/ProtectSection.tsx": "apps/production-protect/src/ui/protect-section.tsx"
+  },
+  "hookConfig": "apps/production-protect/src/hook-config.ts (owner decision 2026-10-18: listen off, send wrap, observe wrap, imgSrc off)",
+  "catalog": {
+    "file": "apps/production-protect/src/locales/catalog.generated.json",
+    "sha256": "bd46bda1278159365ba6760b777c8bd4ba2ca8ad0afcb7b3da58a0c585c0fc2c",
+    "vendorKeys": 702,
+    "productionKeys": 14,
+    "overrides": [
+      "fw_blocking_restart",
+      "protect_disabled_notice_rules_pending",
+      "protect_gpc_restart_hint",
+      "protect_reason_blocking_unavailable"
+    ],
+    "languages": [
+      "ru",
+      "en"
+    ]
+  },
+  "preactPrefixSha256": "2f191b74e5b2c02cbc260161226754afa2cc973ce92014647e6027179505fc7c",
+  "sourceAudit": {
+    "files": 350,
+    "gates": [
+      "scanFieldReads",
+      "scanApiOwnership"
+    ]
+  },
+  "outputs": {
+    "activation-toast.html": {
+      "bytes": 775,
+      "sha256": "a34dcddc85f9ee1ecd4eac94abff9c74848978d8878549875096ca995a6653c3"
+    },
+    "activation-toast.js": {
+      "bytes": 378,
+      "sha256": "67faf335af729a09ceb0df52ec23a899106e4b4a1ad013536474d76123592723",
+      "entry": "apps/production-protect/src/activation-toast-entry.ts",
+      "format": "esm",
+      "world": "ui",
+      "inputs": 1
+    },
+    "findings.html": {
+      "bytes": 476,
+      "sha256": "25b302cb158b52235e1d9c92ae8a2a54149542afc684262249c5ee92196e7eea"
+    },
+    "findings.js": {
+      "bytes": 356,
+      "sha256": "c663d8a5b82b34cb1df883993382c32b5c5b94ecb8354482bcfc8158f9eceaa1",
+      "entry": "apps/production-protect/src/findings-entry.ts",
+      "format": "esm",
+      "world": "ui",
+      "inputs": 1
+    },
+    "firewall-overlay.js": {
+      "bytes": 551862,
+      "sha256": "6b0ad3e88f14fb0f887cb0440b59085eda9b124e50c2fdcee3f93c919baf1d0d",
+      "entry": "apps/production-protect/src/overlay-entry.tsx",
+      "format": "iife",
+      "world": "ui",
+      "inputs": 123
+    },
+    "firewall.html": {
+      "bytes": 476,
+      "sha256": "97e0972591b149dc9e19cc081b71188a0f23097f19369a90b485a45b84485aea"
+    },
+    "firewall.js": {
+      "bytes": 356,
+      "sha256": "3487321c1235c3b89d64459f37f27a60b2fb62a6d525cc0855bd2532e0750157",
+      "entry": "apps/production-protect/src/firewall-entry.ts",
+      "format": "esm",
+      "world": "ui",
+      "inputs": 1
+    },
+    "gpc.main.js": {
+      "bytes": 1390,
+      "sha256": "30614f14c2888009544ccb63af4d4ef38c0686dccf4beab56b6130f3bac53804",
+      "entry": "vendor/protect-722fae8/apps/extension/entrypoints/gpc.main.ts",
+      "format": "iife",
+      "world": "main",
+      "inputs": 2
+    },
+    "protect-managed-schema.json": {
+      "bytes": 296,
+      "sha256": "9ed8be20057c72205541a69ead33574f6502f529fac16fbc2082e1d67e3766ab"
+    },
+    "protect-on.listen.js": {
+      "bytes": 1447,
+      "sha256": "c09de0fe4228f65f3d2754e583164e257485e78408e649d4619fa9849c2c0747",
+      "entry": "vendor/protect-722fae8/apps/extension/entrypoints/protect-on.ts",
+      "format": "iife",
+      "world": "main",
+      "inputs": 2
+    },
+    "protect-on.send.js": {
+      "bytes": 1447,
+      "sha256": "e9eaa7fed7b6c209c0b0dd9be598097f807c05ae733f8baf499eae07f902a508",
+      "entry": "vendor/protect-722fae8/apps/extension/entrypoints/protect-on.ts",
+      "format": "iife",
+      "world": "main",
+      "inputs": 2
+    },
+    "protect-policy.js": {
+      "bytes": 754,
+      "sha256": "37285e87f368737ea46c6c7af6d17d7c82f30d8d112e960b53bfd8a9ef9add96",
+      "entry": "vendor/protect-722fae8/apps/extension/entrypoints/protect-policy.ts",
+      "format": "iife",
+      "world": "main",
+      "inputs": 2
+    },
+    "protect-sw.js": {
+      "bytes": 726255,
+      "sha256": "cdd042eb8a6bd49bb075e3b3b264050c47c1b3c0b429e9f76d4b6cc54e425816",
+      "entry": "apps/production-protect/src/sw-entry.ts",
+      "format": "esm",
+      "world": "sw",
+      "inputs": 157
+    },
+    "protect-ui.js": {
+      "bytes": 659416,
+      "sha256": "6ddf0eb3092351727393380dd0e5492fd438759225286eb34f6eb3af193042ad",
+      "entry": "apps/production-protect/src/ui-entry.ts",
+      "format": "esm",
+      "world": "ui",
+      "inputs": 164
+    },
+    "protect.css": {
+      "bytes": 61338,
+      "sha256": "e366aeb8a2f043ac636320a2e7b47e5d428ebec90d61ac2685800443c224ec93"
+    },
+    "protect.js": {
+      "bytes": 105137,
+      "sha256": "f0e2d165dbc6c7dbbb585bbf69930883c0754a8926a1f7b669ae077bccf98dd0",
+      "entry": "vendor/protect-722fae8/apps/extension/entrypoints/protect.ts",
+      "format": "iife",
+      "world": "isolated",
+      "inputs": 35
+    },
+    "protect.main.js": {
+      "bytes": 82140,
+      "sha256": "a8d8f48e1b17216b4652aac143ac853f13e44d8ae8049fdc9f67a1425c4c26f9",
+      "entry": "vendor/protect-722fae8/apps/extension/entrypoints/protect.main.ts",
+      "format": "iife",
+      "world": "main",
+      "inputs": 30
+    },
+    "requests.css": {
+      "bytes": 306,
+      "sha256": "fab0516c5ecaf545a46cf724ed996358fc228bfe6df87425518edb1a60957b05"
+    },
+    "requests.html": {
+      "bytes": 521,
+      "sha256": "8a834fa65dab3b57bcc0728d16387e07e0ef8bd5a22f9eee6b175bd55540c3a1"
+    },
+    "requests.js": {
+      "bytes": 356,
+      "sha256": "d9efd0fe848482ca5d37eafb9f252f42344c9ff3fa66aaf2fdd9c83f0ff52563",
+      "entry": "apps/production-protect/src/requests-entry.ts",
+      "format": "esm",
+      "world": "ui",
+      "inputs": 1
+    }
+  }
+}

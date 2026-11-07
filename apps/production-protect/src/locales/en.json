@@ -1,0 +1,49 @@
+{
+  "protect_launcher_title": {
+    "message": "Firewall"
+  },
+  "protect_launcher_desc": {
+    "message": "Optional module: a firewall for form data, the «Who recognizes» history, the GPC signal and data requests. Off until you turn it on here."
+  },
+  "protect_launcher_open": {
+    "message": "Open Firewall settings"
+  },
+  "protect_page_title": {
+    "message": "Firewall"
+  },
+  "protect_locale_fallback_note": {
+    "message": "The full Firewall settings are available in Russian and English; English is shown for the selected language."
+  },
+  "protect_island_error": {
+    "message": "Firewall could not show this section. The rest of the extension keeps working; reopen the window."
+  },
+  "fwp_page_title": {
+    "message": "Firewall — Detect.Expert"
+  },
+  "fwp_open_main": {
+    "message": "All findings"
+  },
+  "fwp_open_main_label": {
+    "message": "Open the main Detect.Expert window with the findings of this tab"
+  },
+  "fwp_empty": {
+    "message": "No destination in this tab is waiting for a firewall decision right now."
+  },
+  "fwp_unavailable": {
+    "message": "Firewall is not working in this tab right now: the module is off or not active, or the firewall is turned off in its features."
+  },
+  "fwp_close": {
+    "message": "Close"
+  },
+  "fwp_line_open": {
+    "message": "Open Firewall"
+  },
+  "fwp_line_notices": {
+    "message": "Firewall: notices in this tab — $N$",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  }
+}

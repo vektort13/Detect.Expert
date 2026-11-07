@@ -1,0 +1,67 @@
+/* Controlled Math profile: compact, keyboard-accessible and scoped above shared button styles. */
+.antidetect-math { box-sizing: border-box; display: grid; gap: 18px; min-width: 0; color: var(--text); }
+.antidetect-math *, .antidetect-math *::before, .antidetect-math *::after { box-sizing: border-box; }
+.antidetect-math-heading, .antidetect-math-title, .antidetect-math-toolbar, .antidetect-math-selection { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; min-width: 0; }
+.antidetect-math-heading { justify-content: space-between; }
+.antidetect-math-title { flex-wrap: nowrap; }
+.antidetect-math-title > div { min-width: 0; }
+.antidetect-math-title h3 { margin: 0 0 4px; font-size: 18px; line-height: 1.4; font-weight: 650; overflow-wrap: anywhere; }
+/* ADR-107: light-dark() pairs follow the chosen theme (the root color-scheme set by theme-bootstrap.js), not the system setting. */
+.antidetect-math-icon { display: inline-grid; flex: none; place-items: center; width: 42px; height: 42px; border-radius: 13px; color: light-dark(#8251b7, #cfaaef); background: #8251b714; }
+.antidetect-math-icon svg, .antidetect-math-group__icon svg { display: block; }
+.antidetect-math-note { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.55; overflow-wrap: anywhere; }
+.antidetect-math-state { display: inline-flex; align-items: center; gap: 6px; max-width: 100%; padding: 5px 9px; border: 1px solid var(--border); border-radius: 999px; color: var(--muted); background: var(--surface-2); font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
+.antidetect-math-state__dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex: none; }
+.antidetect-math-state--spoof { color: light-dark(#7946ad, #cfaaef); }
+.antidetect-math-state--allow { color: light-dark(#197249, #79d3a8); }
+.antidetect-math-modes { display: inline-flex; flex-wrap: wrap; justify-self: start; gap: 4px; max-width: 100%; padding: 4px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface-2); }
+:root body .antidetect-math .antidetect-math-mode { min-height: 34px; max-width: 100%; padding: 7px 15px; border: 1px solid transparent; border-radius: 10px; color: var(--text); background: var(--surface); box-shadow: 0 1px 3px #1c34550a; font: 650 13px/1.4 var(--font); cursor: pointer; overflow-wrap: anywhere; }
+:root body .antidetect-math .antidetect-math-mode--allow { color: light-dark(#137348, #79d3a8); }
+:root body .antidetect-math .antidetect-math-mode--spoof { color: light-dark(#7440aa, #cfaaef); }
+@media (forced-colors: none) {
+  :root body .antidetect-math .antidetect-math-mode:not(:disabled):hover { color: var(--text); border-color: var(--accent); background: var(--surface); filter: none; }
+  :root body .antidetect-math .antidetect-math-mode--allow.is-selected, :root body .antidetect-math .antidetect-math-mode--allow.is-selected:not(:disabled):hover { color: #fff; background: #168354; border-color: #168354; }
+  :root body .antidetect-math .antidetect-math-mode--spoof.is-selected, :root body .antidetect-math .antidetect-math-mode--spoof.is-selected:not(:disabled):hover { color: #fff; background: #7642b2; border-color: #7642b2; }
+}
+.antidetect-math-profile { display: grid; gap: 15px; min-width: 0; margin: 0; padding: 0; border: 0; }
+.antidetect-math-profile:disabled { opacity: .65; }
+.antidetect-math-toolbar { align-items: center; gap: 9px 13px; }
+.antidetect-math-search { display: flex; align-items: center; flex: 1 1 220px; gap: 7px; min-width: 0; max-width: 380px; padding-inline-start: 10px; border: 1px solid var(--border); border-radius: 10px; color: var(--muted); background: var(--surface); }
+.antidetect-math-search > svg { flex: none; }
+:root body .antidetect-math .antidetect-math-search input { width: 100%; min-width: 0; min-height: 36px; padding: 8px 9px; border: 0; border-radius: 9px; color: var(--text); background: transparent; box-shadow: none; font: 400 13px/1.4 var(--font); }
+.antidetect-math-count { color: var(--muted); font-size: 12px; line-height: 1.5; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.antidetect-math-selection { gap: 4px; margin-inline-start: auto; }
+.antidetect-math .antidetect-math-selection .button { padding: 5px 8px; min-height: 30px; font-size: 12px; line-height: 1.4; }
+.antidetect-math-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 12px; min-width: 0; }
+.antidetect-math-group { display: grid; gap: 11px; min-width: 0; padding: 14px; border: 1px solid var(--border); border-radius: 13px; background: var(--surface-2); }
+.antidetect-math-group h4 { display: flex; align-items: center; gap: 7px; margin: 0; min-width: 0; font-size: 13px; line-height: 1.45; font-weight: 650; }
+.antidetect-math-group h4 > span:not(.antidetect-math-group__icon) { min-width: 0; overflow-wrap: anywhere; }
+.antidetect-math-group__icon { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 7px; flex: none; color: light-dark(#3f7fc2, #87b8e9); background: #3f7fc210; }
+.antidetect-math-group--hyperbolic .antidetect-math-group__icon { color: light-dark(#8560b6, #c7a5eb); background: #8560b612; }
+.antidetect-math-group--exp_log .antidetect-math-group__icon { color: light-dark(#32866b, #80cfb4); background: #32866b12; }
+.antidetect-math-group--power .antidetect-math-group__icon { color: light-dark(#a47324, #e0bd81); background: #a4732412; }
+.antidetect-math-group__count { margin-inline-start: auto; color: var(--muted); font-size: 12px; font-weight: 400; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.antidetect-math-functions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; min-width: 0; }
+.antidetect-math-function { display: flex; align-items: center; gap: 8px; min-width: 0; padding: 8px 9px; border: 1px solid var(--border); border-radius: 9px; color: var(--text); background: var(--surface); cursor: pointer; }
+.antidetect-math-function.is-selected { border-color: color-mix(in srgb, var(--accent) 35%, var(--border)); }
+.antidetect-math-function input[type=checkbox] { width: 16px; height: 16px; flex: none; margin: 0; accent-color: #8050b6; }
+.antidetect-math-function code { min-width: 0; font: 500 12px/1.4 var(--mono, ui-monospace, Consolas, monospace); overflow-wrap: anywhere; }
+.antidetect-math-method { display: grid; gap: 7px; padding-block-start: 14px; border-block-start: 1px solid var(--border); color: var(--muted); font-size: 12px; line-height: 1.6; }
+.antidetect-math-method p, .antidetect-math-method ul { margin: 0; }
+.antidetect-math-method ul { display: grid; gap: 3px; padding-inline-start: 18px; }
+.antidetect-math-coverage { overflow-wrap: anywhere; }
+.antidetect-math :focus-visible { outline: 3px solid var(--focus, var(--accent)); outline-offset: 3px; }
+@media (max-width: 600px) { .antidetect-math-groups { grid-template-columns: minmax(0, 1fr); } .antidetect-math-heading { align-items: flex-start; } .antidetect-math-search { max-width: 100%; } }
+@media (max-width: 380px) { .antidetect-math-group { padding: 10px; } .antidetect-math-function { padding: 8px 6px; gap: 6px; } .antidetect-math-modes { width: 100%; } :root body .antidetect-math .antidetect-math-mode { flex: 1 1 auto; padding-inline: 10px; } }
+@media (prefers-reduced-motion: reduce) { .antidetect-math * { transition: none; } }
+@media (forced-colors: active) {
+  .antidetect-math, .antidetect-math-group, .antidetect-math-state, .antidetect-math-search, .antidetect-math-function { color: CanvasText; background: Canvas; border-color: CanvasText; box-shadow: none; }
+  .antidetect-math-profile:disabled { opacity: 1; }
+  :root body .antidetect-math .antidetect-math-mode, :root body .antidetect-math .antidetect-math-mode:not(:disabled):hover { color: ButtonText; background: ButtonFace; border-color: ButtonText; box-shadow: none; }
+  :root body .antidetect-math .antidetect-math-mode.is-selected { color: HighlightText; background: Highlight; border-color: Highlight; outline: 1px solid Highlight; }
+  :root body .antidetect-math .antidetect-math-mode:disabled { color: GrayText; }
+  :root body .antidetect-math .antidetect-math-search input { color: FieldText; background: Field; }
+  .antidetect-math-icon, .antidetect-math-group__icon, .antidetect-math-note, .antidetect-math-count, .antidetect-math-method { color: CanvasText; background: transparent; }
+  .antidetect-math-function.is-selected { border-color: Highlight; }
+  .antidetect-math :focus-visible { outline-color: Highlight; }
+}

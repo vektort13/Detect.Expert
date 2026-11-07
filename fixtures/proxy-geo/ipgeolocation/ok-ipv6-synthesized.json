@@ -1,0 +1,16 @@
+{
+  "provider": "ipgeolocation",
+  "ip": "2001:4860:4860::8888",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": {
+    "ip": "2001:4860:4860::8888",
+    "location": {
+      "country_code2": "US",
+      "country_name": "United States",
+      "city": "Mountain View"
+    }
+  }
+}

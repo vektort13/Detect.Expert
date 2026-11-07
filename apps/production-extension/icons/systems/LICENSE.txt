@@ -1,0 +1,11 @@
+SYSTEM ICONS — ATTRIBUTION
+
+The source and transformation of every system mark are recorded in PROVENANCE.json.
+Company/product marks remain the artwork and trademarks of their respective owners.
+The record for each supplied mark identifies its original source and stated licence.
+
+Marks referenced from ../brands retain the existing attribution and licences in that
+directory, including the Font Awesome CC BY 4.0 and Simple Icons source records.
+
+Neutral symbols marked "generic" are project-authored interface artwork. They are
+stored separately from company marks and do not identify the author of a technology.

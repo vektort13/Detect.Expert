@@ -1,0 +1,489 @@
+{
+  "schemaVersion": 1,
+  "researchOnly": true,
+  "mode": "run",
+  "status": "complete",
+  "source": {
+    "provider": "Shodan",
+    "operation": "public-term-count",
+    "documentationUrl": "https://developer.shodan.io/api",
+    "endpoint": "/shodan/host/count"
+  },
+  "interpretation": "Counts indexed records matching two quoted text terms. These are not validated Set-Cookie occurrences, cookie-purpose evidence, owner attribution, unique site counts or real-time browser observations.",
+  "maximumRequests": 40,
+  "minimumRequestIntervalMs": 1000,
+  "requestTimeoutMs": 10000,
+  "maximumResponseBytes": 65536,
+  "requestCount": 39,
+  "entries": [
+    {
+      "name": "__cf_bm",
+      "query": "\"set-cookie\" \"__cf_bm\"",
+      "documentedOwners": [
+        "Cloudflare"
+      ],
+      "sourceUrls": [
+        "https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/"
+      ],
+      "status": "ok",
+      "total": 55210
+    },
+    {
+      "name": "cf_clearance",
+      "query": "\"set-cookie\" \"cf_clearance\"",
+      "documentedOwners": [
+        "Cloudflare"
+      ],
+      "sourceUrls": [
+        "https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/"
+      ],
+      "status": "ok",
+      "total": 2
+    },
+    {
+      "name": "__cflb",
+      "query": "\"set-cookie\" \"__cflb\"",
+      "documentedOwners": [
+        "Cloudflare"
+      ],
+      "sourceUrls": [
+        "https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/"
+      ],
+      "status": "ok",
+      "total": 1045
+    },
+    {
+      "name": "_cfuvid",
+      "query": "\"set-cookie\" \"_cfuvid\"",
+      "documentedOwners": [
+        "Cloudflare"
+      ],
+      "sourceUrls": [
+        "https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/"
+      ],
+      "status": "ok",
+      "total": 6728
+    },
+    {
+      "name": "datadome",
+      "query": "\"set-cookie\" \"datadome\"",
+      "documentedOwners": [
+        "DataDome"
+      ],
+      "sourceUrls": [
+        "https://docs.datadome.co/docs/cookie-session-storage"
+      ],
+      "status": "ok",
+      "total": 10057
+    },
+    {
+      "name": "dd_testcookie",
+      "query": "\"set-cookie\" \"dd_testcookie\"",
+      "documentedOwners": [
+        "DataDome"
+      ],
+      "sourceUrls": [
+        "https://docs.datadome.co/docs/cookie-session-storage"
+      ],
+      "status": "ok",
+      "total": 0
+    },
+    {
+      "name": "_pxvid",
+      "query": "\"set-cookie\" \"_pxvid\"",
+      "documentedOwners": [
+        "HUMAN"
+      ],
+      "sourceUrls": [
+        "https://docs.humansecurity.com/applications/hybrid-app-integration-v5"
+      ],
+      "status": "ok",
+      "total": 0
+    },
+    {
+      "name": "_pxhd",
+      "query": "\"set-cookie\" \"_pxhd\"",
+      "documentedOwners": [
+        "HUMAN"
+      ],
+      "sourceUrls": [
+        "https://docs.humansecurity.com/applications/hybrid-app-integration-v5"
+      ],
+      "status": "ok",
+      "total": 256
+    },
+    {
+      "name": "_pxmd",
+      "query": "\"set-cookie\" \"_pxmd\"",
+      "documentedOwners": [
+        "HUMAN"
+      ],
+      "sourceUrls": [
+        "https://docs.humansecurity.com/applications/hybrid-app-integration-v5"
+      ],
+      "status": "ok",
+      "total": 0
+    },
+    {
+      "name": "_abck",
+      "query": "\"set-cookie\" \"_abck\"",
+      "documentedOwners": [
+        "Akamai"
+      ],
+      "sourceUrls": [
+        "https://www.akamai.com/legal/manage-cookie-preferences"
+      ],
+      "status": "ok",
+      "total": 1067
+    },
+    {
+      "name": "bm_sz",
+      "query": "\"set-cookie\" \"bm_sz\"",
+      "documentedOwners": [
+        "Akamai"
+      ],
+      "sourceUrls": [
+        "https://www.akamai.com/legal/manage-cookie-preferences"
+      ],
+      "status": "ok",
+      "total": 1067
+    },
+    {
+      "name": "ak_bmsc",
+      "query": "\"set-cookie\" \"ak_bmsc\"",
+      "documentedOwners": [
+        "Akamai"
+      ],
+      "sourceUrls": [
+        "https://www.akamai.com/legal/manage-cookie-preferences"
+      ],
+      "status": "ok",
+      "total": 38
+    },
+    {
+      "name": "aws-waf-token",
+      "query": "\"set-cookie\" \"aws-waf-token\"",
+      "documentedOwners": [
+        "Amazon Web Services"
+      ],
+      "sourceUrls": [
+        "https://docs.aws.amazon.com/waf/latest/developerguide/waf-tokens-details.html"
+      ],
+      "status": "ok",
+      "total": 11
+    },
+    {
+      "name": "__stripe_mid",
+      "query": "\"set-cookie\" \"__stripe_mid\"",
+      "documentedOwners": [
+        "Stripe"
+      ],
+      "sourceUrls": [
+        "https://stripe.com/cookie-settings"
+      ],
+      "status": "ok",
+      "total": 104
+    },
+    {
+      "name": "__stripe_sid",
+      "query": "\"set-cookie\" \"__stripe_sid\"",
+      "documentedOwners": [
+        "Stripe"
+      ],
+      "sourceUrls": [
+        "https://stripe.com/cookie-settings"
+      ],
+      "status": "ok",
+      "total": 94
+    },
+    {
+      "name": "_GRECAPTCHA",
+      "query": "\"set-cookie\" \"_GRECAPTCHA\"",
+      "documentedOwners": [
+        "Google reCAPTCHA"
+      ],
+      "sourceUrls": [
+        "https://developers.google.com/recaptcha/docs/faq/"
+      ],
+      "status": "ok",
+      "total": 33
+    },
+    {
+      "name": "AWSELB",
+      "query": "\"set-cookie\" \"AWSELB\"",
+      "documentedOwners": [
+        "Amazon Web Services"
+      ],
+      "sourceUrls": [
+        "https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html"
+      ],
+      "status": "ok",
+      "total": 167341
+    },
+    {
+      "name": "AWSELBCORS",
+      "query": "\"set-cookie\" \"AWSELBCORS\"",
+      "documentedOwners": [
+        "Amazon Web Services"
+      ],
+      "sourceUrls": [
+        "https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html"
+      ],
+      "status": "ok",
+      "total": 26274
+    },
+    {
+      "name": "AWSALB",
+      "query": "\"set-cookie\" \"AWSALB\"",
+      "documentedOwners": [
+        "Amazon Web Services"
+      ],
+      "sourceUrls": [
+        "https://docs.aws.amazon.com/elasticloadbalancing/latest/application/edit-target-group-attributes.html"
+      ],
+      "status": "ok",
+      "total": 574783
+    },
+    {
+      "name": "AWSALBCORS",
+      "query": "\"set-cookie\" \"AWSALBCORS\"",
+      "documentedOwners": [
+        "Amazon Web Services"
+      ],
+      "sourceUrls": [
+        "https://docs.aws.amazon.com/elasticloadbalancing/latest/application/edit-target-group-attributes.html"
+      ],
+      "status": "ok",
+      "total": 425916
+    },
+    {
+      "name": "OptanonConsent",
+      "query": "\"set-cookie\" \"OptanonConsent\"",
+      "documentedOwners": [
+        "OneTrust"
+      ],
+      "sourceUrls": [
+        "https://my.onetrust.com/articles/en_US/knowledge/UUID-2dc719a8-4be5-8d16-1dc8-c7b4147b88e0"
+      ],
+      "status": "ok",
+      "total": 95
+    },
+    {
+      "name": "OptanonAlertBoxClosed",
+      "query": "\"set-cookie\" \"OptanonAlertBoxClosed\"",
+      "documentedOwners": [
+        "OneTrust"
+      ],
+      "sourceUrls": [
+        "https://my.onetrust.com/articles/en_US/knowledge/UUID-2dc719a8-4be5-8d16-1dc8-c7b4147b88e0"
+      ],
+      "status": "ok",
+      "total": 109
+    },
+    {
+      "name": "CookieConsent",
+      "query": "\"set-cookie\" \"CookieConsent\"",
+      "documentedOwners": [
+        "Site consent manager (Cookiebot convention)"
+      ],
+      "sourceUrls": [
+        "https://support.cookiebot.com/hc/en-us/articles/360003782654-Logging-and-demonstration-of-user-consents"
+      ],
+      "status": "ok",
+      "total": 24047
+    },
+    {
+      "name": "cookieyes-consent",
+      "query": "\"set-cookie\" \"cookieyes-consent\"",
+      "documentedOwners": [
+        "CookieYes"
+      ],
+      "sourceUrls": [
+        "https://www.cookieyes.com/documentation/obtain-the-consent-id/"
+      ],
+      "status": "ok",
+      "total": 0
+    },
+    {
+      "name": "didomi_token",
+      "query": "\"set-cookie\" \"didomi_token\"",
+      "documentedOwners": [
+        "Didomi"
+      ],
+      "sourceUrls": [
+        "https://developers.didomi.io/cmp/web-sdk/consent-notice/cookies"
+      ],
+      "status": "ok",
+      "total": 0
+    },
+    {
+      "name": "euconsent-v2",
+      "query": "\"set-cookie\" \"euconsent-v2\"",
+      "documentedOwners": [
+        "Site consent manager (IAB TCF convention)"
+      ],
+      "sourceUrls": [
+        "https://developers.didomi.io/cmp/web-sdk/consent-notice/cookies"
+      ],
+      "status": "ok",
+      "total": 0
+    },
+    {
+      "name": "_ga",
+      "query": "\"set-cookie\" \"_ga\"",
+      "documentedOwners": [
+        "Google Analytics"
+      ],
+      "sourceUrls": [
+        "https://support.google.com/analytics/answer/11397207?hl=en"
+      ],
+      "status": "ok",
+      "total": 130403
+    },
+    {
+      "name": "_gid",
+      "query": "\"set-cookie\" \"_gid\"",
+      "documentedOwners": [
+        "Google"
+      ],
+      "sourceUrls": [
+        "https://business.safety.google/adscookies/"
+      ],
+      "status": "ok",
+      "total": 283
+    },
+    {
+      "name": "__gads",
+      "query": "\"set-cookie\" \"__gads\"",
+      "documentedOwners": [
+        "Google"
+      ],
+      "sourceUrls": [
+        "https://business.safety.google/adscookies/"
+      ],
+      "status": "ok",
+      "total": 10
+    },
+    {
+      "name": "__gpi",
+      "query": "\"set-cookie\" \"__gpi\"",
+      "documentedOwners": [
+        "Google"
+      ],
+      "sourceUrls": [
+        "https://business.safety.google/adscookies/"
+      ],
+      "status": "ok",
+      "total": 0
+    },
+    {
+      "name": "_clck",
+      "query": "\"set-cookie\" \"_clck\"",
+      "documentedOwners": [
+        "Microsoft Clarity"
+      ],
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-cookies"
+      ],
+      "status": "ok",
+      "total": 2
+    },
+    {
+      "name": "_clsk",
+      "query": "\"set-cookie\" \"_clsk\"",
+      "documentedOwners": [
+        "Microsoft Clarity"
+      ],
+      "sourceUrls": [
+        "https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-cookies"
+      ],
+      "status": "ok",
+      "total": 0
+    },
+    {
+      "name": "hubspotutk",
+      "query": "\"set-cookie\" \"hubspotutk\"",
+      "documentedOwners": [
+        "HubSpot"
+      ],
+      "sourceUrls": [
+        "https://knowledge.hubspot.com/privacy-and-consent/what-cookies-does-hubspot-set-in-a-visitor-s-browser"
+      ],
+      "status": "ok",
+      "total": 91
+    },
+    {
+      "name": "__hstc",
+      "query": "\"set-cookie\" \"__hstc\"",
+      "documentedOwners": [
+        "HubSpot"
+      ],
+      "sourceUrls": [
+        "https://knowledge.hubspot.com/privacy-and-consent/what-cookies-does-hubspot-set-in-a-visitor-s-browser"
+      ],
+      "status": "ok",
+      "total": 7
+    },
+    {
+      "name": "_fbp",
+      "query": "\"set-cookie\" \"_fbp\"",
+      "documentedOwners": [
+        "Meta"
+      ],
+      "sourceUrls": [
+        "https://github.com/facebook/capi-param-builder/blob/main/client_js/README.md"
+      ],
+      "status": "ok",
+      "total": 10156
+    },
+    {
+      "name": "_fbc",
+      "query": "\"set-cookie\" \"_fbc\"",
+      "documentedOwners": [
+        "Meta"
+      ],
+      "sourceUrls": [
+        "https://github.com/facebook/capi-param-builder/blob/main/client_js/README.md"
+      ],
+      "status": "ok",
+      "total": 99
+    },
+    {
+      "name": "_cs_id",
+      "query": "\"set-cookie\" \"_cs_id\"",
+      "documentedOwners": [
+        "Contentsquare"
+      ],
+      "sourceUrls": [
+        "https://docs.contentsquare.com/en/web/cookies/"
+      ],
+      "status": "ok",
+      "total": 1
+    },
+    {
+      "name": "_cs_s",
+      "query": "\"set-cookie\" \"_cs_s\"",
+      "documentedOwners": [
+        "Contentsquare"
+      ],
+      "sourceUrls": [
+        "https://docs.contentsquare.com/en/web/cookies/"
+      ],
+      "status": "ok",
+      "total": 7
+    },
+    {
+      "name": "__hsmem",
+      "query": "\"set-cookie\" \"__hsmem\"",
+      "documentedOwners": [
+        "HubSpot"
+      ],
+      "sourceUrls": [
+        "https://knowledge.hubspot.com/privacy-and-consent/what-cookies-does-hubspot-set-in-a-visitor-s-browser"
+      ],
+      "status": "ok",
+      "total": 0
+    }
+  ],
+  "generatedAt": "2026-10-09T12:04:18.468Z"
+}

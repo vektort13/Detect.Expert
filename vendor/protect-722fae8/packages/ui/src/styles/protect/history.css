@@ -1,0 +1,146 @@
+/* Module «Защита» (ADR-020 §G, S12): history «Кто вас узнаёт» — side-panel tab, receiver card, Options settings and
+   the export dialog. Partial stylesheet built into protect.css after base.css; only the extension palette tokens of
+   ui.css (surface, surface-2, text, muted, border, accent, attention), so light and dark follow prefers-color-scheme. */
+
+.history {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.history__subtitle,
+.history-card__subtitle {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.history-card__subtitle {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.history-coverage__attention {
+  color: var(--attention);
+}
+
+.history-site-summary {
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.history-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-4);
+}
+
+.history-window {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.history-window__label {
+  font-weight: 600;
+}
+
+.history-window__option,
+.history-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: 24px;
+  cursor: pointer;
+}
+
+.history-list,
+.history-mechanisms,
+.history-card__sites,
+.history-card__list {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.history-card__list {
+  gap: var(--space-1);
+}
+
+.history-row {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.history-row__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.history-row__domain {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.history-mechanism {
+  display: grid;
+  gap: var(--space-1);
+  padding-inline-start: var(--space-3);
+  border-inline-start: 2px solid var(--border);
+}
+
+.history-mechanism__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.history-card {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--border);
+  border-inline-start: 4px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.history-card__title {
+  margin: 0;
+  font-size: 14px;
+}
+
+.history-site {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-1) var(--space-2);
+}
+
+.history-gaps summary {
+  cursor: pointer;
+}
+
+.history-settings {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.history-export__json {
+  max-height: 40vh;
+  overflow: auto;
+}

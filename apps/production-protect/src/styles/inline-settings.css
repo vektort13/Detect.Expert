@@ -1,0 +1,22 @@
+/* ADR-062: Options consent remains in the document; disabled previews retain readable saved choices. */
+.protect-page .protect-inline-consent { display: grid; gap: 16px; min-width: 0; padding-block-start: 16px; border-block-start: 1px solid var(--border); }
+.protect-page .protect-inline-consent > :is(p, h3, div, fieldset) { margin-block: 0; }
+.protect-page .protect-inline-consent__copy { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; min-width: 0; }
+.protect-page .protect-inline-consent__copy > .section { align-content: start; min-width: 0; font-size: 13px; line-height: 1.55; overflow-wrap: anywhere; }
+.protect-page .protect-inline-consent__copy p { margin-block: 0; }
+.protect-page .protect-inline-consent__copy p + p { margin-block-start: 8px; }
+.protect-page .protect-inline-consent .scope__fieldset { min-inline-size: 0; }
+.protect-page .protect-inline-consent__ack { align-items: flex-start; padding: 12px 14px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface-2); line-height: 1.5; }
+.protect-page .protect-inline-consent__ack input { flex: none; margin-block-start: 3px; }
+.protect-page .protect-inline-consent .actions { align-items: center; }
+.protect-page .protect-settings-preview { color: var(--muted); }
+.protect-page .protect-settings-preview :is(input, label, legend) { color: var(--muted); cursor: default; }
+.protect-page .protect-settings-preview input { opacity: 1; }
+.protect-page .protect-inline-consent :focus-visible { outline: 3px solid var(--focus, var(--accent)); outline-offset: 3px; }
+@media (max-width: 650px) { .protect-page .protect-inline-consent__copy { grid-template-columns: minmax(0, 1fr); } }
+@media (forced-colors: active) {
+  .protect-page .protect-inline-consent, .protect-page .protect-inline-consent__ack { border-color: CanvasText; }
+  .protect-page .protect-inline-consent__ack { color: CanvasText; background: Canvas; }
+  .protect-page .protect-settings-preview, .protect-page .protect-settings-preview :is(input, label, legend) { color: GrayText; }
+  .protect-page .protect-inline-consent :focus-visible { outline-color: Highlight; }
+}

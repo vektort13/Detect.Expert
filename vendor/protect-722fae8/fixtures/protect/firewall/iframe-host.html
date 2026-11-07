@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>Фаервол: форма во фрейме</title>
+  </head>
+  <body>
+    <!-- ADR-020 §C (S08). Served at www.example.com: a cross-site frame (www.example.org) holds the form and the sender.
+         A site rule with topDomains covers requests of the frame; with the initiatorDomains fallback it does not
+         (limitation iframe-rule-gap). -->
+    <h1 id="title">Страница с фреймом</h1>
+    <script>
+      (function () {
+        var frame = document.createElement('iframe');
+        frame.id = 'fw-frame';
+        frame.width = '600';
+        frame.height = '300';
+        frame.src = location.protocol + '//www.example.org:' + location.port + '/protect/firewall/leak-form.html' + location.search;
+        frame.addEventListener('load', function () { window.__fixtureResult = { ready: true }; });
+        document.body.appendChild(frame);
+      })();
+    </script>
+  </body>
+</html>

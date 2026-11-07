@@ -1,0 +1,14 @@
+/* Module «Защита» (ADR-020 §D): tokens shared by the partial stylesheets of the module. scripts/build.mjs concatenates
+   packages/ui/src/styles/protect/*.css in lexicographic order into protect.css (base.css first); the pages load it after
+   ui.css, so the module reuses the extension palette (surface/text/muted/border/accent/attention/error) and adds only
+   what ui.css lacks. Light + dark via prefers-color-scheme, as in ui.css. */
+
+:root {
+  --accent-bg: #e9effa;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent-bg: #1a2638;
+  }
+}

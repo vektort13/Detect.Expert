@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>GPC frame (S13)</title>
+</head>
+<body>
+<!-- ADR-020 §H (S13): cross-site frame of gpc-top.html. Reports navigator.globalPrivacyControl of its own realm and the
+     Sec-GPC the server saw on its own same-origin fetch to the parent (postMessage). -->
+<script>
+(function () {
+  'use strict';
+  var d = Object.getOwnPropertyDescriptor(Navigator.prototype, 'globalPrivacyControl');
+  var value = navigator.globalPrivacyControl;
+  var out = { value: value === undefined ? 'undefined' : value, getterName: d && typeof d.get === 'function' ? d.get.name : null };
+  fetch('/gpc-echo/frame-fetch', { cache: 'no-store' })
+    .then(function (r) { return r.json(); })
+    .then(function (j) { out.fetch = j.secGpc; }, function () { out.fetch = 'error'; })
+    .then(function () { parent.postMessage({ gpcFrame: out }, '*'); });
+})();
+</script>
+</body>
+</html>

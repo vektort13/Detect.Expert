@@ -1,0 +1,7180 @@
+{
+  "consent_startup": {
+    "message": "后台进程检查已保存嘅同意时，短暂嘅内存缓冲区净系保留缩减嘅资源同标头元资料。只有确认先前已同意才会使用；否则丢弃，稍后同意也唔会恢复呢啲资料。"
+  },
+  "consent_title": {
+    "message": "监测"
+  },
+  "consent_intro": {
+    "message": "同意前，观察保持关闭。Detect.Expert 在你嘅设备上处理资料以分析网站 API 使用情况，唔向开发者上传报告或遥测资料。"
+  },
+  "consent_reports": {
+    "message": "访问同资源元资料、API 活动同计数保存在浏览器会话储存中。独立嘅 WebRTC 历史包含已配置 ICE 服务器嘅主机名/IP 同端口。Pro 净系在你发出命令后录制。设置保存在本地。"
+  },
+  "consent_previews": {
+    "message": "本地预览可以复制网页已经读取嘅 Canvas/WebGL 图像、精确嘅技术 API 值、WebRTC 证书指纹同 Google X-Client-Data。图像同网页标题可能包含个人或者敏感资料。图像、Google 标头净系留喺有容量限制嘅内存入面，唔会进入 浏览器 储存、Pro/PDF 或者导出。Pro 录制运行紧嗰阵，拣咗嘅技术 API 参数同唔同嘅返回值会储存喺本地报告入面。"
+  },
+  "consent_controls": {
+    "message": "启用后，会在选定范围内自动观察 浏览器 已授权嘅网站。你可缩小或关闭范围、暂停或清除结果，并在设置中撤回同意。已打开嘅页面需要重新载入。API 拒绝功能需单独启用。已保存嘅 JSON/PDF 文件由你管理。"
+  },
+  "consent_enable": {
+    "message": "开启监测"
+  },
+  "consent_decline": {
+    "message": "继续关闭观察"
+  },
+  "consent_revoke": {
+    "message": "关闭并清除"
+  },
+  "consent_error": {
+    "message": "更新唔到监测设定，请再试一次。"
+  },
+  "consent_saved": {
+    "message": "呢个设备已接受本版本嘅资料处理说明。"
+  },
+  "consent_policy": {
+    "message": "隐私政策（离线可用）"
+  },
+  "google_ids_title": {
+    "message": "Google / Chrome IDs"
+  },
+  "google_ids_meaning": {
+    "message": "Chrome 实验 ID，唔系已证实嘅设备或用户唯一 ID。呢个值唔可以证明跟踪行为或 CAPTCHA 嘅原因。"
+  },
+  "google_ids_source": {
+    "message": "浏览器观察到嘅出站请求头（onSendHeaders），唔代表服务器已收到。精确值净系保留在 RAM/Light，唔进入 storage、Pro/PDF 或导出。"
+  },
+  "google_ids_destination": {
+    "message": "目标主机"
+  },
+  "google_ids_not_present": {
+    "message": "发往呢个目标嘅最近一次已观察请求中冇 X-Client-Data 请求头。"
+  },
+  "google_ids_unavailable": {
+    "message": "而家嘅请求头值用唔到。这唔表示请求头从未发送。"
+  },
+  "google_ids_too_large": {
+    "message": "请求头超过 4096 字符嘅预览上限，未保留佢嘅值。"
+  },
+  "google_ids_invalid": {
+    "message": "请求头重复或格式唔支援，未保留佢嘅值。"
+  },
+  "google_ids_decode_unknown": {
+    "message": "观察到嘅请求头按原样显示，但冇办法解码其中嘅 protobuf 内容。"
+  },
+  "google_ids_variations": {
+    "message": "实验 ID"
+  },
+  "google_ids_triggers": {
+    "message": "服务器触发 ID"
+  },
+  "google_ids_none": {
+    "message": "已解码字段中冇呢个项"
+  },
+  "google_ids_decode_limited": {
+    "message": "解码唔完整：存在未知字段或达到 256 个 ID 嘅上限。唔推断实验名称或唯一性。"
+  },
+  "google_ids_empty": {
+    "message": "而家嘅内存周期内，尚未观察到呢个文档可访问嘅 Google 请求。"
+  },
+  "google_ids_limited": {
+    "message": "部分请求或值已省略或过期，列表唔完整。"
+  },
+  "google_ids_scope_title": {
+    "message": "观察范围限制"
+  },
+  "google_ids_scope": {
+    "message": "净系限预设嘅 Google HTTPS 目标，且须有目标同发起方嘅访问权限。显示最多八个主机嘅最近请求头，唔系全局浏览器 ID。导航捕获需预先授予所有网站权限，并在两秒内收到明确嘅浏览器事件。唔涵盖 Chrome 内部流量或唔可访问嘅框架。值在十分钟后过期，清除、暂停、权限变化或 SW 重启时删除。Chrome 通常唔会在无痕模式下添加自己嘅 variations 请求头。唔读取标志、Cookie 或 CAPTCHA 评分。"
+  },
+  "api_note_webrtc": {
+    "message": "调用同状态读取唔证明已连接、已识别硬件或而家喺度跟踪。普通应用也会生成证书并执行短暂嘅 offer/read/close 序列。"
+  },
+  "rtc_values_returned": {
+    "message": "返回给网站嘅选定字段"
+  },
+  "rtc_values_snapshot": {
+    "message": "额外嘅本地原生快照"
+  },
+  "rtc_values_limited": {
+    "message": "部分字段或观察因隐私或资料限制而被省略。"
+  },
+  "rtc_values_empty": {
+    "message": "今次观察冇可用嘅选定字段。"
+  },
+  "rtc_values_certificate": {
+    "message": "呢个指纹标识证书，唔系设备。重复使用可能关联连接，但唔证明跟踪。 Pro 录制紧嗰阵，拣咗嘅技术结果会储存喺本地。"
+  },
+  "rtc_values_storage": {
+    "message": "净系识别直接传入嘅证书对象。IndexedDB 写入请求已返回唔证明事务提交或跨访问持久保存。唔检查嵌套记录。"
+  },
+  "rtc_values_scope": {
+    "message": "净系观察选定嘅同步结果。唔检查 Promise 结果、统计迭代、完整 SDP、ICE 密码、设备 ID 或网络 DTLS 握手。额外证书快照会单独标明。 Pro 录制紧嗰阵，拣咗嘅技术结果会储存喺本地。"
+  },
+  "inspector_group_media_capabilities": {
+    "message": "编解码器同媒体能力"
+  },
+  "inspector_group_media_devices": {
+    "message": "摄像头、麦克风同媒体设备"
+  },
+  "inspector_group_speech": {
+    "message": "语音同语音识别"
+  },
+  "inspector_group_drm": {
+    "message": "受保护播放 / DRM"
+  },
+  "inspector_group_device_access": {
+    "message": "外围设备访问"
+  },
+  "inspector_group_browser_capabilities": {
+    "message": "浏览器能力"
+  },
+  "inspector_group_builtin_ai": {
+    "message": "内置 AI 同翻译"
+  },
+  "inspector_group_recognition": {
+    "message": "图像同手写识别"
+  },
+  "inspector_group_app_integration": {
+    "message": "平台集成"
+  },
+  "inspector_group_response_headers": {
+    "message": "已观察到嘅响应头"
+  },
+  "api_activity_capability": {
+    "message": "能力检查"
+  },
+  "api_activity_list": {
+    "message": "列表请求"
+  },
+  "api_activity_access": {
+    "message": "访问请求"
+  },
+  "api_activity_state": {
+    "message": "状态查询"
+  },
+  "api_activity_operation": {
+    "message": "API 操作"
+  },
+  "api_note_media_capabilities": {
+    "message": "播放器、编辑器同通话会检查编解码器兼容性。RTP getCapabilities 唔创建连接。选定嘅返回字段喺结果预览中显示，唔证明硬件型号或播放成功。"
+  },
+  "api_note_media_devices": {
+    "message": "设备列表、参数检查同采集请求系唔同操作。调用唔证明已获授权或而家喺度录制。选定嘅返回轨道设置可在本地显示；设备 ID、名称同媒体内容被排除。"
+  },
+  "api_note_speech": {
+    "message": "朗读同无障碍功能也会查询语音同识别能力。唔读取语音列表、语言或音频。调用 install 唔证明语言包下载完成。"
+  },
+  "api_note_drm": {
+    "message": "DRM 同 HDCP 检查用于受保护播放。请求唔证明跟踪、许可证已交付或设备保护等级；唔读取配置同许可证。"
+  },
+  "api_note_device_access": {
+    "message": "getDevices/getPorts 请求站点可访问嘅列表；requestDevice/requestPort 请求选择或访问。调用次数唔系设备数量。唔包含设备标识或响应内容。"
+  },
+  "api_note_browser_capabilities": {
+    "message": "观察环境同权限状态检查。cpuPerformance 表示类别，唔系 CPU 测量值。唔读取参数同列表；重复查询唔证明枚举了唔同权限或用于指纹识别。"
+  },
+  "api_note_builtin_ai": {
+    "message": "AI 可用性检查、创建同使用系唔同操作。调用唔证明 GPU、已下载模型或资料传输。唔读取文本、语言对或输出；Promise 系咪完成未知。"
+  },
+  "api_note_recognition": {
+    "message": "识别能力取决于浏览器同平台。能力查询或 detect 调用唔证明识别了人脸或用户。唔读取图像、手写内容、文本或格式列表。"
+  },
+  "api_note_app_integration": {
+    "message": "应用、文件、锁同后台 API 有正常用途。调用唔证明应用已安装、标签页数量、文件访问或 Trusted Types 已强制执行。唔检查内容、路径同回调。"
+  },
+  "headers_note": {
+    "message": "来自浏览器在可访问文档中观察到嘅已完成响应。每个响应中嘅每种头计数一次。唔保存值、报告地址或会话密钥；未确认浏览器系咪采用配置。"
+  },
+  "headers_observation": {
+    "message": "浏览器观察到了选定嘅响应头。"
+  },
+  "headers_interpretation": {
+    "message": "响应头嘅存在唔证明资料传输或隐蔽跟踪。"
+  },
+  "headers_truncated": {
+    "message": "观察唔完整：部分响应或提示名称已省略。计数为下限。"
+  },
+  "headers_hints": {
+    "message": "请求嘅 Client Hints 名称"
+  },
+  "headers_client_hints_note": {
+    "message": "服务器请求客户端提示；尚未确定实际发送。"
+  },
+  "headers_policy_note": {
+    "message": "策略限制能力，并唔授予权限。"
+  },
+  "headers_reporting_note": {
+    "message": "浏览器报告配置，唔证明报告已发送。"
+  },
+  "headers_session_note": {
+    "message": "会话绑定机制；值同密钥隐藏，注册未确认。"
+  },
+  "headers_dictionary_note": {
+    "message": "声明压缩字典；使用情况未确认。"
+  },
+  "api_webnn_coverage_note": {
+    "message": "覆盖范围限于存在时嘅 44 个 API 入口，包括部分图算子，唔系整个 WebNN。唔观察 Worker 同内部计算；冇记录唔可以证明冇发生调用。"
+  },
+  "inspector_group_webnn": {
+    "message": "WebNN / 神经网络"
+  },
+  "api_note_webnn": {
+    "message": "WebNN 能力检查也用于选择兼容嘅模型。请求上下文、build 同 dispatch 唔可以确定所选硬件、计算完成情况或指纹识别目的。扩展唔读取选项、支持矩阵、张量内容或 Worker 活动。"
+  },
+  "api_preview_webnn": {
+    "message": "这里只显示页面已经读取嘅标量元资料。唔包含张量形状、张量资料同支持矩阵内容；异步调用系咪完成未知。计数表示调用次数，唔系图节点数或已完成嘅推理次数。"
+  },
+  "api_preview_audio": {
+    "message": "预览可包含采样率、延迟同声道数。唔包含音频采样或哈希；调用本身唔可以证明指纹采集或麦克风访问。"
+  },
+  "api_preview_webgpu": {
+    "message": "浏览器返回嘅信息可能受到限制或被概括，唔系对 GPU 型号嘅独立验证。唔会运行主动 GPU 测试或测量着色器耗时。"
+  },
+  "api_preview_wasm": {
+    "message": "净系显示 JavaScript API 嘅结果。唔检查模块字节或内部执行，也唔确定 CPU、体系结构或 SIMD。"
+  },
+  "api_preview_window_management": {
+    "message": "页面已经读取嘅屏幕同窗口值。调用 getScreenDetails 唔可以证明权限已授予或已获得完整显示器列表。"
+  },
+  "api_preview_compute_pressure": {
+    "message": "页面读取嘅粗粒度状态。隐藏精确时间戳，唔据呢个确定其他标签页嘅活动或散热特征。"
+  },
+  "api_preview_idle_detection": {
+    "message": "页面最近读取嘅状态。调用 start 唔代表订阅已生效。唔记录在场历史、离开或返回时间。"
+  },
+  "api_preview_display": {
+    "message": "实际返回给页面嘅最近尺寸同缩放值。扩展唔会自行请求显示器列表。"
+  },
+  "api_preview_cpu": {
+    "message": "hardwareConcurrency 系浏览器对可用逻辑处理器数量嘅估计，唔系物理 CPU 核心数。"
+  },
+  "api_preview_memory": {
+    "message": "Device Memory 表示大致嘅内存档位，唔系实际安装嘅精确 RAM 容量。"
+  },
+  "api_results_title": {
+    "message": "最近嘅结果"
+  },
+  "api_results_note": {
+    "message": "最近观察到嘅结果。Pro 录制运行紧嗰阵，拣咗嘅技术参数同唔同嘅返回值会储存喺本地报告入面。"
+  },
+  "api_result_returned": {
+    "message": "返回值"
+  },
+  "api_result_setter": {
+    "message": "Setter 返回值"
+  },
+  "api_result_missing": {
+    "message": "未观测到结果。"
+  },
+  "api_result_object": {
+    "message": "对象；未读取内容。"
+  },
+  "api_result_async": {
+    "message": "未观测异步调用嘅完成。"
+  },
+  "api_result_exception": {
+    "message": "未读取异常内容。"
+  },
+  "api_result_sensitive": {
+    "message": "呢个值唔纳入预览。"
+  },
+  "api_result_limit": {
+    "message": "该值超出预览限制。"
+  },
+  "api_result_unsupported": {
+    "message": "唔支援呢个结果类型。"
+  },
+  "api_results_truncated": {
+    "message": "由于收集或传输限制，部分结果用唔到。"
+  },
+  "api_results_unavailable": {
+    "message": "结果预览而家嘅用唔到。"
+  },
+  "protection_title": {
+    "message": "API Guard"
+  },
+  "protection_enable": {
+    "message": "全局启用阻止"
+  },
+  "protection_risk": {
+    "message": "拒绝 API 可能导致网站、登录、编辑器同通话冇办法正常工作。自定义规则可能使浏览器更容易被区分。唔保证匿名性或全面保护。"
+  },
+  "protection_consent": {
+    "message": "我了解网站可能出现故障，并希望启用阻止。"
+  },
+  "protection_preset": {
+    "message": "全局预设"
+  },
+  "protection_custom": {
+    "message": "净系选定嘅规则"
+  },
+  "protection_limited": {
+    "message": "有限"
+  },
+  "protection_strict": {
+    "message": "严格"
+  },
+  "protection_site": {
+    "message": "精确主机名"
+  },
+  "protection_global": {
+    "message": "全局规则"
+  },
+  "protection_add_site": {
+    "message": "添加"
+  },
+  "protection_no_host": {
+    "message": "网站用唔到"
+  },
+  "protection_host_note": {
+    "message": "净系呢个精确主机名，包括 HTTP、HTTPS 同所有端口。子域同第三方框架使用各自嘅规则；这唔系整个标签页嘅例外。"
+  },
+  "protection_site_off": {
+    "message": "跳过呢个网站"
+  },
+  "protection_remove_site": {
+    "message": "删除主机名覆盖规则"
+  },
+  "protection_search": {
+    "message": "查找 API"
+  },
+  "protection_configured": {
+    "message": "已配置阻止"
+  },
+  "protection_inherit": {
+    "message": "继承"
+  },
+  "protection_block": {
+    "message": "阻止"
+  },
+  "protection_stopped": {
+    "message": "处理程序已停止；需要重新载入。"
+  },
+  "protection_partial": {
+    "message": "处理程序报告部分覆盖。"
+  },
+  "protection_denied": {
+    "message": "报告嘅拒绝次数"
+  },
+  "protection_removed": {
+    "message": "API 入口已移除；重新载入后恢复。"
+  },
+  "protection_no_rows": {
+    "message": "冇匹配嘅 API"
+  },
+  "protection_limits": {
+    "message": "净系限列出嘅 API 同获准嘅 HTTP(S) 文档。Worker、继承来源嘅框架、保留嘅引用同页面干预仲系覆盖缺口。阻止 JavaScript client hints 唔会移除 HTTP 标头。计数来自页面控制嘅 MAIN 世界，唔系保护证据。"
+  },
+  "protection_error": {
+    "message": "设定唔可用。请再试。"
+  },
+  "protection_ready": {
+    "message": "拦截已开启"
+  },
+  "protection_inactive": {
+    "message": "拦截已关闭"
+  },
+  "protection_dirty": {
+    "message": "未保存嘅更改"
+  },
+  "protection_save": {
+    "message": "保存规则"
+  },
+  "protection_save_reload": {
+    "message": "保存并重新载入"
+  },
+  "protection_refresh": {
+    "message": "刷新并放弃未保存嘅更改"
+  },
+  "protection_restore_reload": {
+    "message": "关闭呢个网站嘅拦截并重新载入"
+  },
+  "protection_feature_window_management": {
+    "message": "多显示器信息"
+  },
+  "protection_feature_compute_pressure": {
+    "message": "计算压力"
+  },
+  "protection_feature_idle_detection": {
+    "message": "空闲检测"
+  },
+  "protection_feature_local_fonts": {
+    "message": "本地字体访问"
+  },
+  "protection_feature_canvas_readback": {
+    "message": "Canvas 读取同捕获"
+  },
+  "protection_feature_webgl": {
+    "message": "创建 WebGL 上下文"
+  },
+  "protection_feature_webgpu": {
+    "message": "访问 WebGPU 适配器"
+  },
+  "protection_feature_audio": {
+    "message": "Web Audio 构造函数"
+  },
+  "protection_feature_webrtc": {
+    "message": "WebRTC 连接"
+  },
+  "protection_feature_webassembly": {
+    "message": "WebAssembly"
+  },
+  "protection_feature_battery": {
+    "message": "电池状态"
+  },
+  "protection_feature_network_information": {
+    "message": "网络信息"
+  },
+  "protection_feature_keyboard": {
+    "message": "键盘 API"
+  },
+  "protection_feature_client_hints": {
+    "message": "JavaScript 客户端提示"
+  },
+  "protection_feature_clipboard_read": {
+    "message": "读取剪贴板"
+  },
+  "visual_webgl_image_count": {
+    "message": "图像数：$N$",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "visual_webgl_empty": {
+    "message": "呢个文档中未采集到受支持嘅 WebGL 图像。WebGL 参数同扩展查询唔会返回像素。只有页面自行读取或导出图像，且符合支持嘅格式同采集限制时，才能提供预览。"
+  },
+  "visual_gallery_count": {
+    "message": "画布数：$N$",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "visual_canvas_id": {
+    "message": "画布 $N$",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "visual_readbacks": {
+    "message": "已观察到嘅读取次数：$N$",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "visual_previous": {
+    "message": "上一组图像"
+  },
+  "visual_next": {
+    "message": "下一组图像"
+  },
+  "visual_actions": {
+    "message": "已观察到嘅操作"
+  },
+  "visual_gallery_note": {
+    "message": "每个画布嘅首个受支持图像；标签描述已观察到嘅调用，唔系像素比较。2D 唔可以证明由 CPU 渲染，WebGL 也唔可以证明启用了硬件加速。普通图形应用同样使用呢啲操作。"
+  },
+  "visual_gallery_limited": {
+    "message": "由于采集时间、格式、传输或内存限制，部分图像或更新被省略。呢个图集并唔完整。"
+  },
+  "visual_op_text": {
+    "message": "绘制文本"
+  },
+  "visual_op_image_copy": {
+    "message": "复制图像"
+  },
+  "visual_op_cropped_copy": {
+    "message": "复制裁剪区域"
+  },
+  "visual_op_recombined_copy": {
+    "message": "从已裁剪画布复制"
+  },
+  "visual_op_flip_back_copy": {
+    "message": "源图像同副本均有 Y 轴反射"
+  },
+  "visual_op_canvas_reset": {
+    "message": "重置画布"
+  },
+  "visual_op_pixel_write": {
+    "message": "写入像素"
+  },
+  "visual_op_fill": {
+    "message": "填充或清除"
+  },
+  "visual_op_gradient": {
+    "message": "创建渐变"
+  },
+  "visual_op_pattern": {
+    "message": "创建图案"
+  },
+  "visual_op_path": {
+    "message": "绘制路径"
+  },
+  "visual_op_transform": {
+    "message": "坐标变换"
+  },
+  "visual_op_flip_x": {
+    "message": "请求 X 轴反射"
+  },
+  "visual_op_flip_y": {
+    "message": "请求 Y 轴反射"
+  },
+  "visual_op_fractional": {
+    "message": "分数值变换参数"
+  },
+  "visual_op_alpha": {
+    "message": "设置透明度参数"
+  },
+  "visual_op_composite": {
+    "message": "设置合成模式"
+  },
+  "visual_op_repeat_readback": {
+    "message": "重复读取图像"
+  },
+  "visual_op_multiple_readback_formats": {
+    "message": "使用多种图像读取 API"
+  },
+  "visual_op_texture_upload": {
+    "message": "上传纹理"
+  },
+  "visual_op_2d_to_webgl": {
+    "message": "2D 画布上传到 WebGL 纹理"
+  },
+  "visual_op_webgl_to_2d": {
+    "message": "会 WebGL 画布复制到 2D"
+  },
+  "visual_op_webgl_to_webgl": {
+    "message": "WebGL 画布上传到 WebGL 纹理"
+  },
+  "visual_op_shader": {
+    "message": "着色器或程序操作"
+  },
+  "visual_op_gpu_draw": {
+    "message": "WebGL 绘制"
+  },
+  "visual_op_gpu_sync": {
+    "message": "WebGL finish / flush"
+  },
+  "visual_op_gl_parameters": {
+    "message": "查询 GL 参数"
+  },
+  "visual_op_timer_extension": {
+    "message": "请求计时器扩展"
+  },
+  "visual_op_timer_query": {
+    "message": "GPU 计时查询调用"
+  },
+  "visual_op_query_read": {
+    "message": "读取查询状态或结果"
+  },
+  "visual_op_occlusion_query": {
+    "message": "遮挡查询调用"
+  },
+  "visual_op_bitmap_transfer": {
+    "message": "传递 ImageBitmap"
+  },
+  "visual_op_offscreen_transfer": {
+    "message": "传递 OffscreenCanvas"
+  },
+  "visual_op_bitmap_create": {
+    "message": "请求创建 ImageBitmap"
+  },
+  "visual_op_svg_source": {
+    "message": "内联 SVG 图像源"
+  },
+  "api_note_audio": {
+    "message": "音频上下文嘅创建、节点操作、离线渲染调用同资料读取分别显示。唔观察渲染完成情况，唔保留采样、频谱或哈希。播放器同编辑器也使用呢啲 API；净系凭调用唔可以证明而家喺度计算指纹或访问麦克风。"
+  },
+  "extension_targets_title": {
+    "message": "扩展资源访问"
+  },
+  "extension_targets_note": {
+    "message": "页面上下文中引用了呢啲扩展嘅资源。这可能用于检查扩展系咪存在，也可能系正常集成。安装情况、结果同调用者身份未知；资料可受页面控制。"
+  },
+  "extension_targets_unknown": {
+    "message": "未知目标"
+  },
+  "extension_targets_unknown_note": {
+    "message": "计数表示访问次数，唔系唔同扩展嘅数量。未知目标嘅 ID 同资源路径唔会被保留。"
+  },
+  "extension_targets_reference": {
+    "message": "设置 src 唔代表请求已发送。"
+  },
+  "extension_targets_limited": {
+    "message": "呢个列表唔完整，可能缺少部分访问记录。"
+  },
+  "extension_targets_privacy": {
+    "message": "净系隐私工具"
+  },
+  "extension_targets_empty_filter": {
+    "message": "列表中冇呢个类别嘅目标。"
+  },
+  "local_ports_requested": {
+    "message": "请求访问嘅本地端口"
+  },
+  "local_ports_unknown": {
+    "message": "呢啲尝试嘅端口号未被保留。"
+  },
+  "local_ports_incomplete": {
+    "message": "呢个列表唔完整，可能缺少部分端口号。"
+  },
+  "api_actions_title": {
+    "message": "页面操作"
+  },
+  "api_actions_note": {
+    "message": "这里列出在呢个文档中观测到嘅具体调用或属性访问，并单独显示阶段。调用唔可以证明成功访问或指纹识别；呢啲资料由页面控制，可能被伪造。"
+  },
+  "api_action_get": {
+    "message": "属性访问"
+  },
+  "api_action_set": {
+    "message": "属性赋值"
+  },
+  "api_window_events_note": {
+    "message": "监听器计数表示注册、移除同处理器赋值（包括清空），唔代表有效订阅或已接收嘅事件。调用窗口或全屏 API 唔证明窗口已被放置。唔检查其参数同选项。"
+  },
+  "api_pressure_limits_note": {
+    "message": "sampleInterval=0 请求在状态变化时通知，并唔保证频率。唔检查选项、回调交付或订阅时长。交付取决于焦点、策略同浏览器限制。"
+  },
+  "api_action_call": {
+    "message": "方法调用"
+  },
+  "api_action_construct": {
+    "message": "构造函数调用"
+  },
+  "api_action_async": {
+    "message": "异步调用"
+  },
+  "api_note_webgpu": {
+    "message": "列表区分适配器信息、功能同限制嘅访问，同埋着色器或管线嘅创建。浏览器可能限制或概括 GPU 信息。 Pro 录制紧嗰阵，拣咗嘅技术结果会储存喺本地。 呢啲调用唔可以确定准确嘅 GPU 型号、完整设备资料或系咪测量了着色器耗时。"
+  },
+  "api_note_wasm": {
+    "message": "页面调用 WebAssembly API 来验证、编译、实例化代码或访问内存。唔检查模块字节或内部执行。唔可以据呢个确定 CPU 计时、SIMD 功能、体系结构、伪造嘅 User-Agent 或 Lockdown Mode。"
+  },
+  "api_note_client_hints": {
+    "message": "getHighEntropyValues 请求额外嘅浏览器或系统信息。Chrome 通常唔会显示权限提示，但策略同实现可能限制返回内容。正常嘅兼容性检查也会请求相同字段；调用本身唔可以证明指纹识别。"
+  },
+  "api_note_window_management": {
+    "message": "getScreenDetails 请求屏幕信息，可能需要 window-management 权限。对 screens、currentScreen 同各属性嘅访问分别列出。 Pro 录制紧嗰阵，拣咗嘅技术结果会储存喺本地。 请求唔代表已获授权，也唔可以确定工作地点。"
+  },
+  "api_note_compute_pressure": {
+    "message": "Compute Pressure 可以提供粗粒度嘅 CPU 压力状态。根据具体实现，压力可能反映呢个标签页之外嘅负载。创建观测器、调用 observe/takeRecords 同读取记录系唔同事实。Pro 录制紧嗰阵，拣咗嘅技术结果会储存喺本地。 也唔可以确定其他标签页嘅活动、散热特征或用户系咪离开。"
+  },
+  "api_note_idle_detection": {
+    "message": "Idle Detection 在获准后可能提供活动状态同屏幕锁定状态。创建检测器或调用 start 唔代表订阅已经生效。 Pro 录制紧嗰阵，拣咗嘅技术结果会储存喺本地。"
+  },
+  "api_hints_unknown": {
+    "message": "被请求嘅字段在被动模式下未知：传感器唔会再次读取参数或遍历由页面控制嘅集合。"
+  },
+  "api_mechanism_client_hints": {
+    "message": "扩展系统信息"
+  },
+  "api_mechanism_window_management": {
+    "message": "屏幕同窗口管理"
+  },
+  "api_mechanism_compute_pressure": {
+    "message": "CPU 压力观测"
+  },
+  "api_mechanism_idle_detection": {
+    "message": "活动同屏幕锁定检查"
+  },
+  "inspector_group_activity": {
+    "message": "交互同在场状态 API"
+  },
+  "extName": {
+    "message": "Detect.Expert — Fingerprint Protection & Forensics"
+  },
+  "extDescription": {
+    "message": "喺本地分析浏览器 API、数字指纹迹象同身份识别服务，可以自订 API 拦截规则。"
+  },
+  "actionTitle": {
+    "message": "Detect.Expert：浏览器 API 分析"
+  },
+  "popupTitle": {
+    "message": "呢个网页嘅检查"
+  },
+  "sidepanelTitle": {
+    "message": "呢个网页嘅观察结果"
+  },
+  "optionsTitle": {
+    "message": "Detect.Expert 设置"
+  },
+  "coverageTitle": {
+    "message": "观察覆盖范围"
+  },
+  "coverageOff": {
+    "message": "未在观察：尚未选择范围。“未检测到”表示“在该时段内，未在可访问区域中观察到”。"
+  },
+  "scopeLabel": {
+    "message": "观察范围"
+  },
+  "scope_start_title": {
+    "message": "想观察边啲范围？"
+  },
+  "scope_start_hint": {
+    "message": "请喺下面拣观察范围。"
+  },
+  "action_reload_page": {
+    "message": "重新载入网页"
+  },
+  "error_reload": {
+    "message": "冇办法重新载入标签页。请打开该页面后重试。"
+  },
+  "coverage_restart_desc": {
+    "message": "请先重新载入呢个文档以重启传感器，然后打开扩展并再次启用观察。如果想从页面加载时开始观察，请在重新载入前选择“始终观察呢个网站”。"
+  },
+  "scopeOff": {
+    "message": "关闭"
+  },
+  "scopeActiveTab": {
+    "message": "由而家开始观察呢个分页"
+  },
+  "scopeSite": {
+    "message": "一直观察呢个网站"
+  },
+  "scopeAllSites": {
+    "message": "观察全部网站"
+  },
+  "statusLoading": {
+    "message": "载入紧…"
+  },
+  "statusUnavailable": {
+    "message": "用唔到"
+  },
+  "vendorsSectionTitle": {
+    "message": "已识别嘅防护同身份识别服务"
+  },
+  "vendorsEmpty": {
+    "message": "冇识别到反欺诈系统。"
+  },
+  "disclaimerNoVerdict": {
+    "message": "唔对网站安全性作出判断。默认净系被动观察；可选嘅 API 阻止需要明确启用。"
+  },
+  "coverage_active_title": {
+    "message": "观察紧"
+  },
+  "coverage_active_desc": {
+    "message": "已实现嘅传感器已在文档开始加载时安装。这并唔意味着所有检测方法都已覆盖。"
+  },
+  "coverage_partial_title": {
+    "message": "部分观察"
+  },
+  "coverage_partial_desc": {
+    "message": "净系观察了文档嘅一部分：$DETAIL$。冇办法根据唔可访问区域中冇发现结果得出结论。",
+    "placeholders": {
+      "detail": {
+        "content": "$1"
+      }
+    }
+  },
+  "coverage_late_start_title": {
+    "message": "观察开始得迟"
+  },
+  "coverage_late_start_desc": {
+    "message": "传感器系在页面开始运行后安装嘅，早期调用可能已被遗漏。请重新载入页面以从头分析。"
+  },
+  "coverage_late_start_active_tab_desc": {
+    "message": "从启用时起观察调用，直到呢个文档被替换。早期调用可能已被遗漏。如果想观察页面加载过程，请选择“始终观察呢个网站”，然后重新载入。"
+  },
+  "coverage_paused_title": {
+    "message": "观察已暂停"
+  },
+  "coverage_paused_desc": {
+    "message": "观察已暂停。页面仲会继续运行。"
+  },
+  "coverage_paused_reload": {
+    "message": "如果想完全移除传感器，请重新载入页面。"
+  },
+  "coverage_unsupported_title": {
+    "message": "呢个网页观察唔到"
+  },
+  "coverage_unsupported_desc": {
+    "message": "Chrome 内置页面、Chrome 网上应用店、其他扩展同某些特殊框架唔支援观察。"
+  },
+  "coverage_unsupported_chrome_desc": {
+    "message": "唔支援呢个 Chrome 版本（$VERSION$），冇办法进行观察。",
+    "placeholders": {
+      "version": {
+        "content": "$1"
+      }
+    }
+  },
+  "coverage_no_access_title": {
+    "message": "冇权限进入呢个网页"
+  },
+  "coverage_no_access_desc": {
+    "message": "冇权限访问 $HOST$。冇观察结果并唔代表任何结论。请选择观察级别以开始。",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "coverage_revoked_desc": {
+    "message": "对 $HOST$ 嘅访问权限已被撤销。唔会再收集新资料。如果想完全移除传感器，请重新载入页面。",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "coverage_degraded_title": {
+    "message": "观察受到限制"
+  },
+  "coverage_degraded_desc": {
+    "message": "已超过事件数量限制，部分资料被丢弃（$DROPPED$）。唔可以会呢个时段视为已被完整观察。",
+    "placeholders": {
+      "dropped": {
+        "content": "$1"
+      }
+    }
+  },
+  "coverage_context_changed": {
+    "message": "上下文已更改：现显示 $HOST$ 嘅报告。",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "coverage_managed_desc": {
+    "message": "部分设置由你嘅组织管理。"
+  },
+  "coverage_blind_spots_title": {
+    "message": "已知观察盲区"
+  },
+  "coverage_blind_spots_desc": {
+    "message": "Math 模式：Pro 录制期间。Worker/Worklet、WebGPU 缓冲区同感应器：部分 API 呼叫。未观察：CSSOM、HTTP 验证器、CNAME、Wasm/worker/CSS 内部执行、DNS、TLS 同服务器端检查。"
+  },
+  "inspector_group_dns": {
+    "message": "DNS 检查"
+  },
+  "card_dns_probe_pattern": {
+    "message": "可能嘅 DNS 测试"
+  },
+  "inspector_dns_desc": {
+    "message": "短时间内观察到对同一域下唔同子域嘅请求。DNS 测试、CDN 同缓存规避都可能产生呢个模式。计数系在有限时间窗口内嘅下限，唔可以据呢个确认实际 DNS 查询、解析器地址或 DNS 泄漏。"
+  },
+  "coverage_flags_title": {
+    "message": "覆盖范围限制"
+  },
+  "coverage_partial_detail_unknown": {
+    "message": "原因未说明"
+  },
+  "coverage_flag_late_start": {
+    "message": "传感器安装较晚"
+  },
+  "coverage_flag_hook_failed": {
+    "message": "传感器报告了安装限制；诊断资料由页面控制"
+  },
+  "coverage_flag_throttled": {
+    "message": "事件流受到限速"
+  },
+  "coverage_flag_unsupported_realm": {
+    "message": "部分执行上下文唔支援"
+  },
+  "coverage_flag_channel_gap": {
+    "message": "页面通道存在缺口或冲突；资料由页面控制"
+  },
+  "coverage_flag_truncated": {
+    "message": "因内存限制，详情已被截减"
+  },
+  "coverage_flag_paused": {
+    "message": "观察已暂停"
+  },
+  "coverage_flag_revoked": {
+    "message": "访问权限已撤销"
+  },
+  "coverage_flag_protocol_mismatch": {
+    "message": "传感器版本已过时，请重新载入页面"
+  },
+  "coverage_flag_descriptor_nonconfigurable": {
+    "message": "部分 API 冇办法观察：属性描述符受保护"
+  },
+  "coverage_flag_bridge_ring_overflow": {
+    "message": "传输缓冲区溢出，部分资料已丢失"
+  },
+  "coverage_flag_budget_exceeded": {
+    "message": "已超过文档观察资料限制，部分详情未保留"
+  },
+  "coverage_flag_no_host_permission": {
+    "message": "网络观察受权限限制"
+  },
+  "coverage_flag_restricted_page": {
+    "message": "受限制嘅浏览器页面"
+  },
+  "coverage_flag_worker_not_observed": {
+    "message": "唔观察 Workers"
+  },
+  "state_scope_off_title": {
+    "message": "观察已关闭"
+  },
+  "state_no_report_title": {
+    "message": "尚无报告"
+  },
+  "state_no_report_desc": {
+    "message": "呢个文档尚无观察结果。如果页面系在启用观察前打开嘅，请重新载入。"
+  },
+  "state_unsupported_chrome_title": {
+    "message": "唔支援呢个 Chrome 版本"
+  },
+  "state_sw_unavailable_title": {
+    "message": "后台进程无响应"
+  },
+  "state_sw_unavailable_desc": {
+    "message": "扩展嘅后台进程未响应。请关闭并重新打开呢个窗口；如果错误仲然存在，请重启扩展。"
+  },
+  "status_active": {
+    "message": "观察紧"
+  },
+  "status_partial": {
+    "message": "部分"
+  },
+  "status_late_start": {
+    "message": "开始得迟"
+  },
+  "status_paused": {
+    "message": "暂停咗"
+  },
+  "status_unsupported": {
+    "message": "用唔到"
+  },
+  "status_no_access": {
+    "message": "冇权限"
+  },
+  "status_degraded": {
+    "message": "受限制"
+  },
+  "status_off": {
+    "message": "关闭"
+  },
+  "status_no_report": {
+    "message": "未有报告"
+  },
+  "status_error": {
+    "message": "错误"
+  },
+  "host_unknown": {
+    "message": "主机未知"
+  },
+  "observed_since": {
+    "message": "自 $TIME$ 起观察",
+    "placeholders": {
+      "time": {
+        "content": "$1"
+      }
+    }
+  },
+  "document_label": {
+    "message": "文档"
+  },
+  "empty_no_findings": {
+    "message": "呢个时段内，在已观察区域中冇发现结果"
+  },
+  "empty_no_findings_hint": {
+    "message": "这唔系网站安全性评估。请查看上方嘅观察范围。"
+  },
+  "findings_title": {
+    "message": "扩展观察到了什么"
+  },
+  "techniques_title": {
+    "message": "已观察到嘅技术"
+  },
+  "techniques_none": {
+    "message": "在可访问区域中未观察到任何技术。"
+  },
+  "more_in_panel": {
+    "message": "侧边栏中还有 $N$ 项",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "level_observation": {
+    "message": "观察结果"
+  },
+  "level_interpretation": {
+    "message": "解释"
+  },
+  "level_purpose": {
+    "message": "通常用途"
+  },
+  "card_api_use_label": {
+    "message": "使用嘅 API"
+  },
+  "card_api_use_generic": {
+    "message": "使用了 $API$ — $COUNT$",
+    "placeholders": {
+      "api": {
+        "content": "$1"
+      },
+      "count": {
+        "content": "$2"
+      }
+    }
+  },
+  "card_api_use_canvas_export": {
+    "message": "调用了 Canvas 导出（$API$）— $COUNT$",
+    "placeholders": {
+      "api": {
+        "content": "$1"
+      },
+      "count": {
+        "content": "$2"
+      }
+    }
+  },
+  "card_api_use_canvas_readback": {
+    "message": "调用了 Canvas 像素读取（$API$）— $COUNT$",
+    "placeholders": {
+      "api": {
+        "content": "$1"
+      },
+      "count": {
+        "content": "$2"
+      }
+    }
+  },
+  "card_api_use_canvas_text": {
+    "message": "Canvas 文本测量或绘制调用 — $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "card_api_use_offscreen": {
+    "message": "在文档中使用了 OffscreenCanvas — $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "card_api_use_math": {
+    "message": "一系列 Math.* 调用 — $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "card_api_use_webrtc": {
+    "message": "WebRTC API 使用（$API$）— $COUNT$",
+    "placeholders": {
+      "api": {
+        "content": "$1"
+      },
+      "count": {
+        "content": "$2"
+      }
+    }
+  },
+  "card_api_use_local_probe": {
+    "message": "本地连接尝试 — $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "card_api_use_dns": {
+    "message": "向唯一子域名发起嘅请求 — $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "card_api_use_attempt_only": {
+    "message": "净系为尝试：调用抛出了异常，未向页面返回结果"
+  },
+  "card_api_use_generic_note": {
+    "message": "API 调用本身属于正常行为，并唔可以证明存在跟踪。"
+  },
+  "card_api_use_purpose": {
+    "message": "一般而言，呢个机制可用于识别浏览器。"
+  },
+  "card_purpose_local_probe": {
+    "message": "本地连接可用于正常嘅应用集成或检查本地服务。尚冇办法确定页面嘅目的。"
+  },
+  "card_purpose_dns": {
+    "message": "一般而言，呢个类请求序列可用于测试 DNS 解析器。"
+  },
+  "card_fp_label": {
+    "message": "指纹计算迹象"
+  },
+  "card_fp_generic": {
+    "message": "调用序列类似于构建指纹嘅过程"
+  },
+  "card_fp_canvas_sequence": {
+    "message": "绘制文本后进行嘅一系列读取，类似于构建指纹嘅过程"
+  },
+  "card_fp_math_sequence": {
+    "message": "一系列数值检查类似于已知模式"
+  },
+  "card_fp_local_probe": {
+    "message": "向同一本地地址嘅唔同端口发起嘅一系列尝试同端口扫描相似。"
+  },
+  "inspector_group_local_probe": {
+    "message": "本地端口检查"
+  },
+  "inspector_local_probe_desc": {
+    "message": "观察到了向本地地址或端口发起嘅连接尝试。单次尝试唔够以认定为扫描。呢啲观察冇办法确定端口系咪开放或系咪已连接到服务。"
+  },
+  "card_local_probe_attempt": {
+    "message": "本地连接尝试"
+  },
+  "card_local_probe_pattern": {
+    "message": "可能嘅端口扫描"
+  },
+  "card_fp_dns_pattern": {
+    "message": "观察到了向唯一子域名发起嘅一系列请求；DNS 测试中也会出现这种行为。呢个扩展冇办法确定使用了哪个解析器。"
+  },
+  "card_fp_webrtc": {
+    "message": "页面使用了 WebRTC。呢个机制能够访问网络信息。"
+  },
+  "card_fp_not_proven": {
+    "message": "呢个观察结果冇办法确定用途、结果嘅唯一性或系咪传输了结果。"
+  },
+  "card_fp_alternatives": {
+    "message": "正常用途解释：$ALTERNATIVES$",
+    "placeholders": {
+      "alternatives": {
+        "content": "$1"
+      }
+    }
+  },
+  "card_fp_insufficient": {
+    "message": "资料唔够，冇办法得出结论"
+  },
+  "confidence_low": {
+    "message": "解释置信度低"
+  },
+  "confidence_medium": {
+    "message": "解释置信度中等"
+  },
+  "confidence_high": {
+    "message": "解释置信度高"
+  },
+  "confidence_unassessed": {
+    "message": "尚未评估置信度"
+  },
+  "card_vendor_found": {
+    "message": "发现了集成 $VENDOR$ 嘅迹象",
+    "placeholders": {
+      "vendor": {
+        "content": "$1"
+      }
+    }
+  },
+  "card_vendor_purpose": {
+    "message": "服务用途：$PURPOSE$。这唔系网站安全性评估。",
+    "placeholders": {
+      "purpose": {
+        "content": "$1"
+      }
+    }
+  },
+  "card_vendor_threatmetrix_purpose": {
+    "message": "风险评估同数字身份"
+  },
+  "card_vendor_purpose_generic": {
+    "message": "机器人防护、风险评估或身份识别"
+  },
+  "card_vendor_rules": {
+    "message": "规则：$RULES$；匹配来源：$SOURCE$",
+    "placeholders": {
+      "rules": {
+        "content": "$1"
+      },
+      "source": {
+        "content": "$2"
+      }
+    }
+  },
+  "card_vendor_match_documented_resource": {
+    "message": "同有文档依据嘅资源匹配"
+  },
+  "card_vendor_match_multi_signal": {
+    "message": "多个独立信号"
+  },
+  "card_vendor_match_weak_signal": {
+    "message": "发现集成元素（弱信号，可能由页面伪造）"
+  },
+  "card_vendor_match_none": {
+    "message": "无匹配"
+  },
+  "card_vendor_not_linked": {
+    "message": "尚未确定呢个服务同页面上其他观察结果之间嘅联系。"
+  },
+  "card_vendor_resource_note": {
+    "message": "匹配针对请求嘅资源。它唔可以证明该服务嘅代码已经运行，或导致了所观察到嘅 API 调用。"
+  },
+  "card_vendor_unknown": {
+    "message": "服务提供方未知"
+  },
+  "card_vendor_no_trust": {
+    "message": "识别出服务并唔等于评估了网站安全性，也唔意味着所有检查都由该服务执行。"
+  },
+  "integrity_browser_observed": {
+    "message": "由浏览器观察到"
+  },
+  "integrity_page_controlled": {
+    "message": "资料来自页面上下文，可能被伪造"
+  },
+  "integrity_derived": {
+    "message": "由扩展推导"
+  },
+  "evidence_browser_network": {
+    "message": "浏览器网络事件"
+  },
+  "evidence_browser_navigation": {
+    "message": "浏览器导航"
+  },
+  "evidence_page_hook": {
+    "message": "页面上下文中嘅 API 钩子"
+  },
+  "evidence_page_dom": {
+    "message": "页面 DOM"
+  },
+  "evidence_derived": {
+    "message": "推导所得"
+  },
+  "attribution_exact_resource": {
+    "message": "调用来源：确切资源"
+  },
+  "attribution_sampled_stack": {
+    "message": "调用来源基于堆栈样本（可能产生误导）"
+  },
+  "attribution_frame_only": {
+    "message": "净系能确定框架"
+  },
+  "attribution_unknown": {
+    "message": "调用来源未知"
+  },
+  "count_exact": {
+    "message": "精确计数"
+  },
+  "count_sampled": {
+    "message": "采样计数"
+  },
+  "count_lower_bound": {
+    "message": "至少为呢个数量，资料曾丢失"
+  },
+  "count_value_sampled": {
+    "message": "约 $N$（采样）",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "count_value_lower_bound": {
+    "message": "至少 $N$",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "phase_attempted": {
+    "message": "已尝试"
+  },
+  "phase_returned_sync": {
+    "message": "已返回结果"
+  },
+  "phase_threw_sync": {
+    "message": "抛出异常"
+  },
+  "phase_async_returned": {
+    "message": "异步结果"
+  },
+  "phase_settlement_unobserved": {
+    "message": "未观察异步完成状态"
+  },
+  "detail_show": {
+    "message": "详情"
+  },
+  "detail_api": {
+    "message": "API"
+  },
+  "detail_technique": {
+    "message": "技术"
+  },
+  "detail_category": {
+    "message": "类别"
+  },
+  "detail_evidence": {
+    "message": "资料来源"
+  },
+  "detail_rule": {
+    "message": "规则"
+  },
+  "detail_finding_id": {
+    "message": "发现结果"
+  },
+  "detail_evidence_ids": {
+    "message": "观察结果"
+  },
+  "detail_counts": {
+    "message": "计数器"
+  },
+  "detail_phases": {
+    "message": "阶段"
+  },
+  "detail_limitations": {
+    "message": "限制"
+  },
+  "detail_alternatives": {
+    "message": "正常用途解释"
+  },
+  "detail_attribution": {
+    "message": "来源归属"
+  },
+  "detail_none": {
+    "message": "无"
+  },
+  "category_graphics": {
+    "message": "图形、几何、字体"
+  },
+  "category_audio": {
+    "message": "音频、媒体同计算"
+  },
+  "category_environment": {
+    "message": "浏览器环境、屏幕同区域设置"
+  },
+  "category_permissions": {
+    "message": "权限、设备、交互"
+  },
+  "category_storage": {
+    "message": "储存同标识符"
+  },
+  "category_network": {
+    "message": "网络（覆盖范围明确唔完整）"
+  },
+  "action_pause": {
+    "message": "暂停呢份文件嘅观察"
+  },
+  "action_resume": {
+    "message": "继续观察"
+  },
+  "action_reload": {
+    "message": "重新载入，由头分析"
+  },
+  "action_clear": {
+    "message": "删除呢份文件嘅报告"
+  },
+  "action_export": {
+    "message": "导出（预览）"
+  },
+  "action_refresh": {
+    "message": "更新"
+  },
+  "action_apply": {
+    "message": "套用"
+  },
+  "action_cancel": {
+    "message": "取消"
+  },
+  "action_dismiss": {
+    "message": "关闭"
+  },
+  "open_sidepanel": {
+    "message": "打开侧边栏"
+  },
+  "open_options": {
+    "message": "设置"
+  },
+  "export_preview_title": {
+    "message": "导出预览"
+  },
+  "export_preview_desc": {
+    "message": "净系包含下列字段（已脱敏）。唔包含完整 URL、Cookie 值、API 结果或输入内容。"
+  },
+  "export_host_warning": {
+    "message": "文件包含页面主机名：$HOST$。非必要请勿分享。",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "export_fields_title": {
+    "message": "文件字段"
+  },
+  "export_json_title": {
+    "message": "完整 JSON 内容"
+  },
+  "export_save": {
+    "message": "保存文件"
+  },
+  "export_document_changed": {
+    "message": "文档已更改，请重新打开预览。"
+  },
+  "export_unavailable": {
+    "message": "冇办法导出：冇权限访问页面或冇报告。"
+  },
+  "export_saved": {
+    "message": "文件已保存。"
+  },
+  "export_not_implemented": {
+    "message": "后台进程尚唔支援导出预览。"
+  },
+  "mode_off": {
+    "message": "关闭"
+  },
+  "mode_off_desc": {
+    "message": "后台观察已关闭，唔会创建报告。"
+  },
+  "mode_active_tab": {
+    "message": "由而家开始检查"
+  },
+  "mode_active_tab_desc": {
+    "message": "观察启用后嘅活动；早期调用可能已被遗漏。"
+  },
+  "mode_site": {
+    "message": "一直观察呢个网站"
+  },
+  "mode_site_desc": {
+    "message": "下次加载时观察获准文档中嘅早期调用；第三方网络活动可能净系部分可见。"
+  },
+  "mode_all": {
+    "message": "观察全部网站"
+  },
+  "mode_all_desc": {
+    "message": "提供最广泛嘅访问范围，但唔保证完整覆盖 Workers、DNS 或服务器端逻辑。"
+  },
+  "scope_permission_denied": {
+    "message": "未获得权限，范围保持唔变。"
+  },
+  "scope_permission_granted_reload": {
+    "message": "已获得访问权限。请重新载入页面以从头分析。"
+  },
+  "scope_site_host_unknown": {
+    "message": "而家嘅页面嘅主机名未知：请先启用“从而家起检查”，或在设置中输入主机名。"
+  },
+  "scope_host_input_label": {
+    "message": "网站主机名"
+  },
+  "scope_host_invalid": {
+    "message": "请输入主机名，例如 example.com"
+  },
+  "scope_current": {
+    "message": "而家嘅范围：$MODE$",
+    "placeholders": {
+      "mode": {
+        "content": "$1"
+      }
+    }
+  },
+  "scope_hosts_list": {
+    "message": "始终观察嘅网站"
+  },
+  "scope_hosts_none": {
+    "message": "无"
+  },
+  "scope_granted_all": {
+    "message": "浏览器已授予广泛嘅网站访问权限。"
+  },
+  "scope_error": {
+    "message": "冇办法更改范围：$CODE$",
+    "placeholders": {
+      "code": {
+        "content": "$1"
+      }
+    }
+  },
+  "scope_applied": {
+    "message": "观察范围已更新。"
+  },
+  "scope_applied_reload": {
+    "message": "观察范围已更新。请重新载入页面，以从页面加载时开始观察。"
+  },
+  "options_onboarding_title": {
+    "message": "呢个扩展嘅作用"
+  },
+  "onboarding_limits": {
+    "message": "默认观察模式保留 API 结果。可选阻止在明确启用前保持关闭，启用后可能导致网站故障。包装函数可被检测并增加执行时间；唔保证完整覆盖。"
+  },
+  "onboarding_no_server": {
+    "message": "呢个扩展唔发送分析结果，也唔连接开发者嘅服务器。"
+  },
+  "options_clear_session": {
+    "message": "清除会话资料"
+  },
+  "options_clear_session_desc": {
+    "message": "从会话内存中删除所有文档报告，保留设置。"
+  },
+  "options_clear_done": {
+    "message": "会话资料已删除。"
+  },
+  "options_clear_unavailable": {
+    "message": "呢个版本尚唔支援呢个操作。"
+  },
+  "options_inventory_title": {
+    "message": "储存哪些资料"
+  },
+  "inventory_session": {
+    "message": "文档报告净系保存在会话内存中（chrome.storage.session）。唔活动满 10 分钟后，会在下一个扩展事件发生时删除资料；检查频率最高为每 30 秒一次，唔系恰好在 10 分钟时删除。关闭标签页也会触发删除；重启浏览器会清空会话。"
+  },
+  "inventory_local": {
+    "message": "设置，以及你嘅 Antidetect、Proxy、Firewall 同自动浏览资料，会一直保存喺呢部电脑嘅 chrome.storage.local 同扩展资料库入面，直到你删除为止；完整清单见隐私政策。"
+  },
+  "inventory_never": {
+    "message": "从唔储存：音频样本、Math 参数同结果、完整 URL、请求头同请求体、按键、表单文本，或客户端同对端 IP 地址。Canvas/WebGL 图像净系保留在内存中。已配置嘅 ICE 服务器端点使用独立且受限嘅会话储存。 Pro 记录期间，已传送 Cookie 嘅名称同数值，以及固定列表入面技术性请求头嘅数值，会储存喺本地，用嚟生成报告。"
+  },
+  "inventory_export": {
+    "message": "Light Mode (JSON): 导出文件净系包含预览中显示嘅字段。除非你明确选择包含页面主机名，否则唔会导出它；图像同 WebRTC 连接详情唔会导出。"
+  },
+  "inventory_sync": {
+    "message": "冇用到浏览器账号同步、统计分析同遥测，亦唔会向开发者发送任何嘢。网络请求净系喺你自己启动嘅时候先会发生（连接 Cloudflare 区域、你开启咗嘅地理位置查询、你嘅代理同本机助手、代理检查、自动浏览），另外仲会自动加载观察范围内页面嘅图标；详情见隐私政策。"
+  },
+  "inventory_link": {
+    "message": "完整资料清单：项目仓库中嘅 docs/data-inventory.md。"
+  },
+  "tab_overview": {
+    "message": "概览"
+  },
+  "tab_techniques": {
+    "message": "技术"
+  },
+  "tab_sources": {
+    "message": "来源"
+  },
+  "tab_limits": {
+    "message": "限制"
+  },
+  "group_techniques": {
+    "message": "技术"
+  },
+  "group_services": {
+    "message": "服务"
+  },
+  "group_third_party": {
+    "message": "第三方来源"
+  },
+  "counts_unavailable": {
+    "message": "报告视图中无资料"
+  },
+  "search_label": {
+    "message": "搜索技术同 API"
+  },
+  "search_placeholder": {
+    "message": "技术、API 或规则"
+  },
+  "search_empty": {
+    "message": "冇同查询匹配嘅结果"
+  },
+  "sources_hosts_title": {
+    "message": "主机（由浏览器观察到）"
+  },
+  "sources_none": {
+    "message": "呢个报告视图唔提供第三方主机列表。只有同时获得网站同请求来源嘅权限时，才能看到网络事件。"
+  },
+  "sources_requests": {
+    "message": "请求数：$N$",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "dropped_title": {
+    "message": "因限制而丢弃"
+  },
+  "dropped_observations": {
+    "message": "观察记录"
+  },
+  "dropped_batches": {
+    "message": "批次"
+  },
+  "dropped_findings": {
+    "message": "发现结果"
+  },
+  "dropped_hosts": {
+    "message": "主机"
+  },
+  "dropped_counters": {
+    "message": "计数器"
+  },
+  "dropped_transport": {
+    "message": "传输"
+  },
+  "error_invalid_request": {
+    "message": "请求无效"
+  },
+  "error_unauthorized_sender": {
+    "message": "发送方未获授权"
+  },
+  "error_not_found": {
+    "message": "未找到报告：文档可能已更改"
+  },
+  "error_stale_revision": {
+    "message": "报告已更改，操作已取消"
+  },
+  "error_document_mismatch": {
+    "message": "文档已更改，操作已取消"
+  },
+  "error_no_access": {
+    "message": "冇权限访问页面"
+  },
+  "error_not_implemented": {
+    "message": "尚唔支援呢个操作"
+  },
+  "error_unavailable": {
+    "message": "后台进程未响应"
+  },
+  "scope_active_tab_toolbar": {
+    "message": "要开始观察而家嘅标签页，请通过 Chrome 工具栏按钮打开扩展，然后选择“从而家起检查”。"
+  },
+  "export_include_host": {
+    "message": "在导出中包含页面主机名："
+  },
+  "vendors_catalog_unavailable": {
+    "message": "服务目录已停用：未执行服务识别。"
+  },
+  "limitation_page_controlled_evidence": {
+    "message": "呢啲观察结果来自页面上下文，可能被页面伪造。"
+  },
+  "limitation_purpose_unknown": {
+    "message": "API 调用嘅用途未知。"
+  },
+  "limitation_uniqueness_not_established": {
+    "message": "未测试结果嘅唯一性同稳定性。"
+  },
+  "limitation_readback_attempted_failed": {
+    "message": "至少有一次读取尝试抛出了异常；这唔可以证明读取成功。"
+  },
+  "limitation_uncalibrated_threshold": {
+    "message": "规则阈值尚未通过示例语料库校准。"
+  },
+  "limitation_coverage_incomplete": {
+    "message": "观察覆盖范围唔完整；可能遗漏了部分调用。"
+  },
+  "limitation_catalog_disabled": {
+    "message": "服务目录已停用；未检查观察结果同服务提供方之间嘅联系。"
+  },
+  "limitation_text_ops_undifferentiated": {
+    "message": "文本测量同绘制合并计数；各自嘅次数未知。"
+  },
+  "limitation_no_time_window": {
+    "message": "计数覆盖文档整个生命周期，唔可以显示某个独立短时段内嘅活动。"
+  },
+  "alternative_high_volume_rendering": {
+    "message": "普通编辑或图表绘制也可能产生大量文本操作。"
+  },
+  "coverage_flag_network_limited": {
+    "message": "网络观察受可用权限限制"
+  },
+  "coverage_flag_frames_inaccessible": {
+    "message": "对部分框架嘅观察受限或尚未确认"
+  },
+  "aria_live_update": {
+    "message": "报告已更新。发现结果：$N$；观察状态 — $STATE$",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      },
+      "state": {
+        "content": "$2"
+      }
+    }
+  },
+  "badge_tooltip": {
+    "message": "呢个分页同佢嘅框架入面观察到嘅技术数：$N$",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "coverage_sensor_disabled_desc": {
+    "message": "传感器 $SENSOR$ 已停用（$REASON$），唔会观察呢啲 API 嘅调用。",
+    "placeholders": {
+      "sensor": {
+        "content": "$1"
+      },
+      "reason": {
+        "content": "$2"
+      }
+    }
+  },
+  "card_vendor_first_party": {
+    "message": "在网站自有域名嘅端点上观察到了服务提供方特征"
+  },
+  "options_diagnostics_title": {
+    "message": "扩展诊断"
+  },
+  "options_diagnostics_desc": {
+    "message": "净系包含版本同后台可用性，唔包含页面地址或报告资料。"
+  },
+  "options_diagnostics_preview": {
+    "message": "预览诊断报告"
+  },
+  "frame_document_label": {
+    "message": "而家嘅显示嘅文档"
+  },
+  "frame_main": {
+    "message": "主文档"
+  },
+  "frame_child": {
+    "message": "嵌入页面 $N$",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "frame_separate_hint": {
+    "message": "拣咗嘅文件"
+  },
+  "frame_limit_hint": {
+    "message": "净系列出前 128 个文档。页面中可能还有更多嵌入页面。"
+  },
+  "visual_title": {
+    "message": "页面读取嘅图像"
+  },
+  "visual_consent": {
+    "message": "在观察开始后嘅前 60 秒内，自动捕获页面已经读取嘅受支持图像。图像净系保留在内存中，唔包含在报告同导出中。"
+  },
+  "visual_enable": {
+    "message": "显示图像 60 秒"
+  },
+  "visual_enable_reload": {
+    "message": "启用并重新载入页面"
+  },
+  "visual_disable": {
+    "message": "隐藏并清除图像"
+  },
+  "visual_reload_scope": {
+    "message": "要捕获页面加载时嘅检查，请先为呢个网站选择持续观察。"
+  },
+  "visual_remaining": {
+    "message": "图像预览已启用：剩余 $N$ 秒",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "visual_waiting": {
+    "message": "而家喺度等待页面读取受支持嘅 Canvas 或 WebGL 图像。请重新载入页面以重复页面自身嘅检查。观察开始前读取嘅图像冇办法恢复；预览为空并唔表示冇发生检查。"
+  },
+  "visual_untrusted": {
+    "message": "来源：由页面控制嘅像素。页面可以修改呢个图像；净系凭图像唔可以证明存在指纹识别行为，也唔可以证明网站安全。"
+  },
+  "visual_canvas": {
+    "message": "Canvas 图像"
+  },
+  "visual_webgl": {
+    "message": "WebGL 图像"
+  },
+  "visual_source": {
+    "message": "$API$ · $WIDTH$ × $HEIGHT$ 像素",
+    "placeholders": {
+      "api": {
+        "content": "$1"
+      },
+      "width": {
+        "content": "$2"
+      },
+      "height": {
+        "content": "$3"
+      }
+    }
+  },
+  "visual_decode_error": {
+    "message": "冇办法显示收到嘅图像：唔支援其格式或尺寸。"
+  },
+  "inspector_total": {
+    "message": "已观察到嘅子技术"
+  },
+  "inspector_other_documents": {
+    "message": "其他文档中嘅技术"
+  },
+  "inspector_other_documents_desc": {
+    "message": "展开一行以查看对应文档。计数、图像同导出仲按文档分别保留。"
+  },
+  "inspector_other_documents_limit": {
+    "message": "呢个概览检查前 $N$ 个其他文档。如果想查看更多框架，请使用文档选择器。",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "inspector_group": {
+    "message": "技术"
+  },
+  "inspector_found": {
+    "message": "已发现"
+  },
+  "inspector_group_canvas": {
+    "message": "Canvas"
+  },
+  "inspector_group_webgl": {
+    "message": "WebGL"
+  },
+  "inspector_group_webgpu": {
+    "message": "WebGPU"
+  },
+  "inspector_group_clientrects": {
+    "message": "ClientRects / DOM 几何"
+  },
+  "inspector_group_svg_geometry": {
+    "message": "SVG 几何"
+  },
+  "inspector_group_fonts": {
+    "message": "字体"
+  },
+  "inspector_group_css_styles": {
+    "message": "CSS 样式"
+  },
+  "inspector_clientrects_desc": {
+    "message": "矩形同尺寸测量既可用于指纹识别，也可用于正常页面布局。呢啲计数冇办法确定其用途。唔保留精确坐标。"
+  },
+  "inspector_api_family_desc": {
+    "message": "API 列表描述嘅系一组相关接口。呢啲计数唔会区分单独嘅方法或属性，也唔可以确定调用嘅用途。"
+  },
+  "inspector_group_math": {
+    "message": "Math"
+  },
+  "inspector_group_audio": {
+    "message": "音频 / 媒体"
+  },
+  "inspector_group_environment": {
+    "message": "浏览器 / 设备"
+  },
+  "inspector_group_display": {
+    "message": "屏幕 / 显示器"
+  },
+  "inspector_group_cpu": {
+    "message": "CPU 核心"
+  },
+  "inspector_group_memory": {
+    "message": "内存"
+  },
+  "inspector_group_performance": {
+    "message": "性能 / 计时"
+  },
+  "inspector_display_desc": {
+    "message": "对屏幕、窗口同显示器信息嘅请求。 Pro 录制紧嗰阵，拣咗嘅技术结果会储存喺本地。 发出请求并唔可以证明获得了显示器列表嘅访问权限。"
+  },
+  "inspector_cpu_desc": {
+    "message": "hardwareConcurrency 提供浏览器估算嘅可用逻辑处理器数量。 Pro 录制紧嗰阵，拣咗嘅技术结果会储存喺本地。 唔会确定物理 CPU 核心数。"
+  },
+  "inspector_memory_desc": {
+    "message": "Device Memory 提供大致嘅内存档位，而唔系实际安装嘅精确内存容量。 Pro 录制紧嗰阵，拣咗嘅技术结果会储存喺本地。"
+  },
+  "inspector_performance_desc": {
+    "message": "计时器同 Performance API 可用于基准测试、动画同分析。 Pro 录制紧嗰阵，拣咗嘅技术结果会储存喺本地。 呢啲观察结果冇办法确定调用用途。"
+  },
+  "inspector_group_permissions": {
+    "message": "权限 / 传感器"
+  },
+  "inspector_group_storage": {
+    "message": "储存"
+  },
+  "inspector_group_network": {
+    "message": "网络"
+  },
+  "inspector_group_webrtc": {
+    "message": "WebRTC"
+  },
+  "rtc_title": {
+    "message": "已观察到嘅连接"
+  },
+  "rtc_scope_note": {
+    "message": "净系涵盖呢个文档同观察时段。钩子安装前或唔可访问上下文中嘅连接可能缺失。"
+  },
+  "rtc_total": {
+    "message": "已保留：$SHOWN$ · 已观察对象：$TOTAL$",
+    "placeholders": {
+      "shown": {
+        "content": "$1"
+      },
+      "total": {
+        "content": "$2"
+      }
+    }
+  },
+  "rtc_connection": {
+    "message": "连接 $N$",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "rtc_created_unknown": {
+    "message": "未观察到呢个对象嘅构造过程。"
+  },
+  "rtc_closed_retained": {
+    "message": "观察到了 close() 调用。呢个记录在连接关闭后仲被保留。"
+  },
+  "rtc_connected_observed": {
+    "message": "呢个连接曾被观察到处于已连接状态。"
+  },
+  "rtc_connected_unobserved": {
+    "message": "未观察到已连接状态。"
+  },
+  "rtc_configuration_changes": {
+    "message": "成功重新配置嘅调用数：$N$",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "rtc_state_new": {
+    "message": "最后状态：新建"
+  },
+  "rtc_state_connecting": {
+    "message": "最后状态：而家喺度连接"
+  },
+  "rtc_state_connected": {
+    "message": "最后状态：已连接"
+  },
+  "rtc_state_disconnected": {
+    "message": "最后状态：已断开"
+  },
+  "rtc_state_failed": {
+    "message": "最后状态：失败"
+  },
+  "rtc_state_closed": {
+    "message": "最后状态：已关闭"
+  },
+  "rtc_state_unknown": {
+    "message": "状态未知"
+  },
+  "rtc_duration_open": {
+    "message": "未观察到关闭"
+  },
+  "rtc_duration_under_1s": {
+    "message": "生命周期少于 1 秒"
+  },
+  "rtc_duration_1_10s": {
+    "message": "生命周期为 1–10 秒"
+  },
+  "rtc_duration_10s_plus": {
+    "message": "生命周期为 10 秒或更长"
+  },
+  "rtc_duration_unknown": {
+    "message": "生命周期未知"
+  },
+  "rtc_server_configured": {
+    "message": "已配置嘅服务器"
+  },
+  "rtc_server_candidate": {
+    "message": "通过呢个服务器收集到了 ICE 候选项"
+  },
+  "rtc_server_error": {
+    "message": "呢个服务器嘅 ICE 收集出错"
+  },
+  "rtc_servers_unknown": {
+    "message": "未观察到服务器详情。这唔可以证明冇配置或使用服务器。"
+  },
+  "rtc_servers_limited": {
+    "message": "服务器详情唔完整；每个连接最多保留 8 个端点。"
+  },
+  "rtc_evidence_note": {
+    "message": "已配置唔代表曾联系该服务器。候选项或收集错误唔可以确定所选路由或系咪传输了资料。连接状态适用于整个连接。呢啲详情仲由页面控制。"
+  },
+  "rtc_empty": {
+    "message": "呢个文档在该时段内冇可用嘅连接详情。API 计数器中仲可能有观察记录。"
+  },
+  "rtc_capture_limited": {
+    "message": "连接历史唔完整。遗漏对象数：$N$；捕获限制也可能导致遗漏更新。",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "rtc_export_note": {
+    "message": "呢个独立嘅本地历史在冇更新时最多保留 10 分钟。查看历史唔会延长保留时间。服务器同连接详情唔包含在 JSON 导出中。"
+  },
+  "inspector_webrtc_desc": {
+    "message": "观察到了 WebRTC API 调用。呢啲 API 也用于正常嘅音视频通话同资料交换；净系凭调用唔可以证明存在指纹识别行为或 IP 地址泄露。"
+  },
+  "card_api_use_webrtc_network": {
+    "message": "WebRTC 网络信息请求（$API$）— $COUNT$",
+    "placeholders": {
+      "api": {
+        "content": "$1"
+      },
+      "count": {
+        "content": "$2"
+      }
+    }
+  },
+  "card_purpose_webrtc": {
+    "message": "WebRTC 支持音视频通信同资料交换。呢啲观察结果冇办法确定调用嘅用途。"
+  },
+  "inspector_page": {
+    "message": "页面主机名"
+  },
+  "inspector_document": {
+    "message": "文档 / 框架"
+  },
+  "inspector_script": {
+    "message": "脚本"
+  },
+  "inspector_script_unknown": {
+    "message": "未知 — 呢个报告只能确定文档，冇办法确定发起调用嘅脚本。"
+  },
+  "inspector_empty": {
+    "message": "呢个文档中尚未观察到受支持嘅技术。如果页面在安装扩展时已打开，请重新载入。"
+  },
+  "inspector_coverage": {
+    "message": "观察覆盖范围"
+  },
+  "inspector_image_waiting": {
+    "message": "而家喺度等待呢个页面读取受支持嘅图像。较早或极早执行嘅内联读取，同埋尺寸过大嘅图像可能被遗漏；重新载入页面可重复页面自身嘅检查。"
+  },
+  "language_label": {
+    "message": "介面语言"
+  },
+  "language_change_failed": {
+    "message": "储存唔到语言选择。请再试。"
+  },
+  "inspector_spotted": {
+    "message": "已观察到嘅技术"
+  },
+  "inspector_subtitle": {
+    "message": "反欺诈检查器"
+  },
+  "mode_light_tab": {
+    "message": "简洁模式"
+  },
+  "mode_pro_tab": {
+    "message": "专业模式"
+  },
+  "mode_save_error": {
+    "message": "冇办法保存呢个视图偏好。重新打开扩展时，它可能会恢复为默认值。"
+  },
+  "pro_title": {
+    "message": "网域录制"
+  },
+  "pro_current_domain": {
+    "message": "而家嘅域名"
+  },
+  "pro_session_domain": {
+    "message": "而家喺度记录嘅域名"
+  },
+  "pro_ready": {
+    "message": "可以开始记录"
+  },
+  "pro_recording": {
+    "message": "录制紧"
+  },
+  "pro_stopped": {
+    "message": "录制停止咗"
+  },
+  "pro_start": {
+    "message": "开始录制"
+  },
+  "pro_start_new": {
+    "message": "开始新记录"
+  },
+  "pro_stop": {
+    "message": "停止录制"
+  },
+  "pro_generate_pdf": {
+    "message": "生成 PDF"
+  },
+  "pro_pdf_hint": {
+    "message": "打开报告进行查看，或通过浏览器打印对话框会其另存为 PDF。"
+  },
+  "pro_pdf_error": {
+    "message": "冇办法打开报告预览，请重试。"
+  },
+  "pro_start_note": {
+    "message": "记录在呢个标签页同相关标签页中访问呢个网站嘅页面，最长 10 分钟。关闭呢个窗口后仲会继续记录。唔会恢复之前嘅活动；如果想观察页面加载时嘅检查，请在开始记录后重新载入页面。 Pro 记录期间，已传送 Cookie 嘅名称同数值，以及固定列表入面技术性请求头嘅数值，会储存喺本地，用嚟生成报告。"
+  },
+  "pro_replace_note": {
+    "message": "开始新记录会替换上一次会话。如有需要，请先保存之前嘅报告。"
+  },
+  "pro_unavailable": {
+    "message": "冇办法在呢个页面开始记录。请打开具有访问权限且已启用观察嘅 HTTP 或 HTTPS 网站。"
+  },
+  "pro_other_domain": {
+    "message": "呢个页面唔属于而家喺度记录嘅域名，其活动唔会加入呢个会话。"
+  },
+  "pro_elapsed": {
+    "message": "已用时间"
+  },
+  "pro_time_limit": {
+    "message": "最长记录时间：10 分钟"
+  },
+  "pro_pages_total": {
+    "message": "页面访问次数"
+  },
+  "pro_domains_total": {
+    "message": "第三方域名"
+  },
+  "pro_resources_total": {
+    "message": "资源组"
+  },
+  "pro_requests_total": {
+    "message": "请求数"
+  },
+  "pro_pages_title": {
+    "message": "已记录嘅页面访问"
+  },
+  "pro_pages_empty": {
+    "message": "尚未记录任何页面访问。"
+  },
+  "pro_visit": {
+    "message": "第 $N$ 次访问",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "pro_document_reports": {
+    "message": "文档报告数：$N$",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "pro_visit_totals": {
+    "message": "$TECHNIQUES$ 项技术 · $RESOURCES$ 个资源组",
+    "placeholders": {
+      "techniques": {
+        "content": "$1"
+      },
+      "resources": {
+        "content": "$2"
+      }
+    }
+  },
+  "pro_observed_techniques": {
+    "message": "已观察到嘅技术 ID"
+  },
+  "pro_no_techniques": {
+    "message": "今次访问中未记录到受支持嘅 API 技术。这唔可以证明冇发生检查。"
+  },
+  "pro_visit_resources": {
+    "message": "今次访问嘅资源"
+  },
+  "pro_resource_type": {
+    "message": "类型"
+  },
+  "pro_resource_requests": {
+    "message": "请求数"
+  },
+  "pro_resource_completed": {
+    "message": "已完成"
+  },
+  "pro_resource_failed": {
+    "message": "失败"
+  },
+  "pro_resource_redirects": {
+    "message": "重定向"
+  },
+  "pro_resource_status": {
+    "message": "HTTP 状态"
+  },
+  "pro_show_more": {
+    "message": "显示更多资源"
+  },
+  "pro_open_report": {
+    "message": "打开报告预览"
+  },
+  "pro_limits_title": {
+    "message": "记录限制"
+  },
+  "pro_limits_note": {
+    "message": "覆盖范围取决于页面访问权限同受支持嘅传感器。API 使用同已加载资源唔可以证明存在跟踪、代码已执行或网站安全。 敏感请求内容同图像唔包含喺呢个报告入面。"
+  },
+  "pro_dropped": {
+    "message": "已遗漏：$PAGES$ 个页面、$RESOURCES$ 个资源、$DOCUMENTS$ 个文档、$EVENTS$ 个事件。",
+    "placeholders": {
+      "pages": {
+        "content": "$1"
+      },
+      "resources": {
+        "content": "$2"
+      },
+      "documents": {
+        "content": "$3"
+      },
+      "events": {
+        "content": "$4"
+      }
+    }
+  },
+  "pro_stop_manual": {
+    "message": "你已停止记录。"
+  },
+  "pro_stop_timeout": {
+    "message": "已达到 10 分钟嘅记录时限。"
+  },
+  "pro_stop_tab_closed": {
+    "message": "而家喺度记录嘅标签页已关闭。"
+  },
+  "pro_stop_access_revoked": {
+    "message": "页面访问权限被撤销，记录已停止。"
+  },
+  "pro_stop_storage_error": {
+    "message": "冇办法保存会话资料，记录已停止。保留嘅报告可能唔完整。"
+  },
+  "pro_stop_limit": {
+    "message": "已达到记录资料限制。保留嘅报告唔完整。"
+  },
+  "report_title": {
+    "message": "浏览过程分析报告"
+  },
+  "report_preview": {
+    "message": "PDF 预览"
+  },
+  "report_save": {
+    "message": "另存为 PDF"
+  },
+  "report_print_hint": {
+    "message": "在浏览器打印对话框中选择“另存为 PDF”。PDF 会包含下方显示嘅报告。"
+  },
+  "report_recording": {
+    "message": "冇办法导出而家喺度进行嘅记录。请先停止记录。"
+  },
+  "report_unavailable": {
+    "message": "呢个记录已用唔到。"
+  },
+  "report_summary": {
+    "message": "摘要"
+  },
+  "report_started": {
+    "message": "分析开始时间"
+  },
+  "report_finished": {
+    "message": "分析结束时间"
+  },
+  "report_duration": {
+    "message": "历时"
+  },
+  "report_pages": {
+    "message": "网页"
+  },
+  "report_domains": {
+    "message": "第三方域名"
+  },
+  "report_resources": {
+    "message": "资源组"
+  },
+  "report_requests": {
+    "message": "睇到嘅请求"
+  },
+  "report_techniques": {
+    "message": "已观察到嘅技术"
+  },
+  "report_vendors": {
+    "message": "已识别嘅服务"
+  },
+  "report_map": {
+    "message": "交互关系图"
+  },
+  "report_map_note": {
+    "message": "连线表示每次页面访问期间观察到嘅资源请求。它们唔可以确定归属关系、直接嘅脚本依赖关系，也唔可以证明传输了资料。"
+  },
+  "report_page": {
+    "message": "网页"
+  },
+  "report_documents": {
+    "message": "文档同框架"
+  },
+  "report_resource_list": {
+    "message": "资源组清单"
+  },
+  "report_first_party": {
+    "message": "同一网站"
+  },
+  "report_third_party": {
+    "message": "第三方"
+  },
+  "report_unknown": {
+    "message": "关系未知"
+  },
+  "report_resource_type": {
+    "message": "资源类型"
+  },
+  "report_requests_count": {
+    "message": "请求数"
+  },
+  "report_statuses": {
+    "message": "HTTP 状态码"
+  },
+  "report_result": {
+    "message": "已观察到嘅技术"
+  },
+  "report_no_methods": {
+    "message": "该时段内，在可访问区域中未观察到受支持嘅方法。"
+  },
+  "report_no_resources": {
+    "message": "呢个网页未有捕获到资源请求。"
+  },
+  "report_no_vendors": {
+    "message": "未匹配到受支持嘅服务特征。"
+  },
+  "report_scope": {
+    "message": "记录范围同限制"
+  },
+  "report_scope_note": {
+    "message": "净系包含所记录浏览场景中观察到嘅活动。唔涵盖未访问嘅页面、唔支援嘅上下文同浏览器权限范围外嘅请求。净系凭 API 使用唔可以确定存在指纹识别行为，也唔可以作出安全性判断。"
+  },
+  "report_redaction": {
+    "message": "URL 唔包含凭据、查询字符串同片段。敏感或具有识别性嘅路径片段会被替换。唔包含图像、表单内容、请求同响应体、Cookie 或 ICE 连接详情。"
+  },
+  "report_dropped": {
+    "message": "采集限制"
+  },
+  "report_dropped_note": {
+    "message": "已达到记录限制。计数为下限，报告可能唔完整。"
+  },
+  "report_generation": {
+    "message": "本地报告 · 唔上传"
+  },
+  "report_print_failed": {
+    "message": "冇办法打开打印对话框，请重试。"
+  },
+  "report_title_unknown": {
+    "message": "无标题页面"
+  },
+  "report_map_more": {
+    "message": "其他域名列于资源清单中。"
+  },
+  "report_completed": {
+    "message": "已完成"
+  },
+  "report_failed": {
+    "message": "失败"
+  },
+  "report_redirects": {
+    "message": "重定向"
+  },
+  "report_first_seen": {
+    "message": "第一次睇到"
+  },
+  "report_last_seen": {
+    "message": "最后一次睇到"
+  },
+  "report_latency": {
+    "message": "已观察请求嘅总耗时"
+  },
+  "report_resource_groups_note": {
+    "message": "资源按脱敏后嘅 URL 模板同类型分组。唔同嘅原始 URL 可能被合并；资源组总数唔系精确嘅文件数量。"
+  },
+  "pro_limit_started_mid_page": {
+    "message": "录制在页面打开后开始。较早嘅检查可能未被记录；缓冲区中嘅观测按后台接收时间归入录制时段。"
+  },
+  "pro_limit_service_worker_restarted": {
+    "message": "记录期间后台工作进程曾重启，尚未完成嘅网络活动可能记录唔完整。"
+  },
+  "pro_limit_navigation_gap": {
+    "message": "部分活动冇办法可靠地归属到某次页面访问。"
+  },
+  "pro_limit_resource_limit": {
+    "message": "已达到资源组数量限制，部分组被遗漏。"
+  },
+  "pro_limit_page_limit": {
+    "message": "已达到页面访问次数限制，部分访问被遗漏。"
+  },
+  "pro_limit_document_limit": {
+    "message": "已达到文档数量限制，部分框架报告被遗漏。"
+  },
+  "pro_limit_event_limit": {
+    "message": "已达到事件缓冲区限制，部分活动被遗漏。"
+  },
+  "pro_limit_storage_error": {
+    "message": "部分记录资料冇办法保存。"
+  },
+  "pro_limit_permission_limited": {
+    "message": "浏览器权限限制了可记录嘅活动。"
+  },
+  "pro_limit_unsupported_contexts": {
+    "message": "唔涵盖未访问嘅页面、唔可访问嘅框架、唔支援嘅 Workers 或服务器端活动。"
+  },
+  "pro_limit_redacted_urls": {
+    "message": "URL 按脱敏后嘅模板分组。具有识别性嘅路径片段、查询字符串同片段均被省略。"
+  },
+  "inventory_pro": {
+    "message": "Pro Mode 单独录制经过脱敏嘅页面 URL、标题、资源元资料、检测结果，以及已录制请求嘅 Cookie 请求头名称同数值、固定列表入面技术性请求头嘅数值，最长 10 分钟。本地会话保留至被替换、清除或浏览器会话结束；已储存嘅报告可以留喺本地资料库，直到你删除为止。PDF 包含所分析嘅域名同报告中显示嘅详细信息，包括 Cookie 数值。Light/Pro 视图偏好保存在本地。"
+  },
+  "action_clear_results": {
+    "message": "清除结果"
+  },
+  "light_clear_results_note": {
+    "message": "清除而家嘅页面同其框架嘅结果。重新载入页面，即可再次观察加载过程。"
+  },
+  "pro_report_ready": {
+    "message": "报告准备好咗"
+  },
+  "pro_report_ready_note": {
+    "message": "打开报告进行查看，或通过浏览器打印对话框会其另存为 PDF。"
+  },
+  "pro_report_open": {
+    "message": "打开报告"
+  },
+  "pro_stop_clear": {
+    "message": "停止并清除"
+  },
+  "pro_clear_results_note": {
+    "message": "删除而家嘅活动记录同其报告，以便开始新嘅分析。"
+  },
+  "results_cleared": {
+    "message": "结果已清除。"
+  },
+  "vendors_scope_page": {
+    "message": "而家嘅页面同可访问嘅子文档"
+  },
+  "vendors_scope_recording": {
+    "message": "录制期间识别到嘅服务"
+  },
+  "vendors_mechanism": {
+    "message": "系统会已完成嘅脚本请求同 WebRTC 服务器地址同经过审核嘅规则进行匹配。这唔可以确定系哪个服务调用了其他浏览器 API。"
+  },
+  "vendors_catalog_coverage": {
+    "message": "特征库：$1 款产品 · $2 条脚本规则 · $3 条 WebRTC 服务器规则。其他、经过修改或自行托管嘅集成可能冇办法识别。"
+  },
+  "vendors_details": {
+    "message": "识别详情"
+  },
+  "vendor_match_rtc_server": {
+    "message": "WebRTC 服务器匹配"
+  },
+  "vendor_rtc_resource_note": {
+    "message": "呢个页面中观察到嘅 WebRTC 服务器同特征库中嘅地址匹配。净系凭这一点，冇办法确定服务 SDK 系咪运行、连接系咪使用了该服务器或系咪传输了资料。WebRTC 详情会分别显示服务器配置、候选项同连接状态。"
+  },
+  "inspector_group_wasm": {
+    "message": "WebAssembly"
+  },
+  "inspector_group_interaction": {
+    "message": "鼠标同指针活动"
+  },
+  "inspector_wasm_desc": {
+    "message": "页面使用了 JavaScript WebAssembly API 来编译、验证模块或创建模块实例。净系凭调用冇办法得知模块内部嘅计算、其用途或异步操作系咪成功完成。呢个页面挂钩唔涵盖 Worker 活动。"
+  },
+  "inspector_interaction_desc": {
+    "message": "观察到监听器注册尝试或指针坐标读取。呢啲 API 调用唔可以证明监听器已启用、发生了移动或进行了行为分析。唔记录坐标、轨迹或生物特征值。"
+  },
+  "interaction_listener_attempt": {
+    "message": "观察到移动监听器注册尝试。重复或已中止嘅注册也可能计入。"
+  },
+  "interaction_coordinate_read": {
+    "message": "观察到指针坐标读取。点击、拖动同合成事件嘅读取也可能计入。"
+  },
+  "permission_checks_title": {
+    "message": "观察到嘅权限检查"
+  },
+  "permission_checks_note": {
+    "message": "呢啲系网站在观察期间读取嘅状态，唔系浏览器而家嘅设置。页面策略允许唔等于权限已授予，也唔可以证明已访问硬件。多个状态可能反映唔同时刻嘅变化。"
+  },
+  "permission_checks_reads": {
+    "message": "观察到嘅读取次数"
+  },
+  "permission_kind_permission": {
+    "message": "权限状态"
+  },
+  "permission_kind_policy": {
+    "message": "页面策略"
+  },
+  "permission_result_granted": {
+    "message": "已授予"
+  },
+  "permission_result_denied": {
+    "message": "已拒绝"
+  },
+  "permission_result_prompt": {
+    "message": "prompt 状态／仲未获准"
+  },
+  "permission_result_allowed": {
+    "message": "页面策略允许"
+  },
+  "permission_result_blocked": {
+    "message": "页面策略阻止"
+  },
+  "permission_name_camera": {
+    "message": "相机"
+  },
+  "permission_name_microphone": {
+    "message": "咪高峰"
+  },
+  "permission_name_geolocation": {
+    "message": "位置"
+  },
+  "permission_name_notifications": {
+    "message": "通知"
+  },
+  "permission_name_clipboard_read": {
+    "message": "读取剪贴板"
+  },
+  "permission_name_clipboard_write": {
+    "message": "写入剪贴板"
+  },
+  "permission_name_persistent_storage": {
+    "message": "持久储存"
+  },
+  "permission_name_background_sync": {
+    "message": "后台同步"
+  },
+  "permission_name_midi": {
+    "message": "MIDI 设备"
+  },
+  "permission_name_sensors": {
+    "message": "传感器（合并类别）"
+  },
+  "permission_name_payment_handler": {
+    "message": "支付处理程序"
+  },
+  "permission_name_screen_wake_lock": {
+    "message": "屏幕唤醒锁"
+  },
+  "permission_name_window_management": {
+    "message": "窗口管理"
+  },
+  "permission_name_local_fonts": {
+    "message": "本地字体"
+  },
+  "permission_name_display_capture": {
+    "message": "屏幕捕获"
+  },
+  "permission_name_storage_access": {
+    "message": "储存访问"
+  },
+  "permission_name_unknown": {
+    "message": "未知权限"
+  },
+  "pro_graph_third_party": {
+    "message": "第三方"
+  },
+  "pro_graph_type_filter": {
+    "message": "资源类型"
+  },
+  "pro_graph_pages": {
+    "message": "页面访问次数"
+  },
+  "pro_graph_requests": {
+    "message": "请求数"
+  },
+  "pro_graph_completed": {
+    "message": "已完成"
+  },
+  "pro_graph_failed": {
+    "message": "失败"
+  },
+  "pro_graph_redirects": {
+    "message": "重定向"
+  },
+  "pro_graph_statuses": {
+    "message": "HTTP 状态码"
+  },
+  "pro_graph_resource_groups": {
+    "message": "资源组"
+  },
+  "pro_graph_title": {
+    "message": "Pro 请求图"
+  },
+  "pro_graph_domains": {
+    "message": "域名"
+  },
+  "pro_graph_all_parties": {
+    "message": "所有域名"
+  },
+  "pro_graph_all_types": {
+    "message": "所有类型"
+  },
+  "pro_graph_page": {
+    "message": "页面访问 $NUMBER$",
+    "placeholders": {
+      "number": {
+        "content": "$1"
+      }
+    }
+  },
+  "pro_graph_select_domain": {
+    "message": "拣一个域名，睇相关嘅页面访问同请求次数。"
+  },
+  "pro_graph_selected_domain": {
+    "message": "域名详情"
+  },
+  "pro_graph_clear_selection": {
+    "message": "清除选择"
+  },
+  "pro_graph_empty": {
+    "message": "冇符合条件嘅资源请求。"
+  },
+  "pro_graph_omitted": {
+    "message": "因为显示上限而隐藏：$PAGES$ 次页面访问、$DOMAINS$ 个域名、$EDGES$ 条连线。",
+    "placeholders": {
+      "pages": {
+        "content": "$1"
+      },
+      "domains": {
+        "content": "$2"
+      },
+      "edges": {
+        "content": "$3"
+      }
+    }
+  },
+  "pro_graph_graph_label": {
+    "message": "页面访问同请求域名嘅连线"
+  },
+  "pro_graph_parties": {
+    "message": "域名"
+  },
+  "pro_graph_input_limited": {
+    "message": "输入数据超出请求图嘅上限，显示结果唔完整。"
+  },
+  "identification_vendors_title": {
+    "message": "检测到嘅反欺诈系统"
+  },
+  "identification_active": {
+    "message": "主动识别"
+  },
+  "identification_passive": {
+    "message": "被动识别"
+  },
+  "identification_technique_count": {
+    "message": "检测到嘅技术：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookie_tracking_count": {
+    "message": "追踪 Cookie：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookie_permission_required": {
+    "message": "允许存取 Cookie 就可以睇佢哋嘅元数据。"
+  },
+  "cookie_allow_access": {
+    "message": "允许存取 Cookie"
+  },
+  "cookie_refresh": {
+    "message": "刷新"
+  },
+  "cookie_empty": {
+    "message": "揾唔到呢份文件嘅 Cookie。"
+  },
+  "cookie_unavailable": {
+    "message": "Cookie 元数据暂时用唔到。"
+  },
+  "cookie_loading": {
+    "message": "载入紧 Cookie 元数据…"
+  },
+  "cookie_tracking": {
+    "message": "追踪"
+  },
+  "cookie_other": {
+    "message": "其他 Cookie"
+  },
+  "cookie_name": {
+    "message": "名称"
+  },
+  "cookie_domain": {
+    "message": "域名"
+  },
+  "cookie_expiry": {
+    "message": "到期时间"
+  },
+  "cookie_session": {
+    "message": "会话"
+  },
+  "cookie_partitioned": {
+    "message": "已分区"
+  },
+  "cookie_unpartitioned": {
+    "message": "未分区"
+  },
+  "cookie_attributes": {
+    "message": "属性"
+  },
+  "cookie_limit": {
+    "message": "已达到 Cookie 显示上限。"
+  },
+  "cookie_report_title": {
+    "message": "Cookie 元数据"
+  },
+  "cookie_scope_title": {
+    "message": "网站同已载入服务嘅 Cookie"
+  },
+  "cookie_owner": {
+    "message": "服务"
+  },
+  "cookie_category": {
+    "message": "类别"
+  },
+  "cookie_purpose": {
+    "message": "用途"
+  },
+  "cookie_confidence": {
+    "message": "匹配把握程度"
+  },
+  "cookie_category_necessary": {
+    "message": "必要"
+  },
+  "cookie_category_functional": {
+    "message": "功能"
+  },
+  "cookie_category_analytics": {
+    "message": "分析"
+  },
+  "cookie_category_advertising": {
+    "message": "广告"
+  },
+  "cookie_category_security": {
+    "message": "安全"
+  },
+  "cookie_category_consent": {
+    "message": "同意"
+  },
+  "cookie_category_unknown": {
+    "message": "未知"
+  },
+  "cookie_confidence_documented": {
+    "message": "有文件依据"
+  },
+  "cookie_confidence_community": {
+    "message": "社群目录"
+  },
+  "cookie_confidence_ambiguous": {
+    "message": "唔明确"
+  },
+  "cookie_confidence_unknown": {
+    "message": "未知"
+  },
+  "tag_manager_title": {
+    "message": "Tag Manager 关联"
+  },
+  "tag_manager_source": {
+    "message": "载入器语境"
+  },
+  "tag_manager_target": {
+    "message": "服务"
+  },
+  "tag_manager_count": {
+    "message": "观察次数"
+  },
+  "tag_manager_empty": {
+    "message": "未观察到 Tag Manager 关联。"
+  },
+  "tag_manager_limit": {
+    "message": "Tag Manager 观察资料唔完整。"
+  },
+  "identification_active_empty": {
+    "message": "未观察到网页操作。"
+  },
+  "identification_third_empty": {
+    "message": "冇记录到嵌入文件入面嘅 API 活动。"
+  },
+  "identification_third_party": {
+    "message": "第三方监控"
+  },
+  "identification_cookie": {
+    "message": "Cookie"
+  },
+  "tag_manager_loading_summary": {
+    "message": "Google Tag Manager 开始载入：$SERVICES$",
+    "placeholders": {
+      "services": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookie_tab_total": {
+    "message": "Cookie · $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookie_total_count": {
+    "message": "Cookie 总数：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookie_site_count": {
+    "message": "呢个网站嘅 Cookie：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookie_other_count": {
+    "message": "显示嘅其他 Cookie：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookie_clear_site": {
+    "message": "清除呢个网站嘅 Cookie"
+  },
+  "cookie_clearing": {
+    "message": "清除紧网站 Cookie…"
+  },
+  "cookie_clear_result": {
+    "message": "已删除：$REMOVED$。失败：$FAILED$。",
+    "placeholders": {
+      "removed": {
+        "content": "$1"
+      },
+      "failed": {
+        "content": "$2"
+      }
+    }
+  },
+  "cookie_clear_unavailable": {
+    "message": "Cookie 清除功能用唔到。"
+  },
+  "cookie_clear_partial": {
+    "message": "Cookie 只清除咗一部分。"
+  },
+  "cookie_analysis": {
+    "message": "元数据分析"
+  },
+  "cookie_analysis_unknown": {
+    "message": "本地目录冇明确嘅用途配对。"
+  },
+  "cookie_analysis_host_only": {
+    "message": "范围：指定主机。"
+  },
+  "cookie_analysis_domain": {
+    "message": "范围：域名同佢嘅子域名。"
+  },
+  "cookie_analysis_secure": {
+    "message": "Secure：只限安全连接。"
+  },
+  "cookie_analysis_no_secure": {
+    "message": "冇设置 Secure 属性。"
+  },
+  "cookie_analysis_http_only": {
+    "message": "HttpOnly：网页 JavaScript 读唔到。"
+  },
+  "cookie_analysis_no_http_only": {
+    "message": "冇设置 HttpOnly 属性。"
+  },
+  "cookie_analysis_session": {
+    "message": "保存时间：浏览器会话。"
+  },
+  "cookie_analysis_persistent": {
+    "message": "保存时间：持久 Cookie。"
+  },
+  "cookie_analysis_partitioned": {
+    "message": "分区：顶层网站。"
+  },
+  "cookie_analysis_no_partition": {
+    "message": "冇分区元数据。"
+  },
+  "cookie_analysis_samesite_strict": {
+    "message": "SameSite=Strict：限制跨网站发送。"
+  },
+  "cookie_analysis_samesite_lax": {
+    "message": "SameSite=Lax：跨网站发送有限制。"
+  },
+  "cookie_analysis_samesite_no_restriction": {
+    "message": "SameSite=None：呢个属性容许跨网站使用。"
+  },
+  "cookie_analysis_samesite_unspecified": {
+    "message": "冇指定 SameSite 属性。"
+  },
+  "cookie_company_unknown": {
+    "message": "未识别公司。"
+  },
+  "cookie_value": {
+    "message": "值"
+  },
+  "cookie_value_show": {
+    "message": "显示值"
+  },
+  "cookie_value_hide": {
+    "message": "隐藏值"
+  },
+  "cookie_value_empty": {
+    "message": "空值"
+  },
+  "cookie_value_unavailable": {
+    "message": "Cookie 值暂时用唔到。"
+  },
+  "cookie_value_loading": {
+    "message": "载入紧个值…"
+  },
+  "cookie_value_limit": {
+    "message": "值显示数目已到上限。"
+  },
+  "cookie_name_reference": {
+    "message": "目录名称匹配"
+  },
+  "cookie_report_identity": {
+    "message": "Cookie / 公司"
+  },
+  "cookie_report_classification": {
+    "message": "类别 / 追踪 / 依据"
+  },
+  "cookie_report_explanation": {
+    "message": "用途 / 说明 / 来源"
+  },
+  "cookie_report_properties": {
+    "message": "属性 / 有效期"
+  },
+  "cookie_report_rows": {
+    "message": "显示咗嘅 Cookie：$SHOWN$ / $TOTAL$",
+    "placeholders": {
+      "shown": {
+        "content": "$1"
+      },
+      "total": {
+        "content": "$2"
+      }
+    }
+  },
+  "cookie_vendor_declaration": {
+    "message": "供应商声明：$VENDOR$",
+    "placeholders": {
+      "vendor": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookie_report_source": {
+    "message": "来源 $INDEX$",
+    "placeholders": {
+      "index": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookie_report_saved_at": {
+    "message": "快照：$TIME$",
+    "placeholders": {
+      "time": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookie_yes": {
+    "message": "系"
+  },
+  "cookie_no": {
+    "message": "唔系"
+  },
+  "cookie_scope_host_only": {
+    "message": "只限呢个主机"
+  },
+  "cookie_scope_domain": {
+    "message": "域名同子域名"
+  },
+  "cookie_cross_site_ancestor": {
+    "message": "有报告跨站上层语境"
+  },
+  "cookie_no_cross_site_ancestor": {
+    "message": "有报告冇跨站上层语境"
+  },
+  "cookie_ancestor_unreported": {
+    "message": "冇报告上层语境嘅状态"
+  },
+  "cookie_purpose_declared": {
+    "message": "供应商声明嘅用途：$PURPOSES$。",
+    "placeholders": {
+      "purposes": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookie_purpose_storage": {
+    "message": "喺设备储存同存取数据"
+  },
+  "cookie_purpose_basic_advertising": {
+    "message": "基本广告"
+  },
+  "cookie_purpose_advertising_profile": {
+    "message": "建立广告档案"
+  },
+  "cookie_purpose_personalised_advertising": {
+    "message": "个人化广告"
+  },
+  "cookie_purpose_content_profile": {
+    "message": "建立内容兴趣档案"
+  },
+  "cookie_purpose_personalised_content": {
+    "message": "个人化内容"
+  },
+  "cookie_purpose_advertising_measurement": {
+    "message": "量度广告成效"
+  },
+  "cookie_purpose_content_measurement": {
+    "message": "量度内容成效"
+  },
+  "cookie_purpose_audience_research": {
+    "message": "受众研究"
+  },
+  "cookie_purpose_service_development": {
+    "message": "开发服务"
+  },
+  "cookie_purpose_basic_content": {
+    "message": "基本内容选择"
+  },
+  "cookie_purpose_security": {
+    "message": "保安同防止欺诈"
+  },
+  "cookie_purpose_delivery": {
+    "message": "派发广告同内容"
+  },
+  "cookie_purpose_privacy_choices": {
+    "message": "私隐选择"
+  },
+  "cookie_purpose_opt_out": {
+    "message": "供应商声明呢个 Cookie 用嚟储存拒绝追踪嘅选择。"
+  },
+  "cookie_purpose_without_ids": {
+    "message": "供应商声明咗呢个 Cookie 同佢嘅网域，但冇提供 TCF 用途编号。"
+  },
+  "cookie_purpose_cookieblock_exception": {
+    "message": "CookieBlock 将呢个名称列为自动封锁嘅例外；呢点唔能确定佢嘅用途或者提供者。"
+  },
+  "identification_social": {
+    "message": "社交网络"
+  },
+  "social_title": {
+    "message": "社交服务同追踪"
+  },
+  "social_service_count": {
+    "message": "检测到嘅社交服务：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "social_empty": {
+    "message": "冇观察到社交服务嘅活动。"
+  },
+  "social_request_count": {
+    "message": "请求数：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "social_script": {
+    "message": "发起请求嘅脚本"
+  },
+  "social_initiator": {
+    "message": "发起方"
+  },
+  "social_script_unknown": {
+    "message": "冇记录到脚本"
+  },
+  "social_current_document": {
+    "message": "当前文件"
+  },
+  "social_kind_service_request": {
+    "message": "服务请求"
+  },
+  "social_kind_sdk_load": {
+    "message": "载入 SDK"
+  },
+  "social_kind_tracking_pixel": {
+    "message": "追踪像素"
+  },
+  "social_kind_embedded_content": {
+    "message": "嵌入内容"
+  },
+  "social_kind_authentication_navigation": {
+    "message": "身份验证导航"
+  },
+  "social_kind_authentication_frame": {
+    "message": "身份验证框架"
+  },
+  "social_kind_authentication_request": {
+    "message": "身份验证请求"
+  },
+  "social_kind_possible_login_probe": {
+    "message": "可能嘅登入状态探测"
+  },
+  "social_kind_manual_redirect_request": {
+    "message": "手动处理重新导向嘅请求"
+  },
+  "social_kind_fedcm_call": {
+    "message": "FedCM 调用"
+  },
+  "social_kind_login_status_api": {
+    "message": "登入状态 API"
+  },
+  "social_report_title": {
+    "message": "社交服务同追踪"
+  },
+  "social_limit": {
+    "message": "显示数目已到上限。"
+  },
+  "social_refresh": {
+    "message": "刷新"
+  },
+  "social_kind_tracking_sdk": {
+    "message": "追踪 SDK"
+  },
+  "social_tracking_services": {
+    "message": "观察到嘅追踪服务：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "social_browser_request_count": {
+    "message": "准备好嘅请求：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "social_page_action_count": {
+    "message": "网页动作：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "social_pro_documents": {
+    "message": "文件数：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "social_pro_rows": {
+    "message": "报告记录：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "social_document": {
+    "message": "文件 $NUMBER$",
+    "placeholders": {
+      "number": {
+        "content": "$1"
+      }
+    }
+  },
+  "social_service_column": {
+    "message": "服务 / 动作"
+  },
+  "social_count_column": {
+    "message": "数量 / 来源"
+  },
+  "social_method": {
+    "message": "方法"
+  },
+  "social_endpoint": {
+    "message": "端点"
+  },
+  "social_resource_type": {
+    "message": "资源类型"
+  },
+  "social_method_unknown": {
+    "message": "冇提供"
+  },
+  "social_endpoint_service": {
+    "message": "服务"
+  },
+  "social_endpoint_sdk": {
+    "message": "SDK"
+  },
+  "social_endpoint_pixel": {
+    "message": "追踪像素"
+  },
+  "social_endpoint_embed": {
+    "message": "嵌入内容"
+  },
+  "social_endpoint_login": {
+    "message": "登入"
+  },
+  "social_endpoint_oauth": {
+    "message": "OAuth"
+  },
+  "social_endpoint_fedcm": {
+    "message": "FedCM"
+  },
+  "social_endpoint_login_status": {
+    "message": "登入状态"
+  },
+  "social_resource_main_frame": {
+    "message": "主文件"
+  },
+  "social_resource_sub_frame": {
+    "message": "子文件"
+  },
+  "social_resource_stylesheet": {
+    "message": "样式表"
+  },
+  "social_resource_script": {
+    "message": "脚本"
+  },
+  "social_resource_image": {
+    "message": "图片"
+  },
+  "social_resource_font": {
+    "message": "字型"
+  },
+  "social_resource_object": {
+    "message": "对象"
+  },
+  "social_resource_xmlhttprequest": {
+    "message": "Fetch / XHR"
+  },
+  "social_resource_ping": {
+    "message": "信标 / ping"
+  },
+  "social_resource_csp_report": {
+    "message": "CSP 报告"
+  },
+  "social_resource_media": {
+    "message": "媒体"
+  },
+  "social_resource_websocket": {
+    "message": "WebSocket"
+  },
+  "social_resource_webtransport": {
+    "message": "WebTransport"
+  },
+  "social_resource_webbundle": {
+    "message": "网页资源包"
+  },
+  "social_resource_other": {
+    "message": "其他"
+  },
+  "third_party_title": {
+    "message": "第三方请求"
+  },
+  "third_party_requests_total": {
+    "message": "请求数：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "third_party_domains_total": {
+    "message": "域名数：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "third_party_resource": {
+    "message": "资源"
+  },
+  "third_party_domain": {
+    "message": "域名"
+  },
+  "third_party_type": {
+    "message": "请求类型"
+  },
+  "third_party_document": {
+    "message": "文件"
+  },
+  "third_party_initiator": {
+    "message": "发起方"
+  },
+  "third_party_status": {
+    "message": "HTTP 状态"
+  },
+  "third_party_completed": {
+    "message": "已完成"
+  },
+  "third_party_failed": {
+    "message": "失败"
+  },
+  "third_party_redirects": {
+    "message": "重新导向"
+  },
+  "third_party_script_unknown": {
+    "message": "发起请求嘅脚本唔可用"
+  },
+  "third_party_empty": {
+    "message": "冇记录到第三方请求"
+  },
+  "third_party_unavailable": {
+    "message": "请求资料唔可用"
+  },
+  "third_party_limited": {
+    "message": "资源清单已截短"
+  },
+  "third_party_requests_badge": {
+    "message": "第三方请求：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "third_party_children": {
+    "message": "嵌入文件入面嘅 API 活动"
+  },
+  "third_party_filter": {
+    "message": "按域名或资源筛选"
+  },
+  "third_party_no_filter_match": {
+    "message": "冇符合条件嘅资源"
+  },
+  "advanced_unknown": {
+    "message": "未知"
+  },
+  "advanced_unavailable": {
+    "message": "资料唔可用"
+  },
+  "advanced_truncated": {
+    "message": "结果已截短"
+  },
+  "advanced_supported": {
+    "message": "支持"
+  },
+  "advanced_unsupported": {
+    "message": "唔支持"
+  },
+  "advanced_presence_present": {
+    "message": "已传送"
+  },
+  "advanced_presence_absent": {
+    "message": "冇传送"
+  },
+  "advanced_presence_unknown": {
+    "message": "未知"
+  },
+  "advanced_presence_invalid": {
+    "message": "格式唔啱"
+  },
+  "advanced_presence_ambiguous": {
+    "message": "数值有冲突"
+  },
+  "advanced_presence_granted": {
+    "message": "已批准"
+  },
+  "advanced_presence_denied": {
+    "message": "已拒绝"
+  },
+  "advanced_presence_prompt": {
+    "message": "未获授权"
+  },
+  "advanced_presence_unsupported": {
+    "message": "唔支持"
+  },
+  "beacon_title": {
+    "message": "追踪信标解码"
+  },
+  "beacon_total": {
+    "message": "请求数：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "beacon_empty": {
+    "message": "冇记录到已知信标"
+  },
+  "beacon_money": {
+    "message": "金额"
+  },
+  "beacon_money_value": {
+    "message": "事件价值"
+  },
+  "beacon_money_goal_value": {
+    "message": "目标价值"
+  },
+  "beacon_money_revenue": {
+    "message": "收入"
+  },
+  "beacon_identifiers": {
+    "message": "识别码"
+  },
+  "beacon_consent": {
+    "message": "同意参数"
+  },
+  "beacon_fields": {
+    "message": "识别到嘅栏位"
+  },
+  "beacon_transport": {
+    "message": "传送方式"
+  },
+  "beacon_request_count": {
+    "message": "数量"
+  },
+  "beacon_script": {
+    "message": "发起请求嘅脚本"
+  },
+  "beacon_decode": {
+    "message": "解码"
+  },
+  "beacon_id_clientId": {
+    "message": "客户端识别码"
+  },
+  "beacon_id_browserId": {
+    "message": "浏览器识别码"
+  },
+  "beacon_id_sessionId": {
+    "message": "会话识别码"
+  },
+  "beacon_id_userId": {
+    "message": "用户识别码"
+  },
+  "beacon_id_hashedEmail": {
+    "message": "电邮哈希栏位"
+  },
+  "beacon_id_hashedPhone": {
+    "message": "电话号码哈希栏位"
+  },
+  "beacon_consent_gcs": {
+    "message": "gcs：储存同意"
+  },
+  "beacon_consent_gcd": {
+    "message": "gcd：同意设定"
+  },
+  "beacon_consent_adUserData": {
+    "message": "广告用户资料"
+  },
+  "beacon_consent_adPersonalization": {
+    "message": "个人化广告"
+  },
+  "beacon_field_event": {
+    "message": "事件"
+  },
+  "beacon_field_value": {
+    "message": "价值"
+  },
+  "beacon_field_currency": {
+    "message": "货币"
+  },
+  "beacon_field_client_id": {
+    "message": "客户端识别码"
+  },
+  "beacon_field_browser_id": {
+    "message": "浏览器识别码"
+  },
+  "beacon_field_session_id": {
+    "message": "会话识别码"
+  },
+  "beacon_field_user_id": {
+    "message": "用户识别码"
+  },
+  "beacon_field_hashed_email": {
+    "message": "电邮哈希"
+  },
+  "beacon_field_hashed_phone": {
+    "message": "电话号码哈希"
+  },
+  "beacon_field_consent": {
+    "message": "同意"
+  },
+  "beacon_field_conversion_id": {
+    "message": "转化识别码"
+  },
+  "beacon_decode_complete": {
+    "message": "已解码"
+  },
+  "beacon_decode_partial": {
+    "message": "部分解码"
+  },
+  "beacon_decode_invalid": {
+    "message": "格式唔啱"
+  },
+  "beacon_decode_truncated": {
+    "message": "到达解码上限"
+  },
+  "beacon_decode_ambiguous": {
+    "message": "栏位有冲突"
+  },
+  "beacon_decode_endpoint_only": {
+    "message": "识别到接收端"
+  },
+  "beacon_page_calls": {
+    "message": "页面调用同脚本"
+  },
+  "beacon_browser_requests": {
+    "message": "网络请求"
+  },
+  "beacon_event_purchase": {
+    "message": "购买"
+  },
+  "beacon_event_page_view": {
+    "message": "浏览页面"
+  },
+  "beacon_event_view_item": {
+    "message": "浏览商品"
+  },
+  "beacon_event_add_to_cart": {
+    "message": "加入购物车"
+  },
+  "beacon_event_lead": {
+    "message": "潜在客户"
+  },
+  "beacon_event_checkout": {
+    "message": "开始结账"
+  },
+  "beacon_event_login": {
+    "message": "登入"
+  },
+  "beacon_event_signup": {
+    "message": "注册"
+  },
+  "beacon_event_search": {
+    "message": "搜寻"
+  },
+  "background_title": {
+    "message": "背景活动"
+  },
+  "background_check": {
+    "message": "检查注册"
+  },
+  "background_api": {
+    "message": "API 可用情况"
+  },
+  "background_permission": {
+    "message": "权限"
+  },
+  "background_registrations": {
+    "message": "Service Worker 注册"
+  },
+  "background_subscriptions": {
+    "message": "Push 订阅"
+  },
+  "background_tasks": {
+    "message": "已注册任务"
+  },
+  "background_scope": {
+    "message": "作用范围"
+  },
+  "background_worker": {
+    "message": "Worker 脚本"
+  },
+  "background_state": {
+    "message": "Worker 状态"
+  },
+  "background_sync": {
+    "message": "Sync 任务"
+  },
+  "background_periodic_sync": {
+    "message": "Periodic Sync 任务"
+  },
+  "background_calls": {
+    "message": "观察到嘅页面调用"
+  },
+  "background_empty": {
+    "message": "冇记录到背景 API 调用"
+  },
+  "background_checked_at": {
+    "message": "状态检查时间"
+  },
+  "background_not_checked": {
+    "message": "仲未检查"
+  },
+  "background_state_activated": {
+    "message": "已启用"
+  },
+  "background_state_installing": {
+    "message": "安装中"
+  },
+  "background_state_installed": {
+    "message": "已安装"
+  },
+  "background_state_activating": {
+    "message": "启用中"
+  },
+  "background_state_redundant": {
+    "message": "已被取代"
+  },
+  "background_state_unknown": {
+    "message": "未知"
+  },
+  "cookie_probe_title": {
+    "message": "Cookie 恢复测试"
+  },
+  "cookie_probe_action_description": {
+    "message": "拣咗嘅追踪 cookie 会删除 10 秒；如果网站冇重新建立，就会放返原值。"
+  },
+  "cookie_probe_select": {
+    "message": "拣一粒追踪 cookie"
+  },
+  "cookie_probe_start": {
+    "message": "测试恢复"
+  },
+  "cookie_probe_cancel": {
+    "message": "取消测试"
+  },
+  "cookie_probe_watching": {
+    "message": "观察紧恢复情况…"
+  },
+  "cookie_probe_copies": {
+    "message": "储存空间入面相同嘅值"
+  },
+  "cookie_probe_result_none": {
+    "message": "仲未有结果"
+  },
+  "cookie_probe_result_restored_same": {
+    "message": "网站恢复咗 cookie 嘅原值"
+  },
+  "cookie_probe_result_recreated_different": {
+    "message": "出现咗数值唔同嘅 cookie"
+  },
+  "cookie_probe_result_not_restored": {
+    "message": "测试期间 cookie 冇恢复"
+  },
+  "cookie_probe_result_cancelled": {
+    "message": "测试已取消"
+  },
+  "cookie_probe_result_failed": {
+    "message": "测试失败"
+  },
+  "cookie_probe_reason_not_eligible": {
+    "message": "呢粒 cookie 唔可以测试"
+  },
+  "cookie_probe_reason_ambiguous_cookie": {
+    "message": "删除目标对应多粒 cookie"
+  },
+  "cookie_probe_reason_cookie_missing": {
+    "message": "Cookie 已经唔存在"
+  },
+  "cookie_probe_reason_delete_failed": {
+    "message": "Cookie 删除失败"
+  },
+  "cookie_probe_reason_observation_unavailable": {
+    "message": "Cookie 变更事件唔可用"
+  },
+  "cookie_probe_reason_access_changed": {
+    "message": "网站存取权限变咗"
+  },
+  "cookie_probe_reason_busy": {
+    "message": "另一项测试进行紧"
+  },
+  "cookie_probe_reason_timeout": {
+    "message": "到达时间上限"
+  },
+  "cookie_probe_reason_cookie_changed": {
+    "message": "Cookie 删除前已经变咗"
+  },
+  "cookie_probe_cleanup_restored": {
+    "message": "测试后已放返原本嘅 cookie"
+  },
+  "cookie_probe_cleanup_skipped": {
+    "message": "而家嘅网站环境放唔返原本嘅 cookie"
+  },
+  "cookie_probe_cleanup_failed": {
+    "message": "原本嘅 cookie 恢复失败"
+  },
+  "protection_page_title": {
+    "message": "拦截设定"
+  },
+  "protection_open_settings": {
+    "message": "打开拦截设定"
+  },
+  "protection_master": {
+    "message": "API Guard"
+  },
+  "protection_back": {
+    "message": "返去"
+  },
+  "protection_scope": {
+    "message": "规则范围"
+  },
+  "protection_reset": {
+    "message": "重设规则"
+  },
+  "protection_saved": {
+    "message": "设定已储存"
+  },
+  "protection_current_site": {
+    "message": "目前网站"
+  },
+  "report_data_title": {
+    "message": "网站读取咗嘅数据"
+  },
+  "report_data_parameters": {
+    "message": "参数"
+  },
+  "report_data_value": {
+    "message": "数值"
+  },
+  "report_data_document": {
+    "message": "文件"
+  },
+  "report_data_operation": {
+    "message": "网站操作"
+  },
+  "report_data_samples": {
+    "message": "记录咗嘅调用"
+  },
+  "report_data_no_values": {
+    "message": "今次记录期间冇保存技术数值。"
+  },
+  "report_data_checks": {
+    "message": "检查同 API 调用"
+  },
+  "report_data_details": {
+    "message": "记录详情"
+  },
+  "report_data_companies": {
+    "message": "检测到嘅公司同服务"
+  },
+  "cookie_purpose_visitor_differentiation": {
+    "message": "区分访客"
+  },
+  "cookie_purpose_meta_browser_attribution": {
+    "message": "Meta 广告嘅浏览器归因"
+  },
+  "cookie_purpose_php_session_identifier": {
+    "message": "默认 PHP 会话识别码：将请求同服务器端嘅会话状态关联，例如登入状态或者购物车。应用程式可以设定唔同嘅会话名称。"
+  },
+  "report_summary_values_title": {
+    "message": "浏览器数值汇总"
+  },
+  "report_summary_cookies_title": {
+    "message": "已传送 Cookie 汇总"
+  },
+  "report_summary_name": {
+    "message": "名称"
+  },
+  "report_cookie_values_unavailable": {
+    "message": "呢个浏览器提供唔到已传送 Cookie 嘅值。"
+  },
+  "report_cookie_values_limited": {
+    "message": "部分已传送 Cookie 嘅值冇记录低。"
+  },
+  "report_data_limited": {
+    "message": "部分观察结果未能记录低。"
+  },
+  "cookie_writers_title": {
+    "message": "寫入 Cookie 嘅指令碼"
+  },
+  "headers_login_status_note": {
+    "message": "畀 FedCM 用嘅登入狀態訊號。"
+  },
+  "headers_csp_note": {
+    "message": "內容載入同執行政策。"
+  },
+  "headers_hsts_note": {
+    "message": "HTTPS 連線政策。"
+  },
+  "headers_coop_note": {
+    "message": "分隔頂層瀏覽情境嘅政策。"
+  },
+  "headers_coep_note": {
+    "message": "載入跨來源資源嘅政策。"
+  },
+  "headers_frame_note": {
+    "message": "將網頁嵌入框架嘅政策。"
+  },
+  "headers_presence_note": {
+    "message": "觀察到回應標頭。"
+  },
+  "vendor_match_rtc_server_stale": {
+    "message": "WebRTC 伺服器吻合 · 規則覆核已經過期"
+  },
+  "api_mechanism_device_sensor": {
+    "message": "装置感应器"
+  },
+  "api_mechanism_webtransport": {
+    "message": "WebTransport"
+  },
+  "api_mechanism_webauthn": {
+    "message": "WebAuthn"
+  },
+  "api_mechanism_clipboard": {
+    "message": "剪贴簿"
+  },
+  "api_mechanism_worker": {
+    "message": "Worker 同 Worklet"
+  },
+  "api_mechanism_storage": {
+    "message": "储存"
+  },
+  "observation_master_label": {
+    "message": "扩展"
+  },
+  "observation_master_disable": {
+    "message": "关闭扩展"
+  },
+  "protection_feature_media_enumeration": {
+    "message": "相机同咪高峰列表"
+  },
+  "protection_feature_media_capture": {
+    "message": "相机、咪高峰同画面撷取"
+  },
+  "protection_feature_geolocation": {
+    "message": "地理位置"
+  },
+  "protection_feature_generic_sensors": {
+    "message": "动作同环境感应器"
+  },
+  "protection_feature_bluetooth": {
+    "message": "蓝牙装置"
+  },
+  "protection_feature_usb": {
+    "message": "USB 装置"
+  },
+  "protection_feature_serial": {
+    "message": "串行连接埠"
+  },
+  "protection_feature_hid": {
+    "message": "HID 装置"
+  },
+  "protection_feature_midi": {
+    "message": "MIDI 装置"
+  },
+  "protection_feature_gamepads": {
+    "message": "游戏手掣"
+  },
+  "protection_feature_speech_voices": {
+    "message": "语音合成声线"
+  },
+  "protection_feature_service_worker": {
+    "message": "Service Worker 注册"
+  },
+  "protection_feature_push": {
+    "message": "Push 推送订阅"
+  },
+  "protection_feature_background_sync": {
+    "message": "背景同步注册"
+  },
+  "protection_feature_periodic_sync": {
+    "message": "定期背景同步注册"
+  },
+  "protection_feature_notifications": {
+    "message": "通知权限要求"
+  },
+  "protection_feature_storage_estimate": {
+    "message": "储存空间配额估算"
+  },
+  "protection_group_graphics": {
+    "message": "图像同字型"
+  },
+  "protection_group_media": {
+    "message": "音讯同媒体"
+  },
+  "protection_group_device": {
+    "message": "装置同环境"
+  },
+  "protection_group_hardware": {
+    "message": "已连接装置"
+  },
+  "protection_group_background": {
+    "message": "背景活动"
+  },
+  "protection_group_browser": {
+    "message": "浏览器 API"
+  },
+  "protection_rule_count": {
+    "message": "拦截规则"
+  },
+  "protection_feature_videoframe_readback": {
+    "message": "影片帧像素读取"
+  },
+  "protection_feature_screen_extended": {
+    "message": "多个萤幕侦测"
+  },
+  "protection_feature_webcodecs_capabilities": {
+    "message": "编解码器支援查询"
+  },
+  "protection_feature_media_capabilities": {
+    "message": "媒体播放能力"
+  },
+  "protection_feature_encrypted_media": {
+    "message": "DRM 密钥系统存取"
+  },
+  "protection_feature_hdcp_policy": {
+    "message": "HDCP 状态查询"
+  },
+  "protection_feature_autoplay_policy": {
+    "message": "自动播放政策"
+  },
+  "protection_feature_webrtc_codecs": {
+    "message": "WebRTC 编解码器能力"
+  },
+  "protection_feature_device_motion": {
+    "message": "动作同方向事件"
+  },
+  "protection_feature_hardware_concurrency": {
+    "message": "CPU 核心数目"
+  },
+  "protection_feature_device_memory": {
+    "message": "装置记忆体大小"
+  },
+  "protection_feature_performance_memory": {
+    "message": "JavaScript 记忆体指标"
+  },
+  "protection_feature_cpu_performance": {
+    "message": "CPU 效能等级"
+  },
+  "protection_feature_touch_points": {
+    "message": "触控点数目"
+  },
+  "protection_feature_webxr": {
+    "message": "VR 同 AR 装置"
+  },
+  "protection_feature_speech_recognition": {
+    "message": "语音识别"
+  },
+  "protection_feature_shape_detection": {
+    "message": "条码、人面同文字侦测"
+  },
+  "protection_feature_handwriting_recognition": {
+    "message": "手写识别"
+  },
+  "protection_feature_webnn": {
+    "message": "神经网络加速器"
+  },
+  "protection_feature_builtin_ai_models": {
+    "message": "内置 AI 模型"
+  },
+  "protection_feature_translation_ai": {
+    "message": "内置翻译同语言侦测"
+  },
+  "protection_feature_screen_wake_lock": {
+    "message": "保持萤幕开启"
+  },
+  "protection_feature_picture_in_picture": {
+    "message": "影片子母画面"
+  },
+  "protection_feature_document_picture_in_picture": {
+    "message": "子母画面视窗"
+  },
+  "protection_feature_fullscreen": {
+    "message": "全萤幕要求"
+  },
+  "protection_feature_pointer_lock": {
+    "message": "指标锁定"
+  },
+  "protection_feature_file_system_pickers": {
+    "message": "档案同资料夹选择器"
+  },
+  "protection_feature_protocol_handlers": {
+    "message": "协定处理程序注册"
+  },
+  "protection_feature_installed_related_apps": {
+    "message": "已安装嘅相关应用程式"
+  },
+  "protection_feature_media_session": {
+    "message": "系统媒体控制"
+  },
+  "protection_feature_opfs": {
+    "message": "网站私有档案系统"
+  },
+  "protection_feature_cookie_store": {
+    "message": "非同步 Cookie 存取"
+  },
+  "protection_feature_document_cookie": {
+    "message": "脚本存取 Cookie"
+  },
+  "protection_feature_storage_buckets": {
+    "message": "储存桶"
+  },
+  "protection_feature_persistent_storage": {
+    "message": "持久储存要求"
+  },
+  "protection_feature_indexeddb_enumeration": {
+    "message": "IndexedDB 资料库列表"
+  },
+  "protection_feature_cache_storage": {
+    "message": "快取储存"
+  },
+  "protection_feature_legacy_quota": {
+    "message": "旧版配额同档案 API"
+  },
+  "protection_feature_cast_discovery": {
+    "message": "投放装置搜寻"
+  },
+  "protection_feature_send_beacon": {
+    "message": "离开页面时嘅信标"
+  },
+  "protection_feature_fetch_later": {
+    "message": "延迟要求"
+  },
+  "protection_feature_websocket": {
+    "message": "WebSocket 连线"
+  },
+  "protection_feature_webtransport": {
+    "message": "WebTransport 连线"
+  },
+  "protection_feature_platform_authenticator": {
+    "message": "平台验证器检查"
+  },
+  "protection_feature_web_share": {
+    "message": "系统分享选单"
+  },
+  "protection_feature_credential_management": {
+    "message": "凭证同 passkey 要求"
+  },
+  "protection_feature_fedcm_user_info": {
+    "message": "登入供应商嘅用户资料"
+  },
+  "protection_feature_payment_probes": {
+    "message": "已储存付款方式检查"
+  },
+  "protection_feature_storage_access": {
+    "message": "第三方 Cookie 存取要求"
+  },
+  "protection_feature_private_state_tokens": {
+    "message": "Private State Tokens 检查"
+  },
+  "protection_feature_background_fetch": {
+    "message": "背景下载"
+  },
+  "protection_feature_shared_worker": {
+    "message": "共用 Worker"
+  },
+  "protection_feature_dedicated_worker": {
+    "message": "专用 Worker"
+  },
+  "protection_feature_clipboard_write": {
+    "message": "写入剪贴簿"
+  },
+  "protection_feature_permission_probes": {
+    "message": "权限状态查询"
+  },
+  "protection_feature_reporting_observer": {
+    "message": "页面内浏览器报告"
+  },
+  "protection_feature_feature_policy": {
+    "message": "允许嘅功能列表"
+  },
+  "protection_group_system": {
+    "message": "视窗同系统整合"
+  },
+  "protection_group_ai": {
+    "message": "AI 同识别"
+  },
+  "protection_group_storage": {
+    "message": "储存同 Cookie"
+  },
+  "protection_group_network": {
+    "message": "网络同数据传输"
+  },
+  "protection_group_identity": {
+    "message": "帐户、付款同分享"
+  },
+  "protection_filter_label": {
+    "message": "按类别筛选 API"
+  },
+  "protection_filter_all": {
+    "message": "全部"
+  },
+  "protection_filter_hardware": {
+    "message": "硬件"
+  },
+  "protection_filter_os": {
+    "message": "作业系统"
+  },
+  "protection_filter_network": {
+    "message": "网络"
+  },
+  "protection_filter_browser": {
+    "message": "浏览器"
+  },
+  "protection_filter_social": {
+    "message": "社交"
+  },
+  "protection_filter_shown": {
+    "message": "显示紧嘅规则：$SHOWN$ / $TOTAL$",
+    "placeholders": {
+      "shown": {
+        "content": "$1"
+      },
+      "total": {
+        "content": "$2"
+      }
+    }
+  },
+  "protection_filter_clear": {
+    "message": "显示全部规则"
+  },
+  "protection_rule_partial": {
+    "message": "部分"
+  },
+  "protection_rule_partial_hint": {
+    "message": "其他标准 API 仲可以攞到同样嘅数据或者做同样嘅操作"
+  },
+  "management_tab_firewall": {
+    "message": "Firewall"
+  },
+  "management_tab_api": {
+    "message": "API Guard"
+  },
+  "management_tab_settings": {
+    "message": "设定"
+  },
+  "management_tab_contacts": {
+    "message": "联络"
+  },
+  "management_navigation": {
+    "message": "扩展管理"
+  },
+  "management_firewall_unavailable": {
+    "message": "呢个浏览器用唔到 Firewall。"
+  },
+  "protection_group_webassembly": {
+    "message": "WebAssembly"
+  },
+  "protection_webassembly_expand": {
+    "message": "显示函数"
+  },
+  "protection_webassembly_collapse": {
+    "message": "隐藏函数"
+  },
+  "protection_mode_filter_label": {
+    "message": "按模式筛选 API"
+  },
+  "protection_mode_filter_spoofed": {
+    "message": "自訂值"
+  },
+  "protection_mode_filter_blocked": {
+    "message": "已封鎖"
+  },
+  "protection_mode_filter_reset": {
+    "message": "显示所有模式"
+  },
+  "protection_webrtc_network_title": {
+    "message": "WebRTC 网络策略"
+  },
+  "protection_webrtc_network_scope": {
+    "message": "适用于整个浏览器，唔受 API 模式同网站影响。"
+  },
+  "protection_webrtc_policy_system": {
+    "message": "浏览器设定"
+  },
+  "protection_webrtc_policy_public": {
+    "message": "只用公共接口"
+  },
+  "protection_webrtc_policy_udp": {
+    "message": "停用代理以外嘅 UDP"
+  },
+  "protection_webrtc_effective": {
+    "message": "生效策略"
+  },
+  "protection_webrtc_inactive": {
+    "message": "浏览器设定冇改变"
+  },
+  "protection_webrtc_permission_required": {
+    "message": "需要权限"
+  },
+  "protection_webrtc_unsupported": {
+    "message": "呢个浏览器用唔到"
+  },
+  "protection_webrtc_error": {
+    "message": "未能套用策略"
+  },
+  "protection_webrtc_applied": {
+    "message": "已套用策略"
+  },
+  "protection_webrtc_not_controllable": {
+    "message": "由其他扩展或者管理员控制"
+  },
+  "protection_webrtc_grant": {
+    "message": "允许管理网络策略"
+  },
+  "protection_webrtc_refresh": {
+    "message": "更新状态"
+  },
+  "protection_webrtc_denied": {
+    "message": "未获授权。"
+  },
+  "protection_webrtc_refresh_error": {
+    "message": "未能更新网络策略。"
+  },
+  "protection_webrtc_addresses": {
+    "message": "自订 ICE 地址"
+  },
+  "protection_webrtc_host": {
+    "message": "host 地址"
+  },
+  "protection_webrtc_stun": {
+    "message": "STUN 地址 (srflx)"
+  },
+  "protection_webrtc_turn": {
+    "message": "TURN 地址 (relay)"
+  },
+  "protection_webrtc_address_note": {
+    "message": "更改 JavaScript 收到嘅地址；网络路线同来源 IP 保持不变。"
+  },
+  "protection_webrtc_transport": {
+    "message": "ICE 传输"
+  },
+  "protection_webrtc_preserve": {
+    "message": "保留网站设定"
+  },
+  "protection_webrtc_relay": {
+    "message": "只用中继"
+  },
+  "protection_webrtc_relay_note": {
+    "message": "使用网站嘅 TURN 服务器。"
+  },
+  "protection_webrtc_devices": {
+    "message": "随机化装置识别码"
+  },
+  "protection_webrtc_lifetime": {
+    "message": "装置识别码有效期"
+  },
+  "protection_webrtc_session": {
+    "message": "浏览器工作阶段"
+  },
+  "protection_webrtc_site": {
+    "message": "网站"
+  },
+  "protection_webrtc_certificates": {
+    "message": "每个连接使用新嘅 DTLS 证书"
+  },
+  "protection_webrtc_invalid": {
+    "message": "请检查 WebRTC 设定。每个启用地址都要系 IPv4 或 IPv6 字面地址。"
+  },
+  "protection_webrtc_no_addresses": {
+    "message": "原本地址"
+  },
+  "protection_webrtc_permission_save": {
+    "message": "储存策略之前，请允许管理网络策略。"
+  },
+  "protection_webrtc_conflict": {
+    "message": "请揀自订装置列表或者随机装置识别码其中一种。"
+  },
+  "protection_api_mode_saving": {
+    "message": "正在儲存 API 模式…"
+  },
+  "protection_api_mode_saved_reload": {
+    "message": "模式已儲存。請重新載入已開啟的頁面以套用。"
+  },
+  "protection_api_inherited_custom": {
+    "message": "從「所有網站」繼承嘅 Custom"
+  },
+  "protection_webrtc_profile_title": {
+    "message": "WebRTC"
+  },
+  "protection_webrtc_profile_configure": {
+    "message": "设定 WebRTC"
+  },
+  "protection_webrtc_profile_addresses": {
+    "message": "STUN / TURN · IPv4 / IPv6"
+  },
+  "protection_webrtc_profile_devices": {
+    "message": "装置"
+  },
+  "protection_webrtc_profile_certificates": {
+    "message": "DTLS 证书"
+  },
+  "protection_webrtc_profile_save": {
+    "message": "储存并用 Custom"
+  },
+  "protection_webrtc_search_terms": {
+    "message": "WebRTC STUN TURN ICE IPv4 IPv6 IP DTLS 装置 设备 识别码 标识符 证书"
+  },
+  "management_tab_browser_debug": {
+    "message": "Browser Debug"
+  },
+  "browser_debug_not_applied": {
+    "message": "设定未生效。请重新整理数据。"
+  },
+  "browser_debug_origin_placeholder": {
+    "message": "https://…"
+  },
+  "browser_debug_subtitle": {
+    "message": "浏览器数据同设定"
+  },
+  "browser_debug_datasets": {
+    "message": "数据分类"
+  },
+  "browser_debug_export": {
+    "message": "汇出 JSON"
+  },
+  "browser_debug_refresh": {
+    "message": "重新整理"
+  },
+  "browser_debug_load": {
+    "message": "载入数据"
+  },
+  "browser_debug_search": {
+    "message": "搜寻"
+  },
+  "browser_debug_origin": {
+    "message": "准确来源"
+  },
+  "browser_debug_grant": {
+    "message": "允许存取"
+  },
+  "browser_debug_records": {
+    "message": "记录"
+  },
+  "browser_debug_details": {
+    "message": "详情"
+  },
+  "browser_debug_actions": {
+    "message": "操作"
+  },
+  "browser_debug_pages": {
+    "message": "页数"
+  },
+  "browser_debug_previous": {
+    "message": "上一页"
+  },
+  "browser_debug_next": {
+    "message": "下一页"
+  },
+  "browser_debug_draft": {
+    "message": "草稿"
+  },
+  "browser_debug_changes": {
+    "message": "改动"
+  },
+  "browser_debug_save": {
+    "message": "储存"
+  },
+  "browser_debug_cancel": {
+    "message": "取消"
+  },
+  "browser_debug_confirm": {
+    "message": "确认"
+  },
+  "browser_debug_export_preview": {
+    "message": "JSON 汇出预览"
+  },
+  "browser_debug_download": {
+    "message": "下载 JSON"
+  },
+  "browser_debug_yes": {
+    "message": "系"
+  },
+  "browser_debug_no": {
+    "message": "唔系"
+  },
+  "browser_debug_confirm_action": {
+    "message": "确认对拣咗嘅记录执行呢个操作。"
+  },
+  "browser_debug_finish_edit": {
+    "message": "重新整理之前请储存或者取消编辑。"
+  },
+  "browser_debug_not_loaded": {
+    "message": "拣「载入数据」嚟读取呢个分类。"
+  },
+  "browser_debug_empty": {
+    "message": "冇符合嘅记录。"
+  },
+  "browser_debug_limited": {
+    "message": "结果只限已载入嘅记录"
+  },
+  "browser_debug_saved": {
+    "message": "已储存"
+  },
+  "browser_debug_access_granted": {
+    "message": "已允许存取。请拣「载入数据」。"
+  },
+  "browser_debug_access_changed": {
+    "message": "存取权限改咗。请重新载入。"
+  },
+  "browser_debug_permission_required": {
+    "message": "呢个分类需要存取权限。"
+  },
+  "browser_debug_permission_denied": {
+    "message": "未获存取权限。"
+  },
+  "browser_debug_unsupported": {
+    "message": "呢个浏览器唔支援。"
+  },
+  "browser_debug_invalid_input": {
+    "message": "请检查输入值。"
+  },
+  "browser_debug_not_controllable": {
+    "message": "由其他扩展或者管理员控制。"
+  },
+  "browser_debug_stale": {
+    "message": "记录改咗。请载入最新数据。"
+  },
+  "browser_debug_inactive": {
+    "message": "请打开呢个分类继续。"
+  },
+  "browser_debug_timeout": {
+    "message": "操作等候逾时。"
+  },
+  "browser_debug_busy": {
+    "message": "操作进行紧。"
+  },
+  "browser_debug_operation_failed": {
+    "message": "完成唔到操作。"
+  },
+  "browser_debug_invalid_origin": {
+    "message": "请输入冇路径、查询或者片段嘅 HTTP 或 HTTPS 来源。"
+  },
+  "browser_debug_dataset_overview": {
+    "message": "概览"
+  },
+  "browser_debug_dataset_history": {
+    "message": "历史记录"
+  },
+  "browser_debug_dataset_bookmarks": {
+    "message": "书签"
+  },
+  "browser_debug_dataset_downloads": {
+    "message": "下载"
+  },
+  "browser_debug_dataset_cookies": {
+    "message": "Cookies"
+  },
+  "browser_debug_dataset_tabs": {
+    "message": "分页同视窗"
+  },
+  "browser_debug_dataset_sessions": {
+    "message": "工作阶段"
+  },
+  "browser_debug_dataset_top_sites": {
+    "message": "常用网站"
+  },
+  "browser_debug_dataset_reading_list": {
+    "message": "阅读清单"
+  },
+  "browser_debug_dataset_extensions": {
+    "message": "扩展"
+  },
+  "browser_debug_dataset_privacy": {
+    "message": "私隐设定"
+  },
+  "browser_debug_dataset_site_permissions": {
+    "message": "网站权限"
+  },
+  "browser_debug_dataset_system": {
+    "message": "系统"
+  },
+  "browser_debug_dataset_account": {
+    "message": "帐号"
+  },
+  "browser_debug_dataset_internals": {
+    "message": "浏览器内部页面"
+  },
+  "browser_debug_action_create": {
+    "message": "建立"
+  },
+  "browser_debug_action_edit": {
+    "message": "编辑"
+  },
+  "browser_debug_action_move": {
+    "message": "移动"
+  },
+  "browser_debug_action_remove": {
+    "message": "删除"
+  },
+  "browser_debug_action_pause": {
+    "message": "暂停"
+  },
+  "browser_debug_action_resume": {
+    "message": "继续"
+  },
+  "browser_debug_action_cancel": {
+    "message": "取消"
+  },
+  "browser_debug_action_erase": {
+    "message": "清除记录"
+  },
+  "browser_debug_action_activate": {
+    "message": "启用"
+  },
+  "browser_debug_action_restore": {
+    "message": "还原"
+  },
+  "browser_debug_action_clear": {
+    "message": "用浏览器设定"
+  },
+  "browser_debug_action_open": {
+    "message": "打开"
+  },
+  "browser_debug_action_api_guard": {
+    "message": "打开 API Guard"
+  },
+  "browser_debug_field_name": {
+    "message": "名称"
+  },
+  "browser_debug_field_value": {
+    "message": "值"
+  },
+  "browser_debug_field_title": {
+    "message": "标题"
+  },
+  "browser_debug_field_url": {
+    "message": "URL"
+  },
+  "browser_debug_field_lastVisitTime": {
+    "message": "上次到访"
+  },
+  "browser_debug_field_visitCount": {
+    "message": "到访次数"
+  },
+  "browser_debug_field_parentId": {
+    "message": "上层资料夹 ID"
+  },
+  "browser_debug_field_dateAdded": {
+    "message": "加入时间"
+  },
+  "browser_debug_field_state": {
+    "message": "状态"
+  },
+  "browser_debug_field_bytesReceived": {
+    "message": "已收字节"
+  },
+  "browser_debug_field_totalBytes": {
+    "message": "总字节"
+  },
+  "browser_debug_field_domain": {
+    "message": "网域"
+  },
+  "browser_debug_field_path": {
+    "message": "路径"
+  },
+  "browser_debug_field_expirationDate": {
+    "message": "到期时间"
+  },
+  "browser_debug_field_secure": {
+    "message": "安全"
+  },
+  "browser_debug_field_httpOnly": {
+    "message": "只限 HTTP"
+  },
+  "browser_debug_field_windowId": {
+    "message": "视窗 ID"
+  },
+  "browser_debug_field_pinned": {
+    "message": "已固定"
+  },
+  "browser_debug_field_muted": {
+    "message": "已静音"
+  },
+  "browser_debug_field_lastModified": {
+    "message": "修改时间"
+  },
+  "browser_debug_field_hasBeenRead": {
+    "message": "已读"
+  },
+  "browser_debug_field_creationTime": {
+    "message": "建立时间"
+  },
+  "browser_debug_field_version": {
+    "message": "版本"
+  },
+  "browser_debug_field_enabled": {
+    "message": "已启用"
+  },
+  "browser_debug_field_type": {
+    "message": "类型"
+  },
+  "browser_debug_field_installType": {
+    "message": "安装类型"
+  },
+  "browser_debug_field_levelOfControl": {
+    "message": "控制级别"
+  },
+  "browser_debug_field_origin": {
+    "message": "来源"
+  },
+  "browser_debug_field_setting": {
+    "message": "设定"
+  },
+  "browser_debug_field_primaryPattern": {
+    "message": "主要模式"
+  },
+  "browser_debug_field_secondaryPattern": {
+    "message": "次要模式"
+  },
+  "browser_debug_field_scope": {
+    "message": "范围"
+  },
+  "browser_debug_field_storeId": {
+    "message": "储存区 ID"
+  },
+  "browser_debug_field_partitionTopLevelSite": {
+    "message": "分区最上层网站"
+  },
+  "browser_debug_field_hasCrossSiteAncestor": {
+    "message": "跨网站上层"
+  },
+  "browser_debug_field_firstPartyDomain": {
+    "message": "第一方网域"
+  },
+  "management_tab_antidetect": {
+    "message": "Antidetect"
+  },
+  "antidetect_description": {
+    "message": "硬件、作业系统同网络设定。"
+  },
+  "antidetect_navigation": {
+    "message": "Antidetect 分类"
+  },
+  "antidetect_category_hardware": {
+    "message": "硬件"
+  },
+  "antidetect_category_os": {
+    "message": "系统"
+  },
+  "antidetect_category_network": {
+    "message": "网络"
+  },
+  "antidetect_category_all": {
+    "message": "全部"
+  },
+  "antidetect_category_browser": {
+    "message": "浏览器"
+  },
+  "antidetect_master": {
+    "message": "Antidetect"
+  },
+  "antidetect_mode": {
+    "message": "WebRTC 模式"
+  },
+  "antidetect_allow": {
+    "message": "允许"
+  },
+  "antidetect_block": {
+    "message": "封锁"
+  },
+  "antidetect_spoof": {
+    "message": "替换"
+  },
+  "antidetect_save": {
+    "message": "储存"
+  },
+  "antidetect_cancel": {
+    "message": "取消"
+  },
+  "antidetect_refresh": {
+    "message": "更新"
+  },
+  "antidetect_loading": {
+    "message": "载入设定中…"
+  },
+  "antidetect_unsaved": {
+    "message": "有未储存嘅更改"
+  },
+  "antidetect_saved": {
+    "message": "设定已储存"
+  },
+  "antidetect_stale": {
+    "message": "设定喺另一个视窗改咗。请更新后再储存。"
+  },
+  "antidetect_invalid": {
+    "message": "请检查输入值。"
+  },
+  "antidetect_failed": {
+    "message": "未能储存设定。"
+  },
+  "antidetect_denied": {
+    "message": "未获授权。"
+  },
+  "antidetect_inactive": {
+    "message": "Antidetect 已关闭：替换未生效。"
+  },
+  "antidetect_reload_required": {
+    "message": "重新载入开咗嘅网页，套用已储存嘅更改。"
+  },
+  "antidetect_changed_external": {
+    "message": "设定喺其他地方改咗。草稿已保留。"
+  },
+  "antidetect_addresses_enabled": {
+    "message": "用自订 ICE 地址"
+  },
+  "antidetect_mapped": {
+    "message": "由 IPv4 产生映射 IPv6"
+  },
+  "antidetect_family_empty": {
+    "message": "空栏会隐藏对应地址族同候选类型嘅地址。"
+  },
+  "antidetect_media_mode": {
+    "message": "媒体装置模式"
+  },
+  "antidetect_original": {
+    "message": "原本"
+  },
+  "antidetect_random": {
+    "message": "随机识别码"
+  },
+  "antidetect_custom": {
+    "message": "自订列表"
+  },
+  "antidetect_device_kind": {
+    "message": "装置类型"
+  },
+  "antidetect_device_label": {
+    "message": "显示名称"
+  },
+  "antidetect_device_id": {
+    "message": "装置 ID"
+  },
+  "antidetect_group_id": {
+    "message": "群组 ID"
+  },
+  "antidetect_add_device": {
+    "message": "加入装置"
+  },
+  "antidetect_remove_device": {
+    "message": "移除装置"
+  },
+  "antidetect_microphone": {
+    "message": "咪高峰"
+  },
+  "antidetect_camera": {
+    "message": "相机"
+  },
+  "antidetect_speaker": {
+    "message": "音讯输出"
+  },
+  "antidetect_no_devices": {
+    "message": "列表系空嘅。网站会睇唔到装置。"
+  },
+  "antidetect_device_metadata": {
+    "message": "只改装置列表资料；唔会建立相机、咪高峰或者媒体串流。"
+  },
+  "antidetect_native_certificates": {
+    "message": "浏览器证书"
+  },
+  "antidetect_leak_title": {
+    "message": "防止泄漏"
+  },
+  "antidetect_udp_note": {
+    "message": "扩展唔可以封锁所有 UDP 流量。WebRTC 策略只控制 WebRTC 喺代理以外用嘅 UDP。"
+  },
+  "antidetect_quic_note": {
+    "message": "Chrome 同 Firefox 冇提供单独关闭 QUIC 嘅扩展 API。"
+  },
+  "antidetect_ipv6_note": {
+    "message": "扩展唔可以停用浏览器所有连接嘅 IPv6。"
+  },
+  "antidetect_websocket_note": {
+    "message": "封锁新 WebSocket 连接，唔影响普通 HTTP/HTTPS 请求。"
+  },
+  "antidetect_webtransport_note": {
+    "message": "独立封锁新 WebTransport 连接，唔影响 WebSocket。"
+  },
+  "antidetect_unavailable": {
+    "message": "用唔到"
+  },
+  "antidetect_early_required": {
+    "message": "请允许用户脚本，喺网站脚本之前套用设定。"
+  },
+  "antidetect_grant_early": {
+    "message": "允许 Custom"
+  },
+  "antidetect_early_settings": {
+    "message": "打开浏览器设定"
+  },
+  "antidetect_network_scope": {
+    "message": "网络设定适用于所有网站。"
+  },
+  "antidetect_effective": {
+    "message": "实际状态"
+  },
+  "antidetect_block_active": {
+    "message": "WebRTC 已封锁"
+  },
+  "antidetect_spoof_active": {
+    "message": "WebRTC 替换已生效"
+  },
+  "antidetect_allow_active": {
+    "message": "WebRTC 已允许"
+  },
+  "antidetect_api_active": {
+    "message": "Antidetect 已开启"
+  },
+  "antidetect_refresh_dirty": {
+    "message": "请先取消草稿再更新。"
+  },
+  "antidetect_conflict_devices": {
+    "message": "请揀自订装置列表或者随机识别码其中一种。"
+  },
+  "antidetect_inherited": {
+    "message": "由 API Guard 继承"
+  },
+  "antidetect_scope_inactive": {
+    "message": "喺目前存取范围未生效"
+  },
+  "antidetect_scope_browser": {
+    "message": "成个浏览器"
+  },
+  "antidetect_scope_page": {
+    "message": "涵盖嘅网页"
+  },
+  "antidetect_status_error": {
+    "message": "未套用"
+  },
+  "antidetect_status_reload": {
+    "message": "等紧重新载入网页"
+  },
+  "antidetect_editor_edit": {
+    "message": "编辑"
+  },
+  "antidetect_editor_delete": {
+    "message": "删除"
+  },
+  "antidetect_editor_label": {
+    "message": "名称"
+  },
+  "antidetect_editor_value": {
+    "message": "值"
+  },
+  "antidetect_editor_save": {
+    "message": "储存"
+  },
+  "antidetect_editor_cancel": {
+    "message": "取消"
+  },
+  "antidetect_editor_actual": {
+    "message": "值"
+  },
+  "antidetect_editor_export": {
+    "message": "汇出 JSON"
+  },
+  "antidetect_editor_previewExport": {
+    "message": "JSON 汇出预览"
+  },
+  "antidetect_editor_download": {
+    "message": "下载 JSON"
+  },
+  "antidetect_editor_error": {
+    "message": "未能储存设定。"
+  },
+  "antidetect_editor_stale": {
+    "message": "设定喺另一个视窗改咗。请更新后再储存。"
+  },
+  "antidetect_editor_invalidValue": {
+    "message": "请检查输入值。"
+  },
+  "antidetect_editor_confirm": {
+    "message": "删除"
+  },
+  "antidetect_editor_master": {
+    "message": "Antidetect"
+  },
+  "antidetect_editor_loading": {
+    "message": "载入设定中…"
+  },
+  "antidetect_editor_saveConfig": {
+    "message": "储存"
+  },
+  "antidetect_editor_saveReload": {
+    "message": "保存并重新载入"
+  },
+  "antidetect_editor_refresh": {
+    "message": "更新"
+  },
+  "antidetect_editor_discard": {
+    "message": "取消"
+  },
+  "antidetect_editor_reset": {
+    "message": "重设规则"
+  },
+  "antidetect_editor_scope": {
+    "message": "规则范围"
+  },
+  "antidetect_editor_site": {
+    "message": "网站"
+  },
+  "antidetect_editor_addSite": {
+    "message": "添加"
+  },
+  "antidetect_editor_removeSite": {
+    "message": "删除主机名覆盖规则"
+  },
+  "antidetect_editor_siteOff": {
+    "message": "跳过呢个网站"
+  },
+  "antidetect_editor_searchApis": {
+    "message": "查找 API"
+  },
+  "antidetect_editor_draft": {
+    "message": "有未储存嘅更改"
+  },
+  "antidetect_editor_configSaved": {
+    "message": "设定已储存"
+  },
+  "antidetect_editor_inactive": {
+    "message": "Antidetect 已关闭：替换未生效。"
+  },
+  "antidetect_editor_active": {
+    "message": "Antidetect 已开启"
+  },
+  "antidetect_editor_reload": {
+    "message": "重新载入开咗嘅网页，套用已储存嘅更改。"
+  },
+  "antidetect_editor_preset": {
+    "message": "全局预设"
+  },
+  "antidetect_editor_limited": {
+    "message": "有限"
+  },
+  "antidetect_editor_strict": {
+    "message": "严格"
+  },
+  "antidetect_editor_noApis": {
+    "message": "冇匹配嘅 API"
+  },
+  "antidetect_editor_inherited": {
+    "message": "继承"
+  },
+  "antidetect_editor_earlyPermission": {
+    "message": "请允许用户脚本，喺网站脚本之前套用设定。"
+  },
+  "antidetect_editor_earlyUnsupported": {
+    "message": "呢个浏览器用唔到"
+  },
+  "antidetect_editor_earlyGrant": {
+    "message": "允许 Custom"
+  },
+  "antidetect_editor_earlySettings": {
+    "message": "打开浏览器设定"
+  },
+  "antidetect_editor_earlyRefresh": {
+    "message": "更新"
+  },
+  "antidetect_editor_earlyDenied": {
+    "message": "未获授权。"
+  },
+  "antidetect_editor_groups_graphics": {
+    "message": "图像同字型"
+  },
+  "antidetect_editor_groups_media": {
+    "message": "音讯同媒体"
+  },
+  "antidetect_editor_groups_device": {
+    "message": "装置同环境"
+  },
+  "antidetect_editor_groups_hardware": {
+    "message": "已连接装置"
+  },
+  "antidetect_editor_groups_background": {
+    "message": "背景活动"
+  },
+  "antidetect_editor_groups_browser": {
+    "message": "浏览器 API"
+  },
+  "antidetect_editor_groups_system": {
+    "message": "视窗同系统整合"
+  },
+  "antidetect_editor_groups_ai": {
+    "message": "AI 同识别"
+  },
+  "antidetect_editor_groups_storage": {
+    "message": "储存同 Cookie"
+  },
+  "antidetect_editor_groups_network": {
+    "message": "网络同数据传输"
+  },
+  "antidetect_editor_groups_identity": {
+    "message": "帐户、付款同分享"
+  },
+  "antidetect_editor_choose": {
+    "message": "揀一个值"
+  },
+  "antidetect_editor_search": {
+    "message": "搜寻值"
+  },
+  "antidetect_editor_create": {
+    "message": "建立新值"
+  },
+  "antidetect_editor_presets": {
+    "message": "预设值"
+  },
+  "antidetect_editor_own": {
+    "message": "你嘅值"
+  },
+  "antidetect_editor_noMatches": {
+    "message": "冇符合嘅值"
+  },
+  "antidetect_editor_valueType": {
+    "message": "值类型"
+  },
+  "antidetect_editor_unset": {
+    "message": "未拣"
+  },
+  "antidetect_editor_empty": {
+    "message": "空字串 (\"\")"
+  },
+  "antidetect_editor_saved": {
+    "message": "值已储存"
+  },
+  "antidetect_editor_deleted": {
+    "message": "值已删除"
+  },
+  "antidetect_editor_import": {
+    "message": "汇入 JSON"
+  },
+  "antidetect_editor_previewImport": {
+    "message": "汇入预览"
+  },
+  "antidetect_editor_apply": {
+    "message": "套用汇入"
+  },
+  "antidetect_editor_undo": {
+    "message": "还原汇入"
+  },
+  "antidetect_editor_imported": {
+    "message": "设定已汇入"
+  },
+  "antidetect_editor_undone": {
+    "message": "汇入已还原"
+  },
+  "antidetect_editor_changed": {
+    "message": "改咗嘅 API"
+  },
+  "antidetect_editor_changedSites": {
+    "message": "改咗嘅网站"
+  },
+  "antidetect_editor_all": {
+    "message": "全部 API"
+  },
+  "antidetect_editor_noChanges": {
+    "message": "冇更改"
+  },
+  "antidetect_editor_migrated": {
+    "message": "旧版设定格式已转换"
+  },
+  "antidetect_editor_tooLarge": {
+    "message": "设定档太大。"
+  },
+  "antidetect_editor_invalidJson": {
+    "message": "JSON 档案无效。"
+  },
+  "antidetect_editor_nameRequired": {
+    "message": "请输入值名称。"
+  },
+  "antidetect_editor_invalidNumber": {
+    "message": "请输入有限数字。"
+  },
+  "antidetect_editor_unsupported": {
+    "message": "呢个 API 唔支持自订值。"
+  },
+  "antidetect_editor_confirmDelete": {
+    "message": "删除呢个储存值？"
+  },
+  "antidetect_editor_format": {
+    "message": "格式版本"
+  },
+  "antidetect_editor_selected": {
+    "message": "值已拣"
+  },
+  "antidetect_editor_showValue": {
+    "message": "目前值"
+  },
+  "antidetect_editor_hints_string": {
+    "message": "文字；空字串系独立值。"
+  },
+  "antidetect_editor_hints_integer": {
+    "message": "整数。"
+  },
+  "antidetect_editor_hints_number": {
+    "message": "有限数字。"
+  },
+  "antidetect_editor_hints_boolean": {
+    "message": "布林值：true 或 false。"
+  },
+  "antidetect_editor_hints_object": {
+    "message": "JSON 物件。"
+  },
+  "antidetect_editor_hints_array": {
+    "message": "JSON 阵列。"
+  },
+  "antidetect_editor_title": {
+    "message": "浏览器 API 设定"
+  },
+  "antidetect_editor_global": {
+    "message": "所有网站"
+  },
+  "antidetect_editor_noHost": {
+    "message": "揀网站"
+  },
+  "antidetect_editor_hostError": {
+    "message": "请输入有效嘅确切主机名，例如 example.com。"
+  },
+  "antidetect_editor_configured": {
+    "message": "只显示已设定"
+  },
+  "antidetect_editor_allGroups": {
+    "message": "全部分类"
+  },
+  "antidetect_editor_customOnly": {
+    "message": "支持 Custom"
+  },
+  "antidetect_editor_activationFailed": {
+    "message": "设定已储存，但 API 替换未套用。请检查 Custom 权限同更新设定，再载入网站。"
+  },
+  "antidetect_editor_earlyToggle": {
+    "message": "喺浏览器扩展设定允许用户脚本，再重新启动浏览器同打开编辑器。"
+  },
+  "antidetect_editor_null": {
+    "message": "null"
+  },
+  "antidetect_editor_undefined": {
+    "message": "undefined"
+  },
+  "antidetect_editor_custom": {
+    "message": "Custom"
+  },
+  "antidetect_math_title": {
+    "message": "Math 超越函数"
+  },
+  "antidetect_math_description": {
+    "message": "23 个 JavaScript Math 函数"
+  },
+  "antidetect_math_mode": {
+    "message": "Math 模式"
+  },
+  "antidetect_math_allow": {
+    "message": "允许"
+  },
+  "antidetect_math_spoof": {
+    "message": "稳定替换"
+  },
+  "antidetect_math_inherited": {
+    "message": "由 API Guard 继承"
+  },
+  "antidetect_math_search": {
+    "message": "搜寻函数"
+  },
+  "antidetect_math_selected": {
+    "message": "已拣"
+  },
+  "antidetect_math_all": {
+    "message": "全选"
+  },
+  "antidetect_math_clear": {
+    "message": "清除选择"
+  },
+  "antidetect_math_empty": {
+    "message": "冇符合嘅函数"
+  },
+  "antidetect_math_group_trig": {
+    "message": "三角函数"
+  },
+  "antidetect_math_group_hyperbolic": {
+    "message": "双曲函数"
+  },
+  "antidetect_math_group_exp_log": {
+    "message": "指数同对数"
+  },
+  "antidetect_math_group_power": {
+    "message": "冪、根同範數"
+  },
+  "antidetect_math_precision": {
+    "message": "合适嘅结果最多改变 1 ULP。"
+  },
+  "antidetect_math_stability": {
+    "message": "同一来源同浏览器工作阶段嘅重复调用会保持稳定。"
+  },
+  "antidetect_math_special_cases": {
+    "message": "保留精确结果同特殊结果。"
+  },
+  "antidetect_math_coverage": {
+    "message": "唔涵盖 Workers、** 运算符、WebAssembly 同 CSS 计算。"
+  },
+  "antidetect_math_method": {
+    "message": "方法：确定性结果替换，唔会做跨引擎标准化。"
+  },
+  "antidetect_math_status_active": {
+    "message": "已为新网页注册"
+  },
+  "antidetect_math_status_allow": {
+    "message": "原本 Math 结果"
+  },
+  "antidetect_math_status_inactive": {
+    "message": "未生效"
+  },
+  "antidetect_math_status_unknown": {
+    "message": "实际状态：—"
+  },
+  "antidetect_math_status_pending": {
+    "message": "等紧重新载入网页"
+  },
+  "antidetect_math_status_error": {
+    "message": "未套用"
+  },
+  "antidetect_math_functions": {
+    "message": "要替换嘅函数"
+  },
+  "antidetect_math_pow_note": {
+    "message": "Math.pow 同 ** 运算符用唔同嘅计算路径。"
+  },
+  "antidetect_math_status_empty": {
+    "message": "未拣函数"
+  },
+  "antidetect_math_opaque": {
+    "message": "喺存取唔到嘅不透明框架入面，呢组函数会停用。"
+  },
+  "antidetect_math_primitive_numbers": {
+    "message": "替换只适用于原始 Number 参数。其他类型参数由浏览器照原本方式处理。"
+  },
+  "protection_feature_math_transcendentals": {
+    "message": "Math 超越函数"
+  },
+  "fingerprint_title": {
+    "message": "指纹设定档"
+  },
+  "fingerprint_description": {
+    "message": "建立、预览同重复使用 API 测试配置。"
+  },
+  "fingerprint_generator": {
+    "message": "设定档产生器"
+  },
+  "fingerprint_recipe": {
+    "message": "配置"
+  },
+  "fingerprint_recipe_balanced": {
+    "message": "平衡"
+  },
+  "fingerprint_recipe_laptop": {
+    "message": "手提电脑"
+  },
+  "fingerprint_recipe_desktop": {
+    "message": "桌上电脑"
+  },
+  "fingerprint_recipe_workstation": {
+    "message": "工作站"
+  },
+  "fingerprint_recipe_strict": {
+    "message": "严格"
+  },
+  "fingerprint_system": {
+    "message": "操作系统"
+  },
+  "fingerprint_language": {
+    "message": "语言"
+  },
+  "fingerprint_display": {
+    "message": "屏幕"
+  },
+  "fingerprint_preserve": {
+    "message": "保留目前设定"
+  },
+  "fingerprint_generate": {
+    "message": "产生预览"
+  },
+  "fingerprint_library": {
+    "message": "已储存设定档"
+  },
+  "fingerprint_save_profile": {
+    "message": "储存为设定档"
+  },
+  "fingerprint_load_profile": {
+    "message": "载入预览"
+  },
+  "fingerprint_rename": {
+    "message": "改名"
+  },
+  "fingerprint_delete_confirm": {
+    "message": "由资料库删除呢个设定档？"
+  },
+  "fingerprint_search_profiles": {
+    "message": "搜寻设定档"
+  },
+  "fingerprint_no_profiles": {
+    "message": "冇符合嘅设定档。"
+  },
+  "fingerprint_preview": {
+    "message": "配置预览"
+  },
+  "fingerprint_apply": {
+    "message": "套用配置"
+  },
+  "fingerprint_edit_api": {
+    "message": "编辑预览入面嘅 API"
+  },
+  "fingerprint_stage_api": {
+    "message": "更新预览"
+  },
+  "fingerprint_scope": {
+    "message": "呢啲係 API 设定；Cookie、帐户同浏览器储存仍然共用。产生配置会保留总开关同网站例外。真正网络 IP 同 TLS 证书唔会改变。"
+  },
+  "fingerprint_profile_limit": {
+    "message": "设定档资料库已满。"
+  },
+  "fingerprint_duplicate_profile": {
+    "message": "呢个设定档已经存在。"
+  },
+  "fingerprint_missing_profile": {
+    "message": "拣选嘅设定档已经唔存在。"
+  },
+  "fingerprint_preview_ready": {
+    "message": "预览准备好，套用会储存呢啲设定。"
+  },
+  "fingerprint_issue_platform_agent": {
+    "message": "拣选嘅平台同 User-Agent 描述唔同嘅操作系统。"
+  },
+  "fingerprint_issue_client_hints_agent": {
+    "message": "Client Hints 同 User-Agent 唔一致。"
+  },
+  "fingerprint_issue_language_list": {
+    "message": "主要语言同语言清单第一项唔同。"
+  },
+  "fingerprint_issue_screen_available": {
+    "message": "可用屏幕范围大过整个屏幕尺寸。"
+  },
+  "fingerprint_issue_screen_depth": {
+    "message": "颜色深度同像素深度唔同。"
+  },
+  "fingerprint_issue_orientation_size": {
+    "message": "屏幕方向同拣选尺寸唔配合。"
+  },
+  "fingerprint_issue_gpu_pair": {
+    "message": "WebGL 同 WebGPU 描述唔同嘅图像硬件。"
+  },
+  "fingerprint_issue_memory_bucket": {
+    "message": "记忆体数值唔喺 deviceMemory 标准分组里面。"
+  },
+  "fingerprint_issue_timezone_metadata": {
+    "message": "自订时区名称同固定偏移量唔会改 Date 格式或者夏令时间规则。"
+  },
+  "fingerprint_issue_network_ua": {
+    "message": "JavaScript User-Agent 设定唔会改 HTTP User-Agent 标头。"
+  },
+  "fingerprint_issue_network_language": {
+    "message": "JavaScript 语言设定唔会改 Accept-Language 标头。"
+  },
+  "fingerprint_issue_screen_css": {
+    "message": "屏幕数值唔会改变浏览器视窗大小或者 CSS 视口。"
+  },
+  "fingerprint_issue_worker_scope": {
+    "message": "产生嘅网页设定唔涵盖 worker 环境。"
+  },
+  "antidetect_category_profiles": {
+    "message": "指纹设定档"
+  },
+  "api_observed_title": {
+    "message": "页面观察"
+  },
+  "api_observed_filter": {
+    "message": "喺呢个页面使用"
+  },
+  "api_observed_observed": {
+    "message": "观察到"
+  },
+  "api_observed_attempted": {
+    "message": "调用尝试"
+  },
+  "api_observed_fingerprint": {
+    "message": "指纹模式"
+  },
+  "api_observed_first_party": {
+    "message": "网站框架内"
+  },
+  "api_observed_third_party": {
+    "message": "第三方框架内"
+  },
+  "api_observed_unknown_party": {
+    "message": "来源未确定"
+  },
+  "api_observed_loading": {
+    "message": "载入观察结果…"
+  },
+  "api_observed_no_site": {
+    "message": "请选择网站页面"
+  },
+  "api_observed_no_access": {
+    "message": "无法存取页面观察结果"
+  },
+  "api_observed_paused": {
+    "message": "观察已暂停"
+  },
+  "api_observed_unsupported": {
+    "message": "呢个浏览器唔支援观察"
+  },
+  "api_observed_unavailable": {
+    "message": "无法载入观察结果"
+  },
+  "api_observed_stale": {
+    "message": "观察结果已过期"
+  },
+  "api_observed_scope": {
+    "message": "目前页面同可存取嘅框架"
+  },
+  "api_observed_none": {
+    "message": "未观察到呢份列表入面嘅调用"
+  },
+  "api_observed_empty_filtered": {
+    "message": "呢个部分冇观察到嘅 API"
+  },
+  "antidetect_api_inactive": {
+    "message": "API Guard 已关闭：阻止未生效。"
+  },
+  "antidetect_block_owner": {
+    "message": "阻止由 API Guard 控制。"
+  },
+  "guard_launcher_antidetect_open": {
+    "message": "打开 Antidetect"
+  },
+  "guard_launcher_antidetect_master": {
+    "message": "开启或者关闭 Antidetect"
+  },
+  "guard_launcher_coming_soon": {
+    "message": "即将推出"
+  },
+  "guard_launcher_firewall_unavailable": {
+    "message": "呢个浏览器唔支援"
+  },
+  "guard_launcher_error": {
+    "message": "改唔到 Antidetect 状态。请再试一次。"
+  },
+  "guard_launcher_open_error": {
+    "message": "打开唔到 Antidetect 设置。"
+  },
+  "management_tab_cookies": {
+    "message": "Cookies"
+  },
+  "cookies_workspace_subtitle": {
+    "message": "管理 Cookie 同喺浏览器之间搬移"
+  },
+  "cookies_workspace_store": {
+    "message": "Cookie 储存区"
+  },
+  "cookies_workspace_all_domains": {
+    "message": "所有网域"
+  },
+  "cookies_workspace_sort": {
+    "message": "排序方式"
+  },
+  "cookies_workspace_import": {
+    "message": "汇入"
+  },
+  "cookies_workspace_export": {
+    "message": "汇出"
+  },
+  "cookies_workspace_show": {
+    "message": "显示"
+  },
+  "cookies_workspace_hide": {
+    "message": "隐藏"
+  },
+  "cookies_workspace_hidden": {
+    "message": "值已隐藏"
+  },
+  "cookies_workspace_select_page": {
+    "message": "揀呢一页"
+  },
+  "cookies_workspace_selected": {
+    "message": "已拣"
+  },
+  "cookies_workspace_clear_selection": {
+    "message": "取消选择"
+  },
+  "cookies_workspace_delete_selected": {
+    "message": "删除所选"
+  },
+  "cookies_workspace_delete_confirmation": {
+    "message": "删除呢啲 Cookie："
+  },
+  "cookies_workspace_host_only": {
+    "message": "只限呢个主机"
+  },
+  "cookies_workspace_session": {
+    "message": "工作阶段 Cookie"
+  },
+  "cookies_workspace_same_site": {
+    "message": "SameSite"
+  },
+  "cookies_workspace_unspecified": {
+    "message": "未指定"
+  },
+  "cookies_workspace_expiry_seconds": {
+    "message": "到期时间：Unix 秒"
+  },
+  "cookies_workspace_partitioned": {
+    "message": "已分区"
+  },
+  "cookies_workspace_editor_create": {
+    "message": "建立 Cookie"
+  },
+  "cookies_workspace_editor_edit": {
+    "message": "编辑 Cookie"
+  },
+  "cookies_workspace_format": {
+    "message": "格式"
+  },
+  "cookies_workspace_json": {
+    "message": "包含全部属性嘅 JSON"
+  },
+  "cookies_workspace_encrypted_json": {
+    "message": "加密 JSON"
+  },
+  "cookies_workspace_netscape": {
+    "message": "Netscape cookies.txt"
+  },
+  "cookies_workspace_password": {
+    "message": "密码"
+  },
+  "cookies_workspace_allow_lossy": {
+    "message": "容许汇出时省略 Netscape 唔支援嘅属性"
+  },
+  "cookies_workspace_choose_file": {
+    "message": "揀档案"
+  },
+  "cookies_workspace_import_text": {
+    "message": "贴上 JSON 或 cookies.txt"
+  },
+  "cookies_workspace_conflict_policy": {
+    "message": "现有 Cookie"
+  },
+  "cookies_workspace_skip_existing": {
+    "message": "略过现有项目"
+  },
+  "cookies_workspace_overwrite_existing": {
+    "message": "覆盖现有项目"
+  },
+  "cookies_workspace_source_store": {
+    "message": "来源储存区"
+  },
+  "cookies_workspace_target_store": {
+    "message": "目标储存区"
+  },
+  "cookies_workspace_choose_store": {
+    "message": "揀储存区"
+  },
+  "cookies_workspace_preview": {
+    "message": "预览"
+  },
+  "cookies_workspace_apply_import": {
+    "message": "套用汇入"
+  },
+  "cookies_workspace_undo": {
+    "message": "复原上次更改"
+  },
+  "cookies_workspace_close": {
+    "message": "关闭"
+  },
+  "cookies_workspace_action_create": {
+    "message": "建立"
+  },
+  "cookies_workspace_action_overwrite": {
+    "message": "覆盖"
+  },
+  "cookies_workspace_action_skip": {
+    "message": "略过"
+  },
+  "cookies_workspace_action_error": {
+    "message": "错误"
+  },
+  "cookies_workspace_succeeded": {
+    "message": "已套用"
+  },
+  "cookies_workspace_failed": {
+    "message": "失败"
+  },
+  "cookies_workspace_skipped": {
+    "message": "已略过"
+  },
+  "cookies_workspace_conflicts": {
+    "message": "冲突"
+  },
+  "cookies_workspace_adjusted": {
+    "message": "浏览器已调整"
+  },
+  "cookies_workspace_total": {
+    "message": "总计"
+  },
+  "cookies_workspace_operation_failed": {
+    "message": "无法完成操作。"
+  },
+  "cookies_workspace_error_invalid_json": {
+    "message": "JSON 格式无效。"
+  },
+  "cookies_workspace_error_unsupported_format": {
+    "message": "唔支援呢个档案格式或版本。"
+  },
+  "cookies_workspace_error_duplicate_cookie": {
+    "message": "Cookie 识别资料重复。"
+  },
+  "cookies_workspace_error_store_unmapped": {
+    "message": "为每个来源储存区揀目标储存区。"
+  },
+  "cookies_workspace_error_unsupported_context": {
+    "message": "呢个浏览器唔支援呢种 Cookie 情境。"
+  },
+  "cookies_workspace_error_file_too_large": {
+    "message": "档案超出大小限制。"
+  },
+  "cookies_workspace_error_decryption_failed": {
+    "message": "无法解密档案。"
+  },
+  "cookies_workspace_error_invalid_password": {
+    "message": "请输入至少 8 个字元嘅密码。"
+  },
+  "cookies_workspace_error_lossy_format": {
+    "message": "呢个格式唔会保留所有所选属性。"
+  },
+  "cookies_workspace_all_stores": {
+    "message": "所有储存区"
+  },
+  "cookies_workspace_unknown": {
+    "message": "结果未确认"
+  },
+  "cookies_workspace_expired": {
+    "message": "已过期"
+  },
+  "management_tab_proxy": {
+    "message": "Proxy"
+  },
+  "proxy_workspace_subtitle": {
+    "message": "連線設定同瀏覽器流量路由"
+  },
+  "proxy_workspace_profiles": {
+    "message": "設定檔"
+  },
+  "proxy_workspace_routing": {
+    "message": "路由"
+  },
+  "proxy_workspace_companion": {
+    "message": "本機助手"
+  },
+  "proxy_workspace_new_profile": {
+    "message": "新增設定檔"
+  },
+  "proxy_workspace_all_types": {
+    "message": "所有協定"
+  },
+  "proxy_workspace_host": {
+    "message": "主機或者 IP 地址"
+  },
+  "proxy_workspace_port": {
+    "message": "連接埠"
+  },
+  "proxy_workspace_username": {
+    "message": "用戶名"
+  },
+  "proxy_workspace_password": {
+    "message": "密碼"
+  },
+  "proxy_workspace_uri": {
+    "message": "VLESS 連結"
+  },
+  "proxy_workspace_configuration": {
+    "message": "OpenVPN 設定"
+  },
+  "proxy_workspace_choose_file": {
+    "message": "揀 .ovpn 檔案"
+  },
+  "proxy_workspace_connect": {
+    "message": "連線"
+  },
+  "proxy_workspace_disconnect": {
+    "message": "中斷"
+  },
+  "proxy_workspace_all_traffic": {
+    "message": "全部瀏覽器流量"
+  },
+  "proxy_workspace_selected_domains": {
+    "message": "淨係所選網域"
+  },
+  "proxy_workspace_proxy_domains": {
+    "message": "代理網域：完整主機或者 *.網域"
+  },
+  "proxy_workspace_direct_domains": {
+    "message": "直連網域：完整主機或者 *.網域"
+  },
+  "proxy_workspace_bypass_local": {
+    "message": "略過本機地址"
+  },
+  "proxy_workspace_protect_webrtc": {
+    "message": "限制 WebRTC 使用代理相容連線"
+  },
+  "proxy_workspace_disable_prediction": {
+    "message": "關閉網絡預測"
+  },
+  "proxy_workspace_auto_connect": {
+    "message": "瀏覽器啟動嗰陣連線"
+  },
+  "proxy_workspace_companion_check": {
+    "message": "檢查本機助手"
+  },
+  "proxy_workspace_companion_available": {
+    "message": "本機助手可用"
+  },
+  "proxy_workspace_companion_missing": {
+    "message": "本機助手未裝或者唔可用"
+  },
+  "proxy_workspace_companion_install": {
+    "message": "喺 GitHub（Releases）下載助手壓縮檔，解壓再執行安裝程式："
+  },
+  "proxy_workspace_companion_detail": {
+    "message": "本機助手運行 VLESS 用嘅 Xray、用戶態 OpenVPN 同有登入資料嘅 SOCKS5、HTTP、HTTPS 代理中繼。中繼淨係傳送 TCP 連線。"
+  },
+  "proxy_workspace_socks_detail": {
+    "message": "唔使登入嘅 SOCKS5 由瀏覽器連線；要認證就用本機助手。"
+  },
+  "proxy_workspace_vless_detail": {
+    "message": "VLESS 連結透過助手入面嘅 Xray 運行。"
+  },
+  "proxy_workspace_openvpn_detail": {
+    "message": "匯入 .ovpn，透過助手運行 OpenVPN。"
+  },
+  "proxy_workspace_export": {
+    "message": "匯出設定檔中繼資料 JSON"
+  },
+  "proxy_workspace_delete_confirmation": {
+    "message": "刪除呢個設定檔？"
+  },
+  "proxy_workspace_secret_saved": {
+    "message": "登入資料已存喺本機助手"
+  },
+  "proxy_workspace_replace_secret": {
+    "message": "秘密欄位留空就保留原有登入資料。"
+  },
+  "proxy_workspace_remote_dns": {
+    "message": "透過代理解析 DNS"
+  },
+  "proxy_workspace_kill_switch": {
+    "message": "斷線保護"
+  },
+  "proxy_workspace_kill_switch_detail": {
+    "message": "連線失敗之後，經代理路由嘅請求仍然會畀人封鎖。"
+  },
+  "proxy_workspace_smart_paste": {
+    "message": "貼上連線資料"
+  },
+  "proxy_workspace_parse": {
+    "message": "分析"
+  },
+  "proxy_workspace_retry": {
+    "message": "檢查設定檔再試過。"
+  },
+  "proxy_workspace_state_off": {
+    "message": "已關閉"
+  },
+  "proxy_workspace_state_connecting": {
+    "message": "連線緊"
+  },
+  "proxy_workspace_state_connected": {
+    "message": "已連線"
+  },
+  "proxy_workspace_state_blocked": {
+    "message": "流量已封鎖"
+  },
+  "proxy_workspace_state_error": {
+    "message": "連線錯誤"
+  },
+  "proxy_workspace_state_conflict": {
+    "message": "由其他程式控制"
+  },
+  "proxy_workspace_state_permission_required": {
+    "message": "需要授權"
+  },
+  "proxy_workspace_error_auth": {
+    "message": "認證失敗。"
+  },
+  "proxy_workspace_error_dns": {
+    "message": "DNS 解析失敗。"
+  },
+  "proxy_workspace_error_connection": {
+    "message": "伺服器拒絕連線。"
+  },
+  "proxy_workspace_error_tls": {
+    "message": "TLS 協商失敗。"
+  },
+  "proxy_workspace_error_reality": {
+    "message": "REALITY 協商失敗。"
+  },
+  "proxy_workspace_error_config": {
+    "message": "請檢查設定檔。"
+  },
+  "proxy_workspace_error_engine_missing": {
+    "message": "缺少連線引擎。"
+  },
+  "proxy_workspace_error_engine_failed": {
+    "message": "連線引擎已停止。"
+  },
+  "proxy_workspace_error_proxy": {
+    "message": "代理回報錯誤。"
+  },
+  "proxy_workspace_error_disconnected": {
+    "message": "隧道已中斷。"
+  },
+  "proxy_workspace_error_unsupported": {
+    "message": "唔支援呢個設定檔。"
+  },
+  "proxy_workspace_error_vault": {
+    "message": "登入資料庫唔可用。"
+  },
+  "proxy_workspace_error_identity": {
+    "message": "請為呢個擴充功能 ID 安裝助手。"
+  },
+  "proxy_workspace_analyzer": {
+    "message": "連線分析器"
+  },
+  "proxy_workspace_check_connection": {
+    "message": "檢查連線"
+  },
+  "proxy_workspace_target_url": {
+    "message": "測試網址"
+  },
+  "proxy_workspace_check_pass": {
+    "message": "收到回應"
+  },
+  "proxy_workspace_check_fail": {
+    "message": "檢查失敗"
+  },
+  "proxy_workspace_remote_ip": {
+    "message": "外部 IP 地址"
+  },
+  "proxy_workspace_http_status": {
+    "message": "HTTP 狀態"
+  },
+  "proxy_workspace_tls_verified": {
+    "message": "憑證已驗證"
+  },
+  "proxy_workspace_tls_plain": {
+    "message": "冇用到（HTTP）"
+  },
+  "proxy_workspace_elapsed": {
+    "message": "請求時間"
+  },
+  "proxy_workspace_not_checked": {
+    "message": "仲未檢查。"
+  },
+  "proxy_workspace_checking": {
+    "message": "檢查緊…"
+  },
+  "proxy_workspace_check_visible": {
+    "message": "檢查顯示中嘅設定檔"
+  },
+  "proxy_workspace_copy_all": {
+    "message": "複製全部 JSON 連登入資料"
+  },
+  "proxy_workspace_copy_json": {
+    "message": "複製完整 JSON 連登入資料"
+  },
+  "proxy_workspace_copied": {
+    "message": "JSON 已複製"
+  },
+  "proxy_workspace_sort_by": {
+    "message": "排序方式"
+  },
+  "proxy_workspace_activity": {
+    "message": "活動"
+  },
+  "proxy_workspace_last_check": {
+    "message": "上次手動檢查"
+  },
+  "proxy_workspace_latency": {
+    "message": "回應時間"
+  },
+  "proxy_workspace_no_check": {
+    "message": "未檢查"
+  },
+  "proxy_workspace_check_result": {
+    "message": "檢查結果"
+  },
+  "proxy_workspace_stopping": {
+    "message": "停止緊…"
+  },
+  "proxy_workspace_error_active_vpn": {
+    "message": "另一個 OpenVPN 連線用緊。請先中斷佢再檢查呢個設定檔。"
+  },
+  "proxy_workspace_native_restart": {
+    "message": "已授予存取权。请关闭 Proxy，再重新启动一次扩展，启用配套程序。呢页会重新打开；未保存嘅字段需要再输入。"
+  },
+  "proxy_workspace_native_restart_action": {
+    "message": "重新启动扩展"
+  },
+  "precursor_title": {
+    "message": "Cloudflare Precursor"
+  },
+  "precursor_observed": {
+    "message": "观察到资源"
+  },
+  "precursor_not_observed": {
+    "message": "未观察到资源"
+  },
+  "precursor_mode": {
+    "message": "模式"
+  },
+  "precursor_mode_unknown": {
+    "message": "未知"
+  },
+  "precursor_loading": {
+    "message": "载入观察结果…"
+  },
+  "precursor_no_site": {
+    "message": "请选择网站页面"
+  },
+  "precursor_no_access": {
+    "message": "无法存取观察结果"
+  },
+  "precursor_paused": {
+    "message": "观察已暂停"
+  },
+  "precursor_unsupported": {
+    "message": "观察唔可用"
+  },
+  "precursor_unavailable": {
+    "message": "无法载入观察结果"
+  },
+  "management_tab_autosurf": {
+    "message": "自动浏览"
+  },
+  "autosurf_title": {
+    "message": "自动浏览"
+  },
+  "autosurf_subtitle": {
+    "message": "按计划浏览网站同量度本机资源"
+  },
+  "autosurf_settings": {
+    "message": "浏览计划"
+  },
+  "autosurf_urls": {
+    "message": "网站地址"
+  },
+  "autosurf_urls_help": {
+    "message": "HTTP(S)，每行一个地址。最多200个地址。"
+  },
+  "autosurf_sample": {
+    "message": "抽样数量（0＝全部）"
+  },
+  "autosurf_cycles": {
+    "message": "循环次数"
+  },
+  "autosurf_depth": {
+    "message": "站内跳转深度"
+  },
+  "autosurf_seed": {
+    "message": "随机种子"
+  },
+  "autosurf_order": {
+    "message": "浏览次序"
+  },
+  "autosurf_sequential": {
+    "message": "跟列表次序"
+  },
+  "autosurf_shuffle": {
+    "message": "随机排序"
+  },
+  "autosurf_duration": {
+    "message": "运行上限，分钟"
+  },
+  "autosurf_dwell_min": {
+    "message": "最短停留，秒"
+  },
+  "autosurf_dwell_max": {
+    "message": "最长停留，秒"
+  },
+  "autosurf_gap_min": {
+    "message": "最短间隔，秒"
+  },
+  "autosurf_gap_max": {
+    "message": "最长间隔，秒"
+  },
+  "autosurf_scroll": {
+    "message": "卷动网页"
+  },
+  "autosurf_hover": {
+    "message": "移动同悬停指针"
+  },
+  "autosurf_metrics": {
+    "message": "记录资源量度"
+  },
+  "autosurf_grant_metrics": {
+    "message": "允许量度系统CPU同记忆体"
+  },
+  "autosurf_start": {
+    "message": "开始"
+  },
+  "autosurf_stop": {
+    "message": "停止"
+  },
+  "autosurf_discard": {
+    "message": "放弃修改"
+  },
+  "autosurf_dirty": {
+    "message": "有未储存嘅修改"
+  },
+  "autosurf_status": {
+    "message": "运行状态"
+  },
+  "autosurf_progress": {
+    "message": "进度"
+  },
+  "autosurf_current": {
+    "message": "网站"
+  },
+  "autosurf_phase": {
+    "message": "阶段"
+  },
+  "autosurf_elapsed": {
+    "message": "已用时间"
+  },
+  "autosurf_remaining": {
+    "message": "呢个阶段剩余"
+  },
+  "autosurf_results": {
+    "message": "浏览结果"
+  },
+  "autosurf_no_results": {
+    "message": "暂时未有完成嘅浏览。"
+  },
+  "autosurf_preview": {
+    "message": "预览"
+  },
+  "autosurf_close": {
+    "message": "关闭"
+  },
+  "autosurf_download": {
+    "message": "下载"
+  },
+  "autosurf_interrupted": {
+    "message": "已中断"
+  },
+  "autosurf_status_idle": {
+    "message": "准备好"
+  },
+  "autosurf_status_running": {
+    "message": "运行中"
+  },
+  "autosurf_status_paused": {
+    "message": "已暂停"
+  },
+  "autosurf_status_completed": {
+    "message": "已完成"
+  },
+  "autosurf_status_stopped": {
+    "message": "已停止"
+  },
+  "autosurf_status_error": {
+    "message": "错误"
+  },
+  "autosurf_phase_opening": {
+    "message": "开启分页"
+  },
+  "autosurf_phase_navigating": {
+    "message": "载入网页"
+  },
+  "autosurf_phase_settling": {
+    "message": "等网页稳定"
+  },
+  "autosurf_phase_interacting": {
+    "message": "浏览中"
+  },
+  "autosurf_phase_gap": {
+    "message": "浏览间隔"
+  },
+  "autosurf_metrics_title": {
+    "message": "资源量度"
+  },
+  "autosurf_system_cpu": {
+    "message": "系统CPU"
+  },
+  "autosurf_system_ram": {
+    "message": "系统已用记忆体"
+  },
+  "autosurf_renderer_heap": {
+    "message": "渲染程序JS堆"
+  },
+  "autosurf_renderer_task": {
+    "message": "渲染工作累计时间"
+  },
+  "autosurf_gpu": {
+    "message": "GPU使用率"
+  },
+  "autosurf_unavailable": {
+    "message": "唔可用"
+  },
+  "autosurf_sample_time": {
+    "message": "量度时间"
+  },
+  "autosurf_chrome_required": {
+    "message": "自动浏览要用有除错权限嘅Chrome。"
+  },
+  "autosurf_invalid_url": {
+    "message": "请输入有效嘅HTTP(S)地址。"
+  },
+  "autosurf_duplicate_url": {
+    "message": "呢个地址已经喺列表入面。"
+  },
+  "autosurf_invalid_range": {
+    "message": "请检查数值同最细、最大范围。"
+  },
+  "autosurf_line": {
+    "message": "行"
+  },
+  "autosurf_reason_challenge": {
+    "message": "网站显示咗验证，运行已暂停。"
+  },
+  "autosurf_reason_http403": {
+    "message": "网站传回HTTP 403，运行已暂停。"
+  },
+  "autosurf_reason_http429": {
+    "message": "网站传回HTTP 429，运行已暂停。"
+  },
+  "autosurf_reason_tab_closed": {
+    "message": "工作分页已经唔可用。"
+  },
+  "autosurf_reason_foreground": {
+    "message": "工作视窗失去焦点。"
+  },
+  "autosurf_reason_navigation": {
+    "message": "导航有变或者未完成。"
+  },
+  "autosurf_reason_debugger": {
+    "message": "浏览器除错器断开咗。"
+  },
+  "autosurf_reason_restored": {
+    "message": "上次运行已恢复为暂停状态。"
+  },
+  "autosurf_reason_limit": {
+    "message": "已经达到设定嘅运行或结果上限。"
+  },
+  "autosurf_reason_clock": {
+    "message": "系统时钟有变，运行已暂停。"
+  },
+  "autosurf_clear_report": {
+    "message": "清除报告"
+  },
+  "autosurf_metrics_granted": {
+    "message": "已经允许量度系统CPU同记忆体。"
+  },
+  "autosurf_stale": {
+    "message": "计划喺另一视窗改咗。选择“放弃修改”载入而家嘅版本。"
+  },
+  "precursor_modes_title": {
+    "message": "Cloudflare Precursor"
+  },
+  "precursor_modes_source": {
+    "message": "Cloudflare API"
+  },
+  "precursor_modes_mode_off": {
+    "message": "Off"
+  },
+  "precursor_modes_mode_monitor": {
+    "message": "Monitor"
+  },
+  "precursor_modes_mode_arm": {
+    "message": "Armed"
+  },
+  "precursor_modes_mode_unknown": {
+    "message": "未知"
+  },
+  "precursor_modes_notification_title": {
+    "message": "Cloudflare Precursor"
+  },
+  "precursor_modes_subtitle": {
+    "message": "区域模式同变更"
+  },
+  "precursor_modes_settings": {
+    "message": "Precursor 设置"
+  },
+  "precursor_modes_connect": {
+    "message": "连接"
+  },
+  "precursor_modes_disconnect": {
+    "message": "断开连接"
+  },
+  "precursor_modes_refresh": {
+    "message": "刷新"
+  },
+  "precursor_modes_zone_id": {
+    "message": "区域 ID"
+  },
+  "precursor_modes_token": {
+    "message": "API 令牌"
+  },
+  "precursor_modes_token_help": {
+    "message": "令牌留喺浏览器会话内存，直到断开连接或者关浏览器。"
+  },
+  "precursor_modes_access_help": {
+    "message": "请用有已选区域 Precursor 读取权限同 Zone Read 权限嘅令牌。"
+  },
+  "precursor_modes_connection": {
+    "message": "连接"
+  },
+  "precursor_modes_mode": {
+    "message": "模式"
+  },
+  "precursor_modes_zone": {
+    "message": "区域"
+  },
+  "precursor_modes_last_checked": {
+    "message": "上次检查"
+  },
+  "precursor_modes_last_known": {
+    "message": "最近确认嘅模式"
+  },
+  "precursor_modes_history": {
+    "message": "模式记录"
+  },
+  "precursor_modes_history_empty": {
+    "message": "暂时未有已确认嘅模式变更。"
+  },
+  "precursor_modes_notifications": {
+    "message": "模式改变嗰阵通知我"
+  },
+  "precursor_modes_disconnected": {
+    "message": "未连接"
+  },
+  "precursor_modes_connecting": {
+    "message": "连接紧…"
+  },
+  "precursor_modes_ready": {
+    "message": "已连接"
+  },
+  "precursor_modes_stale": {
+    "message": "需要更新"
+  },
+  "precursor_modes_error": {
+    "message": "错误"
+  },
+  "precursor_modes_unknown": {
+    "message": "未知"
+  },
+  "precursor_modes_from": {
+    "message": "原本"
+  },
+  "precursor_modes_to": {
+    "message": "变成"
+  },
+  "precursor_modes_at": {
+    "message": "观察时间"
+  },
+  "precursor_modes_api_error": {
+    "message": "操作失败，请再试。"
+  },
+  "precursor_modes_auth_error": {
+    "message": "请检查令牌同佢对呢个区域嘅访问权限。"
+  },
+  "precursor_modes_rate_error": {
+    "message": "请稍后再试。"
+  },
+  "precursor_modes_invalid_error": {
+    "message": "请检查区域 ID 同 API 令牌。"
+  },
+  "precursor_modes_permission_error": {
+    "message": "请授予需要嘅浏览器权限，再试一次。"
+  },
+  "precursor_modes_consent_error": {
+    "message": "请喺扩展设置启用观察。"
+  },
+  "precursor_modes_unavailable": {
+    "message": "唔可用"
+  },
+  "precursor_modes_back": {
+    "message": "扩展设置"
+  },
+  "precursor_modes_language": {
+    "message": "语言"
+  },
+  "precursor_modes_changed": {
+    "message": "模式改变咗"
+  },
+  "precursor_modes_notification_body": {
+    "message": "$1：$2 → $3"
+  },
+  "precursor_modes_zone_mode": {
+    "message": "区域模式"
+  },
+  "autosurf_sites_title": {
+    "message": "搵网站"
+  },
+  "autosurf_sites_subtitle": {
+    "message": "按国家同主题安排访问计划。"
+  },
+  "autosurf_sites_search": {
+    "message": "搵网站"
+  },
+  "autosurf_sites_search_placeholder": {
+    "message": "名称或者域名"
+  },
+  "autosurf_sites_country": {
+    "message": "国家"
+  },
+  "autosurf_sites_all_countries": {
+    "message": "所有国家"
+  },
+  "autosurf_sites_country_search": {
+    "message": "搵国家"
+  },
+  "autosurf_sites_countries_empty": {
+    "message": "搵唔到国家"
+  },
+  "autosurf_sites_categories": {
+    "message": "分類"
+  },
+  "autosurf_sites_all_categories": {
+    "message": "所有分類"
+  },
+  "autosurf_sites_results": {
+    "message": "搵到嘅网站"
+  },
+  "autosurf_sites_select_page": {
+    "message": "拣呢一页"
+  },
+  "autosurf_sites_clear_selection": {
+    "message": "取消选择"
+  },
+  "autosurf_sites_selected": {
+    "message": "已拣"
+  },
+  "autosurf_sites_add": {
+    "message": "加到计划"
+  },
+  "autosurf_sites_in_plan": {
+    "message": "已经喺计划入面"
+  },
+  "autosurf_sites_available": {
+    "message": "剩余名额"
+  },
+  "autosurf_sites_empty": {
+    "message": "冇网站符合筛选条件"
+  },
+  "autosurf_sites_empty_hint": {
+    "message": "更改上面嘅篩選條件，或者清除篩選。"
+  },
+  "autosurf_sites_clear_filters": {
+    "message": "清除筛选"
+  },
+  "autosurf_sites_previous": {
+    "message": "上一页"
+  },
+  "autosurf_sites_next": {
+    "message": "下一页"
+  },
+  "autosurf_sites_page": {
+    "message": "页"
+  },
+  "autosurf_sites_catalog": {
+    "message": "目录"
+  },
+  "autosurf_sites_sources": {
+    "message": "来源"
+  },
+  "autosurf_sites_category": {
+    "message": "主题"
+  },
+  "autosurf_sites_check_plan": {
+    "message": "请先检查访问计划入面嘅网址。"
+  },
+  "autosurf_sites_added": {
+    "message": "已加入"
+  },
+  "autosurf_sites_duplicates": {
+    "message": "已经喺计划入面"
+  },
+  "autosurf_sites_error_capacity": {
+    "message": "计划最多可以有200个网站。"
+  },
+  "autosurf_sites_error_existing": {
+    "message": "请先改正访问计划入面嘅网址。"
+  },
+  "autosurf_sites_error_selection": {
+    "message": "请重新拣网站。"
+  },
+  "autosurf_sites_category_news": {
+    "message": "新闻"
+  },
+  "autosurf_sites_category_automotive": {
+    "message": "汽车"
+  },
+  "autosurf_sites_category_gaming": {
+    "message": "游戏"
+  },
+  "autosurf_sites_category_shopping": {
+    "message": "网上购物"
+  },
+  "autosurf_sites_category_classifieds": {
+    "message": "分类广告"
+  },
+  "autosurf_sites_category_finance": {
+    "message": "财经"
+  },
+  "autosurf_sites_category_government": {
+    "message": "政府服务"
+  },
+  "autosurf_sites_category_education": {
+    "message": "教育"
+  },
+  "autosurf_sites_category_sports": {
+    "message": "体育"
+  },
+  "autosurf_sites_category_travel": {
+    "message": "旅游"
+  },
+  "autosurf_sites_category_real_estate": {
+    "message": "楼盘"
+  },
+  "autosurf_sites_category_jobs": {
+    "message": "搵工"
+  },
+  "autosurf_sites_category_video": {
+    "message": "影片"
+  },
+  "autosurf_sites_category_music": {
+    "message": "音乐"
+  },
+  "autosurf_sites_category_health": {
+    "message": "健康"
+  },
+  "autosurf_sites_category_food": {
+    "message": "饮食"
+  },
+  "autosurf_sites_category_technology": {
+    "message": "科技"
+  },
+  "autosurf_sites_category_forums": {
+    "message": "讨论区"
+  },
+  "autosurf_sites_category_weather": {
+    "message": "天气同地图"
+  },
+  "autosurf_sites_category_reference": {
+    "message": "参考资料"
+  },
+  "autosurf_sites_error_unavailable": {
+    "message": "而家未可以加网站。"
+  },
+  "autosurf_sites_systems_catalog_title": {
+    "message": "目錄入面嘅系統"
+  },
+  "autosurf_sites_tracking_systems": {
+    "message": "追蹤系統"
+  },
+  "autosurf_sites_all_systems": {
+    "message": "所有系統"
+  },
+  "autosurf_sites_system_search": {
+    "message": "搵系統"
+  },
+  "autosurf_sites_systems_empty": {
+    "message": "搵唔到系統"
+  },
+  "autosurf_sites_show_all_systems": {
+    "message": "顯示所有系統"
+  },
+  "autosurf_sites_show_fewer_systems": {
+    "message": "收起清單"
+  },
+  "autosurf_sites_uncategorized": {
+    "message": "其他網站"
+  },
+  "autosurf_sites_system_categories": {
+    "message": "系統分類"
+  },
+  "autosurf_sites_all_system_categories": {
+    "message": "所有分類"
+  },
+  "autosurf_sites_system_category_fraud_prevention": {
+    "message": "防範欺詐"
+  },
+  "autosurf_sites_system_category_bot_management": {
+    "message": "機械人管理"
+  },
+  "autosurf_sites_system_category_ecommerce_intelligence": {
+    "message": "電子商務分析"
+  },
+  "autosurf_sites_system_category_device_fingerprinting": {
+    "message": "裝置指紋"
+  },
+  "autosurf_sites_system_category_bot_detection": {
+    "message": "機械人偵測"
+  },
+  "autosurf_sites_system_category_captcha": {
+    "message": "驗證碼"
+  },
+  "autosurf_sites_active_filters": {
+    "message": "使用中嘅篩選"
+  },
+  "autosurf_sites_clear_all_filters": {
+    "message": "全部清除"
+  },
+  "autosurf_sites_remove_filter": {
+    "message": "移除篩選"
+  },
+  "autosurf_sites_any_selected_system": {
+    "message": "使用任何已選系統嘅網站"
+  },
+  "autosurf_sites_selected_systems": {
+    "message": "已選系統"
+  },
+  "protection_feature_navigator_metadata": {
+    "message": "Navigator 元資料"
+  },
+  "protection_feature_navigator_plugins": {
+    "message": "外掛同 MIME 元資料"
+  },
+  "protection_feature_screen_geometry": {
+    "message": "視窗尺寸同位置"
+  },
+  "protection_feature_css_media": {
+    "message": "CSS 媒體查詢"
+  },
+  "protection_feature_css_supports": {
+    "message": "CSS 功能支援"
+  },
+  "protection_feature_intl_formatting": {
+    "message": "Intl 格式設定"
+  },
+  "protection_feature_webgl_capabilities": {
+    "message": "WebGL 功能"
+  },
+  "protection_feature_webgpu_capabilities": {
+    "message": "WebGPU 功能"
+  },
+  "protection_feature_canvas_text_metrics": {
+    "message": "Canvas 文字量度"
+  },
+  "protection_feature_audio_fingerprint": {
+    "message": "音訊指紋"
+  },
+  "protection_feature_audio_metadata": {
+    "message": "音訊元資料"
+  },
+  "protection_feature_clock_precision": {
+    "message": "時鐘精度"
+  },
+  "protection_feature_canvas_font_policy": {
+    "message": "字型"
+  },
+  "protection_feature_browser_surface": {
+    "message": "瀏覽器介面"
+  },
+  "protection_feature_webgl_readback": {
+    "message": "WebGL 像素讀取"
+  },
+  "proxy_workspace_setup_required": {
+    "message": "新增配置先可以连接。"
+  },
+  "proxy_workspace_choose_profile": {
+    "message": "喺列表揀个配置先可以连接。"
+  },
+  "autosurf_empty_plan": {
+    "message": "加啲网站先可以开始。"
+  },
+  "protection_webrtc_host_mdns": {
+    "message": "mDNS 名称（.local）"
+  },
+  "protection_webrtc_host_mdns_note": {
+    "message": "用随机嘅 .local 名称隐藏本地地址，同冇摄像头权限嘅 Chrome 一样。唔会解析呢个名称，网络路线都唔会改变。"
+  },
+  "proxy_workspace_bulk_import": {
+    "message": "匯入清單"
+  },
+  "proxy_workspace_bulk_detail": {
+    "message": "每行一個 SOCKS5、HTTP、HTTPS 或者 VLESS 設定檔；協定前綴（socks5://、http://、https://、vless://）決定類型。空格同 # 後面嘅文字會變成設定檔名稱。用戶名同密碼喺儲存之前淨係留喺呢個頁面嘅記憶體入面。"
+  },
+  "proxy_workspace_bulk_text": {
+    "message": "設定檔，每行一個"
+  },
+  "proxy_workspace_bulk_placeholder": {
+    "message": "203.0.113.10:1080\n203.0.113.11:1080:用戶名:密碼 #公司\n用戶名:密碼@proxy.example:1080\nsocks5://用戶名:密碼@[2001:db8::1]:1080 #IPv6\nhttp://user:password@203.0.113.12:8080 #HTTP\nhttps://203.0.113.13:8443 #HTTPS\nvless://UUID@vpn.example:443?security=reality&… #名稱"
+  },
+  "proxy_workspace_bulk_format": {
+    "message": "冇協定前綴嘅行嘅欄位次序"
+  },
+  "proxy_workspace_bulk_format_host_first": {
+    "message": "主機:連接埠:用戶名:密碼"
+  },
+  "proxy_workspace_bulk_format_login_first": {
+    "message": "用戶名:密碼:主機:連接埠"
+  },
+  "proxy_workspace_bulk_recognized": {
+    "message": "認到"
+  },
+  "proxy_workspace_bulk_errors": {
+    "message": "錯誤"
+  },
+  "proxy_workspace_bulk_duplicates": {
+    "message": "重複"
+  },
+  "proxy_workspace_bulk_room": {
+    "message": "剩餘位"
+  },
+  "proxy_workspace_bulk_line": {
+    "message": "行"
+  },
+  "proxy_workspace_bulk_ready": {
+    "message": "準備好"
+  },
+  "proxy_workspace_bulk_select_all": {
+    "message": "揀晒所有準備好嘅行"
+  },
+  "proxy_workspace_bulk_back": {
+    "message": "返回"
+  },
+  "proxy_workspace_bulk_save": {
+    "message": "儲存揀咗嘅"
+  },
+  "proxy_workspace_bulk_saving": {
+    "message": "儲存緊"
+  },
+  "proxy_workspace_bulk_limit": {
+    "message": "最多只可以儲存 100 個設定檔：揀嘅行數唔可以多過剩餘位。"
+  },
+  "proxy_workspace_bulk_saved_endpoint": {
+    "message": "已儲存嘅設定檔已經用緊呢個地址"
+  },
+  "proxy_workspace_bulk_imported": {
+    "message": "已匯入"
+  },
+  "proxy_workspace_bulk_check_imported": {
+    "message": "檢查已匯入嘅設定檔"
+  },
+  "proxy_workspace_bulk_delete_failed": {
+    "message": "刪除唔合格嘅"
+  },
+  "proxy_workspace_bulk_delete_confirm": {
+    "message": "上次檢查唔合格嘅已匯入設定檔會畀刪除："
+  },
+  "proxy_workspace_close": {
+    "message": "關閉"
+  },
+  "proxy_workspace_reason_invalid_line": {
+    "message": "認唔到呢行"
+  },
+  "proxy_workspace_reason_unsupported_scheme": {
+    "message": "淨係支援 SOCKS5、HTTP、HTTPS 同 VLESS 行"
+  },
+  "proxy_workspace_reason_invalid_host": {
+    "message": "主機或者 IP 地址無效"
+  },
+  "proxy_workspace_reason_invalid_port": {
+    "message": "冇連接埠，或者唔喺 1–65535 之內"
+  },
+  "proxy_workspace_reason_invalid_credentials": {
+    "message": "用戶名同密碼兩樣都要有，每樣最多 255 位元組；HTTP 或者 HTTPS 嘅用戶名唔可以有冒號"
+  },
+  "proxy_workspace_reason_invalid_vless": {
+    "message": "VLESS 連結無效"
+  },
+  "proxy_workspace_reason_invalid_name": {
+    "message": "名稱超過 96 個字元或者有控制字元"
+  },
+  "proxy_workspace_reason_wrong_order": {
+    "message": "啱另一個欄位次序：請改「冇協定前綴嘅行嘅欄位次序」"
+  },
+  "proxy_workspace_reason_openvpn_config": {
+    "message": "呢個係 OpenVPN 設定：請用「新增設定檔」→ OpenVPN 建立"
+  },
+  "proxy_workspace_reason_duplicate": {
+    "message": "重複"
+  },
+  "proxy_workspace_reason_too_many_lines": {
+    "message": "淨係讀頭 1000 行"
+  },
+  "proxy_workspace_all_results": {
+    "message": "所有結果"
+  },
+  "proxy_workspace_with_login": {
+    "message": "有登入資料"
+  },
+  "proxy_workspace_random_session": {
+    "message": "隨機工作階段"
+  },
+  "proxy_workspace_session_format": {
+    "message": "工作階段格式"
+  },
+  "proxy_workspace_session_format_detail": {
+    "message": "{session} 會換成 10 個字元（a–z、0–9）嘅隨機代碼。如果欄位已經用呢個格式收尾，就換咗嗰部分，否則加喺尾。請對一對服務商要求嘅格式。"
+  },
+  "proxy_workspace_session_target": {
+    "message": "加入去"
+  },
+  "proxy_workspace_session_format_invalid": {
+    "message": "格式入面唯一嘅 {session} 前面要有文字，唔可以有空格，最多 64 個字元；結果唔可以超過 255 位元組。"
+  },
+  "proxy_workspace_direct_domains_detail": {
+    "message": "呢個清單入面嘅網站唔經代理連線：佢哋會見到你真實嘅 IP 地址，網域名由你平時用嘅 DNS 解析。"
+  },
+  "proxy_workspace_protect_webrtc_detail": {
+    "message": "開咗之後 WebRTC 只可以經代理用 TCP 連 TURN 伺服器，所以有啲網站嘅通話可能駁唔通。"
+  },
+  "proxy_workspace_tcp_fingerprint_detail": {
+    "message": "網站見到嘅 TCP/IP 指紋（p0f）屬於開連線嗰方：SOCKS5、HTTP、HTTPS 同 VLESS 係代理伺服器，OpenVPN 係本機助手自己嘅網絡協定堆疊。擴充功能唔會改佢。"
+  },
+  "protection_webrtc_policy_proxy_only": {
+    "message": "只经代理（Firefox）"
+  },
+  "protection_webrtc_proxy_only_note": {
+    "message": "所有 WebRTC 连接都只经代理，唔会直接发送任何嘢。如果冇代理传输 UDP，通话同视频聊天就会失败。只限 Firefox。"
+  },
+  "proxy_workspace_http_detail": {
+    "message": "HTTP 代理。冇登入資料嗰陣瀏覽器直接連線；有登入資料嗰陣由本機助手中繼連線，並傳送 Basic 認證（唔支援 Digest 同 NTLM）。代理睇到每個連線嘅主機名稱。去 HTTP 代理嘅路徑冇加密：路徑上任何人都睇到登入資料，普通 HTTP 網站仲睇到頁面內容。"
+  },
+  "proxy_workspace_https_detail": {
+    "message": "HTTPS 代理：同代理本身嘅連線有加密，而且會檢查佢嘅憑證。冇登入資料嗰陣瀏覽器直接連線；有登入資料嗰陣由本機助手中繼連線，並傳送 Basic 認證（唔支援 Digest 同 NTLM）。代理仲係睇到每個連線嘅主機名稱。"
+  },
+  "proxy_workspace_http_relay_detail": {
+    "message": "有登入資料嘅話，所有網站（包括普通 HTTP）都會經本機助手以 CONNECT 隧道去到代理；有啲代理會拒絕去連接埠 80 嘅 CONNECT。連線嗰陣淨係檢查代理有冇回應（HTTPS 仲會檢查憑證）：登入資料由第一個請求或者「檢查連線」驗證。"
+  },
+  "proxy_workspace_bulk_default_type": {
+    "message": "冇協定前綴嘅行嘅類型"
+  },
+  "proxy_workspace_error_proxy_denied": {
+    "message": "代理拒絕開呢個連線：佢嘅規則唔允許，或者登入資料唔被接受。"
+  },
+  "proxy_workspace_error_network_unreachable": {
+    "message": "代理去唔到目標網絡。"
+  },
+  "proxy_workspace_error_host_unreachable": {
+    "message": "代理去唔到目標主機。"
+  },
+  "proxy_workspace_error_update_companion": {
+    "message": "已安裝嘅本機助手太舊，唔支援 HTTP 同 HTTPS 代理。請安裝最新嘅本機助手壓縮檔，然後撳「檢查本機助手」。"
+  },
+  "proxy_workspace_country_label": {
+    "message": "國家標記（可選）"
+  },
+  "proxy_workspace_country_hint": {
+    "message": "呢個係你自己嘅備註，永遠唔會根據 IP 地址偵測或者填寫。Antidetect 分頁可以用佢同時區同語言比較。"
+  },
+  "proxy_workspace_country_none": {
+    "message": "冇國家"
+  },
+  "proxy_workspace_country_no_results": {
+    "message": "搵唔到國家"
+  },
+  "proxy_workspace_country_clear": {
+    "message": "移除國家標記"
+  },
+  "proxy_workspace_country_title": {
+    "message": "你自己設定嘅國家標記，唔係偵測出嚟"
+  },
+  "proxy_workspace_history": {
+    "message": "歷史"
+  },
+  "proxy_workspace_history_title": {
+    "message": "檢查歷史"
+  },
+  "proxy_workspace_history_empty": {
+    "message": "暫時未有手動檢查記錄。"
+  },
+  "proxy_workspace_history_note": {
+    "message": "只會儲存喺呢部電腦：結果、時間、回應時間、DNS 同 TLS 標記、HTTP 狀態同出口 IP（檢查網站見到你自己代理嘅地址），每個設定檔最多 30 筆、保留 30 日；顯示最近 10 筆。永遠唔會儲存被檢查嘅地址、回應、登入資料或者代理主機。跑唔到嘅檢查唔會記錄，改設定檔嘅連線會清走佢嘅歷史。"
+  },
+  "proxy_workspace_history_time": {
+    "message": "上次檢查"
+  },
+  "proxy_workspace_history_clear": {
+    "message": "清除歷史"
+  },
+  "proxy_workspace_history_clear_all": {
+    "message": "清除所有檢查歷史"
+  },
+  "proxy_workspace_history_clear_confirm": {
+    "message": "刪除呢個設定檔已儲存嘅檢查歷史？"
+  },
+  "proxy_workspace_history_clear_all_confirm": {
+    "message": "刪除所有設定檔已儲存嘅檢查歷史？"
+  },
+  "proxy_workspace_history_cleared": {
+    "message": "已清除檢查歷史。"
+  },
+  "proxy_workspace_history_stay": {
+    "message": "自 {time} 起出口 IP 相同 · 檢查次數：{count}"
+  },
+  "proxy_workspace_history_unknown": {
+    "message": "未確定"
+  },
+  "proxy_workspace_ip_changed": {
+    "message": "出口 IP 變咗"
+  },
+  "proxy_workspace_ip_changed_detail": {
+    "message": "出口 IP 同上一次成功檢查唔同。"
+  },
+  "proxy_workspace_login_unchecked": {
+    "message": "已連線。連線嗰陣唔會驗證 HTTP 或者 HTTPS 代理嘅登入資料：第一個請求或者「檢查連線」先會驗證。"
+  },
+  "proxy_workspace_error_auth_required": {
+    "message": "代理要求登入，但呢個設定檔冇登入資料。"
+  },
+  "proxy_workspace_history_save": {
+    "message": "儲存檢查歷史"
+  },
+  "proxy_workspace_history_save_note": {
+    "message": "喺呢部電腦儲存每次手動檢查嘅結果（時間、結果、速度同代理嘅出口 IP），咁就睇到佢幾時有變。檢查歷史本身永遠唔會傳送去任何地方。"
+  },
+  "proxy_workspace_count_filtered": {
+    "message": "{shown} / {total}"
+  },
+  "proxy_workspace_duplicate_note": {
+    "message": "由 {name} 複製，唔包括登入資料：請輸入新嘅登入資料。"
+  },
+  "proxy_workspace_check_summary": {
+    "message": "已檢查 {done}/{total}：{passed} 個有回應，{failed} 個失敗。"
+  },
+  "proxy_workspace_check_progress": {
+    "message": "已檢查 {done}/{total}，{failed} 個失敗"
+  },
+  "proxy_workspace_address_copied": {
+    "message": "地址已複製"
+  },
+  "proxy_workspace_column_address": {
+    "message": "地址"
+  },
+  "proxy_workspace_country_short": {
+    "message": "國家"
+  },
+  "proxy_workspace_column_linked": {
+    "message": "指紋設定檔"
+  },
+  "proxy_workspace_column_checked": {
+    "message": "檢查時間"
+  },
+  "proxy_workspace_help": {
+    "message": "說明"
+  },
+  "proxy_workspace_loading": {
+    "message": "載入緊設定檔…"
+  },
+  "proxy_workspace_select_profile": {
+    "message": "選擇設定檔"
+  },
+  "proxy_workspace_copy_address": {
+    "message": "複製地址"
+  },
+  "proxy_workspace_more_actions": {
+    "message": "更多操作"
+  },
+  "proxy_workspace_duplicate": {
+    "message": "複製（唔包括登入資料）"
+  },
+  "proxy_workspace_select_all_rows": {
+    "message": "選擇所有設定檔"
+  },
+  "proxy_workspace_keyboard_hint": {
+    "message": "方向鍵移動，空白鍵選擇，Enter 開啟詳情，C 檢查，Delete 刪除，/ 搜尋。"
+  },
+  "proxy_workspace_chip_all": {
+    "message": "全部"
+  },
+  "proxy_workspace_chip_pass": {
+    "message": "運作中"
+  },
+  "proxy_workspace_chip_fail": {
+    "message": "失敗"
+  },
+  "proxy_workspace_chip_unchecked": {
+    "message": "未檢查"
+  },
+  "proxy_workspace_sort_reverse": {
+    "message": "反轉次序"
+  },
+  "proxy_workspace_density": {
+    "message": "密度"
+  },
+  "proxy_workspace_density_comfortable": {
+    "message": "寬鬆"
+  },
+  "proxy_workspace_density_compact": {
+    "message": "緊湊"
+  },
+  "proxy_workspace_columns": {
+    "message": "欄位"
+  },
+  "proxy_workspace_filters": {
+    "message": "篩選"
+  },
+  "proxy_workspace_reset_view": {
+    "message": "重設檢視"
+  },
+  "proxy_workspace_skip_to_list": {
+    "message": "跳去設定檔清單"
+  },
+  "proxy_workspace_remove_filter": {
+    "message": "移除篩選"
+  },
+  "proxy_workspace_clear_filters": {
+    "message": "清除篩選"
+  },
+  "proxy_workspace_delete_selected_confirm": {
+    "message": "刪除所選設定檔（{count}）？"
+  },
+  "proxy_workspace_delete_selected": {
+    "message": "刪除所選"
+  },
+  "proxy_workspace_selected_count": {
+    "message": "已選 {count} 個"
+  },
+  "proxy_workspace_check_selected": {
+    "message": "檢查所選"
+  },
+  "proxy_workspace_clear_selection": {
+    "message": "取消選擇"
+  },
+  "proxy_workspace_empty_title": {
+    "message": "仲未有代理"
+  },
+  "proxy_workspace_empty_detail": {
+    "message": "新增設定檔、貼上清單或者揀 OpenVPN 檔案。喺你要求之前，唔會檢查任何嘢，亦唔會連線去任何地方。"
+  },
+  "proxy_workspace_no_results": {
+    "message": "冇設定檔符合呢啲篩選條件。"
+  },
+  "proxy_workspace_retry_load": {
+    "message": "再試一次"
+  },
+  "proxy_workspace_linked_none": {
+    "message": "冇指紋設定檔連結到呢個代理。"
+  },
+  "proxy_workspace_show_password": {
+    "message": "顯示密碼"
+  },
+  "proxy_workspace_err_name": {
+    "message": "請輸入唔超過 96 個字元嘅名稱。"
+  },
+  "proxy_workspace_err_host": {
+    "message": "請輸入唔含空格同 / @ ? # 嘅主機名稱或者 IP 地址。"
+  },
+  "proxy_workspace_err_port": {
+    "message": "請輸入 1 至 65535 嘅連接埠。"
+  },
+  "proxy_workspace_err_uri": {
+    "message": "請輸入有效嘅 VLESS 連結。"
+  },
+  "proxy_workspace_err_config": {
+    "message": "請加入唔超過 256 KiB 嘅 OpenVPN 設定。"
+  },
+  "proxy_workspace_protections": {
+    "message": "保護措施"
+  },
+  "proxy_workspace_disable_prediction_detail": {
+    "message": "停用瀏覽器喺你撳之前預先載入頁面同查詢 DNS。"
+  },
+  "proxy_workspace_unsaved": {
+    "message": "有未儲存嘅變更"
+  },
+  "proxy_workspace_domain_add": {
+    "message": "新增網域"
+  },
+  "proxy_workspace_domain_invalid": {
+    "message": "請輸入完整主機或者 *.網域。"
+  },
+  "proxy_workspace_domain_taken": {
+    "message": "已經喺其中一個網域清單入面。"
+  },
+  "proxy_workspace_domain_remove": {
+    "message": "移除網域"
+  },
+  "proxy_workspace_companion_steps": {
+    "message": "安裝步驟"
+  },
+  "proxy_workspace_latency_fast": {
+    "message": "快"
+  },
+  "proxy_workspace_latency_ok": {
+    "message": "一般"
+  },
+  "proxy_workspace_latency_slow": {
+    "message": "慢"
+  },
+  "proxy_workspace_column_ip": {
+    "message": "出口 IP"
+  },
+  "proxy_workspace_facts_limits": {
+    "message": "限制"
+  },
+  "media_codecs_flags": {
+    "message": "畀页面嘅答复"
+  },
+  "media_codecs_supported": {
+    "message": "支持"
+  },
+  "media_codecs_smooth": {
+    "message": "流畅播放"
+  },
+  "media_codecs_power": {
+    "message": "节能"
+  },
+  "media_codecs_families": {
+    "message": "隐藏编解码器系列"
+  },
+  "media_codecs_note": {
+    "message": "Custom 值只可以调低呢个浏览器报告嘅内容。被隐藏嘅系列喺窗口同同源框架入面，会被 MediaCapabilities、canPlayType 同 isTypeSupported 报告为唔支持；唔涵盖 Workers 同不透明来源嘅文档（about:、blob:、data:）。"
+  },
+  "media_codecs_all_off": {
+    "message": "「支持」已关闭：无论下面剔咗乜，所有编解码器都会报告为唔支持。"
+  },
+  "media_codecs_json_invalid": {
+    "message": "下面嘅 JSON 唔系有效值。请先修正，先可以用呢啲控件。"
+  },
+  "cookies_workspace_expiry_datetime": {
+    "message": "到期时间：日期同时间"
+  },
+  "cookies_workspace_convert_to_datetime": {
+    "message": "将 Unix 秒转换成日期同时间"
+  },
+  "cookies_workspace_convert_to_seconds": {
+    "message": "将日期同时间转换成 Unix 秒"
+  },
+  "cookies_workspace_timezone": {
+    "message": "时区"
+  },
+  "cookies_workspace_timezone_local": {
+    "message": "本地时间（$OFFSET$）",
+    "placeholders": {
+      "offset": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookies_workspace_datetime_hint": {
+    "message": "格式 YYYY-MM-DD HH:mm:ss，可以加 .fff 同 Z 或 ±hh:mm。冇写偏移就用所选时区。净系储存 Unix 秒。"
+  },
+  "cookies_workspace_converter_error_seconds": {
+    "message": "请将 Unix 秒输入做正数，例如 1797166957.5。"
+  },
+  "cookies_workspace_converter_error_format": {
+    "message": "请输入真实存在嘅日期同时间，格式 YYYY-MM-DD HH:mm:ss，可以加 .fff 同 Z 或 ±hh:mm。"
+  },
+  "cookies_workspace_converter_error_range": {
+    "message": "Cookie 嘅到期时间要迟过 1970-01-01 00:00:00 UTC，而且唔可以迟过 275760 年。"
+  },
+  "cookies_workspace_converter_error_gap": {
+    "message": "呢个本地时间唔存在，因为嗰一刻时钟会调整。请揀第二个时间、加 UTC 偏移（例如 +03:00），或者转做 UTC。"
+  },
+  "cookies_workspace_converter_error_ambiguous": {
+    "message": "呢个本地时间会出现两次，因为时钟会拨返后。请加 UTC 偏移（例如 +03:00），或者转做 UTC。"
+  },
+  "cookies_workspace_converter_unapplied": {
+    "message": "日期同时间已经改咗但未转换。请按两个栏位之间嘅箭咀嚟套用，或者按另一个箭咀由 Unix 秒还原。"
+  },
+  "cookies_workspace_identity_locked": {
+    "message": "名称、网域、路径、储存区、「只限呢个主机」同分区决定呢个 Cookie 嘅身份，所以唔可以改。想要另一个 Cookie，请将呢个复制做新嘅，改嗰啲栏位再储存；原本嗰个会保持不变。"
+  },
+  "cookies_workspace_copy_as_new": {
+    "message": "复制做新 Cookie"
+  },
+  "cookies_workspace_copy_same_identity": {
+    "message": "请改名称、网域、路径、储存区、「只限呢个主机」或者分区，令新 Cookie 同原本嗰个唔同。"
+  },
+  "cookies_workspace_partition_hint": {
+    "message": "已分区嘅 Cookie 会按每个顶层网站分开储存，即使名称同网域一样。"
+  },
+  "cookies_workspace_store_default": {
+    "message": "默认"
+  },
+  "cookies_workspace_problem_size": {
+    "message": "名称同值合共占 $SIZE$ 字节，但 Chrome 会拒绝超过 $LIMIT$ 字节嘅 Cookie。",
+    "placeholders": {
+      "size": {
+        "content": "$1"
+      },
+      "limit": {
+        "content": "$2"
+      }
+    }
+  },
+  "cookies_workspace_problem_samesite_none": {
+    "message": "SameSite None 需要 Secure 标志。"
+  },
+  "cookies_workspace_problem_partition_secure": {
+    "message": "已分区嘅 Cookie 需要 Secure 标志。"
+  },
+  "cookies_workspace_problem_prefix": {
+    "message": "呢个名称前缀需要配合嘅属性：__Secure- 需要 Secure；__Host- 需要 Secure、只限呢个主机同路径 /；__Http- 需要 Secure 同 HttpOnly。"
+  },
+  "cookies_workspace_details_session_value": {
+    "message": "冇到期日期：保留到浏览器工作阶段结束"
+  },
+  "cookies_workspace_details_expired": {
+    "message": "已过期"
+  },
+  "cookies_workspace_details_size": {
+    "message": "大细"
+  },
+  "cookies_workspace_details_size_value": {
+    "message": "$SIZE$ 字节（名称同值）",
+    "placeholders": {
+      "size": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookies_workspace_details_size_limit": {
+    "message": "容许 $LIMIT$ 字节，已用 $SIZE$ 字节（名称同值）",
+    "placeholders": {
+      "size": {
+        "content": "$1"
+      },
+      "limit": {
+        "content": "$2"
+      }
+    }
+  },
+  "cookies_workspace_details_host": {
+    "message": "发送到"
+  },
+  "cookies_workspace_details_host_only": {
+    "message": "净系 $HOST$，唔包括佢嘅子网域",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookies_workspace_details_host_domain": {
+    "message": "$HOST$ 同佢所有子网域",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookies_workspace_details_path_value": {
+    "message": "$PATH$ 同佢下面嘅所有路径",
+    "placeholders": {
+      "path": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookies_workspace_details_connection": {
+    "message": "连线"
+  },
+  "cookies_workspace_details_https_only": {
+    "message": "净系 HTTPS"
+  },
+  "cookies_workspace_details_http_https": {
+    "message": "HTTP 同 HTTPS"
+  },
+  "cookies_workspace_details_api_limits": {
+    "message": "浏览器嘅扩展 API 唔会提供 Cookie 嘅建立时间、最后存取、优先级、来源协议同来源端口，所以唔会显示。"
+  },
+  "cookies_workspace_problem_expired": {
+    "message": "呢个到期时间已经过咗：浏览器会即刻删除呢个 Cookie，所以唔可以储存。"
+  },
+  "cookies_workspace_problem_reach": {
+    "message": "Chrome 将 Cookie 嘅寿命限制喺由而家起 400 日：更迟嘅到期时间储存时会被缩短。"
+  },
+  "proxy_workspace_companion_notice_title": {
+    "message": "部分代理類型需要額外軟件"
+  },
+  "proxy_workspace_companion_notice": {
+    "message": "VLESS、OpenVPN，同有登入資料嘅 SOCKS5、HTTP 或者 HTTPS 代理，需要一個 Windows 用嘅細型本機助手。佢要喺 GitHub 另外下載；擴展唔會下載或者安裝佢。請解壓壓縮檔再執行安裝程式。冇登入資料嘅 SOCKS5、HTTP 同 HTTPS 代理唔使佢都用得。"
+  },
+  "proxy_workspace_companion_download": {
+    "message": "喺 GitHub 下載"
+  },
+  "proxy_workspace_companion_new_tab": {
+    "message": "（喺新分頁開啟）"
+  }
+}

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>S12: history site</title>
+  </head>
+  <body>
+    <h1>History site (S12, ADR-020 §G)</h1>
+    <p>
+      A site of the «Кто вас узнаёт» stand. It loads <code>tracker.js</code> (an image and an XHR to
+      <code>/history/collect</code>) and embeds <code>widget.html</code> (canvas text + export) from the receiver host given
+      as <code>?receiver=&lt;hostname&gt;</code> (same scheme and port as this page). Open it under two different sites with the
+      same receiver: the receiver is then seen on two sites. The page types nothing and reads no field.
+    </p>
+    <pre id="result"></pre>
+    <script src="../../fixture-lib.js"></script>
+    <script>
+      (function () {
+        var F = window.__fixture;
+        var receiver = new URLSearchParams(location.search).get('receiver');
+        // Only a plain hostname is accepted (no scheme, port, path or credentials).
+        var origin = receiver !== null && /^[a-z0-9.-]{1,253}$/i.test(receiver)
+          ? location.protocol + '//' + receiver + (location.port ? ':' + location.port : '')
+          : null;
+        if (origin === null) {
+          F.publish({ fixture: 'history-site', receiver: false });
+          return;
+        }
+        function load(tag, src) {
+          return new Promise(function (resolve) {
+            var element = document.createElement(tag);
+            element.onload = function () { resolve('load'); };
+            element.onerror = function () { resolve('error'); };
+            element.src = src;
+            if (tag === 'iframe') {
+              element.width = '240';
+              element.height = '80';
+              element.title = 'widget';
+            }
+            document.body.appendChild(element);
+          });
+        }
+        Promise.all([load('script', origin + '/protect/history/tracker.js'), load('iframe', origin + '/protect/history/widget.html')]).then(function (results) {
+          F.publish({ fixture: 'history-site', receiver: true, script: results[0], frame: results[1] });
+        });
+      })();
+    </script>
+  </body>
+</html>

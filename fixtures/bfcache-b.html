@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>bfcache-b</title>
+  </head>
+  <body>
+    <h1>BFCache page B</h1>
+    <p>Plain page. The test navigates back from here.</p>
+    <p><a id="back" href="bfcache-a.html">Back to A (new load)</a></p>
+    <pre id="result"></pre>
+    <script src="fixture-lib.js"></script>
+    <script>
+      window.__fixture.publish({ fixture: 'bfcache-b' });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+/* E22-08: local typed WebRTC controls; independent native policy stays outside site/API mode controls. */
+.webrtc-profile-overview { box-sizing: border-box; min-width: 0; margin-block: 0 20px; padding: 18px; border: 1px solid var(--border); border-radius: 16px; color: var(--text); background: var(--surface); }
+.webrtc-profile-overview__heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; min-width: 0; }
+.webrtc-profile-overview__heading h2 { margin: 0; font-size: 17px; font-weight: 650; line-height: 1.3; }
+.webrtc-profile-overview__configure.button { max-width: 100%; min-height: 36px; padding: 8px 14px; font-size: 12px; line-height: 1.4; white-space: normal; overflow-wrap: anywhere; }
+.webrtc-profile-overview__features { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 14px 0 0; padding: 0; list-style: none; }
+.webrtc-profile-overview__features > li { display: flex; align-items: center; gap: 10px; min-width: 0; padding: 12px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface-2); font-size: 12px; font-weight: 550; line-height: 1.45; overflow-wrap: anywhere; }
+.webrtc-profile-overview__icon { display: grid; place-items: center; flex: 0 0 28px; width: 28px; height: 28px; border-radius: 8px; color: var(--accent); background: var(--surface); }
+.webrtc-profile-overview__icon svg { display: block; flex: none; width: 20px; height: 20px; }
+.webrtc-profile-overview :focus-visible { outline: 3px solid var(--focus, var(--accent)); outline-offset: 3px; }
+.webrtc-network-policy { box-sizing: border-box; margin-block: 0 20px; padding: 16px 18px; border: 1px solid var(--border); border-radius: 14px; color: var(--text); background: var(--surface); }
+.webrtc-network-policy__heading strong { font-size: 14px; }
+.webrtc-network-policy__picker { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin-block: 14px 8px; font-size: 12px; }
+.webrtc-network-policy__picker select { flex: 1 1 220px; min-width: 0; }
+.webrtc-network-policy__status { margin-block: 8px; font-size: 12px; }
+.webrtc-config-note { margin-block: 6px; color: var(--muted); font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
+.webrtc-config-fields { display: grid; gap: 16px; min-width: 0; }
+.webrtc-config-section { display: grid; gap: 12px; min-width: 0; margin: 0; padding: 12px; border: 1px solid var(--border); border-radius: 10px; }
+.webrtc-config-section legend { padding-inline: 5px; font-size: 12px; font-weight: 600; }
+.api-config-form .webrtc-config-check { display: flex; align-items: flex-start; gap: 9px; font-size: 12px; font-weight: 400; line-height: 1.5; }
+.api-config-form .webrtc-config-check input { flex: none; width: 16px; height: 16px; margin-block: 1px 0; padding: 0; accent-color: var(--accent); }
+.webrtc-config-addresses { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; min-width: 0; }
+.webrtc-config-family { gap: 10px; padding: 12px; background: var(--surface-2); }
+.webrtc-config-family legend { color: var(--accent); font-weight: 650; }
+.webrtc-config-family > label { min-width: 0; }
+.webrtc-config-family input { box-sizing: border-box; min-width: 0; width: 100%; }
+.webrtc-config-fields > label { min-width: 0; }
+/* Catalog 8 host choice: the mDNS checkbox sits directly under the Host field of its family; ADR-107: one note follows both families. */
+.webrtc-config-family .webrtc-config-mdns { margin-block: -2px 0; }
+.webrtc-config-family .webrtc-config-mdns span { min-width: 0; overflow-wrap: anywhere; }
+.webrtc-config-mdns-note { margin-block: 0 2px; }
+.webrtc-config-fields input[dir="ltr"] { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+/* ADR-107: an address field is its label, the input and, after the field was left with a wrong value, the reason in words. */
+.webrtc-config-address { display: grid; gap: 7px; min-width: 0; font-size: 13px; font-weight: 550; }
+.webrtc-config-address > label { min-width: 0; overflow-wrap: anywhere; }
+.webrtc-config-error { color: var(--error, var(--danger, #b3261e)); font-size: 12px; font-weight: 500; line-height: 1.45; overflow-wrap: anywhere; }
+.webrtc-config-address input[aria-invalid="true"] { border-color: var(--error, var(--danger, #b3261e)); }
+@media (forced-colors: active) { .webrtc-config-error { color: CanvasText; } .webrtc-config-address input[aria-invalid="true"] { border-color: Highlight; border-width: 2px; } }
+.webrtc-network-policy :focus-visible { outline: 3px solid var(--focus, var(--accent)); outline-offset: 3px; }
+@media (max-width: 420px) { .webrtc-network-policy { padding: 14px; } .webrtc-network-policy__picker { align-items: stretch; } .webrtc-network-policy__picker select { flex-basis: 100%; width: 100%; } }
+@media (max-width: 560px) { .webrtc-config-addresses { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 650px) { .webrtc-profile-overview { padding: 14px; } .webrtc-profile-overview__features { gap: 7px; } .webrtc-profile-overview__features > li { flex-direction: column; align-items: flex-start; gap: 7px; padding: 10px; font-size: 12px; } }
+@media (forced-colors: active) { .webrtc-profile-overview, .webrtc-profile-overview__features > li, .webrtc-profile-overview__icon { color: CanvasText; background: Canvas; border-color: ButtonText; } .webrtc-profile-overview :focus-visible { outline-color: Highlight; } }
+@media (forced-colors: active) { .webrtc-network-policy, .webrtc-config-section { color: CanvasText; background: Canvas; border-color: ButtonText; } .webrtc-config-note { color: CanvasText; } .webrtc-network-policy :focus-visible { outline-color: Highlight; } }

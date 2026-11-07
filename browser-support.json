@@ -1,0 +1,79 @@
+{
+  "$comment": "ADR-002 / A2 / P06. API floor отделён от фактически проверенных сборок. Область проверки и исключения указаны для каждой сборки; это не общий release gate.",
+  "apiFloor": 119,
+  "minimumChromeVersion": "119",
+  "apiDependencies": {
+    "documentId": "106",
+    "sidePanel.open": "116",
+    "scripting.matchOriginAsFallback": "119"
+  },
+  "verifiedBuilds": [
+    {
+      "browser": "Chromium",
+      "version": "153.0.8010.12",
+      "versionSource": "browser.version()",
+      "cdpProduct": "Chrome/153.0.8010.12",
+      "os": "windows-x64",
+      "osRelease": "10.0.26200",
+      "at": "2026-09-13T07:09:36.393Z",
+      "harness": "Playwright 1.63.0, chromium-1243, launchPersistentContext, channel chromium, headless, OS temp profiles",
+      "profiles": ["test", "test-optional"],
+      "passedSuites": [
+        "tests/extension/stand/documents.spec.ts (8 passed)",
+        "tests/extension/stand/permissions.spec.ts (5 passed)"
+      ],
+      "partialSuites": [
+        "tests/extension/stand/lifecycle.spec.ts (BFCache и отмена: 2 passed; prerender: 1 fixme)"
+      ],
+      "extensionTests": { "passed": 71, "failed": 0, "skipped": 2 },
+      "p06Tests": { "passed": 15, "failed": 0, "skipped": 1 },
+      "limitations": [
+        "PrerenderingDisabledByDevTools: активация prerender и сохранение его documentId не подтверждены",
+        "Первый нативный permission prompt не автоматизирован; остальные optional grants настоящие, через настройки Chromium и Options",
+        "Branded Chrome stable/beta/extendedStable и другие ОС не проверены",
+        "На момент прогона P06 общие typecheck/lint/test:unit имели ошибки вне P06; в финальном прогоне интегратора 2026-09-13 все команды зелёные; release readiness (branded Chrome, второй Node 24 хост) по-прежнему не заявляется"
+      ],
+      "traceDirectory": "docs/coverage/traces"
+    }
+  ],
+  "note": "Проверена указанная область Chromium harness; поддержка всех версий начиная с API floor 119 не заявляется.",
+  "os": [
+    "windows-x64"
+  ],
+  "lastRun": {
+    "at": "2026-09-13T07:09:36.393Z",
+    "cmd": "pnpm test:extension",
+    "exitCode": 0,
+    "passed": 71,
+    "failed": 0,
+    "skipped": 2
+  },
+  "channels": {
+    "stable": null,
+    "beta": null,
+    "extendedStable": null
+  },
+  "manualChromeSmoke": {
+    "requirement": "P08 / ADR-002",
+    "status": "не выполнено",
+    "method": "Ручная проверка: chrome://extensions → Developer mode → Load unpacked → dist/local",
+    "reason": "Начиная с Chrome 137, --load-extension недоступен в официальных брендированных сборках Chrome; Chromium harness не заменяет ручной smoke Stable/Beta/Extended Stable.",
+    "source": "https://groups.google.com/a/chromium.org/g/chromium-extensions/c/1-g8EFx2BBY",
+    "checklist": "runbooks/manual-chrome-check.md"
+  },
+  "testHarness": {
+    "$comment": "Проверенная область harness указана в verifiedBuilds; branded Chrome не проверен.",
+    "playwright": "1.63.0",
+    "chromiumBuild": "1243",
+    "chromeForTesting": "153.0.8010.12",
+    "lastRun": {
+      "at": "2026-09-13T09:33:31.084Z",
+      "runtimeVersion": "153.0.8010.12",
+      "artifact": "docs/coverage/perf/popup-2026-09-13T09-33-31-084Z.json",
+      "extensionTests": 93,
+      "failed": 0,
+      "skipped": 3,
+      "note": "Финальный интегратор 2026-09-13: pnpm test:extension — 96 tests, 93 passed, 0 failed, 3 skipped (условные fixme: native permission prompt, prerender under DevTools, closed-renderer history), 6.4 min; headless Chromium, profiles test/test-optional; at = timestamp popup/performance.spec.ts этого прогона (миллисекунды). Branded Chrome и полный release acceptance не заявляются."
+    }
+  }
+}

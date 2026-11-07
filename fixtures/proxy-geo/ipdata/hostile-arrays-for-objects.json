@@ -1,0 +1,46 @@
+{
+  "provider": "ipdata",
+  "ip": "8.8.8.8",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": {
+    "ip": [
+      "8.8.8.8"
+    ],
+    "country_code": [
+      "US"
+    ],
+    "country_name": [
+      "X"
+    ],
+    "region": [],
+    "city": [],
+    "asn": [
+      {
+        "asn": "AS1"
+      }
+    ],
+    "company": [
+      {
+        "name": "X"
+      }
+    ],
+    "carrier": [
+      {
+        "name": "X"
+      }
+    ],
+    "threat": [
+      {
+        "is_proxy": true
+      }
+    ],
+    "time_zone": [
+      {
+        "name": "UTC"
+      }
+    ]
+  }
+}

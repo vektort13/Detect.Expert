@@ -1,0 +1,14 @@
+{
+  "name": "@detect-expert/sensors",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MAIN-world API wrappers (REQ-002/003): original called exactly once, no masking, no coercion of arguments.",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@detect-expert/contracts": "workspace:*"
+  }
+}

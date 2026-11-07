@@ -1,0 +1,967 @@
+{
+  "reviewedAt": "2026-10-09",
+  "kind": "synthetic-name-domain-fixtures-not-browser-observations",
+  "previousVersion": "1.0.0",
+  "currentVersion": "1.1.0",
+  "counts": {
+    "examples": 37,
+    "previousUnknown": 37,
+    "currentUnknown": 5,
+    "categoryResolved": 32,
+    "explanationAdded": 33,
+    "trackingNow": 5
+  },
+  "examples": [
+    {
+      "inputName": "PHPSESSID",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "ambiguous",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "functional",
+        "owner": "Site application (PHP convention)",
+        "purpose": "Default PHP session identifier: associates requests with server-side session state, such as a login or shopping cart. Applications can configure a different session name.",
+        "confidence": "documented",
+        "tracking": false,
+        "ruleIds": [
+          "primary:159"
+        ],
+        "sourceUrls": [
+          "https://www.php.net/manual/en/session.configuration.php"
+        ],
+        "name": "PHPSESSID"
+      }
+    },
+    {
+      "inputName": "JSESSIONID",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "unknown",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "functional",
+        "owner": "Site application (Jakarta Servlet convention)",
+        "purpose": "Standard Jakarta Servlet session cookie: associates successive requests with one application session. It can support login state and other session features.",
+        "confidence": "documented",
+        "tracking": false,
+        "ruleIds": [
+          "primary:160"
+        ],
+        "sourceUrls": [
+          "https://jakarta.ee/specifications/servlet/5.0/jakarta-servlet-spec-5.0"
+        ],
+        "name": "JSESSIONID"
+      }
+    },
+    {
+      "inputName": "ASP.NET_SessionId",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "ambiguous",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "functional",
+        "owner": "Site application (ASP.NET convention)",
+        "purpose": "Default classic ASP.NET session identifier used to retrieve application session state across page requests.",
+        "confidence": "documented",
+        "tracking": false,
+        "ruleIds": [
+          "primary:161"
+        ],
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/previous-versions/iis/smooth-streaming-client/sessionstatesection-class-%5Biis-7-and-higher%5D"
+        ],
+        "name": "ASP.NET_SessionId"
+      }
+    },
+    {
+      "inputName": ".AspNetCore.Session",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "unknown",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "functional",
+        "owner": "Site application (ASP.NET Core convention)",
+        "purpose": "Default ASP.NET Core session cookie: links browser requests to cached session data kept by the application.",
+        "confidence": "documented",
+        "tracking": false,
+        "ruleIds": [
+          "primary:162"
+        ],
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/app-state?tabs=aspnetcore2x"
+        ],
+        "name": ".AspNetCore.Session"
+      }
+    },
+    {
+      "inputName": "connect.sid",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "unknown",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "functional",
+        "owner": "Site application (Express convention)",
+        "purpose": "Default express-session cookie containing the session identifier. Session data remains in the application session store.",
+        "confidence": "documented",
+        "tracking": false,
+        "ruleIds": [
+          "primary:163"
+        ],
+        "sourceUrls": [
+          "https://expressjs.com/en/resources/middleware/session/"
+        ],
+        "name": "connect.sid"
+      }
+    },
+    {
+      "inputName": "csrftoken",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "unknown",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "security",
+        "owner": "Site application (Django convention)",
+        "purpose": "Default Django CSRF cookie used with request validation to resist forged cross-site form submissions.",
+        "confidence": "documented",
+        "tracking": false,
+        "ruleIds": [
+          "primary:164"
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/django/django/stable/5.2.x/django/conf/global_settings.py"
+        ],
+        "name": "csrftoken"
+      }
+    },
+    {
+      "inputName": "XSRF-TOKEN",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "ambiguous",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "security",
+        "owner": "Site application (CSRF convention)",
+        "purpose": "Common anti-CSRF cookie name used by Angular-compatible clients and Spring Security. Its conventional purpose is matching request tokens to the application session.",
+        "confidence": "documented",
+        "tracking": false,
+        "ruleIds": [
+          "primary:166"
+        ],
+        "sourceUrls": [
+          "https://angular.dev/best-practices/security",
+          "https://docs.spring.io/spring-security/reference/servlet/exploits/csrf.html"
+        ],
+        "name": "XSRF-TOKEN"
+      }
+    },
+    {
+      "inputName": "_csrf",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "unknown",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "security",
+        "owner": "Site application (CSRF convention)",
+        "purpose": "Conventional cookie for the CSRF secret in legacy Express csurf cookie mode; it supports validating state-changing requests.",
+        "confidence": "documented",
+        "tracking": false,
+        "ruleIds": [
+          "primary:167"
+        ],
+        "sourceUrls": [
+          "https://github.com/expressjs/csurf/blob/master/README.md"
+        ],
+        "name": "_csrf"
+      }
+    },
+    {
+      "inputName": ".ASPXAUTH",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "ambiguous",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "security",
+        "owner": "Site application (ASP.NET convention)",
+        "purpose": "Classic ASP.NET Forms Authentication ticket cookie used to maintain an authenticated application session.",
+        "confidence": "documented",
+        "tracking": false,
+        "ruleIds": [
+          "primary:168"
+        ],
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages"
+        ],
+        "name": ".ASPXAUTH"
+      }
+    },
+    {
+      "inputName": ".AspNetCore.Antiforgery.FIXTURE",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "ambiguous",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "security",
+        "owner": "Site application (ASP.NET Core convention)",
+        "purpose": "Default ASP.NET Core antiforgery cookie namespace. The application-specific suffix distinguishes CSRF protection cookies.",
+        "confidence": "documented",
+        "tracking": false,
+        "ruleIds": [
+          "primary:169"
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/aspnetcore/v9.0.0/src/Antiforgery/src/AntiforgeryOptions.cs"
+        ],
+        "name": ".AspNetCore.Antiforgery.*"
+      }
+    },
+    {
+      "inputName": ".AspNetCore.Cookies",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "unknown",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "security",
+        "owner": "Site application (ASP.NET Core convention)",
+        "purpose": "Default ASP.NET Core cookie-authentication ticket for the Cookies authentication scheme; maintains signed-in application state.",
+        "confidence": "documented",
+        "tracking": false,
+        "ruleIds": [
+          "primary:170"
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/aspnetcore/v9.0.0/src/Security/Authentication/Cookies/src/CookieAuthenticationDefaults.cs",
+          "https://raw.githubusercontent.com/dotnet/aspnetcore/v9.0.0/src/Security/Authentication/Cookies/src/PostConfigureCookieAuthenticationOptions.cs"
+        ],
+        "name": ".AspNetCore.Cookies"
+      }
+    },
+    {
+      "inputName": ".AspNetCore.Identity.Application",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "unknown",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "security",
+        "owner": "Site application (ASP.NET Core convention)",
+        "purpose": "Default ASP.NET Core Identity application authentication ticket; maintains the signed-in user session.",
+        "confidence": "documented",
+        "tracking": false,
+        "ruleIds": [
+          "primary:171"
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/aspnetcore/v9.0.0/src/Identity/Core/src/IdentityConstants.cs",
+          "https://raw.githubusercontent.com/dotnet/aspnetcore/v9.0.0/src/Identity/Core/src/IdentityCookiesBuilderExtensions.cs",
+          "https://raw.githubusercontent.com/dotnet/aspnetcore/v9.0.0/src/Security/Authentication/Cookies/src/CookieAuthenticationDefaults.cs",
+          "https://raw.githubusercontent.com/dotnet/aspnetcore/v9.0.0/src/Security/Authentication/Cookies/src/PostConfigureCookieAuthenticationOptions.cs"
+        ],
+        "name": ".AspNetCore.Identity.Application"
+      }
+    },
+    {
+      "inputName": "authjs.session-token",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "unknown",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "security",
+        "owner": "Site application (Auth.js convention)",
+        "purpose": "Application authentication session cookie; identifies an Auth.js/NextAuth session using the configured session strategy.",
+        "confidence": "documented",
+        "tracking": false,
+        "ruleIds": [
+          "primary:175"
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/nextauthjs/next-auth/main/packages/core/src/lib/utils/cookie.ts"
+        ],
+        "name": "authjs.session-token"
+      }
+    },
+    {
+      "inputName": "__Secure-next-auth.session-token.0",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "unknown",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "security",
+        "owner": "Site application (Auth.js convention)",
+        "purpose": "Chunk of an application authentication session cookie. Auth.js/NextAuth splits large session cookies into numbered parts.",
+        "confidence": "documented",
+        "tracking": false,
+        "ruleIds": [
+          "primary:194"
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/nextauthjs/next-auth/v4/packages/next-auth/src/core/lib/cookie.ts"
+        ],
+        "name": "__Secure-next-auth.session-token.*"
+      }
+    },
+    {
+      "inputName": "OptanonConsent",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "ambiguous",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "consent",
+        "owner": "OneTrust",
+        "purpose": "Cookie-category consent preferences used by OneTrust to remember which categories the visitor accepted or rejected.",
+        "confidence": "documented",
+        "tracking": false,
+        "ruleIds": [
+          "primary:239"
+        ],
+        "sourceUrls": [
+          "https://my.onetrust.com/articles/en_US/knowledge/UUID-2dc719a8-4be5-8d16-1dc8-c7b4147b88e0"
+        ],
+        "name": "OptanonConsent"
+      }
+    },
+    {
+      "inputName": "OptanonAlertBoxClosed",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "ambiguous",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "consent",
+        "owner": "OneTrust",
+        "purpose": "OneTrust banner interaction marker used to decide when the cookie notice should be shown again.",
+        "confidence": "documented",
+        "tracking": false,
+        "ruleIds": [
+          "primary:240"
+        ],
+        "sourceUrls": [
+          "https://my.onetrust.com/articles/en_US/knowledge/UUID-2dc719a8-4be5-8d16-1dc8-c7b4147b88e0"
+        ],
+        "name": "OptanonAlertBoxClosed"
+      }
+    },
+    {
+      "inputName": "CookieConsent",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "ambiguous",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "consent",
+        "owner": "Site consent manager (Cookiebot convention)",
+        "purpose": "Consent-preference naming convention documented by Cookiebot. Other applications can reuse this generic name; the name alone does not identify the consent manager.",
+        "confidence": "documented",
+        "tracking": false,
+        "ruleIds": [
+          "primary:241"
+        ],
+        "sourceUrls": [
+          "https://support.cookiebot.com/hc/en-us/articles/360003782654-Logging-and-demonstration-of-user-consents"
+        ],
+        "name": "CookieConsent"
+      }
+    },
+    {
+      "inputName": "cookieyes-consent",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "ambiguous",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "consent",
+        "owner": "CookieYes",
+        "purpose": "CookieYes consent preferences and the consent-record identifier used by its banner and consent log.",
+        "confidence": "documented",
+        "tracking": false,
+        "ruleIds": [
+          "primary:243"
+        ],
+        "sourceUrls": [
+          "https://www.cookieyes.com/documentation/obtain-the-consent-id/"
+        ],
+        "name": "cookieyes-consent"
+      }
+    },
+    {
+      "inputName": "didomi_token",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "ambiguous",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "consent",
+        "owner": "Didomi",
+        "purpose": "First-party Didomi consent preferences for vendors and processing purposes in the documented legacy token format.",
+        "confidence": "documented",
+        "tracking": false,
+        "ruleIds": [
+          "primary:245"
+        ],
+        "sourceUrls": [
+          "https://developers.didomi.io/cmp/web-sdk/consent-notice/cookies"
+        ],
+        "name": "didomi_token"
+      }
+    },
+    {
+      "inputName": "didomi_dcs",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "unknown",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "consent",
+        "owner": "Didomi",
+        "purpose": "First-party Didomi Consent String storing the visitor choices for supported consent purposes and vendors.",
+        "confidence": "documented",
+        "tracking": false,
+        "ruleIds": [
+          "primary:246"
+        ],
+        "sourceUrls": [
+          "https://developers.didomi.io/cmp/web-sdk/consent-notice/cookies"
+        ],
+        "name": "didomi_dcs"
+      }
+    },
+    {
+      "inputName": "euconsent-v2",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "ambiguous",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "consent",
+        "owner": "Site consent manager (IAB TCF convention)",
+        "purpose": "IAB Transparency and Consent Framework consent-string convention used by multiple consent managers. The name does not identify one CMP vendor.",
+        "confidence": "documented",
+        "tracking": false,
+        "ruleIds": [
+          "primary:247"
+        ],
+        "sourceUrls": [
+          "https://developers.didomi.io/cmp/web-sdk/consent-notice/cookies"
+        ],
+        "name": "euconsent-v2"
+      }
+    },
+    {
+      "inputName": "_hjSessionUser_123",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "ambiguous",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "analytics",
+        "owner": "Hotjar",
+        "purpose": "First-party Hotjar visitor identifier for linking repeat visits to the same site. The namespace suffix identifies the Hotjar site.",
+        "confidence": "documented",
+        "tracking": true,
+        "ruleIds": [
+          "primary:205"
+        ],
+        "sourceUrls": [
+          "https://help.hotjar.com/hc/en-us/articles/36819973371409-Cookies-Set-by-the-Hotjar-Tracking-Code"
+        ],
+        "name": "_hjSessionUser_*"
+      }
+    },
+    {
+      "inputName": "_hjSession_123",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "ambiguous",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "analytics",
+        "owner": "Hotjar",
+        "purpose": "Hotjar current-session metadata used to associate requests within one session and its activity window.",
+        "confidence": "documented",
+        "tracking": true,
+        "ruleIds": [
+          "primary:206"
+        ],
+        "sourceUrls": [
+          "https://help.hotjar.com/hc/en-us/articles/36819973371409-Cookies-Set-by-the-Hotjar-Tracking-Code"
+        ],
+        "name": "_hjSession_*"
+      }
+    },
+    {
+      "inputName": "_hjCookieTest",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "ambiguous",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "functional",
+        "owner": "Hotjar",
+        "purpose": "Temporary Hotjar probe that checks whether cookies can be used; normally removed immediately.",
+        "confidence": "documented",
+        "tracking": false,
+        "ruleIds": [
+          "primary:209"
+        ],
+        "sourceUrls": [
+          "https://help.hotjar.com/hc/en-us/articles/36819973371409-Cookies-Set-by-the-Hotjar-Tracking-Code"
+        ],
+        "name": "_hjCookieTest"
+      }
+    },
+    {
+      "inputName": "_hjDonePolls",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "ambiguous",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "functional",
+        "owner": "Hotjar",
+        "purpose": "Hotjar survey state that prevents repeating a completed survey.",
+        "confidence": "documented",
+        "tracking": false,
+        "ruleIds": [
+          "primary:214"
+        ],
+        "sourceUrls": [
+          "https://help.hotjar.com/hc/en-us/articles/36819973371409-Cookies-Set-by-the-Hotjar-Tracking-Code"
+        ],
+        "name": "_hjDonePolls"
+      }
+    },
+    {
+      "inputName": "_cs_id",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "ambiguous",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "analytics",
+        "owner": "Contentsquare",
+        "purpose": "Contentsquare visitor identifier and visit timestamps used for repeated-visit analytics.",
+        "confidence": "documented",
+        "tracking": true,
+        "ruleIds": [
+          "primary:216"
+        ],
+        "sourceUrls": [
+          "https://docs.contentsquare.com/en/web/cookies/"
+        ],
+        "name": "_cs_id"
+      }
+    },
+    {
+      "inputName": "_cs_s_ctx",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "unknown",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "analytics",
+        "owner": "Contentsquare",
+        "purpose": "Contentsquare session context containing the first page-view time, entry URL and referrer in the documented design.",
+        "confidence": "documented",
+        "tracking": true,
+        "ruleIds": [
+          "primary:218"
+        ],
+        "sourceUrls": [
+          "https://docs.contentsquare.com/en/web/cookies/"
+        ],
+        "name": "_cs_s_ctx"
+      }
+    },
+    {
+      "inputName": "_cs_c",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "ambiguous",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "consent",
+        "owner": "Contentsquare",
+        "purpose": "Contentsquare preference for using session data within replays and the masking/consent mode.",
+        "confidence": "documented",
+        "tracking": false,
+        "ruleIds": [
+          "primary:222"
+        ],
+        "sourceUrls": [
+          "https://docs.contentsquare.com/en/web/cookies/"
+        ],
+        "name": "_cs_c"
+      }
+    },
+    {
+      "inputName": "_cs_optout",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "ambiguous",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "consent",
+        "owner": "Contentsquare",
+        "purpose": "Contentsquare opt-out preference used by the tag to disable collection.",
+        "confidence": "documented",
+        "tracking": false,
+        "ruleIds": [
+          "primary:224"
+        ],
+        "sourceUrls": [
+          "https://docs.contentsquare.com/en/web/cookies/"
+        ],
+        "name": "_cs_optout"
+      }
+    },
+    {
+      "inputName": "_hp5_meta.123",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "ambiguous",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "analytics",
+        "owner": "Contentsquare",
+        "purpose": "Heap/Contentsquare metadata cookie relating to the analytics visitor and session.",
+        "confidence": "documented",
+        "tracking": true,
+        "ruleIds": [
+          "primary:233"
+        ],
+        "sourceUrls": [
+          "https://docs.contentsquare.com/en/web/cookies/"
+        ],
+        "name": "_hp5_meta.*"
+      }
+    },
+    {
+      "inputName": "aws-waf-token",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "unknown",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "security",
+        "owner": "Amazon Web Services",
+        "purpose": "AWS WAF bot/CAPTCHA challenge-session cookie used to validate traffic and the client challenge state.",
+        "confidence": "documented",
+        "tracking": false,
+        "ruleIds": [
+          "primary:248"
+        ],
+        "sourceUrls": [
+          "https://docs.aws.amazon.com/waf/latest/developerguide/waf-tokens-details.html"
+        ],
+        "name": "aws-waf-token"
+      }
+    },
+    {
+      "inputName": "AWSELB",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "ambiguous",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "functional",
+        "owner": "Amazon Web Services",
+        "purpose": "AWS Classic Load Balancer affinity cookie used to route a session to the same backend instance.",
+        "confidence": "documented",
+        "tracking": false,
+        "ruleIds": [
+          "primary:249"
+        ],
+        "sourceUrls": [
+          "https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html"
+        ],
+        "name": "AWSELB"
+      }
+    },
+    {
+      "inputName": "sessionid",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "unknown",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "unknown",
+        "tracking": false,
+        "ruleIds": [],
+        "sourceUrls": [],
+        "name": ""
+      }
+    },
+    {
+      "inputName": "uid",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "unknown",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "unknown",
+        "tracking": false,
+        "ruleIds": [],
+        "sourceUrls": [],
+        "name": ""
+      }
+    },
+    {
+      "inputName": "token",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "unknown",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "unknown",
+        "tracking": false,
+        "ruleIds": [],
+        "sourceUrls": [],
+        "name": ""
+      }
+    },
+    {
+      "inputName": "_cs_1234567890123",
+      "domain": "shop.example.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "unknown",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "unknown",
+        "tracking": false,
+        "ruleIds": [],
+        "sourceUrls": [],
+        "name": ""
+      }
+    },
+    {
+      "inputName": "NID",
+      "domain": "google.com",
+      "before": {
+        "category": "unknown",
+        "owner": "",
+        "purpose": "",
+        "confidence": "ambiguous",
+        "tracking": false,
+        "name": ""
+      },
+      "after": {
+        "category": "unknown",
+        "owner": "Google",
+        "purpose": "Multiple documented purposes: preferences, analytics and advertising",
+        "confidence": "documented",
+        "tracking": false,
+        "ruleIds": [
+          "primary:006"
+        ],
+        "sourceUrls": [
+          "https://policies.google.com/technologies/cookies?hl=en"
+        ],
+        "name": "NID"
+      }
+    }
+  ]
+}

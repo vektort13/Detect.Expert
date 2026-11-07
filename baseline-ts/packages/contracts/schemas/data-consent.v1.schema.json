@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:detect-expert:contracts:data-consent:v1",
+  "title": "ADR-041 privileged local data consent",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "type"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "type": {
+          "const": "ui-data-consent-get"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "type",
+        "version",
+        "accepted"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "type": {
+          "const": "ui-data-consent-set"
+        },
+        "version": {
+          "const": 1
+        },
+        "accepted": {
+          "type": "boolean"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "type",
+        "version",
+        "accepted"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "type": {
+          "const": "data-consent-state"
+        },
+        "version": {
+          "const": 1
+        },
+        "accepted": {
+          "type": "boolean"
+        }
+      }
+    }
+  ]
+}

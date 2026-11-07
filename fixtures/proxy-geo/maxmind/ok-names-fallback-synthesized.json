@@ -1,0 +1,47 @@
+{
+  "provider": "maxmind",
+  "ip": "8.8.4.4",
+  "service": "geoip-city",
+  "status": 200,
+  "headers": {
+    "content-type": "application/vnd.maxmind.com-city+json; charset=UTF-8; version=2.1"
+  },
+  "body": {
+    "country": {
+      "iso_code": "fr",
+      "names": {
+        "fr": "France",
+        "de": "Frankreich"
+      }
+    },
+    "city": {
+      "names": {
+        "de": 5,
+        "fr": "Paris"
+      }
+    },
+    "subdivisions": [
+      {
+        "iso_code": "IDF",
+        "names": {
+          "fr": "Ile-de-France"
+        }
+      },
+      {
+        "iso_code": "75",
+        "names": {
+          "en": "Paris"
+        }
+      }
+    ],
+    "location": {
+      "time_zone": "Europe/Paris"
+    },
+    "traits": {
+      "ip_address": "8.8.4.4",
+      "network": "8.8.4.0/24",
+      "user_type": "consumer_privacy_network",
+      "connection_type": "Cable/DSL"
+    }
+  }
+}

@@ -61,12 +61,12 @@ Web lúc nào cũng âm thầm soi trình duyệt của bạn mà chẳng báo g
 |---|---|---|---|
 | 🔎 | **Detector / Forensics** | Theo dõi trang gọi những API nào của trình duyệt (Canvas, WebGL, âm thanh, WebRTC, màn hình, CPU, giọng nói, trình duyệt/thiết bị và nhiều nữa) rồi gom thành kỹ thuật. Mỗi kết quả đều kèm trạng thái bao phủ, nên "không thấy gì" không bị hiểu nhầm thành "không có gì". Nó còn liệt kê các dịch vụ bảo vệ và định danh đã nhận diện, yêu cầu của bên thứ ba, cookie, tiện ích mạng xã hội, beacon theo dõi (GA4, Google Ads, Meta, TikTok, Yandex, LinkedIn), chuỗi Tag Manager và hoạt động nền. Chế độ ghi Pro tạo bản đồ yêu cầu và báo cáo in được. Báo cáo đã lưu nằm trên ổ đĩa của bạn. | Chrome, Firefox |
 | 🧱 | **API Guard** | 158 API của trình duyệt chia thành 12 nhóm. Mỗi API chọn một trong: theo mẫu cài sẵn, cho phép, chặn, hoặc giá trị riêng (56 API nhận giá trị riêng). Có mẫu cài sẵn chung, quy tắc theo từng trang, nhập/xuất JSON. | Chrome, Firefox |
-| 🔥 | **Firewall** | Tùy chọn, và chỉ bật sau khi bạn đồng ý ở màn hình xác nhận. So sánh thứ bạn gõ với các yêu cầu gửi đi, chỉ trong bộ nhớ. Có thể chặn các yêu cầu sau đó theo quyết định của bạn, nhận ra dấu hiệu ghi lại phiên, gửi tín hiệu Global Privacy Control, và (nếu bạn muốn) lưu lịch sử cục bộ "Ai nhận ra bạn". | Chrome |
+| 🔥 | **Firewall** | Tùy chọn, mặc định tắt, chỉ bật khi chính bạn bật lên. So sánh thứ bạn gõ với các yêu cầu gửi đi, chỉ trong bộ nhớ. Có thể chặn các yêu cầu sau đó theo quyết định của bạn, nhận ra dấu hiệu ghi lại phiên, gửi tín hiệu Global Privacy Control, và (nếu bạn muốn) lưu lịch sử cục bộ "Ai nhận ra bạn". | Chrome |
 | 🎭 | **Antidetect** | Thiết lập nhanh với ba mẫu cài sẵn, cộng các tab Thiết bị, Hệ điều hành, Trình duyệt, Mạng. Tạo một thiết bị ảo nhất quán, thêm nhiễu theo khóa của hồ sơ vào kết quả Canvas, âm thanh, WebGL và Math, giữ các tiêu đề yêu cầu (User-Agent, Accept-Language, Client Hints) khớp nhau, và xử lý siêu dữ liệu WebRTC. Lưu tối đa 128 hồ sơ, thùng rác giữ 7 ngày. IP, dấu vân tay TLS và engine của trình duyệt thì nó không đụng tới. | Chrome, Firefox (ghi đè tiêu đề: chỉ Chrome) |
 | 🧭 | **Autosurfer** | Duyệt lần lượt hàng đợi URL do chính bạn nhập (tối đa 200) trong một cửa sổ riêng: xáo trộn, lặp vòng, đi theo liên kết nội bộ, đặt thời gian dừng, cuộn trang và di chuột thật, đo tài nguyên ngay trên máy. Có sẵn danh mục 8.329 trang, lọc được theo quốc gia, danh mục và hệ thống theo dõi. Nó không bấm, không gõ, không đụng tới CAPTCHA. Lúc chạy, Chrome hiện thanh thông báo gỡ lỗi của chính nó. | Chrome |
 | 🍪 | **Cookies** | Xem, tạo, sửa, xóa cookie ở mọi kho. Nhập/xuất JSON, Netscape và tệp Cookie-Editor, hoặc bản xuất mã hóa bằng mật khẩu (AES-256-GCM). Xem trước khi ghi, ghi xong vẫn hoàn tác được. Giá trị được ẩn cho tới khi bạn bấm hiện. | Chrome, Firefox |
 | 🌐 | **Trình quản lý proxy + ứng dụng bổ trợ** | Hồ sơ SOCKS5, HTTP, HTTPS, VLESS và OpenVPN, Kill Switch (công tắc ngắt), định tuyến toàn bộ lưu lượng hoặc chỉ vài tên miền, kiểm tra thủ công có lịch sử, nhập hàng loạt, tra vị trí địa lý tùy chọn. Ứng dụng bổ trợ cho Windows lo phần đăng nhập bằng mật khẩu, VLESS và OpenVPN chạy ở không gian người dùng. | Chrome, Firefox (ứng dụng bổ trợ: Windows x64) |
-| 🧰 | **Browser Debug** | Xem ở chế độ chỉ đọc 15 tập dữ liệu của chính trình duyệt bạn: lịch sử, dấu trang, tải xuống, siêu dữ liệu cookie, thẻ, phiên, cài đặt quyền riêng tư, quyền của trang web và vân vân. Mỗi tập tự xin quyền riêng. | Chrome, Firefox (ít tập hơn) |
+| 🧰 | **Browser Debug** | Cửa sổ nhìn vào 15 tập dữ liệu của chính trình duyệt bạn: lịch sử, dấu trang, tải xuống, siêu dữ liệu cookie, thẻ, phiên, cài đặt quyền riêng tư, quyền của trang web và vân vân. Phần lớn chỉ đọc, nhưng một số tập cũng có thể thay đổi dữ liệu (thêm một mục lịch sử, xóa dấu trang, đổi cài đặt quyền riêng tư), hướng dẫn liệt kê từng chỗ. Mỗi tập tự xin quyền riêng. | Chrome, Firefox (ít tập hơn) |
 | ☁️ | **Tích hợp** | Đọc chế độ Precursor của một vùng Cloudflare bằng token của bạn. Tra vị trí địa lý cho IP đầu ra của proxy (MaxMind, ipgeolocation.io, ipdata, ip-api.com) là tùy chọn, dùng khóa của bạn. | Chrome, Firefox |
 | 🗺️ | **Hướng dẫn tham quan và bảng lệnh** | 12 phần của trang Options mỗi phần có một lượt hướng dẫn ngắn (tổng 49 bước), và `Ctrl K` mở bảng lệnh. Hướng dẫn không đổi bất kỳ cài đặt nào, khá tiện. | Chrome, Firefox |
 | 🌍 | **21 ngôn ngữ, 6 chủ đề** | Anh, Nga, Ả Rập, Đức, Tây Ban Nha, Pháp, Hindi, Indonesia, Nhật, Hàn, Marathi, Ba Lan, Bồ Đào Nha (Brazil), Tamil, Telugu, Ukraina, Urdu, Việt, Trung (giản thể), Quảng Đông và Ngô. | Chrome, Firefox |
@@ -92,7 +92,7 @@ Hồ sơ trình duyệt sạch, chỉ dùng dữ liệu minh họa: dải địa
   </tr>
   <tr>
     <td><img src="assets/screens/07-autosurfer.png" alt="Autosurfer"><br><sub><b>Autosurfer.</b> Danh mục trang, lọc theo danh mục và hệ thống theo dõi.</sub></td>
-    <td><img src="assets/screens/08-browser-debug.png" alt="Browser Debug"><br><sub><b>Browser Debug.</b> Dữ liệu của chính trình duyệt bạn, chỉ đọc.</sub></td>
+    <td><img src="assets/screens/08-browser-debug.png" alt="Browser Debug"><br><sub><b>Browser Debug.</b> Dữ liệu của chính trình duyệt bạn, gom về một chỗ.</sub></td>
   </tr>
   <tr>
     <td><img src="assets/screens/09-popup.png" alt="Cửa sổ bật lên" width="300"><br><sub><b>Popup.</b> Cùng báo cáo đó, ngay cạnh trang bạn đang mở.</sub></td>
@@ -110,9 +110,9 @@ Cần **Chrome 153+** hoặc **Firefox 128+**. Các gói nằm ở trang [Releas
 
 | Tệp | Là gì | SHA-256 |
 |---|---|---|
-| `Detect.Expert-2.0.0-chrome.zip` | Gói cho Chrome | — <!-- SHA256 --> |
-| `Detect.Expert-2.0.0-firefox.zip` | Gói cho Firefox | — <!-- SHA256 --> |
-| `Detect.Expert-Proxy-Companion-windows-x64.zip` | Ứng dụng bổ trợ proxy (tùy chọn, Windows 10/11 x64) | — <!-- SHA256 --> |
+| `Detect.Expert-2.0.0-chrome.zip` | Gói cho Chrome | `76f5118e6787ee44a2f3e6dbbb406d64006a33c0e056fbdc1b0abf8cc7984a20` |
+| `Detect.Expert-2.0.0-firefox.zip` | Gói cho Firefox | `ef6f17283711ffd4569cc0a72493ea1c67854a39b1a2e9919d08cafd37107528` |
+| `Detect.Expert-Proxy-Companion-windows-x64.zip` | Ứng dụng bổ trợ proxy (tùy chọn, Windows 10/11 x64) | `4bb7b2c8457bc6fa9bf4dd79f3a5086d272c140918819d49846bf2a5d502cf4b` |
 
 Muốn kiểm tra tệp đã tải, chạy trong PowerShell: `Get-FileHash .\Detect.Expert-2.0.0-chrome.zip -Algorithm SHA256`.
 
@@ -143,7 +143,7 @@ Bạn cần nó cho SOCKS5 có mật khẩu, proxy HTTP/HTTPS có tài khoản, 
 powershell -ExecutionPolicy Bypass -File .\Install.ps1 -ChromeExtensionId obbkkjmpgaajcggbhajpdeeadkkchbeo
 ```
 
-ID này là của bản trên Chrome Web Store. Bản tự nạp từ thư mục có ID khác, bạn xem ở tab Proxy của tiện ích hoặc ở `chrome://extensions`. Các bước đầy đủ, cách kiểm tra chữ ký, gỡ cài đặt và giấy phép nằm trong [companion/README.vi.md](companion/README.vi.md) và [hướng dẫn ứng dụng bổ trợ](docs/guides/proxy-companion.md) (tiếng Anh; bản tiếng Nga là `*.ru.md`).
+ID này là của bản trên Chrome Web Store. Bản tự nạp từ thư mục có ID khác, bạn xem ở tab Proxy của tiện ích hoặc ở `chrome://extensions`. Các bước đầy đủ, cách kiểm tra chữ ký, gỡ cài đặt và giấy phép nằm trong [companion/README.vi.md](native/proxy/README.vi.md) và [hướng dẫn ứng dụng bổ trợ](docs/guides/proxy-companion.md) (tiếng Anh; bản tiếng Nga là `*.ru.md`).
 
 ## Dữ liệu của bạn đi đâu
 
@@ -212,6 +212,8 @@ Các lệnh kiểm tra khác: `pnpm typecheck`, `pnpm lint`, `pnpm test:unit`, `
 ```
 
 ## Tài liệu
+
+**Hướng dẫn có hình minh họa:** hướng dẫn từng bước kèm ảnh chụp cho mọi tính năng quan trọng, hiện chỉ có bản tiếng Anh: [docs/manual/README.md](docs/manual/README.md).
 
 Hướng dẫn: [Bắt đầu nhanh](docs/guides/getting-started.md), [ứng dụng bổ trợ proxy](docs/guides/proxy-companion.md), [câu hỏi thường gặp](docs/guides/faq.md). Mỗi bài đều có bản tiếng Nga (`*.ru.md`), bản mặc định là tiếng Anh.
 

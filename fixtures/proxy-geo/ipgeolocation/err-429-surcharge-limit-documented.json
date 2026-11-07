@@ -1,0 +1,9 @@
+{
+  "provider": "ipgeolocation",
+  "ip": "8.8.8.8",
+  "status": 429,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "text": "{\"message\":\"You have reached the surcharge amount limit of $SURCHARGE_AMOUNT_LIMIT on your subscribed 'PLAN_NAME' plan. Please throttle your requests or upgrade your plan to continue using IPGeolocation API without interruption.\"}"
+}

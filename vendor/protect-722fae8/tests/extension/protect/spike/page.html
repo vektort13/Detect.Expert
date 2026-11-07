@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>protect spike</title>
+</head>
+<body>
+  <!-- Throwaway ADR-020 spike page (extension origin). No script of its own: extension CSP forbids inline code,
+       so spike.spec.ts attaches the click handlers through Playwright and clicks them (a real user gesture). -->
+  <h1>protect spike</h1>
+  <button id="request-dnr" type="button">Request declarativeNetRequestWithHostAccess</button>
+  <button id="request-hosts" type="button">Request http(s)://*/*</button>
+  <output id="state"></output>
+</body>
+</html>

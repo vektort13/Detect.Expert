@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>protect: heartbeat (negative)</title>
+  </head>
+  <body>
+    <!--
+      ADR-020 §E (S11): a periodic heartbeat to hb.example.net — POST of 100 B every 1.5 s × 6 (?method=GET: the GET
+      variant). The sends start 1 s after the e-mail field gets focus, so the tab's body listener is armed (value-match
+      on) and body sizes are observed. No page-level listeners, no document observer. Expected: no periodic signal.
+    -->
+    <h1 id="title">Heartbeat</h1>
+    <form action="#"><label>E-mail <input id="email" name="email" type="email" autocomplete="email" /></label></form>
+    <pre id="result"></pre>
+    <script src="../../fixture-lib.js"></script>
+    <script src="replay-sim.js"></script>
+    <script>
+      (function () {
+        var F = window.__fixture;
+        var q = new URLSearchParams(location.search);
+        var method = q.get('method') === 'GET' ? 'GET' : 'POST';
+        var url = 'http://hb.example.net:' + location.port + '/replay/collect';
+        F.publish({ fixture: 'protect-replay-heartbeat', method: method, started: false });
+        document.getElementById('email').addEventListener('focus', function () {
+          window.replaySim.wait(1000).then(function () {
+            return window.replaySim.sendSeries({ url: url, count: 6, every: 1500, bytes: 100, method: method });
+          }).then(function (n) {
+            F.publish({ fixture: 'protect-replay-heartbeat', method: method, started: true, sends: n });
+          });
+        }, { once: true });
+      })();
+    </script>
+  </body>
+</html>

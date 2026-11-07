@@ -1,0 +1,485 @@
+{
+  "ru": {
+    "findings_popup_title": {
+      "message": "Находки Firewall"
+    },
+    "findings_popup_transfer_count": {
+      "message": "Передача введённых данных: $1"
+    },
+    "findings_popup_replay_like": {
+      "message": "Поведение похоже на запись сессии"
+    },
+    "findings_popup_replay_recording": {
+      "message": "Обнаружена запись сессии"
+    },
+    "findings_popup_details": {
+      "message": "Подробнее"
+    },
+    "findings_popup_close": {
+      "message": "Закрыть"
+    },
+    "findings_popup_settings": {
+      "message": "Настройки Firewall"
+    }
+  },
+  "en": {
+    "findings_popup_title": {
+      "message": "Firewall findings"
+    },
+    "findings_popup_transfer_count": {
+      "message": "Typed-data transfers: $1"
+    },
+    "findings_popup_replay_like": {
+      "message": "Behavior similar to session recording"
+    },
+    "findings_popup_replay_recording": {
+      "message": "Session recording detected"
+    },
+    "findings_popup_details": {
+      "message": "Details"
+    },
+    "findings_popup_close": {
+      "message": "Close"
+    },
+    "findings_popup_settings": {
+      "message": "Firewall settings"
+    }
+  },
+  "zh_CN": {
+    "findings_popup_title": {
+      "message": "Firewall 检测结果"
+    },
+    "findings_popup_transfer_count": {
+      "message": "输入数据传输：$1"
+    },
+    "findings_popup_replay_like": {
+      "message": "检测到类似会话录制的行为"
+    },
+    "findings_popup_replay_recording": {
+      "message": "检测到会话录制"
+    },
+    "findings_popup_details": {
+      "message": "详情"
+    },
+    "findings_popup_close": {
+      "message": "关闭"
+    },
+    "findings_popup_settings": {
+      "message": "Firewall 设置"
+    }
+  },
+  "vi": {
+    "findings_popup_title": {
+      "message": "Phát hiện của Firewall"
+    },
+    "findings_popup_transfer_count": {
+      "message": "Lượt truyền dữ liệu đã nhập: $1"
+    },
+    "findings_popup_replay_like": {
+      "message": "Phát hiện hành vi giống ghi lại phiên"
+    },
+    "findings_popup_replay_recording": {
+      "message": "Phát hiện ghi lại phiên"
+    },
+    "findings_popup_details": {
+      "message": "Chi tiết"
+    },
+    "findings_popup_close": {
+      "message": "Đóng"
+    },
+    "findings_popup_settings": {
+      "message": "Cài đặt Firewall"
+    }
+  },
+  "es": {
+    "findings_popup_title": {
+      "message": "Hallazgos de Firewall"
+    },
+    "findings_popup_transfer_count": {
+      "message": "Transferencias de datos introducidos: $1"
+    },
+    "findings_popup_replay_like": {
+      "message": "Comportamiento similar a una grabación de sesión"
+    },
+    "findings_popup_replay_recording": {
+      "message": "Grabación de sesión detectada"
+    },
+    "findings_popup_details": {
+      "message": "Detalles"
+    },
+    "findings_popup_close": {
+      "message": "Cerrar"
+    },
+    "findings_popup_settings": {
+      "message": "Configuración de Firewall"
+    }
+  },
+  "ar": {
+    "findings_popup_title": {
+      "message": "نتائج Firewall"
+    },
+    "findings_popup_transfer_count": {
+      "message": "عمليات نقل البيانات المُدخلة: $1"
+    },
+    "findings_popup_replay_like": {
+      "message": "رُصد سلوك يشبه تسجيل الجلسة"
+    },
+    "findings_popup_replay_recording": {
+      "message": "رُصد تسجيل للجلسة"
+    },
+    "findings_popup_details": {
+      "message": "التفاصيل"
+    },
+    "findings_popup_close": {
+      "message": "إغلاق"
+    },
+    "findings_popup_settings": {
+      "message": "إعدادات Firewall"
+    }
+  },
+  "uk": {
+    "findings_popup_title": {
+      "message": "Знахідки Firewall"
+    },
+    "findings_popup_transfer_count": {
+      "message": "Передавання введених даних: $1"
+    },
+    "findings_popup_replay_like": {
+      "message": "Поведінка схожа на запис сеансу"
+    },
+    "findings_popup_replay_recording": {
+      "message": "Виявлено запис сеансу"
+    },
+    "findings_popup_details": {
+      "message": "Докладніше"
+    },
+    "findings_popup_close": {
+      "message": "Закрити"
+    },
+    "findings_popup_settings": {
+      "message": "Налаштування Firewall"
+    }
+  },
+  "fr": {
+    "findings_popup_title": {
+      "message": "Résultats de Firewall"
+    },
+    "findings_popup_transfer_count": {
+      "message": "Transferts de données saisies : $1"
+    },
+    "findings_popup_replay_like": {
+      "message": "Comportement similaire à un enregistrement de session"
+    },
+    "findings_popup_replay_recording": {
+      "message": "Enregistrement de session détecté"
+    },
+    "findings_popup_details": {
+      "message": "Détails"
+    },
+    "findings_popup_close": {
+      "message": "Fermer"
+    },
+    "findings_popup_settings": {
+      "message": "Paramètres Firewall"
+    }
+  },
+  "pt_BR": {
+    "findings_popup_title": {
+      "message": "Detecções do Firewall"
+    },
+    "findings_popup_transfer_count": {
+      "message": "Transferências de dados digitados: $1"
+    },
+    "findings_popup_replay_like": {
+      "message": "Comportamento semelhante à gravação de sessão"
+    },
+    "findings_popup_replay_recording": {
+      "message": "Gravação de sessão detectada"
+    },
+    "findings_popup_details": {
+      "message": "Detalhes"
+    },
+    "findings_popup_close": {
+      "message": "Fechar"
+    },
+    "findings_popup_settings": {
+      "message": "Configurações do Firewall"
+    }
+  },
+  "hi": {
+    "findings_popup_title": {
+      "message": "Firewall के निष्कर्ष"
+    },
+    "findings_popup_transfer_count": {
+      "message": "दर्ज किए गए डेटा के स्थानांतरण: $1"
+    },
+    "findings_popup_replay_like": {
+      "message": "सत्र रिकॉर्डिंग जैसा व्यवहार मिला"
+    },
+    "findings_popup_replay_recording": {
+      "message": "सत्र रिकॉर्डिंग मिली"
+    },
+    "findings_popup_details": {
+      "message": "विवरण"
+    },
+    "findings_popup_close": {
+      "message": "बंद करें"
+    },
+    "findings_popup_settings": {
+      "message": "Firewall सेटिंग"
+    }
+  },
+  "ur": {
+    "findings_popup_title": {
+      "message": "Firewall کے نتائج"
+    },
+    "findings_popup_transfer_count": {
+      "message": "درج کردہ ڈیٹا کی منتقلیاں: $1"
+    },
+    "findings_popup_replay_like": {
+      "message": "سیشن ریکارڈنگ جیسا رویہ دریافت ہوا"
+    },
+    "findings_popup_replay_recording": {
+      "message": "سیشن ریکارڈنگ دریافت ہوئی"
+    },
+    "findings_popup_details": {
+      "message": "تفصیلات"
+    },
+    "findings_popup_close": {
+      "message": "بند کریں"
+    },
+    "findings_popup_settings": {
+      "message": "Firewall کی ترتیبات"
+    }
+  },
+  "ja": {
+    "findings_popup_title": {
+      "message": "Firewall の検出結果"
+    },
+    "findings_popup_transfer_count": {
+      "message": "入力データの転送: $1"
+    },
+    "findings_popup_replay_like": {
+      "message": "セッション記録に似た動作を検出"
+    },
+    "findings_popup_replay_recording": {
+      "message": "セッション記録を検出"
+    },
+    "findings_popup_details": {
+      "message": "詳細"
+    },
+    "findings_popup_close": {
+      "message": "閉じる"
+    },
+    "findings_popup_settings": {
+      "message": "Firewall の設定"
+    }
+  },
+  "de": {
+    "findings_popup_title": {
+      "message": "Firewall-Funde"
+    },
+    "findings_popup_transfer_count": {
+      "message": "Übertragungen eingegebener Daten: $1"
+    },
+    "findings_popup_replay_like": {
+      "message": "Verhalten wie bei einer Sitzungsaufzeichnung erkannt"
+    },
+    "findings_popup_replay_recording": {
+      "message": "Sitzungsaufzeichnung erkannt"
+    },
+    "findings_popup_details": {
+      "message": "Details"
+    },
+    "findings_popup_close": {
+      "message": "Schließen"
+    },
+    "findings_popup_settings": {
+      "message": "Firewall-Einstellungen"
+    }
+  },
+  "pl": {
+    "findings_popup_title": {
+      "message": "Wykrycia Firewall"
+    },
+    "findings_popup_transfer_count": {
+      "message": "Przesłania wpisanych danych: $1"
+    },
+    "findings_popup_replay_like": {
+      "message": "Wykryto zachowanie podobne do nagrywania sesji"
+    },
+    "findings_popup_replay_recording": {
+      "message": "Wykryto nagrywanie sesji"
+    },
+    "findings_popup_details": {
+      "message": "Szczegóły"
+    },
+    "findings_popup_close": {
+      "message": "Zamknij"
+    },
+    "findings_popup_settings": {
+      "message": "Ustawienia Firewall"
+    }
+  },
+  "id": {
+    "findings_popup_title": {
+      "message": "Temuan Firewall"
+    },
+    "findings_popup_transfer_count": {
+      "message": "Transfer data yang diketik: $1"
+    },
+    "findings_popup_replay_like": {
+      "message": "Perilaku mirip perekaman sesi terdeteksi"
+    },
+    "findings_popup_replay_recording": {
+      "message": "Perekaman sesi terdeteksi"
+    },
+    "findings_popup_details": {
+      "message": "Detail"
+    },
+    "findings_popup_close": {
+      "message": "Tutup"
+    },
+    "findings_popup_settings": {
+      "message": "Pengaturan Firewall"
+    }
+  },
+  "mr": {
+    "findings_popup_title": {
+      "message": "Firewall मधील निष्कर्ष"
+    },
+    "findings_popup_transfer_count": {
+      "message": "टाइप केलेल्या डेटाचे हस्तांतरण: $1"
+    },
+    "findings_popup_replay_like": {
+      "message": "सत्र रेकॉर्डिंगसारखे वर्तन आढळले"
+    },
+    "findings_popup_replay_recording": {
+      "message": "सत्र रेकॉर्डिंग आढळले"
+    },
+    "findings_popup_details": {
+      "message": "तपशील"
+    },
+    "findings_popup_close": {
+      "message": "बंद करा"
+    },
+    "findings_popup_settings": {
+      "message": "Firewall सेटिंग्ज"
+    }
+  },
+  "te": {
+    "findings_popup_title": {
+      "message": "Firewall గుర్తింపులు"
+    },
+    "findings_popup_transfer_count": {
+      "message": "టైప్ చేసిన డేటా బదిలీలు: $1"
+    },
+    "findings_popup_replay_like": {
+      "message": "సెషన్ రికార్డింగ్ వంటి ప్రవర్తన గుర్తించబడింది"
+    },
+    "findings_popup_replay_recording": {
+      "message": "సెషన్ రికార్డింగ్ గుర్తించబడింది"
+    },
+    "findings_popup_details": {
+      "message": "వివరాలు"
+    },
+    "findings_popup_close": {
+      "message": "మూసివేయి"
+    },
+    "findings_popup_settings": {
+      "message": "Firewall సెట్టింగ్‌లు"
+    }
+  },
+  "ko": {
+    "findings_popup_title": {
+      "message": "Firewall 감지 결과"
+    },
+    "findings_popup_transfer_count": {
+      "message": "입력 데이터 전송: $1"
+    },
+    "findings_popup_replay_like": {
+      "message": "세션 기록과 유사한 동작 감지"
+    },
+    "findings_popup_replay_recording": {
+      "message": "세션 기록 감지"
+    },
+    "findings_popup_details": {
+      "message": "자세히"
+    },
+    "findings_popup_close": {
+      "message": "닫기"
+    },
+    "findings_popup_settings": {
+      "message": "Firewall 설정"
+    }
+  },
+  "ta": {
+    "findings_popup_title": {
+      "message": "Firewall கண்டறிவுகள்"
+    },
+    "findings_popup_transfer_count": {
+      "message": "உள்ளிட்ட தரவுப் பரிமாற்றங்கள்: $1"
+    },
+    "findings_popup_replay_like": {
+      "message": "அமர்வுப் பதிவைப் போன்ற நடத்தை கண்டறியப்பட்டது"
+    },
+    "findings_popup_replay_recording": {
+      "message": "அமர்வுப் பதிவு கண்டறியப்பட்டது"
+    },
+    "findings_popup_details": {
+      "message": "விவரங்கள்"
+    },
+    "findings_popup_close": {
+      "message": "மூடு"
+    },
+    "findings_popup_settings": {
+      "message": "Firewall அமைப்புகள்"
+    }
+  },
+  "yue": {
+    "findings_popup_title": {
+      "message": "Firewall 搵到嘅結果"
+    },
+    "findings_popup_transfer_count": {
+      "message": "輸入資料傳送：$1"
+    },
+    "findings_popup_replay_like": {
+      "message": "偵測到似錄低工作階段嘅行為"
+    },
+    "findings_popup_replay_recording": {
+      "message": "偵測到工作階段錄製"
+    },
+    "findings_popup_details": {
+      "message": "詳情"
+    },
+    "findings_popup_close": {
+      "message": "關閉"
+    },
+    "findings_popup_settings": {
+      "message": "Firewall 設定"
+    }
+  },
+  "wuu": {
+    "findings_popup_title": {
+      "message": "Firewall 检测结果"
+    },
+    "findings_popup_transfer_count": {
+      "message": "输入数据传输：$1"
+    },
+    "findings_popup_replay_like": {
+      "message": "检测着类似会话录制个行为"
+    },
+    "findings_popup_replay_recording": {
+      "message": "检测着会话录制"
+    },
+    "findings_popup_details": {
+      "message": "详情"
+    },
+    "findings_popup_close": {
+      "message": "关闭"
+    },
+    "findings_popup_settings": {
+      "message": "Firewall 设置"
+    }
+  }
+}

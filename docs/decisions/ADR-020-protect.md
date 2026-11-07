@@ -1,0 +1,437 @@
+> Историческая спецификация из vendor/protect-722fae8/docs/decisions/ADR-020.md (722fae8). Исходные статус и результаты ниже сохранены. Production-порт и текущий чек-лист определяют ADR-047 и ADR-050; уведомления внутри страницы — ADR-058. ADR-020.md остаётся решением о карте запросов Pro.
+
+# ADR-020. Необязательный модуль «Защита»: сопоставление ввода, фаервол (DNR), запись сессии, атрибуция скриптов, история «Кто вас узнаёт», GPC, запросы о данных
+
+Статус: **Proposed** (2026-10-17, шаг S01 плана «Модуль «Защита»», карточка E21-01). Перевод в Accepted — только после review владельцев `packages/contracts`, manifest/permissions и privacy. Владельцы частей: `packages/contracts` (§9), manifest/permissions (§7), `packages/background` (§A, §C, §G), `packages/collector` (§A, §B), `packages/sensors` (§F, §H), `packages/engine` (чистая логика модуля), `packages/ui` (§D), privacy (§4, §6, §8).
+
+Связи: ТЗ I §3.3 (REQ-001…REQ-015), V §7, VI I1.1, I2; ADR-003 (редакция v4), ADR-004, ADR-006, ADR-007, ADR-008, ADR-009, ADR-011, ADR-013, ADR-016, ADR-018, ADR-019 (Changelog «ADR-020»); карточки E21-01…E21-15; источник — спецификация владельца «Detect.Expert: реализация детектора утечек из форм, записи сессий, карты «кто вас узнаёт» и GPC» (2026-10-17) и прототип попапа «Firewall персональных данных».
+
+## §0. Статус и основание
+
+- Владелец 2026-10-17 выбрал вариант «Модуль «Защита» по ADR»: новый ADR пересматривает REQ-001/005/010 только для необязательного модуля, который пользователь включает сам; режим наблюдения остаётся как есть; без сервера, канарейки, запроса `gpc.json` и собственного отпечатка.
+- Владелец подтвердил этот вариант (2026-10-17); на этом основании шаги S02–S06 выполнены. Поправка `docs/PROJECT_RULES.md` (§4) **внесена 2026-10-18** по явному подтверждению владельца, дословно по тексту §4. ADR остаётся Proposed до review владельцев contracts, manifest и privacy.
+- Контрольная точка расширения scope не снята. Код модуля попадает во все профили сборки выключенным; публичный релиз (E17) не выходит, пока ADR-020 не станет Accepted.
+- Факты Chrome в этом ADR — только из спайка §14 (Chromium 153.0.8010.12 headless). Остальное помечено candidate (REQ-015).
+
+## §1. Контекст и адаптация спецификации владельца
+
+Спецификация владельца описывает три функции на общем фундаменте: детектор утечек из форм и записи сессий, карту «кто вас узнаёт» и действия (GPC, требование об удалении), плюс попап фаервола «Разрешить / Заблокировать». Часть предложенных механизмов нарушает неизменяемые границы или невозможна в Chrome MV3. Адаптация:
+
+| Предложение спецификации | Почему так нельзя | Что делаем |
+| --- | --- | --- |
+| Хук `fetch` читает `input.url`, `init.body`; XHR делает `String(url)`; хук `value` | Coercion и чтение аргументов вызывают код страницы (REQ-002); обёртка getter `value` держала бы пароль | Адрес и тело — только из `webRequest` в SW; MAIN-обёртки видят только `typeof`, `args.length` и brand-check захваченными нативными getter; хука `value` нет (§F) |
+| Копия текста кадров WebSocket (до 256 КБ) в MAIN | Значения через мост запрещены (REQ-005); тело кадра не наблюдаемо иначе | Пробел покрытия `websocket-not-observed` |
+| `callerOf()` с полным URL скрипта из `new Error().stack` | Сырой stack и полный URL запрещены (REQ-005); `stack` вызывает `prepareStackTrace` страницы | `ScriptRef` (маскированный host + безопасный шаблон пути) по проверенной выборке стека, уровень `sampled-stack` (§F, SP-12) |
+| Приватный `MessagePort` между мирами | Порт передаётся через `postMessage`, страница может его перехватить; это не аутентификация (REQ-004) | Отдельный канал `detect.expert/protect/v1` с валидацией, как `detect.expert/v1` (§9) |
+| Значение поля в SW, варианты и хэши считает SW | Текст значения не должен покидать ISOLATED | ISOLATED считает ключевые отпечатки вариантов; в SW — только отпечатки (память, TTL 15 мин) (§B) |
+| `JSON.stringify(formData)`, кольцо 500 запросов × 256 КБ | Тела и значения в долгой памяти, лишний объём (REQ-005, REQ-011) | Токены тела ≤ 10 с, скан ≤ 64 KiB, ≤ 32 записи на вкладку (§B) |
+| `fp_profile`: собственный отпечаток раз в сутки | Активное снятие отпечатка запрещено (REQ-001) | Исключено |
+| Канарейка `dx-…@canary.detect.expert`, `/.well-known/gpc.json`, вызовы CMP (`__uspapi`, `__gpp`) | Запись в поля, исходящий трафик и вызов функций страницы запрещены (REQ-001, REQ-010) | Исключено |
+| Held request: «запрос придерживается до решения» | В MV3 нет блокирующего `webRequest`, DNR не умеет «спросить и подождать» | Первый запрос к новому получателю уже ушёл; решение действует на будущие запросы; «остановлено» — только по §11 |
+| Названия вендоров и встроенные эндпоинты («Meta Pixel», «Hotjar», таблица сигнатур) | Непроверенные сигнатуры в production запрещены (REQ-008) | Только по активным правилам каталога (сейчас ни одного); иначе получатель — registrable domain |
+| Карта сущностей (Tracker Radar, Disconnect) | Лицензии CC BY-NC-SA и GPLv3 без юридической проверки | Нет карты; ограничение `party-by-registrable-domain` |
+| `chrome.alarms` для напоминаний, `tabs`, `webNavigation` в manifest, `<all_urls>` статически | Новые разрешения без необходимости | Сроки — при следующем событии расширения; host — существующий optional all-sites (§7) |
+| Cookie-механизм истории (`Set-Cookie`, `Cookie` через `extraHeaders`) | За пределами утверждённой ревизии REQ-005 | Не входит в v1 (решение по умолчанию) |
+| Маскированная подсказка значения (`a•••@g•••.com`) и фрагмент хэша в доказательстве | Производные значения нигде не выводятся | Не показываются в v1 (решение по умолчанию); полей в контракте нет |
+| WebCrypto для SHA, `tldts`, обёртка `idb` | На http-страницах в ISOLATED нет `crypto.subtle` (SP-13); новые зависимости запрещены | Собственные MD5/SHA-1/SHA-256/SHA-512; существующий PSL `packages/attribution`; своя обёртка IndexedDB |
+| Firefox (`wrappedJSObject`, блокирующий `webRequest`, `dns.resolve`) | Вне объёма продукта | Не делается |
+
+## §2. Рассмотренные варианты
+
+| Вариант | Суть | Решение |
+| --- | --- | --- |
+| A | Не делать модуль, оставить только наблюдение | Отклонён владельцем 2026-10-17 |
+| B | Отдельное расширение | Отдельный листинг, повтор инфраструктуры; владелец выбрал модуль в продукте |
+| C | Встроить функции в существующие `hook.*.js`, `bridge.js`, `detector-*-v1` | Меняет режим наблюдения для всех пользователей и бюджеты сенсора; нарушает «режим наблюдения остаётся как есть» |
+| **D** | **Необязательный модуль, выключен по умолчанию, отдельный контур (регистрации, канал, слушатели, DNR-диапазоны, хранилища)** | **Выбран** |
+
+## §3. Модель модуля
+
+- **Фичи** `PROTECT_FEATURES = ['value-match','firewall','session-replay','history','gpc']`; DNR нужен только `firewall` и `gpc`.
+- **Состояния** `PROTECT_MODULE_STATES = ['off','active','needs-consent','needs-permission','organization-disabled','degraded']`, приоритет: `organization-disabled` > `off` > `needs-consent` > `needs-permission` > `degraded` > `active`.
+- **Пресеты** `PROTECT_PRESETS = ['strict','normal','warn-only']`, по умолчанию `normal`. `strict` — только явным выбором, только правило уровня сайта, лимиты 8 в день на сайт и 64 в день; «везде» — только кликом; в описании режима есть предупреждение (антифрод и CAPTCHA не распознаются).
+- **Включение** — только в Options после экрана согласия (§6). Организация может модуль только запретить политикой `ProtectModuleDisabled` (boolean, fail-closed); политики включения нет.
+- **Отдельный контур:** регистрации `detector-protect-isolated-v1` (`protect.js`) и `detector-protect-main-v1` (`protect-policy.js`, `protect-on.<group>.js`, `protect.main.js`, `gpc.main.js`); канал `detect.expert/protect/v1`; свои `webRequest`-слушатели, только в состоянии `active`; DNR-диапазоны id (§C); хранилища `storage.local['protect']` (только настройки), IndexedDB `detect-expert-protect` (пишет только SW), `storage.session['protect-doc:*'|'protect-tabs'|'protect-runtime']`.
+- **Не меняются:** `hook.*.js`, `bridge.js`, `detector-*-v1`, `SENSOR_IDS`, `OPERATION_CODES`, `COVERAGE_FLAGS`, `ReportProjection`, `ExportReport`, `PageBatch`. Вывод модуля — отдельная `ProtectProjection`.
+- **Пароли не читает ни один слой.** Типы полей `FIELD_KINDS = ['email','phone','name']` (без `password` по построению), never-классы `password | was-password | payment | one-time-code | credential-hint`.
+
+## §4. Ревизия границ (только для включённого модуля)
+
+- REQ-001: DNR `block`/`allow` и `modifyHeaders Sec-GPC: 1`; свойство `navigator.globalPrivacyControl`; наблюдающие MAIN-обёртки.
+- REQ-005: значения полей e-mail/телефон/имя читаются в ISOLATED; в SW передаются только ключевые отпечатки; тела запросов живут в памяти SW.
+- REQ-010: IndexedDB расширения для исключений, решений, истории и журнала запросов.
+
+Остальные REQ действуют полностью.
+
+### Точный текст поправки docs/PROJECT_RULES.md
+
+Вставляется после списка REQ-001…015 перед «Канонические поля» — **только после явного подтверждения владельца** (§0). Внесена 2026-10-18 по подтверждению владельца.
+
+```
+## Исключения для opt-in модуля «Защита» — только по ADR-020
+
+Модуль «Защита» выключен по умолчанию. Включает его только пользователь в Options после экрана согласия (`PROTECT_CONSENT_VERSION`). Организация может модуль только запретить политикой `ProtectModuleDisabled`; политики включения нет. Пока модуль выключен, REQ-001…015 действуют без исключений, а наблюдение работает так же, как без модуля (`tests/extension/protect/module-off.spec.ts`). Для включённого модуля и только в объёме ADR-020:
+
+- **REQ-001.** Разрешены: правила `declarativeNetRequest` только `block`/`allow` (dynamic и session) по решению пользователя или выбранному им пресету; `modifyHeaders` ровно `Sec-GPC: 1`; свойство `navigator.globalPrivacyControl` (обычный getter, без маскировки), если пользователь включил GPC; наблюдающие MAIN-обёртки модуля `fetch`, `XMLHttpRequest.prototype.open/send`, `Navigator.prototype.sendBeacon`, `EventTarget.prototype.addEventListener`, `MutationObserver.prototype.observe` — по правилам REQ-002/003. По-прежнему запрещены: `redirect`, `upgradeScheme`, `allowAllRequests`, `removeHeaders` и любые другие заголовки; подмена результатов API; обход антифрода и CAPTCHA; пресеты против сервисов защиты; запись в поля страницы, клики и submit от расширения; вызов функций страницы (CMP); собственный отпечаток; активное сканирование; `/.well-known/gpc.json`.
+- **REQ-005.** Разрешено: читать значения полей e-mail, телефона и имени в ISOLATED world после доверенного ввода — только через `packages/collector/src/protect/field-value.ts`; передавать в SW только ключевые отпечатки вариантов значения (память SW, TTL 15 мин); держать тела исходящих запросов вкладок с активным вводом в памяти SW (≤ 64 КиБ на запрос, токены ≤ 10 с); передавать через канал `detect.expert/protect/v1` только `ScriptRef` (маскированный host + безопасный шаблон пути), enum и счётчики. Никогда: значения паролей, полей, бывших паролем, платёжных полей и одноразовых кодов — ни одним слоем; обёртки getter `value` в MAIN; значение и производные от него (отпечаток, хэш, маска, длина) — в storage, IndexedDB, проекциях, экспорте, логах, диагностике и сообщениях MAIN↔ISOLATED; cookie, заголовки (кроме проверки `Sec-GPC`), тела ответов, полный URL, сырой stack.
+- **REQ-010.** Разрешена IndexedDB расширения `detect-expert-protect` (пишет только SW) для сайтов-исключений, решений фаервола, истории «Кто вас узнаёт» (отдельная галочка, срок 7/30/90 дней, индикатор, очистка) и журнала запросов о данных. По-прежнему запрещены: собственный сетевой запрос (CSP `connect-src 'none'`), сервер-канарейка, telemetry, `storage.sync`, удалённые правила.
+
+Остальные границы (REQ-002…004, 006…009, 011…015) действуют для модуля полностью. Вывод модуля показывается только с доказательством, `interpretationConfidence` и ограничениями покрытия; вердикта о безопасности сайта нет. «Остановлено» пишется, только если наше правило действовало до запроса и Chrome сообщил `net::ERR_BLOCKED_BY_CLIENT`; иначе — «отправлено» или «исход не наблюдался». Имена модуля — только из `packages/contracts/src/protect*.ts` (`ui-protect-*`, `protect-hello|arm|input|events|ack|control`, `protect-main-*`, `protect-relay-*`). Изменение раздела — только новой редакцией ADR-020.
+```
+
+Дополнительно в `docs/PROJECT_RULES.md` (тем же подтверждением):
+
+- «Протокол v1»: строка «Модуль «Защита» (ADR-020): ISOLATED `protect.js` → SW `protect-hello|arm|input|events` (ответ `protect-ack`), SW → ISOLATED `protect-control`; MAIN↔ISOLATED канал `detect.expert/protect/v1` (`protect-main-hello|batch`, `protect-relay-hello|pause|resume|stop`); UI → SW `ui-protect-*` (расширяющие действия — только из Options)».
+- «Структура и владение»: «код модуля — в подкаталогах `src/protect/` существующих пакетов; чистая логика — `packages/engine/src/protect` (без chrome.*)».
+
+`docs/PROJECT_RULES.md`: в перечень изменений, требующих явного review в PR, добавить чтение полей и тел запросов, DNR-правила, хранилища модуля и текст согласия. Review идёт по чек-листу §15; обязателен зелёный `tests/extension/protect/password-never-read.spec.ts`.
+
+## §5. Что остаётся запрещённым и для включённого модуля
+
+- DNR-действия `redirect`, `upgradeScheme`, `allowAllRequests`, `removeHeaders`, любые заголовки кроме `Sec-GPC: 1`; статические rulesets; `declarativeNetRequestFeedback`.
+- Чтение значения пароля, поля, бывшего паролем, платёжного поля, одноразового кода; обёртка getter `value` в MAIN; чтение `KeyboardEvent`/`InputEvent`/`DataTransfer`/`FormData` страницы.
+- Значение и любые его производные (отпечаток, хэш, маска, длина) на диске, в проекциях, экспорте, логах, диагностике и MAIN↔ISOLATED.
+- Запись в поля, клики, submit, вызов функций страницы (CMP), собственный отпечаток, активное сканирование, канарейка, `/.well-known/gpc.json`, любой исходящий запрос расширения.
+- Маскировка обёрток (`Function.prototype.toString`, подделка `name/length`), обещание невидимости.
+- Пресеты против сервисов защиты; блокировка по непроверенной сигнатуре; вердикт «сайт нарушает» или «сайт безопасен».
+- `alarms`, `notifications`, `cookies`, `tabs`, `unlimitedStorage`, `offscreen`, `chrome.action.openPopup`.
+
+## §6. Согласие
+
+- `PROTECT_CONSENT_VERSION = 1`. Смена версии переводит модуль в `needs-consent` (данные сохраняются, слушатели и правила снимаются).
+- Экран согласия в Options (модальный `dialog`, фокус на заголовке, ловушка фокуса, Escape = отмена), 7 блоков: что читается; что не читается никогда (включая транзит пароля в теле, которое сайт отправил сам); тела запросов в памяти; что может измениться на сайтах (блокировка ломает вход, оплату, проверки; «остановлено» только при правиле до запроса); GPC; заметность модуля; что хранится и как удалить; разрешения Chrome; ограничения («не все передачи», «не оценка безопасности»); отсутствие сетевых запросов.
+- Фичи по умолчанию: `value-match`, `firewall`, `session-replay` отмечены; `history` и `gpc` — нет. Пресет — `normal`. Обязательная галочка подтверждения.
+- Включение синхронно в жесте: `chrome.permissions.request({origins: http(s) all-sites, permissions: firewall||gpc ? [DNR] : []})` → при `false` — отказ, иначе `ui-protect-enable {consentVersion, features, preset}`.
+- `PROTECT_CONSENT_DIGEST` — SHA-256 текстов RU+EN ключей согласия; тест локалей падает при изменении текста без нового дайджеста (и без решения о новой версии согласия).
+- Расширяющие действия (`enable`, `set-settings`, снятие исключения сайта) принимаются только от Options (`isOptionsSender`); из popup — `unauthorized-sender`.
+
+## §7. Разрешения
+
+- `apps/extension/manifest.ts`: `OPTIONAL_PERMISSIONS = ['declarativeNetRequestWithHostAccess']` во всех профилях. `permissions`, `host_permissions`, `optional_host_permissions`, CSP, `incognito`, `minimum_chrome_version: 119` не меняются; статических rulesets нет.
+- Разрешение запрашивается в Options жестом пользователя и только для `firewall` или `gpc`, вместе с существующим optional `http(s)://*/*`: модулю нужен доступ ко всем сайтам (SP-9: `block` и `modifyHeaders` при `declarativeNetRequestWithHostAccess` действуют, только если есть доступ к хосту цели **и** инициатора). Без all-sites модуль в `needs-permission`. Picker области наблюдения предупреждает, что отзыв all-sites приостановит модуль (ADR-003 v4). **Реализовано (S15, follow-up основы):** у работающего модуля (`active`, `degraded`) текст `scope_protect_revoke_warning` стоит там, где широкий доступ действительно отзывается: под отмеченным «Также отозвать доступ к сайтам в Chrome» режима «Выключено» (popup, боковая панель, Options) и над кнопкой «Отозвать доступ ко всем сайтам» (Options, «Доступ к сайтам»). Выбор `site` и `active-tab` широкий грант не отзывает (`useReportSession.applyScope`), поэтому предупреждения там нет; формулировка ADR-003 v4 п. 3 («выбор `site`, `active-tab`, `off`») — на уточнение владельцу ADR-003 (FOLLOWUPS S15-3). Тест — `packages/ui/test/browser.test.ts` («S15 (ADR-003 v4 п. 3)»).
+- Allowlist: `optional_permissions: ['declarativeNetRequestWithHostAccess']`; в `forbidden_permissions` добавляется `declarativeNetRequestFeedback` (`declarativeNetRequest` там уже есть) и запрет действует для `optional_permissions`; ключ `declarative_net_request` запрещён; `managed_policies: ['DisabledSensorIds','ProtectModuleDisabled']`.
+- **Факт SP-1 и его следствия.** Optional-разрешение выдаётся по клику без нативного диалога, `contains` → `true`, namespace появляется в работающем SW, `permissions.onAdded` приходит, чтение правил работает. Но запись (`updateDynamicRules`, `updateSessionRules`) **не завершается** (таймауты 5–10 с в спайке; в отдельной пробе вне репозитория — 90 с), пока расширение не загружено заново с уже выданным разрешением: так в том же SW, после `ServiceWorker.stopWorker` и после remove/re-grant. После перезапуска браузера с тем же профилем запись проходит за ≤ 1 мс; контроль с разрешением в `permissions` — тоже ≤ 1 мс. Проверить `chrome.runtime.reload()` в этой среде нельзя (Chromium отключает распакованное расширение с причиной `unsupportedDeveloperExtension`). Решение до выбора владельца:
+  1. `dnr-port` ограничивает каждую запись таймаутом (5 с), не держит цепочку мутаций контроллера; таймаут → `enforcement: degraded`, `ENFORCEMENT_DEGRADED: 'api-unavailable'`, одна повторная попытка на следующем триггере (старт SW, `permissions.onAdded`, действие пользователя);
+  2. UI говорит, что блокировка и заголовок GPC начнут действовать после перезапуска браузера; «остановлено» при этом не показывается (§11);
+  3. варианты для владельца (FOLLOWUPS «Защита»): (a) после первой выдачи вызывать `chrome.runtime.reload()` — candidate, требует ручной проверки в упакованной установке и оценки влияния на открытые страницы; (b) F1 — обязательное разрешение без предупреждения (новая редакция ADR-003/ADR-020, меняет manifest для всех); (c) оставить «после перезапуска браузера».
+- **Факт SP-5.** После `permissions.remove(DNR)` наши dynamic и session правила продолжают блокировать, а API недоступно («…is not available in this context»). Поэтому выключение: сначала `removeAllOurs()`, затем снятие разрешения страницей Options; при старте SW с `enabled=true` удаляются сироты в наших диапазонах. Dynamic правило переживает перезапуск браузера, session — нет.
+- Не используются: `alarms`, `notifications`, `cookies`, `tabs`, `unlimitedStorage`, `offscreen`, `chrome.action.openPopup` (SP-6 — информационно).
+- Fallback: F2 (без блокировки и без `Sec-GPC`, только `navigator.globalPrivacyControl`, `enforcement: 'no-permission'`) — если владелец решит не просить DNR; F1 — только новой редакцией ADR-020/ADR-003.
+
+## §8. Жизненный цикл данных
+
+| Где | Что | Срок | Удаление |
+| --- | --- | --- | --- |
+| Память ISOLATED | значение поля — только на время вызова `readTrackedValue`; 32-битный FNV последнего значения для дедупа | до следующего изменения / выгрузки документа | остановка модуля, выгрузка |
+| Память SW | ключевые отпечатки вариантов (≤ 8 полей × ≤ 64 записи, ≤ 32 документа) | TTL 15 мин, льгота 60 с после смены сайта | закрытие вкладки, выключение, исключение сайта, `ui-clear-session`, засыпание SW (соль на жизнь SW) |
+| Память SW | токены тел запросов вооружённых вкладок (≤ 64 KiB скан, ≤ 32 записи на вкладку, ≤ 256 всего) | ≤ 10 с | истечение окна |
+| Память SW | исходы запросов (≤ 512), выборки атрибуции (LRU 32 документа), cadence записи сессии | TTL 30 с / 3 с / документ | автоматически |
+| `storage.session` | `protect-doc:<documentKey>` (доказательства без значений, ≤ 16 KiB), `protect-tabs`, `protect-runtime` (хэш правил, undo ≤ 16) | TTL документа 10 мин; ≤ 1 MiB на модуль | закрытие вкладки, TTL, purge, выключение |
+| `storage.local['protect']` | только настройки `{v, enabled, consentVersion, features, preset, snoozeUntil, historyRetentionDays}` | до выключения с purge | выключение с purge, удаление расширения |
+| IndexedDB `detect-expert-protect` | `meta`, `exclusions`, `decisions`, `sightings`, `receivers`, `sites`, `requests` — домены, дни, enum, числа | история 7/30/90 дней; журнал 30/365/730 дней | очистка по сроку при следующем событии; purge; удаление расширения |
+| DNR dynamic/session | правила `block`/`allow`/`Sec-GPC` в наших диапазонах id | до решения пользователя; session — до перезапуска браузера | `removeAllOurs()` при выключении; сироты — при старте |
+
+Сроки соблюдаются при следующем событии расширения, а не точно в срок (`alarms` не используется); исключение — память дорожки сопоставления: отпечатки, льготу и кольцо токенов снимает её собственный таймер, пока SW работает (редакция 2026-10-18, PT-1). IndexedDB на диске не зашифрована — это говорится в UI и PRIVACY. Хранилище и вывод — только SW (`idb.ts` — единственный владелец `indexedDB`).
+
+## §9. Контракты (единая дельта, шаг S02)
+
+Новые файлы `packages/contracts/src/protect.ts`, `protect-main.ts`, `protect-firewall.ts`, `protect-history.ts`, `protect-requests.ts`, `validate-protect.ts`. Последующие шаги контракты не меняют; изменение — редакцией ADR-020.
+
+- `UI_ERROR_CODES` дописывается в конец: `module-disabled`, `feature-disabled`, `consent-required`, `permission-required`, `disabled-by-organization`, `limit-reached`, `storage-unavailable`, `unsafe-receiver`.
+- `COVERAGE_FLAGS`: условный флаг `firewall-blocked` **не вводится** — SP-2 показал, что остановленные DNR запросы доходят до `onBeforeRequest`.
+- Модульные enum (`PROTECT_FEATURES`, `PROTECT_MODULE_STATES`, `PROTECT_PRESETS`, `PROTECT_KINDS`, `FIELD_KINDS`, `NEVER_READ_CLASSES`, `VALUE_ENCODINGS`, `VALUE_LOCATIONS`, `TRANSFER_CLASSES`, `SUBMIT_TIMINGS`, `DELIVERY_STATES`, `PROTECT_LIMITATIONS` и др.) и `PROTECT_BUDGETS` — по брифу S02. Изменение числа бюджета — редакция ADR-020.
+- Page → SW (`runtime.sendMessage`): `protect-hello`, `protect-arm`, `protect-input` (только отпечатки `{enc, len, h}`), `protect-events`; ответ `protect-ack`; SW → ISOLATED (`tabs.sendMessage` с `documentId`): `protect-control`. `tabId/frameId/documentId` в payload запрещены.
+- MAIN ↔ ISOLATED (`detect.expert/protect/v1`): `protect-main-hello|batch`, `protect-relay-hello|pause|resume|stop`.
+- UI → SW: 22 типа `ui-protect-*` с единым маршрутом и валидатором; ответы `protect-state|report|decision|rules|history|history-receiver|history-export|requests|request-draft`.
+- Канонические оси переиспользуются без параллельных имён: `evidenceSource`, `integrity`, `interpretationConfidence`, `attributionConfidence`, `vendorConfidence`, `coverageState`, `countQuality`, `SiteRelation`, `HostCategory`.
+- Ни один wire-тип модуля не содержит поля значения, хэша, маски, URL или query (wire-allowlist тест).
+
+## §10. Регистрации и инварианты наблюдения
+
+- `detector-protect-isolated-v1`: `protect.js`, ISOLATED. `detector-protect-main-v1`: `[gpc ? 'gpc.main.js', 'protect-policy.js', ...'protect-on.<g>.js', 'protect.main.js']`, MAIN; prelude-маска групп `send`, `listen` (как ADR-019, ключ `Symbol.for('detect.expert/protect-policy/v1')`, fail-closed). Общие параметры: `http(s)://*/*`, `excludeMatches` из сайтов-исключений, `allFrames`, `document_start`, `matchOriginAsFallback` с feature-detect.
+- `excludeMatches` не покрывает сторонний iframe на вкладке исключённого сайта: его скрипт запускается, и решение принимает SW. Документ получает `protect-ack {active:false}`, если исключён сайт фрейма или сайт верхнего документа вкладки. Сайт вкладки SW берёт из доверенных источников: для кадра 0 — сам кадр; для остальных — `MessageSender.tab.url` (только хост) и модель вкладок. Если сайт вкладки неизвестен, кадр с `frameId ≠ 0` получает неактивный ответ (fail-closed). Это касается и документа в prerender: `tab.url` относится к показанной странице. `protect.js` в предзагруженном документе шлёт hello только после активации (`prerenderingchange`). Модель вкладок узнаёт сайт вкладки, загруженной до включения, из `tab.url`. При вытеснении (≤ 64) вкладки исключённых сайтов уходят последними. Ревью раунд 2 S04.
+- SP-7: `excludeMatches` вместе с `matchOriginAsFallback` принимается; исключённый сайт и его `about:blank`-дочерний кадр не получают скрипт, разрешённый сайт и его `about:blank` — получают. Две MAIN-регистрации выполнились в порядке регистрации (5/5), но это не гарантия — модуль использует одну регистрацию с упорядоченным `js`. После перезапуска браузера (расширение из `--load-extension`) пропали все регистрации, включая `persistAcrossSessions: true` — регистрации сверяются при каждом старте SW с `enabled=true`.
+- `hook.*.js`, `bridge.js`, `detector-*-v1`, `parseMainFiles` ADR-019 не меняются; `scope.ts` снимает только свои id. Сборка проверяет, что в `hook.early.js`, `hook.main.js`, `bridge.js` нет протект-строк и их рост ≤ 1 KiB.
+- **Инвариант module-off** (`tests/extension/protect/module-off.spec.ts`): при выключенном модуле — ровно `detector-isolated-v1` и `detector-main-v1`; `chrome.declarativeNetRequest` в SW `undefined`; базы `detect-expert-protect` нет; ключа `storage.local['protect']` нет; `navigator.globalPrivacyControl` `undefined`; дескрипторы `window.fetch`, `EventTarget.prototype.addEventListener`, `MutationObserver.prototype.observe`, `HTMLInputElement.prototype.value` совпадают с Chromium без расширения; слушателей модуля нет; отчёты наблюдения совпадают с ожиданиями существующих спек. То же после включения и выключения с purge.
+
+## §11. Формулировки «отправлено» / «остановлено»
+
+`DELIVERY_STATES = ['sent','stopped','stopped-other','unknown']`:
+
+- **`sent`** — для запроса пришёл `webRequest.onSendHeaders`: браузер отправил запрос.
+- **`stopped`** — пришёл `onErrorOccurred` с `net::ERR_BLOCKED_BY_CLIENT`, и локальная оценка (`firewallEvaluate`, повторяет используемое подмножество DNR) показала, что победило наше block-правило, активное раньше `timeStamp − 50 мс` (`ruleActivationSlackMs`).
+- **`stopped-other`** — `ERR_BLOCKED_BY_CLIENT`, но не нашим правилом (другое расширение или правило, активированное позже порога).
+- **`unknown`** — всё остальное: нет событий, SW спал, слушатель добавлен позже, TTL исхода (30 с) истёк.
+
+SP-2 подтвердил основу: остановленный запрос даёт `onBeforeRequest` и `onErrorOccurred` `net::ERR_BLOCKED_BY_CLIENT` без `onSendHeaders`; отправленный — `onSendHeaders`. Первый запрос к новому получателю никогда не помечается `stopped`. Счётчик «Остановлено правилами сегодня» — нижняя граница (`countQuality: 'lower-bound'`) и не утверждает, что в остановленном запросе были данные пользователя. Запрещены формулировки «пытается отправить», «придерживается», «не получит», «утечка», «вы защищены», «held», «will not receive»; «сервер получил» — тоже (известно только, что Chrome отправил).
+
+## §12. Модель угроз
+
+| Угроза | Мера |
+| --- | --- |
+| Расширение становится кейлоггером после рефакторинга | Единственный аудированный reader `field-value.ts`; сканер `scanFieldReads` в lint; tripwire-тест с положительными контролями в обоих мирах (`password-never-read.spec.ts`); privacy-scan с канарейками и их вариантами |
+| Пароль в теле, которое сайт отправил сам | Chrome отдаёт тело целиком (SP-3: до 32 MiB одним куском); поля с именами паролей и карт отбрасываются до токенизации, такие запросы не попадают в кольцо; буфер ≤ 10 с; для raw-текста неизвестной структуры гарантии нет — раскрыто в согласии и PRIVACY |
+| Страница подделывает MAIN-сообщения, `sourceURL`, имена функций, `prepareStackTrace` | Канал недоверенный (`integrity: page-controlled`); атрибуция только `sampled-stack`; проверка цепочки прототипов и дескрипторов до выборки (SP-12); ID только из `MessageSender` |
+| Страница инициирует расширяющие действия | `ui-protect-*` от page sender → `unauthorized-sender`; расширяющие — только Options |
+| Блокировка ломает вход, оплату, CAPTCHA, антифрод | `normal` по умолчанию, предупреждения, исключения, undo, `warn-only`; strict — только явно, только сайт, лимиты; каталог сервисов защиты пуст (REQ-008), поэтому «умных» исключений нет — это раскрыто |
+| Правило блокирует то, что не связано с данными | Текст `fw_rule_effect`: блокируется всё к получателю в области, не только запросы с данными |
+| Обнаружимость модуля сайтом | Обёртки, `Sec-GPC`, `ERR_BLOCKED_BY_CLIENT` видны; раскрыто в согласии (REQ-014); маскировки нет |
+| Утечка через собственный трафик расширения | CSP `connect-src 'none'`; privacy-scan считает исходящий трафик расширения (= 0) |
+| Сироты DNR после отката или сбоя | Удаление своих диапазонов при старте; порядок «правила → разрешение» (SP-5); runbook отката |
+| Доступ к профилю на диске | IndexedDB не зашифрована: индикатор, срок, очистка, честная формулировка |
+| Вредоносное обновление, supply chain | Не исключается этими мерами; воспроизводимая сборка и review — общие процессы релиза |
+
+## §13. Бюджеты и perf-гейты
+
+`PROTECT_BUDGETS` (S02) — единственный источник чисел модуля; изменение числа — редакция ADR-020. Критерии гейтов записаны в карточках **до любых замеров** (2026-10-17T19:01:11Z); замеры в шагах реализации **отложены до тихого perf-этапа** (параллельные дорожки нагружают машину). До решения гейта конфигурация MAIN-хуков консервативна: группа без валидного go не включается, `img-src: off`.
+
+| Гейт | Карточка | Критерии (кратко) |
+| --- | --- | --- |
+| module-off | E21-05 | 0 новых файлов на странице при выключенном модуле; холодный старт SW ±5 мс к базовой линии; `background.js` ≤ +160 KiB, `protect.js` ≤ 64 KiB; 5 повторов, медиана |
+| ввод и сопоставление | E21-07 | тело 64 KiB ≤ 2 мс p95, ≤ 4 KiB ≤ 0,3 мс; отпечатки ≤ 3 мс p95; обратное сопоставление ≤ 1 мс; задержка события медиана ≤ +0,1 мс, p95 обработчика ≤ 100 мкс; INP ≤ +10 мс |
+| фаервол | E21-08 | callback mean ≤ 20 мкс, p99 ≤ 100 мкс при 1024 правилах; быстрый путь ≤ 2 мкс; compile+diff ≤ 20 мс |
+| UI фаервола | E21-09 | первый полезный контент p95 ≤ 300 мс; фокус на итоге p95 ≤ 200 мс; `popup.js` ≤ +40 KiB, `options.js` ≤ +60 KiB |
+| MAIN-хуки | E21-10 | CI отношения ≤ 1,05 (ширина ≤ 0,10); micro нетрекаемого ≤ 50 нс; трекаемого без стека ≤ 300 нс; стек p95 ≤ 50 мкс; send ≤ 2 мкс / с выборкой p95 ≤ 60 мкс; правила решения prototype → shadow → off |
+| запись сессии | E21-11 | медиана ≤ 10 мкс, p95 ≤ 50 мкс на запрос; `deriveReplay` ≤ 0,2 мс |
+| история | E21-12 | fold ≤ 0,3 мс; rank 16 384 ≤ 50 мс; flush 512 ≤ 40 мс p95; query ≤ 120 мс p95 |
+| GPC | E21-13 | `onSendHeaders` медиана ≤ 20 мкс; `gpc.main.js` ≤ 2 KiB |
+| запросы | E21-14 | render 8 фактов ≤ 2 мс; валидация журнала ≤ 15 мс; открытие popup ≤ +10 мс |
+| интеграция | E21-15 | сводка всех гейтов с архивами; бюджеты наблюдения при выключенном модуле не хуже базовой линии |
+
+Класс оборудования strong — provisional; medium и weak — «не измерено». Порог не подстраивается под результат; промах — no-go с цифрами.
+
+**Итоги тихого perf-этапа (2026-10-18; сводка, M-perf).** Условия: Ryzen 9 7950X, Chromium 153.0.8010.12 headless, класс strong — provisional, medium и weak — не измерено. Критерии и правила решения не менялись. ADR остаётся Proposed.
+
+| Гейт | Итог | Главные цифры |
+| --- | --- | --- |
+| module-off (E21-05) | **no-go** | новых файлов на странице 0 (pass); холодный старт SW +7,7 мс (31,0 против 23,3 мс); `background.js` +512,6 KiB; `protect.js` 97 629 B |
+| ввод и сопоставление (E21-07) | **no-go** | тело 64 KiB p95 18,131 мс, ≤ 4 KiB — 1,170 мс; отпечатки 0,210 мс, обратное 0,069 мс, невооружённая вкладка 0 (pass); набор и INP без различимой разницы при разрешении 0,1 мс / 8 мс |
+| фаервол (E21-08) | go | callback mean 1,79 мкс, p99 4,20 мкс; быстрый путь 0,88 мкс; compile+diff 1,62 мс |
+| UI фаервола (E21-09) | **no-go** (размер) | первый контент p95 31,9 мс, фокус p95 4,8 мс, карточка 0,041 мс (pass); входы S09 в `popup.js` 41 238 B > 40 960 B |
+| MAIN-хуки (E21-10) | решено | `listen` inconclusive → `off` (V1 1,19 [1,17; 1,30]); `send` no-go → `off` (V1 1,065 [1,024; 1,079]); `observe` go → `wrap`; `img-src` inconclusive → `off` |
+| запись сессии (E21-11) | go | медиана 1,10 мкс, p95 2,10 мкс; `deriveReplay` 0,010 мс |
+| история (E21-12) | **no-go** | Node: fold, merge, rank — pass; flush 512 p95 126,5 мс; query p95 267,4 мс (на 15 564 строках) |
+| GPC (E21-13) | go | медиана 1,70 мкс; `gpc.main.js` 1195 B |
+| запросы (E21-14) | go | письмо 0,038 мс, валидация 3,24 мс, popup +2,95 мс |
+| интеграция (E21-15) | candidate | наблюдение при выключенном модуле не хуже базовой линии в пределах шума (страничные бандлы идентичны) |
+
+**Следствие E21-10.** `PROTECT_HOOK_DECISION` = `decided`. В release-профиле обёрнут только `MutationObserver.prototype.observe`. Обёрток отправки и `addEventListener` нет, поэтому нет:
+
+- атрибуции «Кто» (`no-script-attribution`);
+- фактов `password-field-listener`;
+- S1 записи сессии (`listener-hook-off`).
+
+**No-go E21-05, E21-07, E21-09 и E21-12** не исправлялись на этапе замеров. Они остаются блокерами выпуска соответствующих функций до решения владельца продукта: бюджет — редакцией §13, оптимизация — владельцами дорожек.
+
+**Интеграция S15 (2026-10-18).**
+
+- E21-05 (размеры `background.js` и `protect.js`) — детерминированный no-go, известный с S04/S05 (FOLLOWUPS 78, 88) и подтверждённый замером тихого perf-этапа. Follow-up основы требовал уменьшить код или записать датированную редакцию §13 **до** замера. Замер уже выполнен, поэтому редакция порога теперь была бы подгонкой под результат: S15 порог не меняет и редакцию не пишет. Уменьшить `background.js` на ~350 KiB в рамках интеграции нельзя без минификации (редакция ADR-002) или облегчённых валидаторов contracts (владелец contracts). Решение — владельцу (FOLLOWUPS PERF-1, S15-1).
+- `pnpm test:perf` дополнен `&& node scripts/perf-protect.mjs` (плагины `module-off`, `typing`). Код выхода 0 у плагина означает **валидный** прогон, а не go: вердикты — в архивах и в этой таблице. Прогон в составе S15 не решающий и вердиктов не меняет (M15).
+
+## §14. Спайки SP-1…SP-14 и «Проверено в браузере»
+
+Среда: Chromium 153.0.8010.12 headless (`channel: 'chromium'`), Playwright 1.63.0, Windows 11 x64 (10.0.26200); выбрасываемое расширение `tests/extension/protect/spike/` (вне сборки), загружено через `--load-extension`; `--host-resolver-rules='MAP *.example.com 127.0.0.1, MAP *.example.net 127.0.0.1, MAP *.example.org 127.0.0.1'`; сервер — обработчики `tests/fixture-server.mjs` на 4173/4174 с записью метода, хоста, пути и заголовка `Sec-GPC` (тела не читаются). Хосты выданы как в `tests/extension/permissions/support.ts`: одобрение через `chrome://extensions` и `permissions.request` по клику. Команда: `npx playwright test tests/extension/protect/spike/spike.spec.ts --config tests/extension/playwright.config.ts` — 15 passed (1,3 мин), 2026-10-17; два полных прогона дали одинаковые факты; сырые факты — `test-results/protect-spike.json`. Каждый тест помечен `candidate`. Ниже: **наблюдалось** / **не наблюдалось** — факт этой среды; candidate — не проверено или проверено не в той среде.
+
+| SP | Вопрос | Факт (Chromium 153.0.8010.12 headless) | Статус |
+| --- | --- | --- | --- |
+| SP-1 | Optional `declarativeNetRequestWithHostAccess` | Manifest загружается. До гранта `chrome.declarativeNetRequest` — `undefined`, `contains` — `false`. `permissions.request` по клику на странице расширения (`userActivation.isActive = true`) разрешился `true` за ~50 мс без нативного диалога; `contains` — `true`; в **том же** SW namespace стал `object`, пришёл `permissions.onAdded`; `getDynamicRules`/`getSessionRules` работают | наблюдалось |
+| SP-1 | Запись правил после гранта | `updateSessionRules`/`updateDynamicRules` не завершились за 10 с (в том же SW), за 5 с после remove/re-grant, за 5 с после `ServiceWorker.stopWorker` (отдельная проба вне репозитория — 90 с). После перезапуска браузера с тем же профилем — 0–1 мс. Контроль: то же расширение с разрешением в `permissions` — 1 мс | наблюдалось (зависание); поведение в упакованной установке — candidate |
+| SP-1 | `permissions.remove` | `true`; `contains` — `false`; namespace в работающем SW остаётся `object`, вызовы бросают «'declarativeNetRequest.getDynamicRules' is not available in this context.»; повторный запрос по клику — снова без диалога | наблюдалось |
+| SP-1 | `chrome.runtime.reload()` | Распакованное расширение из `--load-extension` после reload остаётся `DISABLED` (`unsupportedDeveloperExtension`) — сценарий в этой среде не проверяем | candidate |
+| SP-2 | DNR `block` на `collect.example.net` | fetch, XHR, sendBeacon, image, script: сервер получил 0; `onBeforeRequest` пришёл и со `['requestBody']`, и без; `onErrorOccurred` — `net::ERR_BLOCKED_BY_CLIENT`; `onSendHeaders` нет. Без правила: у всех пяти есть `onSendHeaders`, сервер получил по 1 (XHR без CORS-заголовков затем `net::ERR_FAILED`) | наблюдалось |
+| SP-3 | `requestBody` по видам | raw-байты: fetch string (text/plain), JSON, keepalive, PUT, XHR string, sendBeacon string; `formData`: URLSearchParams, FormData, sendBeacon FormData, отправка формы urlencoded и multipart (`sub_frame`), а также fetch ArrayBuffer без content-type (разобран как форма, 1 ключ); `error: "Unknown error."`: fetch Blob, sendBeacon Blob, fetch ReadableStream (`duplex: 'half'`; по HTTP/1.1 запрос не отправлен, «Failed to fetch»); PATCH — `requestBody` отсутствует | наблюдалось |
+| SP-3 | Размеры тел | 64 KiB, 1 MiB и 32 MiB — raw одним куском полной длины (65 536 / 1 048 576 / 33 554 432 байт) | наблюдалось |
+| SP-4 | `storage.local.setAccessLevel` | По умолчанию content script читает ключи `storage.local` (`storage.session` — «Access to storage is not allowed from this context.»). `setAccessLevel({accessLevel:'TRUSTED_CONTEXTS'})` для `local` разрешился; после него `storage.local` в content script бросает ту же ошибку; возврат `TRUSTED_AND_UNTRUSTED_CONTEXTS` разрешился | наблюдалось |
+| SP-5 | Правила после снятия разрешения | После `permissions.remove(DNR)` dynamic и session правила продолжают блокировать (сервер 0), API недоступно | наблюдалось |
+| SP-5 | После повторной выдачи | Правила читаются (`[50]`, `[51]`), блокируют; запись 0 мс (расширение было загружено с разрешением) | наблюдалось |
+| SP-5 | После перезапуска браузера / `runtime.reload` | Dynamic правило сохранилось и блокирует; session правило удалено (запрос дошёл). `runtime.reload` — не проверяем (см. SP-1) | наблюдалось / candidate |
+| SP-6 | `chrome.action.openPopup()` без жеста | Разрешился; число целей `page.html` выросло 1 → 2 (окно открылось). В v1 не используется | наблюдалось (информационно) |
+| SP-7 | `excludeMatches` + `matchOriginAsFallback` | Регистрация принята; исключённый сайт и его `about:blank`-кадр без скрипта; разрешённый сайт и его `about:blank`-кадр со скриптом | наблюдалось |
+| SP-7 | Две MAIN-регистрации | Зарегистрированы `b`, затем `a`; порядок выполнения `b`, `a` в 5 из 5 загрузок (порядок регистрации, не id). Гарантией не считается | наблюдалось (не гарантия) |
+| SP-7 | `persistAcrossSessions` | После перезапуска браузера (`--load-extension`) пропали все регистрации, и `true`, и `false` | не наблюдалось; в упакованной установке — candidate |
+| SP-8 | IndexedDB в SW | open, upgrade, `deleteDatabase`, повторное открытие, upgrade до v2, `indexedDB.databases()` работают; после `ServiceWorker.stopWorker` новый SW читает данные | наблюдалось |
+| SP-9 | `excludedInitiatorDomains`/`excludedRequestDomains` | `excludedInitiatorDomains: ['example.com']` пропускает запрос со страницы `www.example.com` и блокирует с `www.example.org`; `excludedRequestDomains: ['collect.example.net']` при `requestDomains: ['example.net']` пропускает `collect`, блокирует `other.example.net` | наблюдалось |
+| SP-9 | IP | `requestDomains: ['127.0.0.1']` блокирует запрос к `127.0.0.1`; `excludedInitiatorDomains: ['127.0.0.1']` пропускает запрос со страницы `127.0.0.1`, без исключения — блокируется | наблюдалось |
+| SP-9 | Доступ к хосту инициатора | Грант только на цель (`http://*.example.net/*`): `block` и `modifyHeaders` не применились (сервер получил запрос, заголовка нет). Грант на цель и инициатора — применились | наблюдалось |
+| SP-9 | `topDomains`, `RuleConditionKeys`, лимиты | `RuleConditionKeys` есть (20 ключей, включая `topDomains`, `excludedTopDomains`); `topDomains: ['example.com']` блокирует со страницы `www.example.com` и пропускает с `www.example.org`; `excludedTopDomains` — наоборот. `MAX_NUMBER_OF_DYNAMIC_RULES` 30 000, `MAX_NUMBER_OF_UNSAFE_DYNAMIC_RULES` 5 000, `MAX_NUMBER_OF_SESSION_RULES` 5 000, `MAX_NUMBER_OF_UNSAFE_SESSION_RULES` 5 000 | наблюдалось |
+| SP-10 | `modifyHeaders set Sec-GPC: 1` | Сервер получил `Sec-GPC: 1` для main_frame, sub_frame (cross-site), fetch same-origin и cross-site, beacon (POST), image, скрипта worker и fetch из dedicated Worker; в `onSendHeaders` с `['requestHeaders']` без `extraHeaders` заголовок виден для всех них; CORS preflight (OPTIONS) не появился | наблюдалось |
+| SP-10 | WebSocket handshake | Заголовка нет (сервер: `null`), `onSendHeaders` для `ws://` не пришёл (host permissions только http/https) | не наблюдалось (пробел) |
+| SP-10 | Остановленный SW | SW в `stopped` перед запросами; навигация и fetch получили `Sec-GPC: 1`; после запросов SW снова `running` | наблюдалось |
+| SP-10 | Service worker страницы | не проверялось | candidate |
+| SP-11 | Слушатель после optional-гранта | Слушатель `onBeforeRequest` с `['requestBody']`, добавленный **до** гранта хостов, событий не получил; добавленный **после** гранта с `filter.tabId` — получил POST с raw-телом (7 байт), `tabId` совпал; `permissions.onAdded` пришёл | наблюдалось |
+| SP-12 | MAIN content script | `Error.captureStackTrace` на `Object.create(null)`: собственный accessor `stack`, строка, заголовок `Error`; кадр обёртки — `chrome-extension://<id>/cs-main-stack.js:15:30`; accessor `prepareStackTrace` на `Object.prototype`: выборка с проверкой цепочки и собственных дескрипторов отказалась и вызвала его 0 раз, выборка без проверки — 1 раз; `performance.now()` MAIN внутри окна ISOLATED во всех 20 выборках, расхождение ≤ 0,1 мс, `timeOrigin` одинаковый | наблюдалось |
+| SP-13 | `crypto.subtle` в ISOLATED | `http://www.example.com` (не secure context): `undefined` в ISOLATED и MAIN, `getRandomValues` есть; `http://127.0.0.1` (secure): `object` | наблюдалось |
+| SP-14 | Тип запроса в `webRequest` | fetch → `xmlhttprequest`, XHR → `xmlhttprequest`, sendBeacon → `ping`, image → `image`, script → `script` | наблюдалось |
+
+Следствия для шагов: флаг `firewall-blocked` не вводится (S02); записи DNR — с таймаутом и `api-unavailable` (S04, S08, S13); сначала снять правила, потом разрешение (S04, S06); регистрации и слушатели — заново при каждом старте и по `permissions.onAdded` (S04); тела — срез 64 KiB без удержания буфера, Blob/stream/PATCH → `body-unavailable` (S07); Sec-GPC в WebSocket — пробел покрытия (S13, матрица).
+
+**Не проверено автоматически (ручной чек-лист `runbooks/manual-chrome-check.md`, раздел «Защита»):** предупреждения при установке не изменились; текст запроса разрешений в брендированном Chrome; `isTrusted` у событий автозаполнения Chrome (headed); удаление IndexedDB при деинсталляции; доставка `ProtectModuleDisabled` через ОС; запись DNR сразу после выдачи и `runtime.reload` в упакованной установке; `persistAcrossSessions` в упакованной установке; брендированный Chrome и версии 119…152.
+
+**Проверено в браузере — итог интеграции (S15, 2026-10-18, Chromium 153.0.8010.12 headless, тестовые профили; M15).**
+
+- Полный `pnpm test:extension`: exit 0, **226 passed, 22 skipped** (22,2 мин, 2026-10-18 07:46–08:09Z; сборка `dist/test` в начале прогона). Пропуски по условиям спек: 15 тестов спайка `spike/spike.spec.ts` и 3 perf-спеки модуля (нужны переменные окружения тихого perf-этапа), а также 4 прежних `test.fixme` наблюдения — известные ограничения среды и MV3, не модуль (`permissions/matrix` «02 first-time…», `stand/lifecycle` prerender, `sw-restart/renderer-loss`, `webgl` positive → possible-fingerprinting). `module-off.spec.ts`, `password-never-read.spec.ts` и все `stand-*` — зелёные.
+- Сквозной стенд `tests/extension/protect/stand-*.spec.ts` (6 спек, настоящий путь без инъекций доказательств):
+  - пиксель → `value-match` `third-party-before-submit` high `sent` → значок `1` → карточка с алертом `fw_alert_sent_before_submit` → «Этот сайт» + «Блокировать следующие» → повтор `stopped`, сервер получил 0, `stoppedToday` вырос, новой карточки нет → «Отменить решение» → правило снято, следующая отправка доставлена. Строка «Кто» — `frame-only`: `sampled-stack` в доказательстве ввода не достигнут (FOLLOWUPS S07-5, S15-2);
+  - три получателя одного значения → одна подсказка и одна карточка с тремя получателями, значок `3`;
+  - автосохранение своего сайта и пароль, отправленный сайтом, → карточки нет; новых отпечатков нет; tripwire ISOLATED 0;
+  - реальные доказательства на двух сайтах → строка истории `value-match`, 2 сайта, high;
+  - рекордер с атрибуцией → `replay-recording` / medium, `sampled-stack` (тестовый профиль; в release `listen off` — недостижимо);
+  - все функции с данными → выключение с purge → нет правил (доставка к прежде заблокированному получателю), регистраций модуля, базы, ключей `protect*`, слушателей и свойства GPC.
+- Privacy-scan, второй прогон (`pnpm test:privacy`): зелёный (08:14:58–08:15:42Z, exit 0): vitest `8 passed`, `68 passed`; второй прогон — 6 канареек модуля и их варианты (182 строки) отсутствуют в 21 поверхности (`storage.session`/`local`, дамп IndexedDB, DNR-правила, проекции и состояние модуля, список правил, история и её экспорт, черновик и журнал запросов, экспорт наблюдения, диагностика Options, текст popup и боковой панели, `protect-*` ISOLATED→SW, оба канала MAIN↔ISOLATED) и в консолях; `protect-input` — только `{enc, len, h}`; непустота: 6 доказательств, 3 поля с отпечатками, 1 решение, 1 sighting, 1 запись журнала, наши правила `[1, 100000]`, 7 сообщений канала модуля; tripwire ISOLATED 0, MAIN — ровно 2 собственных чтения страницы; исходящий трафик расширения 0 при сработавшем положительном контроле.
+- Не проверено автоматически — прежний список выше и release-конфигурация хуков с включённым модулем (FOLLOWUPS PERF-5, S15-9).
+
+## §15. Чек-лист review
+
+1. Tripwire зелёный в обоих мирах (`password-never-read.spec.ts`: положительные контроли сработали, `hits = 0`).
+2. `scanFieldReads` — 0 нарушений; единственный reader — `field-value.ts`.
+3. `module-off.spec.ts` зелёный до и после включения/выключения с purge.
+4. Privacy-scan без канареек и их вариантов (md5/sha1/sha256/sha512 hex и base64, url, base64) во всех хранилищах, экспортах, логах и wire; исходящий трафик расширения = 0.
+5. dnr-guard: только `block`/`allow`/`Sec-GPC`, только свои диапазоны id и приоритеты; GPC (100) выше любого allow.
+6. `pnpm release:verify` зелёный (`optional_permissions` = allowlist, нет тестовых маркеров в `dist/local`).
+7. Формулировки «отправлено» / «остановлено» по §11; тест запрещённых слов.
+8. Лимиты `PROTECT_BUDGETS` соблюдены; деградация явная.
+9. Версия согласия и дайджест текста совпадают.
+10. REQ-008: вендоры и пресеты — только активные правила каталога; в production пусто.
+11. Политика организации `ProtectModuleDisabled` останавливает модуль; политики включения нет.
+12. Purge удаляет IDB, `protect-*` в session, ключ `protect` и наши DNR-правила.
+13. Differential MAIN-хуков (`main-differential.spec.ts`): оригинал вызывается ровно один раз, семантика `addEventListener`/`fetch`/XHR не меняется.
+14. Бюджеты при выключенном модуле не ухудшились (E21-05).
+15. Нет новых зависимостей (lockfile не менялся).
+
+## §16. Последствия, приёмка и откат
+
+**Последствия.** Расширение получает режим, в котором оно видит вводимый текст (только e-mail, телефон, имя) и тела исходящих запросов в памяти; бренд связан с антидетектом, поэтому доверие держится на §12, §15 и открытости кода. Модуль заметен сайтам. Блокировка может ломать сайты. Первый запрос к новому получателю всегда уже отправлен. Firefox — вне объёма. Классы оборудования medium/weak и калиброванные пороги отсутствуют (`calibrated:false`).
+
+**Приёмка ADR (S15):** все шаги E21-02…E21-15 закрыты с фактическим выводом команд; полный `pnpm test:extension` (включая `module-off`, `password-never-read`, `stand-*`), `pnpm test:privacy`, `pnpm test:perf` с гейтами модуля, `pnpm release:verify` зелёные; review по §15; PRIVACY, STORE_LISTING, data-inventory, матрица и ui-copy обновлены; поправка `docs/PROJECT_RULES.md` внесена по подтверждению владельца.
+
+**Состояние приёмки ADR (S15, 2026-10-18, M15).** ADR остаётся **Proposed**: review владельцев contracts, manifest и privacy не проводился.
+
+| Условие | Состояние |
+| --- | --- |
+| E21-02…E21-14 закрыты с фактическим выводом команд | отчёты M02…M14 и M-perf есть; no-go E21-05, E21-07, E21-09 (размер), E21-12 — открыты, решение владельца продукта |
+| `pnpm test:extension` полностью (включая `module-off`, `password-never-read`, `stand-*`) | зелёный: exit 0, 226 passed, 22 skipped (пропуски — по условиям спек, §14) |
+| `pnpm test:privacy` | зелёный: exit 0 (оба прогона, `dist/local` — 35 файлов без нарушений; §14) |
+| `pnpm test:perf` с `perf-protect` | состав дополнен (S15); прогон S15 — exit 0, но это валидность прогонов, а не go: `module-off` снова **no-go** (+8,3 мс, `background.js` +530 528 B, `protect.js` 97 629 B), `typing` — go; повторный прогон не решающий, вердикты тихого этапа в силе (сводка) |
+| `pnpm release:verify` | зелёный: exit 0, `optional_permissions: declarativeNetRequestWithHostAccess`, 42 файла, `release/detect.expert-0.1.0.zip` 758 375 B |
+| Review по §15 | не проводился (владельцы) |
+| PRIVACY, STORE_LISTING, data-inventory, матрица, ui-copy | обновлены (S15) |
+| Поправка `docs/PROJECT_RULES.md` | внесена 2026-10-18 (§0) |
+| Репетиция отката (`runbooks/rollback.md`) | не проводилась |
+
+**Редакция 2026-10-18: финальные исправления ревью основы и S07–S15 (M15, «Финальные исправления»).** Статус не меняется (Proposed); границы §4–§5 и `docs/PROJECT_RULES.md` не менялись.
+
+- §8 (PT-1): сроки памяти дорожки сопоставления (отпечатки 15 мин, кольцо токенов 10 с, grace 60 с) соблюдает собственный таймер дорожки, а не только следующее событие сопоставления; таймер снимается при остановке дорожки и `ui-clear-session`.
+- §10 (W1): если первый `protect-hello` документа получил неактивный ответ или не дошёл, ISOLATED-часть ограниченно (≤ 10 приветствий по 100 мс, ≤ 4 загрузки MAIN) рассылает `protect-relay-stop` всем MAIN-загрузкам документа, и обёртки MAIN восстанавливаются: в исключённом или неактивном документе их не остаётся.
+- §10 (W3): `scope.ts` получил только уведомление «detector-*-v1 зарегистрированы или обновлены» (без изменения своих регистраций); у включённого модуля SW после него регистрирует `detector-protect-main-v1` заново, чтобы MAIN-скрипт модуля шёл после `hook.main.js`. Проверено в браузере (`tests/extension/protect/observation-order.spec.ts`): Chrome исполняет MAIN-скрипты в порядке регистрации и переносит обновлённые регистрации в конец; без перерегистрации наблюдение в таком порядке давало `hook-failed`. Остаётся пробел: поздняя инъекция `hook.main.js` (active-tab) в документ, где уже стоит обёртка `addEventListener` модуля, — наблюдение в таком документе не стартует. Поэтому `listen` вне тестовых профилей остаётся `off` (`config.ts`).
+- §C (W2, TRUTH-01): остановка дорожки фаервола ждёт (ограниченно) пересборку, уже пишущую правила, а `removeAllOurs()` ждёт (≤ 1 с) запись в полёте — выключение не оставляет правил. Сайты-исключения модуля входят в `excludedTopDomains` (без `topDomains` — `excludedInitiatorDomains`) правил «везде» и пресета; правила для самого сайта (`site`, `once`) исключение не снимает, это сказано в UI.
+- §6 (TRUTH-02, COV-03, COV-04, TRUTH-05, TRUTH-08): текст согласия исправлен (фактические обёртки, включая `MutationObserver.prototype.observe`; workers, WebTransport, редактируемые блоки; «браузер будет добавлять заголовок»; удаление при деинсталляции — «должен удалить, не проверено»; пароль под нераспознанным именем). `PROTECT_CONSENT_DIGEST` пересчитан, `PROTECT_CONSENT_VERSION` остаётся 1: модуль не выпускался, принятых пользователями согласий версии 1 нет (как в пересчёте основы, FOLLOWUPS «Статус 2026-10-18»).
+- §F (ADR-01): поправка `docs/PROJECT_RULES.md` не перечисляет setter `HTMLImageElement.prototype.src`. Пока она не расширена с подтверждения владельца, `imgSrc` = `off` во всех профилях (тест `packages/sensors/test/protect-config.test.ts`); go гейта img-src без этого в силу не вступает.
+- §B (COV-01, COV-02): документ с приостановкой чтения из-за платёжного поля, сбросом отпечатков, превышением лимитов или потерями — покрытие `partial` («модуль работает частично»); popup показывает ограничения документа рядом со списком.
+
+**Откат.** Выключение модуля: снять наши DNR-правила, регистрации, слушатели, остановить документы, при purge удалить данные. Откат версии N+1 → N: версия N не знает о модуле — dynamic DNR-правила и IndexedDB переживают обновление (SP-5: правила действуют и без разрешения). Поэтому N+1 при выключении снимает правила до снятия разрешения, а при старте удаляет сироты в своих диапазонах; репетиция — `runbooks/rollback.md` (S15, не проводилась). ADR-016 Changelog описывает сиротские правила.
+
+---
+
+## §A. Фундамент (шаги S02–S06)
+
+- **Контракты** — §9 (S02). **Manifest, сканеры, сборка** — §7, §10 (S03): бандлы `protect.js`, `protect-policy.js`, `protect-on.<group>.js`, `protect.main.js`, `gpc.main.js`, `requests.js`; `protect.css` из `packages/ui/src/styles/protect/*.css`; tripwire-бандлы только в профиле test; сканеры `scanFieldReads`, литералы сетевых имён (только `targets.ts` и `protect.main.js`, по одному), владение API (`indexedDB` — только `idb.ts`; `declarativeNetRequest` — только `dnr-port.ts` и `chrome-api.ts`; `'requestBody'`/`'requestHeaders'` — только `net-hub.ts`; `'extraHeaders'` — нигде).
+- **SW** (S04): `ProtectController` с сериализованными мутациями; `effectiveProtectState`; `classifyField` (never-классы до kind); `mergeEvidence` и потолки уверенности; `assertAllowedRule`; IndexedDB v1 со всеми хранилищами сразу; `doc-store` с собственным лимитом 1 MiB; `tab-model`; сервисы дорожек за интерфейсом `ProtectFeatureService`; `event-bus`; `net-hub` (пул ≤ 8 вооружённых вкладок с `filter.tabId` и `['requestBody']`, LRU, перерегистрация по `permissions.onAdded` — SP-11); `OutcomeTracker` (≤ 512, TTL 30 с); `dnr-port` с ленивым чтением namespace, атомарными заменами диапазона и таймаутом записи (SP-1). Выключенный модуль: нет слушателей, IDB не открыта, DNR не вызывается, ключ `protect` не пишется.
+- **Страница** (S05): ISOLATED `classify`, `field-value` (единственное чтение `.value`, повторная классификация, отказ для пароля и платёжного документа), `session` (только `isTrusted`, debounce 300 мс, ≤ 8 полей, ≤ 4 сообщения/с), `relay` (канал модуля, `ageMs` по общей шкале — SP-12); MAIN prelude `protect-policy.ts` (fail-closed); tripwire в профиле test.
+- **UI-фундамент** (S06): согласие (§6), раздел «Защита» в Options, слоты popup и боковой панели; при выключенном модуле popup и боковая панель прежние (скриншоты не меняются).
+
+## §B. Сопоставление ввода (шаг S07)
+
+- ISOLATED считает варианты значения (≤ 64): нормализованные формы, URL-кодирование, Base64; хэши MD5/SHA-1/SHA-256/SHA-512 (hex, Base64) — собственные синхронные реализации (SP-13); из каждого варианта — ключевой отпечаток `{enc, len, h}` (двойной полиномиальный хэш, 13 hex, соль на жизнь SW). Открытый текст ISOLATED не покидает.
+- SW: хранилище отпечатков (≤ 8 полей на документ, ≤ 32 документа, TTL 15 мин); `decode` тела (`formData` ≤ 256 записей или raw до 64 KiB — SP-3: Chrome отдаёт тело целиком, срез без копирования; Blob, stream, PATCH → `body-unavailable`; opaque/сжатые → `body-opaque`); ключи с именами паролей и карт отбрасываются до токенизации (`body-had-credential-fields`), такие запросы не попадают в кольцо; токенизация ≤ 32 768; прямое и обратное (кольцо 10 с) сопоставление; правило `opaque-after-input` (≤ 2 с, low).
+- Классы передачи `TRANSFER_CLASSES`, момент `SUBMIT_TIMINGS`, уверенность по `form-leak.v1.json` (`calibrated:false`): хэш e-mail/телефона → high; имя plain → medium только при PII-ключе, иначе low и `name-plaintext-ambiguous`. Доказательство (`ProtectEvidence`) не содержит значения, хэша, маски, URL, query и длины значения.
+- **Реализация S07 (2026-10-18, M07).** Отпечаток: два модуля 67108859 и 67108837 (< 2^26, все произведения < 2^53), основания и начальные значения — из 16 байт соли, вывод 13 hex. ISOLATED читает поле, только пока ответ SW несёт соль; ответ на `protect-hello` без соли сбрасывает её (FOLLOWUPS 89), при выключении `value-match` SW шлёт документам `rekey`. Признак «многословный» в контракт не входит, поэтому SW применяет скользящее окно к формам имени (как введено и нормализованным) и к телефону как введён: ≤ 4 длины, только целые слова. Кольцо хранит отпечатки токенов, а не текст: многословные варианты в обратном направлении не находятся. Свой сайт после границы отправки (или POST-навигации ≤ 60 с) и POST-навигации своего сайта не декодируются; сторонняя POST-навигация сама считается отправкой (`after-submit`). Доставка — через `OutcomeTracker`; для обратного сопоставления — по `onSendHeaders` записи кольца, иначе `unknown`. Атрибуция — `frame-only`; `sampled-stack` и `ScriptRef` берутся из порта S10 (`ports.attribution.attributionFor(requestId)`), только если он уже готов в момент запроса (candidate для S15).
+- **Шаблон пути без значений (исправлено по ревью S07, раунд 1).** Сегмент пути, в котором найдено введённое значение или его вариант (любого поля вкладки), в `endpointPathTemplate` всех записей этого запроса — `:id`: при прямом сопоставлении, при обратном (кольцо) и позже — новые отпечатки проверяются по литеральным сегментам уже сохранённых шаблонов вкладки (`scrubTemplates`). До исправления однословное имя, base64url e-mail и Base64 хэша без `=` оставались литералом в `storage.session` и в UI. Ограничение: значение, склеенное с другими символами в одном токене сегмента, не распознаётся (как и при сопоставлении). Для литеральных сегментов снято в раунде 3 (ниже).
+- **Имена параметров, хост и скрипт без значений (исправлено по ревью цепочки, раунд 3).** Строки записи, которые задаёт страница, проверяются отпечатками всех полей вкладки как подстроки: каждое окно каждой длины варианта, в исходном виде и в нижнем регистре. Это имя параметра, `endpointHost`, литеральные сегменты шаблона пути и ссылка на отправивший скрипт (хост и шаблон пути). Если в строке найдено значение или его вариант:
+  - имя параметра не пишется;
+  - хост сворачивается в регистрируемый домен;
+  - сегмент становится `:id`;
+  - скрипт не называется (`frame-only`).
+
+  Проверка идёт при создании записи и повторно для сохранённых записей, когда отпечатки приходят позже (`scrubTemplates`).
+
+  Независимо от отпечатков по форме отбрасываются:
+  - имя параметра, в котором больше 5 цифр;
+  - компонент имени (между `.`, `[`, `]`), похожий на случайный ID или на Base64: ≥ 22 символов base64url с буквами обоих регистров. Так выглядят хэши в base64url, которых нет среди вариантов;
+  - метка хоста, в которой больше 5 цифр.
+
+  До исправления имя, использованное как ключ JSON или метка хоста, оставалось в `storage.session` и в UI (проба G ревью). Остаточные ограничения:
+  1. Часть значения, которая сама не является вариантом, в имени параметра или метке хоста не распознаётся. Например: одно слово многословного имени, локальная часть e-mail, фрагмент телефона до 5 цифр.
+  2. Регистрируемый домен получателя сохраняется, даже если совпадает со значением: он называет сторону передачи.
+  3. Проверяются отпечатки полей той же вкладки.
+
+- **Интеграция (S15).** Сквозной стенд (`tests/extension/protect/stand-firewall-flow.spec.ts`, тестовый профиль) прошёл путь ввод → отпечатки → доказательство → подсказка → карточка → решение → `stopped` → отмена. Атрибуция доказательства на стенде — `frame-only`: порт S10 читается в `onBeforeRequest`, когда корреляция ещё не готова (пункт «candidate для S15» выше не закрыт; FOLLOWUPS S07-5, S15-2). В release `send off` (E21-10), поэтому скрипт в «Кто» там не появляется в любом случае.
+
+## §C. Фаервол (DNR, шаг S08)
+
+- Источник истины — решения в IndexedDB `decisions`; DNR — их проекция. Получатель — PSL registrable domain (`checkReceiver`: не IP, не локальный, не сайт, не родитель публичного суффикса).
+- Правила: receiver-block «везде» (p10, `requestDomains [R]`, `excludedTopDomains [R]`); receiver-allow (p20, только при перекрытии); site-block (p30, `requestDomains [R]` + `topDomains [S]`); site-allow (p40); once (session, p50, `tabIds`); preset (p10, только записи после гейта REQ-008; сейчас пусто). `resourceTypes` не задаётся (`main_frame` не трогается). SP-9 подтвердил `topDomains`/`excludedTopDomains` и исключения по registrable-домену и IP.
+- Диапазоны id: GPC 1–99, решения 100000–100999, пресет 101000–101023, session 200000–200127; приоритеты `{receiverBlock:10, presetBlock:10, receiverAllow:20, siteBlock:30, siteAllow:40, once:50, gpc:100}`, инвариант `gpc > max(allow)`. Лимиты модуля (1024 dynamic, 128 session) ниже лимитов Chromium 153 (30 000 / 5 000, SP-9).
+- Подсказки решений — из доказательств `third-party-before-submit` с уверенностью ≥ medium; одна на (вкладка, сайт), ≤ 8 получателей; strict — авто site-block с undo и лимитами; эскалация «везде» — только кликом. Исходы — §11; `bypass` — отправленный запрос, который правило, активное раньше на 50 мс, должно было остановить.
+- Запись правил — с таймаутом и `api-unavailable` (SP-1).
+- **Реализация (S08, M08).** Чистая логика — `packages/engine/src/protect/firewall` (`checkReceiver`, `compileRules`/`compileOnceRules`, `FirewallIndex`/`evaluateFirewall`, таблица пресета), домены DNR — `packages/attribution/src/dnr-domains.ts` (`domainMatches` по меткам, `isPslParentDomain`). SW — `packages/background/src/protect/firewall` (`store` — решения и статистика по дням ≤ 7, запись счётчиков не чаще раза в 5 с; `once` — метаданные в данных вкладки `protect-tabs`; `prompts` — подсказка (вкладка, сайт), ≤ 16 получателей, ≤ 8 уведомлений; `service`). Пресет применяется только в `strict`; с правилом пресета `excludedTopDomains` — registrable-домен его хоста. Allow-правила пишутся только при перекрытии блоком; иначе решение хранится без правила («не нужно»). `warn-only` — ни одного правила, решение показывается как действующее только логически.
+- **Правда об исходах (S08).** Локальный индекс содержит только правила, запись которых Chrome подтвердил, со временем активации (неизменённый диапазон — «до старта SW», переписанный — момент записи; одинаковое правило сохраняет время). Отказ записи оставляет прежний индекс: запрос, остановленный не подтверждённым правилом, — `stopped-other`. Остановленные запросы наблюдаемы только во вооружённых вкладках (единственный `onBeforeRequest` модуля); вне них «Остановлено сегодня» — нижняя граница. Bypass проверяется в `onSendHeaders` только при известном сайте вкладки.
+- **Проверено в браузере (S08, Chromium 153.0.8010.12 headless, `tests/extension/protect/firewall-*.spec.ts`).** После выдачи DNR и перезапуска браузера с тем же профилем (SP-1): site-block — 0 доставок с сайта и из кросс-сайтового фрейма на нём (`topDomains`), доставки со второго сайта; once — только в своей вкладке, снимается при уходе на другой сайт; receiver-block — 0 с других сайтов, сайт получателя и явный site-allow (p40) доставляют, навигация на получателя работает; первый запрос — `sent` (сервер получил 1), затем N = 8 попыток → `stoppedToday = 8`, доставок 0; при остановленном SW попытки не засчитываются; после перезапуска браузера правило восстановлено из IndexedDB; strict + синтетический пресет — первый же запрос остановлен; strict-auto — после первого события; warn-only — правил нет; выключение без purge и с purge; снятие DNR при активном модуле — `needs-permission`, правила продолжают действовать (SP-5); повторная выдача по клику — модуль активен, правило одно; 1001-е решение и 129-е once — `limit-reached`. Включение `strict` до перезапуска (запись висит, SP-1) — честный `degraded` с `blocking-unavailable`.
+- **strict-auto без ложного «остановлено» (исправлено по ревью S08/S09, раунд 1).** Уведомление `strict-auto` («теперь останавливаются») и его undo создаются, только если после записи Chrome подтвердил правило (`ruleApplied`). При отказе или зависании записи (SP-1) решение сохраняется, уведомления нет, получатель остаётся в карточке, где уведомление degraded / «после перезапуска браузера» объясняет, что блокировка не действует. View model дополнительно не показывает `strict-auto`, если `enforcement ≠ active` или у получателя нет действующего block-правила.
+
+## §D. UI фаервола и доказательств (шаги S06, S07, S09)
+
+- Карточка фаервола в popup по структуре прототипа, на токенах палитры расширения (`packages/ui/src/styles/ui.css`), светлая и тёмная темы: шапка, алерт по состоянию (`sent` — `--attention`, `stopped`/`unknown` — нейтрально), примечание «отправленный запрос вернуть нельзя», чипсы (тип поля · кодировка), «Кто отправил» (скрипт — только при `sampled-stack` и с оговоркой), «Компания» (только по активному правилу каталога), «Куда», «Что ушло», «Момент», доказательство, выбор получателей и области («Эта вкладка» / «Этот сайт» по умолчанию / «Везде»), две равные кнопки «Блокировать следующие» и «Разрешить», нижняя граница счётчика, «Не беспокоить 1 час», настройки.
+- Окно само не открывается (SP-6 — возможность есть, но в v1 не используется): сигнал — значок с числом получателей, ждущих решения (`1`…`9`/`9+`, никогда `0`, `?`, `!`).
+- Предохранитель: `stopped` без основания понижается до `unknown`. Подсказки значения и фрагмента хэша нет. Без DNR — «Блокировка недоступна»; при `api-unavailable` (SP-1) — блокировка начнёт действовать после перезапуска браузера.
+- Правила в Options: режим, «Сегодня» (нижние границы), список правил с поиском, массовым удалением через подтверждение, «Удалить все правила фаервола».
+- **Реализация UI фаервола (S09, M09).** Значок: `badgeView(report, scopeMode, {pending})` (engine) — `1`…`9`/`9+`, `tone: 'firewall'`, без третьего аргумента результат прежний; `BadgeController` (background) ставит фон вкладки `#2456B3` только при подсказках и один раз сбрасывает его; отметка вкладки — по событию доказательства шины модуля (сейчас и через 1 с) и после UI-действий модуля (`handlers.ts` → `runtime.markProtectBadge`). Карточка popup — `packages/ui/src/components/protect/firewall/FirewallCard.tsx` и view model `protect-firewall.ts` (предохранитель: `stopped` без действующего block-правила → `unknown`; «будут остановлены» — только при `ruleApplied`); ряд кнопок закреплён внизу окна, чтобы решение было в первом экране 360 × 600. Режим блокировки перенесён из раздела модуля в `FirewallRulesPanel` (Options `#firewall`). Тексты и правила выбора алерта — `docs/ui-copy.md` §6.14.D.
+- Список доказательств (popup ≤ 5, боковая панель — детали) с покрытием рядом; пустое состояние: «не наблюдалось в доступной области за этот период».
+
+## §E. Запись сессии (шаг S11)
+
+- Сигналы без значений: S1 `root-input-listeners` (ввод/клавиатура и указатель/прокрутка на window/document, DET-043 как метка), S2 `root-mutation-observe`, S3 `periodic-third-party-send` (cadence по `onSendHeaders`, серии 1–15 с, `runMax ≥ 3`; размер тела — только у вооружённых вкладок), S5 `replay-vendor-resource` (только включённое правило replay-таблицы; в production нет).
+- Уровни `none`, `signals-only`, `replay-like` (low), `replay-recording` (medium — только с атрибуцией `sampled-stack` S10 или включённым правилом вендора); `high` не выставляется. Маскирование ввода: `unconfirmed` или `value-seen-in-traffic`. Всегда: `uncalibrated-threshold`, `masking-not-verifiable`, `websocket-not-observed`, `element-listeners-not-observed`, `mo-options-not-read`.
+- MAIN-кода в шаге нет; `SENSOR_IDS`, `OPERATION_CODES` и отчёты наблюдения не меняются.
+- **Реализация S11 (2026-10-18, M11).** Чистая логика — `packages/engine/src/protect/replay.ts` (`deriveReplay`, `stepCadence`, разбор и сопоставление replay-таблицы без regex во время работы), пороги — `thresholds/session-replay-behavior.v1.json` (`calibrated:false`). SW — `packages/background/src/protect/replay/` (`ReplayCadenceTracker` 32 документа × 16 получателей в памяти; сервис читает регистрации из `protect-events`, отправки из общего `onSendHeaders`, размер тела — только `byteLength` у вооружённых вкладок; сводка в `ProtectProjection.replay` и в секции `replay` документа `storage.session`; событие `replay-pattern` для истории). Seed — `packages/catalog/data/replay.seed.json` (14 вендоров `session_replay`, кандидаты правил 7 вендоров с источниками, прочитанными 2026-10-18; production-таблица пуста), плагин `scripts/protect-tables/replay.mjs`, синтетика `test-replay` — `fixtures/vendors/synthetic/replay-catalog.json`. UI — `ReplayRow` / `ReplayDetails`. Решающий perf-замер E21-11 отложен до тихого perf-этапа. Отклонения от брифа: (1) S1 и S2 считаются по выборкам регистраций из `protect-events` с парой «событие + цель», а порт `scriptActivity` (S10) — только консервативный источник для документов, загруженных до старта функции: `ScriptActivityEntry` хранит события и цели скрипта раздельно, и обработчик `keydown` на поле вместе с `mousemove` на окне выглядел бы как S1; (2) сочетание сигналов оценивается в пределах одного документа (фрейм отдельно), сводка вкладки — лучший документ; (3) адрес отправки синтетического вендора — `collect.replay.example.org:4174` (S3 требует регистрируемого получателя, `127.0.0.1` им не является); загрузчик — `127.0.0.1:4174/replay/loader.js`, как в брифе; (4) «большая посылка» и серия считаются по «вспышкам» (склеенные < 1 с отправки — одна), а посылка без наблюдаемого тела считается возможно большой.
+
+## §F. Атрибуция скриптов (шаг S10, E11-lite)
+
+- MAIN-обёртки модуля: `window.fetch`, `XMLHttpRequest.prototype.open` (только адрес в `WeakMap`) и `send`, `Navigator.prototype.sendBeacon`, setter `HTMLImageElement.prototype.src` (по конфигу, по умолчанию `off`; пока поправка `docs/PROJECT_RULES.md` его не перечисляет — `off` во всех профилях, редакция 2026-10-18, ADR-01), `EventTarget.prototype.addEventListener` (ранний фильтр по типу события первой операцией), `MutationObserver.prototype.observe` (только document/documentElement/body). Оригинал — ровно один раз, результат, Promise и исключение — как есть; `init`, `body`, `data`, `listener`, `options` не читаются; `toString` не маскируется.
+- Выборка стека: интринсики захвачены на `document_start`; перед выборкой проверяются цепочка прототипов Error → Function.prototype → Object.prototype, отсутствие собственного `prepareStackTrace` и `Error.stackTraceLimit` как data-свойство 1..100; затем `captureStackTrace` в объект с null-прототипом (SP-12). Бюджеты: send 16, регистрация 8 в окно 1 с.
+- `ScriptRef`: первый кадр страницы, кадры `chrome-extension://` пропускаются (SP-12: кадр обёртки имеет такой URL); маскированный host, шаблон пути ≤ 4 сегментов, без query/fragment/userinfo/порта; `document`, `eval`, `opaque`, `extension`, `unknown`.
+- Корреляция в SW (`correlate.ts`): fetch/XHR ↔ `xmlhttprequest`, beacon ↔ `ping`, image ↔ `image` (SP-14); окно −250…+1000 мс (image +2000); `unique`/`ambiguous`/`none`/`gap`/`saturated`. Уровень — только `sampled-stack`; `exact-resource` недостижим.
+- Факт `password-field-listener`: регистрация обработчика ввода на поле пароля (по brand-check `type`) — low; значение пароля не читается.
+- Perf-гейт до реализации наблюдателей — E21-10.
+- **Реализация S10 (2026-10-18, M10).** MAIN: `packages/sensors/src/protect/*` (таблица целей `targets.ts` — единственное место с литералами `fetch`, `XMLHttpRequest`, `sendBeacon`; `stack.ts`, `send-hooks.ts`, `registration-hooks.ts`, `runtime.ts`, `index.ts`, `config.ts`), разбор кадров — `packages/attribution/src/script-ref.ts`, корреляция — `packages/engine/src/protect/correlate.ts`, сервис SW — `packages/background/src/protect/attribution/` (порт `attributionFor` / `onResolved` / `scriptActivity`, только память SW). Решающий perf-замер E21-10 отложен до тихого perf-этапа; до решения `PROTECT_HOOK_DECISION` = все группы `off` в release-профиле, и SW не регистрирует MAIN-группы без хуков (`groupGate`). **Обновление 2026-10-18 (тихий perf-этап, §13):** решение по правилу — `listen off`, `send off`, `observe wrap`, `imgSrc off` (класс strong, provisional); в release регистрируется только группа `listen` с обёрткой `MutationObserver.observe`. Тестовые профили работают с кандидатом (`listen: prototype`, `send`/`observe: wrap`, `img-src: off`), чтобы e2e проверяли хуки. Отклонения от брифа: `installProtectMain(window, {groups, earlyCapture})` (FOLLOWUPS 74); ScriptRef выборки берётся ниже кадра обёртки (`constructorOpt` = установленная обёртка), поэтому кадр модуля в трассу не попадает; регистрации на прочих элементах (`other`) считаются без выборки стека, чтобы бюджет 8/с оставался для window/document/root и полей; решение с кандидатом ждёт 650 мс (соперничающая выборка следующего пакета). Текст `protect_attr_kind_eval` — «(eval, конструктор Function)»: `release-verify` не пропускает подстроку `new Function` в файлах сборки.
+
+## §G. История «Кто вас узнаёт» (шаг S12)
+
+- Отдельная галочка `history`, срок 7/30/90 дней (по умолчанию 30), индикатор объёма, очистка. Хранилища IDB `sightings`, `receivers`, `sites`, `meta` — домены, дни (маска 90 бит), enum и числа.
+- Механизмы v1: `value-match` (получатель с доказательством на ≥ 2 сайтах; high для хэша e-mail/телефона), `replay-pattern`, `frame-techniques` (frame-only, page-controlled), `requests-only` (unassessed). Cookie и идентификаторы в URL — не в v1. «Получатель встречается на нескольких сайтах» — ещё не доказательство узнавания; вердиктов нет.
+- Экспорт = preview, сайты по умолчанию заменены номерами, даты — до дня, ≤ 4 MiB.
+- Реализация S12 (2026-10-18, ADR остаётся Proposed; внутренний отчёт). Чистая логика — `packages/engine/src/protect/history` (маски дней UTC, коммутативное и идемпотентное слияние, срок хранения, механизмы, ранжирование); SW — `packages/background/src/protect/history` (свёртка сохранённых отчётов наблюдения и событий модуля, накопитель ≤ 1024 дельт с записью раз в 5 с, хранилище с лимитами и вытеснением до 95 %, ежедневная очистка по сроку чанками по 512); экспорт — `packages/export/src/protect-history.ts`; UI — вкладка «Кто узнаёт», карточка получателя, настройки истории в Options и предпросмотр экспорта. Уточнения v1: `value-match` учитывается только для отправок, о которых сообщил Chrome (`deliveryState: 'sent'`, то есть пришёл `onSendHeaders`). Запись дорожки S07 публикуется в `onBeforeRequest` как `unknown`, с `requestId` в событии шины (только память SW). История держит её в памяти до исхода этого запроса: ≤ 512 запросов, TTL 60 с, вкладка закрыта — запись удаляется. `stopped`, `stopped-other` и `unknown` не учитываются. Сигнал `request` — попытки из `hosts[]` отчёта наблюдения (`onBeforeRequest`; запрос, остановленный правилом, тоже попытка, SP-2): `requests-only` в UI — «страницы обращались к нему (попытки запросов по данным Chrome; часть могла быть остановлена)», а `value-match` — «отправлялись … (по данным Chrome)»; «получал» в истории не используется (ревью, раунд 2). Исправлено по ревью, раунд 1: до исправления `unknown` засчитывался, и остановленная правилом отправка показывалась как «получал»; семейство `network-patterns` — только по находке DET-060/061 (шаблон, а не один запрос); `attributionConfidence` механизмов `value-match`, `replay-pattern`, `requests-only` — `unknown` (скрипт-источник не устанавливается), `frame-techniques` — `frame-only`. Режим наблюдения SW модуля неизвестен: ограничение `scope-not-all-sites` показывает UI по `ui-get-scope`, в экспорт оно не попадает. Удаление базы браузером распознаётся как `storage-reset` только в пределах жизни SW; после перезапуска SW видна новая дата «ведётся с». Perf-гейт E21-12 — отложен до тихого perf-этапа (критерии в карточке).
+
+## §H. GPC (шаг S13)
+
+- Заголовок — одно dynamic-правило в диапазоне GPC: `modifyHeaders` `Sec-GPC: 1`, `resourceTypes` — все из `ResourceType`, `excludedInitiatorDomains`/`excludedRequestDomains` — сайты-исключения модуля. SP-10: заголовок доходит до сервера для навигаций, фреймов, fetch (включая из Worker), beacon, image; виден в `onSendHeaders` без `extraHeaders`; preflight не появляется; правило действует при остановленном SW. WebSocket handshake заголовок не получает — пробел покрытия.
+- Свойство `navigator.globalPrivacyControl` задаёт `gpc.main.js` (≤ 2 KiB, без импортов): только если свойства на прототипе нет; обычный getter `true`, `toString`/`name`/`length` не маскируются.
+- Проверка — факт по вкладке («добавлен к запросу по данным Chrome»), из заголовков читается только `Sec-GPC`; «сервер получил», «сайт соблюдает/игнорирует» запрещены. `.well-known/gpc.json` и CMP — вне объёма. Юридические тексты — candidate до проверки юристом.
+- **Реализация (S13, 2026-10-18, M13; ADR остаётся Proposed).** Правило и read-back — `packages/background/src/protect/gpc/rule.ts` (`resourceTypes` — 13 типов из брифа; все они есть в `ResourceType` Chrome 119+, SP-1 прочитал перечисление в Chromium 153; рантайм-перечисление здесь не читается, потому что пространство имён DNR называют только `dnr-port.ts`/`chrome-api.ts`). Чтение заголовков — `gpc/header.ts` (только `name`; `value` — только у `Sec-GPC`, ≤ 128 записей). Сервис — `gpc/service.ts`: одна запись правила и обратное чтение на триггер (старт, смена исключений), `installed | absent | error`, без повторов; выключение функции снимает правило; факты по вкладке в doc-store (`gpc`), LRU 64, факт загрузки пишется сразу при commit. Свойство — `packages/sensors/src/gpc-shim.ts` (getter — объявление функции `detectExpertGpcGetter`: синтаксическая минификация сборки убирала имя именованного function expression). Для исключений основа получила маленькое расширение: `ProtectServiceContext.excludedSites()` и хук `onExclusionsChanged` после `ui-protect-set-site` (controller/services, отклонение S13). Options выводит состояние правила из состояния модуля (`blocking-unavailable` → ошибка и подсказка о перезапуске браузера по §7); проверку по странице показывает popup.
+- **Проверено в браузере (S13, Chromium 153.0.8010.12 headless, `tests/extension/protect/gpc*.spec.ts`).** Сервер стенда получил `Sec-GPC: 1` для навигации, кросс-сайтового фрейма, fetch своего и кросс-сайтового, fetch и скрипта dedicated Worker, sendBeacon и картинки; WebSocket handshake — без заголовка (SP-10 подтверждён). Свойство: `true` в документе, во фрейме и в `about:blank`-фрейме; в Worker — нет; getter не нативный, `Function.prototype.toString` нативный и не переопределён. Исключение сайта из popup: заголовок снят сразу, свойство — до перезагрузки, `reloadNeeded`; возврат из Options. Остановленный SW — заголовок есть. Выключение функции на открытой странице — заголовок снят сразу, свойство до перезагрузки. Сразу после выдачи DNR (SP-1) — правило не записано, `degraded`, в Options и popup — ошибка правила и подсказка о перезапуске браузера. test-optional без DNR — `permission-required`. Чтение свойства не меняет DET-025 наблюдения. Perf-гейт E21-13 — отложен до тихого perf-этапа. Не проверено в браузере (вывод из условий правила и `excludeMatches`, candidate): сторонний фрейм на сайте-исключении получает свойство и заголовок для своих запросов (условия — инициатор и цель, не `topDomains`); матрица §18.7, FOLLOWUPS.
+
+## §I. Запросы о данных (шаг S14)
+
+- Генератор писем (доступ, удаление, возражение, отказ от продажи) по GDPR (ЕС/ЕЭЗ, Великобритания), CCPA, 152-ФЗ — локально; отправляет пользователь сам (`mailto:`, буфер обмена, форма компании). Значение, введённое на сайте, в письмо не подставляется никогда; идентификатор и имя живут только в памяти `requests.html`.
+- Шаблоны `legalReviewStatus: 'unreviewed'`, первая строка письма — маркер «ЧЕРНОВИК», пока юрист не проверил; сроки ориентировочные, без праздников; статусы ставит пользователь.
+- Журнал — IDB `requests` (≤ 100 записей, ≤ 512 KiB), пишет только SW; справочник контактов в production пуст (адресов DPO нет до review).
+- Шаг выполняется последним и независимо; если владелец исключит генератор, шаг пропускается без последствий для остальных.
+- **Реализация (S14, 2026-10-18; отчёт M14).**
+  - Чистая логика — `packages/engine/src/protect/requests/` (шаблоны, сроки, письмо, `mailto:`, `.ics`, журнал, факты, hash страницы, справочник); SW — `packages/background/src/protect/requests/` (сервис работает при любом активном модуле, отдельной фичи нет).
+  - Факты копируются из `ProtectEvidence` и строк истории по именам полей. Передача попадает в письмо, только если `deliveryState: 'sent'` (§11). Строка истории даёт факт «браузер отправлял запросы», только если у неё есть отправка, о которой сообщил Chrome: день `value-match` или `replay-pattern` (оба — по `onSendHeaders`). Попытки (`request`, `onBeforeRequest`) и блокировки (`blocked`) фактом не становятся; исправлено по ревью, раунд 2. У доказательства нет схемы адреса запроса, поэтому адрес в факте указывается, только если схема выводится: https-страница и не переход (Chrome блокирует или повышает смешанное содержимое). Иначе письмо называет только получателя.
+  - Пока модуль не активен (выключен без purge, приостановлен, запрещён политикой), контроллер пропускает к журналу только `ui-protect-requests-get` и `ui-protect-request-delete`: просмотр, экспорт (на странице, по preview) и удаление. Базу при этом он не создаёт: нет записи настроек → `module-disabled`, браузер не сообщает о базе → пустой журнал. Черновики, сохранение и смена статуса — только при активном модуле.
+  - Форма компании хранится в таблице справочника как хост + путь (схема https по контракту), ссылка собирается при чтении: в поставляемом коде нет URL-литералов, сканеры удалённых ресурсов остаются строгими.
+  - Одно письмо — одна запись журнала: «Открыть в почте» и «Скопировать текст» того же письма вторую запись не создают.
+
+## Ссылки на разделы ТЗ
+
+ТЗ I §3.3 (REQ-001…REQ-015); II A3–A5, A9, A10; III §2 (DET-043, DET-056…062); V §7–§8; VI I1.1, I1, I2, I5.

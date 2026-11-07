@@ -1,0 +1,179 @@
+{
+  "task": "P06",
+  "requirement": [
+    "REQ-006",
+    "REQ-009",
+    "REQ-013"
+  ],
+  "at": "2026-09-13T07:09:18.389Z",
+  "platform": "win32",
+  "arch": "x64",
+  "osRelease": "10.0.26200",
+  "browser": "Chrome/153.0.8010.12",
+  "runtimeVersion": "153.0.8010.12",
+  "observations": {
+    "targetGranted": false,
+    "report": {
+      "reportRevision": 1,
+      "documentKey": "931952947:0:DDFD1ED18402A044367D56E0AF7E3AF0",
+      "host": null,
+      "coverageState": "active",
+      "coverageFlags": [],
+      "techniques": [
+        {
+          "techniqueId": "DET-001",
+          "count": 1,
+          "countQuality": "exact",
+          "phases": [
+            "returned-sync"
+          ],
+          "signalCodes": [
+            "api-use",
+            "readback-after-text"
+          ],
+          "evidenceSource": "page-hook",
+          "integrity": "page-controlled",
+          "interpretation": "api-use",
+          "interpretationConfidence": "unassessed",
+          "attributionConfidence": "unknown",
+          "firstBucket": 0,
+          "lastBucket": 0
+        },
+        {
+          "techniqueId": "DET-002",
+          "count": 1,
+          "countQuality": "exact",
+          "phases": [
+            "returned-sync"
+          ],
+          "signalCodes": [
+            "api-use",
+            "readback-after-text"
+          ],
+          "evidenceSource": "page-hook",
+          "integrity": "page-controlled",
+          "interpretation": "possible-fingerprinting",
+          "interpretationConfidence": "low",
+          "attributionConfidence": "unknown",
+          "firstBucket": 0,
+          "lastBucket": 0
+        },
+        {
+          "techniqueId": "DET-003",
+          "count": 1,
+          "countQuality": "exact",
+          "phases": [
+            "returned-sync"
+          ],
+          "signalCodes": [
+            "api-use",
+            "text-drawn"
+          ],
+          "evidenceSource": "page-hook",
+          "integrity": "page-controlled",
+          "interpretation": "api-use",
+          "interpretationConfidence": "unassessed",
+          "attributionConfidence": "unknown",
+          "firstBucket": 0,
+          "lastBucket": 0
+        }
+      ],
+      "findings": [
+        {
+          "findingId": "canvas-readback-after-text-v2-DET-001-api-use",
+          "ruleId": "canvas-readback-after-text",
+          "ruleVersion": "2",
+          "techniqueId": "DET-001",
+          "interpretation": "api-use",
+          "interpretationConfidence": "unassessed",
+          "evidenceIds": [
+            "DET-001|returned-sync|api-use,readback-after-text"
+          ],
+          "counterEvidenceCodes": [],
+          "limitationCodes": [
+            "page-controlled-evidence",
+            "purpose-unknown",
+            "catalog-disabled"
+          ],
+          "vendorMatchIds": [],
+          "coverageRef": "cov-active-0000"
+        },
+        {
+          "findingId": "canvas-readback-after-text-v2-DET-002-api-use",
+          "ruleId": "canvas-readback-after-text",
+          "ruleVersion": "2",
+          "techniqueId": "DET-002",
+          "interpretation": "api-use",
+          "interpretationConfidence": "unassessed",
+          "evidenceIds": [
+            "DET-002|returned-sync|api-use,readback-after-text"
+          ],
+          "counterEvidenceCodes": [],
+          "limitationCodes": [
+            "page-controlled-evidence",
+            "purpose-unknown",
+            "catalog-disabled"
+          ],
+          "vendorMatchIds": [],
+          "coverageRef": "cov-active-0000"
+        },
+        {
+          "findingId": "canvas-readback-after-text-v2-DET-003-api-use",
+          "ruleId": "canvas-readback-after-text",
+          "ruleVersion": "2",
+          "techniqueId": "DET-003",
+          "interpretation": "api-use",
+          "interpretationConfidence": "unassessed",
+          "evidenceIds": [
+            "DET-003|returned-sync|api-use,text-drawn"
+          ],
+          "counterEvidenceCodes": [],
+          "limitationCodes": [
+            "page-controlled-evidence",
+            "purpose-unknown",
+            "catalog-disabled"
+          ],
+          "vendorMatchIds": [],
+          "coverageRef": "cov-active-0000"
+        },
+        {
+          "findingId": "canvas-readback-after-text-v2-DET-002-possible-fingerprinting",
+          "ruleId": "canvas-readback-after-text",
+          "ruleVersion": "2",
+          "techniqueId": "DET-002",
+          "interpretation": "possible-fingerprinting",
+          "interpretationConfidence": "low",
+          "evidenceIds": [
+            "DET-001|returned-sync|api-use,readback-after-text",
+            "DET-002|returned-sync|api-use,readback-after-text",
+            "DET-003|returned-sync|api-use,text-drawn"
+          ],
+          "counterEvidenceCodes": [],
+          "limitationCodes": [
+            "page-controlled-evidence",
+            "purpose-unknown",
+            "uniqueness-not-established",
+            "uncalibrated-threshold",
+            "no-time-window",
+            "catalog-disabled"
+          ],
+          "vendorMatchIds": [],
+          "coverageRef": "cov-active-0000"
+        }
+      ],
+      "vendors": [],
+      "dropped": {
+        "observations": 0,
+        "batches": 0,
+        "findings": 0,
+        "hosts": 0,
+        "counters": 0,
+        "transport": 0
+      },
+      "observedSince": 1789283357600,
+      "scopeMode": "site"
+    },
+    "hosts": [],
+    "requests": []
+  }
+}

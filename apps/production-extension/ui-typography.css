@@ -1,0 +1,157 @@
+/* Shared menu typography: headings, control labels, body text and supporting text. */
+:root {
+  --ui-type-page-size: 24px;
+  --ui-type-page-line: 1.3;
+  --ui-type-page-weight: 700;
+  --ui-type-section-size: 18px;
+  --ui-type-section-line: 1.4;
+  --ui-type-section-weight: 650;
+  --ui-type-subheading-size: 14px;
+  --ui-type-label-size: 13px;
+  --ui-type-label-line: 1.45;
+  --ui-type-label-weight: 600;
+  --ui-type-body-size: 14px;
+  --ui-type-body-line: 1.5;
+  --ui-type-body-weight: 400;
+  --ui-type-hint-size: 12px;
+  --ui-type-hint-line: 1.5;
+  --ui-type-hint-weight: 400;
+}
+
+/* The root anchor wins over legacy component typography without changing colors or branding. */
+:root body #root {
+  font-family: var(--font);
+  font-size: var(--ui-type-body-size);
+  line-height: var(--ui-type-body-line);
+  font-weight: var(--ui-type-body-weight);
+}
+:root body #root :where(p, li, dt, dd, td) {
+  font-size: var(--ui-type-body-size);
+  line-height: var(--ui-type-body-line);
+  font-weight: var(--ui-type-body-weight);
+  overflow-wrap: anywhere;
+}
+:root body #root :where(button, .button, summary) {
+  min-width: 0;
+  max-width: 100%;
+  white-space: normal;
+}
+:root body #root :where(input:not([type=checkbox]):not([type=radio]), select, textarea) {
+  font-size: var(--ui-type-body-size);
+  line-height: var(--ui-type-body-line);
+  font-weight: var(--ui-type-body-weight);
+  letter-spacing: normal;
+}
+:root body #root :where(small, .small, .muted, .hint, .social-request-facts, .social-request-facts dt, .social-request-facts dd, .third-party-fields dt, .fingerprint-scope, .fingerprint-summary > span, .browser-debug-draft, .autosurf-dirty, .api-config-status, .cookies-workspace-status, .autosurf-empty, .autosurf-reason, .proxy-workspace-note, .precursor-panel__status, .precursor-panel__coverage, .precursor-panel__mode, .inspector-total, .autosurf-sites-pagination > span, .api-config-caption, .api-config-rule__id, .api-config-inherited-value, .api-config-apply-status, .api-config-row-status, .api-config-json, .api-usage-context__status, .api-usage-badge, .api-usage-party, .api-usage-subject, .api-result__fields dt, .api-result__reason, .antidetect-note, .antidetect-scope, .antidetect-state, .antidetect-protocol__scope, .antidetect-unavailable, .fingerprint-note, .cookies-workspace-path, .cookies-workspace-pill, .cookies-workspace-value, .cookies-workspace-action, .cookie-value__text, .cookie-entry__sources, .pro-report-cookies, .cookie-facts, .cookie-report-table, .tag-manager-table, .proxy-workspace-state, .proxy-workspace-row-error, .proxy-workspace-endpoint, .proxy-workspace-health, .proxy-workspace-type-badge, .proxy-workspace-health-badge, .autosurf-status, .autosurf-sites-catalog-count, .autosurf-sites-feedback, .autosurf-sites-result__domain, .autosurf-sites-result__system, .autosurf-sites-sources, .browser-debug-status, .browser-debug-summary, .visual-preview__operations, .precursor-zone__details, .pro-status, .pro-caution, .pro-domain dt, .pro-clock > span, .pro-totals dt, .pro-resource__facts, .theme-picker__error, .workspace-master__state, .fw-card__brand, .protect-activation__brand, .protect-findings__brand, .protect-firewall__brand) {
+  font-size: var(--ui-type-hint-size);
+  line-height: var(--ui-type-hint-line);
+  font-weight: var(--ui-type-hint-weight);
+  letter-spacing: normal;
+  overflow-wrap: anywhere;
+}
+:root body #root :where(.small, .hint, .api-config-caption, .antidetect-note, .fingerprint-note, .autosurf-sites-sources, .workspace-master__state, .cookie-entry__sources) :is(p, li, dt, dd) {
+  font-size: var(--ui-type-hint-size);
+  line-height: var(--ui-type-hint-line);
+}
+:root body #root :where(.badge, .pill, .blocking-group__count, .blocking-chip__count, .site-systems-catalog__count, .proxy-workspace-count, .api-usage-badge, .api-usage-party, .api-usage-subject, .cookies-workspace-pill, .cookies-workspace-action, .proxy-workspace-type-badge, .proxy-workspace-health-badge, .autosurf-sites-facet__count, .autosurf-sites-topic > small, .identification-tab__count, .management-nav-group__legend) {
+  font-size: var(--ui-type-hint-size);
+  line-height: var(--ui-type-hint-line);
+  font-weight: var(--ui-type-label-weight);
+  letter-spacing: normal;
+}
+:root body #root :where(code, pre, kbd, samp) {
+  font-family: var(--mono);
+  font-size: var(--ui-type-hint-size);
+  line-height: var(--ui-type-hint-line);
+}
+:root body #root :where(.antidetect input[dir=ltr], .api-config-form textarea, .api-config-json, .cookies-workspace-value, .cookies-workspace-value-editor, .proxy-workspace-endpoint, .proxy-workspace-install code, .browser-debug-mono, .browser-debug-export textarea, .autosurf-preview textarea) {
+  font-family: var(--mono);
+}
+
+:root body #root :where(button, .button, summary, label, legend, th, dt, .api-result__label, .cookie-value__label, .antidetect-label, .blocking-rule__name, .social-cell-label, .autosurf-sites-result__category, .autosurf-sites-selection strong, .cookies-workspace-name, .proxy-workspace-profile-label > strong, .proxy-workspace-connection-info > strong, .api-config-group-toggle__action, .management-settings-entry__text strong, .antidetect-field, .fingerprint-field, .autosurf-field, .proxy-workspace-field, .cookies-workspace-field, .browser-debug-field, .blocking-control__label, .api-config-rule__name, .identification-tab__label, .theme-picker__option-label, .api-value-dropdown optgroup, .inspector-brand__link) {
+  font-family: var(--font);
+  font-size: var(--ui-type-label-size);
+  line-height: var(--ui-type-label-line);
+  font-weight: var(--ui-type-label-weight);
+  letter-spacing: normal;
+  overflow-wrap: anywhere;
+}
+:root body #root :where(h2, h3, h4, .section__title, .api-config-heading strong, .api-usage-context__heading > strong, .precursor-panel__heading > strong, .theme-picker__heading, .language-picker__label, .pro-report-ready > strong, .api-config-group-toggle, .pro-clock > strong, .fw-card__title, .autosurf-sites-section-title) {
+  min-width: 0;
+  max-width: 100%;
+  font-size: var(--ui-type-section-size);
+  line-height: var(--ui-type-section-line);
+  font-weight: var(--ui-type-section-weight);
+  letter-spacing: -.015em;
+  overflow-wrap: anywhere;
+}
+:root body #root :where(.management-page-title, .management-contacts h2, .management-unavailable h2, .workspace-master__label h2, .workspace-master__label h3, .workspace-master--firewall .blocking-launcher__open, .cookies-workspace-header h2, .browser-debug-header h2, .detector-workspace__header h2, .blocking-page-header h1, .pro-totals dd) {
+  font-size: var(--ui-type-page-size);
+  line-height: var(--ui-type-page-line);
+  font-weight: var(--ui-type-page-weight);
+  letter-spacing: -.025em;
+}
+:root body #root :where(h5, h6, .contacts-card__title, .antidetect-subheading, .antidetect-card h4:not(.autosurf-sites-section-title), h4.fingerprint-heading, .antidetect-math-group h4, .browser-debug-diff h4, .api-results h4, .antidetect-protocol__copy .antidetect-title-with-icon > strong) {
+  font-size: var(--ui-type-subheading-size);
+  line-height: var(--ui-type-section-line);
+  font-weight: var(--ui-type-section-weight);
+  letter-spacing: normal;
+  overflow-wrap: anywhere;
+}
+:root body #root :where(.value, .autosurf-sites-results-heading strong) {
+  font-size: var(--ui-type-body-size);
+  line-height: var(--ui-type-body-line);
+  font-weight: var(--ui-type-label-weight);
+}
+:root body #root :where(label, legend, button, summary, h2, h3, h4, h5, h6) > strong {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+/* Translated labels may grow; the native action remains the same control. */
+:root body #root .inspector-tools[data-inspector-tools] :is(.blocking-launcher__open, .blocking-master),
+:root body #root .inspector-mode-tabs .tabs__tab {
+  height: auto;
+  min-height: var(--inspector-control-height, 40px);
+}
+:root body #root .inspector-tools[data-inspector-tools] .blocking-launcher__open {
+  padding-block: 8px;
+  align-self: stretch;
+}
+:root body #root .inspector-tools[data-inspector-tools] .blocking-launcher__open > span:first-child {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  overflow: visible;
+  text-overflow: clip;
+}
+:root body #root :where(.api-value-picker > span:first-child, .api-value-picker code, .autosurf-sites-country__trigger > span, .autosurf-sites-result__category) {
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  overflow: visible;
+  text-overflow: clip;
+}
+:root body #root :where(.api-value-picker, .autosurf-sites-country__trigger) {
+  height: auto;
+  min-height: 42px;
+}
+:root body #root .autosurf-sites-heading .autosurf-sites-section-title {
+  font-size: var(--ui-type-section-size);
+  line-height: var(--ui-type-section-line);
+  font-weight: var(--ui-type-section-weight);
+}
+:root body #root .autosurf-sites-system-search {
+  flex-basis: 230px;
+  min-width: min(150px, 100%);
+}
+@media (max-width: 379px) {
+  :root body #root .inspector-tools[data-inspector-tools] .blocking-launcher__controls {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  :root body #root .inspector-tools[data-inspector-tools] .blocking-master {
+    width: 100%;
+    min-height: 34px;
+    padding-block: 6px;
+  }
+}

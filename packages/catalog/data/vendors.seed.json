@@ -1,0 +1,1880 @@
+{
+  "schemaVersion": 1,
+  "catalogVersion": "2026-09-12",
+  "language": "ru",
+  "researchOnly": true,
+  "productionEnabled": false,
+  "fixtureVerified": false,
+  "sourceDate": "2026-09-12",
+  "claims": [
+    "Каталог продуктов и исследовательские кандидаты; это не готовая production-база.",
+    "Отсутствие совпадения не доказывает отсутствие антифрода.",
+    "Обнаружение поставщика не свидетельствует о безопасности или законности сайта."
+  ],
+  "vendors": [
+    {
+      "id": "cloudflare",
+      "name": "Cloudflare bot products / Turnstile",
+      "category": "bot_challenge",
+      "evidenceStatus": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/",
+          "accessedAt": "2026-09-12",
+          "claim": "documented_browser_artifact",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Разные подпродукты; CDN, rate limiting, bot products и Turnstile различать.",
+      "ruleIds": [
+        "cloudflare-bot-cookie",
+        "cloudflare-turnstile-loader"
+      ]
+    },
+    {
+      "id": "akamai",
+      "name": "Akamai Bot Manager",
+      "category": "bot",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.akamai.com/products/bot-manager",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Публичная страница подтверждает продукт; generic Akamai headers не подтверждают Bot Manager.",
+      "ruleIds": []
+    },
+    {
+      "id": "datadome",
+      "name": "DataDome Bot Protect",
+      "category": "bot",
+      "evidenceStatus": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://docs.datadome.co/docs/javascript-tag",
+          "accessedAt": "2026-09-12",
+          "claim": "documented_browser_artifact",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Есть документированные стандартные и versioned JS URL; возможен first-party endpoint.",
+      "ruleIds": [
+        "datadome-tag"
+      ]
+    },
+    {
+      "id": "human",
+      "name": "HUMAN Bot Defender / Sightline Cyberfraud Defense",
+      "category": "bot_fraud",
+      "evidenceStatus": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://docs.humansecurity.com/applications/use-of-cookies-web-storage",
+          "accessedAt": "2026-09-12",
+          "claim": "documented_browser_artifact",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "PerimeterX — историческое имя/технологическое наследие; cookie не разделяет два продукта.",
+      "ruleIds": [
+        "human-cookie-names"
+      ]
+    },
+    {
+      "id": "imperva",
+      "name": "Imperva Advanced Bot Protection",
+      "category": "bot",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.imperva.com/products/advanced-bot-protection-management/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Не выводить Advanced Bot Protection только из generic Incapsula/WAF маркеров.",
+      "ruleIds": []
+    },
+    {
+      "id": "kasada",
+      "name": "Kasada",
+      "category": "bot",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.kasada.io/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Не переносить KP_UIDz и случайный UUID из чужого списка без первоисточника и fixture.",
+      "ruleIds": []
+    },
+    {
+      "id": "f5",
+      "name": "F5 Distributed Cloud Bot Defense",
+      "category": "bot",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.f5.com/products/distributed-cloud-services/bot-defense",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Shape — исторический алиас; BIG-IP/load-balancer признаки не подтверждают Bot Defense.",
+      "ruleIds": []
+    },
+    {
+      "id": "radware",
+      "name": "Radware Bot Manager",
+      "category": "bot",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.radware.com/products/bot-manager/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "ShieldSquare не считать вторым поставщиком; общий radware.com не является SDK-сигнатурой.",
+      "ruleIds": []
+    },
+    {
+      "id": "netacea",
+      "name": "Netacea Bot Protection",
+      "category": "bot",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://netacea.com/bot-protection/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Вендор описывает agentless edge deployment: отсутствие JS не исключает продукт.",
+      "ruleIds": []
+    },
+    {
+      "id": "fastly",
+      "name": "Fastly Bot Management",
+      "category": "bot",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.fastly.com/products/bot-management",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Fastly CDN и Next-Gen WAF сами по себе не подтверждают Bot Management.",
+      "ruleIds": []
+    },
+    {
+      "id": "cequence",
+      "name": "Cequence bot/API protection",
+      "category": "bot",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.cequence.ai/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Каталог семейства; публичная интеграционная браузерная сигнатура пока не подтверждена.",
+      "ruleIds": []
+    },
+    {
+      "id": "vercel",
+      "name": "Vercel BotID",
+      "category": "bot",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://vercel.com/docs/botid",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Vercel hosting headers не доказывают BotID; требуется fixture конкретной интеграции.",
+      "ruleIds": []
+    },
+    {
+      "id": "arkose",
+      "name": "Arkose Labs Bot Manager / Titan",
+      "category": "bot_challenge",
+      "evidenceStatus": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://developer.arkoselabs.com/docs/standard-setup",
+          "accessedAt": "2026-09-12",
+          "claim": "documented_browser_artifact",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "FunCaptcha — исторический алиас; company-specific API hostname документирован.",
+      "ruleIds": [
+        "arkose-api-loader"
+      ]
+    },
+    {
+      "id": "google_recaptcha",
+      "name": "Google reCAPTCHA / Enterprise",
+      "category": "challenge",
+      "evidenceStatus": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://developers.google.com/recaptcha/docs/display",
+          "accessedAt": "2026-09-12",
+          "claim": "documented_browser_artifact",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Разделять api.js и enterprise.js; grecaptcha может предоставляться совместимым hCaptcha.",
+      "ruleIds": [
+        "recaptcha-loaders"
+      ]
+    },
+    {
+      "id": "hcaptcha",
+      "name": "hCaptcha",
+      "category": "challenge",
+      "evidenceStatus": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://docs.hcaptcha.com/configuration",
+          "accessedAt": "2026-09-12",
+          "claim": "documented_browser_artifact",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "По умолчанию возможен grecaptcha compatibility hook; не читать challenge response.",
+      "ruleIds": [
+        "hcaptcha-loader"
+      ]
+    },
+    {
+      "id": "friendlycaptcha",
+      "name": "Friendly Captcha",
+      "category": "challenge",
+      "evidenceStatus": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://developer.friendlycaptcha.com/docs/v2/getting-started/install",
+          "accessedAt": "2026-09-12",
+          "claim": "documented_browser_artifact",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "v2 SDK может self-hosted/bundled; общий jsDelivr не означает Friendly Captcha.",
+      "ruleIds": [
+        "friendlycaptcha-v2-cdn-loader"
+      ]
+    },
+    {
+      "id": "geetest",
+      "name": "GeeTest CAPTCHA v4",
+      "category": "challenge",
+      "evidenceStatus": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://docs.geetest.com/BehaviorVerification/overview/overview",
+          "accessedAt": "2026-09-12",
+          "claim": "documented_browser_artifact",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "gt4.js допускается размещать на собственном CDN; hostname-only coverage неполон.",
+      "ruleIds": [
+        "geetest-v4-loader"
+      ]
+    },
+    {
+      "id": "yandex_smartcaptcha",
+      "name": "Yandex SmartCaptcha",
+      "category": "challenge",
+      "evidenceStatus": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://yandex.cloud/en/docs/smartcaptcha/quickstart",
+          "accessedAt": "2026-09-12",
+          "claim": "documented_browser_artifact",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "В просмотренной документации URL smartcaptcha.cloud.yandex.ru/captcha.js; другие URL требуют отдельного источника.",
+      "ruleIds": [
+        "yandex-smartcaptcha-loader"
+      ]
+    },
+    {
+      "id": "alibaba_captcha",
+      "name": "Alibaba Cloud CAPTCHA",
+      "category": "challenge",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.alibabacloud.com/en/product/captcha?_p_lc=1",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Каталог CAPTCHA; общий Alibaba CDN не даёт атрибуции антифроду.",
+      "ruleIds": []
+    },
+    {
+      "id": "tencent_captcha",
+      "name": "Tencent Cloud Captcha",
+      "category": "challenge",
+      "evidenceStatus": "official_index_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.tencentcloud.com/document/product/1159/72724",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_search_index_only"
+        }
+      ],
+      "notesRu": "Официальный поисковый индекс подтверждает миграцию 1.0 → 2.0; полный текст не получен, сигнатуры не добавлены.",
+      "ruleIds": []
+    },
+    {
+      "id": "aws_waf",
+      "name": "AWS WAF application integrations",
+      "category": "bot_challenge",
+      "evidenceStatus": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-javascript-api.html",
+          "accessedAt": "2026-09-12",
+          "claim": "documented_browser_artifact",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Challenge/CAPTCHA SDK не подтверждает, что подключён managed rule group Bot Control.",
+      "ruleIds": [
+        "aws-waf-sdk-globals"
+      ]
+    },
+    {
+      "id": "threatmetrix",
+      "name": "LexisNexis ThreatMetrix",
+      "category": "device_fraud",
+      "evidenceStatus": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://docs.pingidentity.com/integrations/threatmetrix/setup/pf_threatmetrix_ik_integrating_device_profiling_web_app_basic.html",
+          "accessedAt": "2026-09-12",
+          "claim": "documented_browser_artifact_and_threatmetrix_relationship",
+          "verification": "official_integration_partner_page_read"
+        },
+        {
+          "url": "https://medusajs.com/integrations/cybersource",
+          "accessedAt": "2026-09-12",
+          "claim": "h_online_metrix_device_profiling_script_labelled_threatmetrix",
+          "verification": "integration_author_documentation_on_official_platform_read"
+        },
+        {
+          "url": "https://risk.lexisnexis.com/global/en/products/threatmetrix",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "ThreatMetrix device-profiling loader документирован интеграциями Ping Identity и Medusa; запрос не подтверждает исполнение, risk verdict, безопасность сайта или конкретный backend.",
+      "ruleIds": [
+        "threatmetrix-ping-web-loader",
+        "threatmetrix-web-loader"
+      ]
+    },
+    {
+      "id": "kount",
+      "name": "Kount Device Data Collector / Kount 360",
+      "category": "device_fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://developer.kount.com/hc/en-us/articles/6731598562836-Integrating-the-Web-Client-SDK-for-Device-Data-Collection-into-Your-Website",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Актуальная инструкция требует same-domain SDK; npm @kount/kount-web-client-sdk не является сетевым URL.",
+      "ruleIds": []
+    },
+    {
+      "id": "sift",
+      "name": "Sift",
+      "category": "fraud",
+      "evidenceStatus": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://developers.sift.com/docs/v204/curl/javascript-api",
+          "accessedAt": "2026-09-12",
+          "claim": "documented_browser_artifact",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Документированы cdn.sift.com/s.js и очередь _sift; значения user/session ID не считывать.",
+      "ruleIds": [
+        "sift-js-loader"
+      ]
+    },
+    {
+      "id": "forter",
+      "name": "Forter",
+      "category": "fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://docs.forter.com/front-end-integration",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Custom snippet выдаётся в портале; документ подтверждает JS-коллектор, но не универсальный ftrcdn matcher.",
+      "ruleIds": []
+    },
+    {
+      "id": "fingerprint",
+      "name": "Fingerprint / FingerprintJS",
+      "category": "device_fraud",
+      "evidenceStatus": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://docs.fingerprint.com/docs/migrating-from-fingerprintjs-to-fingerprint-pro",
+          "accessedAt": "2026-09-12",
+          "claim": "documented_browser_artifact",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Commercial agent и OSS — продуктовые варианты одного семейства; наличие OSS не доказывает антифрод-решение.",
+      "ruleIds": [
+        "fingerprint-agent-v4"
+      ]
+    },
+    {
+      "id": "riskified",
+      "name": "Riskified",
+      "category": "fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://support.riskified.com/hc/en-us/articles/360012160393-API-Integration-Guide",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Beacon интеграция подтверждена; конкретный endpoint пока без сигнатуры.",
+      "ruleIds": []
+    },
+    {
+      "id": "signifyd",
+      "name": "Signifyd",
+      "category": "fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.signifyd.com/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Каталог коммерческой антифрод-платформы; matcher пока отсутствует.",
+      "ruleIds": []
+    },
+    {
+      "id": "ravelin",
+      "name": "Ravelin",
+      "category": "fraud",
+      "evidenceStatus": "documented_legacy_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://developer.ravelin.com/psp/libraries-and-sdks/ravelinjs/integration/",
+          "accessedAt": "2026-09-12",
+          "claim": "documented_browser_artifact",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Документированы legacy CDN URL и переход к RavelinJS v2; не выдавать legacy за полное покрытие.",
+      "ruleIds": [
+        "ravelin-legacy-cdn"
+      ]
+    },
+    {
+      "id": "maxmind_minfraud",
+      "name": "MaxMind minFraud Device Tracking",
+      "category": "device_fraud",
+      "evidenceStatus": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://dev.maxmind.com/minfraud/track-devices/web/",
+          "accessedAt": "2026-09-12",
+          "claim": "documented_browser_artifact",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "device.js и device-module.js относятся к Device Tracking; обычный GeoIP отдельно.",
+      "ruleIds": [
+        "maxmind-device-scripts"
+      ]
+    },
+    {
+      "id": "seon",
+      "name": "SEON Device Intelligence",
+      "category": "device_fraud",
+      "evidenceStatus": "documented_legacy_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://docs.seon.io/api-reference/deprecated-versions",
+          "accessedAt": "2026-09-12",
+          "claim": "documented_browser_artifact",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Подтверждённые v4 URL находятся в Deprecated versions; актуальная ветка ещё не исследована.",
+      "ruleIds": [
+        "seon-v4-legacy"
+      ]
+    },
+    {
+      "id": "sardine",
+      "name": "Sardine",
+      "category": "fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.sardine.ai/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Fraud/AML платформа; наличие публичного продукта не даёт браузерного matcher.",
+      "ruleIds": []
+    },
+    {
+      "id": "castle",
+      "name": "Castle",
+      "category": "bot_fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://castle.io/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Боты и account abuse; URL из сервисов обхода не включать без официального источника.",
+      "ruleIds": []
+    },
+    {
+      "id": "shield",
+      "name": "SHIELD Device Intelligence",
+      "category": "device_fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://shield.com/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Device intelligence для web/app; нет проверенной публичной сигнатуры.",
+      "ruleIds": []
+    },
+    {
+      "id": "incognia",
+      "name": "Incognia",
+      "category": "device_fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.incognia.com/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Не переносить возможности мобильного SDK в обещания Chrome-детектора.",
+      "ruleIds": []
+    },
+    {
+      "id": "biocatch",
+      "name": "BioCatch",
+      "category": "behavioral_fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.biocatch.com/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Не читать биометрические/поведенческие значения; пока продукт в каталоге.",
+      "ruleIds": []
+    },
+    {
+      "id": "outseer",
+      "name": "Outseer",
+      "category": "fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.outseer.com/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Серверный risk decision не виден по одному браузерному запросу.",
+      "ruleIds": []
+    },
+    {
+      "id": "feedzai",
+      "name": "Feedzai",
+      "category": "fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.feedzai.com/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Fraud/financial crime decisioning: без браузерного артефакта детекция недоступна.",
+      "ruleIds": []
+    },
+    {
+      "id": "featurespace",
+      "name": "Featurespace",
+      "category": "fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.featurespace.com/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Отдельная продуктовая семья; нельзя распознавать server-side decisioning из DOM.",
+      "ruleIds": []
+    },
+    {
+      "id": "fico_falcon",
+      "name": "FICO Falcon Fraud Manager",
+      "category": "fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.fico.com/en/products/fico-falcon-fraud-manager",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Каталог модели/платформы; браузерное распознавание не обещается.",
+      "ruleIds": []
+    },
+    {
+      "id": "nice_actimize",
+      "name": "NICE Actimize fraud management",
+      "category": "fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.niceactimize.com/fraud-management",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Каталог продукта, а не браузерная сигнатура.",
+      "ruleIds": []
+    },
+    {
+      "id": "ibm_trusteer",
+      "name": "IBM Trusteer",
+      "category": "device_fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.ibm.com/products/trusteer",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Семейство включает cloud и endpoint software; desktop presence расширение не определяет.",
+      "ruleIds": []
+    },
+    {
+      "id": "aci",
+      "name": "ACI Worldwide Payments Intelligence / fraud management",
+      "category": "fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.aciworldwide.com/solutions/fraud-management",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Backend fraud processing не наблюдается напрямую.",
+      "ruleIds": []
+    },
+    {
+      "id": "experian_crosscore",
+      "name": "Experian CrossCore",
+      "category": "identity_fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.experian.com/business/products/crosscore",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Оркестратор не доказывает наличие любого из его партнёров.",
+      "ruleIds": []
+    },
+    {
+      "id": "fraudnet_company",
+      "name": "FraudNet (fraud.net)",
+      "category": "fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.fraud.net/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Не путать с PayPal FraudNet и Experian FraudNet: разные идентификаторы каталога.",
+      "ruleIds": []
+    },
+    {
+      "id": "socure",
+      "name": "Socure",
+      "category": "identity_fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.socure.com/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "IDV/identity risk platform; конкретный antifraud module по общему SDK не выводится.",
+      "ruleIds": []
+    },
+    {
+      "id": "sentilink",
+      "name": "SentiLink",
+      "category": "identity_fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.sentilink.com/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Подтверждён поставщик identity fraud; браузерная сигнатура не установлена.",
+      "ruleIds": []
+    },
+    {
+      "id": "unit21",
+      "name": "Unit21",
+      "category": "fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.unit21.ai/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Fraud/AML operations platform; backend presence не наблюдается без артефакта.",
+      "ruleIds": []
+    },
+    {
+      "id": "sumsub_fraud",
+      "name": "Sumsub Fraud Prevention",
+      "category": "identity_fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://sumsub.com/fraud-prevention/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Общий KYC widget не доказывает включение Fraud Prevention.",
+      "ruleIds": []
+    },
+    {
+      "id": "stripe",
+      "name": "Stripe fraud telemetry / Radar family",
+      "category": "payment_fraud",
+      "evidenceStatus": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://docs.stripe.com/disputes/prevention/advanced-fraud-detection",
+          "accessedAt": "2026-09-12",
+          "claim": "documented_browser_artifact",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "m.stripe.com описан как передача risk factors; не обещать, что вынесено решение Radar.",
+      "ruleIds": [
+        "stripe-risk-endpoint"
+      ]
+    },
+    {
+      "id": "paypal_fraudnet",
+      "name": "PayPal FraudNet",
+      "category": "payment_fraud",
+      "evidenceStatus": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://developer.paypal.com/platforms/checkout/apm/pay-upon-invoice/fraudnet",
+          "accessedAt": "2026-09-12",
+          "claim": "documented_browser_artifact",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Общий PayPal SDK не равнозначен обнаружению FraudNet.",
+      "ruleIds": [
+        "paypal-fraudnet-parameter-marker"
+      ]
+    },
+    {
+      "id": "cybersource",
+      "name": "Cybersource Decision Manager",
+      "category": "payment_fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.cybersource.com/en-us/solutions/fraud-and-risk-management/decision-manager.html",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Payment SDK либо партнёрский fingerprint collector не подтверждает применённое risk decision.",
+      "ruleIds": []
+    },
+    {
+      "id": "adyen",
+      "name": "Adyen risk management / Protect",
+      "category": "payment_fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://docs.adyen.com/risk-management/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Adyen Checkout SDK не доказывает конкретную активную risk policy.",
+      "ruleIds": []
+    },
+    {
+      "id": "worldpay",
+      "name": "Worldpay FraudSight",
+      "category": "payment_fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.worldpay.com/en/fraudsight",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Платёжный ресурс Worldpay сам по себе не доказывает FraudSight.",
+      "ruleIds": []
+    },
+    {
+      "id": "accertify",
+      "name": "Accertify",
+      "category": "fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.accertify.com/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Не придумывать device endpoint по имени компании.",
+      "ruleIds": []
+    },
+    {
+      "id": "telesign",
+      "name": "Telesign fraud/identity intelligence",
+      "category": "identity_fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.telesign.com/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "SMS delivery integration не доказывает fraud scoring.",
+      "ruleIds": []
+    },
+    {
+      "id": "prove",
+      "name": "Prove",
+      "category": "identity_fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.prove.com/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Identity verification контекст показывать отдельно от скрытого fingerprinting.",
+      "ruleIds": []
+    },
+    {
+      "id": "ipqualityscore",
+      "name": "IPQualityScore / IPQS",
+      "category": "device_fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.ipqualityscore.com/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "IP intelligence может вызываться только с сервера; не обещать обнаружение.",
+      "ruleIds": []
+    },
+    {
+      "id": "scamalytics",
+      "name": "Scamalytics",
+      "category": "fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://scamalytics.com/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Server-side IP risk API по browser API-вызовам не устанавливается.",
+      "ruleIds": []
+    },
+    {
+      "id": "group_ib",
+      "name": "Group-IB Fraud Protection",
+      "category": "device_fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.group-ib.com/products/fraud-protection/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Исторические fhp и групповые алиасы не считать проверенными сигнатурами.",
+      "ruleIds": []
+    },
+    {
+      "id": "bureau",
+      "name": "Bureau",
+      "category": "identity_fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://bureau.id/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Device/identity risk: требуется отдельное исследование SDK.",
+      "ruleIds": []
+    },
+    {
+      "id": "trustfull",
+      "name": "Trustfull",
+      "category": "identity_fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://trustfull.com/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Digital footprint risk: наличие server API из браузера не гарантировано.",
+      "ruleIds": []
+    },
+    {
+      "id": "cleafy",
+      "name": "Cleafy",
+      "category": "device_fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.cleafy.com/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Online fraud management; matcher требует документированного integration fixture.",
+      "ruleIds": []
+    },
+    {
+      "id": "callsign",
+      "name": "Callsign",
+      "category": "behavioral_fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.callsign.com/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Fraud/authentication платформа; не выводить факт behavioral collection без наблюдения.",
+      "ruleIds": []
+    },
+    {
+      "id": "threatmark",
+      "name": "ThreatMark",
+      "category": "behavioral_fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.threatmark.com/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Публичный продукт подтверждён; конкретный JS marker не подтверждён.",
+      "ruleIds": []
+    },
+    {
+      "id": "darwinium",
+      "name": "Darwinium",
+      "category": "device_fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.darwinium.com/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Edge/fraud protection; не делать выводы о полном deployment по общему hostname.",
+      "ruleIds": []
+    },
+    {
+      "id": "deduce",
+      "name": "Deduce",
+      "category": "identity_fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.deduce.com/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Identity risk platform; интеграции и SDK требуют отдельной проверки.",
+      "ruleIds": []
+    },
+    {
+      "id": "transmit",
+      "name": "Transmit Security Mosaic Fraud Detection and Response",
+      "category": "identity_fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://transmitsecurity.com/core-services/fraud-prevention",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "Отдельный antifraud service; общий identity SDK не доказывает выполнение risk assessment.",
+      "ruleIds": []
+    },
+    {
+      "id": "pingone_protect",
+      "name": "PingOne Protect",
+      "category": "identity_fraud",
+      "evidenceStatus": "product_catalog_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.pingidentity.com/en/product/pingone-protect.html",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_page_read"
+        }
+      ],
+      "notesRu": "SSO на Ping не доказывает активный Protect; matcher пока отсутствует.",
+      "ruleIds": []
+    },
+    {
+      "id": "mastercard_nudetect",
+      "name": "Mastercard NuDetect / NuData",
+      "category": "behavioral_fraud",
+      "evidenceStatus": "official_index_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://in.gateway.mastercard.com/api/documentation/integrationGuidelines/supportedFeatures/pickAdditionalFunctionality/risk/nuDetect.html",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_search_index_only"
+        }
+      ],
+      "notesRu": "Продукт указан в официальном поисковом описании интеграции; XHTML не прочитан, актуальный matcher не создан.",
+      "ruleIds": []
+    },
+    {
+      "id": "transunion_device_risk",
+      "name": "TransUnion TruValidate Device Risk / iovation lineage",
+      "category": "device_fraud",
+      "evidenceStatus": "official_index_only",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "browserRecognitionPromised": false,
+      "sources": [
+        {
+          "url": "https://www.transunion.co.uk/",
+          "accessedAt": "2026-09-12",
+          "claim": "product_existence",
+          "verification": "official_search_index_only"
+        }
+      ],
+      "notesRu": "Официальный поисковый индекс подтверждает Device Risk; прямая продуктовая страница не разрешена. Первоочередной исследовательский кандидат, не сигнатура.",
+      "ruleIds": []
+    }
+  ],
+  "rules": [
+    {
+      "id": "cloudflare-bot-cookie",
+      "vendorId": "cloudflare",
+      "status": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "evidenceOrigin": "cookie_name",
+      "conditions": {
+        "nameExact": "__cf_bm"
+      },
+      "source": {
+        "url": "https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/",
+        "accessedAt": "2026-09-12"
+      },
+      "meaningRu": "Имя cookie соответствует Cloudflare bot products.",
+      "limitationsRu": "Не различает Bot Management/Bot Fight Mode; cookie может быть подделана; значение не читать.",
+      "fixtureIds": [],
+      "expiresAt": "2026-12-11"
+    },
+    {
+      "id": "cloudflare-turnstile-loader",
+      "vendorId": "cloudflare",
+      "status": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "evidenceOrigin": "network_request",
+      "conditions": {
+        "scheme": "https",
+        "hostExact": "challenges.cloudflare.com",
+        "pathExact": "/turnstile/v0/api.js",
+        "resourceType": "script"
+      },
+      "source": {
+        "url": "https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/",
+        "accessedAt": "2026-09-12"
+      },
+      "meaningRu": "Запрошен документированный загрузчик Turnstile.",
+      "limitationsRu": "Не означает успешное исполнение challenge или серверную верификацию.",
+      "fixtureIds": [],
+      "expiresAt": "2026-12-11"
+    },
+    {
+      "id": "datadome-tag",
+      "vendorId": "datadome",
+      "status": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "evidenceOrigin": "network_request",
+      "conditions": {
+        "scheme": "https",
+        "hostExact": "js.datadome.co",
+        "pathRegex": "^/(?:v[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}/)?tags\\.js$",
+        "resourceType": "script"
+      },
+      "source": {
+        "url": "https://docs.datadome.co/docs/javascript-tag",
+        "accessedAt": "2026-09-12"
+      },
+      "meaningRu": "Запрошен документированный JS Tag DataDome.",
+      "limitationsRu": "First-party endpoint не покрывается; versioned path разрешён только документированным шаблоном.",
+      "fixtureIds": [],
+      "expiresAt": "2026-12-11"
+    },
+    {
+      "id": "human-cookie-names",
+      "vendorId": "human",
+      "status": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "evidenceOrigin": "cookie_name",
+      "conditions": {
+        "nameOneOf": [
+          "_px",
+          "_px2",
+          "_px3"
+        ]
+      },
+      "source": {
+        "url": "https://docs.humansecurity.com/applications/use-of-cookies-web-storage",
+        "accessedAt": "2026-09-12"
+      },
+      "meaningRu": "Имя cookie соответствует семейству HUMAN Bot Defender/Sightline.",
+      "limitationsRu": "Не разделяет продукты и не доказывает серверное решение; не использовать широкий префикс _px.",
+      "fixtureIds": [],
+      "expiresAt": "2026-12-11"
+    },
+    {
+      "id": "fingerprint-agent-v4",
+      "vendorId": "fingerprint",
+      "status": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "evidenceOrigin": "network_request",
+      "conditions": {
+        "scheme": "https",
+        "hostExact": "fpjscdn.net",
+        "pathRegex": "^/v4/[^/]{1,256}(?:/iife\\.min\\.js)?$",
+        "resourceType": "script"
+      },
+      "source": {
+        "url": "https://docs.fingerprint.com/docs/migrating-from-fingerprintjs-to-fingerprint-pro",
+        "accessedAt": "2026-09-12"
+      },
+      "meaningRu": "Запрошен документированный Fingerprint agent v4.",
+      "limitationsRu": "First-party/bundled и legacy версии не покрываются; сегмент ключа не сохранять.",
+      "fixtureIds": [],
+      "expiresAt": "2026-12-11"
+    },
+    {
+      "id": "recaptcha-loaders",
+      "vendorId": "google_recaptcha",
+      "status": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "evidenceOrigin": "network_request",
+      "conditions": {
+        "scheme": "https",
+        "hostOneOf": [
+          "www.google.com",
+          "www.recaptcha.net"
+        ],
+        "pathOneOf": [
+          "/recaptcha/api.js",
+          "/recaptcha/enterprise.js"
+        ],
+        "resourceType": "script"
+      },
+      "source": {
+        "url": "https://docs.cloud.google.com/recaptcha/docs/using-features",
+        "accessedAt": "2026-09-12"
+      },
+      "meaningRu": "Запрошен документированный reCAPTCHA loader; вид URL определяет api/enterprise вариант.",
+      "limitationsRu": "Ни grecaptcha отдельно, ни cookie NID не являются достаточным признаком.",
+      "fixtureIds": [],
+      "expiresAt": "2026-12-11"
+    },
+    {
+      "id": "hcaptcha-loader",
+      "vendorId": "hcaptcha",
+      "status": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "evidenceOrigin": "network_request",
+      "conditions": {
+        "scheme": "https",
+        "hostExact": "js.hcaptcha.com",
+        "pathExact": "/1/api.js",
+        "resourceType": "script"
+      },
+      "source": {
+        "url": "https://docs.hcaptcha.com/configuration",
+        "accessedAt": "2026-09-12"
+      },
+      "meaningRu": "Запрошен документированный hCaptcha loader.",
+      "limitationsRu": "grecaptcha compatibility не считать отдельным Google-продуктом.",
+      "fixtureIds": [],
+      "expiresAt": "2026-12-11"
+    },
+    {
+      "id": "arkose-api-loader",
+      "vendorId": "arkose",
+      "status": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "evidenceOrigin": "network_request",
+      "conditions": {
+        "scheme": "https",
+        "hostSuffixLabels": "arkoselabs.com",
+        "leftmostLabelRegex": "^[a-z0-9-]{1,57}-api$",
+        "pathRegex": "^/v2/[^/]{1,256}/api\\.js$",
+        "resourceType": "script"
+      },
+      "source": {
+        "url": "https://developer.arkoselabs.com/docs/standard-setup",
+        "accessedAt": "2026-09-12"
+      },
+      "meaningRu": "Запрошен документированный client/company API loader Arkose.",
+      "limitationsRu": "Точный host шаблон требует фикстур; произвольный arkoselabs.com ресурс не равен защите страницы.",
+      "fixtureIds": [],
+      "expiresAt": "2026-12-11"
+    },
+    {
+      "id": "aws-waf-sdk-globals",
+      "vendorId": "aws_waf",
+      "status": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "evidenceOrigin": "global_name",
+      "conditions": {
+        "ownDataPropertyOneOf": [
+          "AwsWafIntegration",
+          "AwsWafCaptcha"
+        ],
+        "neverReadValues": true
+      },
+      "source": {
+        "url": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-javascript-api.html",
+        "accessedAt": "2026-09-12"
+      },
+      "meaningRu": "Страница объявила имя интерфейса AWS WAF application integration.",
+      "limitationsRu": "Слабое page-origin evidence; не доказывает Bot Control и легко подделывается. Перед production нужна независимая network-сигнатура.",
+      "fixtureIds": [],
+      "expiresAt": "2026-12-11"
+    },
+    {
+      "id": "maxmind-device-scripts",
+      "vendorId": "maxmind_minfraud",
+      "status": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "evidenceOrigin": "network_request",
+      "conditions": {
+        "scheme": "https",
+        "hostExact": "device.maxmind.com",
+        "pathOneOf": [
+          "/js/device.js",
+          "/js/device-module.js"
+        ],
+        "resourceType": "script"
+      },
+      "source": {
+        "url": "https://dev.maxmind.com/minfraud/track-devices/web/",
+        "accessedAt": "2026-09-12"
+      },
+      "meaningRu": "Запрошен документированный minFraud Device Tracking script.",
+      "limitationsRu": "Сам по себе не подтверждает исполненный backend risk query.",
+      "fixtureIds": [],
+      "expiresAt": "2026-12-11"
+    },
+    {
+      "id": "paypal-fraudnet-parameter-marker",
+      "vendorId": "paypal_fraudnet",
+      "status": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "evidenceOrigin": "dom_attribute",
+      "conditions": {
+        "tagExact": "SCRIPT",
+        "attributeExact": "fncls",
+        "attributeValueExact": "fnparams-dede7cc5-15fd-4c75-a9f4-36c430ee3a99",
+        "neverReadElementContent": true
+      },
+      "source": {
+        "url": "https://developer.paypal.com/platforms/checkout/apm/pay-upon-invoice/fraudnet",
+        "accessedAt": "2026-09-12"
+      },
+      "meaningRu": "Разметка содержит документированный параметрический маркер FraudNet.",
+      "limitationsRu": "Слабое DOM evidence; без чтения JSON тела и customer/session параметров. Успешное исполнение не доказано.",
+      "fixtureIds": [],
+      "expiresAt": "2026-12-11"
+    },
+    {
+      "id": "geetest-v4-loader",
+      "vendorId": "geetest",
+      "status": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "evidenceOrigin": "network_request",
+      "conditions": {
+        "scheme": "https",
+        "hostExact": "static.geetest.com",
+        "pathExact": "/v4/gt4.js",
+        "resourceType": "script"
+      },
+      "source": {
+        "url": "https://docs.geetest.com/BehaviorVerification/overview/overview",
+        "accessedAt": "2026-09-12"
+      },
+      "meaningRu": "Запрошен документированный GeeTest v4 loader.",
+      "limitationsRu": "Self-hosting допускается; отсутствие host не доказывает отсутствие интеграции.",
+      "fixtureIds": [],
+      "expiresAt": "2026-12-11"
+    },
+    {
+      "id": "yandex-smartcaptcha-loader",
+      "vendorId": "yandex_smartcaptcha",
+      "status": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "evidenceOrigin": "network_request",
+      "conditions": {
+        "scheme": "https",
+        "hostExact": "smartcaptcha.cloud.yandex.ru",
+        "pathExact": "/captcha.js",
+        "resourceType": "script"
+      },
+      "source": {
+        "url": "https://yandex.cloud/en/docs/smartcaptcha/quickstart",
+        "accessedAt": "2026-09-12"
+      },
+      "meaningRu": "Запрошен URL SmartCaptcha из просмотренного quickstart.",
+      "limitationsRu": "Другие исторические/regional хосты требуют отдельных правил и источников.",
+      "fixtureIds": [],
+      "expiresAt": "2026-12-11"
+    },
+    {
+      "id": "friendlycaptcha-v2-cdn-loader",
+      "vendorId": "friendlycaptcha",
+      "status": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "evidenceOrigin": "network_request",
+      "conditions": {
+        "scheme": "https",
+        "hostExact": "cdn.jsdelivr.net",
+        "pathRegex": "^/npm/@friendlycaptcha/sdk@[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}/site(?:\\.compat)?\\.min\\.js$",
+        "resourceType": "script"
+      },
+      "source": {
+        "url": "https://developer.friendlycaptcha.com/docs/v2/getting-started/install",
+        "accessedAt": "2026-09-12"
+      },
+      "meaningRu": "Запрошен документированный путь Friendly Captcha v2 SDK.",
+      "limitationsRu": "Общий jsDelivr не достаточен; self-hosted/bundled версии не покрываются; encoded-path normalization тестировать.",
+      "fixtureIds": [],
+      "expiresAt": "2026-12-11"
+    },
+    {
+      "id": "sift-js-loader",
+      "vendorId": "sift",
+      "status": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "evidenceOrigin": "network_request",
+      "conditions": {
+        "scheme": "https",
+        "hostExact": "cdn.sift.com",
+        "pathExact": "/s.js",
+        "resourceType": "script"
+      },
+      "source": {
+        "url": "https://developers.sift.com/docs/v204/curl/javascript-api",
+        "accessedAt": "2026-09-12"
+      },
+      "meaningRu": "Запрошен документированный Sift JavaScript snippet resource.",
+      "limitationsRu": "Не читать _sift queue: содержит customer/session идентификаторы.",
+      "fixtureIds": [],
+      "expiresAt": "2026-12-11"
+    },
+    {
+      "id": "stripe-risk-endpoint",
+      "vendorId": "stripe",
+      "status": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "evidenceOrigin": "network_request",
+      "conditions": {
+        "scheme": "https",
+        "hostExact": "m.stripe.com"
+      },
+      "source": {
+        "url": "https://docs.stripe.com/disputes/prevention/advanced-fraud-detection",
+        "accessedAt": "2026-09-12"
+      },
+      "meaningRu": "Наблюдался запрос к документированному endpoint передачи Stripe risk factors.",
+      "limitationsRu": "Не равно включённому Radar-плану или вынесенному fraud decision; не анализировать body.",
+      "fixtureIds": [],
+      "expiresAt": "2026-12-11"
+    },
+    {
+      "id": "seon-v4-legacy",
+      "vendorId": "seon",
+      "status": "documented_legacy_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "evidenceOrigin": "network_request",
+      "conditions": {
+        "scheme": "https",
+        "hostOneOf": [
+          "cdn.seondf.com",
+          "cdn.deviceinf.com",
+          "cdn.getdeviceinf.com"
+        ],
+        "pathExact": "/js/v4/agent.js",
+        "resourceType": "script"
+      },
+      "source": {
+        "url": "https://docs.seon.io/api-reference/deprecated-versions",
+        "accessedAt": "2026-09-12"
+      },
+      "meaningRu": "Запрошен документированный legacy SEON v4 agent.",
+      "limitationsRu": "Устаревшая ветка; не покрывает актуальный SDK; не включать по умолчанию.",
+      "fixtureIds": [],
+      "expiresAt": "2026-12-11"
+    },
+    {
+      "id": "ravelin-legacy-cdn",
+      "vendorId": "ravelin",
+      "status": "documented_legacy_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "evidenceOrigin": "network_request",
+      "conditions": {
+        "scheme": "https",
+        "hostExact": "cdn.ravelin.net",
+        "pathOneOf": [
+          "/ravelin-beta.min.js",
+          "/js/rvn-beta.min.js"
+        ],
+        "resourceType": "script"
+      },
+      "source": {
+        "url": "https://developer.ravelin.com/psp/libraries-and-sdks/ravelinjs/integration/",
+        "accessedAt": "2026-09-12"
+      },
+      "meaningRu": "Запрошен документированный legacy Ravelin CDN script.",
+      "limitationsRu": "Современная RavelinJS v2 поставляется иначе; legacy detection не покрывает продукт целиком.",
+      "fixtureIds": [],
+      "expiresAt": "2026-12-11"
+    },
+    {
+      "id": "threatmetrix-ping-web-loader",
+      "vendorId": "threatmetrix",
+      "status": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "evidenceOrigin": "network_request",
+      "conditions": {
+        "scheme": "https",
+        "hostExact": "h-api.online-metrix.net",
+        "pathExact": "/fp/tags.js",
+        "resourceType": "script"
+      },
+      "source": {
+        "url": "https://docs.pingidentity.com/integrations/threatmetrix/setup/pf_threatmetrix_ik_integrating_device_profiling_web_app_basic.html",
+        "accessedAt": "2026-09-12",
+        "provenance": "Ping Identity ThreatMetrix Integration Kit"
+      },
+      "meaningRu": "Наблюдался запрос к URL device-profiling loader, который первичная инструкция интеграции относит к ThreatMetrix.",
+      "limitationsRu": "Не подтверждает исполнение профилирования, серверное решение, договор с поставщиком, Cybersource/Ping backend или безопасность сайта. Custom domains, proxy и другие варианты не покрыты. Query с org/session ID не сохранять.",
+      "fixtureIds": [],
+      "expiresAt": "2026-12-11"
+    },
+    {
+      "id": "threatmetrix-web-loader",
+      "vendorId": "threatmetrix",
+      "status": "documented_candidate",
+      "productionEnabled": false,
+      "fixtureVerified": false,
+      "evidenceOrigin": "network_request",
+      "conditions": {
+        "scheme": "https",
+        "hostExact": "h.online-metrix.net",
+        "pathExact": "/fp/tags.js",
+        "resourceType": "script"
+      },
+      "source": {
+        "url": "https://medusajs.com/integrations/cybersource",
+        "accessedAt": "2026-09-12",
+        "provenance": "Medusa integration author documentation; independently consistent with Ping Identity profiling-domain reference"
+      },
+      "meaningRu": "Наблюдался запрос к URL device-profiling loader, который первичная инструкция интеграции относит к ThreatMetrix.",
+      "limitationsRu": "Не подтверждает исполнение профилирования, серверное решение, договор с поставщиком, Cybersource/Ping backend или безопасность сайта. Custom domains, proxy и другие варианты не покрыты. Query с org/session ID не сохранять.",
+      "fixtureIds": [],
+      "expiresAt": "2026-12-11"
+    }
+  ],
+  "ruleDistributionPolicy": {
+    "localReviewedPatternsOnly": true,
+    "remoteDataMaySelectExistingRules": true,
+    "remoteNewRegexAllowed": false,
+    "remoteNewLogicAllowed": false,
+    "newMatchersRequireExtensionRelease": true
+  }
+}

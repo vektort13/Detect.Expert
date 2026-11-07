@@ -1,0 +1,30 @@
+{
+  "$comment": "Registry of privacy canaries (docs/data-inventory.md §8, E14-01 case 2, REQ-005). canary-page.html places every value where a careless sensor would pick it up; scripts/privacy-scan.mjs asserts none of them appears in storage.session, storage.local or the export preview. Values are unique literals, not secrets. Keep this file and canary-page.html in sync: the scan verifies the page reported each value as used.",
+  "canaries": [
+    { "id": "canvas-text", "value": "CANARY-CANVAS-TEXT-9f3e7a1c", "where": "fillText / strokeText argument" },
+    { "id": "measured-text", "value": "CANARY-MEASURE-1f4e", "where": "measureText argument" },
+    { "id": "font-name", "value": "CanaryFont-6d2b", "where": "ctx.font family name" },
+    { "id": "cookie-value", "value": "CANARY-COOKIE-4b8d2e6f", "where": "document.cookie value" },
+    { "id": "query-param", "value": "CANARY-QUERY-7a1c9e3f", "where": "location.search of the fixture URL (also pushState)" },
+    { "id": "fragment", "value": "CANARY-FRAGMENT-2d5f8b1a", "where": "location.hash" },
+    { "id": "path-id", "value": "CANARY-PATH-ID-5566", "where": "history.pushState path segment" },
+    { "id": "local-ip", "value": "192.168.77.213", "where": "DOM text, localStorage value, string passed to new URL()" },
+    { "id": "math-arg", "value": "0.7318221", "where": "Math.sin / Math.cos / Math.tan argument" },
+    { "id": "stack-frame", "value": "canaryStackFrame_8e1d", "where": "function name on the call stack of getImageData" },
+    { "id": "form-text", "value": "CANARY-FORM-3c9a", "where": "input value" },
+    { "id": "storage-value", "value": "CANARY-STORAGE-5e7b", "where": "localStorage.setItem value" },
+    { "id": "title-text", "value": "CANARY-TITLE-8c1d", "where": "document.title" },
+    { "id": "dns-label", "value": "q7x2k9m4w8z1c5v3", "where": "S08: random-looking left label of a page request host (network/dns-pattern.html random mode, first label; canary-page.html URL string only, no DNS)" },
+    { "id": "local-port", "value": ":45127", "where": "S08: port of a loopback image request of canary-page.html (http://127.0.0.1:45127/, refused locally); with the colon so random hex ids cannot match by chance" },
+    { "id": "user-agent", "value": "CANARY-UA-3c9e1f7a", "where": "S06: navigator.userAgent of the canary context (scripts/privacy-scan.mjs launches it with launchPersistentContext userAgent = this value); canary-page.html also reads screen.* (sizes are numbers, not canaries)" }
+  ],
+  "$protectComment": "ADR-020 «Защита» (S05): canaries of the opt-in module, kept apart from `canaries` because canary-page.html (observation scan) does not plant them. Typed into module fields by tests/extension/protect/password-never-read.spec.ts (all of them must be absent from storage.local, storage.session, the IndexedDB dump and the intercepted protect-* messages) and, from S15, by fixtures/privacy/protect-canary-page.html with their variants (md5/sha1/sha256/sha512 hex and base64, url, base64). The request-* values belong to the data-request generator (S14): they live only in the memory of requests.html.",
+  "protect": [
+    { "id": "protect-email", "value": "CANARY-EMAIL-7c1d@example.test", "where": "S05: typed into an e-mail field (type=email) of a page with the module on" },
+    { "id": "protect-phone", "value": "+7 900 555-73-91", "where": "S05: typed into a phone field (type=tel)" },
+    { "id": "protect-name", "value": "Canaryname Testova", "where": "S05: typed into a name field (autocomplete=name)" },
+    { "id": "protect-password", "value": "CANARY-PASSWORD-7e2b", "where": "S05: typed into a password field (autocomplete=current-password), also after «show password» turned it into type=text; never read by any layer" },
+    { "id": "request-identity", "value": "canary-ident-5c2e91@canary.test", "where": "S14: identity entered on requests.html (memory of the page only)" },
+    { "id": "request-name", "value": "Kanareika-7f3b", "where": "S14: name entered on requests.html (memory of the page only)" }
+  ]
+}

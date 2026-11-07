@@ -1,0 +1,762 @@
+# key|Deutsch|Polski|Bahasa Indonesia
+scopeOff|aus|wyłączone|nonaktif
+scopeActiveTab|ab jetzt im aktuellen Tab|od teraz w bieżącej karcie|mulai sekarang, tab aktif
+scopeSite|immer auf dieser Website|zawsze w tej witrynie|selalu di situs ini
+scopeAllSites|auf allen Websites|we wszystkich witrynach|di semua situs
+statusLoading|wird geladen…|ładowanie…|memuat…
+statusUnavailable|nicht verfügbar|niedostępne|tidak tersedia
+vendorsSectionTitle|Erkannte Schutz- und Identifizierungsdienste|Rozpoznane usługi ochrony i identyfikacji|Layanan perlindungan dan identifikasi yang dikenali
+vendorsEmpty|Keine Übereinstimmungen beobachtet. Eine fehlende Übereinstimmung beweist nicht, dass kein Betrugsschutz eingesetzt wird.|Nie zaobserwowano dopasowań. Brak dopasowania nie dowodzi braku zabezpieczeń przed oszustwami.|Tidak ada kecocokan yang diamati. Ketiadaan kecocokan tidak membuktikan tidak adanya sistem antipenipuan.
+disclaimerNoVerdict|Keine Bewertung der Website-Sicherheit. Die Beobachtung ist standardmäßig passiv; optionale API-Sperren müssen ausdrücklich aktiviert werden.|Bez oceny bezpieczeństwa witryny. Obserwacja jest domyślnie pasywna; opcjonalne blokowanie API wymaga jawnego włączenia.|Tidak ada penilaian keamanan situs. Pemantauan secara bawaan bersifat pasif; pemblokiran API opsional harus diaktifkan secara eksplisit.
+coverage_active_title|Beobachtung läuft|Obserwacja trwa|Sedang mengamati
+coverage_active_desc|Implementierte Sensoren wurden beim Dokumentstart installiert. Dies bedeutet nicht, dass jede Erkennungsmethode abgedeckt ist.|Zaimplementowane czujniki zainstalowano na początku dokumentu. Nie oznacza to objęcia wszystkich metod wykrywania.|Sensor yang diterapkan dipasang saat dokumen dimulai. Ini tidak berarti semua metode deteksi tercakup.
+coverage_partial_title|Teilweise Beobachtung|Częściowa obserwacja|Pengamatan sebagian
+coverage_partial_desc|Nur ein Teil des Dokuments wird beobachtet: $DETAIL$. Keine Funde in unzugänglichen Bereichen haben keine Aussagekraft.|Obserwacja obejmuje tylko część dokumentu: $DETAIL$. Brak ustaleń w niedostępnych obszarach niczego nie oznacza.|Hanya sebagian dokumen yang diamati: $DETAIL$. Ketiadaan temuan di area yang tidak dapat diakses tidak bermakna.
+coverage_late_start_title|Beobachtung begann verspätet|Obserwacja rozpoczęła się późno|Pengamatan dimulai terlambat
+coverage_late_start_desc|Die Sensoren wurden erst nach dem Seitenstart installiert. Frühe Aufrufe können fehlen. Laden Sie die Seite neu, um von Anfang an zu analysieren.|Czujniki zainstalowano po rozpoczęciu działania strony. Wczesne wywołania mogły zostać pominięte. Odśwież stronę, aby analizować od początku.|Sensor dipasang setelah halaman mulai berjalan. Panggilan awal mungkin terlewat. Muat ulang halaman untuk menganalisis dari awal.
+coverage_late_start_active_tab_desc|Aufrufe werden ab der Aktivierung bis zum Ersetzen dieses Dokuments beobachtet. Frühe Aufrufe können fehlen. Wählen Sie zur Beobachtung des Seitenstarts „Immer auf dieser Website“ und laden Sie neu.|Wywołania są obserwowane od włączenia do zastąpienia dokumentu. Wczesne wywołania mogły zostać pominięte. Aby obserwować ładowanie, wybierz „Zawsze w tej witrynie” i odśwież stronę.|Panggilan diamati sejak aktivasi sampai dokumen ini diganti. Panggilan awal mungkin terlewat. Untuk mengamati pemuatan halaman, pilih “Selalu di situs ini”, lalu muat ulang.
+coverage_paused_title|Beobachtung angehalten|Obserwacja wstrzymana|Pengamatan dijeda
+coverage_paused_desc|Die Beobachtung ist angehalten. Die Seite arbeitet weiter.|Obserwacja jest wstrzymana. Strona nadal działa.|Pengamatan dijeda. Halaman tetap berfungsi.
+coverage_paused_reload|Laden Sie die Seite neu, um die Sensoren vollständig zu entfernen.|Odśwież stronę, aby całkowicie usunąć czujniki.|Muat ulang halaman untuk menghapus sensor sepenuhnya.
+coverage_unsupported_title|Beobachtung auf dieser Seite nicht verfügbar|Obserwacja tej strony jest niedostępna|Pengamatan tidak tersedia di halaman ini
+coverage_unsupported_desc|Interne Chrome-Seiten, der Web Store, andere Erweiterungen und einige besondere Frames unterstützen keine Beobachtung.|Wewnętrzne strony Chrome, Web Store, inne rozszerzenia i niektóre specjalne ramki nie obsługują obserwacji.|Halaman internal Chrome, Web Store, ekstensi lain, dan beberapa bingkai khusus tidak mendukung pengamatan.
+coverage_unsupported_chrome_desc|Diese Chrome-Version wird nicht unterstützt ($VERSION$). Die Beobachtung ist nicht verfügbar.|Ta wersja Chrome nie jest obsługiwana ($VERSION$). Obserwacja jest niedostępna.|Versi Chrome ini tidak didukung ($VERSION$). Pengamatan tidak tersedia.
+coverage_no_access_title|Kein Zugriff auf diese Seite|Brak dostępu do tej strony|Tidak ada akses ke halaman ini
+coverage_no_access_desc|Kein Zugriff auf $HOST$. Fehlende Beobachtungen haben keine Aussagekraft. Wählen Sie zum Starten einen Beobachtungsumfang.|Brak dostępu do $HOST$. Brak obserwacji niczego nie oznacza. Wybierz zakres obserwacji, aby rozpocząć.|Tidak ada akses ke $HOST$. Ketiadaan pengamatan tidak bermakna. Pilih cakupan pengamatan untuk memulai.
+coverage_revoked_desc|Der Zugriff auf $HOST$ wurde entzogen. Es werden keine neuen Daten erfasst. Laden Sie neu, um die Sensoren vollständig zu entfernen.|Cofnięto dostęp do $HOST$. Nowe dane nie są zbierane. Odśwież stronę, aby całkowicie usunąć czujniki.|Akses ke $HOST$ dicabut. Tidak ada data baru yang dikumpulkan. Muat ulang halaman untuk menghapus sensor sepenuhnya.
+coverage_degraded_title|Beobachtung eingeschränkt|Obserwacja ograniczona|Pengamatan terbatas
+coverage_degraded_desc|Das Ereignislimit wurde überschritten: Einige Daten wurden verworfen ($DROPPED$). Dieser Zeitraum gilt nicht als vollständig beobachtet.|Przekroczono limit zdarzeń: część danych odrzucono ($DROPPED$). Nie można uznać tego okresu za w pełni obserwowany.|Batas peristiwa terlampaui: sebagian data dibuang ($DROPPED$). Periode ini tidak dapat dianggap diamati sepenuhnya.
+coverage_context_changed|Kontext geändert: Bericht für $HOST$ wird angezeigt.|Kontekst się zmienił: wyświetlany jest raport dla $HOST$.|Konteks berubah: menampilkan laporan untuk $HOST$.
+coverage_managed_desc|Einige Einstellungen werden von Ihrer Organisation verwaltet.|Niektórymi ustawieniami zarządza Twoja organizacja.|Beberapa pengaturan dikelola oleh organisasi Anda.
+coverage_blind_spots_title|Bekannte Beobachtungslücken|Znane luki obserwacji|Celah pengamatan yang diketahui
+coverage_blind_spots_desc|Nicht implementiert: Math, Mediengeräte, CSSOM, WebGPU-Auslesen, Generic Sensor, HTTP-Validatoren, CNAME-Muster und Worker-/Worklet-Erstellung. Beobachtet werden nur unterstützte Web-Audio- und WebAssembly-JS-Aufrufe. Wasm-, Worker- und CSS-Interna, DNS-Auflösung, TLS und serverseitige Prüfungen sind nicht abgedeckt. Websites können die Erweiterung bemerken.|Nie zaimplementowano: Math, urządzeń multimedialnych, CSSOM, odczytu WebGPU, Generic Sensor, walidatorów HTTP, wzorców CNAME i tworzenia Worker/Worklet. Obserwowane są tylko obsługiwane wywołania JS Web Audio i WebAssembly. Wnętrze Wasm, workerów i CSS, rozwiązywanie DNS, TLS i kontrole serwerowe pozostają poza zakresem. Witryny mogą zauważyć rozszerzenie.|Belum diterapkan: Math, perangkat media, CSSOM, pembacaan WebGPU, Generic Sensor, validator HTTP, pola CNAME, dan pembuatan Worker/Worklet. Hanya panggilan JS Web Audio dan WebAssembly yang didukung yang diamati. Proses internal Wasm, worker dan CSS, resolusi DNS, TLS, dan pemeriksaan di server berada di luar cakupan. Situs dapat mendeteksi ekstensi.
+inspector_group_dns|DNS-Prüfungen|Kontrole DNS|Pemeriksaan DNS
+card_dns_probe_pattern|Möglicher DNS-Test|Możliwy test DNS|Kemungkinan pengujian DNS
+inspector_dns_desc|In kurzer Zeit wurden Anfragen an verschiedene Subdomains einer Domain beobachtet. DNS-Tests, CDNs und Cache-Umgehung können dieses Muster erzeugen. Der Zähler ist eine Untergrenze über begrenzte Zeitfenster. Tatsächliche DNS-Anfragen, die Resolver-Adresse oder ein DNS-Leck sind nicht nachgewiesen.|W krótkim czasie zaobserwowano żądania do różnych subdomen jednej domeny. Testy DNS, CDN i omijanie pamięci podręcznej mogą tworzyć taki wzorzec. Licznik jest dolną granicą dla ograniczonych okien czasowych. Nie ustalono rzeczywistych zapytań DNS, adresu resolvera ani wycieku DNS.|Permintaan ke berbagai subdomain dari satu domain diamati dalam waktu singkat. Pengujian DNS, CDN, dan penghindaran cache dapat menghasilkan pola ini. Jumlahnya merupakan batas bawah dalam jendela waktu terbatas. Kueri DNS sebenarnya, alamat resolver, dan kebocoran DNS belum dipastikan.
+coverage_flags_title|Beobachtungsgrenzen|Ograniczenia obserwacji|Batas cakupan
+coverage_partial_detail_unknown|Grund nicht angegeben|nie podano przyczyny|alasan tidak disebutkan
+coverage_flag_late_start|Sensoren verspätet installiert|czujniki zainstalowano późno|sensor dipasang terlambat
+coverage_flag_hook_failed|Sensoren melden eine Installationsgrenze; Diagnosedaten werden von der Seite kontrolliert|czujniki zgłosiły ograniczenie instalacji; diagnostykę kontroluje strona|sensor melaporkan keterbatasan pemasangan; diagnostik dikendalikan halaman
+coverage_flag_throttled|Ereignisstrom gedrosselt|strumień zdarzeń ograniczony|aliran peristiwa dibatasi
+coverage_flag_unsupported_realm|einige Ausführungskontexte nicht unterstützt|niektóre konteksty wykonania nie są obsługiwane|beberapa konteks eksekusi tidak didukung
+coverage_flag_channel_gap|Lücke oder Konflikt im Seitenkanal; Daten werden von der Seite kontrolliert|luka lub konflikt kanału strony; dane kontroluje strona|celah atau konflik kanal halaman; data dikendalikan halaman
+coverage_flag_truncated|Details wegen des Speicherlimits gekürzt|szczegóły skrócono z powodu limitu pamięci|rincian dipangkas karena batas memori
+coverage_flag_paused|Beobachtung angehalten|obserwacja wstrzymana|pengamatan dijeda
+coverage_flag_revoked|Zugriff entzogen|dostęp cofnięty|akses dicabut
+coverage_flag_protocol_mismatch|Sensorversion veraltet, Seite neu laden|wersja czujnika jest przestarzała, odśwież stronę|versi sensor usang, muat ulang halaman
+coverage_flag_descriptor_nonconfigurable|einige APIs wegen geschützter Deskriptoren nicht beobachtbar|nie można obserwować niektórych API: chronione deskryptory|beberapa API tidak dapat diamati: deskriptor terlindungi
+coverage_flag_bridge_ring_overflow|Übertragungspuffer übergelaufen, einige Daten verloren|bufor przesyłania przepełniony, część danych utracono|buffer transfer meluap, sebagian data hilang
+coverage_flag_budget_exceeded|Datenlimit der Dokumentbeobachtung überschritten; einige Details nicht aufbewahrt|przekroczono limit danych obserwacji dokumentu; części szczegółów nie zachowano|batas data pengamatan dokumen terlampaui; sebagian rincian tidak disimpan
+coverage_flag_no_host_permission|Netzwerk durch Berechtigungen eingeschränkt|sieć ograniczona przez uprawnienia|jaringan dibatasi izin
+coverage_flag_restricted_page|eingeschränkte Browserseite|zastrzeżona strona przeglądarki|halaman browser dibatasi
+coverage_flag_worker_not_observed|Worker werden nicht beobachtet|workery nie są obserwowane|worker tidak diamati
+state_scope_off_title|Beobachtung ausgeschaltet|Obserwacja wyłączona|Pengamatan nonaktif
+state_no_report_title|Noch kein Bericht|Nie ma jeszcze raportu|Belum ada laporan
+state_no_report_desc|Für dieses Dokument liegen noch keine Beobachtungen vor. Wurde die Seite vor dem Aktivieren der Beobachtung geöffnet, laden Sie sie neu.|Nie ma jeszcze obserwacji tego dokumentu. Jeśli stronę otwarto przed włączeniem obserwacji, odśwież ją.|Belum ada pengamatan untuk dokumen ini. Jika halaman dibuka sebelum pengamatan diaktifkan, muat ulang.
+state_unsupported_chrome_title|Chrome-Version nicht unterstützt|Wersja Chrome nie jest obsługiwana|Versi Chrome tidak didukung
+state_sw_unavailable_title|Hintergrundprozess antwortet nicht|Proces w tle nie odpowiada|Proses latar belakang tidak merespons
+state_sw_unavailable_desc|Der Hintergrundprozess hat nicht geantwortet. Schließen und öffnen Sie dieses Fenster erneut. Bleibt der Fehler bestehen, starten Sie die Erweiterung neu.|Proces rozszerzenia w tle nie odpowiedział. Zamknij i ponownie otwórz okno; jeśli błąd się powtarza, uruchom rozszerzenie ponownie.|Proses latar belakang ekstensi tidak menjawab. Tutup dan buka kembali jendela ini; jika kesalahan berlanjut, mulai ulang ekstensi.
+status_active|Beobachtung läuft|obserwacja trwa|sedang mengamati
+status_partial|teilweise|częściowo|sebagian
+status_late_start|verspäteter Start|późny start|mulai terlambat
+status_paused|angehalten|wstrzymane|dijeda
+status_unsupported|nicht verfügbar|niedostępne|tidak tersedia
+status_no_access|kein Zugriff|brak dostępu|tidak ada akses
+status_degraded|eingeschränkt|ograniczone|terbatas
+status_off|aus|wyłączone|nonaktif
+status_no_report|kein Bericht|brak raportu|tidak ada laporan
+status_error|Fehler|błąd|kesalahan
+host_unknown|Host unbekannt|nieznany host|host tidak diketahui
+observed_since|Beobachtet seit $TIME$|Obserwowane od $TIME$|Diamati sejak $TIME$
+document_label|Dokument|Dokument|Dokumen
+empty_no_findings|Keine Funde im beobachteten Bereich in diesem Zeitraum|Brak ustaleń w obserwowanym obszarze w tym okresie|Tidak ada temuan di area yang diamati selama periode ini
+empty_no_findings_hint|Dies ist keine Bewertung der Website-Sicherheit. Prüfen Sie den oben angegebenen Beobachtungsumfang.|To nie jest ocena bezpieczeństwa witryny. Sprawdź obserwowany zakres powyżej.|Ini bukan penilaian keamanan situs. Periksa area yang diamati di atas.
+findings_title|Was die Erweiterung beobachtet hat|Co zauważyło rozszerzenie|Yang diamati ekstensi
+techniques_title|Beobachtete Techniken|Zaobserwowane techniki|Teknik yang diamati
+techniques_none|Im zugänglichen Bereich wurden keine Techniken beobachtet.|W dostępnym obszarze nie zaobserwowano technik.|Tidak ada teknik yang diamati di area yang dapat diakses.
+more_in_panel|$N$ weitere in der Seitenleiste|Jeszcze $N$ w panelu bocznym|$N$ lagi di panel samping
+level_observation|Beobachtung|Obserwacja|Pengamatan
+level_interpretation|Interpretation|Interpretacja|Interpretasi
+level_purpose|Allgemeiner Zweck|Ogólne przeznaczenie|Tujuan secara umum
+card_api_use_label|API verwendet|Użyto API|API digunakan
+card_api_use_generic|$API$ verwendet — $COUNT$|Użyto $API$ — $COUNT$|$API$ digunakan — $COUNT$
+card_api_use_canvas_export|Canvas-Export aufgerufen ($API$) — $COUNT$|Wywołano eksport Canvas ($API$) — $COUNT$|Ekspor Canvas dipanggil ($API$) — $COUNT$
+card_api_use_canvas_readback|Canvas-Pixelauslesen aufgerufen ($API$) — $COUNT$|Wywołano odczyt pikseli Canvas ($API$) — $COUNT$|Pembacaan piksel Canvas dipanggil ($API$) — $COUNT$
+card_api_use_canvas_text|Canvas-Textmessung oder -zeichnen — $COUNT$|Wywołania pomiaru lub rysowania tekstu Canvas — $COUNT$|Panggilan pengukuran atau penggambaran teks Canvas — $COUNT$
+card_api_use_offscreen|OffscreenCanvas im Dokument verwendet — $COUNT$|Użyto OffscreenCanvas w dokumencie — $COUNT$|OffscreenCanvas digunakan dalam dokumen — $COUNT$
+card_api_use_math|Serie von Math.*-Aufrufen — $COUNT$|Seria wywołań Math.* — $COUNT$|Rangkaian panggilan Math.* — $COUNT$
+card_api_use_webrtc|WebRTC-API verwendet ($API$) — $COUNT$|Użycie API WebRTC ($API$) — $COUNT$|Penggunaan API WebRTC ($API$) — $COUNT$
+card_api_use_local_probe|Lokale Verbindungsversuche — $COUNT$|Próby połączeń lokalnych — $COUNT$|Upaya koneksi lokal — $COUNT$
+card_api_use_dns|Anfragen an eindeutige Subdomains — $COUNT$|Żądania do unikatowych subdomen — $COUNT$|Permintaan ke subdomain unik — $COUNT$
+card_api_use_attempt_only|Nur ein Versuch: Der Aufruf warf eine Ausnahme; die Seite erhielt kein Ergebnis.|Tylko próba: wywołanie zgłosiło wyjątek, nie zwrócono wyniku stronie.|Hanya percobaan: panggilan melempar pengecualian, tidak ada hasil yang dikembalikan ke halaman.
+card_api_use_generic_note|Ein API-Aufruf allein ist gewöhnlich und beweist kein Tracking.|Samo wywołanie API jest zwyczajne i nie dowodzi śledzenia.|Panggilan API itu sendiri merupakan hal biasa dan tidak membuktikan pelacakan.
+card_api_use_purpose|Dieser Mechanismus kann allgemein zur Wiedererkennung eines Browsers verwendet werden.|Ten mechanizm może ogólnie służyć do rozpoznawania przeglądarki.|Secara umum mekanisme ini dapat digunakan untuk mengenali browser.
+card_purpose_local_probe|Lokale Verbindungen können gewöhnliche App-Integrationen oder Prüfungen lokaler Dienste unterstützen. Der Zweck der Seite ist nicht festgestellt.|Połączenia lokalne mogą obsługiwać zwykłe integracje aplikacji lub kontrole lokalnych usług. Nie ustalono celu strony.|Koneksi lokal dapat mendukung integrasi aplikasi biasa atau pemeriksaan layanan lokal. Tujuan halaman belum dipastikan.
+card_purpose_dns|Eine solche Serie kann allgemein zum Testen des DNS-Resolvers verwendet werden.|Taka seria może ogólnie służyć do testowania resolvera DNS.|Secara umum rangkaian seperti ini dapat digunakan untuk menguji resolver DNS.
+card_fp_label|Anzeichen einer Fingerprint-Berechnung|Oznaki obliczania odcisku przeglądarki|Tanda perhitungan sidik browser
+card_fp_generic|Die Aufrufserie ähnelt einer Fingerprint-Erstellung|Sekwencja wywołań przypomina tworzenie odcisku przeglądarki|Urutan panggilan menyerupai pembuatan sidik browser
+card_fp_canvas_sequence|Auslesen nach dem Zeichnen von Text ähnelt einer Fingerprint-Erstellung|Seria odczytów po rysowaniu tekstu przypomina tworzenie odcisku przeglądarki|Rangkaian pembacaan setelah menggambar teks menyerupai pembuatan sidik browser
+card_fp_math_sequence|Eine Serie numerischer Prüfungen ähnelt einem bekannten Muster|Seria kontroli liczbowych przypomina znany wzorzec|Rangkaian pemeriksaan numerik menyerupai pola yang dikenal
+card_fp_local_probe|Versuche an verschiedenen Ports derselben lokalen Adresse ähneln einem Portscan.|Seria prób połączenia z różnymi portami tego samego adresu lokalnego przypomina skanowanie portów.|Rangkaian percobaan ke berbagai port pada alamat lokal yang sama menyerupai pemindaian port.
+inspector_group_local_probe|Lokale Portprüfungen|Kontrole portów lokalnych|Pemeriksaan port lokal
+inspector_local_probe_desc|Versuche an lokalen Adressen oder Ports wurden beobachtet. Ein einzelner Versuch belegt keinen Scan. Die Beobachtungen zeigen nicht, ob ein Port offen ist oder ein Dienst erreicht wurde.|Zaobserwowano próby kontaktu z lokalnymi adresami lub portami. Pojedyncza próba nie dowodzi skanowania. Obserwacje nie pokazują, czy port jest otwarty ani czy dotarto do usługi.|Upaya menghubungi alamat atau port lokal diamati. Satu upaya tidak memastikan pemindaian. Pengamatan ini tidak menunjukkan apakah port terbuka atau layanan berhasil dihubungi.
+card_local_probe_attempt|Lokaler Verbindungsversuch|Próba połączenia lokalnego|Upaya koneksi lokal
+card_local_probe_pattern|Möglicher Portscan|Możliwe skanowanie portów|Kemungkinan pemindaian port
+card_fp_dns_pattern|Eine Serie von Anfragen an eindeutige Subdomains wurde beobachtet, wie sie bei DNS-Tests vorkommt. Der verwendete Resolver ist der Erweiterung unbekannt.|Zaobserwowano serię żądań do unikatowych subdomen; zdarza się to w testach DNS. Rozszerzenie nie zna użytego resolvera.|Rangkaian permintaan ke subdomain unik diamati; hal ini terjadi pada pengujian DNS. Resolver yang digunakan tidak diketahui oleh ekstensi.
+card_fp_webrtc|Die Seite verwendete WebRTC. Dieser Mechanismus kann auf Netzwerkinformationen zugreifen.|Strona użyła WebRTC. Ten mechanizm może uzyskiwać informacje o sieci.|Halaman menggunakan WebRTC. Mekanisme ini dapat mengakses informasi jaringan.
+card_fp_not_proven|Zweck, Eindeutigkeit und Übertragung des Ergebnisses sind durch diese Beobachtung nicht nachgewiesen.|Ta obserwacja nie ustala celu, unikatowości ani przesłania wyniku.|Tujuan, keunikan, dan pengiriman hasil belum dipastikan oleh pengamatan ini.
+card_fp_alternatives|Gewöhnliche Erklärungen: $ALTERNATIVES$|Zwykłe wyjaśnienia: $ALTERNATIVES$|Penjelasan biasa: $ALTERNATIVES$
+card_fp_insufficient|Nicht genug Daten für eine Schlussfolgerung|Za mało danych do wniosku|Data tidak cukup untuk kesimpulan
+confidence_low|Geringe Interpretationssicherheit|Niska pewność interpretacji|Keyakinan interpretasi rendah
+confidence_medium|Mittlere Interpretationssicherheit|Średnia pewność interpretacji|Keyakinan interpretasi sedang
+confidence_high|Hohe Interpretationssicherheit|Wysoka pewność interpretacji|Keyakinan interpretasi tinggi
+confidence_unassessed|Sicherheit nicht bewertet|Pewność nie została oceniona|Keyakinan belum dinilai
+card_vendor_found|Anzeichen einer $VENDOR$-Integration gefunden|Znaleziono oznaki integracji $VENDOR$|Tanda integrasi $VENDOR$ ditemukan
+card_vendor_purpose|Dienstzweck: $PURPOSE$. Keine Bewertung der Website-Sicherheit.|Przeznaczenie usługi: $PURPOSE$. To nie jest ocena bezpieczeństwa witryny.|Tujuan layanan: $PURPOSE$. Ini bukan penilaian keamanan situs.
+card_vendor_threatmetrix_purpose|Risikobewertung und digitale Identität|ocena ryzyka i tożsamość cyfrowa|penilaian risiko dan identitas digital
+card_vendor_purpose_generic|Botschutz, Risikobewertung oder Identifizierung|ochrona przed botami, ocena ryzyka lub identyfikacja|perlindungan dari bot, penilaian risiko, atau identifikasi
+card_vendor_rules|Regeln: $RULES$; Quelle der Übereinstimmung: $SOURCE$|Reguły: $RULES$; źródło dopasowania: $SOURCE$|Aturan: $RULES$; sumber kecocokan: $SOURCE$
+card_vendor_match_documented_resource|Übereinstimmung mit dokumentierter Ressource|dopasowanie do udokumentowanego zasobu|kecocokan dengan sumber daya yang didokumentasikan
+card_vendor_match_multi_signal|mehrere unabhängige Signale|kilka niezależnych sygnałów|beberapa sinyal independen
+card_vendor_match_weak_signal|Integrationselement gefunden (schwaches Signal, von der Seite fälschbar)|znaleziono element integracji (słaby sygnał, może być sfałszowany przez stronę)|elemen integrasi ditemukan (sinyal lemah, dapat dipalsukan halaman)
+card_vendor_match_none|keine Übereinstimmung|brak dopasowania|tidak ada kecocokan
+card_vendor_not_linked|Eine Verbindung zwischen diesem Dienst und anderen Seitenbeobachtungen ist nicht nachgewiesen.|Nie ustalono związku tej usługi z innymi obserwacjami strony.|Hubungan antara layanan ini dan pengamatan lain di halaman belum dipastikan.
+card_vendor_resource_note|Die Übereinstimmung betrifft eine angeforderte Ressource. Sie beweist nicht, dass Dienstcode ausgeführt wurde oder die beobachteten API-Aufrufe verursacht hat.|Dopasowanie dotyczy żądanego zasobu. Nie dowodzi wykonania kodu usługi ani spowodowania obserwowanych wywołań API.|Kecocokan menyangkut sumber daya yang diminta. Ini tidak membuktikan kode layanan berjalan atau menyebabkan panggilan API yang diamati.
+card_vendor_unknown|Anbieter unbekannt|Nieznany dostawca|Penyedia tidak diketahui
+card_vendor_no_trust|Ein erkannter Dienst ist keine Bewertung der Website-Sicherheit und bedeutet nicht, dass er sämtliche Prüfungen ausführt.|Rozpoznana usługa nie jest oceną bezpieczeństwa witryny i nie oznacza, że wykonuje wszystkie kontrole.|Layanan yang dikenali bukan penilaian keamanan situs dan tidak berarti layanan itu menjalankan semua pemeriksaan.
+integrity_browser_observed|Vom Browser beobachtet|Zaobserwowane przez przeglądarkę|Diamati oleh browser
+integrity_page_controlled|Daten aus dem Seitenkontext, fälschbar|Dane z kontekstu strony, mogą być sfałszowane|Data dari konteks halaman, dapat dipalsukan
+integrity_derived|Von der Erweiterung abgeleitet|Wywnioskowane przez rozszerzenie|Ditentukan oleh ekstensi
+evidence_browser_network|Netzwerkereignisse des Browsers|zdarzenia sieciowe przeglądarki|peristiwa jaringan browser
+evidence_browser_navigation|Browsernavigation|nawigacja przeglądarki|navigasi browser
+evidence_page_hook|API-Hook im Seitenkontext|hook API w kontekście strony|hook API dalam konteks halaman
+evidence_page_dom|Seiten-DOM|DOM strony|DOM halaman
+evidence_derived|abgeleitet|wywnioskowane|hasil turunan
+attribution_exact_resource|Aufrufquelle: genaue Ressource|Źródło wywołania: dokładny zasób|Sumber panggilan: sumber daya tepat
+attribution_sampled_stack|Aufrufquelle aus Stack-Stichprobe (kann irreführen)|Źródło wywołania z próbki stosu (może być mylące)|Sumber panggilan dari sampel stack (dapat menyesatkan)
+attribution_frame_only|Nur der Frame ist bekannt|Znana jest tylko ramka|Hanya bingkai yang diketahui
+attribution_unknown|Aufrufquelle unbekannt|Nieznane źródło wywołania|Sumber panggilan tidak diketahui
+count_exact|genaue Anzahl|dokładny licznik|jumlah tepat
+count_sampled|Stichprobenzähler|licznik próbkowany|jumlah berbasis sampel
+count_lower_bound|mindestens, Daten verloren|co najmniej, utracono dane|setidaknya, ada data hilang
+count_value_sampled|etwa $N$ (Stichprobe)|około $N$ (próbkowanie)|sekitar $N$ (sampel)
+count_value_lower_bound|mindestens $N$|co najmniej $N$|setidaknya $N$
+phase_attempted|versucht|próba|dicoba
+phase_returned_sync|Ergebnis zurückgegeben|wynik zwrócony|hasil dikembalikan
+phase_threw_sync|Ausnahme ausgelöst|wyjątek|pengecualian dilempar
+phase_async_returned|asynchrones Ergebnis|wynik asynchroniczny|hasil asinkron
+phase_settlement_unobserved|Abschluss nicht beobachtet|zakończenie niezaobserwowane|penyelesaian tidak diamati
+detail_show|Details|Szczegóły|Rincian
+detail_api|API|API|API
+detail_technique|Technik|Technika|Teknik
+detail_category|Kategorie|Kategoria|Kategori
+detail_evidence|Datenquelle|Źródło danych|Sumber data
+detail_rule|Regel|Reguła|Aturan
+detail_finding_id|Fund|Ustalenie|Temuan
+detail_evidence_ids|Beobachtungen|Obserwacje|Pengamatan
+detail_counts|Zähler|Liczniki|Penghitung
+detail_phases|Phasen|Fazy|Fase
+detail_limitations|Grenzen|Ograniczenia|Batasan
+detail_alternatives|Gewöhnliche Erklärungen|Zwykłe wyjaśnienia|Penjelasan biasa
+detail_attribution|Zuordnung|Atrybucja|Atribusi
+detail_none|keine|brak|tidak ada
+category_graphics|Grafik, Geometrie, Schriften|Grafika, geometria, czcionki|Grafik, geometri, font
+category_audio|Audio, Medien und Berechnungen|Audio, multimedia i obliczenia|Audio, media, dan komputasi
+category_environment|Browserumgebung, Bildschirm und Sprache|Środowisko przeglądarki, ekran i język|Lingkungan browser, layar, dan bahasa
+category_permissions|Berechtigungen, Geräte, Interaktionen|Uprawnienia, urządzenia, interakcje|Izin, perangkat, interaksi
+category_storage|Speicher und Kennungen|Pamięć i identyfikatory|Penyimpanan dan pengenal
+category_network|Netzwerk (ausdrücklich unvollständige Abdeckung)|Sieć (jawnie niepełne pokrycie)|Jaringan (cakupan jelas tidak lengkap)
+action_pause|Beobachtung im aktuellen Dokument anhalten|Wstrzymaj obserwację bieżącego dokumentu|Jeda pengamatan di dokumen saat ini
+action_resume|Beobachtung fortsetzen|Wznów obserwację|Lanjutkan pengamatan
+action_reload|Zum Analysieren von Anfang an neu laden|Odśwież, aby analizować od początku|Muat ulang untuk menganalisis dari awal
+action_clear|Bericht dieses Dokuments löschen|Usuń raport tego dokumentu|Hapus laporan dokumen ini
+action_export|Exportieren (Vorschau)|Eksport (podgląd)|Ekspor (pratinjau)
+action_refresh|Aktualisieren|Odśwież|Segarkan
+action_apply|Anwenden|Zastosuj|Terapkan
+action_cancel|Abbrechen|Anuluj|Batal
+action_dismiss|Schließen|Zamknij|Tutup
+open_sidepanel|Seitenleiste öffnen|Otwórz panel boczny|Buka panel samping
+open_options|Einstellungen|Ustawienia|Pengaturan
+export_preview_title|Exportvorschau|Podgląd eksportu|Pratinjau ekspor
+export_preview_desc|Nur die folgenden Felder werden aufgenommen (bereinigt). Vollständige URLs, Cookie-Werte, API-Ergebnisse und Eingabeinhalte sind nicht enthalten.|Uwzględniane są tylko poniższe pola po usunięciu danych wrażliwych. Pełne URL, wartości cookies, wyniki API i treść wprowadzona przez użytkownika są pomijane.|Hanya bidang di bawah yang disertakan setelah penyamaran. URL lengkap, nilai cookie, hasil API, dan isi masukan tidak disertakan.
+export_host_warning|Die Datei enthält den Seitenhost: $HOST$. Geben Sie sie nicht unnötig weiter.|Plik zawiera host strony: $HOST$. Nie udostępniaj go bez potrzeby.|Berkas berisi host halaman: $HOST$. Jangan bagikan tanpa kebutuhan.
+export_fields_title|Dateifelder|Pola pliku|Bidang berkas
+export_json_title|Vollständiger JSON-Inhalt|Pełna zawartość JSON|Isi JSON lengkap
+export_save|Datei speichern|Zapisz plik|Simpan berkas
+export_document_changed|Das Dokument wurde ersetzt. Öffnen Sie die Vorschau erneut.|Dokument się zmienił. Otwórz podgląd ponownie.|Dokumen berubah. Buka pratinjau lagi.
+export_unavailable|Export nicht verfügbar: kein Seitenzugriff oder kein Bericht.|Eksport niedostępny: brak dostępu do strony lub raportu.|Ekspor tidak tersedia: tidak ada akses ke halaman atau laporan.
+export_saved|Datei gespeichert.|Plik zapisano.|Berkas disimpan.
+export_not_implemented|Der Hintergrundprozess unterstützt die Exportvorschau noch nicht.|Proces w tle nie obsługuje jeszcze podglądu eksportu.|Proses latar belakang belum mendukung pratinjau ekspor.
+mode_off|Aus|Wyłączone|Nonaktif
+mode_off_desc|Hintergrundbeobachtung ausgeschaltet. Es werden keine Berichte erstellt.|Obserwacja w tle jest wyłączona. Raporty nie są tworzone.|Pengamatan latar belakang nonaktif. Laporan tidak dibuat.
+mode_active_tab|Ab jetzt prüfen|Sprawdzaj od teraz|Periksa mulai sekarang
+mode_active_tab_desc|Beobachtungen ab der Aktivierung; frühe Aufrufe können fehlen.|Obserwacje po włączeniu; wczesne wywołania mogły zostać pominięte.|Pengamatan setelah aktivasi; panggilan awal mungkin terlewat.
+mode_site|Immer auf dieser Website|Zawsze w tej witrynie|Selalu di situs ini
+mode_site_desc|Frühe Aufrufe in erlaubten Dokumenten beim nächsten Laden; fremde Netzwerkanfragen können nur teilweise sichtbar sein.|Wczesne wywołania w dozwolonych dokumentach przy kolejnym ładowaniu; sieć podmiotów trzecich może być widoczna częściowo.|Panggilan awal di dokumen yang diizinkan pada pemuatan berikutnya; jaringan pihak ketiga mungkin terlihat sebagian.
+mode_all|Auf allen Websites beobachten|Obserwuj we wszystkich witrynach|Amati di semua situs
+mode_all_desc|Größter Zugriffsbereich, ohne vollständige Abdeckung von Workern, DNS oder serverseitiger Logik zu versprechen.|Najszerszy dostęp, bez obietnicy pełnego pokrycia workerów, DNS lub logiki serwerowej.|Akses terluas tanpa menjanjikan cakupan penuh worker, DNS, atau logika server.
+scope_permission_denied|Berechtigung nicht erteilt. Der Umfang bleibt unverändert.|Nie przyznano uprawnienia. Zakres pozostaje bez zmian.|Izin tidak diberikan. Cakupan tidak berubah.
+scope_permission_granted_reload|Zugriff erteilt. Laden Sie zum Analysieren von Anfang an neu.|Przyznano dostęp. Odśwież stronę, aby analizować od początku.|Akses diberikan. Muat ulang halaman untuk menganalisis dari awal.
+scope_site_host_unknown|Der aktuelle Seitenhost ist unbekannt: Aktivieren Sie zuerst „Ab jetzt prüfen“ oder geben Sie den Host in den Einstellungen ein.|Host bieżącej strony jest nieznany: najpierw włącz „Sprawdzaj od teraz” lub wpisz host w ustawieniach.|Host halaman aktif tidak diketahui: aktifkan “Periksa mulai sekarang” terlebih dahulu atau masukkan host di pengaturan.
+scope_host_input_label|Website-Host|Host witryny|Host situs
+scope_host_invalid|Geben Sie einen Host ein, z. B. example.com|Wpisz host, na przykład example.com|Masukkan host, misalnya example.com
+scope_current|Aktueller Umfang: $MODE$|Bieżący zakres: $MODE$|Cakupan saat ini: $MODE$
+scope_hosts_list|Dauerhaft beobachtete Websites|Witryny stale obserwowane|Situs yang selalu diamati
+scope_hosts_none|keine|brak|tidak ada
+scope_granted_all|Der Browser hat umfassenden Website-Zugriff erteilt.|Przeglądarka przyznała szeroki dostęp do witryn.|Browser memberikan akses situs secara luas.
+scope_error|Umfang konnte nicht geändert werden: $CODE$|Nie udało się zmienić zakresu: $CODE$|Tidak dapat mengubah cakupan: $CODE$
+scope_applied|Beobachtungsumfang aktualisiert.|Zakres obserwacji zaktualizowano.|Cakupan pengamatan diperbarui.
+scope_applied_reload|Beobachtungsumfang aktualisiert. Laden Sie neu, um ab dem Seitenstart zu beobachten.|Zakres obserwacji zaktualizowano. Odśwież stronę, aby obserwować od początku ładowania.|Cakupan pengamatan diperbarui. Muat ulang halaman untuk mengamati sejak pemuatan.
+options_onboarding_title|Was die Erweiterung macht|Co robi rozszerzenie|Fungsi ekstensi
+onboarding_limits|Die Standardbeobachtung bewahrt API-Ergebnisse. Optionale API-Sperren bleiben bis zur ausdrücklichen Aktivierung aus und können Websites beschädigen. Wrapper sind erkennbar und verursachen Laufzeitaufwand; vollständige Abdeckung wird nicht zugesichert.|Domyślna obserwacja zachowuje wyniki API. Opcjonalne blokowanie API pozostaje wyłączone do jawnego włączenia i może zakłócać działanie witryn. Wrappery są wykrywalne i zwiększają czas wykonania; pełne pokrycie nie jest obiecane.|Pemantauan bawaan mempertahankan hasil API. Pemblokiran API opsional nonaktif sampai Anda mengaktifkannya secara eksplisit dan dapat mengganggu situs. Pembungkus tetap dapat dideteksi dan menambah waktu eksekusi; cakupan penuh tidak dijanjikan.
+onboarding_no_server|Die Erweiterung sendet keine Analyseergebnisse und kontaktiert keine Entwicklerserver.|Rozszerzenie nie wysyła wyników analizy ani nie łączy się z serwerami dewelopera.|Ekstensi tidak mengirim hasil analisis dan tidak menghubungi server pengembang.
+options_clear_session|Sitzungsdaten löschen|Wyczyść dane sesji|Hapus data sesi
+options_clear_session_desc|Löscht alle Dokumentberichte aus dem Sitzungsspeicher. Einstellungen bleiben erhalten.|Usuwa wszystkie raporty dokumentów z pamięci sesji. Ustawienia są zachowywane.|Menghapus semua laporan dokumen dari memori sesi. Pengaturan tetap disimpan.
+options_clear_done|Sitzungsdaten gelöscht.|Dane sesji usunięto.|Data sesi dihapus.
+options_clear_unavailable|Diese Aktion ist in diesem Build noch nicht verfügbar.|Ta czynność nie jest jeszcze dostępna w tej kompilacji.|Tindakan ini belum tersedia dalam build ini.
+options_inventory_title|Welche Daten gespeichert werden|Jakie dane są przechowywane|Data yang disimpan
+inventory_session|Dokumentberichte liegen nur im Sitzungsspeicher (chrome.storage.session). Nach 10 Minuten Inaktivität werden sie beim nächsten Erweiterungsereignis gelöscht; Prüfungen erfolgen höchstens alle 30 Sekunden, nicht exakt nach 10 Minuten. Auch das Schließen eines Tabs löst die Löschung aus; ein Browserneustart leert die Sitzung.|Raporty dokumentów znajdują się tylko w pamięci sesji (chrome.storage.session). Po 10 minutach bezczynności są usuwane przy następnym zdarzeniu rozszerzenia, z kontrolą najwyżej raz na 30 sekund, nie dokładnie po 10 minutach. Zamknięcie karty także uruchamia usuwanie; ponowne uruchomienie przeglądarki czyści sesję.|Laporan dokumen hanya berada di memori sesi (chrome.storage.session). Setelah tidak aktif selama 10 menit, data dihapus pada peristiwa ekstensi berikutnya, dengan pemeriksaan paling sering setiap 30 detik, bukan tepat setelah 10 menit. Menutup tab juga memicu penghapusan; memulai ulang browser menghapus sesi.
+inventory_local|Einstellungen (Beobachtungsumfang, gewählte Websites und Oberflächensprache) bleiben bis zur Löschung in chrome.storage.local.|Ustawienia (zakres obserwacji, wybrane witryny i język interfejsu) pozostają w chrome.storage.local do usunięcia.|Pengaturan (cakupan pengamatan, situs pilihan, dan bahasa antarmuka) tetap di chrome.storage.local sampai Anda menghapusnya.
+inventory_never|Nie gespeichert: Audiosamples, Math-Argumente und -Ergebnisse, vollständige URLs, Cookie-Werte, Anfrageheader und -inhalte, Tastendrücke, Formulartext sowie Client- und Peer-IP-Adressen. Canvas-/WebGL-Bilder bleiben nur im RAM. Konfigurierte ICE-Server-Endpunkte nutzen getrennten begrenzten Sitzungsspeicher.|Nigdy nie są zapisywane: próbki audio, argumenty i wyniki Math, pełne URL, wartości cookies, nagłówki i treści żądań, naciśnięcia klawiszy, tekst formularzy ani adresy IP klienta i peerów. Obrazy Canvas/WebGL pozostają wyłącznie w pamięci. Skonfigurowane endpointy serwerów ICE używają osobnej ograniczonej pamięci sesji.|Tidak pernah disimpan: sampel audio, argumen dan hasil Math, URL lengkap, nilai cookie, header dan isi permintaan, ketukan tombol, teks formulir, serta alamat IP klien dan peer. Gambar Canvas/WebGL hanya berada di memori. Endpoint server ICE yang dikonfigurasi menggunakan penyimpanan sesi terbatas yang terpisah.
+inventory_export|Light-Modus (JSON): Die Exportdatei enthält nur Felder aus der Vorschau. Der Seitenhost fehlt, sofern Sie ihn nicht ausdrücklich einschließen; Bilder und WebRTC-Verbindungsdetails werden nicht exportiert.|Tryb Light (JSON): plik eksportu zawiera tylko pola pokazane w podglądzie. Host strony jest pomijany, o ile jawnie go nie dołączysz; obrazy i szczegóły połączeń WebRTC nie są eksportowane.|Mode Light (JSON): berkas ekspor hanya berisi bidang yang ditampilkan dalam pratinjau. Host halaman dikecualikan kecuali Anda menyertakannya secara eksplisit; gambar dan rincian koneksi WebRTC tidak diekspor.
+inventory_sync|Keine Chrome-Kontosynchronisierung, Festplatten oder externen Server.|Synchronizacja konta Chrome, dysk i serwery zewnętrzne nie są używane.|Sinkronisasi akun Chrome, disk, dan server eksternal tidak digunakan.
+inventory_link|Vollständiges Inventar: docs/data-inventory.md im Projekt-Repository.|Pełny wykaz: docs/data-inventory.md w repozytorium projektu.|Inventaris lengkap: docs/data-inventory.md dalam repositori proyek.
+tab_overview|Übersicht|Przegląd|Ringkasan
+tab_techniques|Techniken|Techniki|Teknik
+tab_sources|Quellen|Źródła|Sumber
+tab_limits|Grenzen|Ograniczenia|Batasan
+group_techniques|Techniken|Techniki|Teknik
+group_services|Dienste|Usługi|Layanan
+group_third_party|Drittanbieterquellen|Źródła podmiotów trzecich|Sumber pihak ketiga
+counts_unavailable|keine Daten in der Projektion|brak danych w projekcji|tidak ada data dalam proyeksi
+search_label|Techniken und APIs suchen|Szukaj technik i API|Cari teknik dan API
+search_placeholder|Technik, API oder Regel|Technika, API lub reguła|Teknik, API, atau aturan
+search_empty|Keine Treffer für die Suche|Brak wyników zapytania|Tidak ada hasil yang cocok
+sources_hosts_title|Hosts (vom Browser beobachtet)|Hosty (zaobserwowane przez przeglądarkę)|Host (diamati oleh browser)
+sources_none|Die Drittanbieter-Hostliste ist in dieser Berichtsprojektion nicht verfügbar. Netzwerkereignisse sind nur mit Berechtigung für Website und Anfragequelle sichtbar.|Lista hostów podmiotów trzecich nie jest dostępna w tej projekcji raportu. Zdarzenia sieciowe są widoczne tylko przy uprawnieniu do witryny i źródła żądania.|Daftar host pihak ketiga tidak tersedia dalam proyeksi laporan ini. Peristiwa jaringan hanya terlihat dengan izin untuk situs dan sumber permintaan.
+sources_requests|Anfragen: $N$|żądania: $N$|permintaan: $N$
+dropped_title|Wegen Limits verworfen|Odrzucone z powodu limitów|Dibuang karena batas
+dropped_observations|Beobachtungen|obserwacje|pengamatan
+dropped_batches|Pakete|partie|batch
+dropped_findings|Funde|ustalenia|temuan
+dropped_hosts|Hosts|hosty|host
+dropped_counters|Zähler|liczniki|penghitung
+dropped_transport|Übertragung|transport|transport
+error_invalid_request|Ungültige Anfrage|Nieprawidłowe żądanie|Permintaan tidak valid
+error_unauthorized_sender|Nicht autorisierter Absender|Nieuprawniony nadawca|Pengirim tidak berwenang
+error_not_found|Bericht nicht gefunden: Das Dokument könnte ersetzt worden sein|Nie znaleziono raportu: dokument mógł się zmienić|Laporan tidak ditemukan: dokumen mungkin berubah
+error_stale_revision|Bericht geändert, Aktion abgebrochen|Raport się zmienił, czynność anulowano|Laporan berubah, tindakan dibatalkan
+error_document_mismatch|Dokument ersetzt, Aktion abgebrochen|Dokument się zmienił, czynność anulowano|Dokumen berubah, tindakan dibatalkan
+error_no_access|Kein Zugriff auf die Seite|Brak dostępu do strony|Tidak ada akses ke halaman
+error_not_implemented|Aktion noch nicht unterstützt|Czynność nie jest jeszcze obsługiwana|Tindakan belum didukung
+error_unavailable|Hintergrundprozess hat nicht geantwortet|Proces w tle nie odpowiedział|Proses latar belakang tidak merespons
+scope_active_tab_toolbar|Öffnen Sie zur Beobachtung des aktuellen Tabs die Erweiterung über ihre Chrome-Symbolleistenschaltfläche und wählen Sie „Ab jetzt prüfen“.|Aby rozpocząć obserwację bieżącej karty, otwórz rozszerzenie przyciskiem na pasku Chrome i wybierz „Sprawdzaj od teraz”.|Untuk mulai mengamati tab aktif, buka ekstensi melalui tombolnya di bilah alat Chrome dan pilih “Periksa mulai sekarang”.
+export_include_host|Seitenhost im Export einschließen:|Dołącz host strony do eksportu:|Sertakan host halaman dalam ekspor:
+vendors_catalog_unavailable|Dienstkatalog ausgeschaltet: keine Diensterkennung durchgeführt.|Katalog usług jest wyłączony: nie przeprowadzono rozpoznawania usług.|Katalog layanan dinonaktifkan: pengenalan layanan tidak dijalankan.
+limitation_page_controlled_evidence|Diese Beobachtungen stammen aus dem Seitenkontext und können von der Seite gefälscht werden.|Te obserwacje pochodzą z kontekstu strony i mogą być przez nią sfałszowane.|Pengamatan ini berasal dari konteks halaman dan dapat dipalsukan oleh halaman.
+limitation_purpose_unknown|Der Zweck der API-Aufrufe ist unbekannt.|Cel wywołań API jest nieznany.|Tujuan panggilan API tidak diketahui.
+limitation_uniqueness_not_established|Eindeutigkeit und Stabilität der Ergebnisse wurden nicht geprüft.|Nie sprawdzono unikatowości i stabilności wyników.|Keunikan dan kestabilan hasil belum diuji.
+limitation_readback_attempted_failed|Mindestens ein Leseversuch warf eine Ausnahme; erfolgreiches Lesen ist damit nicht nachgewiesen.|Co najmniej jedna próba odczytu zgłosiła wyjątek; nie dowodzi to udanego odczytu.|Setidaknya satu upaya pembacaan melempar pengecualian; ini tidak memastikan pembacaan berhasil.
+limitation_uncalibrated_threshold|Regelschwellen wurden noch nicht anhand eines Beispielkorpus kalibriert.|Progi reguł nie zostały jeszcze skalibrowane na zbiorze przykładów.|Ambang aturan belum dikalibrasi terhadap kumpulan contoh.
+limitation_coverage_incomplete|Beobachtung unvollständig; einige Aufrufe könnten fehlen.|Obserwacja jest niepełna; część wywołań mogła zostać pominięta.|Cakupan pengamatan tidak lengkap; sebagian panggilan mungkin terlewat.
+limitation_catalog_disabled|Dienstkatalog ausgeschaltet; Zusammenhänge zwischen Beobachtungen und Anbietern wurden nicht geprüft.|Katalog usług jest wyłączony; nie sprawdzono powiązań obserwacji z dostawcami.|Katalog layanan nonaktif; hubungan antara pengamatan dan penyedia tidak diperiksa.
+limitation_text_ops_undifferentiated|Textmessung und -zeichnen werden zusammen gezählt; einzelne Anzahlen sind unbekannt.|Pomiar i rysowanie tekstu są liczone razem; osobne liczby są nieznane.|Pengukuran dan penggambaran teks dihitung bersama; jumlah terpisah tidak diketahui.
+limitation_no_time_window|Zähler umfassen die Lebensdauer des Dokuments und zeigen keine Aktivität in einem gesonderten kurzen Intervall.|Liczniki obejmują czas życia dokumentu i nie pokazują aktywności w osobnym krótkim przedziale.|Penghitung mencakup masa hidup dokumen dan tidak menunjukkan aktivitas dalam interval pendek yang terpisah.
+alternative_high_volume_rendering|Viele Textoperationen kommen auch beim gewöhnlichen Bearbeiten oder Zeichnen von Diagrammen vor.|Dużo operacji na tekście może też występować przy zwykłej edycji lub rysowaniu wykresów.|Banyak operasi teks juga dapat terjadi saat mengedit biasa atau menggambar grafik.
+coverage_flag_network_limited|Netzwerkbeobachtung durch vorhandene Berechtigungen begrenzt|obserwacja sieci ograniczona dostępnymi uprawnieniami|pengamatan jaringan dibatasi izin yang tersedia
+coverage_flag_frames_inaccessible|Beobachtung einiger Frames eingeschränkt oder noch nicht bestätigt|obserwacja niektórych ramek jest ograniczona lub niepotwierdzona|pengamatan sebagian bingkai terbatas atau belum dipastikan
+aria_live_update|Bericht aktualisiert. Funde: $N$; Beobachtungszustand — $STATE$|Raport zaktualizowany. Ustalenia: $N$; stan obserwacji — $STATE$|Laporan diperbarui. Temuan: $N$; status pengamatan — $STATE$
+badge_tooltip|Beobachtete Techniken in diesem Tab und seinen Frames: $N$|Zaobserwowane techniki w tej karcie i jej ramkach: $N$|Teknik yang diamati di tab ini dan bingkainya: $N$
+coverage_sensor_disabled_desc|Sensor $SENSOR$ ist ausgeschaltet ($REASON$). Aufrufe dieser APIs werden nicht beobachtet.|Czujnik $SENSOR$ jest wyłączony ($REASON$). Wywołania tych API nie są obserwowane.|Sensor $SENSOR$ dinonaktifkan ($REASON$). Panggilan ke API ini tidak diamati.
+card_vendor_first_party|Anbietersignatur am Endpunkt der eigenen Website-Domain beobachtet|Sygnaturę dostawcy zaobserwowano w endpoincie własnej domeny witryny|Tanda penyedia diamati pada endpoint domain situs sendiri
+options_diagnostics_title|Erweiterungsdiagnose|Diagnostyka rozszerzenia|Diagnostik ekstensi
+options_diagnostics_desc|Nur Versionen und Hintergrundverfügbarkeit. Seitenadressen und Berichtsdaten sind ausgeschlossen.|Tylko wersje i dostępność procesu w tle. Adresy stron i dane raportów są pomijane.|Hanya versi dan ketersediaan proses latar belakang. Alamat halaman dan data laporan dikecualikan.
+options_diagnostics_preview|Diagnosebericht ansehen|Podgląd raportu diagnostycznego|Pratinjau laporan diagnostik
+frame_document_label|Angezeigtes Dokument|Wyświetlany dokument|Dokumen yang ditampilkan
+frame_main|Hauptdokument|Dokument główny|Dokumen utama
+frame_child|Eingebettete Seite $N$|Osadzona strona $N$|Halaman tertanam $N$
+frame_separate_hint|Beobachtungen beziehen sich auf das gewählte Dokument. Dokumente werden nicht zusammengefasst.|Obserwacje dotyczą wybranego dokumentu. Dokumenty nie są łączone.|Pengamatan mengacu pada dokumen yang dipilih. Dokumen tidak digabung.
+frame_limit_hint|Nur die ersten 128 Dokumente werden aufgelistet. Weitere eingebettete Seiten können vorhanden sein.|Wyświetlanych jest tylko pierwszych 128 dokumentów. Może być więcej osadzonych stron.|Hanya 128 dokumen pertama yang dicantumkan. Halaman tertanam lainnya mungkin ada.
+visual_title|Von der Seite ausgelesenes Bild|Obraz odczytany przez stronę|Gambar yang dibaca halaman
+visual_consent|Bereits von der Seite ausgelesene unterstützte Bilder werden während der ersten 60 Beobachtungssekunden automatisch erfasst. Bilder bleiben im RAM und fehlen in Berichten und Exporten.|Obsługiwane obrazy już odczytane przez stronę są automatycznie przechwytywane przez pierwsze 60 sekund obserwacji. Pozostają w pamięci i są wyłączone z raportów oraz eksportów.|Gambar yang didukung dan sudah dibaca halaman ditangkap otomatis selama 60 detik pertama pengamatan. Gambar tetap di memori dan tidak disertakan dalam laporan atau ekspor.
+visual_enable|Bilder 60 Sekunden anzeigen|Pokaż obrazy przez 60 sekund|Tampilkan gambar selama 60 detik
+visual_enable_reload|Aktivieren und Seite neu laden|Włącz i odśwież stronę|Aktifkan dan muat ulang halaman
+visual_disable|Bilder ausblenden und löschen|Ukryj i usuń obrazy|Sembunyikan dan hapus gambar
+visual_reload_scope|Wählen Sie zuerst die dauerhafte Beobachtung dieser Website, um Prüfungen beim Seitenladen zu erfassen.|Aby przechwycić kontrolę podczas ładowania, najpierw wybierz stałą obserwację tej witryny.|Untuk menangkap pemeriksaan saat pemuatan halaman, pilih pengamatan tetap untuk situs ini terlebih dahulu.
+visual_remaining|Bildvorschau aktiv: noch $N$ Sekunden|Podgląd obrazów włączony: pozostało $N$ sekund|Pratinjau gambar aktif: tersisa $N$ detik
+visual_waiting|Warten auf ein unterstütztes Canvas- oder WebGL-Bild, das die Seite ausliest. Laden Sie zur Wiederholung ihrer Prüfung neu. Bilder von vor Beobachtungsbeginn lassen sich nicht wiederherstellen; eine leere Vorschau bedeutet nicht, dass keine Prüfungen stattfanden.|Oczekiwanie na obsługiwany obraz Canvas lub WebGL odczytany przez stronę. Odśwież stronę, aby powtórzyć jej kontrolę. Nie da się odzyskać obrazów sprzed obserwacji; pusty podgląd nie oznacza braku kontroli.|Menunggu gambar Canvas atau WebGL yang didukung dan dibaca halaman. Muat ulang halaman untuk mengulangi pemeriksaannya. Gambar sebelum pengamatan dimulai tidak dapat dipulihkan; pratinjau kosong tidak berarti tidak ada pemeriksaan.
+visual_untrusted|Quelle: von der Seite kontrollierte Pixel. Die Seite kann das Bild verändern; ein Bild allein belegt weder Fingerprinting noch Website-Sicherheit.|Źródło: piksele kontrolowane przez stronę. Strona może zmienić obraz; sam obraz nie dowodzi fingerprintingu ani bezpieczeństwa witryny.|Sumber: piksel yang dikendalikan halaman. Halaman dapat mengubah gambar; gambar saja tidak memastikan sidik browser atau keamanan situs.
+visual_canvas|Canvas-Bild|Obraz Canvas|Gambar Canvas
+visual_webgl|WebGL-Bild|Obraz WebGL|Gambar WebGL
+visual_source|$API$ · $WIDTH$ × $HEIGHT$ px|$API$ · $WIDTH$ × $HEIGHT$ px|$API$ · $WIDTH$ × $HEIGHT$ px
+visual_decode_error|Das empfangene Bild konnte nicht angezeigt werden. Format oder Abmessungen werden nicht unterstützt.|Nie udało się wyświetlić otrzymanego obrazu. Format lub wymiary nie są obsługiwane.|Gambar yang diterima tidak dapat ditampilkan. Format atau dimensinya tidak didukung.
+inspector_total|Beobachtete Untertechniken|Zaobserwowane podtechniki|Subteknik yang diamati
+inspector_other_documents|Techniken in anderen Dokumenten|Techniki w innych dokumentach|Teknik dalam dokumen lain
+inspector_other_documents_desc|Öffnen Sie eine Zeile, um das Dokument anzusehen. Zähler, Bilder und Exporte bleiben getrennt.|Otwórz wiersz, aby zobaczyć dokument. Liczniki, obrazy i eksporty pozostają osobne.|Buka baris untuk melihat dokumen tersebut. Jumlah, gambar, dan ekspor tetap terpisah.
+inspector_other_documents_limit|Diese Übersicht prüft die ersten $N$ anderen Dokumente. Verwenden Sie die Dokumentauswahl für weitere Frames.|Ten przegląd sprawdza pierwsze $N$ innych dokumentów. Użyj wyboru dokumentu, aby sprawdzić dalsze ramki.|Ringkasan ini memeriksa $N$ dokumen lain pertama. Gunakan pemilih dokumen untuk memeriksa bingkai tambahan.
+inspector_group|Technik|Technika|Teknik
+inspector_found|Gefunden|Znaleziono|Ditemukan
+inspector_group_canvas|Canvas|Canvas|Canvas
+inspector_group_webgl|WebGL|WebGL|WebGL
+inspector_group_webgpu|WebGPU|WebGPU|WebGPU
+inspector_group_clientrects|ClientRects / DOM-Geometrie|ClientRects / geometria DOM|ClientRects / geometri DOM
+inspector_group_svg_geometry|SVG-Geometrie|Geometria SVG|Geometri SVG
+inspector_group_fonts|Schriften|Czcionki|Font
+inspector_group_css_styles|CSS-Stile|Style CSS|Gaya CSS
+inspector_clientrects_desc|Rechteck- und Größenmessungen können Fingerprinting oder gewöhnliches Seitenlayout unterstützen. Zähler belegen keinen Zweck. Genaue Koordinaten werden nicht aufbewahrt.|Pomiary prostokątów i rozmiarów mogą służyć fingerprintingowi lub zwykłemu układowi strony. Liczniki nie ustalają celu. Dokładne współrzędne nie są zachowywane.|Pengukuran persegi panjang dan ukuran dapat mendukung sidik browser atau tata letak biasa. Jumlah ini tidak memastikan tujuannya. Koordinat tepat tidak disimpan.
+inspector_api_family_desc|Die API-Liste beschreibt eine Familie. Zähler unterscheiden weder einzelne Methoden noch Eigenschaften und belegen nicht den Aufrufzweck.|Lista API opisuje rodzinę. Liczniki nie rozróżniają poszczególnych metod ani właściwości i nie ustalają celu wywołań.|Daftar API menjelaskan suatu keluarga. Jumlah ini tidak membedakan metode atau properti individual dan tidak memastikan tujuan panggilan.
+inspector_group_math|Math|Math|Math
+inspector_group_audio|Audio / Medien|Audio / multimedia|Audio / media
+inspector_group_environment|Browser / Gerät|Przeglądarka / urządzenie|Browser / perangkat
+inspector_group_display|Bildschirm / Anzeige|Ekran / wyświetlacz|Layar / tampilan
+inspector_group_cpu|CPU-Kerne|Rdzenie CPU|Inti CPU
+inspector_group_memory|RAM|RAM|RAM
+inspector_group_performance|Leistung / Zeitmessung|Wydajność / pomiar czasu|Kinerja / waktu
+inspector_display_desc|Anfragen zu Bildschirm, Fenster und Monitor. Auflösung, Abmessungen und Skalierung werden nicht gespeichert; eine Anfrage belegt keinen Zugriff auf die Monitorliste.|Żądania informacji o ekranie, oknie i monitorze. Rozdzielczość, wymiary i skala nie są zachowywane; żądanie nie dowodzi dostępu do listy monitorów.|Permintaan informasi layar, jendela, dan monitor. Resolusi, dimensi, dan skala tidak disimpan; permintaan tidak memastikan akses ke daftar monitor.
+inspector_cpu_desc|hardwareConcurrency liefert eine Browserschätzung verfügbarer logischer Prozessoren. Lesezugriffe werden ohne Wert erfasst; die Zahl physischer CPU-Kerne wird nicht bestimmt.|hardwareConcurrency podaje szacowaną przez przeglądarkę liczbę dostępnych procesorów logicznych. Odczyty są rejestrowane bez wartości; liczba fizycznych rdzeni CPU nie jest ustalana.|hardwareConcurrency memberikan perkiraan browser tentang prosesor logis yang tersedia. Pembacaan dicatat tanpa nilainya; jumlah inti CPU fisik tidak ditentukan.
+inspector_memory_desc|Device Memory liefert eine ungefähre Speicherkategorie statt des genauen installierten RAM. Lesezugriffe werden ohne Aufbewahrung des Werts erfasst.|Device Memory podaje przybliżoną kategorię pamięci zamiast dokładnej ilości RAM. Odczyty są rejestrowane bez zachowania wartości.|Device Memory memberikan kategori memori perkiraan, bukan jumlah RAM terpasang yang tepat. Pembacaan dicatat tanpa menyimpan nilainya.
+inspector_performance_desc|Timer und Performance-APIs unterstützen Benchmarks, Animation und Analyse. Aufrufe werden ohne Messergebnisse erfasst; ihr Zweck wird nicht festgestellt.|Timery i API Performance służą testom wydajności, animacji i analizom. Wywołania są rejestrowane bez wyników pomiarów; nie ustala to ich celu.|Timer dan API Performance mendukung pengujian kinerja, animasi, dan analitik. Panggilan dicatat tanpa hasil pengukuran; pengamatan ini tidak memastikan tujuannya.
+inspector_group_permissions|Berechtigungen / Sensoren|Uprawnienia / czujniki|Izin / sensor
+inspector_group_storage|Speicher|Pamięć|Penyimpanan
+inspector_group_network|Netzwerk|Sieć|Jaringan
+inspector_group_webrtc|WebRTC|WebRTC|WebRTC
+rtc_title|Beobachtete Verbindungen|Zaobserwowane połączenia|Koneksi yang diamati
+rtc_scope_note|Nur dieses Dokument und der beobachtete Zeitraum. Verbindungen vor den Hooks oder in unzugänglichen Kontexten können fehlen.|Tylko ten dokument i obserwowany przedział. Połączenia sprzed hooków lub w niedostępnych kontekstach mogą być pominięte.|Hanya dokumen ini dan interval yang diamati. Koneksi sebelum hook atau dalam konteks tidak dapat diakses mungkin terlewat.
+rtc_total|Aufbewahrt: $SHOWN$ · beobachtete Objekte: $TOTAL$|Zachowano: $SHOWN$ · obserwowane obiekty: $TOTAL$|Disimpan: $SHOWN$ · objek diamati: $TOTAL$
+rtc_connection|Verbindung $N$|Połączenie $N$|Koneksi $N$
+rtc_created_unknown|Die Erstellung dieses Objekts wurde nicht beobachtet.|Nie zaobserwowano utworzenia tego obiektu.|Pembuatan objek ini tidak diamati.
+rtc_closed_retained|close() wurde beobachtet. Dieser Eintrag bleibt nach dem Schließen erhalten.|Zaobserwowano close(). Ten wpis jest zachowany po zamknięciu.|close() diamati. Catatan ini tetap disimpan setelah penutupan.
+rtc_connected_observed|Für diese Verbindung wurde ein verbundener Zustand beobachtet.|Dla tego połączenia zaobserwowano stan połączony.|Status terhubung diamati untuk koneksi ini.
+rtc_connected_unobserved|Ein verbundener Zustand wurde nicht beobachtet.|Nie zaobserwowano stanu połączonego.|Status terhubung tidak diamati.
+rtc_configuration_changes|Erfolgreiche Neukonfigurationsaufrufe: $N$|Udane wywołania rekonfiguracji: $N$|Panggilan konfigurasi ulang berhasil: $N$
+rtc_state_new|Letzter Zustand: neu|Ostatni stan: nowe|Status terakhir: baru
+rtc_state_connecting|Letzter Zustand: Verbindungsaufbau|Ostatni stan: łączenie|Status terakhir: menghubungkan
+rtc_state_connected|Letzter Zustand: verbunden|Ostatni stan: połączone|Status terakhir: terhubung
+rtc_state_disconnected|Letzter Zustand: getrennt|Ostatni stan: rozłączone|Status terakhir: terputus
+rtc_state_failed|Letzter Zustand: fehlgeschlagen|Ostatni stan: błąd|Status terakhir: gagal
+rtc_state_closed|Letzter Zustand: geschlossen|Ostatni stan: zamknięte|Status terakhir: ditutup
+rtc_state_unknown|Zustand unbekannt|Stan nieznany|Status tidak diketahui
+rtc_duration_open|Schließen nicht beobachtet|Zamknięcia nie zaobserwowano|Penutupan tidak diamati
+rtc_duration_under_1s|Lebensdauer unter 1 s|Czas życia poniżej 1 s|Masa hidup kurang dari 1 dtk
+rtc_duration_1_10s|Lebensdauer 1–10 s|Czas życia 1–10 s|Masa hidup 1–10 dtk
+rtc_duration_10s_plus|Lebensdauer mindestens 10 s|Czas życia co najmniej 10 s|Masa hidup 10 dtk atau lebih
+rtc_duration_unknown|Lebensdauer unbekannt|Czas życia nieznany|Masa hidup tidak diketahui
+rtc_server_configured|Konfigurierter Server|Skonfigurowany serwer|Server yang dikonfigurasi
+rtc_server_candidate|ICE-Kandidat über diesen Server erfasst|Kandydat ICE zebrany przez ten serwer|Kandidat ICE dikumpulkan melalui server ini
+rtc_server_error|Fehler bei ICE-Erfassung für diesen Server|Błąd zbierania ICE dla tego serwera|Kesalahan pengumpulan ICE untuk server ini
+rtc_servers_unknown|Keine Serverdetails beobachtet. Dies belegt nicht, dass keine Server konfiguriert oder verwendet wurden.|Nie zaobserwowano szczegółów serwerów. Nie dowodzi to, że żadnych nie skonfigurowano ani nie użyto.|Tidak ada rincian server yang diamati. Ini tidak memastikan tidak ada server yang dikonfigurasi atau digunakan.
+rtc_servers_limited|Serverdetails unvollständig; höchstens 8 Endpunkte je Verbindung werden aufbewahrt.|Szczegóły serwerów są niepełne; zachowywanych jest najwyżej 8 endpointów na połączenie.|Rincian server tidak lengkap; paling banyak 8 endpoint disimpan per koneksi.
+rtc_evidence_note|Konfiguriert heißt nicht kontaktiert. Ein Kandidat oder Erfassungsfehler belegt weder die ausgewählte Route noch Datenübertragung. Der Verbindungszustand gilt für die gesamte Verbindung. Diese Details werden von der Seite kontrolliert.|Skonfigurowany nie oznacza nawiązania kontaktu. Kandydat lub błąd zbierania nie ustala wybranej trasy ani przesyłania danych. Stan połączenia dotyczy całości. Te szczegóły kontroluje strona.|Dikonfigurasi tidak berarti dihubungi. Kandidat atau kesalahan pengumpulan tidak memastikan rute terpilih atau pengiriman data. Status koneksi berlaku untuk keseluruhan koneksi. Rincian ini dikendalikan halaman.
+rtc_empty|Keine Verbindungsdetails für dieses Dokument und den Zeitraum verfügbar. API-Zähler können trotzdem Beobachtungen enthalten.|Brak szczegółów połączeń dla tego dokumentu i przedziału. Liczniki API mogą nadal zawierać obserwacje.|Tidak ada rincian koneksi untuk dokumen dan interval ini. Penghitung API masih dapat memuat pengamatan.
+rtc_capture_limited|Verbindungsverlauf unvollständig. Ausgelassene Objekte: $N$; Erfassungsgrenzen können auch Aktualisierungen auslassen.|Historia połączeń jest niepełna. Pominięte obiekty: $N$; limity przechwytywania mogą też pomijać aktualizacje.|Riwayat koneksi tidak lengkap. Objek yang dihilangkan: $N$; batas penangkapan juga dapat menghilangkan pembaruan.
+rtc_export_note|Dieser getrennte lokale Verlauf bleibt bis zu 10 Minuten ohne Verlaufsaktualisierungen erhalten. Ansehen verlängert die Aufbewahrung nicht. Server- und Verbindungsdetails fehlen im JSON-Export.|Ta osobna lokalna historia jest zachowana do 10 minut bez aktualizacji. Jej oglądanie nie wydłuża przechowywania. Szczegóły serwerów i połączeń nie są uwzględniane w eksporcie JSON.|Riwayat lokal terpisah ini disimpan sampai 10 menit tanpa pembaruan riwayat. Melihatnya tidak memperpanjang penyimpanan. Rincian server dan koneksi tidak disertakan dalam ekspor JSON.
+inspector_webrtc_desc|WebRTC-API-Aufrufe wurden beobachtet. Diese APIs unterstützen auch gewöhnliche Audio-/Videogespräche und Datenaustausch; Aufrufe allein belegen weder Fingerprinting noch die Offenlegung von IP-Adressen.|Zaobserwowano wywołania API WebRTC. Te API obsługują też zwykłe rozmowy audio/wideo i wymianę danych; same wywołania nie dowodzą fingerprintingu ani ujawnienia adresu IP.|Panggilan API WebRTC diamati. API ini juga mendukung panggilan audio/video biasa dan pertukaran data; panggilan saja tidak memastikan sidik browser atau pengungkapan alamat IP.
+card_api_use_webrtc_network|WebRTC-Netzwerkinformationen angefordert ($API$) — $COUNT$|Żądania informacji sieciowych WebRTC ($API$) — $COUNT$|Permintaan informasi jaringan WebRTC ($API$) — $COUNT$
+card_purpose_webrtc|WebRTC unterstützt Audio-/Videokommunikation und Datenaustausch. Diese Beobachtungen belegen keinen Aufrufzweck.|WebRTC obsługuje komunikację audio/wideo i wymianę danych. Te obserwacje nie ustalają celu wywołań.|WebRTC mendukung komunikasi audio/video dan pertukaran data. Pengamatan ini tidak memastikan tujuan panggilan tersebut.
+inspector_page|Seitenhost|Host strony|Host halaman
+inspector_document|Dokument / Frame|Dokument / ramka|Dokumen / bingkai
+inspector_script|Skript|Skrypt|Skrip
+inspector_script_unknown|Unbekannt — dieser Bericht identifiziert das Dokument, nicht das aufrufende Skript.|Nieznany — raport identyfikuje dokument, a nie wywołujący skrypt.|Tidak diketahui — laporan ini mengidentifikasi dokumen, bukan skrip pemanggil.
+inspector_empty|In diesem Dokument wurde noch keine unterstützte Technik beobachtet. Laden Sie eine Seite neu, die bei der Installation bereits geöffnet war.|Nie zaobserwowano jeszcze obsługiwanej techniki w tym dokumencie. Odśwież stronę otwartą przed zainstalowaniem rozszerzenia.|Belum ada teknik yang didukung yang diamati dalam dokumen ini. Muat ulang halaman yang sudah terbuka saat ekstensi dipasang.
+inspector_coverage|Beobachtungsumfang|Pokrycie obserwacji|Cakupan pengamatan
+inspector_image_waiting|Warten auf ein unterstütztes von der Seite ausgelesenes Bild. Frühere oder sehr frühe Inline-Lesezugriffe und zu große Bilder können fehlen; laden Sie zur Wiederholung der Seitenprüfung neu.|Oczekiwanie na obsługiwany obraz odczytany przez stronę. Wcześniejsze lub bardzo wczesne odczyty inline i zbyt duże obrazy mogą zostać pominięte; odśwież stronę, aby powtórzyć jej kontrolę.|Menunggu gambar yang didukung dan dibaca halaman ini. Pembacaan sebelumnya atau inline sangat awal serta gambar terlalu besar mungkin terlewat; muat ulang halaman untuk mengulangi pemeriksaannya.
+language_label|Oberflächensprache|Język interfejsu|Bahasa antarmuka
+language_change_failed|Sprache konnte nicht gespeichert werden. Bitte erneut versuchen.|Nie udało się zapisać języka. Spróbuj ponownie.|Bahasa tidak dapat disimpan. Coba lagi.
+inspector_spotted|Erfasste Techniken|Zauważone techniki|Teknik yang ditemukan
+inspector_subtitle|Ingenieur für Betrugsschutz|Inżynier zabezpieczeń przed oszustwami|Insinyur antipenipuan
+mode_light_tab|Light-Modus|Tryb Light|Mode Light
+mode_pro_tab|Pro-Modus|Tryb Pro|Mode Pro
+mode_save_error|Die Ansichtseinstellung konnte nicht gespeichert werden. Sie kann beim erneuten Öffnen zurückgesetzt werden.|Nie udało się zapisać ustawienia widoku. Może się zresetować przy ponownym otwarciu rozszerzenia.|Preferensi tampilan ini tidak dapat disimpan. Preferensi mungkin direset saat ekstensi dibuka lagi.
+pro_title|Domainaufzeichnung|Nagrywanie domeny|Perekaman domain
+pro_current_domain|Aktuelle Domain|Bieżąca domena|Domain saat ini
+pro_session_domain|Aufgezeichnete Domain|Nagrywana domena|Domain perekaman
+pro_ready|Bereit zur Aufzeichnung|Gotowe do nagrywania|Siap merekam
+pro_recording|Aufzeichnung läuft|Nagrywanie|Merekam
+pro_stopped|Aufzeichnung beendet|Nagrywanie zatrzymane|Perekaman dihentikan
+pro_start|Aufzeichnung starten|Rozpocznij nagrywanie|Mulai merekam
+pro_start_new|Neue Aufzeichnung starten|Rozpocznij nowe nagrywanie|Mulai perekaman baru
+pro_stop|Aufzeichnung beenden|Zatrzymaj nagrywanie|Hentikan perekaman
+pro_generate_pdf|PDF erstellen|Utwórz PDF|Buat PDF
+pro_pdf_hint|Öffnen Sie den Bericht zur Prüfung oder speichern Sie ihn über den Druckdialog als PDF.|Otwórz raport do przeglądu lub zapisz go jako PDF przez okno drukowania przeglądarki.|Buka laporan untuk meninjaunya, atau simpan sebagai PDF melalui dialog cetak browser.
+pro_pdf_error|Berichtsvorschau konnte nicht geöffnet werden. Bitte erneut versuchen.|Nie udało się otworzyć podglądu raportu. Spróbuj ponownie.|Tidak dapat membuka pratinjau laporan. Coba lagi.
+pro_start_note|Zeichnet bis zu 10 Minuten besuchte Seiten dieser Website in diesem und zugehörigen Tabs auf. Die Aufzeichnung läuft nach dem Schließen dieses Fensters weiter. Frühere Aktivitäten werden nicht wiederhergestellt; laden Sie die Seite nach dem Start neu, um ihre Ladeprüfungen zu beobachten.|Nagrywa przez maksymalnie 10 minut strony tej witryny odwiedzane w tej karcie i powiązanych kartach. Nagrywanie trwa po zamknięciu okna. Wcześniejsza aktywność nie jest odzyskiwana; po rozpoczęciu odśwież stronę, aby obserwować kontrole przy ładowaniu.|Merekam halaman yang dikunjungi di situs ini dalam tab ini dan tab terkait selama maksimal 10 menit. Perekaman berlanjut saat jendela ditutup. Aktivitas sebelumnya tidak dipulihkan; muat ulang halaman setelah memulai untuk mengamati pemeriksaan saat pemuatan.
+pro_replace_note|Eine neue Aufzeichnung ersetzt die vorherige Sitzung. Speichern Sie deren Bericht bei Bedarf zuerst.|Nowe nagrywanie zastępuje poprzednią sesję. W razie potrzeby najpierw zapisz jej raport.|Perekaman baru menggantikan sesi sebelumnya. Simpan laporannya terlebih dahulu jika diperlukan.
+pro_unavailable|Aufzeichnung auf dieser Seite nicht möglich. Öffnen Sie eine zugängliche HTTP- oder HTTPS-Website mit aktiver Beobachtung.|Nie można rozpocząć nagrywania tej strony. Otwórz dostępną witrynę HTTP lub HTTPS z włączoną obserwacją.|Perekaman tidak dapat dimulai di halaman ini. Buka situs HTTP atau HTTPS yang dapat diakses dengan pengamatan aktif.
+pro_other_domain|Diese Seite liegt außerhalb der Aufzeichnungsdomain. Ihre Aktivität wird nicht dieser Sitzung hinzugefügt.|Ta strona jest poza nagrywaną domeną. Jej aktywność nie jest dodawana do sesji.|Halaman ini berada di luar domain perekaman. Aktivitasnya tidak ditambahkan ke sesi ini.
+pro_elapsed|Verstrichene Zeit|Upływ czasu|Waktu berlalu
+pro_time_limit|Maximale Aufzeichnungsdauer: 10 Minuten|Maksymalny czas nagrywania: 10 minut|Waktu perekaman maksimal: 10 menit
+pro_pages_total|Seitenbesuche|Odwiedziny stron|Kunjungan halaman
+pro_domains_total|Drittanbieterdomains|Domeny podmiotów trzecich|Domain pihak ketiga
+pro_resources_total|Ressourcengruppen|Grupy zasobów|Kelompok sumber daya
+pro_requests_total|Anfragen|Żądania|Permintaan
+pro_pages_title|Aufgezeichnete Seitenbesuche|Nagrane odwiedziny stron|Kunjungan halaman yang direkam
+pro_pages_empty|Noch keine Seitenbesuche aufgezeichnet.|Nie nagrano jeszcze odwiedzin stron.|Belum ada kunjungan halaman yang direkam.
+pro_visit|Besuch $N$|Wizyta $N$|Kunjungan $N$
+pro_document_reports|Dokumentberichte: $N$|Raporty dokumentów: $N$|Laporan dokumen: $N$
+pro_visit_totals|$TECHNIQUES$ Techniken · $RESOURCES$ Ressourcengruppen|$TECHNIQUES$ technik · $RESOURCES$ grup zasobów|$TECHNIQUES$ teknik · $RESOURCES$ kelompok sumber daya
+pro_observed_techniques|IDs beobachteter Techniken|Identyfikatory obserwowanych technik|ID teknik yang diamati
+pro_no_techniques|Für diesen Besuch wurde keine unterstützte API-Technik erfasst. Dies belegt nicht, dass keine Prüfungen stattfanden.|Nie nagrano obsługiwanej techniki API dla tej wizyty. Nie dowodzi to braku kontroli.|Tidak ada teknik API yang didukung yang direkam untuk kunjungan ini. Ini tidak memastikan tidak ada pemeriksaan.
+pro_visit_resources|Ressourcen dieses Besuchs|Zasoby tej wizyty|Sumber daya kunjungan ini
+pro_resource_type|Typ|Typ|Jenis
+pro_resource_requests|Anfragen|Żądania|Permintaan
+pro_resource_completed|Abgeschlossen|Zakończone|Selesai
+pro_resource_failed|Fehlgeschlagen|Nieudane|Gagal
+pro_resource_redirects|Weiterleitungen|Przekierowania|Pengalihan
+pro_resource_status|HTTP-Status|Status HTTP|Status HTTP
+pro_show_more|Weitere Ressourcen anzeigen|Pokaż więcej zasobów|Tampilkan sumber daya lainnya
+pro_open_report|Berichtsvorschau öffnen|Otwórz podgląd raportu|Buka pratinjau laporan
+pro_limits_title|Aufzeichnungsgrenzen|Ograniczenia nagrywania|Batas perekaman
+pro_limits_note|Die Abdeckung hängt vom Seitenzugriff und unterstützten Sensoren ab. API-Nutzung und geladene Ressourcen belegen weder Tracking, Codeausführung noch Website-Sicherheit. Sensible Anfrageinhalte, Bilder und WebRTC-Verbindungsdetails fehlen im Bericht.|Pokrycie zależy od dostępu do stron i obsługiwanych czujników. Użycie API i załadowane zasoby nie dowodzą śledzenia, wykonania kodu ani bezpieczeństwa witryny. Wrażliwa treść żądań, obrazy i szczegóły połączeń WebRTC są wyłączone z raportu.|Cakupan bergantung pada akses halaman dan sensor yang didukung. Penggunaan API dan sumber daya yang dimuat tidak memastikan pelacakan, eksekusi kode, atau keamanan situs. Isi permintaan sensitif, gambar, dan rincian koneksi WebRTC dikecualikan dari laporan ini.
+pro_dropped|Ausgelassen: $PAGES$ Seiten, $RESOURCES$ Ressourcen, $DOCUMENTS$ Dokumente, $EVENTS$ Ereignisse.|Pominięto: $PAGES$ stron, $RESOURCES$ zasobów, $DOCUMENTS$ dokumentów, $EVENTS$ zdarzeń.|Dihilangkan: $PAGES$ halaman, $RESOURCES$ sumber daya, $DOCUMENTS$ dokumen, $EVENTS$ peristiwa.
+pro_stop_manual|Von Ihnen beendet.|Zatrzymane przez Ciebie.|Dihentikan oleh Anda.
+pro_stop_timeout|Das Aufzeichnungslimit von 10 Minuten wurde erreicht.|Osiągnięto limit 10 minut nagrywania.|Batas perekaman 10 menit tercapai.
+pro_stop_tab_closed|Der aufgezeichnete Tab wurde geschlossen.|Nagrywana karta została zamknięta.|Tab yang direkam ditutup.
+pro_stop_access_revoked|Aufzeichnung wegen entzogenem Seitenzugriff beendet.|Nagrywanie zatrzymano z powodu cofnięcia dostępu do strony.|Perekaman dihentikan karena akses halaman dicabut.
+pro_stop_storage_error|Aufzeichnung beendet, weil Sitzungsdaten nicht gespeichert werden konnten. Der erhaltene Bericht kann unvollständig sein.|Nagrywanie zatrzymano, ponieważ nie udało się zapisać danych sesji. Zachowany raport może być niepełny.|Perekaman dihentikan karena data sesi tidak dapat disimpan. Laporan yang disimpan mungkin tidak lengkap.
+pro_stop_limit|Ein Datenlimit wurde erreicht. Der erhaltene Bericht ist unvollständig.|Osiągnięto limit danych nagrywania. Zachowany raport jest niepełny.|Batas data perekaman tercapai. Laporan yang disimpan tidak lengkap.
+report_title|Szenarioanalysebericht|Raport analizy scenariusza|Laporan analisis skenario
+report_preview|PDF-Vorschau|Podgląd PDF|Pratinjau PDF
+report_save|Als PDF speichern|Zapisz jako PDF|Simpan sebagai PDF
+report_print_hint|Wählen Sie im Browserdruckdialog „Als PDF speichern“. Das PDF enthält den unten angezeigten Bericht.|Wybierz „Zapisz jako PDF” w oknie drukowania przeglądarki. PDF zawiera raport pokazany poniżej.|Pilih “Simpan sebagai PDF” dalam dialog cetak browser. PDF berisi laporan yang ditampilkan di bawah.
+report_recording|Laufende Aufzeichnungen können nicht exportiert werden. Beenden Sie zuerst die Aufzeichnung.|Trwających nagrań nie można eksportować. Najpierw zatrzymaj nagrywanie.|Perekaman yang berjalan tidak dapat diekspor. Hentikan perekaman terlebih dahulu.
+report_unavailable|Diese Aufzeichnung ist nicht mehr verfügbar.|To nagranie nie jest już dostępne.|Perekaman ini tidak tersedia lagi.
+report_summary|Zusammenfassung|Podsumowanie|Ringkasan
+report_started|Analyse begonnen|Analiza rozpoczęta|Analisis dimulai
+report_finished|Analyse beendet|Analiza zakończona|Analisis selesai
+report_duration|Dauer|Czas trwania|Durasi
+report_pages|Seiten|Strony|Halaman
+report_domains|Drittanbieterdomains|Domeny podmiotów trzecich|Domain pihak ketiga
+report_resources|Ressourcengruppen|Grupy zasobów|Kelompok sumber daya
+report_requests|Beobachtete Anfragen|Zaobserwowane żądania|Permintaan yang diamati
+report_techniques|Beobachtete Techniken|Zaobserwowane techniki|Teknik yang diamati
+report_vendors|Erkannte Dienste|Rozpoznane usługi|Layanan yang dikenali
+report_map|Interaktionskarte|Mapa interakcji|Peta interaksi
+report_map_note|Verbindungen zeigen während jedes Seitenbesuchs beobachtete Ressourcenanfragen. Sie belegen weder Eigentümerschaft, direkte Skriptabhängigkeit noch Datenübertragung.|Połączenia pokazują żądania zasobów obserwowane przy każdej wizycie. Nie ustalają własności, bezpośredniej zależności skryptów ani przesłania danych.|Tautan menunjukkan permintaan sumber daya yang diamati pada tiap kunjungan halaman. Ini tidak memastikan kepemilikan, ketergantungan skrip langsung, atau bukti pengiriman data.
+report_page|Seite|Strona|Halaman
+report_documents|Dokumente und Frames|Dokumenty i ramki|Dokumen dan bingkai
+report_resource_list|Ressourcengruppeninventar|Wykaz grup zasobów|Inventaris kelompok sumber daya
+report_first_party|Gleiche Website|Ta sama witryna|Situs yang sama
+report_third_party|Drittanbieter|Podmiot trzeci|Pihak ketiga
+report_unknown|Beziehung unbekannt|Nieznana relacja|Hubungan tidak diketahui
+report_resource_type|Ressourcentyp|Typ zasobu|Jenis sumber daya
+report_requests_count|Anfragen|Żądania|Permintaan
+report_statuses|HTTP-Statuscodes|Kody statusu HTTP|Kode status HTTP
+report_result|Beobachtete Techniken|Zaobserwowane techniki|Teknik yang diamati
+report_no_methods|In diesem Zeitraum wurden im zugänglichen Bereich keine unterstützten Methoden beobachtet.|W tym okresie nie zaobserwowano obsługiwanych metod w dostępnym obszarze.|Tidak ada metode yang didukung yang diamati di area yang dapat diakses selama periode ini.
+report_no_resources|Keine Ressourcenanfragen für diese Seite erfasst.|Nie przechwycono żądań zasobów tej strony.|Tidak ada permintaan sumber daya yang ditangkap untuk halaman ini.
+report_no_vendors|Keine unterstützten Dienstsignaturen passten.|Brak dopasowań obsługiwanych sygnatur usług.|Tidak ada tanda layanan yang didukung yang cocok.
+report_scope|Aufzeichnungsumfang und Grenzen|Zakres i ograniczenia nagrywania|Cakupan dan batasan perekaman
+report_scope_note|Enthalten sind nur beobachtete Aktivitäten des aufgezeichneten Browserszenarios. Unbesuchte Seiten, nicht unterstützte Kontexte und Anfragen außerhalb der Browserberechtigungen fehlen. API-Nutzung allein belegt weder Fingerprinting noch eine Sicherheitsbewertung.|Uwzględniono tylko zaobserwowaną aktywność nagranego scenariusza przeglądania. Nieodwiedzone strony, nieobsługiwane konteksty i żądania poza uprawnieniami przeglądarki nie są objęte. Samo użycie API nie dowodzi fingerprintingu ani nie stanowi oceny bezpieczeństwa.|Hanya aktivitas yang diamati dalam skenario penjelajahan yang direkam yang disertakan. Halaman yang tidak dikunjungi, konteks tidak didukung, dan permintaan di luar izin browser tidak tercakup. Penggunaan API saja tidak memastikan sidik browser atau penilaian keamanan.
+report_redaction|URLs enthalten weder Zugangsdaten, Abfragezeichenfolgen noch Fragmente. Sensible oder identifizierende Pfadteile werden ersetzt. Bilder, Formularinhalte, Anfrage- und Antwortinhalte, Cookies und ICE-Verbindungsdetails sind ausgeschlossen.|URL nie zawierają danych logowania, zapytań ani fragmentów. Wrażliwe lub identyfikujące segmenty ścieżki są zastępowane. Obrazy, formularze, treści żądań i odpowiedzi, cookies i szczegóły połączeń ICE są pomijane.|URL tidak memuat kredensial, string kueri, dan fragmen. Segmen jalur sensitif atau pengenal diganti. Gambar, isi formulir, isi permintaan dan respons, cookie, serta rincian koneksi ICE tidak disertakan.
+report_dropped|Erfassungslimits|Limity zbierania|Batas pengumpulan
+report_dropped_note|Aufzeichnungslimits erreicht. Zähler sind Untergrenzen; der Bericht kann unvollständig sein.|Osiągnięto limity nagrywania. Liczby są dolnymi granicami, a raport może być niepełny.|Batas perekaman tercapai. Jumlah merupakan batas bawah dan laporan mungkin tidak lengkap.
+report_generation|Lokaler Bericht · Kein Upload|Raport lokalny · Bez wysyłania|Laporan lokal · Tidak diunggah
+report_print_failed|Druckdialog konnte nicht geöffnet werden. Erneut versuchen.|Nie udało się otworzyć okna drukowania. Spróbuj ponownie.|Dialog cetak tidak dapat dibuka. Coba lagi.
+report_title_unknown|Unbenannte Seite|Strona bez tytułu|Halaman tanpa judul
+report_map_more|Weitere Domains stehen im Ressourceninventar.|Dalsze domeny są wymienione w wykazie zasobów.|Domain tambahan dicantumkan dalam inventaris sumber daya.
+report_completed|Abgeschlossen|Zakończone|Selesai
+report_failed|Fehlgeschlagen|Nieudane|Gagal
+report_redirects|Weiterleitungen|Przekierowania|Pengalihan
+report_first_seen|Erstmals beobachtet|Pierwsza obserwacja|Pertama diamati
+report_last_seen|Zuletzt beobachtet|Ostatnia obserwacja|Terakhir diamati
+report_latency|Gesamte beobachtete Anfragedauer|Łączny obserwowany czas żądań|Total durasi permintaan yang diamati
+report_resource_groups_note|Ressourcen werden nach bereinigter URL-Vorlage und Typ gruppiert. Unterschiedliche Original-URLs können zusammenfallen; Gruppensummen sind keine genauen Dateizahlen.|Zasoby grupowane są według oczyszczonego szablonu URL i typu. Różne pierwotne URL mogą być połączone; liczba grup nie jest dokładną liczbą plików.|Sumber daya dikelompokkan menurut templat URL yang disanitasi dan jenis. URL asli berbeda dapat digabung; total kelompok bukan jumlah berkas yang tepat.
+pro_limit_started_mid_page|Die Aufzeichnung begann nach dem Seitenöffnen. Frühere Prüfungen können fehlen; gepufferte Beobachtungen werden nach Empfangszeit im Hintergrund zugeordnet.|Nagrywanie rozpoczęto po otwarciu strony. Wcześniejsze kontrole mogą być pominięte; buforowane obserwacje przypisuje się według czasu odbioru przez proces w tle.|Perekaman dimulai setelah halaman dibuka. Pemeriksaan sebelumnya mungkin terlewat; pengamatan dalam buffer ditetapkan menurut waktu penerimaan latar belakang.
+pro_limit_service_worker_restarted|Der Hintergrundworker wurde während der Aufzeichnung neu gestartet. Ausstehende Netzwerkaktivitäten können unvollständig sein.|Worker w tle uruchomił się ponownie podczas nagrywania. Oczekująca aktywność sieciowa może być niepełna.|Worker latar belakang dimulai ulang selama perekaman ini. Aktivitas jaringan tertunda mungkin tidak lengkap.
+pro_limit_navigation_gap|Einige Aktivitäten konnten keinem Seitenbesuch zuverlässig zugeordnet werden.|Części aktywności nie można było wiarygodnie przypisać do wizyty.|Sebagian aktivitas tidak dapat ditetapkan ke kunjungan halaman secara andal.
+pro_limit_resource_limit|Ressourcengruppenlimit erreicht; einige Gruppen ausgelassen.|Osiągnięto limit grup zasobów; część grup pominięto.|Batas kelompok sumber daya tercapai; sebagian kelompok dihilangkan.
+pro_limit_page_limit|Seitenbesuchslimit erreicht; einige Besuche ausgelassen.|Osiągnięto limit wizyt; część wizyt pominięto.|Batas kunjungan halaman tercapai; sebagian kunjungan dihilangkan.
+pro_limit_document_limit|Dokumentlimit erreicht; einige Frameberichte ausgelassen.|Osiągnięto limit dokumentów; część raportów ramek pominięto.|Batas dokumen tercapai; sebagian laporan bingkai dihilangkan.
+pro_limit_event_limit|Ereignispufferlimit erreicht; einige Aktivitäten ausgelassen.|Osiągnięto limit bufora zdarzeń; część aktywności pominięto.|Batas buffer peristiwa tercapai; sebagian aktivitas dihilangkan.
+pro_limit_storage_error|Einige Aufzeichnungsdaten konnten nicht gespeichert werden.|Nie udało się zapisać części danych nagrywania.|Sebagian data perekaman tidak dapat disimpan.
+pro_limit_permission_limited|Browserberechtigungen begrenzten die Aufzeichnung.|Uprawnienia przeglądarki ograniczyły nagrywaną aktywność.|Izin browser membatasi aktivitas yang direkam.
+pro_limit_unsupported_contexts|Unbesuchte Seiten, unzugängliche Frames, nicht unterstützte Worker und serverseitige Aktivitäten sind nicht abgedeckt.|Nieodwiedzone strony, niedostępne ramki, nieobsługiwane workery i aktywność serwerowa nie są objęte.|Halaman yang tidak dikunjungi, bingkai tidak dapat diakses, worker tidak didukung, dan aktivitas server tidak tercakup.
+pro_limit_redacted_urls|URLs werden nach bereinigten Vorlagen gruppiert. Identifizierende Pfadteile, Abfragezeichenfolgen und Fragmente fehlen.|URL są grupowane według oczyszczonych szablonów. Identyfikujące części ścieżki, zapytania i fragmenty są pomijane.|URL dikelompokkan menurut templat yang disanitasi. Segmen jalur pengenal, string kueri, dan fragmen dihilangkan.
+inventory_pro|Pro-Modus erfasst bis zu 10 Minuten getrennt bereinigte Seiten-URLs, Titel, Ressourcenmetadaten und Detektorergebnisse. Die lokale Sitzung bleibt bis zum Ersetzen, Löschen oder Ende der Browsersitzung erhalten. Ihr PDF enthält die analysierte Domain und sichtbare Berichtsdetails. Die Light-/Pro-Ansicht wird lokal gespeichert.|Tryb Pro osobno zapisuje przez maksymalnie 10 minut oczyszczone URL stron, tytuły, metadane zasobów i wyniki detektorów. Sesja lokalna pozostaje do zastąpienia, usunięcia lub końca sesji przeglądarki. Jej PDF zawiera analizowaną domenę i widoczne szczegóły raportu. Preferencja widoku Light/Pro jest zapisywana lokalnie.|Mode Pro secara terpisah merekam URL halaman yang disanitasi, judul, metadata sumber daya, dan hasil detektor selama maksimal 10 menit. Sesi lokal tetap sampai diganti, dihapus, atau sesi browser berakhir. PDF-nya memuat domain yang dianalisis dan rincian laporan yang terlihat. Preferensi tampilan Light/Pro disimpan secara lokal.
+action_clear_results|Ergebnisse löschen|Wyczyść wyniki|Hapus hasil
+light_clear_results_note|Löscht Ergebnisse dieser Seite und ihrer Frames. Laden Sie neu, um ihren Ladevorgang erneut zu beobachten.|Czyści wyniki strony i jej ramek. Odśwież stronę, aby ponownie obserwować jej ładowanie.|Menghapus hasil untuk halaman ini dan bingkainya. Muat ulang halaman untuk mengamati pemuatannya lagi.
+pro_report_ready|Ihr Bericht ist bereit|Raport jest gotowy|Laporan Anda siap
+pro_report_ready_note|Öffnen Sie den Bericht zur Prüfung oder speichern Sie ihn über den Browserdruckdialog als PDF.|Otwórz raport do przeglądu lub zapisz go jako PDF przez okno drukowania przeglądarki.|Buka laporan untuk meninjaunya, atau simpan sebagai PDF melalui dialog cetak browser.
+pro_report_open|Bericht öffnen|Otwórz raport|Buka laporan
+pro_stop_clear|Beenden und löschen|Zatrzymaj i wyczyść|Hentikan dan hapus
+pro_clear_results_note|Löscht die aktuelle Aufzeichnung und ihren Bericht, damit eine neue Analyse gestartet werden kann.|Usuwa bieżące nagranie i raport, aby można było rozpocząć nową analizę.|Menghapus perekaman saat ini dan laporannya agar Anda dapat memulai analisis baru.
+results_cleared|Ergebnisse gelöscht.|Wyniki wyczyszczono.|Hasil dihapus.
+vendors_scope_page|Aktuelle Seite und verfügbare Unterdokumente|Bieżąca strona i dostępne dokumenty podrzędne|Halaman saat ini dan dokumen anak yang tersedia
+vendors_scope_recording|Über aufgezeichnete Besuche hinweg erkannt|Rozpoznane w nagranych wizytach|Dikenali di seluruh kunjungan yang direkam
+vendors_mechanism|Die Erkennung vergleicht abgeschlossene Skriptanfragen und WebRTC-Server-Endpunkte mit geprüften Katalogregeln. Sie belegt nicht, welcher Dienst andere Browser-APIs aufgerufen hat.|Rozpoznawanie porównuje zakończone żądania skryptów i endpointy serwerów WebRTC ze sprawdzonymi regułami katalogu. Nie ustala, która usługa wywołała inne API przeglądarki.|Pengenalan membandingkan permintaan skrip yang selesai dan endpoint server WebRTC dengan aturan katalog yang ditinjau. Ini tidak memastikan layanan mana yang memanggil API browser lain.
+vendors_catalog_coverage|Katalog: $1 Produkte · $2 Skriptregeln · $3 WebRTC-Serverregeln. Andere, veränderte oder selbst gehostete Integrationen können unerkannt bleiben.|Katalog: $1 produktów · $2 reguł skryptów · $3 reguł serwerów WebRTC. Inne, zmodyfikowane lub samodzielnie hostowane integracje mogą pozostać nierozpoznane.|Katalog: $1 produk · $2 aturan skrip · $3 aturan server WebRTC. Integrasi lain, dimodifikasi, atau dihosting sendiri mungkin tidak dikenali.
+vendors_details|Erkennungsdetails|Szczegóły rozpoznawania|Rincian pengenalan
+vendor_match_rtc_server|WebRTC-Server-Übereinstimmung|Dopasowanie serwera WebRTC|Kecocokan server WebRTC
+vendor_rtc_resource_note|Ein auf dieser Seite beobachteter WebRTC-Server passt zu einem Katalogendpunkt. Allein beweist dies weder die SDK-Ausführung, die Nutzung dieses Servers durch eine Verbindung noch Datenübertragung. Details unterscheiden Konfiguration, Kandidaten und Verbindungszustand.|Serwer WebRTC zaobserwowany na stronie pasuje do endpointu katalogu. Samo to nie dowodzi działania SDK usługi, użycia serwera przez połączenie ani przesłania danych. Szczegóły rozróżniają konfigurację, kandydatów i stan połączenia.|Server WebRTC yang diamati di halaman ini cocok dengan endpoint katalog. Ini saja tidak memastikan SDK layanan berjalan, koneksi menggunakan server itu, atau data dikirim. Rincian koneksi membedakan konfigurasi, kandidat, dan status koneksi.
+inspector_group_wasm|WebAssembly|WebAssembly|WebAssembly
+inspector_group_interaction|Maus- und Zeigeraktivität|Aktywność myszy i wskaźnika|Aktivitas mouse dan penunjuk
+inspector_wasm_desc|Die Seite nutzte JavaScript-WebAssembly-APIs zum Kompilieren, Prüfen oder Instanziieren eines Moduls. Aufrufe allein zeigen weder interne Berechnungen, deren Zweck noch erfolgreichen asynchronen Abschluss. Workeraktivität liegt außerhalb dieses Seitenhooks.|Strona użyła API JavaScript WebAssembly do kompilacji, walidacji lub utworzenia instancji modułu. Same wywołania nie ujawniają obliczeń wewnątrz modułu, ich celu ani udanego zakończenia asynchronicznego. Aktywność workerów nie jest objęta tym hookiem.|Halaman menggunakan API JavaScript WebAssembly untuk mengompilasi, memvalidasi, atau membuat instansi modul. Panggilan saja tidak mengungkap komputasi di dalam modul, tujuannya, atau penyelesaian asinkron yang berhasil. Aktivitas worker di luar hook halaman ini.
+inspector_interaction_desc|Versuche zur Listenerregistrierung oder Zeigerkoordinaten-Lesezugriffe wurden beobachtet. Diese Aufrufe belegen weder einen aktiven Listener, Bewegung noch Verhaltensprofilierung. Koordinaten, Bahnen oder biometrische Werte werden nicht erfasst.|Zaobserwowano próby rejestracji listenerów lub odczyty współrzędnych wskaźnika. Te wywołania nie dowodzą aktywacji listenera, ruchu ani profilowania zachowania. Współrzędne, trajektorie i wartości biometryczne nie są rejestrowane.|Upaya pendaftaran listener atau pembacaan koordinat penunjuk diamati. Panggilan API ini tidak memastikan listener aktif, gerakan terjadi, atau perilaku diprofilkan. Koordinat, lintasan, dan nilai biometrik tidak dicatat.
+interaction_listener_attempt|Registrierungsversuch für Bewegungslistener beobachtet. Auch doppelte oder abgebrochene Registrierungen können zählen.|Zaobserwowano próbę rejestracji listenera ruchu. Powtórzone lub przerwane rejestracje także mogą być liczone.|Upaya pendaftaran listener gerakan diamati. Pendaftaran duplikat atau dibatalkan juga dapat dihitung.
+interaction_coordinate_read|Zeigerkoordinaten gelesen. Auch Klick-, Zieh- oder synthetische Ereignisse können zählen.|Zaobserwowano odczyt współrzędnych wskaźnika. Odczyty przy klikaniu, przeciąganiu i zdarzeniach syntetycznych także mogą być liczone.|Pembacaan koordinat penunjuk diamati. Pembacaan klik, seret, dan peristiwa sintetis juga dapat dihitung.
+permission_checks_title|Beobachtete Berechtigungsprüfungen|Zaobserwowane kontrole uprawnień|Pemeriksaan izin yang diamati
+permission_checks_note|Von der Website während der Beobachtung gelesene Zustände, nicht aktuelle Browsereinstellungen. Erlaubnis der Seitenrichtlinie ist keine Berechtigungserteilung und belegt keinen Hardwarezugriff. Mehrere Zustände können Änderungen im Zeitverlauf widerspiegeln.|Stany odczytane przez witrynę podczas obserwacji, nie bieżące ustawienia przeglądarki. Zezwolenie polityki strony jest osobne od przyznania uprawnienia i nie dowodzi dostępu do sprzętu. Wiele stanów może odzwierciedlać zmiany w czasie.|Status yang dibaca situs selama pengamatan, bukan pengaturan browser saat ini. Izin kebijakan halaman terpisah dari pemberian izin dan tidak membuktikan akses perangkat keras. Beberapa status dapat mencerminkan perubahan seiring waktu.
+permission_checks_reads|Beobachtete Lesezugriffe|Zaobserwowane odczyty|Pembacaan yang diamati
+permission_kind_permission|Berechtigungszustand|Stan uprawnienia|Status izin
+permission_kind_policy|Seitenrichtlinie|Polityka strony|Kebijakan halaman
+permission_result_granted|Erteilt|Przyznane|Diberikan
+permission_result_denied|Verweigert|Odmowa|Ditolak
+permission_result_prompt|Nachfrage / noch nicht erteilt|Prompt / jeszcze nieprzyznane|Prompt / belum diberikan
+permission_result_allowed|Durch Seitenrichtlinie erlaubt|Dozwolone przez politykę strony|Diizinkan kebijakan halaman
+permission_result_blocked|Durch Seitenrichtlinie gesperrt|Zablokowane przez politykę strony|Diblokir kebijakan halaman
+permission_name_camera|Kamera|Kamera|Kamera
+permission_name_microphone|Mikrofon|Mikrofon|Mikrofon
+permission_name_geolocation|Standort|Lokalizacja|Lokasi
+permission_name_notifications|Benachrichtigungen|Powiadomienia|Notifikasi
+permission_name_clipboard_read|Zwischenablage lesen|Odczyt schowka|Baca papan klip
+permission_name_clipboard_write|Zwischenablage schreiben|Zapis schowka|Tulis papan klip
+permission_name_persistent_storage|Dauerhafter Speicher|Pamięć trwała|Penyimpanan persisten
+permission_name_background_sync|Hintergrundsynchronisierung|Synchronizacja w tle|Sinkronisasi latar belakang
+permission_name_midi|MIDI-Geräte|Urządzenia MIDI|Perangkat MIDI
+permission_name_sensors|Sensoren (gruppiert)|Czujniki (zgrupowane)|Sensor (dikelompokkan)
+permission_name_payment_handler|Zahlungsabwicklung|Obsługa płatności|Penangan pembayaran
+permission_name_screen_wake_lock|Bildschirmwachhaltung|Blokada uśpienia ekranu|Kunci agar layar tetap aktif
+permission_name_window_management|Fensterverwaltung|Zarządzanie oknami|Pengelolaan jendela
+permission_name_local_fonts|Lokale Schriften|Czcionki lokalne|Font lokal
+permission_name_display_capture|Bildschirmaufnahme|Przechwytywanie ekranu|Penangkapan layar
+permission_name_storage_access|Speicherzugriff|Dostęp do pamięci|Akses penyimpanan
+permission_name_unknown|Unbekannte Berechtigung|Nieznane uprawnienie|Izin tidak diketahui
+consent_startup|Während der Hintergrundprozess die gespeicherte Zustimmung prüft, enthält ein kurzer RAM-Puffer nur reduzierte Ressourcen-/Headermetadaten. Er wird nur bei bestätigter vorheriger Zustimmung genutzt; andernfalls verworfen und durch spätere Zustimmung nie wiederhergestellt.|Podczas sprawdzania zapisanej zgody krótki bufor pamięci zawiera tylko ograniczone metadane zasobów i nagłówków. Jest używany wyłącznie po potwierdzeniu wcześniejszej zgody; w przeciwnym razie zostaje odrzucony i nie jest przywracany po późniejszej akceptacji.|Saat proses latar belakang memeriksa persetujuan tersimpan, buffer memori singkat hanya menampung metadata sumber daya/header yang dikurangi. Buffer digunakan hanya jika persetujuan sebelumnya dipastikan; jika tidak, dibuang dan tidak dipulihkan oleh persetujuan berikutnya.
+consent_title|Lokale Datenverarbeitung|Lokalne przetwarzanie danych|Pemrosesan data lokal
+consent_intro|Bis zu Ihrer Zustimmung ist die Beobachtung aus. Detect.Expert verarbeitet Daten auf Ihrem Gerät zur Prüfung der Website-API-Nutzung. Keine Berichte oder Telemetrie werden an den Entwickler hochgeladen.|Obserwacja pozostaje wyłączona do Twojej zgody. Detect.Expert przetwarza dane na urządzeniu, aby sprawdzać użycie API witryn. Raporty i telemetria nie są wysyłane do dewelopera.|Pengamatan nonaktif sampai Anda menyetujui. Detect.Expert memproses data di perangkat Anda untuk memeriksa penggunaan API situs. Laporan atau telemetri tidak diunggah ke pengembang.
+consent_reports|Browser- und Ressourcenmetadaten, API-Aktivität und Zähler bleiben im Browsersitzungsspeicher. Ein getrennter WebRTC-Verlauf enthält konfigurierte ICE-Server-Hostnamen/IPs und Ports. Pro-Aufzeichnung startet nur auf Ihren Befehl. Einstellungen bleiben lokal gespeichert.|Metadane przeglądania i zasobów, aktywność API i liczniki są zachowane w pamięci sesji przeglądarki. Osobna historia WebRTC zawiera skonfigurowane nazwy hostów/IP i porty serwerów ICE. Nagrywanie Pro rozpoczyna się tylko na Twoje polecenie. Ustawienia pozostają w pamięci lokalnej.|Metadata penjelajahan dan sumber daya, aktivitas API, dan jumlah disimpan dalam penyimpanan sesi browser. Riwayat WebRTC terpisah memuat nama host/IP dan port server ICE yang dikonfigurasi. Perekaman Pro dimulai hanya atas perintah Anda. Pengaturan tetap di penyimpanan lokal.
+consent_previews|Lokale Vorschauen können bereits von der Seite ausgelesene Canvas-/WebGL-Bilder, technische API-Werte, WebRTC-Zertifikat-Fingerprints und Google X-Client-Data kopieren. Bilder und Seitentitel können persönliche oder sensible Informationen enthalten. Bilder, Google-Header und Zertifikatvorschauen bleiben im begrenzten RAM außerhalb von Chrome-Speicher, Pro/PDF und Exporten. Bei laufender Pro-Aufzeichnung werden ausgewählte technische API-Parameter und verschiedene Rückgabewerte im lokalen Bericht gespeichert.|Lokalne podglądy mogą kopiować obrazy Canvas/WebGL już odczytane przez stronę, techniczne wartości API, odciski certyfikatów WebRTC i Google X-Client-Data. Obrazy i tytuły stron mogą zawierać dane osobowe lub wrażliwe. Obrazy, nagłówki Google i podglądy certyfikatów pozostają w ograniczonej pamięci poza pamięcią Chrome, Pro/PDF i eksportami. Podczas nagrywania Pro wybrane parametry techniczne API i różne zwrócone wartości są zachowywane w lokalnym raporcie.|Pratinjau lokal dapat menyalin gambar Canvas/WebGL yang sudah dibaca halaman, nilai API teknis, sidik sertifikat WebRTC, dan Google X-Client-Data. Gambar dan judul halaman dapat memuat informasi pribadi atau sensitif. Gambar, header Google, dan pratinjau sertifikat tetap dalam memori terbatas, di luar penyimpanan Chrome, Pro/PDF, dan ekspor. Saat perekaman Pro berjalan, parameter API teknis terpilih dan nilai kembalian berbeda disimpan dalam laporan lokal.
+consent_controls|Nach der Aktivierung werden Chrome-erlaubte Websites automatisch im gewählten Umfang beobachtet. Sie können den Umfang einschränken oder ausschalten, Ergebnisse anhalten oder löschen und die Zustimmung in Einstellungen widerrufen. Bereits offene Seiten müssen neu geladen werden. Optionale API-Verweigerungen benötigen getrennte Aktivierung. Gespeicherte JSON-/PDF-Dateien bleiben unter Ihrer Kontrolle.|Po włączeniu dozwolone przez Chrome witryny są automatycznie obserwowane w wybranym zakresie. Możesz zawęzić lub wyłączyć zakres, wstrzymać lub usunąć wyniki i cofnąć zgodę w ustawieniach. Otwarte wcześniej strony wymagają odświeżenia. Opcjonalne odmowy API wymagają osobnego włączenia. Zapisane pliki JSON/PDF pozostają pod Twoją kontrolą.|Setelah aktif, situs yang diizinkan Chrome diamati otomatis dalam cakupan terpilih. Anda dapat mempersempit atau menonaktifkan cakupan, menjeda atau menghapus hasil, dan menarik persetujuan di pengaturan. Halaman yang sebelumnya terbuka perlu dimuat ulang. Penolakan API opsional memerlukan aktivasi terpisah. Berkas JSON/PDF tersimpan tetap di bawah kendali Anda.
+consent_enable|Lokale Prüfung aktivieren|Włącz lokalną analizę|Aktifkan pemeriksaan lokal
+consent_decline|Beobachtung ausgeschaltet lassen|Pozostaw obserwację wyłączoną|Tetap nonaktifkan pengamatan
+consent_revoke|Zustimmung widerrufen und Sitzung löschen|Cofnij zgodę i wyczyść sesję|Tarik persetujuan dan hapus sesi
+consent_error|Zustimmung konnte nicht bestätigt werden. Beobachtung bleibt nicht verfügbar; erneut versuchen.|Nie udało się potwierdzić zgody. Obserwacja pozostaje niedostępna; spróbuj ponownie.|Persetujuan tidak dapat dipastikan. Pengamatan tetap tidak tersedia; coba lagi.
+consent_saved|Diese Version der Dateninformationen wurde auf diesem Gerät akzeptiert.|Ta wersja informacji o danych została zaakceptowana na tym urządzeniu.|Versi pengungkapan data ini telah diterima di perangkat ini.
+consent_policy|Datenschutzerklärung (offline verfügbar)|Polityka prywatności (dostępna offline)|Kebijakan privasi (tersedia luring)
+google_ids_title|Google-/Chrome-IDs|Identyfikatory Google / Chrome|ID Google / Chrome
+google_ids_meaning|Chrome-Experiment-IDs, keine nachgewiesene eindeutige Geräte- oder Benutzerkennung. Der Wert belegt weder Tracking noch die Ursache einer CAPTCHA.|Identyfikatory eksperymentów Chrome, nie potwierdzony unikatowy identyfikator urządzenia lub użytkownika. Wartość nie dowodzi śledzenia ani przyczyny CAPTCHA.|ID eksperimen Chrome, bukan ID perangkat atau pengguna unik yang terbukti. Nilai ini tidak memastikan pelacakan atau penyebab CAPTCHA.
+google_ids_source|Vom Browser beobachteter ausgehender Header (onSendHeaders), kein Beleg für Serverempfang. Genaue Werte bleiben nur in RAM/Light außerhalb von Speicher, Pro/PDF und Export.|Wychodzący nagłówek zaobserwowany przez przeglądarkę (onSendHeaders), nie dowód odbioru przez serwer. Dokładne wartości pozostają tylko w RAM/Light poza pamięcią, Pro/PDF i eksportem.|Header keluar yang diamati browser (onSendHeaders), bukan bukti diterima server. Nilai tepat hanya berada di RAM/Light, di luar penyimpanan, Pro/PDF, dan ekspor.
+google_ids_destination|Ziel|Cel|Tujuan
+google_ids_not_present|X-Client-Data fehlte in den zuletzt beobachteten Anfrageheadern dieses Ziels.|X-Client-Data nie występował w ostatnich obserwowanych nagłówkach żądania do tego celu.|X-Client-Data tidak ada dalam header permintaan terakhir yang diamati untuk tujuan ini.
+google_ids_unavailable|Kein aktueller Headerwert verfügbar. Dies belegt nicht, dass kein Header gesendet wurde.|Brak bieżącej wartości nagłówka. Nie dowodzi to, że nie wysłano nagłówka.|Nilai header saat ini tidak tersedia. Ini tidak memastikan tidak ada header yang dikirim.
+google_ids_too_large|Der Header überschritt das Vorschaulimit von 4096 Zeichen; sein Wert wurde nicht aufbewahrt.|Nagłówek przekroczył limit podglądu 4096 znaków; jego wartości nie zachowano.|Header melampaui batas pratinjau 4096 karakter; nilainya tidak disimpan.
+google_ids_invalid|Der Header war doppelt vorhanden oder sein Format nicht unterstützt; kein Wert aufbewahrt.|Nagłówek był powielony lub jego reprezentacja nieobsługiwana; nie zachowano wartości.|Header diduplikasi atau representasinya tidak didukung; tidak ada nilai yang disimpan.
+google_ids_decode_unknown|Der beobachtete Header wird unverändert angezeigt; sein Protobuf-Inhalt konnte nicht decodiert werden.|Obserwowany nagłówek pokazano bez zmian; nie udało się zdekodować zawartości protobuf.|Header yang diamati ditampilkan tanpa perubahan; isi protobuf-nya tidak dapat didekode.
+google_ids_variations|Experiment-IDs|Identyfikatory eksperymentów|ID eksperimen
+google_ids_triggers|Serverseitige Auslöser-IDs|Identyfikatory wyzwalaczy serwerowych|ID pemicu sisi server
+google_ids_none|Keine in decodierten Feldern|Brak w zdekodowanych polach|Tidak ada dalam bidang terdekode
+google_ids_decode_limited|Decodierung teilweise: unbekannte Felder oder das 256-ID-Limit. Experimentnamen und Eindeutigkeit werden nicht abgeleitet.|Dekodowanie jest częściowe: nieznane pola lub limit 256 identyfikatorów. Nazwy eksperymentów i unikatowość nie są wnioskowane.|Dekode sebagian: bidang tidak dikenal atau batas 256 ID. Nama eksperimen dan keunikan tidak disimpulkan.
+google_ids_empty|Keine geeignete Google-Anfrage für dieses Dokument im aktuellen Speicherzeitraum beobachtet.|Nie zaobserwowano kwalifikującego się żądania Google dla tego dokumentu w bieżącym okresie pamięci.|Belum ada permintaan Google yang memenuhi syarat yang diamati untuk dokumen ini dalam periode memori saat ini.
+google_ids_limited|Einige Anfragen oder Werte wurden ausgelassen oder sind abgelaufen. Die Liste ist unvollständig.|Część żądań lub wartości pominięto albo wygasła. Wyświetlana lista jest niepełna.|Sebagian permintaan atau nilai dihilangkan atau kedaluwarsa. Daftar yang ditampilkan tidak lengkap.
+google_ids_scope_title|Beobachtungsgrenzen|Ograniczenia obserwacji|Batas pengamatan
+google_ids_scope|Nur feste HTTPS-Ziele von Google mit Zugriff auf Ziel und Initiator. Letzte Header für höchstens acht Hosts, keine globale Browserkennung. Navigationserfassung erfordert bestehenden Zugriff auf alle Websites und eindeutige Browserereignisse innerhalb von zwei Sekunden. Chrome-interner Verkehr und unzugängliche Frames fehlen. Werte laufen nach zehn Minuten ab und verschwinden beim Löschen, Anhalten, Zugriffswechsel oder Worker-Neustart. In Inkognito lässt Chrome gewöhnlich den Variationsheader weg. Keine Flags, Cookies oder CAPTCHA-Scores werden gelesen.|Tylko stałe cele HTTPS Google z dostępem do celu i inicjatora. Ostatnie nagłówki dla najwyżej ośmiu hostów, nie globalny identyfikator przeglądarki. Przechwytywanie nawigacji wymaga istniejącego dostępu do wszystkich witryn i jednoznacznych zdarzeń przeglądarki w ciągu dwóch sekund. Ruch wewnętrzny Chrome i niedostępne ramki są poza zakresem. Wartości wygasają po dziesięciu minutach i znikają po czyszczeniu, pauzie, zmianie dostępu lub restarcie workera. Chrome zwykle pomija nagłówek wariacji w Incognito. Flagi, cookies i oceny CAPTCHA nie są odczytywane.|Hanya tujuan HTTPS Google tetap dengan akses ke tujuan dan pemrakarsa. Header terakhir untuk paling banyak delapan host, bukan ID browser global. Penangkapan navigasi memerlukan akses semua situs yang sudah ada dan peristiwa browser yang jelas dalam dua detik. Lalu lintas internal Chrome dan bingkai tidak dapat diakses tidak tercakup. Nilai kedaluwarsa setelah sepuluh menit dan hilang saat dihapus, dijeda, akses berubah, atau worker dimulai ulang. Chrome biasanya menghilangkan header variasi di Incognito. Flag, cookie, dan skor CAPTCHA tidak dibaca.
+api_note_webrtc|Aufrufe und Zustandsabfragen belegen weder Verbindung, Hardwareidentifizierung noch Tracking. Zertifikaterstellung und kurze Offer-/Lese-/Schließfolgen werden auch von gewöhnlichen Apps verwendet.|Wywołania i odczyty stanów nie dowodzą połączenia, identyfikacji sprzętu ani śledzenia. Tworzenie certyfikatów i krótkie sekwencje offer/odczyt/zamknięcie są też używane przez zwykłe aplikacje.|Panggilan dan pembacaan status tidak membuktikan koneksi, identifikasi perangkat keras, atau pelacakan. Pembuatan sertifikat dan rangkaian offer/baca/tutup singkat juga digunakan aplikasi biasa.
+rtc_values_returned|Ausgewählte an die Website zurückgegebene Felder|Wybrane pola zwrócone witrynie|Bidang terpilih yang dikembalikan ke situs
+rtc_values_snapshot|Zusätzlicher lokaler nativer Snapshot|Dodatkowy lokalny natywny zrzut|Snapshot native lokal tambahan
+rtc_values_limited|Einige Felder oder Beobachtungen wegen Datenschutz- oder Datenlimits ausgelassen.|Część pól lub obserwacji pominięto z powodu limitów prywatności lub danych.|Sebagian bidang atau pengamatan dihilangkan karena batas privasi atau data.
+rtc_values_empty|Keine ausgewählten Felder in dieser Beobachtung verfügbar.|Brak wybranych pól w tej obserwacji.|Tidak ada bidang terpilih yang tersedia dalam pengamatan ini.
+rtc_values_certificate|Dieser Fingerprint identifiziert ein Zertifikat, kein Gerät. Wiederverwendung kann Verbindungen verknüpfen, beweist aber kein Tracking. Er bleibt nur in dieser lokalen RAM-Vorschau.|Ten odcisk identyfikuje certyfikat, nie urządzenie. Ponowne użycie może łączyć połączenia, ale nie dowodzi śledzenia. Pozostaje tylko w tym lokalnym podglądzie pamięci.|Sidik ini mengidentifikasi sertifikat, bukan perangkat. Penggunaan ulang dapat menghubungkan koneksi, tetapi tidak membuktikan pelacakan. Nilai tetap hanya dalam pratinjau memori lokal ini.
+rtc_values_storage|Nur direkte Zertifikatobjekte werden erkannt. Eine zurückgegebene IndexedDB-Schreibanfrage belegt weder Transaktionsabschluss noch Speicherung über Besuche hinweg. Verschachtelte Einträge werden nicht geprüft.|Rozpoznawane są tylko bezpośrednie obiekty certyfikatów. Zwrócone żądanie zapisu IndexedDB nie dowodzi zatwierdzenia transakcji ani trwałości między wizytami. Zagnieżdżone rekordy nie są analizowane.|Hanya objek sertifikat langsung yang dikenali. Permintaan tulis IndexedDB yang dikembalikan tidak membuktikan komit transaksi atau penyimpanan antar kunjungan. Catatan bersarang tidak diperiksa.
+rtc_values_scope|Nur ausgewählte synchrone Ergebnisse. Promise-Ergebnisse, Statistikiteration, vollständiges SDP, ICE-Passwörter, Geräte-IDs und DTLS-Netzwerkhandshakes werden nicht geprüft. Zusätzliche Zertifikatsnapshots sind getrennt markiert. Werte fehlen in Speicher, Pro und Export.|Tylko wybrane wyniki synchroniczne. Wyniki Promise, iteracja statystyk, pełne SDP, hasła ICE, identyfikatory urządzeń i sieciowe uzgodnienia DTLS nie są analizowane. Dodatkowe zrzuty certyfikatów są osobno oznaczone. Wartości są wyłączone z pamięci, Pro i eksportu.|Hanya hasil sinkron terpilih. Hasil Promise, iterasi statistik, SDP lengkap, sandi ICE, ID perangkat, dan handshake DTLS jaringan tidak diperiksa. Snapshot sertifikat tambahan ditandai terpisah. Nilai dikecualikan dari penyimpanan, Pro, dan ekspor.
+inspector_group_media_capabilities|Codecs und Medienfähigkeiten|Kodeki i możliwości multimedialne|Codec dan kemampuan media
+inspector_group_media_devices|Kamera, Mikrofon und Mediengeräte|Kamera, mikrofon i urządzenia multimedialne|Kamera, mikrofon, dan perangkat media
+inspector_group_speech|Stimmen und Spracherkennung|Głosy i rozpoznawanie mowy|Suara dan pengenalan ucapan
+inspector_group_drm|Geschützte Wiedergabe / DRM|Chronione odtwarzanie / DRM|Pemutaran terlindungi / DRM
+inspector_group_device_access|Zugriff auf Peripheriegeräte|Dostęp do urządzeń peryferyjnych|Akses perangkat periferal
+inspector_group_browser_capabilities|Browserfähigkeiten|Możliwości przeglądarki|Kemampuan browser
+inspector_group_builtin_ai|Integrierte KI und Übersetzung|Wbudowana AI i tłumaczenie|AI bawaan dan penerjemahan
+inspector_group_recognition|Bild- und Handschrifterkennung|Rozpoznawanie obrazu i pisma odręcznego|Pengenalan gambar dan tulisan tangan
+inspector_group_app_integration|Plattformintegration|Integracja z platformą|Integrasi platform
+inspector_group_response_headers|Beobachtete Antwortheader|Zaobserwowane nagłówki odpowiedzi|Header respons yang diamati
+api_activity_capability|Fähigkeitsprüfung|Kontrola możliwości|Pemeriksaan kemampuan
+api_activity_list|Listenanforderung|Żądanie listy|Permintaan daftar
+api_activity_access|Zugriffsanforderung|Żądanie dostępu|Permintaan akses
+api_activity_state|Zustandsabfrage|Zapytanie o stan|Kueri status
+api_activity_operation|API-Vorgang|Operacja API|Operasi API
+api_note_media_capabilities|Player, Editoren und Gespräche prüfen Codec-Kompatibilität. RTP getCapabilities erstellt keine Verbindung. Ausgewählte zurückgegebene Codec-Felder erscheinen nur lokal; sie belegen weder Hardwaremodell noch erfolgreiche Wiedergabe.|Odtwarzacze, edytory i rozmowy sprawdzają zgodność kodeków. RTP getCapabilities nie tworzy połączenia. Wybrane zwrócone pola kodeków mogą być widoczne tylko lokalnie; nie ustalają modelu sprzętu ani udanego odtwarzania.|Pemutar, editor, dan panggilan memeriksa kompatibilitas codec. RTP getCapabilities tidak membuat koneksi. Bidang codec terpilih yang dikembalikan dapat muncul hanya dalam pratinjau lokal; ini tidak memastikan model perangkat keras atau pemutaran berhasil.
+api_note_media_devices|Geräte auflisten, Einstellungen prüfen und Aufnahme anfordern sind getrennte Vorgänge. Ein Aufruf beweist weder Berechtigung noch Aufnahme. Ausgewählte Track-Einstellungen können lokal erscheinen; Geräte-IDs, Bezeichnungen und Medieninhalte fehlen.|Lista urządzeń, sprawdzenie ustawień i żądanie przechwytywania to odrębne czynności. Wywołanie nie dowodzi uprawnienia ani nagrywania. Wybrane ustawienia ścieżek mogą pojawić się lokalnie; identyfikatory, etykiety i treść mediów są pomijane.|Mendaftar perangkat, memeriksa pengaturan, dan meminta penangkapan adalah hal terpisah. Panggilan tidak membuktikan izin atau perekaman. Pengaturan track terpilih dapat muncul secara lokal; ID perangkat, label, dan isi media dikecualikan.
+api_note_speech|Sprach- und Barrierefreiheitsfunktionen fragen ebenfalls Stimmen und Erkennungsverfügbarkeit ab. Stimmenlisten, Sprachen und Audio werden nicht gelesen. install belegt keinen abgeschlossenen Paketdownload.|Funkcje mowy i dostępności także sprawdzają głosy i dostępność rozpoznawania. Listy głosów, języki i audio nie są odczytywane. Wywołanie install nie dowodzi ukończenia pobierania pakietu.|Fitur ucapan dan aksesibilitas juga menanyakan suara dan ketersediaan pengenalan. Daftar suara, bahasa, dan audio tidak dibaca. Memanggil install tidak membuktikan unduhan paket selesai.
+api_note_drm|DRM- und HDCP-Prüfungen unterstützen geschützte Wiedergabe. Eine Anfrage belegt weder Tracking, Lizenzlieferung noch Geräteschutzniveau; Konfigurationen und Lizenzen werden nicht geprüft.|Kontrole DRM i HDCP wspierają chronione odtwarzanie. Żądanie nie dowodzi śledzenia, dostarczenia licencji ani poziomu ochrony urządzenia; konfiguracje i licencje nie są analizowane.|Pemeriksaan DRM dan HDCP mendukung pemutaran terlindungi. Permintaan tidak membuktikan pelacakan, pengiriman lisensi, atau tingkat perlindungan perangkat; konfigurasi dan lisensi tidak diperiksa.
+api_note_device_access|getDevices/getPorts fordern die der Website verfügbare Liste an; requestDevice/requestPort fordern Auswahl oder Zugriff an. Aufrufzahlen sind keine Gerätezahlen. IDs und Antwortinhalte fehlen.|getDevices/getPorts żądają listy dostępnej witrynie; requestDevice/requestPort żądają wyboru lub dostępu. Liczby wywołań nie są liczbami urządzeń. Identyfikatory i treści odpowiedzi są pomijane.|getDevices/getPorts meminta daftar yang tersedia untuk situs; requestDevice/requestPort meminta pemilihan atau akses. Jumlah panggilan bukan jumlah perangkat. ID dan isi respons dikecualikan.
+api_note_browser_capabilities|Umgebungs- und Berechtigungszustandsprüfungen werden beobachtet. cpuPerformance meldet eine Kategorie, keine CPU-Messung. Argumente und Listen werden nicht gelesen; wiederholte Abfragen beweisen weder Aufzählung verschiedener Berechtigungen noch Fingerprinting.|Obserwowane są kontrole środowiska i stanów uprawnień. cpuPerformance zgłasza kategorię, nie pomiar CPU. Argumenty i listy nie są odczytywane; powtarzane zapytania nie dowodzą enumeracji różnych uprawnień ani fingerprintingu.|Pemeriksaan lingkungan dan status izin diamati. cpuPerformance melaporkan kategori, bukan pengukuran CPU. Argumen dan daftar tidak dibaca; kueri berulang tidak membuktikan enumerasi izin berbeda atau sidik browser.
+api_note_builtin_ai|KI-Verfügbarkeit, Erstellung und Nutzung sind getrennte Vorgänge. Aufrufe beweisen weder GPU, heruntergeladenes Modell noch Datenübertragung. Text, Sprachpaare und Ausgaben werden nicht gelesen; Promise-Abschluss bleibt unbekannt.|Dostępność, tworzenie i użycie AI są odrębne. Wywołania nie dowodzą GPU, pobrania modelu ani przesłania danych. Tekst, pary językowe i wyniki nie są odczytywane; zakończenie Promise jest nieznane.|Ketersediaan, pembuatan, dan penggunaan AI adalah hal berbeda. Panggilan tidak membuktikan GPU, model yang diunduh, atau pengiriman data. Teks, pasangan bahasa, dan keluaran tidak dibaca; penyelesaian Promise tidak diketahui.
+api_note_recognition|Erkennung hängt von Browser und Plattform ab. Fähigkeitsabfrage oder detect beweist keine Gesichts- oder Benutzererkennung. Bilder, Handschrift, Text und Formatlisten werden nicht gelesen.|Rozpoznawanie zależy od przeglądarki i platformy. Zapytanie o możliwości lub detect nie dowodzi rozpoznania twarzy lub użytkownika. Obrazy, pismo odręczne, tekst i listy formatów nie są odczytywane.|Pengenalan bergantung pada browser dan platform. Kueri kemampuan atau panggilan detect tidak membuktikan wajah atau pengguna dikenali. Gambar, tulisan tangan, teks, dan daftar format tidak dibaca.
+api_note_app_integration|App-, Datei-, Sperr- und Hintergrund-APIs haben gewöhnliche Zwecke. Aufrufe beweisen weder installierte App, Tabzahl, Dateizugriff noch Trusted-Types-Durchsetzung. Inhalte, Pfade und Callbacks werden nicht geprüft.|API aplikacji, plików, blokad i tła mają zwykłe zastosowania. Wywołanie nie dowodzi zainstalowanej aplikacji, liczby kart, dostępu do plików ani egzekwowania Trusted Types. Treści, ścieżki i callbacki nie są analizowane.|API aplikasi, berkas, kunci, dan latar belakang memiliki penggunaan biasa. Panggilan tidak membuktikan aplikasi terpasang, jumlah tab, akses berkas, atau penegakan Trusted Types. Isi, jalur, dan callback tidak diperiksa.
+headers_note|Fakten aus abgeschlossenen, vom Browser im zugänglichen Dokument beobachteten Antworten. Jeder Header zählt einmal je Antwort. Werte, Meldeadressen und Sitzungsschlüssel fehlen; Browserdurchsetzung ist unbestätigt.|Fakty z zakończonych odpowiedzi obserwowanych przez przeglądarkę w dostępnym dokumencie. Każdy nagłówek liczy się raz na odpowiedź. Wartości, adresy raportowania i klucze sesji są pomijane; egzekwowanie przez przeglądarkę niepotwierdzone.|Fakta dari respons selesai yang diamati browser dalam dokumen yang dapat diakses. Tiap header dihitung sekali per respons. Nilai, alamat pelaporan, dan kunci sesi dikecualikan; penegakan browser belum dipastikan.
+headers_observation|Der Browser beobachtete ausgewählte Antwortheader.|Przeglądarka zaobserwowała wybrane nagłówki odpowiedzi.|Browser mengamati header respons terpilih.
+headers_interpretation|Ein Header beweist weder Datenübertragung noch verdecktes Tracking.|Obecność nagłówka nie dowodzi przesyłania danych ani ukrytego śledzenia.|Keberadaan header tidak membuktikan pengiriman data atau pelacakan tersembunyi.
+headers_truncated|Beobachtung unvollständig: Einige Antworten oder Hint-Namen fehlen. Zähler sind Untergrenzen.|Obserwacja jest niepełna: część odpowiedzi lub nazw wskazówek pominięto. Liczby są dolnymi granicami.|Pengamatan tidak lengkap: sebagian respons atau nama hint dihilangkan. Jumlah merupakan batas bawah.
+headers_hints|Angeforderte Client-Hint-Namen|Żądane nazwy Client Hints|Nama Client Hint yang diminta
+headers_client_hints_note|Der Server fordert Client Hints an; tatsächliche Übertragung ist nicht belegt.|Serwer żąda Client Hints; rzeczywiste przesłanie nie jest ustalone.|Server meminta client hints; pengiriman sebenarnya belum dipastikan.
+headers_policy_note|Die Richtlinie beschränkt Fähigkeiten; sie erteilt keine Berechtigung.|Polityka ogranicza możliwości; nie przyznaje uprawnienia.|Kebijakan membatasi kemampuan; tidak memberikan izin.
+headers_reporting_note|Browser-Meldekonfiguration, kein Beleg für einen gesendeten Bericht.|Konfiguracja raportowania przeglądarki, nie dowód wysłania raportu.|Konfigurasi pelaporan browser, bukan bukti laporan dikirim.
+headers_session_note|Sitzungsbindungsmechanismus; Werte und Schlüssel ausgeblendet, Registrierung unbestätigt.|Mechanizm wiązania sesji; wartości i klucze ukryte, rejestracja niepotwierdzona.|Mekanisme pengikatan sesi; nilai dan kunci disembunyikan, pendaftaran belum dipastikan.
+headers_dictionary_note|Kompressionswörterbuch deklariert; Nutzung unbestätigt.|Deklaracja słownika kompresji; użycie niepotwierdzone.|Deklarasi kamus kompresi; penggunaan belum dipastikan.
+api_webnn_coverage_note|Abdeckung auf 44 vorhandene API-Einstiegspunkte begrenzt, einschließlich ausgewählter Graphoperatoren, nicht ganz WebNN. Worker und interne Berechnungen werden nicht beobachtet; ein fehlender Eintrag beweist keinen fehlenden Aufruf.|Pokrycie ograniczono do 44 obecnych punktów wejścia API, w tym wybranych operatorów grafu, nie całego WebNN. Workery i obliczenia wewnętrzne nie są obserwowane; brak wpisu nie dowodzi braku wywołania.|Cakupan terbatas pada 44 titik masuk API jika tersedia, termasuk operator graf terpilih, bukan seluruh WebNN. Worker dan komputasi internal tidak diamati; entri yang tidak ada tidak membuktikan tidak ada panggilan.
+inspector_group_webnn|WebNN / Neuronale Netze|WebNN / sieci neuronowe|WebNN / jaringan saraf
+api_note_webnn|WebNN-Fähigkeitsprüfungen können ein kompatibles Modell auswählen. Kontextanfragen, build und dispatch belegen weder gewählte Hardware, Abschluss noch Fingerprinting. Optionen, Unterstützungsmatrizen, Tensorinhalte und Workeraktivität werden nicht geprüft.|Kontrole możliwości WebNN mogą wybierać zgodny model. Żądania kontekstu, build i dispatch nie ustalają wybranego sprzętu, zakończenia ani fingerprintingu. Opcje, macierze obsługi, zawartość tensorów i aktywność workerów nie są analizowane.|Pemeriksaan kemampuan WebNN dapat memilih model yang kompatibel. Permintaan konteks, build, dan dispatch tidak memastikan perangkat keras terpilih, penyelesaian, atau sidik browser. Opsi, matriks dukungan, isi tensor, dan aktivitas Worker tidak diperiksa.
+api_preview_webnn|Nur bereits von der Seite gelesene skalare Metadaten können erscheinen. Tensorformen/-daten und Unterstützungsmatrizen fehlen; asynchroner Abschluss unbekannt. Zähler beschreiben Aufrufe, keine Graphknoten oder fertigen Inferenzen.|Mogą być widoczne tylko skalarne metadane już odczytane przez stronę. Kształty i dane tensorów oraz macierze obsługi są pomijane; zakończenie asynchroniczne nieznane. Liczby opisują wywołania, nie węzły grafu ani zakończone inferencje.|Hanya metadata skalar yang sudah dibaca halaman yang dapat muncul. Bentuk dan data tensor serta isi matriks dukungan dikecualikan; penyelesaian asinkron tidak diketahui. Jumlah menjelaskan panggilan, bukan simpul graf atau inferensi selesai.
+api_preview_audio|Vorschau kann Samplerate, Latenz und Kanalzahlen enthalten. Samples und Hashes fehlen; Aufrufe beweisen weder Fingerprinting noch Mikrofonzugriff.|Podgląd może zawierać częstotliwość próbkowania, opóźnienie i liczbę kanałów. Próbki i hasze są pomijane; wywołania nie dowodzą fingerprintingu ani dostępu do mikrofonu.|Pratinjau dapat memuat laju sampel, latensi, dan jumlah kanal. Sampel dan hash dikecualikan; panggilan tidak membuktikan sidik browser atau akses mikrofon.
+api_preview_webgpu|Browserinformationen können begrenzt oder verallgemeinert sein. Sie sind keine unabhängige GPU-Modellprüfung. Keine aktiven GPU-Tests oder Shaderzeitmessungen.|Informacje zwrócone przez przeglądarkę mogą być ograniczone lub uogólnione. Nie jest to niezależna weryfikacja modelu GPU. Nie wykonuje się aktywnych testów GPU ani pomiarów shaderów.|Informasi yang dikembalikan browser dapat dibatasi atau digeneralisasi. Ini bukan verifikasi independen model GPU. Tidak ada pengujian GPU aktif atau pengukuran waktu shader.
+api_preview_wasm|Nur JavaScript-API-Ergebnisse werden angezeigt. Modulbytes und interne Ausführung werden nicht geprüft; CPU, Architektur und SIMD sind nicht festgestellt.|Pokazane są tylko wyniki API JavaScript. Bajty modułu i wykonanie wewnętrzne nie są analizowane; CPU, architektura i SIMD nie są ustalone.|Hanya hasil API JavaScript ditampilkan. Byte modul dan eksekusi internal tidak diperiksa; CPU, arsitektur, dan SIMD belum dipastikan.
+api_preview_window_management|Bereits von der Seite gelesene Bildschirm- und Fensterwerte. getScreenDetails beweist weder erteilte Berechtigung noch erhaltene vollständige Monitorliste.|Wartości ekranu i okna już odczytane przez stronę. getScreenDetails nie dowodzi przyznania uprawnienia ani uzyskania pełnej listy monitorów.|Nilai layar dan jendela yang sudah dibaca halaman. Memanggil getScreenDetails tidak membuktikan izin diberikan atau daftar monitor lengkap diperoleh.
+api_preview_compute_pressure|Von der Seite gelesene grobe Zustände. Genaue Zeitstempel verborgen; Aktivität anderer Tabs und Kühlungseigenschaften nicht festgestellt.|Ogólne stany odczytane przez stronę. Dokładne znaczniki czasu są ukryte; aktywność innych kart i charakterystyka chłodzenia nieustalone.|Status kasar yang dibaca halaman. Stempel waktu tepat disembunyikan; aktivitas tab lain dan karakteristik pendinginan belum dipastikan.
+api_preview_idle_detection|Letzter von der Seite gelesener Zustand. start bestätigt kein aktives Abonnement. Anwesenheitsverlauf und Geh-/Rückkehrzeiten werden nicht erfasst.|Ostatni stan odczytany przez stronę. start nie potwierdza aktywnej subskrypcji. Historia obecności oraz czasy odejścia i powrotu nie są zapisywane.|Status terakhir yang dibaca halaman. Memanggil start tidak memastikan langganan aktif. Riwayat kehadiran dan waktu pergi atau kembali tidak dicatat.
+api_preview_display|Letzte tatsächlich an die Seite zurückgegebene Abmessungen und Skalierung. Die Erweiterung fordert selbst keine Monitorliste an.|Ostatnie wymiary i skala faktycznie zwrócone stronie. Rozszerzenie samo nie żąda listy monitorów.|Dimensi dan skala terakhir yang benar-benar dikembalikan ke halaman. Ekstensi tidak meminta daftar monitor sendiri.
+api_preview_cpu|hardwareConcurrency ist die Browserschätzung verfügbarer logischer Prozessoren, nicht die Anzahl physischer CPU-Kerne.|hardwareConcurrency to oszacowanie dostępnych procesorów logicznych przez przeglądarkę, nie liczba fizycznych rdzeni CPU.|hardwareConcurrency adalah perkiraan browser tentang prosesor logis yang tersedia, bukan jumlah inti CPU fisik.
+api_preview_memory|Device Memory meldet eine ungefähre Speicherkategorie, nicht die genaue installierte RAM-Menge.|Device Memory podaje przybliżoną kategorię pamięci, nie dokładną ilość zainstalowanego RAM.|Device Memory melaporkan kategori memori perkiraan, bukan jumlah RAM terpasang yang tepat.
+api_results_title|Letzte Ergebnisse|Ostatnie wyniki|Hasil terbaru
+api_results_note|Zuletzt beobachtete Ergebnisse. Bei laufender Pro-Aufzeichnung werden ausgewählte technische Parameter und verschiedene Rückgabewerte im lokalen Bericht gespeichert.|Ostatnie zaobserwowane wyniki. Podczas nagrywania Pro wybrane parametry techniczne i różne zwrócone wartości są zachowywane w lokalnym raporcie.|Hasil terbaru yang diamati. Saat perekaman Pro berjalan, parameter teknis terpilih dan nilai kembalian berbeda disimpan dalam laporan lokalnya.
+api_result_returned|Zurückgegeben|Zwrócono|Dikembalikan
+api_result_setter|Rückgabewert des Setters|Wartość zwrócona przez setter|Nilai kembalian setter
+api_result_missing|Ergebnis nicht beobachtet.|Wyniku nie zaobserwowano.|Hasil tidak diamati.
+api_result_object|Objekt; Inhalt nicht gelesen.|Obiekt; treści nie odczytano.|Objek; isi tidak dibaca.
+api_result_async|Asynchroner Abschluss nicht beobachtet.|Nie zaobserwowano zakończenia asynchronicznego.|Penyelesaian asinkron tidak diamati.
+api_result_exception|Ausnahmeinhalt nicht gelesen.|Treści wyjątku nie odczytano.|Isi pengecualian tidak dibaca.
+api_result_sensitive|Wert aus Vorschau ausgeschlossen.|Wartość wyłączona z podglądu.|Nilai dikecualikan dari pratinjau.
+api_result_limit|Wert überschreitet das Vorschaulimit.|Wartość przekracza limit podglądu.|Nilai melampaui batas pratinjau.
+api_result_unsupported|Ergebnistyp nicht unterstützt.|Typ wyniku nie jest obsługiwany.|Jenis hasil tidak didukung.
+api_results_truncated|Einige Ergebnisse wegen Erfassungs- oder Übertragungsgrenzen nicht verfügbar.|Część wyników jest niedostępna z powodu limitów przechwytywania lub dostarczenia.|Sebagian hasil tidak tersedia karena batas penangkapan atau pengiriman.
+api_results_unavailable|Ergebnisvorschau derzeit nicht verfügbar.|Podgląd wyników jest obecnie niedostępny.|Pratinjau hasil saat ini tidak tersedia.
+protection_title|Optionale API-Sperren|Opcjonalne blokowanie API|Pemblokiran API opsional
+protection_enable|Sperren global aktivieren|Włącz blokowanie globalnie|Aktifkan pemblokiran secara global
+protection_risk|API-Verweigerungen können Websites, Anmeldung, Editoren und Gespräche stören. Eigene Regeln können den Browser auffälliger machen. Anonymität oder vollständiger Schutz werden nicht garantiert.|Odmowy API mogą zakłócać witryny, logowanie, edytory i rozmowy. Własne reguły mogą wyróżniać przeglądarkę. Nie gwarantuje się anonimowości ani pełnej ochrony.|Penolakan API dapat mengganggu situs, login, editor, dan panggilan. Aturan khusus dapat membuat browser lebih mudah dibedakan. Anonimitas atau perlindungan penuh tidak dijamin.
+protection_consent|Ich verstehe das Risiko gestörter Websites und möchte Sperren aktivieren.|Rozumiem ryzyko zakłócenia witryn i chcę włączyć blokowanie.|Saya memahami risiko situs terganggu dan ingin mengaktifkan pemblokiran.
+protection_preset|Globale Voreinstellung|Globalny zestaw ustawień|Prasetel global
+protection_custom|Nur ausgewählte Regeln|Tylko wybrane reguły|Hanya aturan terpilih
+protection_limited|Begrenzt|Ograniczone|Terbatas
+protection_strict|Streng|Ścisłe|Ketat
+protection_site|Genauer Hostname|Dokładna nazwa hosta|Nama host tepat
+protection_global|Globale Regeln|Reguły globalne|Aturan global
+protection_add_site|Hinzufügen|Dodaj|Tambahkan
+protection_no_host|Website nicht verfügbar|Witryna niedostępna|Situs tidak tersedia
+protection_host_note|Nur dieser genaue Hostname, HTTP und HTTPS, alle Ports. Subdomains und Drittanbieterframes haben eigene Regeln; dies ist keine Ausnahme für den gesamten Tab.|Ta dokładna nazwa hosta, HTTP i HTTPS, wszystkie porty. Subdomeny i ramki podmiotów trzecich mają własne reguły; to nie wyjątek dla całej karty.|Nama host tepat ini, HTTP dan HTTPS, semua port. Subdomain dan bingkai pihak ketiga memiliki aturan sendiri; ini bukan pengecualian seluruh tab.
+protection_site_off|Alle unterstützten APIs auf diesem Hostnamen erlauben|Zezwól na wszystkie obsługiwane API dla tego hosta|Izinkan semua API yang didukung pada nama host ini
+protection_remove_site|Hostnamenüberschreibungen entfernen|Usuń nadpisania hosta|Hapus penggantian nama host
+protection_search|API suchen|Znajdź API|Cari API
+protection_configured|Sperre konfiguriert|Blokowanie skonfigurowane|Blokir dikonfigurasi
+protection_inherit|Übernehmen|Dziedzicz|Warisi
+protection_allow|Erlauben|Zezwól|Izinkan
+protection_block|Sperren|Blokuj|Blokir
+protection_high_risk|Hohes Störungsrisiko|Wysokie ryzyko zakłóceń|Risiko gangguan tinggi
+protection_stopped|Handler beendet; neu laden erforderlich.|Handler zatrzymany; wymagane odświeżenie.|Handler berhenti; perlu muat ulang.
+protection_partial|Handler meldet teilweise Abdeckung.|Handler zgłasza częściowe pokrycie.|Handler melaporkan cakupan sebagian.
+protection_missing|Installation dieser API unbestätigt; Abdeckung unbekannt.|Instalacja tego API jest niepotwierdzona; pokrycie nieznane.|Pemasangan untuk API ini belum dipastikan; cakupan tidak diketahui.
+protection_denied|Gemeldete Verweigerungen|Zgłoszone odmowy|Penolakan yang dilaporkan
+protection_removed|API-Einstiegspunkte entfernt; durch Neuladen wiederherstellen.|Punkty wejścia API usunięte; przywróć przez odświeżenie.|Titik masuk API dihapus; pulihkan dengan muat ulang.
+protection_no_rows|Keine passenden APIs|Brak pasujących API|Tidak ada API yang cocok
+protection_limits|Nur aufgelistete APIs und autorisierte HTTP(S)-Dokumente. Worker, Frames mit geerbtem Ursprung, gespeicherte Referenzen und Seiteneingriffe bleiben Lücken. JavaScript-Client-Hint-Sperren entfernen keine HTTP-Header. Zähler stammen aus der seitenkontrollierten MAIN-Welt, kein Schutzbeweis.|Tylko wymienione API i autoryzowane dokumenty HTTP(S). Workery, ramki z dziedziczonym originem, zachowane referencje i ingerencja strony pozostają lukami. Blokowanie JavaScript Client Hints nie usuwa nagłówków HTTP. Liczniki pochodzą z kontrolowanego przez stronę MAIN, nie są dowodem ochrony.|Hanya API yang dicantumkan dan dokumen HTTP(S) yang diizinkan. Worker, bingkai dengan origin warisan, referensi tersimpan, dan gangguan halaman tetap menjadi celah. Pemblokiran client hint JavaScript tidak menghapus header HTTP. Jumlah berasal dari dunia MAIN yang dikendalikan halaman, bukan bukti perlindungan.
+protection_error|Einstellungen oder Registrierung unbestätigt. Aktualisieren und erneut versuchen; gehen Sie nicht von aktiven Sperren aus.|Nie potwierdzono ustawień lub rejestracji. Odśwież i spróbuj ponownie; nie zakładaj aktywnego blokowania.|Pengaturan atau pendaftaran belum dipastikan. Segarkan dan coba lagi; jangan anggap pemblokiran aktif.
+protection_ready|Für neue Dokumente registriert. Laden Sie offene Seiten nach Regeländerungen neu.|Zarejestrowane dla nowych dokumentów. Odśwież otwarte strony po zmianie reguł.|Terdaftar untuk dokumen baru. Muat ulang halaman terbuka setelah mengubah aturan.
+protection_inactive|Keine Sperren für neue Dokumente registriert. Prüfen Sie Modus, Regeln und autorisierten Beobachtungsumfang.|Brak blokowania zarejestrowanego dla nowych dokumentów. Sprawdź tryb, reguły i autoryzowany zakres obserwacji.|Tidak ada pemblokiran terdaftar untuk dokumen baru. Periksa mode, aturan, dan cakupan pengamatan yang diizinkan.
+protection_dirty|Ungespeicherte Änderungen|Niezapisane zmiany|Perubahan belum disimpan
+protection_save|Regeln speichern|Zapisz reguły|Simpan aturan
+protection_save_reload|Speichern und neu laden|Zapisz i odśwież|Simpan dan muat ulang
+protection_refresh|Aktualisieren und ungespeicherte Änderungen verwerfen|Odśwież i odrzuć niezapisane zmiany|Segarkan dan buang perubahan yang belum disimpan
+protection_restore_reload|Diesen Hostnamen erlauben und neu laden|Zezwól na ten host i odśwież|Izinkan nama host ini dan muat ulang
+protection_feature_window_management|Details mehrerer Monitore|Szczegóły wielu monitorów|Rincian beberapa monitor
+protection_feature_compute_pressure|Rechenlast|Obciążenie obliczeniowe|Tekanan komputasi
+protection_feature_idle_detection|Inaktivitätserkennung|Wykrywanie bezczynności|Deteksi tidak aktif
+protection_feature_local_fonts|Zugriff auf lokale Schriften|Dostęp do lokalnych czcionek|Akses font lokal
+protection_feature_canvas_readback|Canvas-Auslesen und -Aufnahme|Odczyt i przechwytywanie Canvas|Pembacaan dan penangkapan Canvas
+protection_feature_webgl|WebGL-Kontexterstellung|Tworzenie kontekstu WebGL|Pembuatan konteks WebGL
+protection_feature_webgpu|WebGPU-Adapterzugriff|Dostęp do adaptera WebGPU|Akses adaptor WebGPU
+protection_feature_audio|Web-Audio-Konstruktoren|Konstruktory Web Audio|Konstruktor Web Audio
+protection_feature_webrtc|WebRTC-Verbindungen|Połączenia WebRTC|Koneksi WebRTC
+protection_feature_webassembly|WebAssembly|WebAssembly|WebAssembly
+protection_feature_battery|Batteriestatus|Stan baterii|Status baterai
+protection_feature_network_information|Netzwerkinformationen|Informacje o sieci|Informasi jaringan
+protection_feature_keyboard|Tastatur-API|API klawiatury|API papan ketik
+protection_feature_client_hints|JavaScript-Client-Hints|Client Hints JavaScript|Client hints JavaScript
+protection_feature_clipboard_read|Zwischenablage lesen|Odczyt schowka|Pembacaan papan klip
+visual_webgl_image_count|Bilder: $N$|Obrazy: $N$|Gambar: $N$
+visual_webgl_empty|Kein unterstütztes WebGL-Bild in diesem Dokument erfasst. Parameter- und Erweiterungsabfragen liefern keine Pixel. Die Vorschau erfordert, dass die Seite ein Bild in unterstütztem Format innerhalb der Erfassungsgrenzen ausliest oder exportiert.|Nie przechwycono obsługiwanego obrazu WebGL w tym dokumencie. Zapytania o parametry i rozszerzenia nie zwracają pikseli. Podgląd wymaga odczytu lub eksportu obrazu przez stronę w obsługiwanym formacie i limitach.|Tidak ada gambar WebGL yang didukung yang ditangkap dalam dokumen ini. Kueri parameter dan ekstensi tidak mengembalikan piksel. Pratinjau memerlukan halaman membaca atau mengekspor gambar dalam format yang didukung dan batas penangkapan.
+visual_gallery_count|Canvas-Flächen: $N$|Obszary Canvas: $N$|Kanvas: $N$
+visual_canvas_id|Canvas $N$|Canvas $N$|Canvas $N$
+visual_readbacks|Beobachtete Lesezugriffe: $N$|Zaobserwowane odczyty: $N$|Pembacaan diamati: $N$
+visual_previous|Vorherige Bilder|Poprzednie obrazy|Gambar sebelumnya
+visual_next|Nächste Bilder|Następne obrazy|Gambar berikutnya
+visual_actions|Beobachtete Vorgänge|Zaobserwowane operacje|Operasi yang diamati
+visual_gallery_note|Erstes unterstütztes Bild je Canvas; Bezeichnungen beschreiben Aufrufe, keine Pixelvergleiche. 2D belegt kein CPU-Rendering, WebGL keine Hardwarebeschleunigung. Gewöhnliche Grafik verwendet dieselben Vorgänge.|Pierwszy obsługiwany obraz każdego Canvas; etykiety opisują wywołania, nie porównania pikseli. 2D nie dowodzi renderowania CPU, a WebGL akceleracji sprzętowej. Zwykła grafika używa tych samych operacji.|Gambar pertama yang didukung per kanvas; label menjelaskan panggilan, bukan perbandingan piksel. 2D tidak membuktikan render CPU, dan WebGL tidak membuktikan akselerasi perangkat keras. Grafik biasa menggunakan operasi yang sama.
+visual_gallery_limited|Einige Bilder oder Aktualisierungen fehlen wegen Zeit-, Format-, Übertragungs- oder Speicherlimits. Galerie unvollständig.|Część obrazów lub aktualizacji pominięto przez limity czasu, formatu, dostarczenia lub pamięci. Galeria jest niepełna.|Sebagian gambar atau pembaruan dihilangkan karena batas waktu, format, pengiriman, atau memori. Galeri ini tidak lengkap.
+visual_op_text|Textzeichnen|Rysowanie tekstu|Penggambaran teks
+visual_op_image_copy|Bildkopie|Kopiowanie obrazu|Salin gambar
+visual_op_cropped_copy|Kopie zugeschnittenen Bilds|Kopiowanie przyciętego obrazu|Salin gambar yang dipotong
+visual_op_recombined_copy|Kopie aus zugeschnittenen Canvases|Kopia z przyciętych Canvas|Salin dari kanvas yang dipotong
+visual_op_flip_back_copy|Y-Spiegelung an Quelle und Kopie|Odbicie Y źródła i kopii|Pencerminan Y pada sumber dan salinan
+visual_op_canvas_reset|Canvas zurücksetzen|Reset Canvas|Reset Canvas
+visual_op_pixel_write|Pixeldaten schreiben|Zapis danych pikseli|Tulis data piksel
+visual_op_fill|Füllen oder löschen|Wypełnienie lub czyszczenie|Isi atau hapus
+visual_op_gradient|Verlauf erstellen|Tworzenie gradientu|Pembuatan gradien
+visual_op_pattern|Muster erstellen|Tworzenie wzoru|Pembuatan pola
+visual_op_path|Pfad zeichnen|Rysowanie ścieżki|Penggambaran jalur
+visual_op_transform|Koordinatentransformation|Transformacja współrzędnych|Transformasi koordinat
+visual_op_flip_x|X-Spiegelung angefordert|Żądane odbicie X|Pencerminan X diminta
+visual_op_flip_y|Y-Spiegelung angefordert|Żądane odbicie Y|Pencerminan Y diminta
+visual_op_fractional|Gebrochene Transformationsargumente|Ułamkowe argumenty transformacji|Argumen transformasi pecahan
+visual_op_alpha|Alpha-Einstellung|Ustawienie alfa|Pengaturan alfa
+visual_op_composite|Kompositionsmodus einstellen|Ustawienie trybu kompozycji|Pengaturan mode komposisi
+visual_op_repeat_readback|Wiederholtes Bildauslesen|Powtarzane odczyty obrazu|Pembacaan gambar berulang
+visual_op_multiple_readback_formats|Mehrere Auslese-APIs|Wiele API odczytu|Beberapa API pembacaan
+visual_op_texture_upload|Textur hochladen|Przesłanie tekstury|Unggah tekstur
+visual_op_2d_to_webgl|2D-Canvas zu WebGL-Textur|Canvas 2D do tekstury WebGL|Kanvas 2D ke tekstur WebGL
+visual_op_webgl_to_2d|WebGL-Canvas zu 2D-Kopie|Kopia Canvas WebGL do 2D|Salin kanvas WebGL ke 2D
+visual_op_webgl_to_webgl|WebGL-Canvas zu WebGL-Textur|Canvas WebGL do tekstury WebGL|Kanvas WebGL ke tekstur WebGL
+visual_op_shader|Shader- oder Programmvorgänge|Operacje shaderów lub programów|Operasi shader atau program
+visual_op_gpu_draw|WebGL-Zeichnen|Rysowanie WebGL|Penggambaran WebGL
+visual_op_gpu_sync|WebGL finish / flush|WebGL finish / flush|WebGL finish / flush
+visual_op_gl_parameters|GL-Parameterabfrage|Zapytanie o parametry GL|Kueri parameter GL
+visual_op_timer_extension|Timer-Erweiterung angefordert|Żądane rozszerzenie timera|Ekstensi timer diminta
+visual_op_timer_query|GPU-Timer-Abfragen|Wywołania zapytań timera GPU|Panggilan kueri timer GPU
+visual_op_query_read|Abfragestatus oder -ergebnis lesen|Odczyt stanu lub wyniku zapytania|Baca status atau hasil kueri
+visual_op_occlusion_query|Verdeckungsabfragen|Wywołania zapytań o przesłonięcie|Panggilan kueri oklusi
+visual_op_bitmap_transfer|ImageBitmap übertragen|Przekazanie ImageBitmap|Transfer ImageBitmap
+visual_op_offscreen_transfer|OffscreenCanvas übertragen|Przekazanie OffscreenCanvas|Transfer OffscreenCanvas
+visual_op_bitmap_create|ImageBitmap-Erstellung angefordert|Żądanie utworzenia ImageBitmap|Permintaan pembuatan ImageBitmap
+visual_op_svg_source|Inline-SVG-Bildquelle|Źródło obrazu SVG inline|Sumber gambar SVG inline
+api_note_audio|Kontexterstellung, Knotenvorgänge, Offline-Rendering und Datenlesen werden getrennt gezeigt. Renderabschluss wird nicht beobachtet. Samples, Spektren, Parameterwerte und Hashes werden nicht aufbewahrt. Auch Player und Editoren verwenden diese APIs; Aufrufe allein belegen weder Fingerprinting noch Mikrofonzugriff.|Tworzenie kontekstu, operacje węzłów, renderowanie offline i odczyty danych pokazano osobno. Ukończenie renderowania nie jest obserwowane. Próbki, widma, wartości parametrów i hasze nie są zachowywane. Odtwarzacze i edytory też używają tych API; same wywołania nie dowodzą fingerprintingu ani dostępu do mikrofonu.|Pembuatan konteks, operasi simpul, panggilan render luring, dan pembacaan data ditampilkan terpisah. Penyelesaian render tidak diamati. Sampel, spektrum, nilai parameter, dan hash tidak disimpan. Pemutar dan editor juga menggunakan API ini; panggilan saja tidak membuktikan sidik browser atau akses mikrofon.
+extension_targets_title|Zugriff auf Erweiterungsressourcen|Dostęp do zasobów rozszerzeń|Akses sumber daya ekstensi
+extension_targets_note|Diese Erweiterungsressourcen wurden im Seitenkontext referenziert. Dies kann ihre Anwesenheit prüfen oder einer gewöhnlichen Integration dienen. Installation, Ergebnis und Aufruferidentität sind unbekannt; Daten werden von der Seite kontrolliert.|Do tych zasobów rozszerzeń odwołano się w kontekście strony. Może to sprawdzać ich obecność lub obsługiwać zwykłą integrację. Instalacja, wynik i tożsamość wywołującego są nieznane; dane kontroluje strona.|Sumber daya ekstensi ini dirujuk dalam konteks halaman. Ini dapat memeriksa keberadaannya atau mendukung integrasi biasa. Pemasangan, hasil, dan identitas pemanggil tidak diketahui; data dikendalikan halaman.
+extension_targets_unknown|Unbekannte Ziele|Nieznane cele|Target tidak diketahui
+extension_targets_unknown_note|Zähler sind Zugriffe, nicht eindeutige Erweiterungen. Unbekannte Ziel-IDs und Ressourcenpfade werden nicht aufbewahrt.|Liczniki oznaczają dostępy, nie unikatowe rozszerzenia. Nieznane identyfikatory celów i ścieżki zasobów nie są zachowywane.|Jumlah merupakan akses, bukan ekstensi unik. ID target tidak dikenal dan jalur sumber daya tidak disimpan.
+extension_targets_reference|src-Zuweisung bestätigt keine gesendete Anfrage.|Przypisanie src nie potwierdza wysłania żądania.|Menetapkan src tidak memastikan permintaan dikirim.
+extension_targets_limited|Liste unvollständig: Einige Zugriffe können fehlen.|Lista jest niepełna: część dostępów może być pominięta.|Daftar ini tidak lengkap: sebagian akses mungkin terlewat.
+extension_targets_privacy|Nur Datenschutzwerkzeuge|Tylko narzędzia prywatności|Hanya alat privasi
+extension_targets_empty_filter|Keine Ziele dieser Kategorie in der Liste.|Brak celów tej kategorii na liście.|Tidak ada target kategori ini dalam daftar.
+local_ports_requested|Angeforderte lokale Ports|Żądane porty lokalne|Port lokal yang diminta
+local_ports_unknown|Portnummern dieser Versuche nicht aufbewahrt.|Numerów portów tych prób nie zachowano.|Nomor port tidak disimpan untuk percobaan ini.
+local_ports_incomplete|Liste unvollständig: Einige Portnummern können fehlen.|Lista jest niepełna: część numerów portów może być pominięta.|Daftar ini tidak lengkap: sebagian nomor port mungkin terlewat.
+api_actions_title|Seitenaktionen|Czynności strony|Tindakan halaman
+api_actions_note|Konkrete Aufrufe oder Eigenschaftszugriffe in diesem Dokument. Ihre Phase wird getrennt gezeigt. Ein Aufruf belegt weder erfolgreichen Zugriff noch Fingerprinting; seitenkontrollierte Beobachtungen können gefälscht sein.|To konkretne wywołania lub odczyty właściwości w tym dokumencie. Ich faza jest pokazana osobno. Wywołanie nie dowodzi udanego dostępu ani fingerprintingu; obserwacje kontrolowane przez stronę mogą być sfałszowane.|Ini adalah panggilan atau pembacaan properti tertentu yang diamati dalam dokumen ini. Fasenya ditampilkan terpisah. Panggilan tidak membuktikan akses berhasil atau sidik browser; pengamatan yang dikendalikan halaman dapat dipalsukan.
+api_action_get|Eigenschaft lesen|Odczyt właściwości|Akses properti
+api_action_set|Eigenschaft zuweisen|Przypisanie właściwości|Penetapan properti
+api_window_events_note|Listenerzähler beschreiben Registrierungs-/Entfernungsaufrufe und Handlerzuweisungen einschließlich Löschen, keine aktiven Listener oder zugestellten Ereignisse. Fenster- und Vollbildaufrufe bestätigen keine Platzierung. Argumente und Optionen werden nicht geprüft.|Liczniki listenerów opisują wywołania rejestracji/usunięcia i przypisania handlerów, także czyszczenie, nie aktywne listenery ani dostarczone zdarzenia. Wywołania okien i pełnego ekranu nie potwierdzają położenia. Argumenty i opcje nie są analizowane.|Jumlah listener mewakili panggilan pendaftaran/penghapusan dan penetapan handler termasuk pengosongan, bukan listener aktif atau peristiwa terkirim. Panggilan jendela dan layar penuh tidak memastikan penempatan. Argumen dan opsi tidak diperiksa.
+api_pressure_limits_note|sampleInterval=0 fordert Benachrichtigungen bei Zustandsänderung an, keine garantierte Rate. Optionen, Callback-Zustellung und Abonnementdauer werden nicht geprüft. Zustellung hängt von Fokus, Richtlinie und Browsergrenzen ab.|sampleInterval=0 żąda powiadomień przy zmianie stanu, nie gwarantowanej częstotliwości. Opcje, dostarczanie callbacków i czas subskrypcji nie są analizowane. Dostarczenie zależy od fokusu, polityki i limitów przeglądarki.|sampleInterval=0 meminta notifikasi saat status berubah, bukan laju terjamin. Opsi, pengiriman callback, dan durasi langganan tidak diperiksa. Pengiriman bergantung pada fokus, kebijakan, dan batas browser.
+api_action_call|Methodenaufruf|Wywołanie metody|Panggilan metode
+api_action_construct|Konstruktoraufruf|Wywołanie konstruktora|Panggilan konstruktor
+api_action_async|Asynchroner Aufruf|Wywołanie asynchroniczne|Panggilan asinkron
+api_note_webgpu|Vorgänge unterscheiden Adapterinformationen, Zugriff auf Fähigkeiten und Limits sowie Shader- oder Pipelineerstellung. Browser können GPU-Details begrenzen oder verallgemeinern. Werte werden nicht aufbewahrt; Aufrufe belegen weder genaues GPU-Modell, vollständiges Profil noch Shaderzeiten.|Operacje rozróżniają informacje o adapterze, dostęp do funkcji i limitów oraz tworzenie shaderów lub pipeline. Przeglądarki mogą ograniczać lub uogólniać szczegóły GPU. Wartości nie są zachowywane; wywołania nie ustalają dokładnego modelu GPU, pełnego profilu ani czasu shaderów.|Operasi yang dicantumkan membedakan informasi adaptor, akses fitur dan batas, serta pembuatan shader atau pipeline. Browser dapat membatasi atau menggeneralisasi rincian GPU. Nilai tidak disimpan; panggilan tidak memastikan model GPU tepat, profil lengkap, atau waktu shader.
+api_note_wasm|Die Seite rief WebAssembly-APIs zum Prüfen, Kompilieren, Instanziieren oder Speicherzugriff auf. Modulbytes, Ergebnisse und interne Ausführung werden nicht geprüft. CPU-Zeiten, SIMD-Fähigkeiten, Architektur, gefälschter User-Agent oder Lockdown Mode sind nicht festgestellt.|Strona wywołała API WebAssembly do walidacji, kompilacji, tworzenia instancji lub dostępu do pamięci. Bajty modułu, wyniki i wykonanie wewnętrzne nie są analizowane. Czas CPU, funkcje SIMD, architektura, sfałszowany User-Agent i Lockdown Mode nie są ustalone.|Halaman memanggil API WebAssembly untuk memvalidasi, mengompilasi, membuat instansi, atau mengakses memori. Byte modul, hasil, dan eksekusi internal tidak diperiksa. Waktu CPU, fitur SIMD, arsitektur, User-Agent palsu, atau Lockdown Mode belum dipastikan.
+api_note_client_hints|getHighEntropyValues fordert weitere Browser-/Systeminformationen an. Chrome zeigt gewöhnlich keinen Berechtigungsdialog, Richtlinien und Implementierung können die Antwort aber begrenzen. Gewöhnliche Kompatibilitätsprüfungen können dieselben Felder anfordern; der Aufruf beweist kein Fingerprinting.|getHighEntropyValues żąda dodatkowych informacji o przeglądarce lub systemie. Chrome zwykle nie pokazuje pytania o uprawnienie, lecz polityka i implementacja mogą ograniczać odpowiedź. Zwykłe kontrole zgodności mogą żądać tych samych pól; wywołanie nie dowodzi fingerprintingu.|getHighEntropyValues meminta informasi browser atau sistem tambahan. Chrome biasanya tidak menampilkan prompt izin, tetapi kebijakan dan implementasi dapat membatasi respons. Pemeriksaan kompatibilitas biasa dapat meminta bidang yang sama; panggilan bukan bukti sidik browser.
+api_note_window_management|getScreenDetails fordert Bildschirminformationen an und kann window-management-Berechtigung benötigen. Zugriffe auf screens, currentScreen und Eigenschaften werden getrennt gezeigt. Monitorzahl, Bezeichnungen und Positionen werden nicht aufbewahrt; eine Anfrage belegt weder Berechtigung noch Arbeitsplatz.|getScreenDetails żąda informacji o ekranach i może wymagać uprawnienia window-management. Dostępy do screens, currentScreen i właściwości pokazano osobno. Liczba monitorów, etykiety i pozycje nie są zachowywane; żądanie nie dowodzi uprawnienia ani nie ujawnia stanowiska pracy.|getScreenDetails meminta informasi layar dan mungkin memerlukan izin window-management. Akses ke screens, currentScreen, dan properti individual ditampilkan terpisah. Jumlah monitor, label, dan posisi tidak disimpan; permintaan tidak membuktikan izin diberikan atau mengungkap tempat kerja.
+api_note_compute_pressure|Compute Pressure liefert grobe CPU-Belastungszustände. Je nach Implementierung kann dies mehr als diesen Tab widerspiegeln. Observererstellung, observe/takeRecords und Datensatzlesen sind getrennte Fakten. Werte werden nicht aufbewahrt; andere Tabaktivität, Kühlungseigenschaften oder Benutzerabwesenheit sind nicht festgestellt.|Compute Pressure może podawać ogólne stany obciążenia CPU. Zależnie od implementacji mogą obejmować więcej niż tę kartę. Tworzenie obserwatora, observe/takeRecords i odczyty rekordów są osobnymi faktami. Wartości nie są zachowywane; aktywność innych kart, chłodzenie i nieobecność użytkownika nie są ustalone.|Compute Pressure dapat memberikan status tekanan CPU kasar. Tergantung implementasi, tekanan dapat mencerminkan lebih dari tab ini. Pembuatan observer, observe/takeRecords, dan pembacaan catatan adalah fakta terpisah. Nilai tidak disimpan; aktivitas tab lain, karakteristik pendinginan, atau ketiadaan pengguna belum dipastikan.
+api_note_idle_detection|Idle Detection kann nach Erlaubnis Aktivitäts- und Bildschirmsperrzustände liefern. Detektorerstellung oder start belegt kein aktives Abonnement. Zustandslesezugriffe zeigen hier keine Werte: Anwesenheit, Sperrzustand und Geh-/Rückkehrzeiten werden nicht erfasst.|Idle Detection może ujawniać aktywność i blokadę ekranu po przyznaniu uprawnienia. Utworzenie detektora lub start nie dowodzi aktywnej subskrypcji. Odczyty stanów nie pokazują tu wartości: obecność, stan blokady i czasy odejścia lub powrotu nie są rejestrowane.|Idle Detection dapat mengungkap status aktivitas dan kunci layar setelah izin. Membuat detektor atau memanggil start tidak membuktikan langganan aktif. Pembacaan status yang dicantumkan tidak menunjukkan nilainya: kehadiran, status kunci, dan waktu pergi atau kembali tidak dicatat.
+api_hints_unknown|Angeforderte Felder sind im passiven Modus unbekannt: Der Sensor liest Argumente nicht erneut und durchläuft keine seitenkontrollierte Sammlung.|Żądane pola są nieznane w trybie pasywnym: czujnik nie odczytuje ponownie argumentu ani nie iteruje kolekcji kontrolowanej przez stronę.|Bidang yang diminta tidak diketahui dalam mode pasif: sensor tidak membaca ulang argumen atau mengiterasi koleksi yang dikendalikan halaman.
+api_mechanism_client_hints|Erweiterte Systeminformationen|Rozszerzone informacje systemowe|Informasi sistem tambahan
+api_mechanism_window_management|Bildschirme und Fensterverwaltung|Ekrany i zarządzanie oknami|Layar dan pengelolaan jendela
+api_mechanism_compute_pressure|CPU-Belastungsbeobachtung|Obserwacja obciążenia CPU|Pengamatan tekanan CPU
+api_mechanism_idle_detection|Aktivitäts- und Bildschirmsperrprüfungen|Kontrole aktywności i blokady ekranu|Pemeriksaan aktivitas dan kunci layar
+inspector_group_activity|Interaktions- und Anwesenheits-APIs|API interakcji i obecności|API interaksi dan kehadiran
+extDescription|Lokale Analyse von Browser-APIs, Fingerprinting-Signalen und Identifizierungsdiensten mit konfigurierbaren API-Sperren.|Lokalna analiza API przeglądarki, sygnałów fingerprintingu i usług identyfikacji z konfigurowalnym blokowaniem API.|Analisis lokal API browser, sinyal sidik browser, dan layanan identifikasi dengan pemblokiran API yang dapat diatur.
+actionTitle|Detect.Expert: Browser-API-Analyse|Detect.Expert: analiza API przeglądarki|Detect.Expert: analisis API browser
+popupTitle|Prüfungen auf dieser Seite|Kontrole na tej stronie|Pemeriksaan di halaman ini
+sidepanelTitle|Beobachtungen auf dieser Seite|Obserwacje tej strony|Pengamatan di halaman ini
+optionsTitle|Detect.Expert-Einstellungen|Ustawienia Detect.Expert|Pengaturan Detect.Expert
+coverageTitle|Beobachtungsumfang|Pokrycie obserwacji|Cakupan pengamatan
+coverageOff|Keine Beobachtung: kein Umfang gewählt. „Nicht erkannt“ bedeutet „im zugänglichen Bereich während des Zeitraums nicht beobachtet“.|Brak obserwacji: nie wybrano zakresu. „Nie wykryto” oznacza „nie zaobserwowano w dostępnym obszarze w danym okresie”.|Tidak mengamati: cakupan belum dipilih. “Tidak terdeteksi” berarti “tidak diamati di area yang dapat diakses selama periode tersebut”.
+scopeLabel|Beobachtungsumfang|Zakres obserwacji|Cakupan pengamatan
+scope_start_title|Was soll beobachtet werden?|Co obserwować?|Apa yang harus diamati?
+scope_start_hint|Wählen Sie unten einen Beobachtungsumfang.|Wybierz zakres obserwacji poniżej.|Pilih cakupan pengamatan di bawah.
+action_reload_page|Seite neu laden|Odśwież stronę|Muat ulang halaman
+error_reload|Tab konnte nicht neu geladen werden. Öffnen Sie die Seite und versuchen Sie erneut.|Nie udało się odświeżyć karty. Otwórz stronę i spróbuj ponownie.|Tab tidak dapat dimuat ulang. Buka halaman dan coba lagi.
+coverage_restart_desc|Laden Sie dieses Dokument neu, bevor Sie Sensoren neu starten. Öffnen Sie dann die Erweiterung und aktivieren Sie die Beobachtung erneut. Wählen Sie zur Beobachtung ab Seitenstart vor dem Neuladen „Immer auf dieser Website“.|Odśwież dokument przed ponownym uruchomieniem czujników, potem otwórz rozszerzenie i ponownie włącz obserwację. Aby obserwować od ładowania, przed odświeżeniem wybierz „Zawsze w tej witrynie”.|Muat ulang dokumen ini sebelum memulai ulang sensornya, lalu buka ekstensi dan aktifkan pengamatan lagi. Untuk mengamati sejak pemuatan, pilih “Selalu di situs ini” sebelum memuat ulang.

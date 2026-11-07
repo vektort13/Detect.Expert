@@ -1,0 +1,20 @@
+.company-label { display: inline-flex; align-items: center; gap: 7px; min-width: 0; max-width: 100%; vertical-align: middle; line-height: inherit; }
+.company-label__mark { display: inline-grid; place-items: center; flex: 0 0 26px; width: 26px; height: 26px; padding: 2px; border: 1px solid #d7dee8; border-radius: 6px; background: #fff; }
+.company-label__mark .company-logo { display: block; width: 20px; height: 20px; object-fit: contain; }
+.company-label__name { min-width: 0; overflow-wrap: anywhere; }
+.company-label--large { gap: 9px; }
+.company-label--large > .company-label__mark { flex-basis: 36px; width: 36px; height: 36px; padding: 3px; border-radius: 8px; }
+.company-label--large .company-logo { width: 28px; height: 28px; }
+.tag-manager-table td > .company-label { display: inline-flex; }
+.cookie-report-company > .company-label { align-items: start; }
+.cookie-report-company .company-label { gap: 5px; }
+.cookie-report-company .company-label__mark { flex-basis: 24px; width: 24px; height: 24px; }
+.cookie-report-company .company-logo { width: 18px; height: 18px; }
+.tag-manager-companies { display: flex; flex-wrap: wrap; gap: 7px 12px; margin-block: 8px 12px; }
+@media print {
+  .company-label { break-inside: avoid; }
+  .company-label__mark { width: 26px; height: 26px; background: #fff !important; border-color: #d7dee8; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .company-logo { width: 20px; height: 20px; visibility: visible !important; opacity: 1 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .company-label--large > .company-label__mark { width: 36px; height: 36px; }
+  .company-label--large .company-logo { width: 28px; height: 28px; }
+}

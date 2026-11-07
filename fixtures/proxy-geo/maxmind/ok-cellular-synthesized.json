@@ -1,0 +1,26 @@
+{
+  "provider": "maxmind",
+  "ip": "1.1.1.1",
+  "service": "geoip-city",
+  "status": 200,
+  "headers": {
+    "content-type": "application/vnd.maxmind.com-city+json; charset=UTF-8; version=2.1"
+  },
+  "body": {
+    "country": {
+      "iso_code": "GB",
+      "names": {
+        "en": "United Kingdom"
+      }
+    },
+    "traits": {
+      "ip_address": "1.1.1.1",
+      "network": "1.1.1.0/24",
+      "autonomous_system_number": 64500,
+      "autonomous_system_organization": "Example Mobile AS",
+      "connection_type": "Cellular",
+      "user_type": "cellular",
+      "organization": "Example Mobile"
+    }
+  }
+}

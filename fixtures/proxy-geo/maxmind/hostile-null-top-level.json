@@ -1,0 +1,21 @@
+{
+  "provider": "maxmind",
+  "ip": "8.8.8.8",
+  "service": "geoip-insights",
+  "status": 200,
+  "headers": {
+    "content-type": "application/vnd.maxmind.com-insights+json; charset=UTF-8; version=2.1"
+  },
+  "body": {
+    "traits": null,
+    "country": null,
+    "city": null,
+    "location": null,
+    "subdivisions": null,
+    "continent": null,
+    "registered_country": null,
+    "anonymizer": null,
+    "postal": null,
+    "maxmind": null
+  }
+}

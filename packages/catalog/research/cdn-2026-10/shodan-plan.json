@@ -1,0 +1,729 @@
+{
+  "schemaVersion": 1,
+  "mode": "plan",
+  "status": "not-run",
+  "catalogVersion": "cdn-2026-10-10.1",
+  "source": {
+    "provider": "Shodan",
+    "operation": "host-count",
+    "documentationUrl": "https://developer.shodan.io/api"
+  },
+  "requestCount": 41,
+  "requestLimit": 100,
+  "minimumRequestIntervalMs": 1000,
+  "entries": [
+    {
+      "host": "analytics.dv.socure.io",
+      "vendorIds": [
+        "socure"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-socure-4813e7ca24b2",
+          "sourceUrls": [
+            "https://help.socure.com/riskos/docs/digital-intelligence-web-sdk"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "ap-southeast-1-ga.device.saf.aliyuncs.com",
+      "vendorIds": [
+        "alibaba-captcha"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-alibaba-captcha-dbda0d8cf7fe",
+          "sourceUrls": [
+            "https://www.alibabacloud.com/help/en/captcha/captcha2-0/user-guide/captcha-2-0-client-access-faq"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "ap-southeast-1.device.saf.aliyuncs.com",
+      "vendorIds": [
+        "alibaba-captcha"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-alibaba-captcha-8d08605904dd",
+          "sourceUrls": [
+            "https://www.alibabacloud.com/help/en/captcha/captcha2-0/user-guide/captcha-2-0-client-access-faq"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "api-js.datadome.co",
+      "vendorIds": [
+        "datadome"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-datadome-fc0ed64b5eb4",
+          "sourceUrls": [
+            "https://docs.datadome.co/docs/javascript-tag"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "b.stats.paypal.com",
+      "vendorIds": [
+        "paypal-fraudnet"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-paypal-fraudnet-11f753eed88d",
+          "sourceUrls": [
+            "https://developer.paypal.com/platforms/checkout/apm/pay-upon-invoice/fraudnet/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "cdn.arkoselabs.com",
+      "vendorIds": [
+        "arkose"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-arkose-af1df4b6c17e",
+          "sourceUrls": [
+            "https://developer.arkoselabs.com/docs/domain-policy"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "cdn.getdeviceinf.com",
+      "vendorIds": [
+        "seon"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-seon-627ca5bae131",
+          "sourceUrls": [
+            "https://docs.seon.io/api-reference/deprecated-versions"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "cdn.seon.io",
+      "vendorIds": [
+        "seon"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-seon-3c48e2c7743a",
+          "sourceUrls": [
+            "https://docs.seon.io/knowledge-base/shopify-2026/custom-headless-storefronts-and-device-intelligence-setup"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "cdn.seondf.com",
+      "vendorIds": [
+        "seon"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-seon-c7abf278f949",
+          "sourceUrls": [
+            "https://docs.seon.io/api-reference/deprecated-versions"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "cloudauth-device-dualstack.ap-southeast-1.aliyuncs.com",
+      "vendorIds": [
+        "alibaba-captcha"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-alibaba-captcha-73bb1ecae2db",
+          "sourceUrls": [
+            "https://www.alibabacloud.com/help/en/captcha/captcha2-0/user-guide/captcha-2-0-client-access-faq"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "cloudauth-device-dualstack.cn-shanghai.aliyuncs.com",
+      "vendorIds": [
+        "alibaba-captcha"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-alibaba-captcha-25832b9bf4b0",
+          "sourceUrls": [
+            "https://www.alibabacloud.com/help/en/captcha/captcha2-0/user-guide/captcha-2-0-client-access-faq"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "cloudauth-device.aliyuncs.com",
+      "vendorIds": [
+        "alibaba-captcha"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-alibaba-captcha-3db30f4d8928",
+          "sourceUrls": [
+            "https://www.alibabacloud.com/help/en/captcha/captcha2-0/user-guide/captcha-2-0-client-access-faq"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "cloudauth-device.ap-southeast-1.aliyuncs.com",
+      "vendorIds": [
+        "alibaba-captcha"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-alibaba-captcha-aab395a1ce73",
+          "sourceUrls": [
+            "https://www.alibabacloud.com/help/en/captcha/captcha2-0/user-guide/captcha-2-0-client-access-faq"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "cn-shanghai.device.saf.aliyuncs.com",
+      "vendorIds": [
+        "alibaba-captcha"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-alibaba-captcha-22432a9e630e",
+          "sourceUrls": [
+            "https://www.alibabacloud.com/help/en/captcha/captcha2-0/user-guide/captcha-2-0-client-access-faq"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "ct.captcha-delivery.com",
+      "vendorIds": [
+        "datadome"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-datadome-621951110766",
+          "sourceUrls": [
+            "https://docs.datadome.co/docs/javascript-tag"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "d-ipv4.mmapiws.com",
+      "vendorIds": [
+        "maxmind-minfraud"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-maxmind-minfraud-77e92ed197d3",
+          "sourceUrls": [
+            "https://dev.maxmind.com/minfraud/track-devices/web/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "d-ipv6.mmapiws.com",
+      "vendorIds": [
+        "maxmind-minfraud"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-maxmind-minfraud-edc5da1e70e8",
+          "sourceUrls": [
+            "https://dev.maxmind.com/minfraud/track-devices/web/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "device.clearsale.com.br",
+      "vendorIds": [
+        "clearsale"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-clearsale-62e0f2e5e39a",
+          "sourceUrls": [
+            "https://api.clearsale.com.br/docs/behavior-analytics/api/device-check/modules/biometrics"
+          ]
+        },
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-clearsale-e612e05bcad5",
+          "sourceUrls": [
+            "https://api.clearsale.com.br/docs/behavior-analytics/sdk/browser"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "dn-staticdown.qbox.me",
+      "vendorIds": [
+        "geetest"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-geetest-ff8b9667fe26",
+          "sourceUrls": [
+            "https://docs.geetest.com/gt4/bypass"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "gcaptcha4.geetest.com",
+      "vendorIds": [
+        "geetest"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-geetest-6a4c68bc63cf",
+          "sourceUrls": [
+            "https://docs.geetest.com/BehaviorVerification/BusinessDisasterRecovery"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "gcaptcha4.geevisit.com",
+      "vendorIds": [
+        "geetest"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-geetest-1fae2b2533f8",
+          "sourceUrls": [
+            "https://docs.geetest.com/BehaviorVerification/BusinessDisasterRecovery"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "gcaptcha4.gsensebot.com",
+      "vendorIds": [
+        "geetest"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-geetest-507dcd69dde7",
+          "sourceUrls": [
+            "https://docs.geetest.com/BehaviorVerification/BusinessDisasterRecovery"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "geo.captcha-delivery.com",
+      "vendorIds": [
+        "datadome"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-datadome-13e04caf78fb",
+          "sourceUrls": [
+            "https://docs.datadome.co/changelog/last-call-on-required-change-for-users-of-csp-directive-frame-src"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "ingestion.dv.socure.io",
+      "vendorIds": [
+        "socure"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-socure-773cbf5d2349",
+          "sourceUrls": [
+            "https://help.socure.com/riskos/docs/digital-intelligence-web-sdk"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "network.dv.socure.io",
+      "vendorIds": [
+        "socure"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-socure-fce4ff5d6892",
+          "sourceUrls": [
+            "https://help.socure.com/riskos/docs/digital-intelligence-web-sdk"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "newassets.hcaptcha.com",
+      "vendorIds": [
+        "hcaptcha"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-hcaptcha-ea68ef9bc7cd",
+          "sourceUrls": [
+            "https://docs.hcaptcha.com/"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "openfpcdn.io",
+      "vendorIds": [
+        "fingerprintjs"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-fingerprintjs-96ded95867cf",
+          "sourceUrls": [
+            "https://github.com/fingerprintjs/fingerprintjs/blob/master/docs/api.md"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "recaptcha.google.com",
+      "vendorIds": [
+        "google-recaptcha"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-google-recaptcha-b2d42ed795e2",
+          "sourceUrls": [
+            "https://developers.google.com/recaptcha/docs/faq"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "static-captcha-sgp.aliyuncs.com",
+      "vendorIds": [
+        "alibaba-captcha"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-alibaba-captcha-76c9a1b11552",
+          "sourceUrls": [
+            "https://www.alibabacloud.com/help/en/captcha/captcha2-0/user-guide/captcha-2-0-client-access-faq"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "static-captcha.aliyuncs.com",
+      "vendorIds": [
+        "alibaba-captcha"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-alibaba-captcha-47837bb2429f",
+          "sourceUrls": [
+            "https://www.alibabacloud.com/help/en/captcha/captcha2-0/user-guide/captcha-2-0-client-access-faq"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "static.geevisit.com",
+      "vendorIds": [
+        "geetest"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-geetest-121bb7ea0478",
+          "sourceUrls": [
+            "https://docs.geetest.com/BehaviorVerification/BusinessDisasterRecovery"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "tst.kaptcha.com",
+      "vendorIds": [
+        "kount"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-kount-217908613b12",
+          "sourceUrls": [
+            "https://github.com/Kount/kount-ris-java-sdk/wiki/Kount-Data-Collector"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "upload.captcha-open-b.aliyuncs.com",
+      "vendorIds": [
+        "alibaba-captcha"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-alibaba-captcha-a92d035ceacb",
+          "sourceUrls": [
+            "https://www.alibabacloud.com/help/en/captcha/captcha2-0/user-guide/captcha-2-0-client-access-faq"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "upload.captcha-open-ga-web-b.aliyuncs.com",
+      "vendorIds": [
+        "alibaba-captcha"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-alibaba-captcha-02782eed3603",
+          "sourceUrls": [
+            "https://www.alibabacloud.com/help/en/captcha/captcha2-0/user-guide/captcha-2-0-client-access-faq"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "upload.captcha-open-ga-web.aliyuncs.com",
+      "vendorIds": [
+        "alibaba-captcha"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-alibaba-captcha-419daddf4cea",
+          "sourceUrls": [
+            "https://www.alibabacloud.com/help/en/captcha/captcha2-0/user-guide/captcha-2-0-client-access-faq"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "upload.captcha-open-southeast-b.aliyuncs.com",
+      "vendorIds": [
+        "alibaba-captcha"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-alibaba-captcha-90ad57d4e2b3",
+          "sourceUrls": [
+            "https://www.alibabacloud.com/help/en/captcha/captcha2-0/user-guide/captcha-2-0-client-access-faq"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "upload.captcha-open-southeast.aliyuncs.com",
+      "vendorIds": [
+        "alibaba-captcha"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-alibaba-captcha-d0b337857ef2",
+          "sourceUrls": [
+            "https://www.alibabacloud.com/help/en/captcha/captcha2-0/user-guide/captcha-2-0-client-access-faq"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "upload.captcha-open.aliyuncs.com",
+      "vendorIds": [
+        "alibaba-captcha"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-alibaba-captcha-f722145f2313",
+          "sourceUrls": [
+            "https://www.alibabacloud.com/help/en/captcha/captcha2-0/user-guide/captcha-2-0-client-access-faq"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "web.fpcs-monitor.com.br",
+      "vendorIds": [
+        "clearsale"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-clearsale-512f77244d7c",
+          "sourceUrls": [
+            "https://api.clearsale.com.br/docs/behavior-analytics/sdk/browser"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "www.google.com",
+      "vendorIds": [
+        "google-recaptcha"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-google-recaptcha-bd33adbf227e",
+          "sourceUrls": [
+            "https://developers.google.com/recaptcha/docs/faq"
+          ]
+        },
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-google-recaptcha-d705fdc63c73",
+          "sourceUrls": [
+            "https://developers.google.com/recaptcha/docs/faq"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    },
+    {
+      "host": "www.gstatic.com",
+      "vendorIds": [
+        "google-recaptcha"
+      ],
+      "sources": [
+        {
+          "kind": "published-browser-host",
+          "signalId": "cdn-google-recaptcha-6d52a17ac572",
+          "sourceUrls": [
+            "https://developers.google.com/recaptcha/docs/faq"
+          ]
+        }
+      ],
+      "status": "not-run",
+      "count": null
+    }
+  ],
+  "inputCatalog": "packages/catalog/data/antifraud-cdn.v1.json",
+  "interpretation": "Aggregate index matches for published browser hostname filters; not ownership, site adoption or detector validation."
+}

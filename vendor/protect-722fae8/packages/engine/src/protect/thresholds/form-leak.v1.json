@@ -1,0 +1,13 @@
+{
+  "ruleId": "form-leak",
+  "version": "1",
+  "calibrated": false,
+  "plaintextMinChars": 6,
+  "hashMinChars": 3,
+  "ringWindowMs": 10000,
+  "opaqueWindowMs": 2000,
+  "submitCarryMs": 60000,
+  "crossSiteGraceMs": 60000,
+  "phoneMediumDigits": 10,
+  "piiNameKeys": ["fn", "ln", "name", "first_name", "last_name", "full_name", "given_name", "family_name", "fio", "surname"]
+}

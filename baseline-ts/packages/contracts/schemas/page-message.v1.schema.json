@@ -1,0 +1,199 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:detect-expert:contracts:page-message:v1",
+  "title": "PageMessage v1 — MAIN <-> ISOLATED window.postMessage payloads; page-controlled",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "channel",
+        "sensorBootId",
+        "type",
+        "protocolVersion",
+        "startedLate",
+        "coverageFlags"
+      ],
+      "properties": {
+        "channel": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/channel"
+        },
+        "sensorBootId": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/id"
+        },
+        "type": {
+          "const": "sensor-hello"
+        },
+        "protocolVersion": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/nonNegInt"
+        },
+        "startedLate": {
+          "type": "boolean"
+        },
+        "coverageFlags": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/coverageFlags"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "channel",
+        "sensorBootId",
+        "type",
+        "sensorSeq",
+        "observations",
+        "coverageDelta"
+      ],
+      "properties": {
+        "channel": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/channel"
+        },
+        "sensorBootId": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/id"
+        },
+        "type": {
+          "const": "sensor-batch"
+        },
+        "sensorSeq": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/seq"
+        },
+        "observations": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/observations"
+        },
+        "coverageDelta": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/coverageFlags"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "channel",
+        "sensorBootId",
+        "type",
+        "state",
+        "coverageFlags",
+        "droppedSinceLast"
+      ],
+      "properties": {
+        "channel": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/channel"
+        },
+        "sensorBootId": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/id"
+        },
+        "type": {
+          "const": "sensor-status"
+        },
+        "state": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/sensorState"
+        },
+        "coverageFlags": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/coverageFlags"
+        },
+        "droppedSinceLast": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/count"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "channel",
+        "sensorBootId",
+        "type",
+        "protocolVersion",
+        "bridgeSessionId",
+        "paused"
+      ],
+      "properties": {
+        "channel": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/channel"
+        },
+        "sensorBootId": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/id"
+        },
+        "type": {
+          "const": "bridge-hello"
+        },
+        "protocolVersion": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/nonNegInt"
+        },
+        "bridgeSessionId": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/id"
+        },
+        "paused": {
+          "type": "boolean"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "channel",
+        "sensorBootId",
+        "type"
+      ],
+      "properties": {
+        "channel": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/channel"
+        },
+        "sensorBootId": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/id"
+        },
+        "type": {
+          "const": "bridge-pause"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "channel",
+        "sensorBootId",
+        "type"
+      ],
+      "properties": {
+        "channel": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/channel"
+        },
+        "sensorBootId": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/id"
+        },
+        "type": {
+          "const": "bridge-resume"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "channel",
+        "sensorBootId",
+        "type",
+        "reason"
+      ],
+      "properties": {
+        "channel": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/channel"
+        },
+        "sensorBootId": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/id"
+        },
+        "type": {
+          "const": "bridge-stop"
+        },
+        "reason": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/bridgeStopReason"
+        }
+      }
+    }
+  ]
+}

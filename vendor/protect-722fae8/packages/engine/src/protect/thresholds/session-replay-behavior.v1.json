@@ -1,0 +1,10 @@
+{
+  "ruleId": "session-replay-behavior",
+  "ruleVersion": "1",
+  "calibrated": false,
+  "coalesceMs": 1000,
+  "maxGapMs": 15000,
+  "minPeriodicRun": 3,
+  "largeBodyBytes": 1024,
+  "minLargeSendsInRun": 2
+}

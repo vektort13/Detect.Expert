@@ -1,0 +1,74 @@
+Open Cookie Database
+https://github.com/jkwakman/Open-Cookie-Database
+Apache License, Version 2.0
+Upstream commit: 749c37c17eb910fa95621f4fee34d9a6d4126c23
+Snapshot SHA-256: 02a6bf54209273bc21ca0e4bc19c5a8c8946702c7890acbb11172577728e0fb7
+
+cookie-audit and CookieBlock: MIT; pinned commits and source SHA-256 values:
+[
+  {
+    "repo": "diShine-digital-agency/cookie-audit",
+    "commit": "7df2b25ebc98cc206dcce08b566734b80a10725e",
+    "upstreamPath": "LICENSE",
+    "file": "cookie-audit-LICENSE",
+    "url": "https://raw.githubusercontent.com/diShine-digital-agency/cookie-audit/7df2b25ebc98cc206dcce08b566734b80a10725e/LICENSE",
+    "sha256": "861b5a60b114f2404e2c2d15e647de6e096dca7e1437b98fbc6444e2d8a2bc05",
+    "bytes": 1100,
+    "license": "MIT"
+  },
+  {
+    "repo": "diShine-digital-agency/cookie-audit",
+    "commit": "7df2b25ebc98cc206dcce08b566734b80a10725e",
+    "upstreamPath": "src/known-cookies.js",
+    "file": "cookie-audit-src-known-cookies.js",
+    "url": "https://raw.githubusercontent.com/diShine-digital-agency/cookie-audit/7df2b25ebc98cc206dcce08b566734b80a10725e/src/known-cookies.js",
+    "sha256": "c33a8a37ec8d4e6a73c5570b15f6bd106b0bd8804fc5179a53a8ef6555d2559a",
+    "bytes": 65869,
+    "license": "MIT"
+  },
+  {
+    "repo": "dibollinger/CookieBlock",
+    "commit": "cb3091a75ff75c6287e663f61de65ada0bf1b9aa",
+    "upstreamPath": "LICENSE",
+    "file": "cookieblock-LICENSE",
+    "url": "https://raw.githubusercontent.com/dibollinger/CookieBlock/cb3091a75ff75c6287e663f61de65ada0bf1b9aa/LICENSE",
+    "sha256": "6136e7d6d5b5893ffee3e16969dae063a5f9cf0ef84fbaadf23dcd8aa3ae5fe8",
+    "bytes": 1076,
+    "license": "MIT"
+  },
+  {
+    "repo": "dibollinger/CookieBlock",
+    "commit": "cb3091a75ff75c6287e663f61de65ada0bf1b9aa",
+    "upstreamPath": "src/LICENSE",
+    "file": "cookieblock-src-LICENSE",
+    "url": "https://raw.githubusercontent.com/dibollinger/CookieBlock/cb3091a75ff75c6287e663f61de65ada0bf1b9aa/src/LICENSE",
+    "sha256": "5f0850cb4f13993892094d518ff3fb10dafc278d2798e34aad714f0d5da09fc2",
+    "bytes": 1554,
+    "license": "MIT"
+  },
+  {
+    "repo": "dibollinger/CookieBlock",
+    "commit": "cb3091a75ff75c6287e663f61de65ada0bf1b9aa",
+    "upstreamPath": "src/ext_data/known_cookies.json",
+    "file": "cookieblock-src-ext_data-known_cookies.json",
+    "url": "https://raw.githubusercontent.com/dibollinger/CookieBlock/cb3091a75ff75c6287e663f61de65ada0bf1b9aa/src/ext_data/known_cookies.json",
+    "sha256": "77ad8681f17f3fe81681f91fa4e849d50fd4c4b9fe4daff673072efe8d1ddcbc",
+    "bytes": 9759,
+    "license": "MIT"
+  },
+  {
+    "repo": "dibollinger/CookieBlock",
+    "commit": "cb3091a75ff75c6287e663f61de65ada0bf1b9aa",
+    "upstreamPath": "src/ext_data/resources/cookie_name_patterns.txt",
+    "file": "cookieblock-src-ext_data-resources-cookie_name_patterns.txt",
+    "url": "https://raw.githubusercontent.com/dibollinger/CookieBlock/cb3091a75ff75c6287e663f61de65ada0bf1b9aa/src/ext_data/resources/cookie_name_patterns.txt",
+    "sha256": "979c8db46b936aedeeff1f05e53c7bb43006be4d9bd871da80408be8939c6f37",
+    "bytes": 3010,
+    "license": "MIT"
+  }
+]
+
+IAB TCF GVL 180: vendor-published factual device-storage declarations, independently composed purpose descriptions. No blanket open-data licence is asserted for vendor documents. The declaring vendor does not establish the cookie manufacturer.
+Specification: https://github.com/InteractiveAdvertisingBureau/GDPR-Transparency-and-Consent-Framework/blob/703fc2964ba8fe1086b18a3c509c46a48c1aee1c/TCFv2/Vendor%20Device%20Storage%20%26%20Operational%20Disclosures.md
+
+Changes: normalized metadata, bounded domain admission, community confidence, reviewed primary overrides and neutral catalogue-name references. No cookie values are included.

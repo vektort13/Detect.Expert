@@ -1,0 +1,42 @@
+{
+  "provider": "ipdata",
+  "ip": "45.148.10.240",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": {
+    "ip": "45.148.10.240",
+    "country_code": "NL",
+    "country_name": "Netherlands",
+    "threat": {
+      "is_tor": false,
+      "is_icloud_relay": false,
+      "is_proxy": false,
+      "is_datacenter": false,
+      "is_anonymous": true,
+      "is_known_attacker": true,
+      "is_known_abuser": true,
+      "is_threat": true,
+      "is_bogon": false,
+      "blocklists": [
+        {
+          "days_seen": 260,
+          "first_seen": "2025-04-11",
+          "last_seen": "2026-11-04",
+          "name": "Spamhaus",
+          "site": "https://www.spamhaus.org",
+          "type": "general"
+        },
+        {
+          "days_seen": 411,
+          "first_seen": "2022-09-04",
+          "last_seen": "2026-11-04",
+          "name": "USTC.edu.cn",
+          "site": "https://ustc.edu.cn",
+          "type": "general"
+        }
+      ]
+    }
+  }
+}

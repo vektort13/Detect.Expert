@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>iframe-child</title>
+  </head>
+  <body>
+    <p>Child document (origin 2): text then readback.</p>
+    <pre id="result"></pre>
+    <script src="fixture-lib.js"></script>
+    <script>
+      (function () {
+        var F = window.__fixture;
+        var canvas = document.createElement('canvas');
+        canvas.width = 120;
+        canvas.height = 40;
+        var ctx = canvas.getContext('2d');
+        F.drawSample(ctx, 'child');
+        var readbacks = 0;
+        for (var i = 0; i < 2; i++) if (ctx.getImageData(0, 0, 8, 8) instanceof ImageData) readbacks++;
+        F.publish({ fixture: 'iframe-child', isFramed: window.top !== window, readbacks: readbacks });
+      })();
+    </script>
+  </body>
+</html>

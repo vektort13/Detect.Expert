@@ -1,0 +1,10 @@
+{
+  "commit": "b4bb599b4ee6386c5042c75bd7d268fd3aa654c5",
+  "url": "https://raw.githubusercontent.com/jkwakman/Open-Cookie-Database/b4bb599b4ee6386c5042c75bd7d268fd3aa654c5/open-cookie-database.json",
+  "sha256": "02a6bf54209273bc21ca0e4bc19c5a8c8946702c7890acbb11172577728e0fb7",
+  "license": "Apache-2.0",
+  "bytes": 1177360,
+  "records": 2266,
+  "newRecordIds": 0,
+  "sameSnapshotAs": "open-cookie-database.json"
+}

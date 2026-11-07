@@ -1,0 +1,9 @@
+{
+  "provider": "ipgeolocation",
+  "ip": "8.8.8.8",
+  "status": 503,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "text": "{\"message\":\"We're unable to verify your API key (YOUR_API_KEY) due to an internal error. Please contact technical support for assistance at support@ipgeolocation.io\"}"
+}

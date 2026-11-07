@@ -1,0 +1,9 @@
+{
+  "provider": "ipdata",
+  "ip": "8.8.8.8",
+  "status": 403,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "text": "{\"message\":\"Upgrade to a paid plan to make bulk requests.\"}"
+}

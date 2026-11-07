@@ -2,7 +2,7 @@
 
 [English](proxy-companion.md) · [Русский](proxy-companion.ru.md)
 
-The companion is a small Windows program that lets the Proxy tab do what a browser can't: SOCKS5 with a password, HTTP/HTTPS proxies with a login, VLESS and OpenVPN. This page is the quick path. Every detail (what's in the package, how it works, licenses, building it) is in the [companion README](../../companion/README.md).
+The companion is a small Windows program that lets the Proxy tab do what a browser can't: SOCKS5 with a password, HTTP/HTTPS proxies with a login, VLESS and OpenVPN. This page is the quick path. Every detail (what's in the package, how it works, licenses, building it) is in the [companion README](../../native/proxy/README.md).
 
 ## Do I need it?
 
@@ -82,4 +82,4 @@ Remove-Item -Recurse -Force "$env:LOCALAPPDATA\Detect.Expert\ProxyCompanion"
 Remove-Item -Recurse -Force "$env:APPDATA\Detect.Expert\Proxy"     # logins, passwords, VLESS links, OpenVPN configs: gone for good
 ```
 
-More: [companion README](../../companion/README.md), [FAQ](faq.md).
+More: [companion README](../../native/proxy/README.md), [FAQ](faq.md).

@@ -1,0 +1,214 @@
+/* Options-only utility workspaces; the popup keeps its existing styles. */
+.management-shell :is(.cookies-workspace, .autosurf-workspace, .proxy-workspace, .browser-debug) {
+  min-width: 0;
+  max-width: 100%;
+  gap: 18px;
+  color: var(--text);
+}
+.management-shell :is(.cookies-workspace, .autosurf-workspace, .proxy-workspace, .browser-debug, .api-config-modal) :where(*, *::before, *::after) { box-sizing: border-box; }
+.management-shell :is(.cookies-workspace-header, .autosurf-heading, .proxy-workspace-header, .browser-debug-header) {
+  align-items: center;
+  gap: 12px 20px;
+  padding-block: 2px 8px;
+}
+.management-shell :is(.cookies-workspace-header, .autosurf-heading, .proxy-workspace-header, .browser-debug-header) h2 {
+  font-size: clamp(22px, 1.65vw, 28px);
+  line-height: 1.3;
+  letter-spacing: -.025em;
+  overflow-wrap: anywhere;
+}
+.management-shell :is(.cookies-workspace-heading, .proxy-workspace-heading) { gap: 10px; }
+.management-shell :is(.cookies-workspace-emblem, .proxy-workspace-emblem) { width: 36px; height: 36px; border-radius: 11px; }
+.management-shell .cookies-workspace-emblem .cookies-workspace-icon { width: 22px; height: 22px; }
+.management-shell :is(.cookies-workspace-card, .autosurf-card, .autosurf-sites, .proxy-workspace-card, .proxy-workspace-connection, .browser-debug-content) {
+  min-width: 0;
+  max-width: 100%;
+  gap: 16px;
+  padding: clamp(14px, 1.4vw, 22px);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: 0 2px 8px #13274504;
+}
+.management-shell :is(.cookies-workspace, .autosurf-workspace, .proxy-workspace, .browser-debug) h3 { font-size: 16px; line-height: 1.45; overflow-wrap: anywhere; }
+.management-shell :is(.cookies-workspace, .autosurf-workspace, .proxy-workspace, .browser-debug, .api-config-modal) :is(.button, .blocking-segmented__option) {
+  min-width: 0;
+  max-width: 100%;
+  min-height: 36px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.4;
+}
+.management-shell :is(.cookies-workspace, .autosurf-workspace, .proxy-workspace, .browser-debug, .api-config-modal) :is(input:not([type=checkbox]):not([type=radio]), select, textarea) {
+  min-width: 0;
+  max-width: 100%;
+  border-radius: 8px;
+  font-size: 13px;
+}
+.management-shell :is(.cookies-workspace, .autosurf-workspace, .proxy-workspace, .browser-debug) :is(label, p, code, dd, summary) { overflow-wrap: anywhere; }
+.management-shell :is(.cookies-workspace-actions, .cookies-workspace-selection, .cookies-workspace-pagination, .autosurf-toolbar, .autosurf-actions, .proxy-workspace-actions, .proxy-workspace-toolbar, .browser-debug-toolbar, .browser-debug-actions, .browser-debug-pagination) { flex-wrap: wrap; gap: 8px 12px; }
+.management-shell :is(.cookies-workspace-scope, .cookies-workspace-toolbar) { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; }
+.management-shell :is(.cookies-workspace-scope, .cookies-workspace-toolbar) > label { flex: 1 1 180px; }
+.management-shell .cookies-workspace-scope > label:nth-child(2), .management-shell .cookies-workspace-toolbar > .cookies-workspace-search { flex-grow: 2; }
+.management-shell .cookies-workspace-toolbar { padding-block-start: 16px; }
+.management-shell :is(.cookies-workspace-table-scroll, .browser-debug-table-scroll, .proxy-workspace-table-wrap, .autosurf-table-wrap) {
+  min-width: 0;
+  max-width: 100%;
+  overflow: auto;
+  max-height: min(68dvh, 760px);
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.management-shell :is(.cookies-workspace-table, .browser-debug-table, .proxy-workspace-table, .autosurf-workspace table) { width: 100%; margin: 0; font-size: 12px; line-height: 1.5; }
+.management-shell :is(.cookies-workspace-table, .browser-debug-table, .proxy-workspace-table, .autosurf-workspace table) :is(th, td) { padding: 12px 10px; }
+.management-shell :is(.cookies-workspace-table, .browser-debug-table, .autosurf-workspace table) th { position: sticky; inset-block-start: 0; z-index: 1; background: var(--surface-2); }
+.management-shell .browser-debug-table { min-width: 680px; }
+.management-shell .autosurf-workspace table { min-width: 560px; }
+.management-shell .cookies-workspace-table { min-width: 640px; }
+.management-shell .cookies-workspace-import-preview .cookies-workspace-table { min-width: 540px; }
+.management-shell .cookies-workspace-value { max-height: 130px; }
+.management-shell .cookies-workspace-row-actions { white-space: normal; }
+.management-shell .cookies-workspace-selection .button { min-height: 32px; }
+
+/* A single navigation axis leaves the dataset itself the full content width. */
+.management-shell .browser-debug-layout { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+.management-shell .browser-debug-datasets { display: flex; flex-wrap: wrap; gap: 4px; padding: 5px; border-radius: 10px; background: var(--surface-2); overflow: visible; }
+.management-shell .browser-debug-dataset { flex: 1 1 130px; max-width: 100%; min-height: 38px; padding: 8px 10px; border-radius: 7px; white-space: normal; font-size: 12px; }
+.management-shell .browser-debug-dataset > span { min-width: 0; }
+.management-shell .browser-debug-draft { flex: none; }
+.management-shell :is(.browser-debug-filters, .browser-debug-editor__fields, .proxy-workspace-fields, .proxy-workspace-filters, .autosurf-fields) { grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 12px; }
+.management-shell :is(.browser-debug-editor, .browser-debug-export, .proxy-workspace-confirm) { padding: 16px; border-radius: 10px; }
+.management-shell .browser-debug-editor__heading { gap: 8px 16px; }
+.management-shell :is(.browser-debug-export textarea, .autosurf-preview textarea) { min-height: 180px; max-height: min(50dvh, 460px); }
+.management-shell .browser-debug-row-actions > .button { min-height: 30px; }
+.management-shell .browser-debug-row-actions summary { min-height: 30px; }
+.management-shell .browser-debug-record-details { max-width: 100%; }
+
+.management-shell .proxy-workspace-layout { gap: 14px; }
+.management-shell .proxy-workspace-nav { display: flex; flex-wrap: wrap; gap: 4px; padding: 5px; border-radius: 10px; background: var(--surface-2); }
+.management-shell .proxy-workspace-nav-item { flex: 1 1 140px; min-height: 38px; gap: 8px; padding: 8px 12px; border-radius: 7px; font-size: 12px; }
+.management-shell .proxy-workspace-nav-item .proxy-workspace-icon { width: 26px; height: 26px; border-radius: 7px; }
+.management-shell .proxy-workspace-nav-item .proxy-workspace-icon svg { width: 17px; height: 17px; }
+.management-shell .proxy-workspace-content, .management-shell .proxy-workspace-main { gap: 16px; }
+.management-shell .proxy-workspace-protocol-card { min-height: 52px; padding: 10px; border-radius: 10px; font-size: 13px; }
+.management-shell .proxy-workspace-smart-paste { display: flex; flex-wrap: wrap; align-items: end; gap: 10px; }
+.management-shell .proxy-workspace-smart-paste > label { flex: 1 1 240px; }
+.management-shell .proxy-workspace-check-results { grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr)); gap: 10px; }
+.management-shell .proxy-workspace-table .proxy-workspace-icon-action { width: 32px; min-width: 32px; min-height: 32px; }
+.management-shell .proxy-workspace-table .proxy-workspace-state { font-size: 12px; }
+.management-shell .proxy-workspace-health small, .management-shell .proxy-workspace-row-error { font-size: 12px; }
+.management-shell .proxy-workspace-endpoint { font-size: 12px; }
+.management-shell .proxy-workspace-install code { max-width: 100%; white-space: pre-wrap; word-break: break-word; }
+.management-shell .proxy-workspace-host-details { grid-template-columns: minmax(0, auto) minmax(0, 1fr); gap: 8px 16px; }
+
+.management-shell :is(.autosurf-summary, .autosurf-metrics) { grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); gap: 12px; }
+.management-shell :is(.autosurf-summary, .autosurf-metrics) > div { padding: 12px; border: 1px solid var(--border); border-radius: 9px; background: var(--surface-2); }
+.management-shell .autosurf-summary > div:first-child { grid-column: 1 / -1; }
+.management-shell .autosurf-workspace dd { font-size: 14px; line-height: 1.5; }
+.management-shell .autosurf-checks { gap: 12px 20px; }
+.management-shell .autosurf-check { min-height: 32px; }
+.management-shell .autosurf-sites { gap: 16px; background: var(--surface); container: autosurf-sites / inline-size; }
+.management-shell .autosurf-sites-heading { gap: 10px; }
+.management-shell .autosurf-sites-heading .autosurf-sites-section-title { font-size: 17px; }
+.management-shell .autosurf-sites-heading > div { flex-basis: 180px; }
+.management-shell .autosurf-sites-heading__icon { width: 34px; height: 34px; flex-basis: 34px; border-radius: 9px; box-shadow: none; }
+.management-shell .autosurf-sites-heading__icon .autosurf-sites-icon { width: 20px; height: 20px; }
+.management-shell .autosurf-sites-catalog-count { padding-inline-start: 0; white-space: normal; }
+.management-shell .autosurf-sites-filters { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.management-shell :is(.autosurf-sites-search, .autosurf-sites-country__trigger) { border-radius: 8px; }
+.management-shell .autosurf-sites-country__trigger { min-height: 42px; height: auto; padding-block: 9px; }
+.management-shell .autosurf-sites input[type=search] { height: 42px; font-size: 13px; }
+.management-shell .autosurf-sites-topics { gap: 6px; }
+.management-shell .autosurf-sites-topic { max-width: 100%; flex-wrap: wrap; overflow-wrap: anywhere; }
+.management-shell .autosurf-sites-facet__heading { gap: 8px; }
+.management-shell .autosurf-sites-systems-heading { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; align-items: start; }
+.management-shell .autosurf-sites-systems-heading > .autosurf-sites-heading__icon { grid-column: 1; grid-row: 1; justify-self: start; align-self: center; }
+.management-shell .autosurf-sites-systems-heading__title { grid-column: 1 / -1; grid-row: 1; min-height: 34px; padding-inline-start: 44px; }
+.management-shell .autosurf-sites-system-search { grid-column: 1; grid-row: 2; flex: none; min-width: 0; width: auto; max-width: 100%; margin-inline: 0; padding-inline: 15px; gap: 10px; border-radius: 8px; }
+.management-shell .autosurf-sites-system-search input[type=search] { height: 42px; }
+.management-shell .autosurf-sites-system-search > .autosurf-sites-icon { width: 18px; height: 18px; flex-basis: 18px; }
+@container autosurf-sites (width < 450px) {
+  .management-shell :is(.autosurf-sites-filters, .autosurf-sites-systems-heading) { grid-template-columns: minmax(0, 1fr); }
+}
+.management-shell .autosurf-sites-results { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 10px; max-height: min(60dvh, 620px); }
+.management-shell .autosurf-sites-result { padding: 12px; border-radius: 10px; }
+.management-shell .autosurf-sites-result__body { padding-inline-end: 16px; }
+.management-shell .autosurf-sites-result__body > strong { white-space: normal; overflow-wrap: anywhere; }
+.management-shell .autosurf-sites-footer { flex-wrap: wrap; gap: 10px; margin: 0; padding: 12px 14px; }
+.management-shell .autosurf-sites-add { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+.management-shell .autosurf-sites-country__popover { max-width: 100%; max-height: min(65dvh, 400px); overflow: auto; border-radius: 10px; }
+.management-shell .autosurf-sites-country__list { max-height: min(42dvh, 260px); }
+.management-shell .autosurf-sites-country__option > span { min-width: 0; overflow-wrap: anywhere; }
+.management-shell .autosurf-sites-active-filters__chips { max-height: min(30dvh, 170px); }
+.management-shell .autosurf-sites-system-options.is-expanded { max-height: min(36dvh, 240px); }
+
+/* Fixed overlays remain viewport-bound; no containment/transform on ancestors. */
+.management-shell .api-config-overlay { padding: clamp(8px, 2vw, 24px); overflow: auto; overscroll-behavior: contain; }
+.management-shell .api-config-modal { width: min(100%, 520px); min-width: 0; max-width: 100%; max-height: calc(100dvh - 32px); padding: clamp(16px, 2vw, 24px); border-radius: 14px; overflow: auto; overscroll-behavior: contain; scrollbar-gutter: stable; }
+.management-shell .api-config-modal--wide { width: min(100%, 840px); }
+.management-shell .api-config-modal h2 { margin-block-end: 16px; font-size: 18px; overflow-wrap: anywhere; }
+.management-shell .api-config-form { gap: 14px; min-width: 0; }
+.management-shell .api-config-form label { min-width: 0; }
+.management-shell .api-config-form textarea { min-height: 140px; max-height: min(48dvh, 460px); }
+.management-shell .api-config-json { min-width: 0; max-height: min(40dvh, 320px); white-space: pre-wrap; overflow-wrap: anywhere; }
+.management-shell .api-config-change-list { max-height: min(28dvh, 200px); }
+.management-shell .api-config-actions { gap: 8px; }
+.management-shell .api-config-actions .button { flex: 0 1 auto; }
+.management-shell .api-config-transfer { min-width: 0; }
+.management-shell .api-config-select { min-width: 0; }
+.management-shell .api-value-dropdown { max-height: min(62dvh, 420px); max-width: 100%; overflow: auto; }
+.management-shell .api-value-dropdown select { max-height: min(38dvh, 260px); }
+.management-shell .cookies-workspace-dialog { width: min(820px, calc(100vw - 24px)); max-width: calc(100vw - 24px); max-height: calc(100dvh - 24px); border-radius: 14px; overscroll-behavior: contain; scrollbar-gutter: stable; }
+.management-shell .cookies-workspace-dialog-header { padding: 16px 18px; gap: 12px; }
+.management-shell .cookies-workspace-dialog-header h3 { font-size: 18px; overflow-wrap: anywhere; }
+.management-shell .cookies-workspace-dialog-body { gap: 16px; padding: 18px; }
+.management-shell .cookies-workspace-dialog textarea { min-height: 160px; max-height: min(44dvh, 420px); }
+.management-shell .cookies-workspace-fields, .management-shell .cookies-workspace-partition, .management-shell .cookies-workspace-store-map { grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); }
+.management-shell .cookies-workspace-dialog-actions { flex-wrap: wrap; gap: 8px; }
+.management-shell .cookies-workspace-value-field { flex-wrap: wrap; }
+.management-shell .cookies-workspace-value-field > label { flex: 1 1 220px; }
+.management-shell .cookies-workspace-dialog > .cookies-workspace-error { margin-inline: 18px; }
+
+@media (min-width: 1101px) {
+  .management-shell .proxy-workspace-table { min-width: 980px; }
+}
+@media (max-width: 1100px) {
+  .management-shell .proxy-workspace-table, .management-shell .proxy-workspace-table tbody { display: block; min-width: 0; }
+  .management-shell .proxy-workspace-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .management-shell .proxy-workspace-table tbody { display: grid; gap: 12px; padding: 10px; }
+  .management-shell .proxy-workspace-table tbody tr { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; min-width: 0; padding: 14px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface-2); }
+  .management-shell .proxy-workspace-table td { display: block; padding: 0; border: 0; }
+  .management-shell .proxy-workspace-table td::before { display: block; margin-block-end: 4px; color: var(--muted); font-size: 12px; content: attr(data-label); }
+  .management-shell .proxy-workspace-table td:first-child, .management-shell .proxy-workspace-table .proxy-workspace-action-cell { grid-column: 1 / -1; }
+  .management-shell .proxy-workspace-table td:first-child::before, .management-shell .proxy-workspace-table .proxy-workspace-action-cell::before { display: none; }
+  .management-shell .proxy-workspace-row-actions { justify-content: flex-start; gap: 8px; padding-block-start: 8px; border-block-start: 1px solid var(--border); }
+}
+@media (max-width: 560px) {
+  .management-shell :is(.cookies-workspace-header, .autosurf-heading, .proxy-workspace-header, .browser-debug-header) { align-items: flex-start; }
+  .management-shell :is(.cookies-workspace-header, .proxy-workspace-header) > .cookies-workspace-actions { width: 100%; }
+  .management-shell :is(.cookies-workspace-header, .autosurf-heading, .proxy-workspace-header, .browser-debug-header) > .button { margin-inline-start: auto; }
+  .management-shell :is(.cookies-workspace-scope, .cookies-workspace-toolbar) > label { flex-basis: 100%; }
+  .management-shell .cookies-workspace-scope > button, .management-shell .cookies-workspace-toolbar > button { width: 100%; }
+  .management-shell .autosurf-summary > div:first-child { grid-column: auto; }
+  .management-shell :is(.autosurf-summary, .autosurf-metrics) { grid-template-columns: repeat(auto-fit, minmax(min(100%, 130px), 1fr)); }
+  .management-shell .proxy-workspace-nav-item { flex-basis: 100px; justify-content: flex-start; }
+  .management-shell .proxy-workspace-protocols { gap: 7px; }
+  .management-shell .proxy-workspace-protocol-card { gap: 6px; padding: 8px 5px; font-size: 12px; }
+  .management-shell .browser-debug-dataset { flex-basis: 110px; }
+  .management-shell .browser-debug-diff dl > div { grid-template-columns: minmax(0, 1fr); gap: 3px; }
+  .management-shell .cookies-workspace-dialog-body { padding: 14px; }
+  .management-shell .cookies-workspace-dialog-header { padding: 14px; }
+  .management-shell .cookies-workspace-dialog-actions > .button, .management-shell .api-config-actions > .button { flex: 1 1 100px; }
+  .management-shell .api-config-modal { max-height: calc(100dvh - 16px); }
+}
+@media (max-height: 480px) {
+  .management-shell .api-config-overlay { padding-block: 8px; }
+  .management-shell .api-config-modal { max-height: calc(100dvh - 16px); }
+  .management-shell .cookies-workspace-dialog { max-height: calc(100dvh - 16px); }
+  .management-shell .cookies-workspace-dialog-header { position: static; }
+}
+@media (forced-colors: active) {
+  .management-shell :is(.cookies-workspace-card, .autosurf-card, .autosurf-sites, .proxy-workspace-card, .proxy-workspace-connection, .browser-debug-content, .browser-debug-datasets, .proxy-workspace-nav, .autosurf-summary > div, .autosurf-metrics > div, .api-config-modal) { color: CanvasText; background: Canvas; border-color: CanvasText; box-shadow: none; }
+}

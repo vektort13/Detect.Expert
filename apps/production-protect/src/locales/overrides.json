@@ -1,0 +1,21 @@
+{
+  "note": "ADR-047, owner decision Q1 (2026-10-18): declarativeNetRequestWithHostAccess is a required permission of the Chrome build, granted at install. The texts that told the user to restart the browser after granting it (SP-1 of an optional runtime grant) no longer apply and are replaced here, text only. build-protect.mjs applies these to the module catalog: only existing vendored keys, never the consent keys (protect_consent_*, digest of 722fae8), identical placeholders, ru and en both.",
+  "messages": {
+    "fw_blocking_restart": {
+      "ru": "Блокировка сейчас не действует: Chrome не применил правила запросов. Решение сохранится.",
+      "en": "Blocking is not in effect right now: Chrome did not apply the request rules. The decision is kept."
+    },
+    "protect_gpc_restart_hint": {
+      "ru": "Пока правило не применено, сайты не получают от расширения заголовок Sec-GPC.",
+      "en": "Until the rule is applied, sites do not receive the Sec-GPC header from the extension."
+    },
+    "protect_reason_blocking_unavailable": {
+      "ru": "Правила блокировки и сигнал GPC сейчас не действуют: Chrome не применил правила запросов.",
+      "en": "Blocking rules and the GPC signal are not in effect now: Chrome did not apply the request rules."
+    },
+    "protect_disabled_notice_rules_pending": {
+      "ru": "Модуль выключен, сравнение остановлено. Правила блокировки удалить не удалось: Chrome не завершил изменение правил. Они могут продолжать действовать до следующего включения «Защиты». Обёртки на уже открытых страницах и свойство GPC исчезнут после их перезагрузки.",
+      "en": "The module is off and comparison stopped. Blocking rules could not be removed: Chrome did not complete the rule change. They may keep applying until Protection is turned on again. Wrappers on pages already open and the GPC property go away after they reload."
+    }
+  }
+}

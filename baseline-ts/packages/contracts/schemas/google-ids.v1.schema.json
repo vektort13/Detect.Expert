@@ -1,0 +1,182 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:detect-expert:contracts:google-ids:v1",
+  "title": "ADR-040 separate browser-observed RAM-only Google header preview",
+  "description": "Never part of PageBatch/report/Pro/export. Runtime additionally enforces matching browser identity, unique destination hosts, byte budgets, canonical base64 and live access.",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "type",
+        "tabId",
+        "frameId",
+        "documentKey"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "type": {
+          "const": "ui-google-ids"
+        },
+        "tabId": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "frameId": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "documentKey": {
+          "type": "string",
+          "pattern": "^\\d{1,10}:\\d{1,10}:[A-Za-z0-9_-]{1,64}$",
+          "maxLength": 86
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "type",
+        "documentKey",
+        "evidenceSource",
+        "integrity",
+        "coverageState",
+        "entries",
+        "truncated"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "type": {
+          "const": "google-ids-state"
+        },
+        "documentKey": {
+          "type": "string",
+          "pattern": "^\\d{1,10}:\\d{1,10}:[A-Za-z0-9_-]{1,64}$",
+          "maxLength": 86
+        },
+        "evidenceSource": {
+          "const": "browser-network"
+        },
+        "integrity": {
+          "const": "browser-observed"
+        },
+        "coverageState": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/coverageState"
+        },
+        "entries": {
+          "type": "array",
+          "maxItems": 8,
+          "uniqueItems": true,
+          "items": {
+            "oneOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "host",
+                  "status",
+                  "header"
+                ],
+                "properties": {
+                  "host": {
+                    "type": "string",
+                    "maxLength": 253,
+                    "allOf": [
+                      {
+                        "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+                      },
+                      {
+                        "pattern": "(^|\\.)(?:google\\.com|google\\.co\\.uk|google\\.de|google\\.fr|google\\.es|google\\.it|google\\.ru|google\\.com\\.br|google\\.co\\.jp|google\\.co\\.in|google\\.ca|google\\.com\\.au|youtube\\.com|doubleclick\\.net|doubleclick\\.com|googlesyndication\\.com|googleadservices\\.com|googleapis\\.com|gstatic\\.com|googleusercontent\\.com|googlevideo\\.com|ytimg\\.com|recaptcha\\.net)$"
+                      }
+                    ]
+                  },
+                  "status": {
+                    "const": "observed"
+                  },
+                  "header": {
+                    "type": "string",
+                    "minLength": 4,
+                    "maxLength": 4096,
+                    "pattern": "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/][AQgw]==|[A-Za-z0-9+/]{2}[AEIMQUYcgkosw048]=)?$"
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "host",
+                  "status",
+                  "header"
+                ],
+                "properties": {
+                  "host": {
+                    "type": "string",
+                    "maxLength": 253,
+                    "allOf": [
+                      {
+                        "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+                      },
+                      {
+                        "pattern": "(^|\\.)(?:google\\.com|google\\.co\\.uk|google\\.de|google\\.fr|google\\.es|google\\.it|google\\.ru|google\\.com\\.br|google\\.co\\.jp|google\\.co\\.in|google\\.ca|google\\.com\\.au|youtube\\.com|doubleclick\\.net|doubleclick\\.com|googlesyndication\\.com|googleadservices\\.com|googleapis\\.com|gstatic\\.com|googleusercontent\\.com|googlevideo\\.com|ytimg\\.com|recaptcha\\.net)$"
+                      }
+                    ]
+                  },
+                  "status": {
+                    "enum": [
+                      "not-present",
+                      "unavailable",
+                      "too-large",
+                      "invalid"
+                    ]
+                  },
+                  "header": {
+                    "type": "null"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "truncated": {
+          "type": "boolean"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "coverageState": {
+                "enum": [
+                  "paused",
+                  "no-access",
+                  "unsupported"
+                ]
+              }
+            },
+            "required": [
+              "coverageState"
+            ]
+          },
+          "then": {
+            "properties": {
+              "entries": {
+                "type": "array",
+                "maxItems": 0
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

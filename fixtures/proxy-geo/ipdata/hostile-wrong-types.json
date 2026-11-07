@@ -1,0 +1,32 @@
+{
+  "provider": "ipdata",
+  "ip": "8.8.8.8",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": {
+    "ip": {},
+    "country_code": 840,
+    "country_name": [
+      "x"
+    ],
+    "region": 5,
+    "city": false,
+    "asn": {
+      "asn": {
+        "x": 1
+      },
+      "name": 7,
+      "type": 3
+    },
+    "company": [],
+    "carrier": "Verizon",
+    "threat": {
+      "is_proxy": "no",
+      "is_tor": 0,
+      "is_vpn": null
+    },
+    "time_zone": "UTC"
+  }
+}

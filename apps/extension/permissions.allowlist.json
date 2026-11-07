@@ -1,0 +1,24 @@
+{
+  "$comment": "Release allowlist checked by scripts/release-verify.mjs against dist/local/manifest.json. Change only via ADR.",
+  "permissions": ["activeTab", "scripting", "storage", "webRequest", "webNavigation", "sidePanel"],
+  "optional_host_permissions": ["http://*/*", "https://*/*"],
+  "host_permissions": [],
+  "forbidden_permissions": [
+    "tabs",
+    "cookies",
+    "debugger",
+    "history",
+    "nativeMessaging",
+    "declarativeNetRequest",
+    "unlimitedStorage",
+    "identity",
+    "webRequestBlocking",
+    "management",
+    "proxy"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'; connect-src 'none'; base-uri 'none'; frame-ancestors 'none'"
+  },
+  "incognito": "not_allowed",
+  "minimum_chrome_version": "119"
+}

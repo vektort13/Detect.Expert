@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>Фаервол: форма с утечкой</title>
+  </head>
+  <body>
+    <!-- ADR-020 §C (S08). Served at www.example.com: the sender script comes from cdn.example.org and sends the SHA-256 of
+         the typed e-mail to collect.example.net:4174/fw/collect (?to=, ?rport=, ?cdn= override). The page's own script
+         never reads the field; fw-sender.js (the synthetic third party) does. -->
+    <h1 id="title">Подписка на новости</h1>
+    <form id="form" onsubmit="return false">
+      <label>E-mail <input id="email" name="email" type="email" autocomplete="off" /></label>
+      <button type="button" id="next">Далее</button>
+    </form>
+    <script>
+      (function () {
+        var cdn = new URLSearchParams(location.search).get('cdn') || 'cdn.example.org';
+        var s = document.createElement('script');
+        s.src = location.protocol + '//' + cdn + ':' + location.port + '/protect/firewall/fw-sender.js';
+        document.head.appendChild(s);
+      })();
+    </script>
+  </body>
+</html>

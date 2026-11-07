@@ -1,0 +1,112 @@
+/* Module «Защита» (ADR-020 §H; S13): GPC line of the popup and the GPC section of Options. Built into protect.css after
+   base.css. Extension palette only (ui.css tokens; light + dark follow prefers-color-scheme there). The state of the
+   signal is an edge color, never a word like «опасно»: on → --accent, excluded → --muted, off (rule not applied) →
+   --attention. Text keeps --text for contrast. */
+
+.gpc {
+  display: grid;
+  gap: var(--space-1);
+  margin-block: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border);
+  border-inline-start-width: 4px;
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+.gpc--neutral {
+  border-inline-start-color: var(--accent);
+}
+
+.gpc--muted {
+  border-inline-start-color: var(--muted);
+}
+
+.gpc--attention {
+  border-color: var(--attention-border);
+  border-inline-start-color: var(--attention);
+  background: var(--attention-bg);
+}
+
+.gpc__title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.gpc__line {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.gpc__actions {
+  margin: 0;
+}
+
+/* list-item keeps the native disclosure marker. */
+.gpc__summary,
+.gpc-legal__summary {
+  display: list-item;
+  list-style-position: inside;
+  cursor: pointer;
+}
+
+.gpc__summary:focus-visible,
+.gpc-legal__summary:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.gpc__body,
+.gpc-legal__body {
+  display: grid;
+  gap: var(--space-1);
+  padding-block-start: var(--space-1);
+}
+
+.gpc__body p,
+.gpc-legal__body p {
+  margin: 0;
+}
+
+.gpc-state {
+  display: grid;
+  gap: var(--space-1);
+  margin-block: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border);
+  border-inline-start-width: 4px;
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.gpc-state--neutral {
+  border-inline-start-color: var(--accent);
+}
+
+.gpc-state--muted {
+  border-inline-start-color: var(--muted);
+}
+
+.gpc-state--attention {
+  border-color: var(--attention-border);
+  border-inline-start-color: var(--attention);
+  background: var(--attention-bg);
+}
+
+.gpc-state__line {
+  margin: 0;
+}
+
+.gpc-legal {
+  margin-block: var(--space-2);
+}
+
+@media (forced-colors: active) {
+  .gpc,
+  .gpc-state {
+    border-color: CanvasText;
+  }
+}

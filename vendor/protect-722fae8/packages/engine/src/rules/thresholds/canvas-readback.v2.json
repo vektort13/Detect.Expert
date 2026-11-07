@@ -1,0 +1,10 @@
+{
+  "ruleVersion": "2",
+  "calibrated": false,
+  "minReadoutsForPattern": 2,
+  "maxTextOpsPerReadout": 8,
+  "highVolumeTextOps": 200,
+  "patternConfidence": "low",
+  "possibleConfidence": "low",
+  "maxConfidence": "low"
+}

@@ -1,0 +1,93 @@
+/* ADR-058: closed-shadow, non-modal browser popup; this stylesheet never styles the website. */
+:host {
+  all: initial !important;
+  position: fixed !important;
+  inset: auto !important;
+  right: 16px !important;
+  bottom: 16px !important;
+  display: block !important;
+  width: min(600px, calc(100vw - 32px)) !important;
+  max-width: calc(100vw - 32px) !important;
+  max-height: calc(100dvh - 32px) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 20px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  z-index: 2147483647 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: none !important;
+  translate: none !important;
+  rotate: none !important;
+  scale: none !important;
+  filter: none !important;
+  clip-path: none !important;
+  overflow: visible !important;
+  pointer-events: auto !important;
+  isolation: isolate !important;
+}
+:host([data-protect-overlay-kind="activation"]) { width: min(360px, calc(100vw - 32px)) !important; }
+:host::backdrop { display: none !important; background: transparent !important; pointer-events: none !important; }
+
+.protect-overlay-page {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  padding: 0;
+  border: 1px solid var(--glass-line, var(--border));
+  border-radius: 20px;
+  color: var(--text);
+  background: var(--page-fill, var(--surface));
+  box-shadow: var(--glass-shadow);
+  font: 14px/1.5 var(--font);
+  writing-mode: horizontal-tb;
+  overflow: hidden;
+  color-scheme: light dark;
+}
+.protect-overlay-page *, .protect-overlay-page *::before, .protect-overlay-page *::after { box-sizing: border-box; }
+.protect-overlay-scroll { min-width: 0; max-height: min(760px, calc(100dvh - 34px)); overflow: auto; overscroll-behavior: contain; scrollbar-width: auto; scrollbar-color: var(--muted) var(--surface-2); }
+@supports selector(::-webkit-scrollbar) {
+  .protect-overlay-scroll { scrollbar-color: auto; }
+  .protect-overlay-scroll::-webkit-scrollbar { width: 12px; height: 12px; }
+  .protect-overlay-scroll::-webkit-scrollbar-track { border-radius: 999px; background: var(--surface-2); }
+  .protect-overlay-scroll::-webkit-scrollbar-thumb { border: 2px solid var(--surface-2); border-radius: 999px; background: var(--muted); }
+  .protect-overlay-scroll::-webkit-scrollbar-thumb:hover { background: var(--text); }
+  .protect-overlay-scroll::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
+}
+.protect-overlay-page .protect-findings { padding: 16px; }
+.protect-overlay-page .protect-findings__bar { min-width: 0; }
+.protect-overlay-page .protect-findings__heading { display: grid; gap: 3px; min-width: 0; }
+.protect-overlay-page .protect-findings__section { min-width: 0; }
+.protect-overlay-page .protect-findings__transfers, .protect-overlay-page .protect-findings__evidence { display: grid; gap: 16px; min-width: 0; }
+.protect-overlay-page .protect-activation { border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+.protect-overlay-page .protect-activation__header { min-width: 0; }
+.protect-overlay-page .protect-firewall-brand { min-width: 0; }
+.protect-overlay-page .protect-firewall-brand strong { white-space: nowrap; }
+.protect-overlay-page .protect-firewall-brand__logo { flex: none; }
+.protect-overlay-page .protect-overlay__close { display: grid; place-items: center; flex: none; width: 32px; min-width: 32px; height: 32px; min-height: 32px; margin: 0; padding: 0; border-radius: 10px; color: var(--muted); }
+.protect-overlay-page .protect-overlay__close svg { display: block; width: 16px; height: 16px; }
+.protect-overlay-page :focus-visible { outline: 3px solid var(--focus, var(--accent)); outline-offset: 2px; }
+.protect-overlay-page .fw-rows { min-width: 0; }
+.protect-overlay-page .fw-row__value { min-width: 0; overflow-wrap: anywhere; }
+.protect-overlay-page .fw-row__host { direction: ltr; unicode-bidi: isolate; }
+
+@media (max-width: 420px) {
+  :host { right: 10px !important; bottom: 10px !important; width: calc(100vw - 20px) !important; max-width: calc(100vw - 20px) !important; max-height: calc(100dvh - 20px) !important; }
+  :host([data-protect-overlay-kind="activation"]) { width: min(360px, calc(100vw - 20px)) !important; }
+  .protect-overlay-scroll { max-height: calc(100dvh - 22px); }
+  .protect-overlay-page .protect-findings { padding: 12px; }
+  .protect-overlay-page .protect-firewall-brand { gap: 8px; }
+  .protect-overlay-page .protect-firewall-brand strong { font-size: 18px; }
+}
+@media (prefers-reduced-motion: reduce) { .protect-overlay-page *, .protect-overlay-page *::before, .protect-overlay-page *::after { scroll-behavior: auto; transition: none; animation: none; } }
+@media (forced-colors: active) {
+  .protect-overlay-page { color: CanvasText; background: Canvas; border-color: CanvasText; box-shadow: none; }
+  .protect-overlay-page .protect-overlay__close { color: ButtonText; background: ButtonFace; border: 1px solid ButtonText; }
+  .protect-overlay-page :focus-visible { outline-color: Highlight; }
+  .protect-overlay-scroll { scrollbar-color: auto; }
+  .protect-overlay-scroll::-webkit-scrollbar { width: auto; height: auto; }
+  .protect-overlay-scroll::-webkit-scrollbar-track { background: Canvas; }
+  .protect-overlay-scroll::-webkit-scrollbar-thumb { background: CanvasText; border-color: Canvas; }
+}

@@ -1,0 +1,14 @@
+{
+  "provider": "ipapi",
+  "ip": "8.8.8.8",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "x-rl": "10",
+    "x-ttl": "50"
+  },
+  "body": {
+    "status": "success",
+    "query": "8.8.8.8"
+  }
+}

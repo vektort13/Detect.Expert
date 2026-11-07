@@ -1,0 +1,103 @@
+diff --git a/cmd/openvpn2socks/resolver.go b/cmd/openvpn2socks/resolver.go
+index 4916152..0ea7aca 100644
+--- a/cmd/openvpn2socks/resolver.go
++++ b/cmd/openvpn2socks/resolver.go
+@@ -368,12 +368,10 @@ func (r *resolver) LookupIP(ctx context.Context, host string) ([]netip.Addr, err
+ // public fallback → system) without consulting the cache. The caller
+ // (LookupIP) handles cache lookup and singleflight deduplication.
+ func (r *resolver) lookupIPUncached(ctx context.Context, host string) ([]netip.Addr, error) {
+-	tunnelAttempted := false
+ 	sawAuthoritativeNoData := false
+ 
+ 	// 1. -dns override.
+ 	if r.override.IsValid() {
+-		tunnelAttempted = true
+ 		ips, err := r.runTunneledQuery(ctx, r.override, host)
+ 		if err == nil && len(ips) > 0 {
+ 			r.cacheSet(host, ips)
+@@ -388,7 +386,6 @@ func (r *resolver) lookupIPUncached(ctx context.Context, host string) ([]netip.A
+ 		if !srv.IsValid() {
+ 			continue
+ 		}
+-		tunnelAttempted = true
+ 		ap := netip.AddrPortFrom(srv, 53)
+ 		ips, err := r.runTunneledQuery(ctx, ap, host)
+ 		if err == nil && len(ips) > 0 {
+@@ -405,7 +402,6 @@ func (r *resolver) lookupIPUncached(ctx context.Context, host string) ([]netip.A
+ 	// authoritative; if it's broken we honour the user's intent and
+ 	// don't second-guess them).
+ 	if !r.override.IsValid() {
+-		tunnelAttempted = true
+ 		ips, err := r.runTunneledQuery(ctx, publicDNSFallback, host)
+ 		if err == nil && len(ips) > 0 {
+ 			r.log.Debug("DNS-over-tunnel fallback succeeded via public resolver",
+@@ -424,35 +420,8 @@ func (r *resolver) lookupIPUncached(ctx context.Context, host string) ([]netip.A
+ 	if sawAuthoritativeNoData {
+ 		return nil, fmt.Errorf("no records for %q (authoritative)", host)
+ 	}
+-	// 4. System fallback. Tunnel DNS will be re-attempted on the *next*
+-	// LookupIP; this fallback is only for the current query. Result is
+-	// intentionally NOT cached — caching a system-resolved IP could
+-	// prolong DNS leakage after the tunnel recovers. The result is also
+-	// filtered to the tunnel's actual address families, so a v6 record
+-	// returned by the system resolver doesn't reach gVisor on a v4-only
+-	// tunnel (which would either error or, worse, retry through the
+-	// system resolver chain and leak again).
+-	if tunnelAttempted {
+-		r.maybeWarnSystemFallback(host)
+-	}
+-	lookup := r.systemLookupFn
+-	if lookup == nil {
+-		lookup = net.DefaultResolver.LookupNetIP
+-	}
+-	ips, err := lookup(ctx, "ip", host)
+-	if err != nil {
+-		return nil, err
+-	}
+-	hasV4, hasV6 := true, true
+-	if r.ns != nil {
+-		hasV4 = r.ns.HasIPv4()
+-		hasV6 = r.ns.HasIPv6()
+-	}
+-	ips = filterUsableIPs(ips, hasV4, hasV6)
+-	if len(ips) == 0 {
+-		return nil, fmt.Errorf("no usable address family for %q from system resolver", host)
+-	}
+-	return ips, nil
++	// Detect.Expert: tunneled DNS failures never reach the host resolver.
++	return nil, errors.New("tunneled DNS unavailable; system fallback disabled")
+ }
+ 
+ // isProxiableLiteral reports whether the SOCKS5 proxy will carry traffic to
+diff --git a/cmd/openvpn2socks/resolver_test.go b/cmd/openvpn2socks/resolver_test.go
+index 3f2324b..3c172fe 100644
+--- a/cmd/openvpn2socks/resolver_test.go
++++ b/cmd/openvpn2socks/resolver_test.go
+@@ -301,7 +301,7 @@ func TestLookupIPAuthoritativeNoDataSuppressesSystemFallback(t *testing.T) {
+ // transport-class failures (timeout, SERVFAIL), the system resolver IS
+ // the documented last-resort. Without this case the suppression logic
+ // could over-fire and break tunnels with a flaky pushed DNS.
+-func TestLookupIPTransportFailFallsBackToSystem(t *testing.T) {
++func TestLookupIPTransportFailureFailsClosed(t *testing.T) {
+ 	t.Parallel()
+ 	r := newTestResolver(t)
+ 	r.pushed = []netip.Addr{mustAddr(t, "10.0.0.1")}
+@@ -316,14 +316,11 @@ func TestLookupIPTransportFailFallsBackToSystem(t *testing.T) {
+ 	}
+ 
+ 	ips, err := r.LookupIP(t.Context(), "example.com")
+-	if err != nil {
+-		t.Fatalf("LookupIP returned err=%v, want success via system fallback", err)
+-	}
+-	if systemCalls.Load() == 0 {
+-		t.Fatal("system resolver was not called despite transport-class failures from tunneled resolver")
++	if err == nil || len(ips) != 0 {
++		t.Fatalf("LookupIP returned %v, err=%v; want failure without addresses", ips, err)
+ 	}
+-	if len(ips) != 1 || ips[0] != want {
+-		t.Fatalf("system fallback returned %v, want [%v]", ips, want)
++	if systemCalls.Load() != 0 {
++		t.Fatal("system resolver called after tunneled transport failure")
+ 	}
+ }
+ 

@@ -1,0 +1,27 @@
+{
+  "provider": "ipapi",
+  "ip": "1.1.1.1",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "x-rl": "20",
+    "x-ttl": "41"
+  },
+  "body": {
+    "status": "success",
+    "country": "United Kingdom",
+    "countryCode": "GB",
+    "region": "ENG",
+    "regionName": "England",
+    "city": "London",
+    "timezone": "Europe/London",
+    "isp": "Example Mobile",
+    "org": "Example Mobile",
+    "as": "AS64501 Example Mobile Ltd",
+    "asname": "EXAMPLE-MOBILE",
+    "mobile": true,
+    "proxy": false,
+    "hosting": false,
+    "query": "1.1.1.1"
+  }
+}

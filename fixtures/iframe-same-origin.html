@@ -1,0 +1,6 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>P06: iframe того же origin</title></head><body>
+<h1>Родительский документ</h1>
+<script>document.createElement('canvas').toDataURL();</script>
+<iframe id="child" src="/realms/frame-child.html"></iframe>
+</body></html>

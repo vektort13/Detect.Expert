@@ -1,0 +1,483 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-09",
+  "description": "Synthetic design/review fixtures, no real site cookies, values or host inventory. Expected candidate explanation enhancement is not claimed implemented by this dataset.",
+  "nativeCore": {
+    "hostOnly": true,
+    "secure": true,
+    "httpOnly": false,
+    "session": false,
+    "sameSite": "lax"
+  },
+  "rules": [
+    {
+      "id": "fixture:candidate-a",
+      "name": "vendorVisitor",
+      "match": "exact",
+      "domainContext": "unassessed",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Vendor A",
+      "purpose": "Visitor identifier for analytics.",
+      "confidence": "community",
+      "sourceUrls": [
+        "https://example.com/vendor-a"
+      ]
+    },
+    {
+      "id": "fixture:candidate-b",
+      "name": "sharedVisitor",
+      "match": "exact",
+      "domainContext": "unassessed",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Vendor B",
+      "purpose": "Visitor identifier for analytics.",
+      "confidence": "community",
+      "sourceUrls": [
+        "https://example.com/vendor-b"
+      ]
+    },
+    {
+      "id": "fixture:candidate-c",
+      "name": "sharedVisitor",
+      "match": "exact",
+      "domainContext": "unassessed",
+      "domains": [],
+      "category": "advertising",
+      "owner": "Vendor A",
+      "purpose": "Advertising measurement identifier.",
+      "confidence": "community",
+      "sourceUrls": [
+        "https://example.com/vendor-a"
+      ]
+    },
+    {
+      "id": "fixture:generic-token",
+      "name": "token",
+      "match": "exact",
+      "domainContext": "unassessed",
+      "domains": [],
+      "category": "advertising",
+      "owner": "Vendor A",
+      "purpose": "Advertising measurement identifier.",
+      "confidence": "community",
+      "sourceUrls": [
+        "https://example.com/vendor-a"
+      ]
+    },
+    {
+      "id": "fixture:generic-session",
+      "name": "sessionid",
+      "match": "exact",
+      "domainContext": "unassessed",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Vendor A",
+      "purpose": "Visitor identifier for analytics.",
+      "confidence": "community",
+      "sourceUrls": [
+        "https://example.com/vendor-a"
+      ]
+    },
+    {
+      "id": "fixture:prefix",
+      "name": "vendor_",
+      "match": "prefix",
+      "domainContext": "unassessed",
+      "domains": [],
+      "category": "analytics",
+      "owner": "Vendor A",
+      "purpose": "Visitor identifier for analytics.",
+      "confidence": "community",
+      "sourceUrls": [
+        "https://example.com/vendor-a"
+      ]
+    },
+    {
+      "id": "fixture:prefix-long",
+      "name": "vendor_session_",
+      "match": "prefix",
+      "domainContext": "unassessed",
+      "domains": [],
+      "category": "functional",
+      "owner": "Vendor A",
+      "purpose": "Application session state.",
+      "confidence": "community",
+      "sourceUrls": [
+        "https://example.com/vendor-a"
+      ]
+    },
+    {
+      "id": "fixture:exact",
+      "name": "vendor_fixed",
+      "match": "exact",
+      "domainContext": "unassessed",
+      "domains": [],
+      "category": "functional",
+      "owner": "Vendor B",
+      "purpose": "Application state.",
+      "confidence": "community",
+      "sourceUrls": [
+        "https://example.com/vendor-b"
+      ]
+    },
+    {
+      "id": "fixture:literal-asterisk",
+      "name": "literal*name",
+      "match": "exact",
+      "domainContext": "unassessed",
+      "domains": [],
+      "category": "functional",
+      "owner": "Vendor A",
+      "purpose": "Literal cookie name.",
+      "confidence": "community",
+      "sourceUrls": [
+        "https://example.com/vendor-a"
+      ]
+    },
+    {
+      "id": "fixture:scoped-prefix",
+      "name": "scoped_",
+      "match": "prefix",
+      "domainContext": "domain",
+      "domains": [
+        "example.com"
+      ],
+      "category": "analytics",
+      "owner": "Vendor A",
+      "purpose": "Domain-scoped visitor analytics.",
+      "confidence": "community",
+      "sourceUrls": [
+        "https://example.com/vendor-a"
+      ]
+    },
+    {
+      "id": "fixture:primary-security",
+      "name": "sharedVisitor",
+      "match": "exact",
+      "domainContext": "any",
+      "domains": [],
+      "category": "security",
+      "owner": "Reviewed application convention",
+      "purpose": "Reviewed authentication state.",
+      "confidence": "documented",
+      "sourceUrls": [
+        "https://example.com/primary"
+      ]
+    },
+    {
+      "id": "fixture:ambiguous-prefix",
+      "name": "vendor_",
+      "match": "prefix",
+      "domainContext": "unassessed",
+      "domains": [],
+      "category": "advertising",
+      "owner": "Vendor B",
+      "purpose": "Advertising measurement identifier.",
+      "confidence": "community",
+      "sourceUrls": [
+        "https://example.com/vendor-b"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "name-only-unique",
+      "rules": [
+        "fixture:candidate-a"
+      ],
+      "cookie": {
+        "name": "vendorVisitor",
+        "domain": "shop.example.com"
+      },
+      "expect": {
+        "category": "unknown",
+        "owner": "",
+        "tracking": false,
+        "confidence": "ambiguous",
+        "name": "vendorVisitor",
+        "purposeIncludes": [
+          "Vendor A"
+        ],
+        "purposeNonempty": true
+      }
+    },
+    {
+      "id": "name-only-multi-owner",
+      "rules": [
+        "fixture:candidate-b",
+        "fixture:candidate-c"
+      ],
+      "cookie": {
+        "name": "sharedVisitor",
+        "domain": "shop.example.com"
+      },
+      "expect": {
+        "category": "unknown",
+        "owner": "",
+        "tracking": false,
+        "confidence": "ambiguous",
+        "name": "sharedVisitor",
+        "purposeIncludes": [
+          "Vendor A",
+          "Vendor B"
+        ],
+        "purposeNonempty": true
+      }
+    },
+    {
+      "id": "generic-token-does-not-get-vendor-hint",
+      "rules": [
+        "fixture:generic-token"
+      ],
+      "cookie": {
+        "name": "token",
+        "domain": "shop.example.com"
+      },
+      "expect": {
+        "category": "unknown",
+        "owner": "",
+        "tracking": false,
+        "confidence": "ambiguous",
+        "name": "token",
+        "purpose": ""
+      }
+    },
+    {
+      "id": "generic-session-does-not-get-vendor-hint",
+      "rules": [
+        "fixture:generic-session"
+      ],
+      "cookie": {
+        "name": "sessionid",
+        "domain": "shop.example.com"
+      },
+      "expect": {
+        "category": "unknown",
+        "owner": "",
+        "tracking": false,
+        "confidence": "ambiguous",
+        "name": "sessionid",
+        "purpose": ""
+      }
+    },
+    {
+      "id": "inactive-prefix-masks-identifier",
+      "rules": [
+        "fixture:prefix"
+      ],
+      "cookie": {
+        "name": "vendor_IDENTIFIER_CANARY",
+        "domain": "shop.example.com"
+      },
+      "expect": {
+        "category": "unknown",
+        "owner": "",
+        "tracking": false,
+        "confidence": "ambiguous",
+        "name": "vendor_*",
+        "purposeIncludes": [
+          "Vendor A"
+        ],
+        "mustNotContain": [
+          "IDENTIFIER_CANARY"
+        ]
+      }
+    },
+    {
+      "id": "longest-prefix-is-deterministic",
+      "rules": [
+        "fixture:prefix",
+        "fixture:prefix-long"
+      ],
+      "cookie": {
+        "name": "vendor_session_IDENTIFIER_CANARY",
+        "domain": "shop.example.com"
+      },
+      "expect": {
+        "category": "unknown",
+        "owner": "",
+        "tracking": false,
+        "confidence": "ambiguous",
+        "name": "vendor_session_*",
+        "mustNotContain": [
+          "IDENTIFIER_CANARY"
+        ]
+      }
+    },
+    {
+      "id": "exact-known-name-wins-over-prefix-mask",
+      "rules": [
+        "fixture:prefix",
+        "fixture:exact"
+      ],
+      "cookie": {
+        "name": "vendor_fixed",
+        "domain": "shop.example.com"
+      },
+      "expect": {
+        "category": "unknown",
+        "owner": "",
+        "tracking": false,
+        "confidence": "ambiguous",
+        "name": "vendor_fixed",
+        "purposeIncludes": [
+          "Vendor B"
+        ]
+      }
+    },
+    {
+      "id": "contradictory-prefixes-remain-neutral",
+      "rules": [
+        "fixture:prefix",
+        "fixture:ambiguous-prefix"
+      ],
+      "cookie": {
+        "name": "vendor_IDENTIFIER_CANARY",
+        "domain": "shop.example.com"
+      },
+      "expect": {
+        "category": "unknown",
+        "owner": "",
+        "tracking": false,
+        "confidence": "ambiguous",
+        "name": "vendor_*",
+        "purposeIncludes": [
+          "Vendor A",
+          "Vendor B"
+        ],
+        "mustNotContain": [
+          "IDENTIFIER_CANARY"
+        ]
+      }
+    },
+    {
+      "id": "literal-asterisk-is-literal",
+      "rules": [
+        "fixture:literal-asterisk"
+      ],
+      "cookie": {
+        "name": "literal*name",
+        "domain": "shop.example.com"
+      },
+      "expect": {
+        "category": "unknown",
+        "owner": "",
+        "tracking": false,
+        "confidence": "ambiguous",
+        "name": "literal*name",
+        "purposeIncludes": [
+          "Vendor A"
+        ]
+      }
+    },
+    {
+      "id": "literal-asterisk-must-not-act-as-wildcard",
+      "rules": [
+        "fixture:literal-asterisk"
+      ],
+      "cookie": {
+        "name": "literalCANARYname",
+        "domain": "shop.example.com"
+      },
+      "expect": {
+        "category": "unknown",
+        "owner": "",
+        "tracking": false,
+        "confidence": "unknown",
+        "name": "literalCANARYname",
+        "purpose": ""
+      }
+    },
+    {
+      "id": "scoped-prefix-positive",
+      "rules": [
+        "fixture:scoped-prefix"
+      ],
+      "cookie": {
+        "name": "scoped_IDENTIFIER_CANARY",
+        "domain": "sub.example.com"
+      },
+      "expect": {
+        "category": "analytics",
+        "owner": "Vendor A",
+        "tracking": true,
+        "confidence": "community",
+        "name": "scoped_*",
+        "mustNotContain": [
+          "IDENTIFIER_CANARY"
+        ]
+      }
+    },
+    {
+      "id": "scoped-prefix-domain-lookalike-is-not-a-candidate",
+      "rules": [
+        "fixture:scoped-prefix"
+      ],
+      "cookie": {
+        "name": "scoped_IDENTIFIER_CANARY",
+        "domain": "example.com.evil.test"
+      },
+      "expect": {
+        "category": "unknown",
+        "owner": "",
+        "tracking": false,
+        "confidence": "unknown",
+        "purpose": "",
+        "sourceUrls": [],
+        "ruleIds": [],
+        "mustNotContain": [
+          "IDENTIFIER_CANARY"
+        ]
+      },
+      "note": "Conservative privacy redaction may mask a publicly known dynamic prefix even on nonmatching domain; it must not imply category/owner/purpose or source match."
+    },
+    {
+      "id": "reviewed-security-wins-over-name-only-candidate",
+      "rules": [
+        "fixture:candidate-b",
+        "fixture:candidate-c",
+        "fixture:primary-security"
+      ],
+      "cookie": {
+        "name": "sharedVisitor",
+        "domain": "shop.example.com"
+      },
+      "expect": {
+        "category": "security",
+        "owner": "Reviewed application convention",
+        "tracking": false,
+        "confidence": "documented",
+        "name": "sharedVisitor",
+        "purpose": "Reviewed authentication state."
+      }
+    },
+    {
+      "id": "bare-prefix-is-not-a-dynamic-match",
+      "rules": [
+        "fixture:prefix"
+      ],
+      "cookie": {
+        "name": "vendor_",
+        "domain": "shop.example.com"
+      },
+      "expect": {
+        "category": "unknown",
+        "owner": "",
+        "tracking": false,
+        "confidence": "unknown",
+        "name": "vendor_",
+        "purpose": ""
+      }
+    }
+  ],
+  "additionalAdversarialCases": [
+    "Reverse catalog order must produce identical output; sort by rank then ID before applying eight-item cap.",
+    "Nine or more conflicting sources/owners must remain bounded with deterministic truncation; purpose <=512 UTF-16 units, ruleIds/sourceUrls <=8.",
+    "Cookie/name/domain/value/partition accessors and inherited catalog rows never execute; secret value getter count stays 0.",
+    "Blank or control-bearing owner/purpose must not result in unsafe markup; display stays escaped text.",
+    "Security prefixes __Secure- and __Host- are not vendor prefixes; generic candidate namespace cannot determine tracking or company.",
+    "Domain-qualified but malformed/upstream wildcard rows must not become global name-only hints unless explicitly retained unassessed candidates and generic exclusion applies."
+  ]
+}

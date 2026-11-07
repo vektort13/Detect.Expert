@@ -1,0 +1,56 @@
+/* ADR-022/023: the toolbar autosizes from this definite width. A viewport-based
+   cap feeds its initial narrow viewport back into layout and collapses the popup. */
+html {
+  width: 400px;
+  min-width: 400px;
+}
+
+body {
+  width: 100%;
+}
+
+/* Keep the definite bootstrap width below this band; reflow after native popup sizing. */
+@media (min-width: 300px) and (max-width: 411px) {
+  html { width: 100%; min-width: 0; }
+  body { width: 100%; }
+}
+
+.app--popup {
+  padding-block: var(--space-3);
+}
+
+/* ADR-042: keep the page background on the canvas; the browser owns the popup frame. */
+@media screen {
+  /* ADR-107: light-dark() follows the chosen theme (the popup runs theme-bootstrap.js), not the system setting. */
+  html {
+    --popup-scroll-thumb: light-dark(#647c9f, #91a7c6);
+    --popup-scroll-thumb-hover: light-dark(#46638b, #b1c1d8);
+    --popup-scroll-track: light-dark(rgb(100 124 159 / .13), rgb(145 167 198 / .16));
+  }
+  html, html * { scrollbar-width: auto; scrollbar-color: var(--popup-scroll-thumb) var(--popup-scroll-track); }
+
+  @supports selector(::-webkit-scrollbar) {
+    html, html * { scrollbar-width: auto; scrollbar-color: auto; }
+    ::-webkit-scrollbar { width: 12px; height: 12px; background: transparent; }
+    ::-webkit-scrollbar-track { margin-block: 8px; border: 2px solid transparent; border-radius: 999px; background: var(--popup-scroll-track); background-clip: padding-box; }
+    ::-webkit-scrollbar-thumb {
+      min-height: 36px;
+      border: 2px solid transparent;
+      border-radius: 999px;
+      background: linear-gradient(180deg, color-mix(in srgb, var(--popup-scroll-thumb) 85%, white), var(--popup-scroll-thumb));
+      background-clip: padding-box;
+    }
+    ::-webkit-scrollbar-thumb:hover { background: var(--popup-scroll-thumb-hover); background-clip: padding-box; }
+    ::-webkit-scrollbar-thumb:active { background: var(--accent); background-clip: padding-box; }
+    ::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
+    ::-webkit-scrollbar-corner { background: transparent; }
+  }
+  @media (forced-colors: active) {
+    html, html * { scrollbar-width: auto; scrollbar-color: auto; }
+    ::-webkit-scrollbar { width: auto; height: auto; }
+    ::-webkit-scrollbar-track { margin-block: 0; background: Canvas; border-color: Canvas; }
+    ::-webkit-scrollbar-thumb { background: CanvasText; border-color: Canvas; }
+    ::-webkit-scrollbar-thumb:hover { background-color: Highlight; }
+    ::-webkit-scrollbar-button { display: initial; width: auto; height: auto; }
+  }
+}

@@ -1,0 +1,429 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-12T18:43:06.418Z",
+  "fixture": "fixtures/perf-canvas-hot.html (1000000 measureText + 10000 getImageData, warm run after one cold run per context)",
+  "machine": {
+    "platform": "win32",
+    "arch": "x64",
+    "cpu": "AMD Ryzen 9 7950X 16-Core Processor            ",
+    "cpuCount": 32,
+    "totalMemGiB": 127.1,
+    "node": "v25.2.1"
+  },
+  "chromium": {
+    "version": "153.0.0.0",
+    "harness": "Playwright persistent context, channel chromium, headless=true"
+  },
+  "extension": {
+    "version": "0.1.0",
+    "profile": "test",
+    "observationEnabled": true,
+    "observedBy": "static test grant: detector-isolated-v1,detector-main-v1 registered at startup",
+    "sensorsObservedLoop": true
+  },
+  "method": {
+    "runsPerMode": 5,
+    "interleaved": true,
+    "statistic": "median and nearest-rank p95 of page-side performance.now() deltas (with n=5 the p95 is the maximum)",
+    "threshold": "none yet; proposed max median overhead 5 %"
+  },
+  "metrics": {
+    "measureTextMs": {
+      "without": {
+        "n": 5,
+        "min": 263,
+        "median": 272.7,
+        "p95": 275.2,
+        "max": 275.2
+      },
+      "with": {
+        "n": 5,
+        "min": 281.9,
+        "median": 288.6,
+        "p95": 289,
+        "max": 289
+      },
+      "overhead": {
+        "medianMs": 15.9,
+        "medianPct": 5.83,
+        "p95Ms": 13.8,
+        "p95Pct": 5.01
+      }
+    },
+    "getImageDataMs": {
+      "without": {
+        "n": 5,
+        "min": 13.9,
+        "median": 14.4,
+        "p95": 14.6,
+        "max": 14.6
+      },
+      "with": {
+        "n": 5,
+        "min": 13.7,
+        "median": 14.8,
+        "p95": 15.6,
+        "max": 15.6
+      },
+      "overhead": {
+        "medianMs": 0.4,
+        "medianPct": 2.78,
+        "p95Ms": 1,
+        "p95Pct": 6.85
+      }
+    },
+    "totalMs": {
+      "without": {
+        "n": 5,
+        "min": 277,
+        "median": 286.6,
+        "p95": 289.6,
+        "max": 289.6
+      },
+      "with": {
+        "n": 5,
+        "min": 295.6,
+        "median": 303,
+        "p95": 304.6,
+        "max": 304.6
+      },
+      "overhead": {
+        "medianMs": 16.4,
+        "medianPct": 5.72,
+        "p95Ms": 15,
+        "p95Pct": 5.18
+      }
+    }
+  },
+  "runs": [
+    {
+      "index": 1,
+      "mode": "without",
+      "cold": {
+        "fixture": "perf-canvas-hot",
+        "run": 1,
+        "measureTextCalls": 1000000,
+        "getImageDataCalls": 10000,
+        "measureTextMs": 297.3,
+        "getImageDataMs": 27.9,
+        "totalMs": 325.2,
+        "sinkPositive": true
+      },
+      "warm": {
+        "fixture": "perf-canvas-hot",
+        "run": 2,
+        "measureTextCalls": 1000000,
+        "getImageDataCalls": 10000,
+        "measureTextMs": 272.7,
+        "getImageDataMs": 13.9,
+        "totalMs": 286.6,
+        "sinkPositive": true
+      },
+      "observation": null,
+      "observed": null
+    },
+    {
+      "index": 1,
+      "mode": "with",
+      "cold": {
+        "fixture": "perf-canvas-hot",
+        "run": 1,
+        "measureTextCalls": 1000000,
+        "getImageDataCalls": 10000,
+        "measureTextMs": 306.2,
+        "getImageDataMs": 29.2,
+        "totalMs": 335.4,
+        "sinkPositive": true
+      },
+      "warm": {
+        "fixture": "perf-canvas-hot",
+        "run": 2,
+        "measureTextCalls": 1000000,
+        "getImageDataCalls": 10000,
+        "measureTextMs": 288.6,
+        "getImageDataMs": 15.1,
+        "totalMs": 303.7,
+        "sinkPositive": true
+      },
+      "observation": {
+        "enabled": true,
+        "how": "static test grant: detector-isolated-v1,detector-main-v1 registered at startup"
+      },
+      "observed": {
+        "coverageState": "active",
+        "counts": {
+          "DET-002": 10000,
+          "DET-003": 1000001
+        },
+        "countQualities": {
+          "DET-002": "exact",
+          "DET-003": "exact"
+        }
+      }
+    },
+    {
+      "index": 2,
+      "mode": "without",
+      "cold": {
+        "fixture": "perf-canvas-hot",
+        "run": 1,
+        "measureTextCalls": 1000000,
+        "getImageDataCalls": 10000,
+        "measureTextMs": 294.1,
+        "getImageDataMs": 26.9,
+        "totalMs": 321,
+        "sinkPositive": true
+      },
+      "warm": {
+        "fixture": "perf-canvas-hot",
+        "run": 2,
+        "measureTextCalls": 1000000,
+        "getImageDataCalls": 10000,
+        "measureTextMs": 264.1,
+        "getImageDataMs": 14.6,
+        "totalMs": 278.7,
+        "sinkPositive": true
+      },
+      "observation": null,
+      "observed": null
+    },
+    {
+      "index": 2,
+      "mode": "with",
+      "cold": {
+        "fixture": "perf-canvas-hot",
+        "run": 1,
+        "measureTextCalls": 1000000,
+        "getImageDataCalls": 10000,
+        "measureTextMs": 304.6,
+        "getImageDataMs": 29,
+        "totalMs": 333.6,
+        "sinkPositive": true
+      },
+      "warm": {
+        "fixture": "perf-canvas-hot",
+        "run": 2,
+        "measureTextCalls": 1000000,
+        "getImageDataCalls": 10000,
+        "measureTextMs": 284.9,
+        "getImageDataMs": 14.8,
+        "totalMs": 299.7,
+        "sinkPositive": true
+      },
+      "observation": {
+        "enabled": true,
+        "how": "static test grant: detector-isolated-v1,detector-main-v1 registered at startup"
+      },
+      "observed": {
+        "coverageState": "active",
+        "counts": {
+          "DET-002": 10000,
+          "DET-003": 1000001
+        },
+        "countQualities": {
+          "DET-002": "exact",
+          "DET-003": "exact"
+        }
+      }
+    },
+    {
+      "index": 3,
+      "mode": "without",
+      "cold": {
+        "fixture": "perf-canvas-hot",
+        "run": 1,
+        "measureTextCalls": 1000000,
+        "getImageDataCalls": 10000,
+        "measureTextMs": 299.8,
+        "getImageDataMs": 26.2,
+        "totalMs": 326,
+        "sinkPositive": true
+      },
+      "warm": {
+        "fixture": "perf-canvas-hot",
+        "run": 2,
+        "measureTextCalls": 1000000,
+        "getImageDataCalls": 10000,
+        "measureTextMs": 273.1,
+        "getImageDataMs": 14.4,
+        "totalMs": 287.5,
+        "sinkPositive": true
+      },
+      "observation": null,
+      "observed": null
+    },
+    {
+      "index": 3,
+      "mode": "with",
+      "cold": {
+        "fixture": "perf-canvas-hot",
+        "run": 1,
+        "measureTextCalls": 1000000,
+        "getImageDataCalls": 10000,
+        "measureTextMs": 310.1,
+        "getImageDataMs": 28.5,
+        "totalMs": 338.6,
+        "sinkPositive": true
+      },
+      "warm": {
+        "fixture": "perf-canvas-hot",
+        "run": 2,
+        "measureTextCalls": 1000000,
+        "getImageDataCalls": 10000,
+        "measureTextMs": 289,
+        "getImageDataMs": 15.6,
+        "totalMs": 304.6,
+        "sinkPositive": true
+      },
+      "observation": {
+        "enabled": true,
+        "how": "static test grant: detector-isolated-v1,detector-main-v1 registered at startup"
+      },
+      "observed": {
+        "coverageState": "active",
+        "counts": {
+          "DET-002": 10000,
+          "DET-003": 1000001
+        },
+        "countQualities": {
+          "DET-002": "exact",
+          "DET-003": "exact"
+        }
+      }
+    },
+    {
+      "index": 4,
+      "mode": "without",
+      "cold": {
+        "fixture": "perf-canvas-hot",
+        "run": 1,
+        "measureTextCalls": 1000000,
+        "getImageDataCalls": 10000,
+        "measureTextMs": 290.1,
+        "getImageDataMs": 27.5,
+        "totalMs": 317.6,
+        "sinkPositive": true
+      },
+      "warm": {
+        "fixture": "perf-canvas-hot",
+        "run": 2,
+        "measureTextCalls": 1000000,
+        "getImageDataCalls": 10000,
+        "measureTextMs": 275.2,
+        "getImageDataMs": 14.4,
+        "totalMs": 289.6,
+        "sinkPositive": true
+      },
+      "observation": null,
+      "observed": null
+    },
+    {
+      "index": 4,
+      "mode": "with",
+      "cold": {
+        "fixture": "perf-canvas-hot",
+        "run": 1,
+        "measureTextCalls": 1000000,
+        "getImageDataCalls": 10000,
+        "measureTextMs": 304.5,
+        "getImageDataMs": 28,
+        "totalMs": 332.5,
+        "sinkPositive": true
+      },
+      "warm": {
+        "fixture": "perf-canvas-hot",
+        "run": 2,
+        "measureTextCalls": 1000000,
+        "getImageDataCalls": 10000,
+        "measureTextMs": 281.9,
+        "getImageDataMs": 13.7,
+        "totalMs": 295.6,
+        "sinkPositive": true
+      },
+      "observation": {
+        "enabled": true,
+        "how": "static test grant: detector-isolated-v1,detector-main-v1 registered at startup"
+      },
+      "observed": {
+        "coverageState": "active",
+        "counts": {
+          "DET-002": 10000,
+          "DET-003": 1000001
+        },
+        "countQualities": {
+          "DET-002": "exact",
+          "DET-003": "exact"
+        }
+      }
+    },
+    {
+      "index": 5,
+      "mode": "without",
+      "cold": {
+        "fixture": "perf-canvas-hot",
+        "run": 1,
+        "measureTextCalls": 1000000,
+        "getImageDataCalls": 10000,
+        "measureTextMs": 290.8,
+        "getImageDataMs": 26.6,
+        "totalMs": 317.4,
+        "sinkPositive": true
+      },
+      "warm": {
+        "fixture": "perf-canvas-hot",
+        "run": 2,
+        "measureTextCalls": 1000000,
+        "getImageDataCalls": 10000,
+        "measureTextMs": 263,
+        "getImageDataMs": 14,
+        "totalMs": 277,
+        "sinkPositive": true
+      },
+      "observation": null,
+      "observed": null
+    },
+    {
+      "index": 5,
+      "mode": "with",
+      "cold": {
+        "fixture": "perf-canvas-hot",
+        "run": 1,
+        "measureTextCalls": 1000000,
+        "getImageDataCalls": 10000,
+        "measureTextMs": 315.6,
+        "getImageDataMs": 28.8,
+        "totalMs": 344.4,
+        "sinkPositive": true
+      },
+      "warm": {
+        "fixture": "perf-canvas-hot",
+        "run": 2,
+        "measureTextCalls": 1000000,
+        "getImageDataCalls": 10000,
+        "measureTextMs": 288.7,
+        "getImageDataMs": 14.3,
+        "totalMs": 303,
+        "sinkPositive": true
+      },
+      "observation": {
+        "enabled": true,
+        "how": "static test grant: detector-isolated-v1,detector-main-v1 registered at startup"
+      },
+      "observed": {
+        "coverageState": "active",
+        "counts": {
+          "DET-002": 20000,
+          "DET-003": 2000001
+        },
+        "countQualities": {
+          "DET-002": "exact",
+          "DET-003": "exact"
+        }
+      }
+    }
+  ],
+  "warnings": [
+    "measureTextMs: median overhead 5.83 % exceeds the proposed 5 % target",
+    "totalMs: median overhead 5.72 % exceeds the proposed 5 % target"
+  ]
+}

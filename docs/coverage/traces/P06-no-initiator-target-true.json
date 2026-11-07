@@ -1,0 +1,41 @@
+{
+  "task": "P06",
+  "requirement": [
+    "REQ-006",
+    "REQ-009",
+    "REQ-013"
+  ],
+  "at": "2026-09-13T07:09:34.847Z",
+  "platform": "win32",
+  "arch": "x64",
+  "osRelease": "10.0.26200",
+  "browser": "Chrome/153.0.8010.12",
+  "runtimeVersion": "153.0.8010.12",
+  "observations": {
+    "targetGranted": true,
+    "initiatorGranted": false,
+    "requests": [],
+    "report": {
+      "reportRevision": 0,
+      "documentKey": "668243948:0:ED58AB1B3C158FC4C2594FA0400640DC",
+      "host": null,
+      "coverageState": "no-access",
+      "coverageFlags": [
+        "no-host-permission"
+      ],
+      "techniques": [],
+      "findings": [],
+      "vendors": [],
+      "dropped": {
+        "observations": 0,
+        "batches": 0,
+        "findings": 0,
+        "hosts": 0,
+        "counters": 0,
+        "transport": 0
+      },
+      "observedSince": null,
+      "scopeMode": "site"
+    }
+  }
+}

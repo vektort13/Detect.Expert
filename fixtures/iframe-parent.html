@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>iframe-parent</title>
+  </head>
+  <body>
+    <h1>Parent document (origin 1)</h1>
+    <p>Embeds iframe-child.html from the second origin. The parent itself performs no canvas calls; only the child does a readback after text. Reports must be attributed to the child's own documentKey (frameId !== 0).</p>
+    <div id="frame-host"></div>
+    <pre id="result"></pre>
+    <script src="fixture-lib.js"></script>
+    <script>
+      (function () {
+        var F = window.__fixture;
+        var childOrigin = F.otherOrigin();
+        var iframe = document.createElement('iframe');
+        iframe.id = 'child';
+        iframe.width = '300';
+        iframe.height = '120';
+        var out = { fixture: 'iframe-parent', childOrigin: childOrigin, childLoaded: false, parentCanvasCalls: 0 };
+        iframe.addEventListener('load', function () {
+          out.childLoaded = true;
+          F.publish(out);
+        });
+        iframe.src = childOrigin + '/iframe-child.html';
+        document.getElementById('frame-host').appendChild(iframe);
+        F.publish(out);
+      })();
+    </script>
+  </body>
+</html>

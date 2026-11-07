@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>protect: hostile stack</title>
+  </head>
+  <body>
+    <!--
+      ADR-020 §F, §12 (S10): stand of tests/extension/protect/attribution-stack-hostile.spec.ts (shop.example.com).
+      ?mode=prepare   an accessor prepareStackTrace on Object.prototype counts every call: the module must not call it
+                      and reports stack-unavailable instead of a script;
+      ?mode=limit     Error.stackTraceLimit = 0: no stack, stack-unavailable;
+      ?mode=forge     a sourceURL comment names eval-created code https://forged.example.org/lib/f.js: the attribution
+                      follows the page (page-controlled, a hint, not proof);
+      ?mode=global    window.Error replaced by the page: the captured intrinsics still work.
+      Each mode sends one fetch to collect-hostile.example.net.
+    -->
+    <h1>Hostile stack</h1>
+    <pre id="result"></pre>
+    <script src="../../fixture-lib.js"></script>
+    <script>
+      (function () {
+        var F = window.__fixture;
+        var mode = new URLSearchParams(location.search).get('mode') || 'prepare';
+        var counter = { calls: 0 };
+        var target = 'http://collect-hostile.example.net:' + location.port + '/attr/' + mode;
+        if (mode === 'prepare') {
+          Object.defineProperty(Object.prototype, 'prepareStackTrace', {
+            configurable: true,
+            get: function () { counter.calls++; return undefined; },
+            set: function () { counter.calls++; },
+          });
+        } else if (mode === 'limit') {
+          Error.stackTraceLimit = 0;
+        } else if (mode === 'global') {
+          window.Error = function FakeError() {};
+        }
+        if (mode === 'forge') {
+          (0, eval)("fetch('" + target + "', { mode: 'no-cors' });\n//# sourceURL=https://forged.example.org/lib/f.js");
+        } else {
+          fetch(target, { mode: 'no-cors' });
+        }
+        setTimeout(function () {
+          if (mode === 'prepare') delete Object.prototype.prepareStackTrace;
+          F.publish({ fixture: 'protect-attribution-hostile', mode: mode, prepareStackTraceCalls: counter.calls });
+        }, 400);
+      })();
+    </script>
+  </body>
+</html>

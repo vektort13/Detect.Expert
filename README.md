@@ -61,12 +61,12 @@ Sites poke at your browser all the time and never tell you. I wanted to see exac
 |---|---|---|---|
 | 🔎 | **Detector / Forensics** | Watches which browser APIs a page calls (Canvas, WebGL, audio, WebRTC, screen, CPU, voices, browser/device and more) and groups them into techniques. Coverage sits next to every result, so "found nothing" never passes for "nothing there". It also lists recognized protection and identity services, third-party requests, cookies, social widgets, tracking beacons (GA4, Google Ads, Meta, TikTok, Yandex, LinkedIn), Tag Manager chains and background activity. Pro recording builds a request map and a printable report. Saved reports stay on your disk. | Chrome, Firefox |
 | 🧱 | **API Guard** | 158 browser APIs in 12 groups. For each one: as in preset, allow, block, or your own value (56 APIs take custom values). Global presets, per-site rules, JSON import and export. | Chrome, Firefox |
-| 🔥 | **Firewall** | Optional, and off until you accept a consent screen. Compares what you type with outgoing requests, in memory only. Can stop later requests based on your decisions, spots session-recording signs, can send the Global Privacy Control signal, and keeps an opt-in local "who recognizes you" history. | Chrome |
+| 🔥 | **Firewall** | Optional, and off until you switch it on yourself. Compares what you type with outgoing requests, in memory only. Can stop later requests based on your decisions, spots session-recording signs, can send the Global Privacy Control signal, and keeps an opt-in local "who recognizes you" history. | Chrome |
 | 🎭 | **Antidetect** | Quick setup with three presets, plus Device, OS, Browser and Network tabs. Generates one consistent virtual device, adds per-profile noise to canvas, audio, WebGL and Math results, keeps request headers in line (User-Agent, Accept-Language, Client Hints) and handles WebRTC metadata. Up to 128 saved profiles, 7-day trash. It does not touch your IP, your TLS fingerprint or the browser engine. | Chrome, Firefox (header rewriting: Chrome only) |
 | 🧭 | **Autosurfer** | Walks through your own queue of up to 200 URLs in a separate window: shuffle, cycles, internal links, dwell times, real scrolling and pointer moves, local resource measurements. Comes with a catalog of 8,329 sites that you can filter by country, category and tracking system. It never clicks, types or touches a CAPTCHA. Chrome shows its debugging banner while it runs. | Chrome |
 | 🍪 | **Cookies** | Browse, create, edit and delete cookies across all stores. Import and export JSON, Netscape and Cookie-Editor files, or a password-encrypted export (AES-256-GCM). Preview before writing, undo afterwards. Values stay hidden until you reveal them. | Chrome, Firefox |
 | 🌐 | **Proxy manager + companion** | SOCKS5, HTTP, HTTPS, VLESS and OpenVPN profiles, a kill switch, routing for all traffic or only chosen domains, manual checks with history, bulk import, optional geolocation lookups. The Windows companion adds password auth, VLESS and a userspace OpenVPN. | Chrome, Firefox (companion: Windows x64) |
-| 🧰 | **Browser Debug** | Read-only views of 15 data sets from your own browser: history, bookmarks, downloads, cookie metadata, tabs, sessions, privacy settings, site permissions and so on. Each set asks for its own permission. | Chrome, Firefox (fewer sets) |
+| 🧰 | **Browser Debug** | A window into 15 data sets of your own browser: history, bookmarks, downloads, cookie metadata, tabs, sessions, privacy settings, site permissions and so on. It mostly reads, but some sets can also change things (add a history entry, delete a bookmark, flip a privacy setting), and the manual lists every one. Each set asks for its own permission. | Chrome, Firefox (fewer sets) |
 | ☁️ | **Integrations** | Read the Precursor mode of a Cloudflare zone with your own token. Optional geolocation for proxy exit IPs (MaxMind, ipgeolocation.io, ipdata, ip-api.com) with your own key. | Chrome, Firefox |
 | 🗺️ | **Tours and command palette** | Each of the 12 Options sections has a short tour (49 steps in total), and `Ctrl K` opens a command palette. Tours change no settings. | Chrome, Firefox |
 | 🌍 | **21 languages, 6 themes** | English, Russian, Arabic, German, Spanish, French, Hindi, Indonesian, Japanese, Korean, Marathi, Polish, Portuguese (Brazil), Tamil, Telugu, Ukrainian, Urdu, Vietnamese, Chinese (Simplified), Cantonese and Wu. | Chrome, Firefox |
@@ -92,7 +92,7 @@ Clean browser profile, demo data only: documentation address ranges, made-up nam
   </tr>
   <tr>
     <td><img src="assets/screens/07-autosurfer.png" alt="Autosurfer"><br><sub><b>Autosurfer.</b> The site catalog, filtered by category and tracking system.</sub></td>
-    <td><img src="assets/screens/08-browser-debug.png" alt="Browser Debug"><br><sub><b>Browser Debug.</b> Your browser's own data, read-only.</sub></td>
+    <td><img src="assets/screens/08-browser-debug.png" alt="Browser Debug"><br><sub><b>Browser Debug.</b> Your browser's own data, in one place.</sub></td>
   </tr>
   <tr>
     <td><img src="assets/screens/09-popup.png" alt="Popup" width="300"><br><sub><b>Popup.</b> The same report, right next to the page you're on.</sub></td>
@@ -110,9 +110,9 @@ You need **Chrome 153+** or **Firefox 128+**. Packages are on the [Releases](htt
 
 | File | What it is | SHA-256 |
 |---|---|---|
-| `Detect.Expert-2.0.0-chrome.zip` | Chrome package | — <!-- SHA256 --> |
-| `Detect.Expert-2.0.0-firefox.zip` | Firefox package | — <!-- SHA256 --> |
-| `Detect.Expert-Proxy-Companion-windows-x64.zip` | Optional proxy companion (Windows 10/11 x64) | — <!-- SHA256 --> |
+| `Detect.Expert-2.0.0-chrome.zip` | Chrome package | `76f5118e6787ee44a2f3e6dbbb406d64006a33c0e056fbdc1b0abf8cc7984a20` |
+| `Detect.Expert-2.0.0-firefox.zip` | Firefox package | `ef6f17283711ffd4569cc0a72493ea1c67854a39b1a2e9919d08cafd37107528` |
+| `Detect.Expert-Proxy-Companion-windows-x64.zip` | Optional proxy companion (Windows 10/11 x64) | `4bb7b2c8457bc6fa9bf4dd79f3a5086d272c140918819d49846bf2a5d502cf4b` |
 
 To check a download in PowerShell: `Get-FileHash .\Detect.Expert-2.0.0-chrome.zip -Algorithm SHA256`.
 
@@ -143,7 +143,7 @@ You need it for SOCKS5 with a password, HTTP/HTTPS proxies with a login, VLESS a
 powershell -ExecutionPolicy Bypass -File .\Install.ps1 -ChromeExtensionId obbkkjmpgaajcggbhajpdeeadkkchbeo
 ```
 
-That ID is for the Chrome Web Store version. An unpacked build gets a different ID, which you can see on the extension's Proxy tab and on `chrome://extensions`. Full steps, signature check, uninstall and licenses are in [companion/README.md](companion/README.md) and the [proxy companion guide](docs/guides/proxy-companion.md).
+That ID is for the Chrome Web Store version. An unpacked build gets a different ID, which you can see on the extension's Proxy tab and on `chrome://extensions`. Full steps, signature check, uninstall and licenses are in [companion/README.md](native/proxy/README.md) and the [proxy companion guide](docs/guides/proxy-companion.md).
 
 ## What happens with your data
 
@@ -212,6 +212,8 @@ Other checks: `pnpm typecheck`, `pnpm lint`, `pnpm test:unit`, `pnpm test:produc
 ```
 
 ## Documentation
+
+**Illustrated manual:** [a step-by-step guide with pictures for every important feature](docs/manual/README.md).
 
 Guides: [Getting started](docs/guides/getting-started.md), [Proxy companion](docs/guides/proxy-companion.md), [FAQ](docs/guides/faq.md). Each also exists in Russian as `*.ru.md`.
 

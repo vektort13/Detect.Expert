@@ -1,0 +1,754 @@
+/* ADR-103: "Calm glass" redesign. Loaded last in popup, side panel and Options.
+   Every component rule is anchored at #root#root so it outranks the legacy cascade
+   without !important; token blocks reuse the theme selectors of themes.css. */
+
+/* ---------- Tokens: seven effective palettes on the six theme IDs ---------- */
+@media screen {
+  :root, :root[data-ui-theme] {
+    --rd-radius-sm: 6px; --rd-radius: 10px; --rd-radius-lg: 14px;
+    --rd-font: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --rd-font-display: "Segoe UI Variable Display", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Display", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --rd-spring: cubic-bezier(.3, 1.45, .55, 1);
+    --rd-dur-1: 120ms; --rd-dur-2: 160ms; --rd-dur-3: 180ms;
+    --rd-ease-out: cubic-bezier(.2, 0, 0, 1); --rd-ease-emph: cubic-bezier(.3, 0, 0, 1.2);
+  }
+  :root, :root[data-ui-theme="system"] {
+    color-scheme: light;
+    --rd-ground: #f1f3f7; --rd-surface: #ffffff; --rd-surface-2: #f6f7fa; --rd-sunken: #e8ecf2;
+    --rd-line: #e0e4ec; --rd-line-2: #c9d0db; --rd-control: #8a94a6;
+    --rd-text: #131a29; --rd-text-2: #465064; --rd-text-3: #5a6376;
+    --rd-accent: #2463c9; --rd-accent-ink: #ffffff; --rd-accent-soft: #e5edfb; --rd-focus: #1a5fd0;
+    --rd-ok: #11704a; --rd-ok-bg: #dff2e8; --rd-ok-fill: #1b9459;
+    --rd-warn: #845000; --rd-warn-bg: #fbefd8; --rd-err: #ae1f38; --rd-err-bg: #fbe6ea;
+    --rd-off: #525d70; --rd-off-bg: #eceff4; --rd-custom: #673bbd; --rd-custom-bg: #efe8fc;
+    --rd-switch-off: #cfd5df; --rd-switch-line: #8a94a6; --rd-thumb: #ffffff;
+    --rd-glass: rgb(255 255 255 / .76);
+    --rd-shadow-1: 0 1px 2px rgb(16 24 40 / .06), 0 1px 1px rgb(16 24 40 / .03);
+    --rd-shadow-2: 0 12px 32px rgb(16 24 40 / .14), 0 2px 6px rgb(16 24 40 / .06);
+  }
+  :root[data-ui-theme="system"][data-ui-theme-effective="system-dark"] {
+    color-scheme: dark;
+    --rd-ground: #0e121b; --rd-surface: #161b26; --rd-surface-2: #1b2130; --rd-sunken: #0b0f17;
+    --rd-line: #262e3e; --rd-line-2: #364156; --rd-control: #68768f;
+    --rd-text: #e9edf5; --rd-text-2: #adb6c7; --rd-text-3: #949eb1;
+    --rd-accent: #7ea9ff; --rd-accent-ink: #0a1222; --rd-accent-soft: #19253f; --rd-focus: #a6c5ff;
+    --rd-ok: #63d49e; --rd-ok-bg: #112f20; --rd-ok-fill: #2a9f69;
+    --rd-warn: #f1b95f; --rd-warn-bg: #33260f; --rd-err: #ff8f9c; --rd-err-bg: #3a1820;
+    --rd-off: #a5aebf; --rd-off-bg: #1f2533; --rd-custom: #baa1ff; --rd-custom-bg: #2a2246;
+    --rd-switch-off: #343d50; --rd-switch-line: #68768f; --rd-thumb: #f4f6fa;
+    --rd-glass: rgb(22 27 38 / .78);
+    --rd-shadow-1: 0 1px 2px rgb(0 0 0 / .4); --rd-shadow-2: 0 12px 32px rgb(0 0 0 / .45), 0 2px 6px rgb(0 0 0 / .3);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-ui-theme]), :root[data-ui-theme="system"]:not([data-ui-theme-effective]) {
+      color-scheme: dark;
+      --rd-ground: #0e121b; --rd-surface: #161b26; --rd-surface-2: #1b2130; --rd-sunken: #0b0f17;
+      --rd-line: #262e3e; --rd-line-2: #364156; --rd-control: #68768f;
+      --rd-text: #e9edf5; --rd-text-2: #adb6c7; --rd-text-3: #949eb1;
+      --rd-accent: #7ea9ff; --rd-accent-ink: #0a1222; --rd-accent-soft: #19253f; --rd-focus: #a6c5ff;
+      --rd-ok: #63d49e; --rd-ok-bg: #112f20; --rd-ok-fill: #2a9f69;
+      --rd-warn: #f1b95f; --rd-warn-bg: #33260f; --rd-err: #ff8f9c; --rd-err-bg: #3a1820;
+      --rd-off: #a5aebf; --rd-off-bg: #1f2533; --rd-custom: #baa1ff; --rd-custom-bg: #2a2246;
+      --rd-switch-off: #343d50; --rd-switch-line: #68768f; --rd-thumb: #f4f6fa;
+      --rd-glass: rgb(22 27 38 / .78);
+      --rd-shadow-1: 0 1px 2px rgb(0 0 0 / .4); --rd-shadow-2: 0 12px 32px rgb(0 0 0 / .45), 0 2px 6px rgb(0 0 0 / .3);
+    }
+  }
+  :root[data-ui-theme="pearl"] {
+    color-scheme: light;
+    --rd-ground: #f5f0e6; --rd-surface: #fffdf8; --rd-surface-2: #faf5ea; --rd-sunken: #eee5d3;
+    --rd-line: #e6dcc7; --rd-line-2: #d6c8ab; --rd-control: #9a8565;
+    --rd-text: #2e2418; --rd-text-2: #5c4b38; --rd-text-3: #6a5743;
+    --rd-accent: #9a4706; --rd-accent-ink: #ffffff; --rd-accent-soft: #f6e7d3; --rd-focus: #9e4b05;
+    --rd-ok: #1f6843; --rd-ok-bg: #e3f0e2; --rd-ok-fill: #268351;
+    --rd-warn: #844b00; --rd-warn-bg: #f8e9cc; --rd-err: #a5263a; --rd-err-bg: #f8e2e1;
+    --rd-off: #65553f; --rd-off-bg: #efe8da; --rd-custom: #6b41a6; --rd-custom-bg: #efe5f5;
+    --rd-switch-off: #ddd2bd; --rd-switch-line: #9a8565; --rd-thumb: #ffffff;
+    --rd-glass: rgb(255 253 248 / .78);
+    --rd-shadow-1: 0 1px 2px rgb(70 45 10 / .07), 0 1px 1px rgb(70 45 10 / .03);
+    --rd-shadow-2: 0 12px 32px rgb(70 45 10 / .14), 0 2px 6px rgb(70 45 10 / .06);
+  }
+  :root[data-ui-theme="aurora"] {
+    color-scheme: dark;
+    --rd-ground: #08111f; --rd-surface: #0e1a2c; --rd-surface-2: #13223a; --rd-sunken: #060d18;
+    --rd-line: #22344d; --rd-line-2: #304764; --rd-control: #5a7699;
+    --rd-text: #ecf6ff; --rd-text-2: #aac2dd; --rd-text-3: #8ea9c7;
+    --rd-accent: #33d3ee; --rd-accent-ink: #04131f; --rd-accent-soft: #0f3142; --rd-focus: #7be6ff;
+    --rd-ok: #5fdcaa; --rd-ok-bg: #0e2f27; --rd-ok-fill: #239c72;
+    --rd-warn: #f3c068; --rd-warn-bg: #2f2512; --rd-err: #ff95a8; --rd-err-bg: #381827;
+    --rd-off: #9fb4cc; --rd-off-bg: #16243a; --rd-custom: #c3a5ff; --rd-custom-bg: #251f45;
+    --rd-switch-off: #2a3c55; --rd-switch-line: #5a7699; --rd-thumb: #eef6ff;
+    --rd-glass: rgb(14 26 44 / .8);
+    --rd-shadow-1: 0 1px 2px rgb(0 0 0 / .45); --rd-shadow-2: 0 12px 32px rgb(0 0 0 / .5), 0 2px 6px rgb(0 0 0 / .3);
+  }
+  :root[data-ui-theme="graphite"] {
+    color-scheme: dark;
+    --rd-ground: #0b1215; --rd-surface: #111a1e; --rd-surface-2: #162228; --rd-sunken: #081013;
+    --rd-line: #233236; --rd-line-2: #30454a; --rd-control: #577576;
+    --rd-text: #ebf7f3; --rd-text-2: #a9c4bb; --rd-text-3: #8eaaa1;
+    --rd-accent: #3ddcae; --rd-accent-ink: #04221a; --rd-accent-soft: #10352c; --rd-focus: #7af0c8;
+    --rd-ok: #63dca5; --rd-ok-bg: #0f2f24; --rd-ok-fill: #229c6c;
+    --rd-warn: #f0bd62; --rd-warn-bg: #30260f; --rd-err: #ff96a6; --rd-err-bg: #371a20;
+    --rd-off: #9db3ad; --rd-off-bg: #18252a; --rd-custom: #bda6ff; --rd-custom-bg: #252241;
+    --rd-switch-off: #2c3c40; --rd-switch-line: #577576; --rd-thumb: #eef7f4;
+    --rd-glass: rgb(17 26 30 / .8);
+    --rd-shadow-1: 0 1px 2px rgb(0 0 0 / .45); --rd-shadow-2: 0 12px 32px rgb(0 0 0 / .5), 0 2px 6px rgb(0 0 0 / .3);
+  }
+  :root[data-ui-theme="orchid"] {
+    color-scheme: light;
+    --rd-ground: #f7f1f7; --rd-surface: #fffcff; --rd-surface-2: #fbf4fb; --rd-sunken: #f0e4f0;
+    --rd-line: #e9dbe9; --rd-line-2: #dac5d8; --rd-control: #9e7f99;
+    --rd-text: #33163a; --rd-text-2: #63465c; --rd-text-3: #72566c;
+    --rd-accent: #a20eaa; --rd-accent-ink: #ffffff; --rd-accent-soft: #f8e3f6; --rd-focus: #a20eaa;
+    --rd-ok: #156d48; --rd-ok-bg: #e1f2e8; --rd-ok-fill: #1b9459;
+    --rd-warn: #845000; --rd-warn-bg: #faeedb; --rd-err: #ae1f38; --rd-err-bg: #fbe5ea;
+    --rd-off: #67505f; --rd-off-bg: #f1e9f0; --rd-custom: #673bbd; --rd-custom-bg: #efe7fb;
+    --rd-switch-off: #e0cfde; --rd-switch-line: #9e7f99; --rd-thumb: #ffffff;
+    --rd-glass: rgb(255 252 255 / .78);
+    --rd-shadow-1: 0 1px 2px rgb(60 10 60 / .07), 0 1px 1px rgb(60 10 60 / .03);
+    --rd-shadow-2: 0 12px 32px rgb(60 10 60 / .14), 0 2px 6px rgb(60 10 60 / .06);
+  }
+  :root[data-ui-theme="glass"] {
+    color-scheme: dark;
+    --rd-ground: #120c22; --rd-surface: #1a1430; --rd-surface-2: #211a3b; --rd-sunken: #0d0819;
+    --rd-line: #322849; --rd-line-2: #42365e; --rd-control: #75659a;
+    --rd-text: #f7f0ff; --rd-text-2: #c6b6de; --rd-text-3: #a897c4;
+    --rd-accent: #cfa0ff; --rd-accent-ink: #1b0e2b; --rd-accent-soft: #34234f; --rd-focus: #e6c8ff;
+    --rd-ok: #66d9a6; --rd-ok-bg: #13301f; --rd-ok-fill: #249a68;
+    --rd-warn: #f2bd66; --rd-warn-bg: #32270f; --rd-err: #ff9ab4; --rd-err-bg: #3d1828;
+    --rd-off: #b3a6c9; --rd-off-bg: #231c38; --rd-custom: #d8b8ff; --rd-custom-bg: #33224f;
+    --rd-switch-off: #3d3257; --rd-switch-line: #75659a; --rd-thumb: #f7f0ff;
+    --rd-glass: rgb(26 20 48 / .72);
+    --rd-shadow-1: 0 1px 2px rgb(0 0 0 / .45); --rd-shadow-2: 0 12px 32px rgb(0 0 0 / .5), 0 2px 6px rgb(0 0 0 / .3);
+  }
+
+  /* Legacy semantic tokens follow the calm palette so untouched components match. */
+  :root:root[data-ui-theme] body {
+    --surface: var(--rd-surface); --surface-2: var(--rd-surface-2); --text: var(--rd-text); --muted: var(--rd-text-2);
+    --border: var(--rd-line); --control-border: var(--rd-control); --accent: var(--rd-accent); --accent-contrast: var(--rd-accent-ink);
+    --accent-soft: var(--rd-accent-soft); --accent-bg: var(--rd-accent-soft); --focus: var(--rd-focus);
+    --page-fill: var(--rd-ground); --theme-panel-fill: var(--rd-surface); --theme-header-fill: var(--rd-glass);
+    --control-fill: var(--rd-surface); --selected-fill: var(--rd-accent-soft);
+    --theme-primary-fill: var(--rd-accent); --theme-primary-ink: var(--rd-accent-ink);
+    --theme-panel-line: var(--rd-line); --theme-panel-shadow: var(--rd-shadow-1);
+    --theme-active-glow: inset 0 0 0 1px color-mix(in srgb, var(--rd-accent) 32%, transparent);
+    --theme-hover-glow: 0 0 0 3px color-mix(in srgb, var(--rd-focus) 22%, transparent);
+    --theme-control-glow: none; --glass: var(--rd-glass); --glass-line: var(--rd-line); --glass-edge: var(--rd-line);
+    --glass-shadow: var(--rd-shadow-1);
+    --theme-positive: var(--rd-ok); --theme-positive-bg: var(--rd-ok-bg); --theme-positive-border: color-mix(in srgb, var(--rd-ok) 40%, transparent);
+    --theme-negative: var(--rd-err); --theme-negative-bg: var(--rd-err-bg); --theme-negative-border: color-mix(in srgb, var(--rd-err) 40%, transparent);
+    --theme-custom: var(--rd-custom); --theme-custom-bg: var(--rd-custom-bg);
+    --attention: var(--rd-warn); --attention-bg: var(--rd-warn-bg); --attention-border: color-mix(in srgb, var(--rd-warn) 40%, transparent);
+    --error: var(--rd-err); --error-bg: var(--rd-err-bg); --error-border: color-mix(in srgb, var(--rd-err) 40%, transparent);
+    --result-text: var(--rd-text); --result-bg: var(--rd-surface-2); --result-border: var(--rd-line-2);
+    --theme-on-fill: var(--rd-ok-fill); --theme-on-ink: var(--rd-thumb); --theme-off-fill: var(--rd-switch-off); --theme-off-ink: var(--rd-thumb);
+    --theme-custom-fill: var(--rd-custom); --theme-custom-ink: var(--rd-accent-ink);
+    --theme-on-glow: none; --theme-off-glow: none;
+    /* --theme-category-* stay with each palette: ADR-099 category hues are kept. */
+    --theme-secondary: var(--rd-accent);
+    --popup-scroll-thumb: color-mix(in srgb, var(--rd-text) 28%, var(--rd-surface)); --popup-scroll-thumb-hover: color-mix(in srgb, var(--rd-text) 42%, var(--rd-surface)); --popup-scroll-track: transparent;
+    --external-canvas: var(--rd-ground); --external-card: var(--rd-surface); --external-line: var(--rd-line);
+    --external-inset: var(--rd-surface-2); --external-shadow: var(--rd-shadow-1); --external-selected: var(--rd-accent-soft);
+    --external-switch: var(--rd-switch-off); --external-green: var(--rd-ok-fill); --external-thumb: var(--rd-thumb);
+    --ui-type-page-size: 24px; --ui-type-section-size: 16px; --ui-type-section-weight: 650; --ui-type-label-size: 13px; --ui-type-body-size: 14px; --ui-type-hint-size: 12px;
+    color: var(--rd-text);
+    background: var(--rd-ground);
+  }
+  :root:root[data-ui-theme] body[data-external-menu] { --ui-type-body-size: 13px; --ui-type-section-size: 15px; }
+
+  /* ---------- Base ---------- */
+  :root:root[data-ui-theme] body #root#root { font-family: var(--rd-font); color: var(--rd-text); }
+  :root:root[data-ui-theme] body #root#root :is(h1, h2, h3, .management-page-title, .section__title) { font-family: var(--rd-font-display); letter-spacing: -.01em; }
+  /* Focus rings stay with the existing component rules (2-3px, forced-colors Highlight); --focus maps to --rd-focus. */
+  :root:root[data-ui-theme] body #root#root :is(.small, .muted, .hint) { color: var(--rd-text-3); }
+  :root:root[data-ui-theme] body #root#root a:not(.button):not([class*="tab"]) { color: var(--rd-accent); }
+
+  /* Cards: one flat surface, a hairline and the lightest shadow. */
+  :root:root[data-ui-theme] body #root#root :is(.section, .workspace-master, .detector-workspace__master, .detector-workspace__guide, .detector-history, .detector-pointer, .antidetect-card, .fingerprint-generator, .fingerprint-library, .fingerprint-preview, .cookies-workspace-card, .autosurf-card, .autosurf-sites, .proxy-workspace-card, .proxy-workspace-connection, .browser-debug-content, .contacts-card, .api-usage-context, .management-settings-entry, .identification-tab, .blocking-launcher) {
+    border: 1px solid var(--rd-line); background: var(--rd-surface); box-shadow: var(--rd-shadow-1);
+  }
+
+  /* Inputs */
+  :root:root[data-ui-theme] body #root#root :is(input:not([type=checkbox]):not([type=radio]):not([type=range]), select, textarea) {
+    color: var(--rd-text); background: var(--rd-surface); border: 1px solid var(--rd-control); border-radius: 9px; box-shadow: none;
+  }
+  /* ADR-107: a field marked aria-invalid (with its reason in words next to it) keeps the error colour on its frame. Before this rule
+     the component-level [aria-invalid] borders lost to the frame above. Focus, declared after it, still wins while focused. */
+  :root:root[data-ui-theme] body #root#root :is(input:not([type=checkbox]):not([type=radio]):not([type=range]), select, textarea)[aria-invalid="true"] { border-color: var(--rd-err); }
+  /* WCAG 1.4.11: the focus outline is the full focus colour (3:1 or more on every surface); a translucent ring measured 1.4-2.7:1. */
+  :root:root[data-ui-theme] body #root#root :is(input:not([type=checkbox]):not([type=radio]):not([type=range]), select, textarea):focus-visible {
+    border-color: var(--rd-focus); outline: 2px solid var(--rd-focus); outline-offset: 0;
+  }
+  :root:root[data-ui-theme] body #root#root :is(input[type=checkbox], input[type=radio], progress) { accent-color: var(--rd-accent); }
+  /* Composite fields: the bordered wrapper (with its icon) is the field, so the inner input stays
+     borderless and transparent, as in autosurf-sites.css and antidetect-math-ui.css. */
+  :root:root[data-ui-theme] body #root#root :is(.autosurf-sites-search, .autosurf-sites-system-search, .autosurf-sites-country__search, .fp-combobox, .antidetect-math-search) :is(input:not([type=checkbox]):not([type=radio]):not([type=range])),
+  :root:root[data-ui-theme] body #root#root :is(.autosurf-sites-search, .autosurf-sites-system-search, .autosurf-sites-country__search, .fp-combobox, .antidetect-math-search) :is(input:not([type=checkbox]):not([type=radio]):not([type=range])):focus-visible { border: 0; border-radius: 0; background: transparent; box-shadow: none; outline: 0; }
+  :root:root[data-ui-theme] body #root#root :is(.autosurf-sites-search, .autosurf-sites-system-search, .antidetect-math-search) { border-color: var(--rd-control); background: var(--rd-surface); box-shadow: none; }
+
+  /* ---------- Buttons: primary, secondary, quiet, danger ---------- */
+  :root:root[data-ui-theme] body #root#root .button {
+    min-height: 34px; padding: 7px 13px; border: 1px solid var(--rd-line-2); border-radius: 9px;
+    color: var(--rd-text); background: var(--rd-surface); box-shadow: var(--rd-shadow-1);
+    font: 600 13px/1.35 var(--rd-font); letter-spacing: 0; text-decoration: none; transition: background-color .12s ease, border-color .12s ease;
+  }
+  :root:root[data-ui-theme] body #root#root .button:not(:disabled):not([aria-disabled=true]):hover { background: var(--rd-surface-2); border-color: var(--rd-control); box-shadow: var(--rd-shadow-1); }
+  :root:root[data-ui-theme] body #root#root :is(.button--primary, .pro-report-toolbar > button),
+  :root:root[data-ui-theme] body #root#root :is(.button--primary, .pro-report-toolbar > button):not(:disabled):hover {
+    color: var(--rd-accent-ink); background: var(--rd-accent); border-color: transparent; box-shadow: var(--rd-shadow-1);
+  }
+  :root:root[data-ui-theme] body #root#root :is(.button--primary, .pro-report-toolbar > button):not(:disabled):not([aria-disabled=true]):hover { background: color-mix(in srgb, var(--rd-accent) 88%, var(--rd-text)); }
+  :root:root[data-ui-theme] body #root#root .button--text { border-color: transparent; background: transparent; box-shadow: none; color: var(--rd-accent); text-decoration: none; }
+  :root:root[data-ui-theme] body #root#root .button--text:not(:disabled):hover { background: var(--rd-accent-soft); }
+  :root:root[data-ui-theme] body #root#root :is([data-action="clear-light-results"], [data-action="clear-pro-results"], .cookie-clear, [data-proxy-copy-all], [data-proxy-copy-secret], [data-proxy-copy-full], [data-danger]) {
+    color: var(--rd-err); border-color: color-mix(in srgb, var(--rd-err) 30%, var(--rd-line-2)); background: var(--rd-surface);
+  }
+  :root:root[data-ui-theme] body #root#root :is([data-action="clear-light-results"], [data-action="clear-pro-results"], .cookie-clear, [data-proxy-copy-all], [data-proxy-copy-secret], [data-proxy-copy-full], [data-danger]):not(:disabled):hover { background: var(--rd-err-bg); }
+  :root:root[data-ui-theme] body #root#root :is(button, .button):is(:disabled, [aria-disabled=true]) { opacity: .5; box-shadow: none; }
+
+  /* ---------- Switch: one shape everywhere; state lives in aria-checked ---------- */
+  :root:root[data-ui-theme] body #root#root :is(.blocking-master, .workspace-master-toggle, .observation-switch, .workspace-master [role=switch]) {
+    position: relative; display: inline-block; flex: none; box-sizing: border-box;
+    width: 40px; min-width: 40px; max-width: 40px; height: 24px; min-height: 24px; margin: 0; padding: 0;
+    border: 0; border-radius: 999px; background: var(--rd-switch-off); box-shadow: inset 0 0 0 1px var(--rd-switch-line);
+    /* Text stays at a legible size for zoom rules but is moved out of the 40px track. */
+    color: transparent; font-size: 12px; line-height: 1; text-indent: 200%; white-space: nowrap; overflow: hidden; cursor: pointer; vertical-align: middle;
+    transition: background-color .18s ease, box-shadow .18s ease;
+  }
+  :root:root[data-ui-theme] body #root#root :is(.blocking-master, .workspace-master-toggle, .observation-switch, .workspace-master [role=switch])::before {
+    content: ""; position: absolute; inset: 2px auto auto 2px; order: 0; display: block;
+    width: 20px; height: 20px; border: 0; border-radius: 50%; background: var(--rd-thumb);
+    box-shadow: 0 1px 3px rgb(0 0 0 / .26), 0 0 0 .5px rgb(0 0 0 / .08); transition: transform .24s var(--rd-spring);
+  }
+  :root:root[data-ui-theme] body #root#root :is(.blocking-master, .workspace-master-toggle, .observation-switch, .workspace-master [role=switch])::after { content: none; }
+  :root:root[data-ui-theme] body #root#root :is(.blocking-master, .workspace-master-toggle, .observation-switch, .workspace-master [role=switch])[aria-checked="true"] {
+    background: var(--rd-ok-fill); box-shadow: none;
+  }
+  :root:root[data-ui-theme] body #root#root :is(.blocking-master, .workspace-master-toggle, .observation-switch, .workspace-master [role=switch])[aria-checked="true"]::before { transform: translateX(16px); }
+  /* Every switch is named by aria-label; dots, thumbs and state words are decorative. Live regions stay readable. */
+  :root:root[data-ui-theme] body #root#root :is(.blocking-master, .workspace-master-toggle, .observation-switch, .workspace-master [role=switch]) > :not(.sr-only) { display: none; }
+  :root:root[data-ui-theme] body #root#root :is(.blocking-master, .workspace-master-toggle, .observation-switch, .workspace-master [role=switch]) > .sr-only {
+    position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
+  }
+  :root:root[data-ui-theme] body #root#root :is(.blocking-master, .workspace-master-toggle, .observation-switch, .workspace-master [role=switch]):not(:disabled):hover { box-shadow: inset 0 0 0 1px var(--rd-switch-line), 0 0 0 4px color-mix(in srgb, var(--rd-focus) 14%, transparent); }
+  :root:root[data-ui-theme] body #root#root :is(.blocking-master, .workspace-master-toggle, .observation-switch, .workspace-master [role=switch])[aria-checked="true"]:not(:disabled):hover { box-shadow: 0 0 0 4px color-mix(in srgb, var(--rd-ok-fill) 18%, transparent); }
+  :root:root[data-ui-theme] body #root#root :is(.blocking-master, .workspace-master-toggle, .observation-switch, .workspace-master [role=switch]):disabled { opacity: .45; cursor: not-allowed; box-shadow: inset 0 0 0 1px var(--rd-switch-line); }
+  :root:root[data-ui-theme] body #root#root :is(.blocking-master, .workspace-master-toggle, .observation-switch, .workspace-master [role=switch]):focus-visible { outline: 2px solid var(--rd-focus); outline-offset: 2px; }
+  :root:root[data-ui-theme] body #root#root .workspace-master :is(.blocking-master, .workspace-master-toggle, [role=switch]) { width: 46px; min-width: 46px; max-width: 46px; height: 28px; min-height: 28px; }
+  :root:root[data-ui-theme] body #root#root .workspace-master :is(.blocking-master, .workspace-master-toggle, [role=switch])::before { width: 24px; height: 24px; }
+  :root:root[data-ui-theme] body #root#root .workspace-master :is(.blocking-master, .workspace-master-toggle, [role=switch])[aria-checked="true"]::before { transform: translateX(18px); }
+  /* Right-to-left locales: the thumb starts at the inline start and moves toward the inline end. */
+  :root:root[data-ui-theme] body #root#root :is(.blocking-master, .workspace-master-toggle, .observation-switch, .workspace-master [role=switch]):dir(rtl)::before { inset: 2px 2px auto auto; }
+  :root:root[data-ui-theme] body #root#root :is(.blocking-master, .workspace-master-toggle, .observation-switch, .workspace-master [role=switch])[aria-checked="true"]:dir(rtl)::before { transform: translateX(-16px); }
+  :root:root[data-ui-theme] body #root#root .workspace-master :is(.blocking-master, .workspace-master-toggle, [role=switch])[aria-checked="true"]:dir(rtl)::before { transform: translateX(-18px); }
+
+  /* ---------- Status chip: the dot shape differs per state ---------- */
+  :root:root[data-ui-theme] body #root#root :is(.fingerprint-engine__status, .proxy-workspace-state, .autosurf-status, .workspace-master__state > span, .api-usage-context__coverage, .antidetect-math-state, .rd-chip) {
+    display: inline-flex; align-items: center; gap: 6px; width: auto; min-height: 22px; padding: 2px 9px; border: 0; border-radius: 999px;
+    color: var(--rd-off); background: var(--rd-off-bg); box-shadow: none; font: 600 12px/1.35 var(--rd-font); white-space: nowrap;
+  }
+  :root:root[data-ui-theme] body #root#root :is(.fingerprint-engine__status, .proxy-workspace-state, .autosurf-status, .workspace-master__state > span, .api-usage-context__coverage, .antidetect-math-state, .rd-chip)::before {
+    content: ""; flex: none; width: 7px; height: 7px; border-radius: 50%; box-shadow: inset 0 0 0 1.5px currentColor;
+  }
+  :root:root[data-ui-theme] body #root#root :is(.proxy-workspace-state--connected, .autosurf-status--running, .autosurf-status--completed, .api-usage-context__coverage[data-api-observed-coverage="active"], .rd-chip--ok) { color: var(--rd-ok); background: var(--rd-ok-bg); }
+  :root:root[data-ui-theme] body #root#root :is(.proxy-workspace-state--connected, .autosurf-status--running, .autosurf-status--completed, .api-usage-context__coverage[data-api-observed-coverage="active"], .rd-chip--ok)::before { background: currentColor; box-shadow: none; }
+  :root:root[data-ui-theme] body #root#root :is(.proxy-workspace-state--connecting, .autosurf-status--paused, .rd-chip--warn) { color: var(--rd-warn); background: var(--rd-warn-bg); }
+  :root:root[data-ui-theme] body #root#root :is(.proxy-workspace-state--connecting, .autosurf-status--paused, .rd-chip--warn)::before { background: linear-gradient(90deg, currentColor 50%, transparent 50%); }
+  :root:root[data-ui-theme] body #root#root :is(.proxy-workspace-state--blocked, .proxy-workspace-state--error, .proxy-workspace-state--conflict, .autosurf-status--error, .rd-chip--err) { color: var(--rd-err); background: var(--rd-err-bg); }
+  :root:root[data-ui-theme] body #root#root :is(.proxy-workspace-state--blocked, .proxy-workspace-state--error, .proxy-workspace-state--conflict, .autosurf-status--error, .rd-chip--err)::before { border-radius: 1px; transform: rotate(45deg) scale(.85); background: currentColor; box-shadow: none; }
+  :root:root[data-ui-theme] body #root#root .antidetect-math-state__dot { display: none; }
+
+  /* Segmented and selectable chips */
+  :root:root[data-ui-theme] body #root#root :is(.tabs__tab--active, .blocking-chip.is-selected, .proxy-workspace-nav .is-selected, .browser-debug-dataset.is-selected) {
+    color: var(--rd-text); background: var(--rd-surface); border-color: var(--rd-line-2); box-shadow: var(--rd-shadow-1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :root:root[data-ui-theme] body #root#root :is(.blocking-master, .workspace-master-toggle, .observation-switch, .workspace-master [role=switch]),
+    :root:root[data-ui-theme] body #root#root :is(.blocking-master, .workspace-master-toggle, .observation-switch, .workspace-master [role=switch])::before { transition: none; }
+  }
+  @media (prefers-reduced-transparency: reduce) {
+    :root:root[data-ui-theme] body { --rd-glass: var(--rd-surface); }
+  }
+  /* More contrast requested by the system: secondary text moves toward the main ink and hairlines become visible boundaries
+     (3:1 or more); every palette keeps its own hue because the values are mixed from its own text and surface. */
+  @media (prefers-contrast: more) {
+    :root:root[data-ui-theme] {
+      --rd-text-2: color-mix(in srgb, var(--rd-text) 92%, var(--rd-surface)); --rd-text-3: color-mix(in srgb, var(--rd-text) 86%, var(--rd-surface));
+      --rd-line: color-mix(in srgb, var(--rd-text) 55%, var(--rd-surface)); --rd-line-2: color-mix(in srgb, var(--rd-text) 65%, var(--rd-surface));
+      --rd-control: color-mix(in srgb, var(--rd-text) 72%, var(--rd-surface)); --rd-switch-line: var(--rd-control);
+    }
+    :root:root[data-ui-theme] body #root#root :is(input:not([type=checkbox]):not([type=radio]):not([type=range]), select, textarea):focus-visible { outline-width: 3px; }
+  }
+}
+
+/* ---------- Options shell: 56 px header, flat rail, shape-coded state dots ---------- */
+@media screen {
+  :root:root[data-ui-theme] body.management-page { background: var(--rd-ground); }
+  :root:root[data-ui-theme] body #root#root .management-shell { --management-rail: 240px; grid-template-rows: 56px 1fr; background: var(--rd-ground); }
+  :root:root[data-ui-theme] body #root#root .management-header {
+    grid-template-columns: var(--management-rail) minmax(0, 1fr) auto; min-height: 56px; height: 56px;
+    background: var(--rd-glass); -webkit-backdrop-filter: blur(18px) saturate(150%); backdrop-filter: blur(18px) saturate(150%);
+    border-block-end: 1px solid var(--rd-line); box-shadow: none;
+  }
+  :root:root[data-ui-theme] body #root#root .management-brand { gap: 10px; padding-inline: 18px; border-inline-end: 1px solid var(--rd-line); background: transparent; }
+  /* The ADR-094 corner marks and single scan line (themes.css) stay on the Options brand. */
+  :root:root[data-ui-theme] body #root#root .management-brand h1 { font: 700 16px/1 var(--rd-font-display); letter-spacing: -.02em; color: var(--rd-text); }
+  :root:root[data-ui-theme] body #root#root .management-search {
+    justify-self: start; display: flex; align-items: center; gap: 9px; width: min(440px, calc(100% - 24px)); height: 36px; margin-inline-start: 24px; padding: 0 8px 0 12px;
+    border: 1px solid var(--rd-line); border-radius: 10px; background: var(--rd-surface); color: var(--rd-text-3); font: 400 13px/1 var(--rd-font); cursor: pointer; box-shadow: none; text-align: start;
+  }
+  :root:root[data-ui-theme] body #root#root .management-search:hover { border-color: var(--rd-line-2); color: var(--rd-text-2); }
+  :root:root[data-ui-theme] body #root#root .management-search .management-icon { width: 16px; height: 16px; }
+  :root:root[data-ui-theme] body #root#root .management-search__label { flex: 1 1 auto; min-width: 0; }
+  :root:root[data-ui-theme] body #root#root .management-search kbd, :root:root[data-ui-theme] body #root#root .command-palette kbd {
+    font: 500 12px/1 var(--rd-font); color: var(--rd-text-3); padding: 4px 6px; border: 1px solid var(--rd-line); border-radius: 6px; background: var(--rd-surface-2); white-space: nowrap;
+  }
+  :root:root[data-ui-theme] body #root#root .management-header__actions { gap: 6px; padding-inline: 16px; }
+  :root:root[data-ui-theme] body #root#root :is(.management-header__actions .theme-picker__trigger, .management-header__actions .language-picker__trigger, .management-menu-toggle) {
+    height: 34px; min-height: 34px; border: 1px solid transparent; border-radius: 9px; background: transparent; box-shadow: none; color: var(--rd-text-2);
+  }
+  :root:root[data-ui-theme] body #root#root :is(.management-header__actions .theme-picker__trigger, .management-header__actions .language-picker__trigger, .management-menu-toggle):hover { background: var(--rd-sunken); color: var(--rd-text); }
+  :root:root[data-ui-theme] body #root#root .management-navigation {
+    inset-block-start: 56px; height: calc(100vh - 56px); height: calc(100dvh - 56px); padding: 12px 10px 16px;
+    background: var(--rd-surface); border-inline-end: 1px solid var(--rd-line); box-shadow: none;
+  }
+  :root:root[data-ui-theme] body #root#root .management-tabs { gap: 2px; }
+  :root:root[data-ui-theme] body #root#root .management-nav-group { margin: 14px 0 0; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+  :root:root[data-ui-theme] body #root#root .management-nav-group__legend {
+    display: block; margin: 0 0 6px; padding: 0 10px; max-width: none; color: var(--rd-text-3);
+    font: 600 12px/1.2 var(--rd-font); letter-spacing: .06em; text-transform: uppercase;
+  }
+  :root:root[data-ui-theme] body #root#root .management-nav-group__legend .management-icon { display: none; }
+  :root:root[data-ui-theme] body #root#root .management-nav-group__items { gap: 1px; }
+  :root:root[data-ui-theme] body #root#root .management-tab {
+    gap: 10px; min-height: 36px; padding: 6px 10px; border: 0; border-radius: 8px; background: transparent; box-shadow: none;
+    color: var(--rd-text-2); font: 500 13.5px/1.3 var(--rd-font); text-transform: none; letter-spacing: 0;
+  }
+  :root:root[data-ui-theme] body #root#root .management-tab:not(:disabled):hover { background: var(--rd-surface-2); color: var(--rd-text); box-shadow: none; }
+  :root:root[data-ui-theme] body #root#root .management-tab.is-selected { background: var(--rd-accent-soft); color: var(--rd-accent); font-weight: 600; box-shadow: none; border: 0; }
+  :root:root[data-ui-theme] body #root#root .management-tab .management-icon { width: 17px; height: 17px; color: currentColor; }
+  :root:root[data-ui-theme] body #root#root .management-status-dot {
+    width: 8px; height: 8px; flex: 0 0 8px; margin-inline-start: auto; border-radius: 50%; outline: 0; transform: none;
+    background: transparent; box-shadow: inset 0 0 0 1.5px var(--rd-text-3);
+  }
+  :root:root[data-ui-theme] body #root#root .management-status-dot[data-module-state="active"] { background: var(--rd-ok-fill); box-shadow: 0 0 0 3px color-mix(in srgb, var(--rd-ok-fill) 20%, transparent); }
+  :root:root[data-ui-theme] body #root#root .management-status-dot:is([data-module-state="paused"], [data-module-state="connecting"], [data-module-state="inactive"]) { background: linear-gradient(90deg, var(--rd-warn) 50%, transparent 50%); box-shadow: inset 0 0 0 1.5px var(--rd-warn); }
+  :root:root[data-ui-theme] body #root#root .management-status-dot[data-module-state="error"] { border-radius: 1px; transform: rotate(45deg) scale(.85); background: var(--rd-err); box-shadow: none; }
+  :root:root[data-ui-theme] body #root#root .management-status-dot[data-module-state="unknown"] { box-shadow: inset 0 0 0 1.5px var(--rd-line-2); }
+  :root:root[data-ui-theme] body #root#root .management-workspace { padding: 24px 28px 40px; }
+  :root:root[data-ui-theme] body #root#root .management-page-title { font: 650 24px/1.2 var(--rd-font-display); letter-spacing: -.02em; color: var(--rd-text); }
+  :root:root[data-ui-theme] body #root#root .management-settings-entry { border-radius: 12px; min-height: 56px; }
+  :root:root[data-ui-theme] body #root#root .management-settings-entry__icon { background: var(--rd-sunken); color: var(--rd-text-2); }
+
+  /* Module headers: no card, a title row with the switch at the end. */
+  :root:root[data-ui-theme] body #root#root .management-shell .workspace-master {
+    padding: 2px 0 14px; border: 0; border-block-end: 1px solid var(--rd-line); border-radius: 0; background: transparent; box-shadow: none;
+  }
+  :root:root[data-ui-theme] body #root#root .management-shell .workspace-master__label :is(h2, h3) { font: 650 24px/1.2 var(--rd-font-display); letter-spacing: -.02em; }
+  :root:root[data-ui-theme] body #root#root .management-shell .workspace-master__state { color: var(--rd-text-3); font-size: 12.5px; }
+
+  /* ---------- Пульт ---------- */
+  :root:root[data-ui-theme] body #root#root .hub { display: grid; gap: 22px; min-width: 0; }
+  :root:root[data-ui-theme] body #root#root .hub__head { display: grid; gap: 6px; }
+  :root:root[data-ui-theme] body #root#root .hub__lead { margin: 0; max-width: 78ch; color: var(--rd-text-2); font-size: 14px; line-height: 1.5; }
+  :root:root[data-ui-theme] body #root#root .hub-attention { display: grid; gap: 10px; padding: 14px; border: 1px solid var(--rd-line); border-radius: 14px; background: var(--rd-surface); box-shadow: var(--rd-shadow-1); }
+  :root:root[data-ui-theme] body #root#root .hub-attention__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  :root:root[data-ui-theme] body #root#root .hub-attention__head h3 { margin: 0; font: 650 15px/1.3 var(--rd-font-display); }
+  :root:root[data-ui-theme] body #root#root .hub-attention__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 10px; }
+  :root:root[data-ui-theme] body #root#root .hub-attention__item { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 10px 12px; align-items: center; padding: 12px 12px 12px 14px; border-radius: 11px; background: var(--rd-warn-bg); }
+  :root:root[data-ui-theme] body #root#root .hub-attention__item > .management-icon { width: 16px; height: 16px; align-self: start; margin-top: 2px; color: var(--rd-warn); }
+  :root:root[data-ui-theme] body #root#root .hub-attention__text { min-width: 0; }
+  :root:root[data-ui-theme] body #root#root .hub-attention__text strong { display: block; font-weight: 600; font-size: 13px; color: var(--rd-text); }
+  :root:root[data-ui-theme] body #root#root .hub-attention__text p { margin: 2px 0 0; font-size: 12.5px; color: var(--rd-text-2); }
+  :root:root[data-ui-theme] body #root#root .hub-group { display: grid; gap: 10px; min-width: 0; }
+  :root:root[data-ui-theme] body #root#root .hub-group__title { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin: 0; color: var(--rd-text-3); font: 600 12px/1.2 var(--rd-font); letter-spacing: .06em; text-transform: uppercase; }
+  :root:root[data-ui-theme] body #root#root .hub-group__title small { font: 400 12.5px/1.3 var(--rd-font); letter-spacing: 0; text-transform: none; }
+  :root:root[data-ui-theme] body #root#root .hub-group__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 270px), 1fr)); gap: 12px; }
+  :root:root[data-ui-theme] body #root#root .hub-group--analysis .hub-group__grid { grid-template-columns: minmax(0, 1fr); }
+  :root:root[data-ui-theme] body #root#root .hub-tile {
+    display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 8px 12px; align-content: start; min-width: 0;
+    padding: 14px; border: 1px solid var(--rd-line); border-radius: 14px; background: var(--rd-surface); box-shadow: var(--rd-shadow-1);
+  }
+  :root:root[data-ui-theme] body #root#root .hub-tile > :not(.hub-tile__icon) { grid-column: 2; min-width: 0; }
+  :root:root[data-ui-theme] body #root#root .hub-tile__icon { grid-column: 1; grid-row: 1 / span 4; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 9px; background: var(--rd-sunken); color: var(--rd-text-2); }
+  :root:root[data-ui-theme] body #root#root .hub-tile__icon .management-icon { width: 18px; height: 18px; }
+  :root:root[data-ui-theme] body #root#root .hub-tile__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  :root:root[data-ui-theme] body #root#root .hub-tile__title { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; min-width: 0; }
+  :root:root[data-ui-theme] body #root#root .hub-tile__title h4 { margin: 0; font: 650 14.5px/1.3 var(--rd-font-display); color: var(--rd-text); }
+  :root:root[data-ui-theme] body #root#root .hub-tile__note { margin: 0; font-size: 12.5px; line-height: 1.45; color: var(--rd-text-2); }
+  :root:root[data-ui-theme] body #root#root .hub-tile__scope { margin: 0; font-size: 12px; line-height: 1.45; color: var(--rd-text-3); }
+  :root:root[data-ui-theme] body #root#root .hub-tile__meta { display: grid; gap: 6px; justify-items: start; }
+  :root:root[data-ui-theme] body #root#root .hub-tile__foot { display: flex; padding-top: 2px; }
+  :root:root[data-ui-theme] body #root#root .hub-tile__foot .button { display: inline-flex; align-items: center; gap: 4px; min-height: 30px; padding: 4px 10px; font-size: 12.5px; }
+  :root:root[data-ui-theme] body #root#root .hub-tile__foot .management-icon { width: 14px; height: 14px; }
+  :root:root[data-ui-theme] body #root#root .hub-tile .blocking-launcher { margin: 0; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+  :root:root[data-ui-theme] body #root#root .hub-tile :is(.blocking-launcher__controls) { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 28px; }
+  :root:root[data-ui-theme] body #root#root .hub-tile .blocking-launcher__open {
+    display: inline-flex; align-items: center; gap: 6px; min-height: 0; margin: 0; padding: 0; border: 0; background: transparent; box-shadow: none;
+    color: var(--rd-text); font: 650 14.5px/1.3 var(--rd-font-display); text-align: start;
+  }
+  :root:root[data-ui-theme] body #root#root .hub-tile .blocking-launcher__open:not(:disabled):hover { color: var(--rd-accent); background: transparent; }
+  :root:root[data-ui-theme] body #root#root .hub-tile .blocking-launcher__chevron { display: none; }
+  :root:root[data-ui-theme] body #root#root .hub-tile .blocking-message { margin: 6px 0 0; font-size: 12px; }
+  :root:root[data-ui-theme] body #root#root .hub-tile--soon .blocking-master { display: none; }
+  :root:root[data-ui-theme] body #root#root .hub-tile--soon { background: transparent; border-style: dashed; box-shadow: none; }
+  :root:root[data-ui-theme] body #root#root .hub-tile--soon .blocking-launcher__open { color: var(--rd-text-2); }
+  :root:root[data-ui-theme] body #root#root .rd-chip--soon { color: var(--rd-text-3); background: transparent; box-shadow: inset 0 0 0 1px var(--rd-line-2); }
+  :root:root[data-ui-theme] body #root#root .rd-chip--soon::before { display: none; }
+  :root:root[data-ui-theme] body #root#root .hub-link {
+    display: grid; grid-template-columns: 32px minmax(0, 1fr) auto; gap: 12px; align-items: center; width: 100%; min-width: 0; margin: 0;
+    padding: 12px 14px; border: 1px solid var(--rd-line); border-radius: 14px; background: var(--rd-surface); box-shadow: var(--rd-shadow-1);
+    color: var(--rd-text); font: inherit; text-align: start; cursor: pointer;
+  }
+  :root:root[data-ui-theme] body #root#root .hub-link:hover { border-color: var(--rd-line-2); background: var(--rd-surface); }
+  :root:root[data-ui-theme] body #root#root .hub-link > .management-icon { width: 16px; height: 16px; color: var(--rd-text-3); }
+  :root:root[data-ui-theme] body #root#root .hub-link__text { display: grid; gap: 2px; min-width: 0; }
+  :root:root[data-ui-theme] body #root#root .hub-link__text strong { font-weight: 600; font-size: 13.5px; }
+  :root:root[data-ui-theme] body #root#root .hub-link__text span { font-size: 12px; color: var(--rd-text-3); }
+
+  /* ---------- Command palette ---------- */
+  :root:root[data-ui-theme] body #root#root .command-palette { width: min(620px, calc(100vw - 32px)); max-width: none; max-height: 72vh; margin: 12vh auto auto; padding: 0; border: 0; background: transparent; color: var(--rd-text); overflow: visible; }
+  :root:root[data-ui-theme] body #root#root .command-palette::backdrop { background: rgb(8 12 20 / .42); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
+  :root:root[data-ui-theme] body #root#root .command-palette__box { overflow: hidden; border: 1px solid var(--rd-line); border-radius: 16px; background: var(--rd-surface); box-shadow: var(--rd-shadow-2); }
+  :root:root[data-ui-theme] body #root#root .command-palette__field { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-block-end: 1px solid var(--rd-line); color: var(--rd-text-3); }
+  /* The borderless search input shows focus on its field row: full focus colour, inside the rounded box. */
+  :root:root[data-ui-theme] body #root#root .command-palette__field:focus-within { outline: 2px solid var(--rd-focus); outline-offset: -2px; border-start-start-radius: 16px; border-start-end-radius: 16px; }
+  :root:root[data-ui-theme] body #root#root .command-palette__field .management-icon { width: 18px; height: 18px; }
+  :root:root[data-ui-theme] body #root#root .command-palette .command-palette__field input[data-command-palette-input] { flex: 1 1 auto; min-width: 0; height: 32px; padding: 0; border: 0; border-radius: 0; outline: 0; background: transparent; box-shadow: none; color: var(--rd-text); font: 400 15px/1.3 var(--rd-font); }
+  :root:root[data-ui-theme] body #root#root .command-palette__list { list-style: none; margin: 0; padding: 6px; max-height: 52vh; overflow: auto; }
+  :root:root[data-ui-theme] body #root#root .command-palette__option { display: grid; grid-template-columns: 18px minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 9px 10px; border-radius: 9px; color: var(--rd-text-2); cursor: pointer; }
+  :root:root[data-ui-theme] body #root#root .command-palette__option .management-icon { width: 17px; height: 17px; }
+  :root:root[data-ui-theme] body #root#root .command-palette__option.is-active { background: var(--rd-accent-soft); color: var(--rd-accent); }
+  :root:root[data-ui-theme] body #root#root .command-palette__label { font-weight: 500; font-size: 14px; color: inherit; }
+  :root:root[data-ui-theme] body #root#root .command-palette__group { font-size: 12px; color: var(--rd-text-3); }
+  :root:root[data-ui-theme] body #root#root .command-palette__empty { padding: 14px; color: var(--rd-text-3); font-size: 13px; }
+
+  /* ---------- Shared launcher row (popup, side panel, Options legacy row) ---------- */
+  :root:root[data-ui-theme] body #root#root .inspector-tools {
+    display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; padding: 4px 12px; margin: 0;
+    border: 1px solid var(--rd-line); border-radius: 14px; background: var(--rd-surface); box-shadow: var(--rd-shadow-1);
+  }
+  :root:root[data-ui-theme] body #root#root .inspector-tools__group { grid-column: 1 / -1; margin: 0; padding: 10px 2px 2px; color: var(--rd-text-3); font: 600 12px/1.2 var(--rd-font); letter-spacing: .06em; text-transform: uppercase; }
+  :root:root[data-ui-theme] body #root#root .inspector-tools > :is(.blocking-launcher, .protect-island) { margin: 0; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; min-width: 0; }
+  :root:root[data-ui-theme] body #root#root .inspector-tools > :is(.blocking-launcher, .protect-island) + :is(.blocking-launcher, .protect-island) { border-block-start: 1px solid var(--rd-line); }
+  :root:root[data-ui-theme] body #root#root .inspector-tools .blocking-launcher { margin: 0; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+  :root:root[data-ui-theme] body #root#root .inspector-tools > .blocking-launcher + .protect-island > .blocking-launcher { border-block-start: 1px solid var(--rd-line); }
+  :root:root[data-ui-theme] body #root#root .inspector-tools .blocking-launcher__controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 46px; padding: 0; }
+  :root:root[data-ui-theme] body #root#root .inspector-tools .blocking-launcher__open {
+    /* 2px inline padding keeps the label strictly inside its hit area at fractional widths. */
+    flex: 1 1 auto; display: inline-flex; align-items: center; gap: 6px; min-width: 0; min-height: 36px; margin: 0; padding: 0 2px;
+    border: 0; background: transparent; box-shadow: none; color: var(--rd-text); font: 600 13.5px/1.3 var(--rd-font); text-align: start; justify-content: flex-start;
+  }
+  :root:root[data-ui-theme] body #root#root .inspector-tools .blocking-launcher__open:not(:disabled):hover { color: var(--rd-accent); background: transparent; }
+  :root:root[data-ui-theme] body #root#root .inspector-tools .blocking-launcher__chevron { display: none; }
+  :root:root[data-ui-theme] body #root#root .inspector-tools .guard-launcher--unavailable .blocking-launcher__open { color: var(--rd-text-3); }
+  :root:root[data-ui-theme] body #root#root .guard-launcher--soon .blocking-master { display: none; }
+  :root:root[data-ui-theme] body #root#root .guard-launcher__soon { flex: none; padding: 2px 9px; border-radius: 999px; color: var(--rd-text-3); box-shadow: inset 0 0 0 1px var(--rd-line-2); font: 600 12px/1.35 var(--rd-font); white-space: nowrap; }
+  :root:root[data-ui-theme] body #root#root .hub-tile--soon .guard-launcher__soon { display: none; }
+  :root:root[data-ui-theme] body #root#root .inspector-tools .blocking-message { margin: 0 0 8px; font-size: 12px; }
+}
+
+/* Narrow Options (the legacy 1119/600 px breakpoints): the header grows with its rows and the
+   navigation follows it in flow, so nothing overlaps the first navigation item. */
+@media screen and (max-width: 1119px) {
+  :root:root[data-ui-theme] body #root#root .management-header {
+    display: grid; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: "brand search actions";
+    align-items: center; gap: 8px 12px; height: auto; min-height: 56px; padding: 8px 16px;
+  }
+  :root:root[data-ui-theme] body #root#root .management-brand { grid-area: brand; justify-self: start; height: auto; padding: 0; border: 0; }
+  :root:root[data-ui-theme] body #root#root .management-search { grid-area: search; justify-self: stretch; width: auto; max-width: 440px; margin: 0; }
+  :root:root[data-ui-theme] body #root#root .management-header__actions { grid-area: actions; width: auto; padding: 0; gap: 6px; }
+  :root:root[data-ui-theme] body #root#root .management-menu-toggle {
+    gap: 8px; max-width: 100%; padding: 0 12px; border-color: var(--rd-line); background: var(--rd-surface); color: var(--rd-text); font: 600 13px/1.2 var(--rd-font);
+  }
+  :root:root[data-ui-theme] body #root#root .management-navigation {
+    position: relative; inset: auto; height: auto; max-height: none; overflow: visible; padding: 8px 16px 14px;
+    border-inline-end: 0; border-block-end: 1px solid var(--rd-line);
+  }
+  :root:root[data-ui-theme] body #root#root .management-tabs { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); align-items: start; gap: 4px 16px; }
+  :root:root[data-ui-theme] body #root#root .management-tabs > .management-tab { grid-column: 1 / -1; }
+  :root:root[data-ui-theme] body #root#root .management-nav-group { margin: 8px 0 0; }
+  :root:root[data-ui-theme] body #root#root .management-workspace { padding: 20px 16px 32px; }
+}
+@media screen and (max-width: 600px) {
+  :root:root[data-ui-theme] body #root#root .management-header {
+    grid-template-columns: minmax(0, 1fr) auto auto; grid-template-areas: "brand theme language" "menu menu search"; padding: 8px 12px;
+  }
+  :root:root[data-ui-theme] body #root#root .management-header__actions { display: contents; }
+  :root:root[data-ui-theme] body #root#root .management-menu-toggle { grid-area: menu; justify-content: flex-start; width: 100%; min-width: 0; }
+  :root:root[data-ui-theme] body #root#root .management-header__actions > .theme-picker { grid-area: theme; }
+  :root:root[data-ui-theme] body #root#root .management-header__actions > .management-language { grid-area: language; }
+  :root:root[data-ui-theme] body #root#root .management-search { justify-self: end; justify-content: center; width: 44px; padding: 0; }
+  :root:root[data-ui-theme] body #root#root .management-search__label { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+  :root:root[data-ui-theme] body #root#root .management-search kbd { display: none; }
+  :root:root[data-ui-theme] body #root#root .management-navigation { padding: 6px 12px 12px; }
+  :root:root[data-ui-theme] body #root#root .management-workspace { padding: 16px 12px 28px; }
+}
+@media screen and (max-width: 380px) {
+  /* The left-to-right brand gets its own row so it never runs past the inline end. */
+  :root:root[data-ui-theme] body #root#root .management-header { grid-template-columns: minmax(0, 1fr) auto auto auto; grid-template-areas: "brand brand brand brand" "menu search theme language"; }
+  /* The menu button keeps its aria-label; the visible section name would wrap letter by letter here. */
+  :root:root[data-ui-theme] body #root#root .management-menu-toggle { justify-self: start; width: auto; }
+  :root:root[data-ui-theme] body #root#root .management-menu-toggle > span { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+}
+
+/* ---------- Inspector: popup, side panel and the Detector embed ---------- */
+@media screen {
+  :root:root[data-ui-theme] body[data-external-menu] { background: var(--rd-ground); }
+  :root:root[data-ui-theme] body[data-external-menu] #root#root .inspector { display: grid; gap: 10px; padding: 0 12px 12px; background: transparent; }
+
+  /* Brand bar: logo, wordmark and tools on one glass row. */
+  :root:root[data-ui-theme] body[data-external-menu] #root#root .inspector-brand {
+    position: sticky; top: 0; z-index: 6; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px;
+    margin: 0 -12px; padding: 8px 8px 8px 14px; min-height: 52px; border: 0; border-block-end: 1px solid var(--rd-line); border-radius: 0;
+    background: var(--rd-glass); -webkit-backdrop-filter: blur(18px) saturate(150%); backdrop-filter: blur(18px) saturate(150%); box-shadow: none;
+  }
+  :root:root[data-ui-theme] body[data-external-menu] #root#root :is(.inspector-brand__main, .inspector-brand__identity, .inspector-brand__content, .inspector-brand__title-row) { display: contents; }
+  :root:root[data-ui-theme] body[data-external-menu] #root#root .inspector-brand__identity::before, :root:root[data-ui-theme] body[data-external-menu] #root#root .inspector-brand__identity::after { content: none; }
+  :root:root[data-ui-theme] body[data-external-menu] #root#root .inspector-brand__logo { order: 0; flex: none; width: 32px; height: 19px; margin: 0; }
+  :root:root[data-ui-theme] body[data-external-menu] #root#root .inspector-brand h1 { order: 1; flex: 1 1 auto; min-width: 0; margin: 0; padding: 0; font: 700 16px/1.2 var(--rd-font-display); letter-spacing: -.02em; white-space: nowrap; color: var(--rd-text); }
+  :root:root[data-ui-theme] body[data-external-menu] #root#root .inspector-header-controls { order: 2; display: flex; align-items: center; gap: 2px; margin: 0; padding: 0; min-height: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
+  :root:root[data-ui-theme] body[data-external-menu] #root#root :is(.inspector-settings-button, .inspector-pin-button, .inspector-header-controls .language-picker__trigger) {
+    width: auto; min-width: 32px; height: 32px; min-height: 32px; padding: 6px; border: 0; border-radius: 9px; background: transparent; box-shadow: none; color: var(--rd-text-2);
+  }
+  :root:root[data-ui-theme] body[data-external-menu] #root#root :is(.inspector-settings-button, .inspector-pin-button, .inspector-header-controls .language-picker__trigger):hover { background: var(--rd-sunken); color: var(--rd-text); }
+  :root:root[data-ui-theme] body[data-external-menu] #root#root .inspector-brand__subtitle { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  :root:root[data-ui-theme] body[data-external-menu] #root#root .inspector-brand :is(.observation-master--labeled, .inspector-brand__links) { order: 3; flex: 1 1 100%; }
+  :root:root[data-ui-theme] body[data-external-menu] #root#root .inspector-brand .observation-master--labeled { padding-block: 6px 2px; }
+
+  /* Site card: host, coverage chip and the labeled observation switch. */
+  :root:root[data-ui-theme] body #root#root .inspector-sitecard { display: grid; gap: 12px; padding: 12px; border: 1px solid var(--rd-line); border-radius: 14px; background: var(--rd-surface); box-shadow: var(--rd-shadow-1); min-width: 0; }
+  :root:root[data-ui-theme] body #root#root .inspector-sitecard__site { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 10px; min-width: 0; }
+  :root:root[data-ui-theme] body #root#root .inspector-sitecard .inspector-site { margin: 0; min-width: 0; color: var(--rd-text); font: 650 15px/1.25 var(--rd-font-display); overflow-wrap: anywhere; }
+  :root:root[data-ui-theme] body #root#root .inspector-sitecard .inspector-site--empty { color: var(--rd-text-3); font-weight: 500; }
+  :root:root[data-ui-theme] body #root#root .inspector-sitecard .site-label { gap: 8px; }
+  :root:root[data-ui-theme] body #root#root .inspector > * { grid-column: 1 / -1; grid-row: auto; }
+  :root:root[data-ui-theme] body #root#root .observation-master--labeled { grid-area: auto; justify-self: stretch; width: 100%; display: grid; grid-template-columns: 30px minmax(0, 1fr) auto auto; align-items: center; gap: 10px; min-width: 0; margin: 0; }
+  :root:root[data-ui-theme] body #root#root .inspector-sitecard .observation-master--labeled { padding-top: 12px; border-block-start: 1px solid var(--rd-line); }
+  :root:root[data-ui-theme] body #root#root .observation-master__icon { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 9px; background: var(--rd-sunken); color: var(--rd-text-2); }
+  :root:root[data-ui-theme] body #root#root .observation-master__text { display: grid; gap: 1px; min-width: 0; }
+  :root:root[data-ui-theme] body #root#root .observation-master__text strong { font: 600 13.5px/1.3 var(--rd-font); color: var(--rd-text); }
+  :root:root[data-ui-theme] body #root#root .observation-master__scope { font: 400 12px/1.35 var(--rd-font); color: var(--rd-text-3); }
+  :root:root[data-ui-theme] body #root#root .observation-master__error { grid-column: 4; color: var(--rd-err); font-weight: 700; }
+
+  /* Mode tabs: one segmented control. */
+  :root:root[data-ui-theme] body #root#root .inspector-mode-tabs { margin: 0; padding: 0; }
+  :root:root[data-ui-theme] body #root#root .inspector-mode-tabs .tabs { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 2px; padding: 3px; border: 0; border-radius: 10px; background: var(--rd-sunken); box-shadow: none; }
+  :root:root[data-ui-theme] body #root#root .inspector-mode-tabs .tabs__tab { min-height: 32px; height: auto; padding: 6px 10px; border: 0; border-radius: 8px; background: transparent; box-shadow: none; color: var(--rd-text-2); font: 600 13px/1.3 var(--rd-font); }
+  :root:root[data-ui-theme] body #root#root .inspector-mode-tabs .tabs__tab--active { background: var(--rd-surface); color: var(--rd-text); box-shadow: var(--rd-shadow-1); }
+
+  /* Findings: activity tiles, collapsed zero categories, vendors with REQ-007 heading. */
+  :root:root[data-ui-theme] body #root#root .inspector .section.recognized-vendors { display: grid; gap: 10px; margin: 0; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+  :root:root[data-ui-theme] body #root#root .inspector .recognized-vendors > .section__title { margin: 0; padding: 4px 2px 0; font: 650 15px/1.3 var(--rd-font-display); letter-spacing: -.01em; color: var(--rd-text); }
+  :root:root[data-ui-theme] body #root#root .inspector .recognized-vendors > .inspector-vendors-title { padding-top: 8px; font: 600 13px/1.35 var(--rd-font); color: var(--rd-text-2); }
+  :root:root[data-ui-theme] body #root#root .identification-tabs { display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px; margin: 0; padding: 0; }
+  :root:root[data-ui-theme] body #root#root .identification-tab {
+    order: 0; flex: 1 1 calc(33.333% - 6px); min-width: 96px; display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "icon count" "label label";
+    align-items: center; align-content: start; gap: 6px 8px; margin: 0; padding: 10px; border: 1px solid var(--rd-line); border-radius: 12px;
+    background: var(--rd-surface); box-shadow: var(--rd-shadow-1); color: var(--rd-text); text-align: start; cursor: pointer;
+  }
+  :root:root[data-ui-theme] body #root#root .identification-tab:hover { border-color: var(--rd-line-2); background: var(--rd-surface); }
+  :root:root[data-ui-theme] body #root#root .identification-tab--active { border-color: color-mix(in srgb, var(--rd-accent) 55%, var(--rd-line)); background: var(--rd-accent-soft); box-shadow: none; }
+  :root:root[data-ui-theme] body #root#root .identification-tab__icon { grid-area: icon; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 8px; background: var(--rd-sunken); color: var(--rd-text-2); }
+  :root:root[data-ui-theme] body #root#root .identification-tab__icon svg { width: 16px; height: 16px; }
+  :root:root[data-ui-theme] body #root#root .identification-tab__count { grid-area: count; justify-self: end; min-width: 0; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; color: var(--rd-text); font: 650 20px/1 var(--rd-font-display); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+  :root:root[data-ui-theme] body #root#root .identification-tab__label { grid-area: label; min-width: 0; color: var(--rd-text-2); font: 600 12px/1.3 var(--rd-font); overflow-wrap: anywhere; }
+  :root:root[data-ui-theme] body #root#root .identification-tab--active :is(.identification-tab__label, .identification-tab__count) { color: var(--rd-accent); }
+  :root:root[data-ui-theme] body #root#root .identification-tabs:has(.identification-tab__count--empty)::before {
+    content: attr(data-zero-label); order: 1; flex: 0 0 auto; align-self: center; margin-inline-end: 2px; color: var(--rd-text-3); font: 400 12px/1.3 var(--rd-font);
+  }
+  :root:root[data-ui-theme] body #root#root .identification-tab:has(.identification-tab__count--empty):not(.identification-tab--active) {
+    order: 2; flex: 0 0 auto; min-width: 0; min-height: 0; height: auto; align-self: center; display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px; border: 0; border-radius: 8px; background: var(--rd-sunken); box-shadow: none;
+  }
+  :root:root[data-ui-theme] body #root#root .identification-tab:has(.identification-tab__count--empty):not(.identification-tab--active) :is(.identification-tab__icon, .identification-tab__count) { display: none; }
+  :root:root[data-ui-theme] body #root#root .identification-tab:has(.identification-tab__count--empty):not(.identification-tab--active) .identification-tab__label { font-weight: 500; color: var(--rd-text-2); }
+  :root:root[data-ui-theme] body #root#root .inspector-empty { margin: 0; padding: 11px 12px; border: 1px solid var(--rd-line); border-radius: 12px; background: var(--rd-surface); color: var(--rd-text-2); font-size: 12.5px; }
+  :root:root[data-ui-theme] body #root#root .inspector-empty--vendors { display: grid; gap: 4px; }
+  :root:root[data-ui-theme] body #root#root .inspector-empty--vendors strong { font: 600 13px/1.35 var(--rd-font); color: var(--rd-text); }
+  :root:root[data-ui-theme] body #root#root .inspector :is(.vendors-method, .inspector-technique__details) > summary { color: var(--rd-text-2); font: 500 12.5px/1.4 var(--rd-font); cursor: pointer; }
+
+  /* Technique list: one card with rows and neutral counters. */
+  :root:root[data-ui-theme] body #root#root .inspector .inspector-section-head h2 { font: 650 15px/1.3 var(--rd-font-display); }
+  :root:root[data-ui-theme] body #root#root .inspector .inspector-total { color: var(--rd-text-3); font: 500 12px/1 var(--rd-font); }
+  :root:root[data-ui-theme] body #root#root .inspector .technique-table { border: 1px solid var(--rd-line); border-radius: 14px; overflow: hidden; background: var(--rd-surface); box-shadow: var(--rd-shadow-1); border-collapse: separate; border-spacing: 0; }
+  :root:root[data-ui-theme] body #root#root .inspector .technique-table :is(th, td) { background: transparent; border-color: var(--rd-line); }
+  :root:root[data-ui-theme] body #root#root .inspector .technique-table thead th { background: var(--rd-surface-2); color: var(--rd-text-3); font: 600 12px/1.3 var(--rd-font); }
+  :root:root[data-ui-theme] body #root#root .inspector .technique-table tbody tr { background: transparent; box-shadow: none; }
+  :root:root[data-ui-theme] body #root#root .inspector .technique-table :is(.technique-count, .count-badge, td bdi) { color: var(--rd-text); }
+  /* Recognized services: dated catalogue systems are cards in the same list (owner, ADR-103). */
+  :root:root[data-ui-theme] body #root#root .inspector-vendors:has(.site-systems-catalog) .inspector-empty--vendors { display: none; }
+  :root:root[data-ui-theme] body #root#root .site-systems-catalog { display: grid; gap: 8px; margin: 0; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+  :root:root[data-ui-theme] body #root#root .site-systems-catalog .site-systems-catalog__system { display: inline-flex; padding: 0; border: 0; background: transparent; color: inherit; text-decoration: none; }
+  :root:root[data-ui-theme] body #root#root .site-systems-catalog .site-systems-catalog__system:hover { background: transparent; color: var(--rd-accent); }
+  :root:root[data-ui-theme] body #root#root .site-systems-catalog .card--catalog > h3 { margin: 0; font-size: 16px; }
+  :root:root[data-ui-theme] body #root#root .site-systems-catalog .site-systems-catalog__source { margin: 0; }
+  /* Third Party: request kinds read like the technique list; domains and the request table follow. */
+  :root:root[data-ui-theme] body #root#root .third-party-panel { display: grid; gap: 12px; min-width: 0; }
+  :root:root[data-ui-theme] body #root#root .third-party-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 0; }
+  :root:root[data-ui-theme] body #root#root .third-party-heading h2 { margin: 0; font: 650 15px/1.3 var(--rd-font-display); }
+  :root:root[data-ui-theme] body #root#root .third-party-panel > .third-party-summary { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin: 0; color: var(--rd-text-2); font-size: 13px; }
+  :root:root[data-ui-theme] body #root#root .third-party-technique__label { display: grid; gap: 2px; min-width: 0; text-align: start; }
+  :root:root[data-ui-theme] body #root#root .third-party-technique__label > .small { font-weight: 400; overflow-wrap: anywhere; }
+  :root:root[data-ui-theme] body #root#root .third-party-domain-list { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+  :root:root[data-ui-theme] body #root#root .third-party-domain-list > li { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-width: 0; }
+  :root:root[data-ui-theme] body #root#root .third-party-domain-list strong { min-width: 0; overflow-wrap: anywhere; font-weight: 600; }
+  :root:root[data-ui-theme] body #root#root .third-party-domain__text { display: grid; gap: 2px; min-width: 0; }
+  :root:root[data-ui-theme] body #root#root :is(.third-party-domains, .third-party-details) { padding: 12px 14px; border: 1px solid var(--rd-line); border-radius: 14px; background: var(--rd-surface); box-shadow: var(--rd-shadow-1); }
+  :root:root[data-ui-theme] body #root#root .third-party-domains { display: grid; gap: 10px; }
+  :root:root[data-ui-theme] body #root#root .third-party-domains h3 { margin: 0; font: 650 14px/1.3 var(--rd-font-display); }
+  :root:root[data-ui-theme] body #root#root .third-party-details > summary { cursor: pointer; color: var(--rd-text-2); font: 600 13px/1.4 var(--rd-font); }
+  :root:root[data-ui-theme] body #root#root .third-party-details[open] { display: grid; gap: 10px; }
+  :root:root[data-ui-theme] body #root#root .third-party-details :is(.third-party-filter, .third-party-observations) { margin: 0; }
+
+  /* Footer actions and links. */
+  :root:root[data-ui-theme] body #root#root .inspector .inspector-footer { display: grid; gap: 8px; margin: 0; padding: 0; border: 0; }
+  :root:root[data-ui-theme] body #root#root .inspector [data-action="clear-light-results"] { justify-self: start; }
+  :root:root[data-ui-theme] body #root#root .inspector-brand__links { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 16px; margin: 0; padding: 2px 0 0; font-size: 12px; }
+  :root:root[data-ui-theme] body #root#root .inspector-brand__link { color: var(--rd-text-3); font: 500 12px/1.6 var(--rd-font); text-decoration: none; min-height: 24px; display: inline-flex; align-items: center; }
+  :root:root[data-ui-theme] body #root#root .inspector-brand__link:hover { color: var(--rd-accent); }
+  :root:root[data-ui-theme] body #root#root .inspector > .inspector-brand__links { padding-top: 4px; }
+}
+
+/* ---------- Editors and module workspaces ---------- */
+@media screen {
+  /* Segmented mode controls: neutral until chosen; the chosen state carries its own colour. */
+  :root:root[data-ui-theme] body #root#root :is(.blocking-segmented, .antidetect-segmented, .antidetect-math-modes) {
+    display: inline-flex; flex-wrap: wrap; gap: 2px; padding: 3px; border: 0; border-radius: 10px; background: var(--rd-sunken); box-shadow: none;
+  }
+  :root:root[data-ui-theme] body #root#root :is(.blocking-segmented__option, .antidetect-mode, .antidetect-math-mode) {
+    min-height: 28px; padding: 5px 10px; border: 0; border-radius: 8px; background: transparent; box-shadow: none;
+    color: var(--rd-text-2); font: 600 12.5px/1.3 var(--rd-font); text-transform: none; letter-spacing: 0;
+  }
+  :root:root[data-ui-theme] body #root#root :is(.blocking-segmented__option, .antidetect-mode, .antidetect-math-mode):not(:disabled):hover { color: var(--rd-text); background: color-mix(in srgb, var(--rd-surface) 60%, transparent); box-shadow: none; }
+  :root:root[data-ui-theme] body #root#root :is(.blocking-segmented__option, .antidetect-mode, .antidetect-math-mode):is(.is-selected, [aria-checked="true"]) { background: var(--rd-surface); color: var(--rd-text); box-shadow: var(--rd-shadow-1); }
+  :root:root[data-ui-theme] body #root#root :is(.blocking-segmented__option--off, .antidetect-mode--allow, .antidetect-math-mode--allow):is(.is-selected, [aria-checked="true"]) { color: var(--rd-ok); background: var(--rd-ok-bg); }
+  :root:root[data-ui-theme] body #root#root :is(.blocking-segmented__option--on, .antidetect-mode--block):is(.is-selected, [aria-checked="true"]) { color: var(--rd-err); background: var(--rd-err-bg); }
+  :root:root[data-ui-theme] body #root#root :is(.blocking-segmented__option--custom, .antidetect-mode--spoof, .antidetect-math-mode--spoof):is(.is-selected, [aria-checked="true"]) { color: var(--rd-custom); background: var(--rd-custom-bg); }
+  :root:root[data-ui-theme] body #root#root .blocking-segmented__option--bypass:is(.is-selected, [aria-checked="true"]) { color: var(--rd-text-2); background: var(--rd-surface); box-shadow: inset 0 0 0 1px var(--rd-line-2); }
+  :root:root[data-ui-theme] body #root#root :is(.blocking-segmented__option, .antidetect-mode, .antidetect-math-mode):disabled { opacity: .45; }
+
+  /* Filter chips: neutral; the selected one takes the accent. */
+  :root:root[data-ui-theme] body #root#root .blocking-chip { min-height: 30px; padding: 4px 10px; border: 1px solid var(--rd-line-2); border-radius: 999px; background: var(--rd-surface); box-shadow: none; color: var(--rd-text-2); font: 600 12.5px/1.3 var(--rd-font); }
+  :root:root[data-ui-theme] body #root#root .blocking-chip:not(:disabled):hover { border-color: var(--rd-control); color: var(--rd-text); background: var(--rd-surface); }
+  :root:root[data-ui-theme] body #root#root .blocking-chip:is(.is-selected, [aria-checked="true"], [aria-pressed="true"]) { border-color: transparent; background: var(--rd-accent-soft); color: var(--rd-accent); box-shadow: none; }
+  :root:root[data-ui-theme] body #root#root .blocking-chip__count { min-width: 0; padding: 0 2px; border: 0; border-radius: 0; background: transparent; color: inherit; opacity: .75; font-variant-numeric: tabular-nums; }
+
+  /* API rows: compact, separated by hairlines; observed rows keep their marker. */
+  :root:root[data-ui-theme] body #root#root .management-shell :is(.blocking-rule, .api-config-rule) { background: var(--rd-surface); }
+  :root:root[data-ui-theme] body #root#root .management-shell .blocking-rule:nth-child(even) { background: var(--rd-surface); }
+  :root:root[data-ui-theme] body #root#root .management-shell .api-config-group-toggle { color: var(--rd-text); }
+
+  /* Antidetect: underline category tabs, glass save bar. */
+  :root:root[data-ui-theme] body #root#root .antidetect-categories { display: flex; flex-wrap: wrap; gap: 2px; padding: 0; border: 0; border-block-end: 1px solid var(--rd-line); border-radius: 0; background: transparent; box-shadow: none; }
+  :root:root[data-ui-theme] body #root#root .antidetect-category {
+    margin: 0 0 -1px; min-height: 40px; padding: 8px 12px; border: 0; border-block-end: 2px solid transparent; border-radius: 0; background: transparent; box-shadow: none;
+    color: var(--rd-text-3); font: 600 13px/1.3 var(--rd-font);
+  }
+  :root:root[data-ui-theme] body #root#root .antidetect-category:not(:disabled):hover { color: var(--rd-text); background: transparent; box-shadow: none; }
+  :root:root[data-ui-theme] body #root#root .antidetect .antidetect-category.is-selected, :root:root[data-ui-theme] body #root#root .antidetect .antidetect-category.is-selected:not(:disabled):hover { color: var(--rd-text); border-color: var(--rd-accent); background: transparent; box-shadow: none; }
+  /* Category icons keep their own ADR-099 hue (antidetect-ui.css); the tab itself stays calm. */
+  :root:root[data-ui-theme] body #root#root .antidetect-savebar { border: 1px solid var(--rd-line); border-radius: 14px; background: var(--rd-glass); -webkit-backdrop-filter: blur(18px) saturate(150%); backdrop-filter: blur(18px) saturate(150%); box-shadow: var(--rd-shadow-2); }
+  :root:root[data-ui-theme] body #root#root .antidetect-card { border-radius: 14px; }
+
+  /* Autosurfer: topic and system chips keep their own ADR-099 hue (--site-color, --theme-site-stroke) on a calm surface. */
+  :root:root[data-ui-theme] body #root#root .autosurf-sites :is(.autosurf-sites-topic, .autosurf-sites-system) {
+    border: 1px solid color-mix(in srgb, var(--site-color) 24%, var(--rd-line-2)); background: var(--rd-surface); box-shadow: none; color: var(--rd-text-2);
+  }
+  :root:root[data-ui-theme] body #root#root .autosurf-sites :is(.autosurf-sites-topic, .autosurf-sites-system):not(:disabled):hover { border-color: var(--theme-site-stroke); background: color-mix(in srgb, var(--site-color) 8%, var(--rd-surface)); color: var(--rd-text); box-shadow: none; }
+  :root:root[data-ui-theme] body #root#root .autosurf-sites :is(.autosurf-sites-topic, .autosurf-sites-system)[aria-pressed="true"] { border-color: var(--theme-site-stroke); background: color-mix(in srgb, var(--site-color) 14%, var(--rd-surface)); color: var(--rd-text); box-shadow: inset 0 0 0 .5px var(--theme-site-stroke); }
+
+  /* Proxy: underline sub-sections, outline protocol buttons, credential copy as a danger action. */
+  :root:root[data-ui-theme] body #root#root .proxy-workspace-nav { display: flex; flex-wrap: wrap; gap: 2px; padding: 0; border: 0; border-block-end: 1px solid var(--rd-line); border-radius: 0; background: transparent; box-shadow: none; }
+  :root:root[data-ui-theme] body #root#root .proxy-workspace-nav-item {
+    margin: 0 0 -1px; min-height: 40px; padding: 8px 12px; border: 0; border-block-end: 2px solid transparent; border-radius: 0; background: transparent; box-shadow: none; color: var(--rd-text-3); font: 600 13px/1.3 var(--rd-font);
+  }
+  :root:root[data-ui-theme] body #root#root .proxy-workspace-nav-item:is(.is-selected, [aria-selected="true"]) { color: var(--proxy-color, var(--rd-text)); border-color: var(--proxy-color, var(--rd-accent)); background: transparent; box-shadow: none; }
+  :root:root[data-ui-theme] body #root#root .proxy-workspace-protocol-card { border: 1px solid var(--rd-line-2); border-radius: 12px; background: var(--rd-surface); box-shadow: none; color: var(--proxy-color); }
+  :root:root[data-ui-theme] body #root#root .proxy-workspace-protocol-card:not(:disabled):hover { border-color: var(--rd-control); }
+  :root:root[data-ui-theme] body #root#root :is([data-proxy-copy-all], [data-proxy-copy-profile]) { color: var(--rd-err); border-color: color-mix(in srgb, var(--rd-err) 30%, var(--rd-line-2)); background: var(--rd-surface); }
+
+  /* Firewall (host styles only): the workspace header owns title and state. */
+  :root:root[data-ui-theme] body #root#root .management-firewall [data-protect-island="options-page"] [data-protect-section="full"] { border: 0; background: transparent; box-shadow: none; padding: 0; }
+  :root:root[data-ui-theme] body #root#root .management-firewall [data-protect-island="options-page"] [data-protect-section="full"] > .section__title,
+  :root:root[data-ui-theme] body #root#root .management-firewall [data-protect-island="options-page"] [data-protect-section="full"] > p > .pill[data-protect-state] {
+    position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
+  }
+  :root:root[data-ui-theme] body #root#root .management-firewall :is(.scope__fieldset, .protect-settings-preview) { border: 1px solid var(--rd-line); border-radius: 14px; background: var(--rd-surface); box-shadow: var(--rd-shadow-1); }
+  :root:root[data-ui-theme] body #root#root .management-firewall .workspace-master--firewall .blocking-launcher__open { font: 650 24px/1.2 var(--rd-font-display); letter-spacing: -.02em; color: var(--rd-text); }
+
+  /* Settings: radio list and data consent read as one card each. */
+  :root:root[data-ui-theme] body #root#root .management-settings .scope__fieldset { border: 0; padding: 0; margin: 0; }
+  :root:root[data-ui-theme] body #root#root .management-settings .scope__option { padding: 8px 0; border-block-start: 1px solid var(--rd-line); }
+  :root:root[data-ui-theme] body #root#root .management-settings .scope__option:first-of-type { border-block-start: 0; }
+  :root:root[data-ui-theme] body #root#root :is(.pill, .pill--muted) { border: 0; border-radius: 999px; background: var(--rd-off-bg); color: var(--rd-off); font: 600 12px/1.35 var(--rd-font); padding: 2px 9px; }
+
+  /* Detector embed: the inherited Inspector uses the same cards at a wider measure. */
+  :root:root[data-ui-theme] body.management-page #root#root .detector-workspace .inspector { display: grid; gap: 12px; padding: 0; }
+  :root:root[data-ui-theme] body.management-page #root#root .detector-workspace .inspector-mode-tabs { max-width: 420px; }
+  :root:root[data-ui-theme] body #root#root .management-shell .workspace-master--firewall .blocking-launcher { margin: 0; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+  :root:root[data-ui-theme] body #root#root :is(.proxy-workspace-state, .autosurf-status, .workspace-master__state > span) > :is(.proxy-workspace-dot, [class$="__dot"]) { display: none; }
+}
+
+/* ---------- Motion: paint-only transitions, momentary press, enter-only overlays ----------
+   Native checks measure geometry 35-80 ms after interactions, so measured controls and rows
+   transition only colour, background, border, shadow and opacity (theme cross-fade included).
+   Transforms appear only as a momentary :active press and as enter keyframes on leaf overlays;
+   nothing loops, nothing is staggered, Protect UI is never selected, and the ui.css reduce
+   switch still wins because this block applies only to no-preference. */
+/* API Guard mode track (AdsPower-style): compact on wide screens, 2x2 grid on narrow ones. */
+@media screen and (min-width: 521px) {
+  :root:root[data-ui-theme] body #root#root .api-configuration .api-config-modes.blocking-segmented { flex-wrap: nowrap; padding: 2px; border-radius: 9px; }
+  :root:root[data-ui-theme] body #root#root .api-configuration .api-config-modes .blocking-segmented__option { min-height: 26px; padding: 4px 9px; font-size: 12px; }
+}
+@media screen and (max-width: 520px) {
+  :root:root[data-ui-theme] body #root#root .api-configuration .api-config-modes.blocking-segmented { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; box-sizing: border-box; }
+  :root:root[data-ui-theme] body #root#root .api-configuration .api-config-modes .blocking-segmented__option { white-space: normal; overflow-wrap: break-word; }
+}
+
+/* Manager search/filter pills keep their round shape over the calm input rule. */
+@media screen {
+  :root:root[data-ui-theme] body #root#root :is(.proxy-workspace-filter, .cookies-workspace-filter) :is(input:not([type=checkbox]):not([type=radio]):not([type=range]), select) { border-radius: 999px; }
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  @keyframes rd-enter-pop { from { opacity: 0; transform: scale(.98); } }
+  @keyframes rd-enter-rise { from { opacity: 0; transform: translateY(2px); } }
+  @keyframes rd-enter-fade { from { opacity: 0; } }
+
+  /* Buttons, header triggers, navigation and picker options: quick paint feedback. */
+  :root:root[data-ui-theme] body #root#root :is(.button, .proxy-workspace-icon-action, .proxy-workspace-sort, .autosurf-run-control, .management-tab, .management-search, .management-menu-toggle, .theme-picker__trigger, .language-picker__trigger, .theme-picker__option, .language-picker__menu button, .blocking-chip, .command-palette__option, .inspector-tools .blocking-launcher__open, .hub-tile .blocking-launcher__open, .inspector-brand__link):not([role=switch]):not(.blocking-master):not(.workspace-master-toggle):not(.observation-switch):not([data-protect-island], .protect-island, .protect-page, :is([data-protect-island], .protect-island, .protect-page) *) {
+    transition-property: color, background-color, border-color, box-shadow, opacity; transition-duration: var(--rd-dur-1); transition-timing-function: var(--rd-ease-out);
+  }
+  /* Tabs, segmented options and selectable chips: the selected surface settles a little slower. */
+  :root:root[data-ui-theme] body #root#root :is(.tabs__tab, .blocking-segmented__option, .antidetect-mode, .antidetect-math-mode, .antidetect-category, .proxy-workspace-nav-item, .identification-tab, .browser-debug-dataset, .autosurf-sites-topic, .autosurf-sites-system, .proxy-workspace-protocol-card):not([role=switch]):not(.blocking-master):not(.workspace-master-toggle):not(.observation-switch):not([data-protect-island], .protect-island, .protect-page, :is([data-protect-island], .protect-island, .protect-page) *) {
+    transition-property: color, background-color, border-color, box-shadow, opacity; transition-duration: var(--rd-dur-2); transition-timing-function: var(--rd-ease-out);
+  }
+  /* Rows, cards and tiles: hover changes background, border and shadow only. */
+  :root:root[data-ui-theme] body #root#root :is(.technique-row, .card--vendor, .hub-tile, .hub-link, .blocking-rule, .api-config-rule, .cookies-workspace-table tbody tr, .proxy-workspace-profile, .autosurf-sites-result, .autosurf-sites-country__option, .third-party-domain-list > li):not([data-protect-island], .protect-island, .protect-page, :is([data-protect-island], .protect-island, .protect-page) *) {
+    transition-property: color, background-color, border-color, box-shadow, opacity; transition-duration: var(--rd-dur-3); transition-timing-function: var(--rd-ease-out);
+  }
+
+  /* Press: momentary, never above 1, centre preserved so pointer targets stay put; no transform transition. */
+  :root:root[data-ui-theme] body #root#root :is(.button:not([role=switch]):not(.blocking-master):not(.workspace-master-toggle):not(.observation-switch), .proxy-workspace-icon-action, .autosurf-run-control, .tabs__tab, .blocking-segmented__option, .antidetect-mode, .antidetect-math-mode):not(:disabled):not([aria-disabled=true]):not([data-protect-island], .protect-island, .protect-page, :is([data-protect-island], .protect-island, .protect-page) *):active { transform: scale(.97); }
+  /* The Tour button of the Firewall header (ADR-111) stands inside the module's island, which the rules above leave alone; it moves like every other Tour button. */
+  :root:root[data-ui-theme] body #root#root .protect-island .workspace-tool--tour { transition-property: color, background-color, border-color, box-shadow, opacity; transition-duration: var(--rd-dur-1); transition-timing-function: var(--rd-ease-out); }
+  :root:root[data-ui-theme] body #root#root .protect-island .workspace-tool--tour:not(:disabled):not([aria-disabled=true]):active { transform: scale(.97); }
+
+  /* Leaf overlays: enter only, opacity plus a centre-preserving scale; nothing persists after the run. */
+  :root:root[data-ui-theme] body #root#root :is(.command-palette__box, .theme-picker__panel, .language-picker__panel, .autosurf-sites-country__popover, .api-config-modal, .cookies-workspace-dialog[open], dialog.dialog[open]):not([data-protect-island], .protect-island, .protect-page, :is([data-protect-island], .protect-island, .protect-page) *) {
+    animation: rd-enter-pop var(--rd-dur-2) var(--rd-ease-out) backwards;
+  }
+  :root:root[data-ui-theme] body #root#root :is(.command-palette, .cookies-workspace-dialog, dialog.dialog)[open]:not([data-protect-island], .protect-island, .protect-page, :is([data-protect-island], .protect-island, .protect-page) *)::backdrop { animation: rd-enter-fade var(--rd-dur-2) var(--rd-ease-out) backwards; }
+
+  /* Collapsibles: height is never animated; the revealed content fades in and rises 2px. */
+  :root:root[data-ui-theme] body #root#root details[open]:not([data-protect-island], .protect-island, .protect-page, :is([data-protect-island], .protect-island, .protect-page) *) > :not(summary, [data-protect-island], .protect-island) { animation: rd-enter-rise var(--rd-dur-2) var(--rd-ease-emph) backwards; }
+  :root:root[data-ui-theme] body #root#root .api-config-wasm-children:not([hidden]):not([data-protect-island], .protect-island, .protect-page, :is([data-protect-island], .protect-island, .protect-page) *) { animation: rd-enter-fade var(--rd-dur-2) var(--rd-ease-out) backwards; }
+}
+
+@media (forced-colors: active) {
+  :root:root body #root#root :is(.blocking-master, .workspace-master-toggle, .observation-switch, .workspace-master [role=switch]) { background: ButtonFace; box-shadow: none; border: 1px solid ButtonText; forced-color-adjust: none; }
+  :root:root body #root#root :is(.blocking-master, .workspace-master-toggle, .observation-switch, .workspace-master [role=switch])::before { background: ButtonText; }
+  :root:root body #root#root :is(.blocking-master, .workspace-master-toggle, .observation-switch, .workspace-master [role=switch])[aria-checked="true"] { background: Highlight; border-color: Highlight; }
+  :root:root body #root#root :is(.blocking-master, .workspace-master-toggle, .observation-switch, .workspace-master [role=switch])[aria-checked="true"]::before { background: HighlightText; }
+}

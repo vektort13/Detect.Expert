@@ -1,0 +1,9 @@
+{
+  "provider": "ipdata",
+  "ip": "8.8.8.8",
+  "status": 400,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "text": "{\"message\":\"bleh does not appear to be an IPv4 or IPv6 address\"}"
+}

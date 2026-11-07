@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>Фаервол: первая сторона</title>
+  </head>
+  <body>
+    <!-- ADR-020 §C (S08). Served at www.example.net: requests to collect.example.net are first party here; a receiver
+         rule «везде» for example.net carries excludedTopDomains [example.net] and never stops them. -->
+    <h1 id="title">Сайт получателя</h1>
+    <label>E-mail <input id="email" name="email" type="email" autocomplete="off" /></label>
+    <script>
+      (function () {
+        var s = document.createElement('script');
+        s.src = location.protocol + '//cdn.example.org:' + location.port + '/protect/firewall/fw-sender.js';
+        document.head.appendChild(s);
+      })();
+    </script>
+  </body>
+</html>

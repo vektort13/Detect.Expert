@@ -1,0 +1,9 @@
+{
+  "provider": "ipgeolocation",
+  "ip": "8.8.8.8",
+  "status": 400,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "text": "{\"message\":\"Provided name, service or IP address '999.999.999.999' is not valid.\"}"
+}

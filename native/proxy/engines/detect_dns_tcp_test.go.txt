@@ -1,0 +1,52 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+package main
+
+import (
+	"context"
+	"encoding/binary"
+	"errors"
+	"io"
+	"net"
+	"net/netip"
+	"testing"
+)
+
+func TestDetectTunnelTCPDNSFraming(t *testing.T) {
+	client, server := net.Pipe()
+	defer server.Close()
+	done := make(chan error, 1)
+	go func() {
+		defer server.Close()
+		var header [2]byte
+		if _, err := io.ReadFull(server, header[:]); err != nil {
+			done <- err
+			return
+		}
+		query := make([]byte, int(binary.BigEndian.Uint16(header[:])))
+		if _, err := io.ReadFull(server, query); err != nil {
+			done <- err
+			return
+		}
+		answer := append([]byte(nil), query...)
+		binary.BigEndian.PutUint16(answer[2:4], 0x8180)
+		binary.BigEndian.PutUint16(answer[6:8], 1)
+		answer = append(answer, 0xc0, 0x0c, 0, 1, 0, 1, 0, 0, 0, 60, 0, 4, 203, 0, 113, 117)
+		frame := binary.BigEndian.AppendUint16(nil, uint16(len(answer)))
+		frame = append(frame, answer...)
+		_, err := server.Write(frame)
+		done <- err
+	}()
+	dial := func(_ context.Context, network, target string) (net.Conn, error) {
+		if network != "tcp" || target != "192.0.2.53:53" {
+			return nil, errors.New("wrong tunnel DNS destination")
+		}
+		return client, nil
+	}
+	ips, err := queryTunnelTCP(t.Context(), netip.MustParseAddrPort("192.0.2.53:53"), "owned-dns.invalid", dnsTypeA, dial)
+	if err != nil || len(ips) != 1 || ips[0] != netip.MustParseAddr("203.0.113.117") {
+		t.Fatalf("TCP tunneled DNS failed: %v, %v", ips, err)
+	}
+	if err := <-done; err != nil {
+		t.Fatal(err)
+	}
+}

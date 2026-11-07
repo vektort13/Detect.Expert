@@ -1,0 +1,9 @@
+{
+  "provider": "ipgeolocation",
+  "ip": "8.8.8.8",
+  "status": 423,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "text": "{\"message\":\"'10.0.0.1' is a bogon IP address.\"}"
+}

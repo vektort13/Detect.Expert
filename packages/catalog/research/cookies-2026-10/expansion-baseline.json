@@ -1,0 +1,536 @@
+{
+  "version": "1.0.0",
+  "records": 2424,
+  "examples": [
+    {
+      "inputName": "PHPSESSID",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "ambiguous",
+      "tracking": false,
+      "ruleIds": [
+        "ocdb:87742550-35d9-4f2d-980c-d421f3f5bc97"
+      ],
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/jkwakman/Open-Cookie-Database/749c37c17eb910fa95621f4fee34d9a6d4126c23/open-cookie-database.json"
+      ],
+      "name": ""
+    },
+    {
+      "inputName": "JSESSIONID",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "unknown",
+      "tracking": false,
+      "ruleIds": [],
+      "sourceUrls": [],
+      "name": ""
+    },
+    {
+      "inputName": "ASP.NET_SessionId",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "ambiguous",
+      "tracking": false,
+      "ruleIds": [
+        "ocdb:68da1a76-85e6-472b-ad59-7ebb9bae2e29"
+      ],
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/jkwakman/Open-Cookie-Database/749c37c17eb910fa95621f4fee34d9a6d4126c23/open-cookie-database.json"
+      ],
+      "name": ""
+    },
+    {
+      "inputName": ".AspNetCore.Session",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "unknown",
+      "tracking": false,
+      "ruleIds": [],
+      "sourceUrls": [],
+      "name": ""
+    },
+    {
+      "inputName": "connect.sid",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "unknown",
+      "tracking": false,
+      "ruleIds": [],
+      "sourceUrls": [],
+      "name": ""
+    },
+    {
+      "inputName": "csrftoken",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "unknown",
+      "tracking": false,
+      "ruleIds": [],
+      "sourceUrls": [],
+      "name": ""
+    },
+    {
+      "inputName": "XSRF-TOKEN",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "ambiguous",
+      "tracking": false,
+      "ruleIds": [
+        "ocdb:86531df2-94a9-43e0-9262-856c57f16160"
+      ],
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/jkwakman/Open-Cookie-Database/749c37c17eb910fa95621f4fee34d9a6d4126c23/open-cookie-database.json"
+      ],
+      "name": ""
+    },
+    {
+      "inputName": "_csrf",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "unknown",
+      "tracking": false,
+      "ruleIds": [],
+      "sourceUrls": [],
+      "name": ""
+    },
+    {
+      "inputName": ".ASPXAUTH",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "ambiguous",
+      "tracking": false,
+      "ruleIds": [
+        "ocdb:ab2c6849-022d-46e0-84f0-12617c09d8de"
+      ],
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/jkwakman/Open-Cookie-Database/749c37c17eb910fa95621f4fee34d9a6d4126c23/open-cookie-database.json"
+      ],
+      "name": ""
+    },
+    {
+      "inputName": ".AspNetCore.Antiforgery.FIXTURE",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "ambiguous",
+      "tracking": false,
+      "ruleIds": [
+        "ocdb:b67c0fe1-3df2-4c7c-8ecb-ba7247299484"
+      ],
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/jkwakman/Open-Cookie-Database/749c37c17eb910fa95621f4fee34d9a6d4126c23/open-cookie-database.json"
+      ],
+      "name": ""
+    },
+    {
+      "inputName": ".AspNetCore.Cookies",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "unknown",
+      "tracking": false,
+      "ruleIds": [],
+      "sourceUrls": [],
+      "name": ""
+    },
+    {
+      "inputName": ".AspNetCore.Identity.Application",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "unknown",
+      "tracking": false,
+      "ruleIds": [],
+      "sourceUrls": [],
+      "name": ""
+    },
+    {
+      "inputName": "authjs.session-token",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "unknown",
+      "tracking": false,
+      "ruleIds": [],
+      "sourceUrls": [],
+      "name": ""
+    },
+    {
+      "inputName": "__Secure-next-auth.session-token.0",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "unknown",
+      "tracking": false,
+      "ruleIds": [],
+      "sourceUrls": [],
+      "name": ""
+    },
+    {
+      "inputName": "OptanonConsent",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "ambiguous",
+      "tracking": false,
+      "ruleIds": [
+        "ocdb:eb839f61-f36a-4f51-a4d1-ff37fa75b995"
+      ],
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/jkwakman/Open-Cookie-Database/749c37c17eb910fa95621f4fee34d9a6d4126c23/open-cookie-database.json"
+      ],
+      "name": ""
+    },
+    {
+      "inputName": "OptanonAlertBoxClosed",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "ambiguous",
+      "tracking": false,
+      "ruleIds": [
+        "ocdb:ef1e8fd4-cc42-4fc0-ad79-5f6d34d08196"
+      ],
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/jkwakman/Open-Cookie-Database/749c37c17eb910fa95621f4fee34d9a6d4126c23/open-cookie-database.json"
+      ],
+      "name": ""
+    },
+    {
+      "inputName": "CookieConsent",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "ambiguous",
+      "tracking": false,
+      "ruleIds": [
+        "ocdb:6ca095be-4711-47f0-9e83-eecc86ff12c9"
+      ],
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/jkwakman/Open-Cookie-Database/749c37c17eb910fa95621f4fee34d9a6d4126c23/open-cookie-database.json"
+      ],
+      "name": ""
+    },
+    {
+      "inputName": "cookieyes-consent",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "ambiguous",
+      "tracking": false,
+      "ruleIds": [
+        "ocdb:f9af33cc-8046-4e64-8b4d-696e1f27c436"
+      ],
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/jkwakman/Open-Cookie-Database/749c37c17eb910fa95621f4fee34d9a6d4126c23/open-cookie-database.json"
+      ],
+      "name": ""
+    },
+    {
+      "inputName": "didomi_token",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "ambiguous",
+      "tracking": false,
+      "ruleIds": [
+        "ocdb:f13338a6-f4d9-4024-864c-c2291463e2bc"
+      ],
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/jkwakman/Open-Cookie-Database/749c37c17eb910fa95621f4fee34d9a6d4126c23/open-cookie-database.json"
+      ],
+      "name": ""
+    },
+    {
+      "inputName": "didomi_dcs",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "unknown",
+      "tracking": false,
+      "ruleIds": [],
+      "sourceUrls": [],
+      "name": ""
+    },
+    {
+      "inputName": "euconsent-v2",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "ambiguous",
+      "tracking": false,
+      "ruleIds": [
+        "ocdb:2bbba96a-7732-45e8-bbd6-4edaa69ecbe5",
+        "ocdb:3f10ddbd-56c6-4179-bd46-540c188b56c2",
+        "ocdb:7da07b97-f381-4af9-bce6-fa6f5af03b93"
+      ],
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/jkwakman/Open-Cookie-Database/749c37c17eb910fa95621f4fee34d9a6d4126c23/open-cookie-database.json"
+      ],
+      "name": ""
+    },
+    {
+      "inputName": "_hjSessionUser_123",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "ambiguous",
+      "tracking": false,
+      "ruleIds": [
+        "ocdb:d5da1a8e-0ccd-4b3a-a19d-ec38807a5444"
+      ],
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/jkwakman/Open-Cookie-Database/749c37c17eb910fa95621f4fee34d9a6d4126c23/open-cookie-database.json"
+      ],
+      "name": ""
+    },
+    {
+      "inputName": "_hjSession_123",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "ambiguous",
+      "tracking": false,
+      "ruleIds": [
+        "ocdb:283823c6-684c-466e-8ca4-23b18231e5a3"
+      ],
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/jkwakman/Open-Cookie-Database/749c37c17eb910fa95621f4fee34d9a6d4126c23/open-cookie-database.json"
+      ],
+      "name": ""
+    },
+    {
+      "inputName": "_hjCookieTest",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "ambiguous",
+      "tracking": false,
+      "ruleIds": [
+        "ocdb:385c6538-5914-4e21-8feb-227fd7bf85f0"
+      ],
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/jkwakman/Open-Cookie-Database/749c37c17eb910fa95621f4fee34d9a6d4126c23/open-cookie-database.json"
+      ],
+      "name": ""
+    },
+    {
+      "inputName": "_hjDonePolls",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "ambiguous",
+      "tracking": false,
+      "ruleIds": [
+        "ocdb:c0133a22-7958-4591-a519-1103338ac773"
+      ],
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/jkwakman/Open-Cookie-Database/749c37c17eb910fa95621f4fee34d9a6d4126c23/open-cookie-database.json"
+      ],
+      "name": ""
+    },
+    {
+      "inputName": "_cs_id",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "ambiguous",
+      "tracking": false,
+      "ruleIds": [
+        "ocdb:b8bc149e-2402-4cd8-ae8a-c5c33ce8198b"
+      ],
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/jkwakman/Open-Cookie-Database/749c37c17eb910fa95621f4fee34d9a6d4126c23/open-cookie-database.json"
+      ],
+      "name": ""
+    },
+    {
+      "inputName": "_cs_s_ctx",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "unknown",
+      "tracking": false,
+      "ruleIds": [],
+      "sourceUrls": [],
+      "name": ""
+    },
+    {
+      "inputName": "_cs_c",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "ambiguous",
+      "tracking": false,
+      "ruleIds": [
+        "ocdb:bcc12926-42e9-4d0a-babe-f4620a2517e1"
+      ],
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/jkwakman/Open-Cookie-Database/749c37c17eb910fa95621f4fee34d9a6d4126c23/open-cookie-database.json"
+      ],
+      "name": ""
+    },
+    {
+      "inputName": "_cs_optout",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "ambiguous",
+      "tracking": false,
+      "ruleIds": [
+        "ocdb:eb9d685d-8ba0-4788-a2e2-4f62428a163e"
+      ],
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/jkwakman/Open-Cookie-Database/749c37c17eb910fa95621f4fee34d9a6d4126c23/open-cookie-database.json"
+      ],
+      "name": ""
+    },
+    {
+      "inputName": "_hp5_meta.123",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "ambiguous",
+      "tracking": false,
+      "ruleIds": [
+        "ocdb:15f9462d-24ed-4be6-ac64-627e85f708e0"
+      ],
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/jkwakman/Open-Cookie-Database/749c37c17eb910fa95621f4fee34d9a6d4126c23/open-cookie-database.json"
+      ],
+      "name": ""
+    },
+    {
+      "inputName": "aws-waf-token",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "unknown",
+      "tracking": false,
+      "ruleIds": [],
+      "sourceUrls": [],
+      "name": ""
+    },
+    {
+      "inputName": "AWSELB",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "ambiguous",
+      "tracking": false,
+      "ruleIds": [
+        "ocdb:95092dcc-a484-452b-afab-d7ed6a7c514d"
+      ],
+      "sourceUrls": [
+        "https://raw.githubusercontent.com/jkwakman/Open-Cookie-Database/749c37c17eb910fa95621f4fee34d9a6d4126c23/open-cookie-database.json"
+      ],
+      "name": ""
+    },
+    {
+      "inputName": "sessionid",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "unknown",
+      "tracking": false,
+      "ruleIds": [],
+      "sourceUrls": [],
+      "name": ""
+    },
+    {
+      "inputName": "uid",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "unknown",
+      "tracking": false,
+      "ruleIds": [],
+      "sourceUrls": [],
+      "name": ""
+    },
+    {
+      "inputName": "token",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "unknown",
+      "tracking": false,
+      "ruleIds": [],
+      "sourceUrls": [],
+      "name": ""
+    },
+    {
+      "inputName": "_cs_1234567890123",
+      "domain": "shop.example.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "unknown",
+      "tracking": false,
+      "ruleIds": [],
+      "sourceUrls": [],
+      "name": ""
+    },
+    {
+      "inputName": "NID",
+      "domain": "google.com",
+      "category": "unknown",
+      "owner": "",
+      "purpose": "",
+      "confidence": "ambiguous",
+      "tracking": false,
+      "ruleIds": [
+        "primary:006"
+      ],
+      "sourceUrls": [
+        "https://policies.google.com/technologies/cookies?hl=en"
+      ],
+      "name": ""
+    }
+  ]
+}

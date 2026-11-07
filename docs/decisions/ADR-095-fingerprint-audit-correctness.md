@@ -1,0 +1,40 @@
+# ADR-095 — Fingerprint audit correctness and evidence
+
+2026-10-31. The owner requested production fixes following an independent critique of the 280-key coverage map. Existing permissions, CSP, schemas, canonical detector enums, privacy boundaries and the Protect module are unchanged. This extends ADR-066 and ADR-087 without claiming engine or network virtualization.
+
+## Explicit blocking survives generation
+
+All generator recipes preserve existing Block rows and their dormant selected values. Generation previously changed some of those rows to Custom, unintentionally replacing the user's blocking choice. Global and per-site policy precedence, both masters, unrelated rows and immutable input behavior remain unchanged.
+
+## Private Promise constructor capability
+
+In explicit Custom, a native Promise returned by a covered operation is internal to its projector. Before attaching the cold-captured native reaction, the installer defines an immutable own constructor on that private Promise. Its value is a frozen null-prototype object whose cold-captured `Symbol.species` is the cold-captured native Promise constructor. The reaction therefore does not invoke a later public `Promise.prototype.constructor` getter or a page-selected species constructor with the internal Promise.
+
+This applies to the general asynchronous projector, OffscreenCanvas encoding and both asynchronous WebRTC paths. It changes no shared prototype or global constructor and performs no function-source masking. Native invocation, receiver, arguments and synchronous errors still precede this step; normal native rejection reasons are retained. A promise that cannot receive the private constructor capability fails closed without exposing its original result. Canvas reservations are released on failure. OFF/stopped paths remain native.
+
+This closes the constructor/species entry when the hook registers its own reaction. It does not establish that the native backend has not already exposed an internal promise. Native backend result assimilation through a modified `Object.prototype.then`, previously shared native handles, all realms and observations of wrappers remain separate boundaries.
+
+## WebRTC public-Promise preflight
+
+The actual Firefox 159 release backend calls the content Window's public `Promise.resolve` before returning its internal operation. A post-return constructor pin alone cannot protect this earlier step. Each target Window therefore retains a private first snapshot of its own data Promise/prototype/constructor/resolve/then and species descriptor identities. Before an active asynchronous WebRTC operation or device enumeration, captured descriptor operations compare the current state without invoking page getters. A changed or unavailable state raises a captured `TypeError` with `Custom WebRTC asynchronous state is unavailable` before calling the backend. Ordinary clean-state offers still execute, and OFF/stopped paths remain native. Legitimate Promise replacements can consequently make these Custom operations unavailable.
+
+Native Firefox 159 reproduced a second path: a getter of an RTCOfferOptions member changes public Promise during native dictionary conversion, after the pre-call check. For createOffer's modern options argument or legacy third argument, a private forwarding get-only Proxy now checks Promise state after every successful native-driven property Get. Reflect.get retains the original receiver, getter order/count and thrown exception; native WebIDL still performs Boolean conversion. The three current RTCOfferOptions members are boolean, so this conversion adds no valueOf/toPrimitive callbacks. Frozen and page-Proxy dictionaries are supported without enumerating them. This is a narrow exception to original argument identity: native sees the private Proxy. A normal offer with an options getter must remain functional; a mutating getter must produce the exact captured guard error, with one getter read and no original-promise capture. This guarded refusal occurs during conversion, distinct from the pre-call refusal.
+
+Neither check provides complete backend isolation. Pending backend assimilation, other operation dictionaries, future coercive nonboolean options and cross-realm borrowed receiver behavior remain outside this proof. A surviving WindowProxy after navigation remains a review candidate. Shared prototypes are not patched to suppress these limitations. Native QA accepts each guarded refusal only with its specific evidence, zero hostile constructor reads, no captured original promise and a separate successful ordinary offer; unrelated exceptions are not passing evidence.
+
+## API semantics and cross-field correctness
+
+- Date.now retains integral milliseconds, using an integer resolution no finer than the selected precision. Performance.now and RAF retain their selected fractional resolution. Math projection preserves standard SQRT2 and SQRT1_2 identities as existing standard-constant guards do.
+- WebGL readback projection uses the absolute framebuffer coordinate, independent of rectangle/PACK/view offsets. Transparent black stays zero; colored transparent pixels remain projected. Alpha, padding and tails are retained. Existing default-framebuffer, size, type, shared-memory and fail-closed unsupported-operation guards stay in force; they are not claimed to reproduce every GL no-op/error behavior.
+- Existing screenLeft/screenTop aliases follow the selected screenX/screenY. Virtual Plugin/MimeType metadata own fields are nonenumerable, preserving indexed and named links while avoiding JSON cycles. Observable own descriptors are not disguised.
+- MediaCapabilities and InputDeviceInfo capability results retain nonselected native own data fields, their order and native handle identity. Only selected capability flags or device/group IDs are projected. Accessors are not invoked or transferred. This is the direct API result returned to its caller; the observer/report redaction allowlist is unchanged.
+- For locale-overridden Intl constructors with object options, a forwarding Proxy records the original native option reads. Locale-dependent defaults are recomputed for the selected locale, while explicitly requested validated options remain. This is a narrow exception to ADR-087's original-options-argument identity: native property receiver/coercion/errors are preserved, but a late page constructor can observe the options Proxy identity. Primitive options or unresolved coercive matchers remain native and unavailable rather than being read/coerced again. No shared prototype or function-source concealment is introduced.
+- Additional DOM insertion hooks protect discoverable descendant Windows after successful Range insertion/surrounding, setHTMLUnsafe, moveBefore and Document.body assignment. Captured native getters and existing scoped queries/realm caps are reused. Native callbacks during insertion and inaccessible closed declarative shadow trees remain separate boundaries; querySelectorAll traversal is not claimed to have a fixed CPU-time bound.
+
+## Evidence is independent of the supplied denominator
+
+The immutable original 280-key attachment is an inventory input, not a universe of fingerprints. New audit artifacts separate probe quality, product capability, observation side effects, consistency pairs and native evidence. Standards constants and malformed or input-only probe outputs are identified separately. A bounded repaired probe reads inherited WebGPU IDL attributes explicitly and distinguishes fixed WASM module bytes from execution results. Missing APIs, related samples, exact samples, stale reports and unmeasured paths are distinct outcomes.
+
+External source inventories are tied to actual upstream revisions and hashes. Browser evidence records executable versions and OS; historical observations do not become current PASS after source drift. New browser binaries and tests live only in the local QA workspace. No external code, remote data pack or active fingerprint benchmark is added to extension runtime.
+
+Task evidence and actual validation: внутренний отчёт.

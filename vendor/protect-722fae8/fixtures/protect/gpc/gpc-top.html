@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>GPC stand (S13)</title>
+</head>
+<body>
+<!-- ADR-020 §H (S13): fixture of tests/extension/protect/gpc.spec.ts. Served by tests/fixture-routes/gpc.mjs (the
+     navigation's Sec-GPC is counted there). The page checks navigator.globalPrivacyControl and its descriptor, then
+     makes the requests the server checks for Sec-GPC: same-origin and cross-site fetch, sendBeacon, an image, a
+     cross-site iframe, an about:blank iframe, a WebSocket and a dedicated Worker. ?other=<origin> names the cross-site
+     origin; ?requests=0 only checks the property. No value is typed or sent. -->
+<h1>GPC stand</h1>
+<pre id="property"></pre>
+<pre id="requests"></pre>
+<script>
+(function () {
+  'use strict';
+  var params = new URLSearchParams(location.search);
+  var other = params.get('other') || location.origin;
+  var withRequests = params.get('requests') !== '0';
+
+  function describe(win) {
+    var nav = win.Navigator;
+    var proto = typeof nav === 'function' ? nav.prototype : null;
+    var d = proto ? Object.getOwnPropertyDescriptor(proto, 'globalPrivacyControl') : undefined;
+    var fts = win.Function.prototype.toString;
+    var value = win.navigator.globalPrivacyControl;
+    return {
+      value: value === undefined ? 'undefined' : value,
+      onPrototype: d !== undefined,
+      ownOnInstance: Object.getOwnPropertyDescriptor(win.navigator, 'globalPrivacyControl') !== undefined,
+      kind: d === undefined ? 'none' : (typeof d.get === 'function' ? 'accessor' : 'data'),
+      getterName: d && typeof d.get === 'function' ? d.get.name : null,
+      getterNative: d && typeof d.get === 'function' ? /\[native code\]/.test(fts.call(d.get)) : null,
+      hasSetter: d ? d.set !== undefined : null,
+      enumerable: d ? d.enumerable : null,
+      configurable: d ? d.configurable : null,
+      toStringNative: /\[native code\]/.test(fts.call(fts)),
+      toStringOwnOnPrototype: Object.getOwnPropertyDescriptor(win.Function.prototype, 'toString') !== undefined
+    };
+  }
+
+  function timeout(ms, label) {
+    return new Promise(function (resolve) { setTimeout(function () { resolve({ timeout: label }); }, ms); });
+  }
+
+  function echo(url) {
+    return Promise.race([
+      fetch(url, { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (j) { return { secGpc: j.secGpc }; }, function (e) { return { error: String(e && e.name) }; }),
+      timeout(4000, url)
+    ]);
+  }
+
+  function image(url) {
+    return Promise.race([
+      new Promise(function (resolve) {
+        var img = new Image();
+        img.onload = function () { resolve({ loaded: true }); };
+        img.onerror = function () { resolve({ loaded: false }); };
+        img.src = url;
+      }),
+      timeout(4000, url)
+    ]);
+  }
+
+  function frame(url) {
+    return Promise.race([
+      new Promise(function (resolve) {
+        window.addEventListener('message', function onMessage(event) {
+          if (event.data && event.data.gpcFrame) {
+            window.removeEventListener('message', onMessage);
+            resolve(event.data.gpcFrame);
+          }
+        });
+        var f = document.createElement('iframe');
+        f.src = url;
+        document.body.appendChild(f);
+      }),
+      timeout(6000, url)
+    ]);
+  }
+
+  function blankFrame() {
+    return new Promise(function (resolve) {
+      var f = document.createElement('iframe');
+      document.body.appendChild(f);
+      // Content scripts reach the initial about:blank document only through matchOriginAsFallback; give them a turn.
+      setTimeout(function () {
+        try {
+          resolve(describe(f.contentWindow));
+        } catch (e) {
+          resolve({ error: String(e && e.name) });
+        }
+      }, 300);
+    });
+  }
+
+  function socket(url) {
+    return Promise.race([
+      new Promise(function (resolve) {
+        var ws;
+        try {
+          ws = new WebSocket(url);
+        } catch (e) {
+          resolve({ error: String(e && e.name) });
+          return;
+        }
+        ws.onopen = function () { ws.close(); resolve({ open: true }); };
+        ws.onerror = function () { resolve({ open: false }); };
+      }),
+      timeout(4000, url)
+    ]);
+  }
+
+  function worker() {
+    return Promise.race([
+      new Promise(function (resolve) {
+        var w = new Worker('gpc-worker.js');
+        w.onmessage = function (event) { resolve(event.data); w.terminate(); };
+        w.onerror = function () { resolve({ error: 'worker' }); };
+      }),
+      timeout(6000, 'worker')
+    ]);
+  }
+
+  // The spec calls this later (header after a setting change, without a reload).
+  window.__gpcFetch = function (label) { return echo('/gpc-echo/' + label); };
+
+  var property = describe(window);
+  document.getElementById('property').textContent = JSON.stringify(property, null, 1);
+  if (!withRequests) {
+    window.__fixtureResult = { property: property };
+    return;
+  }
+  var beacon = navigator.sendBeacon('/gpc-echo/beacon', 'gpc-stand');
+  Promise.all([
+    echo('/gpc-echo/fetch-same'),
+    echo(other + '/gpc-echo/fetch-cross'),
+    image(other + '/gpc-echo/img-cross'),
+    frame(other + '/protect/gpc/gpc-frame.html'),
+    blankFrame(),
+    socket((location.protocol === 'https:' ? 'wss://' : 'ws://') + location.host + '/gpc-ws'),
+    worker()
+  ]).then(function (r) {
+    var result = {
+      property: property,
+      requests: { fetchSame: r[0], fetchCross: r[1], image: r[2], beacon: beacon, socket: r[5] },
+      frame: r[3],
+      aboutBlank: r[4],
+      worker: r[6]
+    };
+    document.getElementById('requests').textContent = JSON.stringify(result.requests, null, 1);
+    window.__fixtureResult = result;
+  });
+
+})();
+</script>
+</body>
+</html>

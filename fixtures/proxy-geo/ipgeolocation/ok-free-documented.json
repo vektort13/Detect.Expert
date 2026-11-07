@@ -1,0 +1,83 @@
+{
+  "provider": "ipgeolocation",
+  "ip": "91.128.103.196",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": {
+    "ip": "91.128.103.196",
+    "location": {
+      "continent_code": "EU",
+      "continent_name": "Europe",
+      "country_code2": "SE",
+      "country_code3": "SWE",
+      "country_name": "Sweden",
+      "country_name_official": "Kingdom of Sweden",
+      "country_capital": "Stockholm",
+      "state_prov": "Stockholms län",
+      "state_code": "SE-AB",
+      "district": "Stockholm",
+      "city": "Stockholm",
+      "zipcode": "164 40",
+      "latitude": "59.40510",
+      "longitude": "17.95510",
+      "is_eu": true,
+      "country_flag": "https://ipgeolocation.io/static/flags/se_64.png",
+      "geoname_id": "9972319",
+      "country_emoji": "🇸🇪"
+    },
+    "country_metadata": {
+      "calling_code": "+46",
+      "tld": ".se",
+      "languages": [
+        "sv-SE",
+        "se",
+        "sma",
+        "fi-SE"
+      ]
+    },
+    "currency": {
+      "code": "SEK",
+      "name": "Swedish Krona",
+      "symbol": "kr"
+    },
+    "asn": {
+      "as_number": "AS1257",
+      "organization": "Tele2 Sverige AB",
+      "country": "SE"
+    },
+    "time_zone": {
+      "name": "Europe/Stockholm",
+      "offset": 1,
+      "offset_with_dst": 1,
+      "current_time": "2026-10-29 11:33:54.716+0100",
+      "current_time_unix": 1793270034.716,
+      "current_tz_abbreviation": "CET",
+      "current_tz_full_name": "Central European Standard Time",
+      "standard_tz_abbreviation": "CET",
+      "standard_tz_full_name": "Central European Standard Time",
+      "is_dst": false,
+      "dst_savings": 0,
+      "dst_exists": true,
+      "dst_tz_abbreviation": "CEST",
+      "dst_tz_full_name": "Central European Summer Time",
+      "dst_start": {
+        "utc_time": "2026-03-29 TIME 01:00",
+        "duration": "+1.00H",
+        "gap": true,
+        "date_time_after": "2026-03-29 TIME 03:00",
+        "date_time_before": "2026-03-29 TIME 02:00",
+        "overlap": false
+      },
+      "dst_end": {
+        "utc_time": "2026-10-25 TIME 01:00",
+        "duration": "-1.00H",
+        "gap": false,
+        "date_time_after": "2026-10-25 TIME 02:00",
+        "date_time_before": "2026-10-25 TIME 03:00",
+        "overlap": true
+      }
+    }
+  }
+}

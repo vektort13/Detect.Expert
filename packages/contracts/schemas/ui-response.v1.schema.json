@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:detect-expert:contracts:ui-response:v1",
+  "title": "UiResponse v1 — service worker -> extension UI pages",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "type",
+        "report"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/schemaVersion"
+        },
+        "type": {
+          "const": "report"
+        },
+        "report": {
+          "anyOf": [
+            {
+              "$ref": "urn:detect-expert:contracts:common:v1#/$defs/reportProjection"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "type",
+        "reportRevision"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/schemaVersion"
+        },
+        "type": {
+          "const": "ok"
+        },
+        "reportRevision": {
+          "anyOf": [
+            {
+              "$ref": "urn:detect-expert:contracts:common:v1#/$defs/nonNegInt"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "type",
+        "scope"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/schemaVersion"
+        },
+        "type": {
+          "const": "scope"
+        },
+        "scope": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/scopeState"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "type",
+        "preview"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/schemaVersion"
+        },
+        "type": {
+          "const": "export-preview"
+        },
+        "preview": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/exportPreview"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "type",
+        "code"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/schemaVersion"
+        },
+        "type": {
+          "const": "error"
+        },
+        "code": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/uiErrorCode"
+        }
+      }
+    }
+  ]
+}

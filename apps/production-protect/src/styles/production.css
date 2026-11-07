@@ -1,0 +1,160 @@
+/* ADR-047 (S1, S3; port plan §2.5): production layer of the module «Защита». Loaded after ui.css, button-surfaces.css
+   and the vendored module stylesheets; scoped to the module containers (.protect-island, .protect-page,
+   .protect-launcher, body.protect-requests, and the ADR-051 shared .inspector-tools row). Only production tokens of ui.css and
+   button-surfaces.css (light + dark through prefers-color-scheme) and the module token --accent-bg of the vendored
+   base.css. This file: layout of the containers; surfaces.css: the production look (cards, groups, segments). */
+
+/* The island container is layout-neutral: the production page keeps its own flow and spacing; an island that
+   renders nothing (module off) adds no box and no gap. */
+.protect-island {
+  display: contents;
+}
+
+.protect-island__error {
+  margin: var(--space-2) 0;
+}
+
+/* Popup / side panel: the module area is a plain group; its cards carry the surfaces. */
+.protect-island .section[data-protect-area='true'],
+.protect-island .protect-island__panel {
+  display: grid;
+  gap: var(--space-3);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.protect-island .section[data-protect-area='true'] > *,
+.protect-island .protect-island__panel > * {
+  margin-block: 0;
+}
+
+/* ADR-052: removed transfer/replay cards must not leave a blank group in the main popup. */
+.protect-island [data-protect-area='true']:not(:has(.protect-fw-line, .gpc, .requests-reminder)) {
+  display: none;
+}
+
+/* ADR-051: API and Firewall share one row; a Firefox stub leaves API at full width. */
+.inspector-tools {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: 10px;
+  min-width: 0;
+  margin-block: 0 10px;
+}
+
+.inspector-tools:has([data-protect-launcher]) {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.inspector-tools .blocking-launcher {
+  min-width: 0;
+  margin: 0;
+}
+
+.inspector-tools .blocking-launcher__controls {
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 6px;
+}
+
+:root body .inspector-tools :is(.blocking-launcher__open, .blocking-master) {
+  box-sizing: border-box;
+  height: var(--inspector-control-height, 40px);
+  min-height: var(--inspector-control-height, 40px);
+  border-radius: 14px;
+}
+
+:root body .inspector-tools .blocking-launcher__open {
+  padding-inline: 10px;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.3;
+}
+
+:root body .inspector-tools .blocking-launcher__open > span:first-child {
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-overflow: clip;
+}
+
+:root body .inspector-tools .protect-launcher .blocking-launcher__open > span:first-child {
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+
+:root body .inspector-tools .protect-launcher__status {
+  max-width: 74px;
+}
+
+.inspector-tools .blocking-launcher__chevron {
+  flex: none;
+  font-size: 18px;
+}
+
+:root body .inspector-tools .blocking-master {
+  gap: 4px;
+  min-width: 46px;
+  padding-inline: 6px;
+  font-size: 12px;
+}
+
+.inspector-tools .blocking-master__dot {
+  width: 5px;
+  height: 5px;
+  flex: none;
+}
+
+.inspector-tools [dir='rtl'] .blocking-launcher__chevron,
+[dir='rtl'] .inspector-tools .blocking-launcher__chevron {
+  transform: scaleX(-1);
+}
+
+.protect-launcher__status:not(.blocking-master--on):not(.blocking-master--off) {
+  color: var(--attention);
+  border-color: var(--attention-border);
+  background: var(--attention-bg);
+}
+
+.protect-launcher__state {
+  flex: 0 1 auto;
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  font: inherit;
+}
+
+/* Module page in Options (options.html#protect): one column of setting cards. */
+.protect-page__body {
+  display: grid;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.protect-page__locale-note {
+  margin: 0;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.protect-page__body > .section {
+  min-width: 0;
+  margin: 0;
+  padding: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+/* requests.html and the module page: the page background covers the window (no tiled gradient under a short page). */
+body.protect-requests,
+html:has(.protect-page) body {
+  min-height: 100vh;
+  margin: 0;
+}

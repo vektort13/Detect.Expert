@@ -1,0 +1,4623 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-10",
+  "requirement": "ADR-034 / REQ-010/013",
+  "counts": {
+    "packagedBrands": 781,
+    "exactAliases": 991,
+    "antifraud": 32,
+    "activeAntifraud": 32,
+    "social": 45,
+    "tagManager": 10,
+    "beacons": 6,
+    "cookieRules": 6687,
+    "cookieCompiledRules": 6673,
+    "catalogOwnerLabels": 1122,
+    "witnessedCookieOwners": 684,
+    "witnessedCookieCompanies": 673,
+    "witnessedNeutralConventions": 11,
+    "cookieCompaniesWithLogo": 670,
+    "totalGaps": 3
+  },
+  "sourceHashes": {
+    "company-branding.js": "d95988c6eb8bada0a230f1f735fc4f5c1316f1ed7392095d05b64892b7b6f941",
+    "cookie-catalog.js": "6a447d65d9d5e3d219c81b945b351240ddca11a7a3cb81b0e22ed066f546ce97",
+    "identification-ui.js": "cd00f7794273884d4c650f10d0bbb77f343b484a853ae4b4b83d18a8b8ac9756",
+    "advanced-ui.js": "21f88f39dffc544922aafe355496f01a68840df517f2dee12f5bcda8f9db34cc",
+    "background.js": "eb0379fb7d18a2690f250fb35034f3cc693c29719469ffda7e3302fe61dd9e4d",
+    "popup.js": "c63d01a3dc18b1921a3c984b61cbf129a0edaf5fbcdd09c7d581db9c27429490"
+  },
+  "method": "The full shipped classifier is exercised on every admitted static selector and a valid synthetic suffix for every admitted prefix across all declared domains. Counts describe witnessed distinct owner labels, not website detection accuracy. Exact catalogue identities only; inactive research seeds and ownerless name hints excluded.",
+  "groups": {
+    "antifraud": [
+      {
+        "id": "cloudflare-turnstile",
+        "name": "Cloudflare Turnstile",
+        "brand": "cloudflare"
+      },
+      {
+        "id": "google-recaptcha",
+        "name": "Google reCAPTCHA",
+        "brand": "google"
+      },
+      {
+        "id": "hcaptcha",
+        "name": "hCaptcha",
+        "brand": "hcaptcha"
+      },
+      {
+        "id": "datadome",
+        "name": "DataDome",
+        "brand": "datadome"
+      },
+      {
+        "id": "sift",
+        "name": "Sift",
+        "brand": "sift"
+      },
+      {
+        "id": "maxmind-minfraud",
+        "name": "MaxMind minFraud",
+        "brand": "maxmind"
+      },
+      {
+        "id": "threatmetrix",
+        "name": "LexisNexis ThreatMetrix",
+        "brand": "lexisnexis"
+      },
+      {
+        "id": "arkose",
+        "name": "Arkose Labs",
+        "brand": "arkose"
+      },
+      {
+        "id": "cybersource",
+        "name": "Cybersource Device Fingerprint",
+        "brand": "cybersource"
+      },
+      {
+        "id": "seon",
+        "name": "SEON",
+        "brand": "seon"
+      },
+      {
+        "id": "human",
+        "name": "HUMAN / PerimeterX",
+        "brand": "human"
+      },
+      {
+        "id": "signifyd",
+        "name": "Signifyd",
+        "brand": "signifyd"
+      },
+      {
+        "id": "iovation",
+        "name": "iovation",
+        "brand": "iovation"
+      },
+      {
+        "id": "fingerprint",
+        "name": "Fingerprint (FingerprintJS Pro)",
+        "brand": "fingerprint"
+      },
+      {
+        "id": "fingerprintjs",
+        "name": "FingerprintJS",
+        "brand": "fingerprint"
+      },
+      {
+        "id": "geetest",
+        "name": "GeeTest CAPTCHA",
+        "brand": "geetest"
+      },
+      {
+        "id": "yandex-smartcaptcha",
+        "name": "Yandex SmartCaptcha",
+        "brand": "yandex"
+      },
+      {
+        "id": "kount",
+        "name": "Kount",
+        "brand": "kount"
+      },
+      {
+        "id": "fraudlabs-pro",
+        "name": "FraudLabs Pro",
+        "brand": "fraudlabs-pro"
+      },
+      {
+        "id": "adyen",
+        "name": "Adyen Risk Data Collection",
+        "brand": "adyen"
+      },
+      {
+        "id": "forter",
+        "name": "Forter",
+        "brand": "forter"
+      },
+      {
+        "id": "paypal-fraudnet",
+        "name": "PayPal FraudNet",
+        "brand": "paypal"
+      },
+      {
+        "id": "alibaba-captcha",
+        "name": "Alibaba Cloud CAPTCHA",
+        "brand": "alibabacloud"
+      },
+      {
+        "id": "tencent-captcha",
+        "name": "Tencent Cloud CAPTCHA",
+        "brand": "tencent"
+      },
+      {
+        "id": "mtcaptcha",
+        "name": "MTCaptcha",
+        "brand": "mtcaptcha"
+      },
+      {
+        "id": "baidu-waf-captcha",
+        "name": "Baidu Cloud WAF challenge components",
+        "brand": "baidu"
+      },
+      {
+        "id": "friendly-captcha",
+        "name": "Friendly Captcha",
+        "brand": "friendly-captcha"
+      },
+      {
+        "id": "sumsub",
+        "name": "Sumsub WebSDK",
+        "brand": "sumsub"
+      },
+      {
+        "id": "trustdecision",
+        "name": "TrustDecision Behavior SDK",
+        "brand": "trustdecision"
+      },
+      {
+        "id": "netease-yidun",
+        "name": "NetEase Yidun CAPTCHA",
+        "brand": "netease"
+      },
+      {
+        "id": "clearsale",
+        "name": "ClearSale Behavior Analytics",
+        "brand": "clearsale"
+      },
+      {
+        "id": "socure",
+        "name": "Socure Digital Intelligence",
+        "brand": "socure"
+      }
+    ],
+    "social": [
+      {
+        "id": "facebook",
+        "name": "Facebook",
+        "brand": "facebook"
+      },
+      {
+        "id": "instagram",
+        "name": "Instagram",
+        "brand": "instagram"
+      },
+      {
+        "id": "x",
+        "name": "X",
+        "brand": "x-twitter"
+      },
+      {
+        "id": "linkedin",
+        "name": "LinkedIn",
+        "brand": "linkedin"
+      },
+      {
+        "id": "tiktok",
+        "name": "TikTok",
+        "brand": "tiktok"
+      },
+      {
+        "id": "snapchat",
+        "name": "Snapchat",
+        "brand": "snapchat"
+      },
+      {
+        "id": "pinterest",
+        "name": "Pinterest",
+        "brand": "pinterest"
+      },
+      {
+        "id": "reddit",
+        "name": "Reddit",
+        "brand": "reddit"
+      },
+      {
+        "id": "discord",
+        "name": "Discord",
+        "brand": "discord"
+      },
+      {
+        "id": "twitch",
+        "name": "Twitch",
+        "brand": "twitch"
+      },
+      {
+        "id": "youtube",
+        "name": "YouTube",
+        "brand": "youtube"
+      },
+      {
+        "id": "github",
+        "name": "GitHub",
+        "brand": "github"
+      },
+      {
+        "id": "gitlab",
+        "name": "GitLab",
+        "brand": "gitlab"
+      },
+      {
+        "id": "vk",
+        "name": "VK",
+        "brand": "vk"
+      },
+      {
+        "id": "ok",
+        "name": "OK",
+        "brand": "odnoklassniki"
+      },
+      {
+        "id": "weibo",
+        "name": "Weibo",
+        "brand": "weibo"
+      },
+      {
+        "id": "qq",
+        "name": "QQ",
+        "brand": "qq"
+      },
+      {
+        "id": "telegram",
+        "name": "Telegram",
+        "brand": "telegram"
+      },
+      {
+        "id": "line",
+        "name": "LINE",
+        "brand": "line"
+      },
+      {
+        "id": "google",
+        "name": "Google",
+        "brand": "google"
+      },
+      {
+        "id": "microsoft",
+        "name": "Microsoft",
+        "brand": "microsoft"
+      },
+      {
+        "id": "apple",
+        "name": "Apple",
+        "brand": "apple"
+      },
+      {
+        "id": "spotify",
+        "name": "Spotify",
+        "brand": "spotify"
+      },
+      {
+        "id": "steam",
+        "name": "Steam",
+        "brand": "steam"
+      },
+      {
+        "id": "yahoo",
+        "name": "Yahoo",
+        "brand": "yahoo"
+      },
+      {
+        "id": "tumblr",
+        "name": "Tumblr",
+        "brand": "tumblr"
+      },
+      {
+        "id": "quora",
+        "name": "Quora",
+        "brand": "quora"
+      },
+      {
+        "id": "disqus",
+        "name": "Disqus",
+        "brand": "disqus"
+      },
+      {
+        "id": "yandex",
+        "name": "Yandex",
+        "brand": "yandex"
+      },
+      {
+        "id": "mailru",
+        "name": "Mail.ru",
+        "brand": "maildotru"
+      },
+      {
+        "id": "kakao",
+        "name": "Kakao",
+        "brand": "kakao"
+      },
+      {
+        "id": "naver",
+        "name": "NAVER",
+        "brand": "naver"
+      },
+      {
+        "id": "baidu",
+        "name": "Baidu",
+        "brand": "baidu"
+      },
+      {
+        "id": "bluesky",
+        "name": "Bluesky",
+        "brand": "bluesky"
+      },
+      {
+        "id": "sharethis",
+        "name": "ShareThis",
+        "brand": "sharethis"
+      },
+      {
+        "id": "douyin",
+        "name": "Douyin",
+        "brand": "tiktok"
+      },
+      {
+        "id": "wechat",
+        "name": "WeChat",
+        "brand": "weixin"
+      },
+      {
+        "id": "mastodon",
+        "name": "Mastodon",
+        "brand": "mastodon"
+      },
+      {
+        "id": "addthis",
+        "name": "AddThis",
+        "brand": "addthis"
+      },
+      {
+        "id": "whatsapp",
+        "name": "WhatsApp",
+        "brand": "whatsapp"
+      },
+      {
+        "id": "viber",
+        "name": "Viber",
+        "brand": "viber"
+      },
+      {
+        "id": "threads",
+        "name": "Threads",
+        "brand": "threads"
+      },
+      {
+        "id": "vimeo",
+        "name": "Vimeo",
+        "brand": "vimeo"
+      },
+      {
+        "id": "dailymotion",
+        "name": "Dailymotion",
+        "brand": "dailymotion"
+      },
+      {
+        "id": "soundcloud",
+        "name": "SoundCloud",
+        "brand": "soundcloud"
+      }
+    ],
+    "tagManager": [
+      {
+        "id": "google-tag-manager",
+        "name": "Google Tag Manager",
+        "brand": "google"
+      },
+      {
+        "id": "google-analytics",
+        "name": "Google Analytics",
+        "brand": "google"
+      },
+      {
+        "id": "google-ads",
+        "name": "Google Ads",
+        "brand": "google"
+      },
+      {
+        "id": "facebook-pixel",
+        "name": "Facebook Pixel",
+        "brand": "facebook"
+      },
+      {
+        "id": "hotjar",
+        "name": "Hotjar",
+        "brand": "hotjar"
+      },
+      {
+        "id": "criteo",
+        "name": "Criteo",
+        "brand": "criteo"
+      },
+      {
+        "id": "microsoft-clarity",
+        "name": "Microsoft Clarity",
+        "brand": "microsoft"
+      },
+      {
+        "id": "tiktok-pixel",
+        "name": "TikTok Pixel",
+        "brand": "tiktok"
+      },
+      {
+        "id": "linkedin-insight",
+        "name": "LinkedIn Insight",
+        "brand": "linkedin"
+      },
+      {
+        "id": "bing-uet",
+        "name": "Microsoft Advertising UET",
+        "brand": "microsoft"
+      }
+    ],
+    "beacons": [
+      {
+        "id": "google-analytics",
+        "name": "Google Analytics 4",
+        "brand": "google"
+      },
+      {
+        "id": "google-ads",
+        "name": "Google Ads",
+        "brand": "google"
+      },
+      {
+        "id": "meta",
+        "name": "Meta",
+        "brand": "meta"
+      },
+      {
+        "id": "tiktok",
+        "name": "TikTok",
+        "brand": "tiktok"
+      },
+      {
+        "id": "yandex",
+        "name": "Yandex Metrica",
+        "brand": "yandex"
+      },
+      {
+        "id": "linkedin",
+        "name": "LinkedIn",
+        "brand": "linkedin"
+      }
+    ]
+  },
+  "cookies": [
+    {
+      "name": "Acuity",
+      "type": "company",
+      "brand": "acuity",
+      "role": "company"
+    },
+    {
+      "name": "AdKernel",
+      "type": "company",
+      "brand": "adkernel",
+      "role": "company"
+    },
+    {
+      "name": "Adform",
+      "type": "company",
+      "brand": "adform",
+      "role": "company"
+    },
+    {
+      "name": "Adhese",
+      "type": "company",
+      "brand": "adhese",
+      "role": "company"
+    },
+    {
+      "name": "Adition",
+      "type": "company",
+      "brand": "adition",
+      "role": "company"
+    },
+    {
+      "name": "Admatic",
+      "type": "company",
+      "brand": "admatic",
+      "role": "company"
+    },
+    {
+      "name": "Adobe",
+      "type": "company",
+      "brand": "adobe",
+      "role": "company"
+    },
+    {
+      "name": "Adobe Analytics",
+      "type": "company",
+      "brand": "adobe",
+      "role": "company"
+    },
+    {
+      "name": "Adobe Experience Cloud",
+      "type": "company",
+      "brand": "adobe",
+      "role": "company"
+    },
+    {
+      "name": "Adobe Experience Platform",
+      "type": "company",
+      "brand": "adobe",
+      "role": "company"
+    },
+    {
+      "name": "Adxcore",
+      "type": "company",
+      "brand": null,
+      "role": null
+    },
+    {
+      "name": "Akamai",
+      "type": "company",
+      "brand": "akamai",
+      "role": "company"
+    },
+    {
+      "name": "Amazon",
+      "type": "company",
+      "brand": "amazon",
+      "role": "company"
+    },
+    {
+      "name": "Amazon Web Services",
+      "type": "company",
+      "brand": "amazon",
+      "role": "company"
+    },
+    {
+      "name": "Amplitude",
+      "type": "company",
+      "brand": "amplitude",
+      "role": "company"
+    },
+    {
+      "name": "Aniview",
+      "type": "company",
+      "brand": "aniview",
+      "role": "company"
+    },
+    {
+      "name": "Atlas",
+      "type": "company",
+      "brand": "atlas",
+      "role": "company"
+    },
+    {
+      "name": "Audrte",
+      "type": "company",
+      "brand": "iab-b53aaba1b496a302",
+      "role": "company"
+    },
+    {
+      "name": "Bazaar Voice",
+      "type": "company",
+      "brand": "bazaarvoice",
+      "role": "company"
+    },
+    {
+      "name": "Beeswax",
+      "type": "company",
+      "brand": "beeswax",
+      "role": "company"
+    },
+    {
+      "name": "Bidence",
+      "type": "company",
+      "brand": "bidence",
+      "role": "company"
+    },
+    {
+      "name": "Bit.ly",
+      "type": "company",
+      "brand": "bitly",
+      "role": "company"
+    },
+    {
+      "name": "Blue",
+      "type": "company",
+      "brand": "getblue",
+      "role": "company"
+    },
+    {
+      "name": "Blueconic.com",
+      "type": "company",
+      "brand": "blueconic",
+      "role": "company"
+    },
+    {
+      "name": "Bombora",
+      "type": "company",
+      "brand": "bombora",
+      "role": "company"
+    },
+    {
+      "name": "Casale Media",
+      "type": "company",
+      "brand": "magnite",
+      "role": "company"
+    },
+    {
+      "name": "Cloudflare",
+      "type": "company",
+      "brand": "cloudflare",
+      "role": "company"
+    },
+    {
+      "name": "Codepen",
+      "type": "company",
+      "brand": "codepen",
+      "role": "company"
+    },
+    {
+      "name": "ComScore",
+      "type": "company",
+      "brand": "comscore",
+      "role": "company"
+    },
+    {
+      "name": "Command Act",
+      "type": "company",
+      "brand": "commanders-act",
+      "role": "company"
+    },
+    {
+      "name": "Complianz",
+      "type": "company",
+      "brand": "complianz",
+      "role": "company"
+    },
+    {
+      "name": "Constant Contact",
+      "type": "company",
+      "brand": "constant-contact",
+      "role": "company"
+    },
+    {
+      "name": "ContentSquare",
+      "type": "company",
+      "brand": "contentsquare",
+      "role": "company"
+    },
+    {
+      "name": "Contentsquare",
+      "type": "company",
+      "brand": "contentsquare",
+      "role": "company"
+    },
+    {
+      "name": "CookieHub",
+      "type": "company",
+      "brand": "cookiehub",
+      "role": "company"
+    },
+    {
+      "name": "CookieYes",
+      "type": "company",
+      "brand": "cookieyes",
+      "role": "company"
+    },
+    {
+      "name": "Cookiebot",
+      "type": "company",
+      "brand": "cookiebot",
+      "role": "company"
+    },
+    {
+      "name": "Crazy Egg",
+      "type": "company",
+      "brand": "crazyegg",
+      "role": "company"
+    },
+    {
+      "name": "DataDome",
+      "type": "company",
+      "brand": "datadome",
+      "role": "company"
+    },
+    {
+      "name": "Didomi",
+      "type": "company",
+      "brand": "didomi",
+      "role": "company"
+    },
+    {
+      "name": "Digital Audience",
+      "type": "company",
+      "brand": "digitalaudience",
+      "role": "company"
+    },
+    {
+      "name": "Disqus",
+      "type": "company",
+      "brand": "disqus",
+      "role": "company"
+    },
+    {
+      "name": "Dynamic Yield",
+      "type": "company",
+      "brand": "dynamicyield",
+      "role": "company"
+    },
+    {
+      "name": "Emetric",
+      "type": "company",
+      "brand": "emetriq",
+      "role": "company"
+    },
+    {
+      "name": "Epsilon",
+      "type": "company",
+      "brand": "epsilon",
+      "role": "company"
+    },
+    {
+      "name": "Equativ.com",
+      "type": "company",
+      "brand": "equativ",
+      "role": "company"
+    },
+    {
+      "name": "Facebook",
+      "type": "company",
+      "brand": "facebook",
+      "role": "company"
+    },
+    {
+      "name": "Fidelity-media.com",
+      "type": "company",
+      "brand": "fidelitymedia",
+      "role": "company"
+    },
+    {
+      "name": "FreeWheel",
+      "type": "company",
+      "brand": "freewheel",
+      "role": "company"
+    },
+    {
+      "name": "Fullstory",
+      "type": "company",
+      "brand": "fullstory",
+      "role": "company"
+    },
+    {
+      "name": "Funda",
+      "type": "company",
+      "brand": "funda",
+      "role": "company"
+    },
+    {
+      "name": "Gemius",
+      "type": "company",
+      "brand": "gemius",
+      "role": "company"
+    },
+    {
+      "name": "GitHub",
+      "type": "company",
+      "brand": "github",
+      "role": "company"
+    },
+    {
+      "name": "Github",
+      "type": "company",
+      "brand": "github",
+      "role": "company"
+    },
+    {
+      "name": "Google",
+      "type": "company",
+      "brand": "google",
+      "role": "company"
+    },
+    {
+      "name": "Google Analytics",
+      "type": "company",
+      "brand": "google",
+      "role": "company"
+    },
+    {
+      "name": "Google reCAPTCHA",
+      "type": "company",
+      "brand": "google",
+      "role": "company"
+    },
+    {
+      "name": "Groovinads",
+      "type": "company",
+      "brand": "groovinads",
+      "role": "company"
+    },
+    {
+      "name": "HUMAN",
+      "type": "company",
+      "brand": "human",
+      "role": "company"
+    },
+    {
+      "name": "Hotjar",
+      "type": "company",
+      "brand": "hotjar",
+      "role": "company"
+    },
+    {
+      "name": "HubSpot",
+      "type": "company",
+      "brand": "hubspot",
+      "role": "company"
+    },
+    {
+      "name": "Indeed",
+      "type": "company",
+      "brand": "indeed",
+      "role": "company"
+    },
+    {
+      "name": "Inspectlet",
+      "type": "company",
+      "brand": "inspectlet",
+      "role": "company"
+    },
+    {
+      "name": "Intercom",
+      "type": "company",
+      "brand": "intercom",
+      "role": "company"
+    },
+    {
+      "name": "Issuu",
+      "type": "company",
+      "brand": "issuu",
+      "role": "company"
+    },
+    {
+      "name": "Kelkoo",
+      "type": "company",
+      "brand": "kelkoo",
+      "role": "company"
+    },
+    {
+      "name": "Kiyoh",
+      "type": "company",
+      "brand": "kiyoh",
+      "role": "company"
+    },
+    {
+      "name": "Klaviyo",
+      "type": "company",
+      "brand": "klaviyo",
+      "role": "company"
+    },
+    {
+      "name": "Lightbox",
+      "type": "company",
+      "brand": "digioh",
+      "role": "company"
+    },
+    {
+      "name": "LinkedIn",
+      "type": "company",
+      "brand": "linkedin",
+      "role": "company"
+    },
+    {
+      "name": "LiveIntent",
+      "type": "company",
+      "brand": "liveintent",
+      "role": "company"
+    },
+    {
+      "name": "LiveRamp",
+      "type": "company",
+      "brand": "liveramp",
+      "role": "company"
+    },
+    {
+      "name": "Livechat",
+      "type": "company",
+      "brand": "livechat",
+      "role": "company"
+    },
+    {
+      "name": "Magnite",
+      "type": "company",
+      "brand": "magnite",
+      "role": "company"
+    },
+    {
+      "name": "Marfeel",
+      "type": "company",
+      "brand": "marfeel",
+      "role": "company"
+    },
+    {
+      "name": "Matomo",
+      "type": "company",
+      "brand": "matomo",
+      "role": "company"
+    },
+    {
+      "name": "Media.net",
+      "type": "company",
+      "brand": "medianet",
+      "role": "company"
+    },
+    {
+      "name": "MediaMath",
+      "type": "company",
+      "brand": "mediamath",
+      "role": "company"
+    },
+    {
+      "name": "MediaVine",
+      "type": "company",
+      "brand": "mediavine",
+      "role": "company"
+    },
+    {
+      "name": "Mediarithmics",
+      "type": "company",
+      "brand": "mediarithmics",
+      "role": "company"
+    },
+    {
+      "name": "MercadoLibre",
+      "type": "company",
+      "brand": "mercadolibre",
+      "role": "company"
+    },
+    {
+      "name": "Meta",
+      "type": "company",
+      "brand": "meta",
+      "role": "company"
+    },
+    {
+      "name": "Microsoft",
+      "type": "company",
+      "brand": "microsoft",
+      "role": "company"
+    },
+    {
+      "name": "Microsoft Advertising",
+      "type": "company",
+      "brand": "microsoft",
+      "role": "company"
+    },
+    {
+      "name": "Microsoft Clarity",
+      "type": "company",
+      "brand": "microsoft",
+      "role": "company"
+    },
+    {
+      "name": "Neustar",
+      "type": "company",
+      "brand": "neustar",
+      "role": "company"
+    },
+    {
+      "name": "Nexx360",
+      "type": "company",
+      "brand": "nexx360",
+      "role": "company"
+    },
+    {
+      "name": "OnAudience",
+      "type": "company",
+      "brand": "onaudience",
+      "role": "company"
+    },
+    {
+      "name": "OneTrust",
+      "type": "company",
+      "brand": "onetrust",
+      "role": "company"
+    },
+    {
+      "name": "OpenX",
+      "type": "company",
+      "brand": "openx",
+      "role": "company"
+    },
+    {
+      "name": "Optimizely",
+      "type": "company",
+      "brand": "optimizely",
+      "role": "company"
+    },
+    {
+      "name": "Oracle",
+      "type": "company",
+      "brand": "oracle",
+      "role": "company"
+    },
+    {
+      "name": "Oribi",
+      "type": "company",
+      "brand": "oribi",
+      "role": "company"
+    },
+    {
+      "name": "Ortec",
+      "type": "company",
+      "brand": "ortec",
+      "role": "company"
+    },
+    {
+      "name": "Osano",
+      "type": "company",
+      "brand": "osano",
+      "role": "company"
+    },
+    {
+      "name": "Outbrain",
+      "type": "company",
+      "brand": "outbrain",
+      "role": "company"
+    },
+    {
+      "name": "Partnerize",
+      "type": "company",
+      "brand": "partnerize",
+      "role": "company"
+    },
+    {
+      "name": "PayPal",
+      "type": "company",
+      "brand": "paypal",
+      "role": "company"
+    },
+    {
+      "name": "Perfect Audience",
+      "type": "company",
+      "brand": "perfectaudience",
+      "role": "company"
+    },
+    {
+      "name": "Piano",
+      "type": "company",
+      "brand": "piano",
+      "role": "company"
+    },
+    {
+      "name": "Pinterest",
+      "type": "company",
+      "brand": "pinterest",
+      "role": "company"
+    },
+    {
+      "name": "Piwik PRO",
+      "type": "company",
+      "brand": "piwikpro",
+      "role": "company"
+    },
+    {
+      "name": "Platform161",
+      "type": "company",
+      "brand": "platform161",
+      "role": "company"
+    },
+    {
+      "name": "PowerLinks",
+      "type": "company",
+      "brand": "powerlinks",
+      "role": "company"
+    },
+    {
+      "name": "PubMatic",
+      "type": "company",
+      "brand": "pubmatic",
+      "role": "company"
+    },
+    {
+      "name": "Pubmatic",
+      "type": "company",
+      "brand": "pubmatic",
+      "role": "company"
+    },
+    {
+      "name": "Pulsepoint",
+      "type": "company",
+      "brand": "pulsepoint",
+      "role": "company"
+    },
+    {
+      "name": "Qualaroo",
+      "type": "company",
+      "brand": "qualaroo",
+      "role": "company"
+    },
+    {
+      "name": "Quantcast",
+      "type": "company",
+      "brand": "quantcast",
+      "role": "company"
+    },
+    {
+      "name": "RD Station",
+      "type": "company",
+      "brand": "rdstation",
+      "role": "company"
+    },
+    {
+      "name": "Reddit",
+      "type": "company",
+      "brand": "reddit",
+      "role": "company"
+    },
+    {
+      "name": "Roku",
+      "type": "company",
+      "brand": "roku",
+      "role": "company"
+    },
+    {
+      "name": "SAP",
+      "type": "company",
+      "brand": "sap",
+      "role": "company"
+    },
+    {
+      "name": "SOVRN",
+      "type": "company",
+      "brand": "sovrn",
+      "role": "company"
+    },
+    {
+      "name": "Salesforce",
+      "type": "company",
+      "brand": "salesforce",
+      "role": "company"
+    },
+    {
+      "name": "Salesforce Account Engagement",
+      "type": "company",
+      "brand": "salesforce",
+      "role": "company"
+    },
+    {
+      "name": "ShareThis",
+      "type": "company",
+      "brand": "sharethis",
+      "role": "company"
+    },
+    {
+      "name": "Shopify",
+      "type": "company",
+      "brand": "shopify",
+      "role": "company"
+    },
+    {
+      "name": "Shopify.com",
+      "type": "company",
+      "brand": "shopify",
+      "role": "company"
+    },
+    {
+      "name": "Site application (ASP.NET Core convention)",
+      "type": "convention",
+      "brand": null,
+      "role": null
+    },
+    {
+      "name": "Site application (ASP.NET convention)",
+      "type": "convention",
+      "brand": null,
+      "role": null
+    },
+    {
+      "name": "Site application (Auth.js convention)",
+      "type": "convention",
+      "brand": null,
+      "role": null
+    },
+    {
+      "name": "Site application (CSRF convention)",
+      "type": "convention",
+      "brand": null,
+      "role": null
+    },
+    {
+      "name": "Site application (Django convention)",
+      "type": "convention",
+      "brand": null,
+      "role": null
+    },
+    {
+      "name": "Site application (Express convention)",
+      "type": "convention",
+      "brand": null,
+      "role": null
+    },
+    {
+      "name": "Site application (Jakarta Servlet convention)",
+      "type": "convention",
+      "brand": null,
+      "role": null
+    },
+    {
+      "name": "Site application (PHP convention)",
+      "type": "convention",
+      "brand": null,
+      "role": null
+    },
+    {
+      "name": "Site consent manager (Cookiebot convention)",
+      "type": "convention",
+      "brand": null,
+      "role": null
+    },
+    {
+      "name": "Site consent manager (IAB TCF convention)",
+      "type": "convention",
+      "brand": null,
+      "role": null
+    },
+    {
+      "name": "Site consent manager (IAB convention)",
+      "type": "convention",
+      "brand": null,
+      "role": null
+    },
+    {
+      "name": "Smaato",
+      "type": "company",
+      "brand": "smaato",
+      "role": "company"
+    },
+    {
+      "name": "Snapchat",
+      "type": "company",
+      "brand": "snapchat",
+      "role": "company"
+    },
+    {
+      "name": "Snowplow",
+      "type": "company",
+      "brand": "snowplow",
+      "role": "company"
+    },
+    {
+      "name": "Sonobi",
+      "type": "company",
+      "brand": "sonobi",
+      "role": "company"
+    },
+    {
+      "name": "Spotify",
+      "type": "company",
+      "brand": "spotify",
+      "role": "company"
+    },
+    {
+      "name": "StreamTheWorld",
+      "type": "company",
+      "brand": "streamtheworld",
+      "role": "company"
+    },
+    {
+      "name": "Stripe",
+      "type": "company",
+      "brand": "stripe",
+      "role": "company"
+    },
+    {
+      "name": "Tapad",
+      "type": "company",
+      "brand": "tapad",
+      "role": "company"
+    },
+    {
+      "name": "Tappx",
+      "type": "company",
+      "brand": "tappx",
+      "role": "company"
+    },
+    {
+      "name": "Tawk.to Chat",
+      "type": "company",
+      "brand": "tawk",
+      "role": "company"
+    },
+    {
+      "name": "Teads.com",
+      "type": "company",
+      "brand": "teads",
+      "role": "company"
+    },
+    {
+      "name": "Tealium",
+      "type": "company",
+      "brand": "tealium",
+      "role": "company"
+    },
+    {
+      "name": "The Tradedesk",
+      "type": "company",
+      "brand": "trade-desk",
+      "role": "company"
+    },
+    {
+      "name": "TikTok",
+      "type": "company",
+      "brand": "tiktok",
+      "role": "company"
+    },
+    {
+      "name": "Totvs",
+      "type": "company",
+      "brand": "totvs",
+      "role": "company"
+    },
+    {
+      "name": "Tripadvisor",
+      "type": "company",
+      "brand": "tripadvisor",
+      "role": "company"
+    },
+    {
+      "name": "TripleLift",
+      "type": "company",
+      "brand": "triplelift",
+      "role": "company"
+    },
+    {
+      "name": "Trustpilot",
+      "type": "company",
+      "brand": "trustpilot",
+      "role": "company"
+    },
+    {
+      "name": "Twiago",
+      "type": "company",
+      "brand": "twiago",
+      "role": "company"
+    },
+    {
+      "name": "Twilio Segment",
+      "type": "company",
+      "brand": "segment",
+      "role": "company"
+    },
+    {
+      "name": "Twitch",
+      "type": "company",
+      "brand": "twitch",
+      "role": "company"
+    },
+    {
+      "name": "Typeform",
+      "type": "company",
+      "brand": "typeform",
+      "role": "company"
+    },
+    {
+      "name": "Undertone",
+      "type": "company",
+      "brand": "undertone",
+      "role": "company"
+    },
+    {
+      "name": "Vendor declaration: 152 Media LLC",
+      "type": "declarant",
+      "brand": "iab-dd1e54f4d724cd13",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: 1plusX AG",
+      "type": "declarant",
+      "brand": "iab-afad7d6c2838e631",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: 2KDirect, Inc. (dba iPromote)",
+      "type": "declarant",
+      "brand": "iab-f15510013b14c2ae",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: 33Across",
+      "type": "declarant",
+      "brand": "33across",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: 6Sense Insights, Inc.",
+      "type": "declarant",
+      "brand": "iab-6a0ae9c1ec7aa61b",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: 8pod Inc.",
+      "type": "declarant",
+      "brand": "iab-3ddbd1a813b542e3",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: : Tappx",
+      "type": "declarant",
+      "brand": "tappx",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: A.Mob",
+      "type": "declarant",
+      "brand": "iab-15db27fdc2e0b734",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: AA INTERNET-MEDIA Ltd",
+      "type": "declarant",
+      "brand": "iab-13b05f151bebcd65",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: ACTV8, Inc.",
+      "type": "declarant",
+      "brand": "iab-128520a585dc39e8",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: ADBRO (GISTER PRIVATE LIMITED)",
+      "type": "declarant",
+      "brand": "iab-66b5e1a99542a35b",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: ADFIXUS PTY LTD",
+      "type": "declarant",
+      "brand": "iab-d73ef759acbe5379",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: ADMAN - Phaistos Networks, S.A.",
+      "type": "declarant",
+      "brand": "iab-407d42771478254a",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: ADMASTERS SOLUÇÕES DE MARKETING DIGITAL LTDA",
+      "type": "declarant",
+      "brand": "iab-e96e780fbe4af09f",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: ADRENALEAD",
+      "type": "declarant",
+      "brand": "iab-53148fd8acdadded",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: ADSMAST",
+      "type": "declarant",
+      "brand": "iab-fa548f2ac0df5bc1",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: ADSOCY",
+      "type": "declarant",
+      "brand": "iab-62c34ce6619be3c2",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: ADSTOURS SAS",
+      "type": "declarant",
+      "brand": "iab-821121298b9f5b59",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: ADTIMING TECHNOLOGY PTE. LTD",
+      "type": "declarant",
+      "brand": "iab-6dfc4c10beebfba3",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: ADUX",
+      "type": "declarant",
+      "brand": "iab-2e78a92e2cac74a2",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: ADVIA MEDIA SOLUTIONS, S.L.",
+      "type": "declarant",
+      "brand": "iab-b4fd8becc2a435c8",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: ADYOULIKE SA",
+      "type": "declarant",
+      "brand": "iab-8e0962392839217f",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: ADman Interactive SLU",
+      "type": "declarant",
+      "brand": "iab-f0dc88c7f9cc2fa2",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: ADventori SAS",
+      "type": "declarant",
+      "brand": "iab-7d3177e0233c0288",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: ALZ Software Ltd",
+      "type": "declarant",
+      "brand": "iab-56ead496ec620e01",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: ARMIS SAS",
+      "type": "declarant",
+      "brand": "iab-bd2c128cb2c3bae1",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: ARSUS TECHNOLOGIES LTD",
+      "type": "declarant",
+      "brand": "iab-1770b6b172ba510a",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Accorp Sp. z o.o.",
+      "type": "declarant",
+      "brand": "iab-58a36e53c26530a5",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: AcuityAds Inc.",
+      "type": "declarant",
+      "brand": "acuity",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Acxiom",
+      "type": "declarant",
+      "brand": "iab-3cb12404c6754053",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Ad Alliance GmbH",
+      "type": "declarant",
+      "brand": "iab-08076572a4cd74d2",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Ad Tech Company OÜ",
+      "type": "declarant",
+      "brand": "iab-6b5f9afb148c29fb",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Ad-Shield, Inc",
+      "type": "declarant",
+      "brand": "iab-e45114dfb1be07e7",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Ad.com Interactive Media, Inc.",
+      "type": "declarant",
+      "brand": "iab-9ebe5c30728690f4",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: AdButler",
+      "type": "declarant",
+      "brand": "iab-484b17fca74c0910",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: AdDefend GmbH",
+      "type": "declarant",
+      "brand": "iab-071c0f54b5dfe22c",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: AdElement Media Solutions Pvt Ltd",
+      "type": "declarant",
+      "brand": "iab-063f7c47e35f0567",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: AdTango GmbH",
+      "type": "declarant",
+      "brand": "iab-07bf6381e887d6ff",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: AdTheorent, Inc",
+      "type": "declarant",
+      "brand": "iab-633e9fe9ae2ce473",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: AdXcel, Inc. dba ArtsAI",
+      "type": "declarant",
+      "brand": "iab-1bb13bf594b6aa7e",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Adacado Technologies Inc. (DBA Adacado)",
+      "type": "declarant",
+      "brand": "iab-aecf43f0569aa40f",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Adchats LLC",
+      "type": "declarant",
+      "brand": "iab-5f986d8386f866c3",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Adform A/S",
+      "type": "declarant",
+      "brand": "iab-97343570268e0c21",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Aditude, Inc.",
+      "type": "declarant",
+      "brand": "iab-bfca1e426c46ee04",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Adlane LTD",
+      "type": "declarant",
+      "brand": "iab-749eb8ffa4dc5bf3",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Admaster Private Limited",
+      "type": "declarant",
+      "brand": "iab-b07b4756f0ca5c07",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Admatic GMBH",
+      "type": "declarant",
+      "brand": "admatic",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Adnuntius AS",
+      "type": "declarant",
+      "brand": "iab-380977bb79a3a245",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Adobe Advertising Cloud",
+      "type": "declarant",
+      "brand": "adobe",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Adprime Media LLC",
+      "type": "declarant",
+      "brand": "iab-539b66f11ab7e44a",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Adrubi Media FZ-LLC",
+      "type": "declarant",
+      "brand": "iab-20f1bebd142f508b",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Ads Interactive Network Kft.",
+      "type": "declarant",
+      "brand": "iab-6a34c0b3005f5341",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Adserver.Online",
+      "type": "declarant",
+      "brand": "iab-44aedf14f9629a68",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Adsornot Media - FZCO",
+      "type": "declarant",
+      "brand": "iab-892a0ec2f500c696",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Adswag B.V.",
+      "type": "declarant",
+      "brand": "iab-d18b8cb809b1ffb2",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Adtarget Teknoloji A.S.",
+      "type": "declarant",
+      "brand": "iab-f8355e3458c2bf96",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Adtelligent Inc.",
+      "type": "declarant",
+      "brand": "iab-a14f82d9fe029526",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Advanced Digital Adtech Ltd",
+      "type": "declarant",
+      "brand": "iab-7d69cdf7da58df72",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Adventive Tech Inc.",
+      "type": "declarant",
+      "brand": "iab-b841d4c72a8b7727",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Adventure Media SARL",
+      "type": "declarant",
+      "brand": "iab-f3378792f95716d7",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Advertising.Tech FZ-LLC",
+      "type": "declarant",
+      "brand": "iab-e6eaf6bb4cf90154",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Adzymic Creavibes",
+      "type": "declarant",
+      "brand": "iab-2ac165a82c83a4d9",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Affle Iberia SL",
+      "type": "declarant",
+      "brand": "iab-fcc073830d014a2a",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Allegro sp. z o.o.",
+      "type": "declarant",
+      "brand": "iab-c1ebf8e9f9db096d",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Alliance Gravity Data Media",
+      "type": "declarant",
+      "brand": "iab-022a4779e3da3103",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Alphalyr SAS",
+      "type": "declarant",
+      "brand": "iab-d93c74bc86597af4",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Always-Computing SAS",
+      "type": "declarant",
+      "brand": "iab-1f85b46bb72db9da",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Aniview LTD",
+      "type": "declarant",
+      "brand": "aniview",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Annonsera SUNT AB",
+      "type": "declarant",
+      "brand": "iab-f9a25316cd4b37b1",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Anonymised",
+      "type": "declarant",
+      "brand": "iab-294332a30ab747e2",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: AntVoice",
+      "type": "declarant",
+      "brand": "iab-0574d5ad099c3d9f",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Anteriad, LLC",
+      "type": "declarant",
+      "brand": "iab-582399920a932e3e",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: AnyClip Inc.",
+      "type": "declarant",
+      "brand": "iab-c1a497cfaceda27f",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Apester Ltd",
+      "type": "declarant",
+      "brand": "iab-c1f682154e350a3a",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Appier PTE Ltd",
+      "type": "declarant",
+      "brand": "iab-e9d5c57349dd5e0a",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Appstock LTD.",
+      "type": "declarant",
+      "brand": "iab-45af3490ae9d031e",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Archon Programmatic House FZC",
+      "type": "declarant",
+      "brand": "iab-255d80b8b17b84bf",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Arcspire Limited",
+      "type": "declarant",
+      "brand": "iab-3415183cc71dc780",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Arkeero",
+      "type": "declarant",
+      "brand": "iab-995404b6e6d8dc35",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Arrivalist Co.",
+      "type": "declarant",
+      "brand": "iab-924a317f50e3387e",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Artefact Germany GmbH",
+      "type": "declarant",
+      "brand": "iab-b3784aa5b94fac9f",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: AsiaPac Net Media Limited",
+      "type": "declarant",
+      "brand": "iab-91136bb42bed218f",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: AuDigent",
+      "type": "declarant",
+      "brand": "iab-184ad785f3995a62",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: AudienceProject A/S",
+      "type": "declarant",
+      "brand": "iab-f018905e6d4eeb2d",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: AudienceRun corp",
+      "type": "declarant",
+      "brand": "iab-aaf140586c1ce019",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Audienzz AG",
+      "type": "declarant",
+      "brand": "iab-c2ebac28921381e5",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Automatad Inc. (Mile)",
+      "type": "declarant",
+      "brand": "iab-75607e5a15254820",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Automattic Ads",
+      "type": "declarant",
+      "brand": "iab-ab3d9e2157336e8f",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Axel Springer Teaser Ad GmbH",
+      "type": "declarant",
+      "brand": "iab-188ab22280e30f12",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Axel Springer Tech GmbH",
+      "type": "declarant",
+      "brand": "iab-23d08654742e873f",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Azberry B.V.",
+      "type": "declarant",
+      "brand": "iab-29e2f67fdaba5cdc",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Azerion Holding B.V.",
+      "type": "declarant",
+      "brand": "iab-16e85d353323a3c1",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: B2B Media Group GmbH",
+      "type": "declarant",
+      "brand": "iab-eb7ca2c960cf999c",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: BACKSTAGE TECHNOLOGIES LTD",
+      "type": "declarant",
+      "brand": "iab-0c80e1c63f3d2cd0",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: BEAPUP SOLUTIONS LTD",
+      "type": "declarant",
+      "brand": "iab-b77e97a7ab562982",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: BIDGENCY GROUP LP",
+      "type": "declarant",
+      "brand": "iab-0df41e1b0f9807ba",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: BIDSCUBE SP. Z O.O",
+      "type": "declarant",
+      "brand": "iab-94e517b2f15b7c7f",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: BILENDI SA",
+      "type": "declarant",
+      "brand": "iab-ac3c80bfabac0ef0",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: BLIINK SAS",
+      "type": "declarant",
+      "brand": "iab-fd5d427bfef9e79e",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Bababam",
+      "type": "declarant",
+      "brand": "iab-e0440717196d189e",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Baidu (Hong Kong) Limited",
+      "type": "declarant",
+      "brand": "iab-539ef5f99e04cc45",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Baidu USA LLC",
+      "type": "declarant",
+      "brand": "iab-377a5ec31b66f477",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Basis Global Technologies, Inc.",
+      "type": "declarant",
+      "brand": "iab-48c1250dc5dc1be7",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Be Closer S.p.A. Società Benefit",
+      "type": "declarant",
+      "brand": "iab-db4049d09ebd2116",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Beacon Holdings LTD",
+      "type": "declarant",
+      "brand": "iab-4e14e796e11b510f",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Bedrock Platform Ltd",
+      "type": "declarant",
+      "brand": "iab-7099f608bd520fc4",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Better Ads GmbH",
+      "type": "declarant",
+      "brand": "iab-b7ee27af4c6347ae",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Between Exchange",
+      "type": "declarant",
+      "brand": "iab-0e0de639bc951b37",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: BidTheatre AB",
+      "type": "declarant",
+      "brand": "iab-5775ac7211285ac1",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Bidmatic Inc",
+      "type": "declarant",
+      "brand": "iab-94beda148dde8552",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Bidtellect, Inc",
+      "type": "declarant",
+      "brand": "iab-9858d7bdff0b2944",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Bildapp LLC",
+      "type": "declarant",
+      "brand": "iab-a7a5c79c135870ea",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Blis Global Limited",
+      "type": "declarant",
+      "brand": "iab-fb1c06837a5e9008",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Bluesea Holdings Hong Kong Limited",
+      "type": "declarant",
+      "brand": "iab-8755b33a6d4281fc",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Bombora Inc.",
+      "type": "declarant",
+      "brand": "bombora",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Boola GmbH",
+      "type": "declarant",
+      "brand": "iab-730e4146ed42b921",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Boris Tang AB",
+      "type": "declarant",
+      "brand": "iab-d90dd1f7805abb1a",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Botman Inc",
+      "type": "declarant",
+      "brand": "iab-b610079a3e00c0bf",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Branch Metrics, Inc.",
+      "type": "declarant",
+      "brand": "iab-521882c86e12ee5c",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Brand Metrics Sweden AB",
+      "type": "declarant",
+      "brand": "iab-da4e6515b2535729",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Bridgeupp LTD",
+      "type": "declarant",
+      "brand": "iab-b98dc754d89450d8",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Businessclick Sp. z o.o.",
+      "type": "declarant",
+      "brand": "iab-d73c0aa7c6e2d22f",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: CANAL+ Tech",
+      "type": "declarant",
+      "brand": "iab-4524419688bb43a8",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: CITISERVI EUROPE, S.L.",
+      "type": "declarant",
+      "brand": "iab-d41e398307bafe78",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: CND Motion Media GmbH",
+      "type": "declarant",
+      "brand": "iab-4c3985fa673c4028",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Capaneo GmbH",
+      "type": "declarant",
+      "brand": "iab-26c21feb88b525a1",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Captify Technologies Limited",
+      "type": "declarant",
+      "brand": "iab-bf16ca4b3da88efa",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Carty Nexus Inc.",
+      "type": "declarant",
+      "brand": "iab-45533f3bd7ec35ed",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Cazamba Serviços de Internet Ltda",
+      "type": "declarant",
+      "brand": "iab-e812202413353f09",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Celtra Inc.",
+      "type": "declarant",
+      "brand": "iab-58152e2d6f685f5f",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Channel Pilot Solutions GmbH",
+      "type": "declarant",
+      "brand": "iab-bc0cc60f6e938468",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Clever Advertising",
+      "type": "declarant",
+      "brand": "iab-13a89b4b82e9f4f4",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Clickagy LLC",
+      "type": "declarant",
+      "brand": "iab-5e74ad4ed928fe08",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Clinch Labs LTD",
+      "type": "declarant",
+      "brand": "iab-57af815da44e3c9a",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Clipr",
+      "type": "declarant",
+      "brand": "iab-5dc590556d73700d",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Codigo Sweden AB",
+      "type": "declarant",
+      "brand": "iab-3200ecbefd271f22",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Collective Audience - The Odyssey SAS",
+      "type": "declarant",
+      "brand": "iab-d00ea7c1d8e54572",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Commanders Act",
+      "type": "declarant",
+      "brand": "commanders-act",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: ConceptX ApS",
+      "type": "declarant",
+      "brand": "iab-750667c5b17edc9e",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: ConnectAd Demand GmbH",
+      "type": "declarant",
+      "brand": "iab-8774d120c45ff1f1",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Consumable, Inc",
+      "type": "declarant",
+      "brand": "iab-f9d2bc927a42aa62",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Contimo APS",
+      "type": "declarant",
+      "brand": "iab-104ea21ed95afc53",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Converge-Digital",
+      "type": "declarant",
+      "brand": "iab-9a576013ba63dfbc",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Copper6 LTD",
+      "type": "declarant",
+      "brand": "iab-aa69fcf407b6f3ed",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Crimtan Holdings Limited",
+      "type": "declarant",
+      "brand": "iab-1a1022cdcad4cbb7",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Criteo SA",
+      "type": "declarant",
+      "brand": "criteo",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Czech Publisher Exchange z.s.p.o.",
+      "type": "declarant",
+      "brand": "iab-46ad9423d000c195",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: DATAMOIRE BILISIM A.S.",
+      "type": "declarant",
+      "brand": "iab-e5952e1dc2d4b58a",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: DIGITAL SQUAD",
+      "type": "declarant",
+      "brand": "iab-05a56b892b22fd3d",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: DIGITEKA Technologies",
+      "type": "declarant",
+      "brand": "iab-a880d4fc5257be39",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Dailymotion Video Player and Ad Products",
+      "type": "declarant",
+      "brand": "iab-d07f30ae0a3d7c82",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Daisycon B.V.",
+      "type": "declarant",
+      "brand": "iab-31694dbf655584fa",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Datonics LLC",
+      "type": "declarant",
+      "brand": "iab-209be6e3b6401be7",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Decentralised Advertising Limited",
+      "type": "declarant",
+      "brand": "iab-56c90e128fd57980",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Decentriq AG",
+      "type": "declarant",
+      "brand": "iab-55e7d8f7f3035b48",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: DeepIntent, Inc.",
+      "type": "declarant",
+      "brand": "iab-c217f389cfac7dcc",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Delta Projects AB",
+      "type": "declarant",
+      "brand": "iab-4060a8b444bbe422",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Demandbase, Inc.",
+      "type": "declarant",
+      "brand": "iab-5eefe8af518cf17a",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Dentsu Italia SpA",
+      "type": "declarant",
+      "brand": "iab-7e3f49eea8386bc2",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Dentsu UK Limited",
+      "type": "declarant",
+      "brand": "iab-db781b0179ea2659",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Dianomi PLC",
+      "type": "declarant",
+      "brand": "iab-0fd6a8dbcdac61a7",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Digital East GmbH",
+      "type": "declarant",
+      "brand": "iab-3d1394d992a2d074",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Disqus",
+      "type": "declarant",
+      "brand": "disqus",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Doceree UK Limited",
+      "type": "declarant",
+      "brand": "iab-f391d9144d26d4ec",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Dorvan Srl",
+      "type": "declarant",
+      "brand": "iab-5ae9ef3cb1a57108",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: DynAdmic",
+      "type": "declarant",
+      "brand": "iab-7910837983f51171",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Dynata LLC",
+      "type": "declarant",
+      "brand": "iab-517112c07a143615",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: EASY Marketing GmbH",
+      "type": "declarant",
+      "brand": "iab-ba57f43d22428f60",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: EASYmedia GmbH",
+      "type": "declarant",
+      "brand": "iab-56316d2807a493bf",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: EDGE NPD Sp. z o.o.",
+      "type": "declarant",
+      "brand": "iab-85e4f968a4af6c09",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: ERMES",
+      "type": "declarant",
+      "brand": "iab-b9f96af386c0f483",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: ETARGET SE",
+      "type": "declarant",
+      "brand": "iab-bb490294a8fdefdb",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: EX.CO Technologies Ltd",
+      "type": "declarant",
+      "brand": "iab-b3dc79d7b975395b",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: EXADS",
+      "type": "declarant",
+      "brand": "iab-67339fd3d3fb47f4",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: EXOCLICK, S.L.",
+      "type": "declarant",
+      "brand": "iab-a47a725b0a8d9921",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Effiliation / Effinity",
+      "type": "declarant",
+      "brand": "iab-f87aa71ecf3ed7c6",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: EliteAppgrade",
+      "type": "declarant",
+      "brand": "iab-b8ef3240c91243a5",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Emodo LLC",
+      "type": "declarant",
+      "brand": "iab-8b7dd4d3c48af244",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Empower AdTech",
+      "type": "declarant",
+      "brand": "iab-1a077d26de5a03b0",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Epom",
+      "type": "declarant",
+      "brand": "iab-eda4be8a25ae3961",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Epsilon (Lotame)",
+      "type": "declarant",
+      "brand": "iab-fd3dc8a0ff7e3f2b",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Epsilon International UK Ltd",
+      "type": "declarant",
+      "brand": "iab-1f7b91ae25cfd418",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Equativ",
+      "type": "declarant",
+      "brand": "equativ",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Eskimi",
+      "type": "declarant",
+      "brand": "iab-a4b0088ba94c68e6",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Eulerian Technologies",
+      "type": "declarant",
+      "brand": "iab-892661932301a8c2",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Euvic 360e-com Sp. z o.o.",
+      "type": "declarant",
+      "brand": "iab-50102e54ffe3d611",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Evolution Technologies Inc.",
+      "type": "declarant",
+      "brand": "iab-e27ab1723a34f2e3",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Exit Bee Limited",
+      "type": "declarant",
+      "brand": "iab-ead17f97848bb04d",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Exponential Interactive, Inc d/b/a VDX.tv",
+      "type": "declarant",
+      "brand": "iab-346524aaca883fc1",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Extreme Reach, Inc",
+      "type": "declarant",
+      "brand": "iab-0b9cc8ffa96f8992",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Eyeota Pte Ltd",
+      "type": "declarant",
+      "brand": "iab-1ef1cbcf39eb8f87",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Ezoic Inc.",
+      "type": "declarant",
+      "brand": "iab-3068c0e363cc6ad9",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: FRVR Limited",
+      "type": "declarant",
+      "brand": "iab-8214f4cd27e5ce91",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: FUNKE Digital GmbH",
+      "type": "declarant",
+      "brand": "iab-1e8bb9c93b1ea524",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Fandom, Inc.",
+      "type": "declarant",
+      "brand": "fandom",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Flashtalking",
+      "type": "declarant",
+      "brand": "iab-a022e2b7374c4ef8",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Flexoffers.com, LLC",
+      "type": "declarant",
+      "brand": "iab-833cee687c8193d6",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Flyads OÜ",
+      "type": "declarant",
+      "brand": "iab-0774337117c76065",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Foreshadow s.r.o",
+      "type": "declarant",
+      "brand": "iab-43798aa0c408dd67",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Funnel Operations GmbH",
+      "type": "declarant",
+      "brand": "iab-6542e2b1629adc01",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: GEEMEE INC.",
+      "type": "declarant",
+      "brand": "iab-75a55f38492bc675",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: GP One GmbH",
+      "type": "declarant",
+      "brand": "iab-8d397f967daae301",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: GREEN GREY HOLDING (CY) LTD",
+      "type": "declarant",
+      "brand": "iab-01cfb3e6ba55ae43",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Gamesight Inc",
+      "type": "declarant",
+      "brand": "iab-b5a451450d6dca67",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Gamned",
+      "type": "declarant",
+      "brand": "iab-625616321b86ddf8",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: GeistM Technologies LTD",
+      "type": "declarant",
+      "brand": "iab-1dd12c41f2d93712",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Gemius SA",
+      "type": "declarant",
+      "brand": "gemius",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Genuin Inc",
+      "type": "declarant",
+      "brand": "iab-a326f882d890af49",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: GfK GmbH",
+      "type": "declarant",
+      "brand": "iab-05af4a74e9354125",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Gitberry AS",
+      "type": "declarant",
+      "brand": "iab-841db8f17fe342eb",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: GlobalWebIndex",
+      "type": "declarant",
+      "brand": "iab-2ac80aad92a35116",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Go.pl sp. z o.o.",
+      "type": "declarant",
+      "brand": "iab-8fa94666e7163785",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Goldbach Group AG",
+      "type": "declarant",
+      "brand": "iab-63cf60980dd46e55",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Google Advertising Products",
+      "type": "declarant",
+      "brand": "google",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Greenvest Betting Ltd.",
+      "type": "declarant",
+      "brand": "iab-22aa0280f1280bd6",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Groundhog Technologies Inc.",
+      "type": "declarant",
+      "brand": "iab-4dcf37aae908b5de",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: GumGum Australia, Inc.",
+      "type": "declarant",
+      "brand": "iab-90b7595b29a83e1b",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: GumGum, Inc.",
+      "type": "declarant",
+      "brand": "gumgum",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Hearts and Science München GmbH",
+      "type": "declarant",
+      "brand": "iab-9c7d6dc1f299839a",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: HighVibes Media GmbH",
+      "type": "declarant",
+      "brand": "iab-27b7d209134df6fe",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Hurra Communications GmbH",
+      "type": "declarant",
+      "brand": "iab-74946adb7107c416",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Hurst Group Limited",
+      "type": "declarant",
+      "brand": "iab-a5443e8795f05f52",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Hybrid Adtech GmbH",
+      "type": "declarant",
+      "brand": "iab-2d2675064b889d11",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Hybrid Theory Global Ltd",
+      "type": "declarant",
+      "brand": "iab-02e733076e04d209",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: HyperTV,  Inc.",
+      "type": "declarant",
+      "brand": "iab-1515467cafe59c8a",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: ID-CLICK MEDIA / CASANEO",
+      "type": "declarant",
+      "brand": "iab-934b4e966c249d30",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: INFOnline GmbH",
+      "type": "declarant",
+      "brand": "infonline",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: INIS sp. zo.o.",
+      "type": "declarant",
+      "brand": "iab-63a3e61a8ea1964a",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: INNITY",
+      "type": "declarant",
+      "brand": "iab-1660b9bba942da04",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: INVIBES GROUP",
+      "type": "declarant",
+      "brand": "iab-8680cdc2e80cb842",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: INVIDI technologies AB",
+      "type": "declarant",
+      "brand": "iab-c57fee787ad0c4a9",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: IPONWEB GmbH",
+      "type": "declarant",
+      "brand": "iab-74ae9f2c63e5a6d1",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: IPSOS MORI UK LTD",
+      "type": "declarant",
+      "brand": "iab-d7ef31b803ce9f5a",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: IQM CORPORATION",
+      "type": "declarant",
+      "brand": "iab-ebaeec9101b12f82",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Ideal Media US Inc.",
+      "type": "declarant",
+      "brand": "iab-d8b37c8033433736",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Impactify SARL",
+      "type": "declarant",
+      "brand": "iab-c9bf33f0612dfeaf",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: InMobi Technology Services Pte. Ltd.",
+      "type": "declarant",
+      "brand": "iab-bf519c30cce6c11d",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Index Exchange Inc.",
+      "type": "declarant",
+      "brand": "iab-b3206d9f6d007639",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Infolinks Media, LLC",
+      "type": "declarant",
+      "brand": "iab-9ad94c4a12f031d1",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Ingenious Technologies AG",
+      "type": "declarant",
+      "brand": "iab-d5645522b6ae2482",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Innovid LLC",
+      "type": "declarant",
+      "brand": "iab-b3304a22db26f64d",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Inspigroup s.r.o.",
+      "type": "declarant",
+      "brand": "iab-a5927bf3258b02ec",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Insticator, Inc.",
+      "type": "declarant",
+      "brand": "iab-3a314a86113ab680",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: InsurAds Technologies SA.",
+      "type": "declarant",
+      "brand": "iab-8099ba188f7c8372",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Intent IQ LLC",
+      "type": "declarant",
+      "brand": "iab-419dcbbe958ddb80",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Interactive Performance Deutschland GmbH",
+      "type": "declarant",
+      "brand": "iab-5bb9f46c8268c4bb",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Italiaonline S.p.A.",
+      "type": "declarant",
+      "brand": "iab-0de2412f1e5694cc",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: JMMOBI INC.",
+      "type": "declarant",
+      "brand": "iab-852e2f8cf771c0de",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Jivox Corporation",
+      "type": "declarant",
+      "brand": "iab-3e94355aa4c75d94",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Justpremium BV",
+      "type": "declarant",
+      "brand": "iab-18a6bbc20f95bd8f",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: KUPONA GmbH",
+      "type": "declarant",
+      "brand": "iab-f5852c8aad578836",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Kamino Retail",
+      "type": "declarant",
+      "brand": "iab-862d0f28f77082ec",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Kargo Global Inc.",
+      "type": "declarant",
+      "brand": "iab-5343834f798000ad",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Knorex",
+      "type": "declarant",
+      "brand": "iab-58ceb22dcac8b8d3",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Konodrac S.L.",
+      "type": "declarant",
+      "brand": "iab-740d2b081f597617",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Krush Media LLC",
+      "type": "declarant",
+      "brand": "iab-a60c40f98569b097",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: LetThereBeAds / Performax",
+      "type": "declarant",
+      "brand": "iab-5376da783e9c48e7",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: LinkedIn Ireland Unlimited Company",
+      "type": "declarant",
+      "brand": "iab-9654642ae0943999",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: LiquidM Technology GmbH",
+      "type": "declarant",
+      "brand": "iab-98425a8720e5aa8c",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Little Big Data sp. z o.o.",
+      "type": "declarant",
+      "brand": "iab-9a72da1a8011f60e",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: LiveIntent Inc.",
+      "type": "declarant",
+      "brand": "liveintent",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: LoudEcho",
+      "type": "declarant",
+      "brand": "iab-ef6ed83d1a74509f",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Lucead",
+      "type": "declarant",
+      "brand": "iab-bdb995aba6ee75e2",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Lupon Media",
+      "type": "declarant",
+      "brand": "iab-67da203bd5da384d",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: M.D. Primis Technologies Ltd.",
+      "type": "declarant",
+      "brand": "iab-c9baaa06359e7f00",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: MADOPI OÜ",
+      "type": "declarant",
+      "brand": "iab-e1676ffc79ffdd5b",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: MARKETPERF CORP",
+      "type": "declarant",
+      "brand": "iab-37de314cbebec89e",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: MEDIAWAYSS Sp. z o.o.",
+      "type": "declarant",
+      "brand": "iab-60cc4b718858469c",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: MGID Inc.",
+      "type": "declarant",
+      "brand": "iab-71d180780f05bbe1",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: MI LI TECHNOLOGY CO., LIMITED",
+      "type": "declarant",
+      "brand": "iab-a94ef3b7e990f969",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: MISSENA",
+      "type": "declarant",
+      "brand": "iab-f459ca7cd95c608a",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: MULTIBRAIN INC.",
+      "type": "declarant",
+      "brand": "iab-c8ffde116db0e564",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: MULTIMARKET SERVICES PORTUGAL, LDA",
+      "type": "declarant",
+      "brand": "iab-5320d802930b6a95",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Magnite CTV, Inc.",
+      "type": "declarant",
+      "brand": "iab-f666dd31cf1f415a",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Magnite, Inc.",
+      "type": "declarant",
+      "brand": "magnite",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Magnite, Inc. (Carbon AI Limited)",
+      "type": "declarant",
+      "brand": "iab-1996cbe975719954",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Magnite, Inc. (Outstream)",
+      "type": "declarant",
+      "brand": "iab-34ba14d044725ee1",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Media Hafen GmbH",
+      "type": "declarant",
+      "brand": "iab-5434c345dab18e24",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Media Lgns Loganglobal SLU",
+      "type": "declarant",
+      "brand": "iab-a17305da4ec97a1b",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Media Square",
+      "type": "declarant",
+      "brand": "iab-4d713fdd1201a1eb",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Media.net Advertising FZ-LLC",
+      "type": "declarant",
+      "brand": "iab-13d7af85f87a204c",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Mediavine, Inc.",
+      "type": "declarant",
+      "brand": "mediavine",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Memob Global FZ LLC",
+      "type": "declarant",
+      "brand": "iab-d0431b6a2410edf9",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Mlion Ads LTD",
+      "type": "declarant",
+      "brand": "iab-1eec512d0f788640",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: MobUpps International LTD",
+      "type": "declarant",
+      "brand": "iab-d2a25aab40ef99f5",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Mobfox US LLC",
+      "type": "declarant",
+      "brand": "iab-3e78da69bdbe293d",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Mobility-Ads GmbH",
+      "type": "declarant",
+      "brand": "iab-f724114044a8d69b",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Mobkoi Ltd",
+      "type": "declarant",
+      "brand": "iab-a50177da2788b321",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Monet Engine Inc",
+      "type": "declarant",
+      "brand": "iab-11588ac24e0ec2b7",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: N.Rich Technologies Inc.",
+      "type": "declarant",
+      "brand": "iab-0d0476b7e7b04cca",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: NC Audience Exchange, LLC",
+      "type": "declarant",
+      "brand": "iab-042fe2b438d2ebcb",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: NEURAL.ONE",
+      "type": "declarant",
+      "brand": "iab-2782a40a14d8375c",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: NHNACE",
+      "type": "declarant",
+      "brand": "iab-9f0e04705436244c",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Nadex Limited",
+      "type": "declarant",
+      "brand": "iab-1a81a14de458cfef",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Nativery Srl",
+      "type": "declarant",
+      "brand": "iab-6b6324aeb6722cdf",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Nativo, Inc.",
+      "type": "declarant",
+      "brand": "nativo",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: NetSuccess, s.r.o.",
+      "type": "declarant",
+      "brand": "iab-2e5ca3763f14ceba",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: NeuBids (Lutkan BV)",
+      "type": "declarant",
+      "brand": "iab-0471c1f2a1531916",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Neustar, Inc., a TransUnion company",
+      "type": "declarant",
+      "brand": "neustar",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: NexInsight LLC",
+      "type": "declarant",
+      "brand": "iab-f4fe19bfc9f72552",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: NextRoll, Inc.",
+      "type": "declarant",
+      "brand": "iab-11255f357f1d35ac",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Nexxen Group LLC",
+      "type": "declarant",
+      "brand": "iab-35354247ca6be104",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Nexxen Inc.",
+      "type": "declarant",
+      "brand": "iab-d41079d104af678c",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Nielsen Media Research Ltd.",
+      "type": "declarant",
+      "brand": "iab-d19a2944a76825d7",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: NinaData Oy",
+      "type": "declarant",
+      "brand": "iab-31bae393ee352223",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Nitrouppi LTD",
+      "type": "declarant",
+      "brand": "iab-c27608b353ed7427",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Njuice AB",
+      "type": "declarant",
+      "brand": "iab-6d9cd5c20dbfb94a",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: NoBid, Inc.",
+      "type": "declarant",
+      "brand": "iab-e0c372d0a8690df2",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Nordic Data Resources AS",
+      "type": "declarant",
+      "brand": "iab-b1e2949b2484974c",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Norstat AS",
+      "type": "declarant",
+      "brand": "iab-0067cca55b9a053b",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Numberly",
+      "type": "declarant",
+      "brand": "iab-cf079e879d2c9e17",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: ORANGE CLICK MEDIA & COMMERCE LTD",
+      "type": "declarant",
+      "brand": "iab-e39e79bb86616fda",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: OS Data Solutions GmbH",
+      "type": "declarant",
+      "brand": "iab-bdc7cc25a59d1535",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Ogury Ltd",
+      "type": "declarant",
+      "brand": "iab-79d4c5c435f23f4a",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: On Device Research Limited",
+      "type": "declarant",
+      "brand": "iab-311ffc9daabca546",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: OnAudience Ltd",
+      "type": "declarant",
+      "brand": "onaudience",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: OneFootball GmbH",
+      "type": "declarant",
+      "brand": "iab-1e2d8dea931f2874",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: OneTag Limited",
+      "type": "declarant",
+      "brand": "iab-8f8de98216d60b87",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Onfocus (Adagio)",
+      "type": "declarant",
+      "brand": "iab-3699a23bba548ba0",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Onnetwork Sp. z o.o.",
+      "type": "declarant",
+      "brand": "iab-155641d6869fbbf1",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Open Web Technologies Ltd",
+      "type": "declarant",
+      "brand": "iab-a131a0e787f479a6",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: OpenX",
+      "type": "declarant",
+      "brand": "openx",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Opera Software Ireland Limited",
+      "type": "declarant",
+      "brand": "iab-5676ee8c55efe16d",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Opinary (Affinity Global GmbH)",
+      "type": "declarant",
+      "brand": "iab-486a2655a55a92b5",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Opt Out Advertising B.V.",
+      "type": "declarant",
+      "brand": "iab-0ff6a51261462b44",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Otto GmbH & Co. KGaA",
+      "type": "declarant",
+      "brand": "iab-1a6ae7c54e57fc07",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: OursBlanc",
+      "type": "declarant",
+      "brand": "iab-78366e40fbe01035",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Outbrain UK Limited",
+      "type": "declarant",
+      "brand": "iab-9784f20b69b30cf7",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: PGAM Media LLC",
+      "type": "declarant",
+      "brand": "iab-238b084dfa3583d4",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: PIXIMEDIA",
+      "type": "declarant",
+      "brand": "iab-471435c092c0d833",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: PLAYSTREAM MEDIA",
+      "type": "declarant",
+      "brand": "iab-3af23ed8bad80189",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: PROXISTORE",
+      "type": "declarant",
+      "brand": "iab-294213ebcf1f9981",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Pelmorex Corp.",
+      "type": "declarant",
+      "brand": "iab-8ecade6ab1e1ca8f",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: PerformMedia.com, Inc.",
+      "type": "declarant",
+      "brand": "iab-d13860717711d703",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Piano Software Inc.",
+      "type": "declarant",
+      "brand": "iab-7a24976d606863b8",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: PixFuture Media Inc.",
+      "type": "declarant",
+      "brand": "iab-ad98a3b9264aed5e",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Pixalate, Inc.",
+      "type": "declarant",
+      "brand": "iab-17278800c16ae8fc",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Platform161 B.V.",
+      "type": "declarant",
+      "brand": "platform161",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Playable ApS",
+      "type": "declarant",
+      "brand": "iab-088f8863584aeaa3",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Playdigo Inc",
+      "type": "declarant",
+      "brand": "iab-7e62b7aaee67c722",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Pontiac Intelligence LLC",
+      "type": "declarant",
+      "brand": "iab-48076df1064db9d1",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Prado Media Ltd.",
+      "type": "declarant",
+      "brand": "iab-5e33315a2c83e501",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: PubMatic, Inc",
+      "type": "declarant",
+      "brand": "pubmatic",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Pubfinity LLC",
+      "type": "declarant",
+      "brand": "iab-c033fe03c7f7452c",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Publicis Media GmbH",
+      "type": "declarant",
+      "brand": "iab-da16d0faad947a46",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Publicit Global S.L.U",
+      "type": "declarant",
+      "brand": "iab-f4faeedd89717908",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Pubstack",
+      "type": "declarant",
+      "brand": "iab-a6e255158fc54542",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: PulsePoint, Inc.",
+      "type": "declarant",
+      "brand": "pulsepoint",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: QUARTER MEDIA GmbH",
+      "type": "declarant",
+      "brand": "iab-f5375f6e88315d49",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Quantcast",
+      "type": "declarant",
+      "brand": "quantcast",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Quantyoo GmbH & Co. KG",
+      "type": "declarant",
+      "brand": "iab-98e49bee2d11ce7c",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: RATEGAIN ADARA INC",
+      "type": "declarant",
+      "brand": "iab-9e4f799a1f1842e7",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: REMAILME",
+      "type": "declarant",
+      "brand": "iab-61ea73950fe906f6",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: RETICLE DIGITAL PTE. LTD.",
+      "type": "declarant",
+      "brand": "iab-d539a83e84c6e7d0",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: RM DIGITAL ADS LTDA",
+      "type": "declarant",
+      "brand": "iab-41bb5626ef31ece6",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Radio Net Media Limited",
+      "type": "declarant",
+      "brand": "iab-45a7758635c4bb36",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Rakuten Marketing LLC",
+      "type": "declarant",
+      "brand": "iab-8ee1feccbf8fd392",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Readpeak Oy",
+      "type": "declarant",
+      "brand": "iab-6246df42ed289561",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Redmob Digital - FZCO",
+      "type": "declarant",
+      "brand": "iab-6aae571715f1d05a",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Refinery89 B.V",
+      "type": "declarant",
+      "brand": "iab-99f8bd962f73b3ae",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Reppublika Research and Analytics Austria GmbH",
+      "type": "declarant",
+      "brand": "iab-9deb6ddf65c0e1ad",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Research and Analysis of Media in Sweden AB",
+      "type": "declarant",
+      "brand": "iab-ba410491bbdd266e",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Reset Digital Europe Ltd",
+      "type": "declarant",
+      "brand": "iab-def1d3eb6135ce33",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: RetailSpot",
+      "type": "declarant",
+      "brand": "iab-d8e28acc8530da1c",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: RevJet",
+      "type": "declarant",
+      "brand": "iab-26c6b1c5e27ef403",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Revcontent, LLC",
+      "type": "declarant",
+      "brand": "iab-c202518f1811a44e",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Rhebus Inc.",
+      "type": "declarant",
+      "brand": "iab-d7fa869354334cca",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Rich Audience Technologies SLU",
+      "type": "declarant",
+      "brand": "iab-b8e929a0bd4b99e4",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Ringier AG",
+      "type": "declarant",
+      "brand": "iab-4ffa2e8634dd5ee1",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Ringier Axel Springer Polska sp. z o.o.",
+      "type": "declarant",
+      "brand": "iab-b1f3170d96e3cb0a",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: RobustApps Ltd",
+      "type": "declarant",
+      "brand": "iab-180ee4bf2df65a90",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Roivenue s.r.o.",
+      "type": "declarant",
+      "brand": "iab-7f208fe9430f4ac0",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: SMADEX, S.L.U.",
+      "type": "declarant",
+      "brand": "iab-0d39982df1dbbb92",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: SMARTSTREAM.TV GmbH",
+      "type": "declarant",
+      "brand": "iab-df07026ec50e535a",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: SOMQUERY SOMTAG - (SevenOne Media)",
+      "type": "declarant",
+      "brand": "iab-7f4e17e681a3f4bc",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: SPICY MOBILE Karczewski Zawadzki Spółka Jawna",
+      "type": "declarant",
+      "brand": "iab-62346eb9a71f62a9",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: SPORTORITY UK LTD",
+      "type": "declarant",
+      "brand": "iab-e2bf26fed56fda63",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: SPP Solutions Ltd.",
+      "type": "declarant",
+      "brand": "iab-449aa30b5fbe2fc9",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: STUDIO GONG GmbH & Co. Studiobetriebs KG",
+      "type": "declarant",
+      "brand": "iab-abd784bbaf986f6e",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Sabio London Limited",
+      "type": "declarant",
+      "brand": "iab-33324e0e33791cd3",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Samhub AB",
+      "type": "declarant",
+      "brand": "iab-304e1a2d58ae9ee9",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Samoukale Enterprises Limited dba ADEX",
+      "type": "declarant",
+      "brand": "iab-92ae7ede158f0bb1",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Samsung Ads",
+      "type": "declarant",
+      "brand": "iab-d3ba3eaa5738903d",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Seeding Alliance GmbH",
+      "type": "declarant",
+      "brand": "iab-743fbb52b93fc1a0",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Seedtag Advertising S.L",
+      "type": "declarant",
+      "brand": "seedtag",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Shopfully GmbH",
+      "type": "declarant",
+      "brand": "iab-d83f0cf1fb6d8340",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Simplifi Holdings LLC",
+      "type": "declarant",
+      "brand": "iab-2c1015cc07eac17b",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Sipo Inc",
+      "type": "declarant",
+      "brand": "iab-185281ef0cbc78e7",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Sirdata",
+      "type": "declarant",
+      "brand": "iab-b61b2e12df097121",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Situation Publishing Ltd",
+      "type": "declarant",
+      "brand": "iab-6fce040b4e0efc6f",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Smaato, Inc.",
+      "type": "declarant",
+      "brand": "smaato",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Smart Traffik",
+      "type": "declarant",
+      "brand": "iab-e8072b11b5dcd137",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Smartme Analytics",
+      "type": "declarant",
+      "brand": "iab-40376c5d67b630af",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: SmartyAds Inc.",
+      "type": "declarant",
+      "brand": "iab-ce3634b7285055f6",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Smile Wanted Group",
+      "type": "declarant",
+      "brand": "iab-c82a4a3b2ef55695",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Snigel Web Services Limited",
+      "type": "declarant",
+      "brand": "iab-6163f82478fde07b",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: SoD ScreenOnDemand GmbH",
+      "type": "declarant",
+      "brand": "iab-6e352e618b36be33",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Sojern, Inc.",
+      "type": "declarant",
+      "brand": "iab-4a1f7d16f58ec4bf",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Solocal SA",
+      "type": "declarant",
+      "brand": "iab-2ea423bc1565a909",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Soluciones Netquest de Investigación SLU",
+      "type": "declarant",
+      "brand": "iab-5f46e66ef8c82fb9",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Solution coupons",
+      "type": "declarant",
+      "brand": "iab-58deb96793d93943",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Sonares GmbH",
+      "type": "declarant",
+      "brand": "iab-c81d1f7984aed39b",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: SoundCast",
+      "type": "declarant",
+      "brand": "iab-2c7e8819903289ae",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: SoundStack, Inc",
+      "type": "declarant",
+      "brand": "iab-080474e4de855cd8",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Sovrn, Inc.",
+      "type": "declarant",
+      "brand": "sovrn",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: SparkV International Inc",
+      "type": "declarant",
+      "brand": "iab-7c4a6520de2ee9c8",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Sparteo",
+      "type": "declarant",
+      "brand": "iab-0e6d2cdd6a087178",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: SpinX Pte Ltd",
+      "type": "declarant",
+      "brand": "iab-823663b757398447",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Splash&Roll sp. z o.o.",
+      "type": "declarant",
+      "brand": null,
+      "role": null
+    },
+    {
+      "name": "Vendor declaration: Splicky GmbH",
+      "type": "declarant",
+      "brand": "iab-c50b9256d3d8d5b0",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: SpotX, Inc",
+      "type": "declarant",
+      "brand": "spotx",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: SpringServe, LLC",
+      "type": "declarant",
+      "brand": "iab-ddcd02a25ade9f0b",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: StackAdapt Inc.",
+      "type": "declarant",
+      "brand": "iab-9c81ac3d37167d62",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Streamwise srl",
+      "type": "declarant",
+      "brand": "iab-e938e9affbec5204",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Ströer SSP GmbH (SSP)",
+      "type": "declarant",
+      "brand": "iab-bc95e900b9191c83",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Superedge Inc",
+      "type": "declarant",
+      "brand": "iab-b6833b800a22a5de",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Syn Technologies, LLC",
+      "type": "declarant",
+      "brand": "iab-92b361234f7ef18f",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: TAPTAP Digital SL",
+      "type": "declarant",
+      "brand": "iab-e769e9516bc68443",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: THEBRIGADE FRANCE SAS",
+      "type": "declarant",
+      "brand": "iab-4879b8f4e9f10f26",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: TStack Inc",
+      "type": "declarant",
+      "brand": "iab-53a4802c42d2fb07",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: TTG International LLC",
+      "type": "declarant",
+      "brand": "iab-6eb643102b8f4b6a",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: TV SQUARED LIMITED d/b/a InnovidXP",
+      "type": "declarant",
+      "brand": "iab-e9e0ee589308f268",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Taboola Europe Limited",
+      "type": "declarant",
+      "brand": "taboola",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Teads France SAS",
+      "type": "declarant",
+      "brand": "iab-3d3b0fbcb6c90728",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Teal Digital Group Ltd",
+      "type": "declarant",
+      "brand": "iab-a981f512218ce3e0",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Teroa S.A.",
+      "type": "declarant",
+      "brand": "iab-2cc2eec211bece2e",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: The Ad Group Inc.",
+      "type": "declarant",
+      "brand": "iab-e4995ec6345ec7d8",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: The Kantar Group Limited",
+      "type": "declarant",
+      "brand": "iab-98667b088c5213a3",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: The Moneytizer",
+      "type": "declarant",
+      "brand": "iab-bf974adb7d394cca",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: The Ozone Project Limited",
+      "type": "declarant",
+      "brand": "ozone",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: The Qt Company",
+      "type": "declarant",
+      "brand": "iab-1a54d482d39e79bc",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: The Reach Group GmbH",
+      "type": "declarant",
+      "brand": "iab-106a1e86a966a1bd",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Three Spring Media LTD",
+      "type": "declarant",
+      "brand": "iab-188d9b7d9dc53f2d",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: ThumbAd AS",
+      "type": "declarant",
+      "brand": "iab-7348d0250c3c9628",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: TimeOne Performance",
+      "type": "declarant",
+      "brand": "iab-4f21fdfc7e3c052b",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Tonefuse LLC",
+      "type": "declarant",
+      "brand": "iab-3b3cacceadeb5584",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Trade House Media",
+      "type": "declarant",
+      "brand": "iab-622aac79fb51c063",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Trendesk TV LLC dba BidFuse",
+      "type": "declarant",
+      "brand": "iab-40521d6caa6b2df1",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Tri-table Sp. z o.o.",
+      "type": "declarant",
+      "brand": "iab-1af1f7f57ef355d8",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Triple Lift, Inc.",
+      "type": "declarant",
+      "brand": "triplelift",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Triple13 Ltd",
+      "type": "declarant",
+      "brand": "iab-3f0b8eb95eff2ade",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Truvid Inc.",
+      "type": "declarant",
+      "brand": "iab-98eedbfd334d8a4b",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Tubia FZCO",
+      "type": "declarant",
+      "brand": "iab-caa11eda79727563",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Tunnl B.V.",
+      "type": "declarant",
+      "brand": "iab-2faa1a994c63956a",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Turk Telekom",
+      "type": "declarant",
+      "brand": "iab-a375ea1f90ce64f1",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Twenty Nine Enterprises, Inc. (Magellan AI)",
+      "type": "declarant",
+      "brand": "iab-a4638c2768a3ab1b",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: TypeA Holdings Ltd",
+      "type": "declarant",
+      "brand": "iab-24d02de8f6345dbf",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: UAB Xeworks",
+      "type": "declarant",
+      "brand": "iab-a8f4c432a1b11faf",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: UniCredit S.p.A.",
+      "type": "declarant",
+      "brand": "iab-abf8b5beaf5026e2",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Unicredit BankAustria AG",
+      "type": "declarant",
+      "brand": "iab-eff602c181ec1597",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: United Internet Media GmbH",
+      "type": "declarant",
+      "brand": "iab-58bd703029ac7052",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Upwave Inc.",
+      "type": "declarant",
+      "brand": "iab-12289a286e1f2af6",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: VALIUZ",
+      "type": "declarant",
+      "brand": "iab-a9ebb62aa7c18d88",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: VALUAD ADVERTISING TECHNOLOGIES LTD",
+      "type": "declarant",
+      "brand": "iab-81f43014fb52f8e7",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: VDO.AI (Zero1 Inc)",
+      "type": "declarant",
+      "brand": "iab-da5ced1633da4444",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: VGI CTV, Inc",
+      "type": "declarant",
+      "brand": "iab-a6e0e8e87ac132bf",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: VRTCAL Markets Inc",
+      "type": "declarant",
+      "brand": "iab-58f1894bea828eae",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Velonium LTD",
+      "type": "declarant",
+      "brand": "iab-ce0030c543e32e8d",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Viant Technology Inc",
+      "type": "declarant",
+      "brand": "iab-99cd341d7059114f",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: VideoShakers S.L.",
+      "type": "declarant",
+      "brand": "iab-6d118dcd5b1833c0",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: ViewPay",
+      "type": "declarant",
+      "brand": "iab-c996159d1ae147c2",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Visoon Video Impact GmbH",
+      "type": "declarant",
+      "brand": "iab-cf55639b4b92ef7e",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: WEMASS MEDIA AUDIENCE SAFE SOLUTIONS, S.L.",
+      "type": "declarant",
+      "brand": "iab-568b71158cd55147",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: WPP Media",
+      "type": "declarant",
+      "brand": "iab-bb9b69df9918079b",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: WaardeX B.V.",
+      "type": "declarant",
+      "brand": "iab-8a97cca0cd0f51c2",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: WallyMatters B.V.",
+      "type": "declarant",
+      "brand": "iab-a32e80354f7a4972",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Weborama",
+      "type": "declarant",
+      "brand": "weborama",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Welect GmbH",
+      "type": "declarant",
+      "brand": "iab-99dbc0209225ee2e",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: XChange by SFBX®",
+      "type": "declarant",
+      "brand": "iab-c1ebc2555407bfed",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Xandr, Inc.",
+      "type": "declarant",
+      "brand": "xandr",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Xapads Media Ltd",
+      "type": "declarant",
+      "brand": "iab-7cacf95681d76d3b",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Xiaomi Technologies Singapore Pte. Ltd.,",
+      "type": "declarant",
+      "brand": "iab-8f26f4f41701df34",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: YOC AG",
+      "type": "declarant",
+      "brand": "iab-0fd1e3fdc6d173e2",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Yieldlab (Virtual Minds GmbH)",
+      "type": "declarant",
+      "brand": "iab-37d77edc2b86de37",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Yieldlove GmbH",
+      "type": "declarant",
+      "brand": "iab-221b9eb4ac1a4a49",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Yieldmo, Inc.",
+      "type": "declarant",
+      "brand": "yieldmo",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: YouGov",
+      "type": "declarant",
+      "brand": "iab-b25780885f01b943",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: Zeta Global Corp.",
+      "type": "declarant",
+      "brand": "iab-77b6d0cafbb370e5",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: ad6media",
+      "type": "declarant",
+      "brand": "iab-a7cadedbef7395fd",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: adWMG",
+      "type": "declarant",
+      "brand": "iab-7788fdfd6d23f6ed",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: adrule mobile GmbH",
+      "type": "declarant",
+      "brand": "iab-ba6e61a9349afaf6",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: adtron technologies GmbH",
+      "type": "declarant",
+      "brand": "iab-9cb67b0948f8567a",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: communicationAds GmbH & Co. KG",
+      "type": "declarant",
+      "brand": "iab-32a599b7920676d6",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: cynapsis interactive GmbH",
+      "type": "declarant",
+      "brand": "iab-361f277e6ee7c2d9",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: digitalAudience B.V.",
+      "type": "declarant",
+      "brand": "iab-ee69fc60fb53ec51",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: eBay Inc",
+      "type": "declarant",
+      "brand": "ebay",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: eMarketingSolutions, Online Marketing S.L.",
+      "type": "declarant",
+      "brand": "iab-d3cf1b8fffd63949",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: emetriq GmbH",
+      "type": "declarant",
+      "brand": "emetriq",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: freenet DLS GmbH",
+      "type": "declarant",
+      "brand": "iab-fa5135741678efb8",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: iPROM",
+      "type": "declarant",
+      "brand": "iab-8e03ee6f8f51ea84",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: iion Digital Pty Ltd",
+      "type": "declarant",
+      "brand": "iab-8c7f2a944b1f5eb8",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: impact.com",
+      "type": "declarant",
+      "brand": "iab-1215952db030f283",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: ividence",
+      "type": "declarant",
+      "brand": "iab-1c44af4e597fde37",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: netzeffekt GmbH",
+      "type": "declarant",
+      "brand": "iab-2ac2f314b3135e28",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: onlineumfragen.com GmbH",
+      "type": "declarant",
+      "brand": "iab-db0c35f9778d0929",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: retailAds GmbH & Co. KG",
+      "type": "declarant",
+      "brand": "iab-26bc16f20773a87c",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: smartclip Europe GmbH",
+      "type": "declarant",
+      "brand": "iab-9426e80b40c806b7",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: travel audience GmbH",
+      "type": "declarant",
+      "brand": "iab-addf38e8dbda5cd7",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: uppr GmbH",
+      "type": "declarant",
+      "brand": "iab-1a88c161ceb606c9",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: usemax advertisement (Emego GmbH)",
+      "type": "declarant",
+      "brand": "iab-e9c51f9876f36ac3",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: what3words Limited",
+      "type": "declarant",
+      "brand": "what3words",
+      "role": "declarant"
+    },
+    {
+      "name": "Vendor declaration: zeotap Data GmbH",
+      "type": "declarant",
+      "brand": "zeotap",
+      "role": "declarant"
+    },
+    {
+      "name": "Viafoura",
+      "type": "company",
+      "brand": "viafoura",
+      "role": "company"
+    },
+    {
+      "name": "Vimeo",
+      "type": "company",
+      "brand": "vimeo",
+      "role": "company"
+    },
+    {
+      "name": "Visual Website Optimizer",
+      "type": "company",
+      "brand": "vwo",
+      "role": "company"
+    },
+    {
+      "name": "Vuble",
+      "type": "company",
+      "brand": "vuble",
+      "role": "company"
+    },
+    {
+      "name": "WhatsApp",
+      "type": "company",
+      "brand": "whatsapp",
+      "role": "company"
+    },
+    {
+      "name": "Wikipedia",
+      "type": "company",
+      "brand": "wikipedia",
+      "role": "company"
+    },
+    {
+      "name": "Wix.com",
+      "type": "company",
+      "brand": "wix",
+      "role": "company"
+    },
+    {
+      "name": "WooCommerce",
+      "type": "company",
+      "brand": "woocommerce",
+      "role": "company"
+    },
+    {
+      "name": "WordPress",
+      "type": "company",
+      "brand": "wordpress",
+      "role": "company"
+    },
+    {
+      "name": "Wunderkind",
+      "type": "company",
+      "brand": "wunderkind",
+      "role": "company"
+    },
+    {
+      "name": "X",
+      "type": "company",
+      "brand": "x-twitter",
+      "role": "company"
+    },
+    {
+      "name": "Xandr",
+      "type": "company",
+      "brand": "xandr",
+      "role": "company"
+    },
+    {
+      "name": "Yahoo",
+      "type": "company",
+      "brand": "yahoo",
+      "role": "company"
+    },
+    {
+      "name": "Yandex",
+      "type": "company",
+      "brand": "yandex",
+      "role": "company"
+    },
+    {
+      "name": "Yandex Metrica",
+      "type": "company",
+      "brand": "yandex",
+      "role": "company"
+    },
+    {
+      "name": "Yieldmo",
+      "type": "company",
+      "brand": "yieldmo",
+      "role": "company"
+    },
+    {
+      "name": "ZOHO",
+      "type": "company",
+      "brand": "zoho",
+      "role": "company"
+    },
+    {
+      "name": "Zendesk",
+      "type": "company",
+      "brand": "zendesk",
+      "role": "company"
+    },
+    {
+      "name": "Zeotap",
+      "type": "company",
+      "brand": "zeotap",
+      "role": "company"
+    },
+    {
+      "name": "ad.360yield.com",
+      "type": "company",
+      "brand": "improvedigital",
+      "role": "company"
+    },
+    {
+      "name": "comScore",
+      "type": "company",
+      "brand": "comscore",
+      "role": "company"
+    },
+    {
+      "name": "csync.loopme.me",
+      "type": "company",
+      "brand": "loopme",
+      "role": "company"
+    },
+    {
+      "name": "iubenda",
+      "type": "company",
+      "brand": "iubenda",
+      "role": "company"
+    },
+    {
+      "name": "rekmob.com",
+      "type": "company",
+      "brand": "rekmob",
+      "role": "company"
+    },
+    {
+      "name": "richAudience",
+      "type": "company",
+      "brand": "richaudience",
+      "role": "company"
+    },
+    {
+      "name": "seedtag.com",
+      "type": "company",
+      "brand": "seedtag",
+      "role": "company"
+    },
+    {
+      "name": "taboola.com",
+      "type": "company",
+      "brand": "taboola",
+      "role": "company"
+    },
+    {
+      "name": "visx.net",
+      "type": "company",
+      "brand": "visx",
+      "role": "company"
+    },
+    {
+      "name": "vmg.host",
+      "type": "company",
+      "brand": null,
+      "role": null
+    }
+  ],
+  "gaps": {
+    "antifraud": [],
+    "social": [],
+    "tagManager": [],
+    "beacons": [],
+    "cookies": [
+      "Adxcore",
+      "Vendor declaration: Splash&Roll sp. z o.o.",
+      "vmg.host"
+    ]
+  }
+}

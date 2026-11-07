@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "about": "Known, documented inconsistencies of applied Antidetect profiles (antidetect-consistency-native.mjs). A finding that matches an entry (check + browser [+ presets]) is reported as a known limit instead of failing. In a complete run an entry or browser that matched nothing is stale and fails the run: remove it once the product fixes the limit.",
+  "limits": [
+    {
+      "check": "date-string",
+      "browsers": [
+        "chrome",
+        "firefox"
+      ],
+      "reason": "Local Date emulation is not implemented (open owner decision, ADR-104): the timezone row fixes getTimezoneOffset and Intl follows the profile zone, but Date#toString and local date fields keep the real zone offset (catalog reason of the timezone row)."
+    },
+    {
+      "check": "header-user-agent",
+      "browsers": [
+        "firefox"
+      ],
+      "reason": "ADR-105 rewrites request headers with Chrome declarativeNetRequest only; Firefox sends its native User-Agent while JavaScript reports the claimed Chrome/Edge identity."
+    },
+    {
+      "check": "header-accept-language",
+      "browsers": [
+        "firefox"
+      ],
+      "reason": "ADR-105 rewrites request headers with Chrome declarativeNetRequest only; Firefox sends its native Accept-Language while navigator.languages reports the profile languages."
+    },
+    {
+      "check": "ua-data-missing",
+      "browsers": [
+        "firefox"
+      ],
+      "reason": "Firefox has no navigator.userAgentData and Custom never creates an API the browser lacks (ADR-048), so a Chrome/Edge claim in Firefox has no UA client hints."
+    },
+    {
+      "check": "apply:device-memory",
+      "browsers": [
+        "firefox"
+      ],
+      "reason": "Firefox has no navigator.deviceMemory and Custom never creates an API the browser lacks (ADR-048), so the claimed memory value is absent in Firefox."
+    }
+  ]
+}

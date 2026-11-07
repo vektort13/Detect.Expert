@@ -1,0 +1,14 @@
+{
+  "name": "@detect-expert/catalog",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Vendor catalog data, provenance and rule metadata. Data only; no executable remote extensions.",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@detect-expert/contracts": "workspace:*"
+  }
+}

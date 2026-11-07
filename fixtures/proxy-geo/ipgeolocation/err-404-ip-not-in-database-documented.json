@@ -1,0 +1,9 @@
+{
+  "provider": "ipgeolocation",
+  "ip": "8.8.8.8",
+  "status": 404,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "text": "{\"message\":\"Provided IP Address 'IP_ADDRESS' doesn't exist in our database.\"}"
+}

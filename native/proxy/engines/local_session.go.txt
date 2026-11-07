@@ -1,0 +1,5 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+package reliable
+
+// LocalSessionID is immutable for the life of this reliability layer.
+func (l *Layer) LocalSessionID() uint64 { return l.cfg.LocalSessionID }

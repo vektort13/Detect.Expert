@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.output/
+/coverage/
+*.log
+.DS_Store
+Thumbs.db
+tests/**/artifacts/
+test-results/
+playwright-report/
+.playwright-profile/
+*.zip
+.env
+.public-tree-marker
+/release/
+.tmp/
+packages/catalog/data/.drift

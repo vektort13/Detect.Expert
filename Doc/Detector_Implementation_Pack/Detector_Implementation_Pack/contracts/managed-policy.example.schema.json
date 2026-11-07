@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "ObservationEnabled": {
+      "type": "boolean",
+      "title": "Allow observation within authorized scope; not activation or consent"
+    },
+    "AllowedObservationHosts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "DisabledDetectorIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "EnableCookieNameSignals": {
+      "type": "boolean"
+    },
+    "EnableRemoteRules": {
+      "type": "boolean"
+    },
+    "EnableHealthUpload": {
+      "type": "boolean"
+    },
+    "EnableManualReportUpload": {
+      "type": "boolean"
+    },
+    "TenantId": {
+      "type": "string"
+    },
+    "ServiceOrigin": {
+      "type": "string"
+    },
+    "MaxSessionBytes": {
+      "type": "integer",
+      "minimum": 65536,
+      "maximum": 4194304
+    }
+  }
+}

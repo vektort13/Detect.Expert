@@ -1,0 +1,49 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+package main
+
+import (
+	"context"
+	"encoding/binary"
+	"io"
+	"net"
+	"net/netip"
+	"time"
+)
+
+// queryTunnelTCP uses the same VPN netstack and same resolver as the failed
+// UDP attempt. TCP is required for truncated answers and works when UDP/53 is
+// filtered by the provider. There is no OS resolver or direct socket fallback.
+func queryTunnelTCP(ctx context.Context, server netip.AddrPort, host string, qtype uint16, dial func(context.Context, string, string) (net.Conn, error)) ([]netip.Addr, error) {
+	ctx, cancel := context.WithTimeout(ctx, 3*time.Second)
+	defer cancel()
+	conn, err := dial(ctx, "tcp", server.String())
+	if err != nil {
+		return nil, err
+	}
+	defer conn.Close()
+	if deadline, ok := ctx.Deadline(); ok {
+		conn.SetDeadline(deadline)
+	}
+	id, err := newDNSTxID()
+	if err != nil {
+		return nil, err
+	}
+	query, err := buildDNSQuery(id, host, qtype)
+	if err != nil {
+		return nil, err
+	}
+	packet := binary.BigEndian.AppendUint16(nil, uint16(len(query)))
+	packet = append(packet, query...)
+	if _, err = conn.Write(packet); err != nil {
+		return nil, err
+	}
+	var header [2]byte
+	if _, err = io.ReadFull(conn, header[:]); err != nil {
+		return nil, err
+	}
+	response := make([]byte, int(binary.BigEndian.Uint16(header[:])))
+	if _, err = io.ReadFull(conn, response); err != nil {
+		return nil, err
+	}
+	return parseDNSAnswers(response, id, qtype, host)
+}

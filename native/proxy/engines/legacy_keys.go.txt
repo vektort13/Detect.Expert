@@ -1,0 +1,98 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+package control
+
+import (
+	"crypto/hmac"
+	"crypto/md5"
+	"crypto/sha1"
+	"crypto/tls"
+	"encoding/binary"
+	"hash"
+	"strings"
+
+	"github.com/n0madic/go-openvpn/internal/proto"
+)
+
+// NegotiatedTLSExporter follows the authenticated server's PUSH_REPLY. Older
+// peers use the OpenVPN TLS-1 PRF even when the control TLS is 1.2 or 1.3.
+func NegotiatedTLSExporter(raw string) bool {
+	for _, option := range strings.Split(raw, ",") {
+		fields := strings.Fields(option)
+		if len(fields) < 2 {
+			continue
+		}
+		if fields[0] == "key-derivation" && len(fields) == 2 && fields[1] == "tls-ekm" {
+			return true
+		}
+		if fields[0] == "protocol-flags" {
+			for _, flag := range fields[1:] {
+				if flag == "tls-ekm" {
+					return true
+				}
+			}
+		}
+	}
+	return false
+}
+
+func legacyPHash(secret, seed []byte, length int, algorithm func() hash.Hash) []byte {
+	mac := hmac.New(algorithm, secret)
+	mac.Write(seed)
+	a := mac.Sum(nil)
+	defer func() { clear(a) }()
+	out := make([]byte, length)
+	for position := 0; position < length; {
+		mac.Reset()
+		mac.Write(a)
+		mac.Write(seed)
+		block := mac.Sum(nil)
+		position += copy(out[position:], block)
+		clear(block)
+		mac.Reset()
+		mac.Write(a)
+		next := mac.Sum(nil)
+		clear(a)
+		a = next
+	}
+	return out
+}
+
+// RFC 2246 section 5: XOR the MD5 and SHA-1 P_hash streams. These primitives
+// reproduce the established OpenVPN PRF; they do not select the TLS cipher.
+func legacyPRF(secret []byte, label string, seed []byte, length int) []byte {
+	joined := append([]byte(label), seed...)
+	defer clear(joined)
+	half := (len(secret) + 1) / 2
+	out := legacyPHash(secret[:half], joined, length, md5.New)
+	other := legacyPHash(secret[len(secret)-half:], joined, length, sha1.New)
+	defer clear(other)
+	for i := range out {
+		out[i] ^= other[i]
+	}
+	return out
+}
+
+// DeriveLegacyDataKeys matches OpenVPN ssl.c generate_key_expansion_openvpn_prf:
+// two domain-separated PRFs, with client/server seeds and wire session IDs.
+func DeriveLegacyDataKeys(client, server proto.KeyMethod2, clientSID, serverSID uint64) DataKeyMaterial {
+	seed := append(append([]byte(nil), client.Random1[:]...), server.Random1[:]...)
+	master := legacyPRF(client.PreMaster[:], "OpenVPN master secret", seed, 48)
+	clear(seed)
+	defer clear(master)
+	seed = append(append([]byte(nil), client.Random2[:]...), server.Random2[:]...)
+	seed = binary.BigEndian.AppendUint64(seed, clientSID)
+	seed = binary.BigEndian.AppendUint64(seed, serverSID)
+	keys := legacyPRF(master, "OpenVPN key expansion", seed, DataKeyMaterialLen)
+	clear(seed)
+	defer clear(keys)
+	var result DataKeyMaterial
+	copy(result[:], keys)
+	return result
+}
+
+func DeriveNegotiatedDataKeys(state tls.ConnectionState, pushed string, client, server proto.KeyMethod2, clientSID, serverSID uint64) (DataKeyMaterial, error) {
+	if NegotiatedTLSExporter(pushed) {
+		return DeriveDataKeys(state)
+	}
+	return DeriveLegacyDataKeys(client, server, clientSID, serverSID), nil
+}

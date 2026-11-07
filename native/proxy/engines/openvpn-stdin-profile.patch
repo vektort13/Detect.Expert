@@ -1,0 +1,29 @@
+diff --git a/cmd/openvpn2socks/config.go b/cmd/openvpn2socks/config.go
+index b62578f..9af333f 100644
+--- a/cmd/openvpn2socks/config.go
++++ b/cmd/openvpn2socks/config.go
+@@ -27,7 +27,7 @@ func loadConfig(opts *cliOpts, logger *slog.Logger) (*openvpn.Config, error) {
+ 
+ // loadFromOvpnFile parses a .ovpn profile and applies flag overrides.
+ func loadFromOvpnFile(opts *cliOpts, logger *slog.Logger) (*openvpn.Config, error) {
+-	parsed, err := ovpn.ParseFile(opts.configFile, &ovpn.ParseOptions{
++	parseOptions := &ovpn.ParseOptions{
+ 		Username:              opts.user,
+ 		Password:              opts.pass,
+ 		ServerNameOverride:    opts.sni,
+@@ -46,7 +46,14 @@ func loadFromOvpnFile(opts *cliOpts, logger *slog.Logger) (*openvpn.Config, erro
+ 			logger.Debug("ovpn parser warning",
+ 				"line", line, "directive", dir, "reason", reason)
+ 		},
+-	})
++	}
++	var parsed *ovpn.Parsed
++	var err error
++	if opts.configFile == "-" {
++		parsed, err = readStdinProfile(os.Stdin, parseOptions)
++	} else {
++		parsed, err = ovpn.ParseFile(opts.configFile, parseOptions)
++	}
+ 	if err != nil {
+ 		return nil, fmt.Errorf("parse .ovpn: %w", err)
+ 	}

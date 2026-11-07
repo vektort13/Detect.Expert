@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "about": "Explicitly historical catalog statements in docs/coverage/*.md and the newest ADR (coverage-docs-drift.test.mjs). An entry covers the listed non-current statements on lines of `file` that contain `contains`. A statement that claims to be current must never be listed here: fix the document instead.",
+  "statements": [
+    { "file": "docs/coverage/antidetect.md", "contains": "включая опубликованные format4/catalog6", "statements": ["pair=4/6", "pair=5/6", "pair=4/5", "format=4", "format=5"], "reason": "Migration rules: which published historical format/catalog pairs import strictly and how the legacy master maps." },
+    { "file": "docs/coverage/api-blocking.md", "contains": "Последующее расширение WebRTC", "statements": ["pair=2/3", "rows=142"], "reason": "Describes the ADR-060 WebRTC extension as it was introduced (catalog 3 with 142 IDs); later catalogs are documented elsewhere." },
+    { "file": "docs/coverage/api-custom.md", "contains": "55 Custom groups", "statements": ["custom=55"], "reason": "Dated addendum of 31.10.2026 (ADR-087): the state that addendum introduced, followed by the newer ADR-106 addendum." },
+    { "file": "docs/coverage/api-custom.md", "contains": "Формат6/catalog7 сохраняет прежние значения", "statements": ["pair=6/7"], "reason": "Same dated ADR-087 addendum: format 6 / catalog 7 was the format introduced on 31.10.2026." },
+    { "file": "docs/coverage/api-custom.md", "contains": "format7/catalog8, 56 Custom — добавлены Custom геолокации", "statements": ["pair=7/8"], "reason": "Dated ADR-106 addendum (05.11.2026): the format it introduced; the current format is stated in the ADR-107 paragraph above it." },
+    { "file": "docs/coverage/api-custom.md", "contains": "строго мигрируют из format1/catalog1", "statements": ["pair=1/1", "pair=2/3", "pair=3/4", "pair=4/6", "pair=5/6", "rows=143"], "reason": "List of historical formats that migrate strictly, and the previous 143 IDs whose order is preserved." },
+    { "file": "docs/coverage/fingerprint-surfaces.md", "contains": "Основа состояния — E22-18", "statements": ["pair=3/5", "rows=143", "custom=39"], "reason": "Dated basis of this matrix (sources of 2026-10-21, E22-18 state), named as such in the sentence." },
+    { "file": "docs/coverage/fingerprint-surfaces.md", "contains": "Изменения E22-19", "statements": ["pair=4/6", "rows=143"], "reason": "What the E22-19 change (format 4 / catalog 6) introduced, labelled as that change." },
+    { "file": "docs/coverage/math-transcendentals.md", "contains": "исходная матрица", "statements": ["math=20"], "reason": "Introduces the preserved original matrix of the first 20 functions; sqrt/cbrt/hypot follow in their own section." },
+    { "file": "docs/coverage/math-transcendentals.md", "contains": "прежние20 функций", "statements": ["math=20"], "reason": "States that the previous 20 functions kept their bitwise comparisons after ADR-087 added three more." },
+    { "file": "docs/coverage/math-transcendentals.md", "contains": "не импортирует production алгоритм", "statements": ["math=20"], "reason": "Describes the independent fixture file math-transcendentals-fixtures.mjs, whose name list holds the original 20 functions." },
+    { "file": "docs/coverage/webassembly.md", "contains": "формат по-прежнему v1", "statements": ["rows=105"], "reason": "History of catalog v2: the original 105 IDs that it preserved." },
+    { "file": "docs/coverage/webrtc-custom.md", "contains": "прежний ADR-068 использовал", "statements": ["pair=6/7", "pair=5/6", "rows=143", "custom=55", "custom=40"], "reason": "Explicitly marked earlier states (ADR-087, the former ADR-068) next to the current catalog and format." }
+  ]
+}

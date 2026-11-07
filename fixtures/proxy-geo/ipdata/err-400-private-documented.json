@@ -1,0 +1,9 @@
+{
+  "provider": "ipdata",
+  "ip": "8.8.8.8",
+  "status": 400,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "text": "{\"message\":\"127.0.0.1 is a private IP address\"}"
+}

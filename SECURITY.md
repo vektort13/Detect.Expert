@@ -45,7 +45,7 @@ Not a security problem for this policy, though still welcome as an [issue](https
 
 ### Checking your download
 
-The companion's executables are signed by Vektor T13 Technologies B.V. How to verify the signature and the SHA-256 is in the [companion README](companion/README.md#is-it-really-from-me).
+The companion's executables are signed by Vektor T13 Technologies B.V. How to verify the signature and the SHA-256 is in the [companion README](native/proxy/README.md#is-it-really-from-me).
 
 ## Русский
 
@@ -90,4 +90,4 @@ The companion's executables are signed by Vektor T13 Technologies B.V. How to ve
 
 ### Проверка скачанного
 
-Исполняемые файлы помощника подписаны Vektor T13 Technologies B.V. Как проверить подпись и SHA-256, написано в [README помощника](companion/README.ru.md#точно-ли-это-от-меня).
+Исполняемые файлы помощника подписаны Vektor T13 Technologies B.V. Как проверить подпись и SHA-256, написано в [README помощника](native/proxy/README.ru.md#точно-ли-это-от-меня).

@@ -1,0 +1,10 @@
+{
+  "provider": "ipapi",
+  "ip": "8.8.8.8",
+  "note": "a reserved address is never sent by the extension; the test hands a public address to the parser",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json; charset=utf-8"
+  },
+  "text": "{\"status\":\"fail\",\"message\":\"reserved range\",\"query\":\"240.0.0.1\"}"
+}

@@ -1,0 +1,9 @@
+{
+  "provider": "ipgeolocation",
+  "ip": "8.8.8.8",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "text": "{\"ip\":\"8.8.8.8\",\"location\":{\"country_code2\":\"US\",\"country_name\":\"Be\\u202erl\\u200bin\\u200e \\u2066(x)\\u2069\\ufeff\\u0007\\u2028end\",\"state_prov\":\"Be\\u202erl\\u200bin\\u200e \\u2066(x)\\u2069\\ufeff\\u0007\\u2028end\",\"city\":\"Be\\u202erl\\u200bin\\u200e \\u2066(x)\\u2069\\ufeff\\u0007\\u2028end\"},\"asn\":{\"as_number\":\"AS15169\",\"organization\":\"Be\\u202erl\\u200bin\\u200e \\u2066(x)\\u2069\\ufeff\\u0007\\u2028end\",\"type\":\"Be\\u202erl\\u200bin\\u200e \\u2066(x)\\u2069\\ufeff\\u0007\\u2028end\"},\"company\":{\"name\":\"Be\\u202erl\\u200bin\\u200e \\u2066(x)\\u2069\\ufeff\\u0007\\u2028end\"},\"time_zone\":{\"name\":\"Europe/\\u202eParis\"}}"
+}

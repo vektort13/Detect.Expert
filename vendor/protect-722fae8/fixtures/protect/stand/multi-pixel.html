@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>protect stand: three receivers</title>
+  </head>
+  <body>
+    <!--
+      ADR-020 §D (S15, tests/extension/protect/stand-multi.spec.ts). On blur the page sends sha256(trim+lower e-mail) as
+      three image "pixels" to three receivers on three registrable domains — px.tracker.example.net, px.ads.example.org,
+      px.metrics.example.edu (the spec maps *.example.edu to the loopback stand as well) — before any submission.
+      Expected: one prompt (tab, site) with three receivers -> one firewall card listing them, badge «3».
+      The receiver port comes from ?rp= (default 4174); the forms route (tests/fixture-routes/forms.mjs) answers /tr.
+    -->
+    <h1 id="title">Newsletter (three pixels)</h1>
+    <form id="form" action="#" onsubmit="return false">
+      <label>E-mail <input id="email" type="email" name="email" autocomplete="email" /></label>
+      <button id="submit" type="button">Subscribe</button>
+    </form>
+    <script src="../forms/lib.js"></script>
+    <script>
+      (function () {
+        'use strict';
+        var lib = window.formsLib;
+        var receivers = ['px.tracker.example.net', 'px.ads.example.org', 'px.metrics.example.edu'];
+        document.getElementById('email').addEventListener('blur', function (event) {
+          var value = event.target.value.trim().toLowerCase();
+          if (value.length === 0) return;
+          var hex = lib.sha256Hex(value);
+          receivers.forEach(function (host) {
+            var img = document.createElement('img');
+            img.setAttribute('src', lib.receiver(host) + '/tr?ev=Lead&ud[em]=' + hex);
+          });
+          lib.note('pixels');
+        });
+      })();
+    </script>
+  </body>
+</html>

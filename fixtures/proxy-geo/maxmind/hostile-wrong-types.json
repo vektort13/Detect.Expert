@@ -1,0 +1,46 @@
+{
+  "provider": "maxmind",
+  "ip": "8.8.8.8",
+  "service": "geoip-insights",
+  "status": 200,
+  "headers": {
+    "content-type": "application/vnd.maxmind.com-insights+json; charset=UTF-8; version=2.1"
+  },
+  "body": {
+    "traits": {
+      "ip_address": 8888,
+      "autonomous_system_number": "not a number",
+      "autonomous_system_organization": 12345,
+      "isp": [
+        "x"
+      ],
+      "user_type": {
+        "a": 1
+      },
+      "connection_type": 5,
+      "is_public_proxy": "yes"
+    },
+    "country": {
+      "iso_code": 840,
+      "names": {
+        "en": 99
+      }
+    },
+    "city": {
+      "names": "Berlin"
+    },
+    "location": {
+      "time_zone": {
+        "name": "UTC"
+      }
+    },
+    "subdivisions": {
+      "0": {
+        "names": {
+          "en": "Hacked"
+        }
+      }
+    },
+    "anonymizer": "yes"
+  }
+}

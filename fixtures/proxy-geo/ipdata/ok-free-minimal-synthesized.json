@@ -1,0 +1,38 @@
+{
+  "provider": "ipdata",
+  "ip": "8.8.4.4",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": {
+    "ip": "8.8.4.4",
+    "is_eu": false,
+    "city": null,
+    "region": null,
+    "region_code": null,
+    "country_name": "United States",
+    "country_code": "US",
+    "continent_name": "North America",
+    "continent_code": "NA",
+    "latitude": 37.751,
+    "longitude": -97.822,
+    "postal": null,
+    "calling_code": "1",
+    "asn": {
+      "asn": "AS15169",
+      "name": "Google LLC",
+      "domain": "google.com",
+      "route": "8.8.4.0/24",
+      "type": "hosting"
+    },
+    "time_zone": {
+      "name": "America/Chicago",
+      "abbr": "CST",
+      "offset": "-0600",
+      "is_dst": false,
+      "current_time": "2026-11-06T06:29:02.916683-06:00"
+    },
+    "count": "1"
+  }
+}

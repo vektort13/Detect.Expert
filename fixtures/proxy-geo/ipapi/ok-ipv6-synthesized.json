@@ -1,0 +1,20 @@
+{
+  "provider": "ipapi",
+  "ip": "2001:4860:4860::8888",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json; charset=utf-8"
+  },
+  "body": {
+    "status": "success",
+    "country": "United States",
+    "countryCode": "US",
+    "regionName": "California",
+    "city": "Mountain View",
+    "timezone": "America/Los_Angeles",
+    "mobile": false,
+    "proxy": false,
+    "hosting": false,
+    "query": "2001:4860:4860:0:0:0:0:8888"
+  }
+}

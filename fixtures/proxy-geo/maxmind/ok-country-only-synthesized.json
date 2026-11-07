@@ -1,0 +1,30 @@
+{
+  "provider": "maxmind",
+  "ip": "9.9.9.9",
+  "service": "geolite-city",
+  "status": 200,
+  "headers": {
+    "content-type": "application/vnd.maxmind.com-city+json; charset=UTF-8; version=2.1"
+  },
+  "body": {
+    "continent": {
+      "code": "EU",
+      "geoname_id": 6255148,
+      "names": {
+        "en": "Europe"
+      }
+    },
+    "country": {
+      "geoname_id": 2921044,
+      "iso_code": "DE",
+      "names": {
+        "de": "Deutschland",
+        "en": "Germany"
+      }
+    },
+    "traits": {
+      "ip_address": "9.9.9.9",
+      "network": "9.9.9.0/24"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "provider": "maxmind",
+  "ip": "8.8.8.8",
+  "service": "geoip-city",
+  "status": 418,
+  "headers": {
+    "content-type": "application/vnd.maxmind.com-error+json; charset=UTF-8; version=2.1"
+  },
+  "body": {
+    "code": "TEAPOT",
+    "error": "synthesized text"
+  }
+}

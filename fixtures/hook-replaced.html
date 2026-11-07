@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>hook-replaced</title>
+  </head>
+  <body>
+    <h1>Page re-wraps toDataURL after load</h1>
+    <p>The page installs its own wrapper over HTMLCanvasElement.prototype.toDataURL (over whatever the extension installed), then calls it. Records whether the call still works and whether Function.prototype.toString is untouched (REQ-003: the extension never masks wrappers).</p>
+    <pre id="result"></pre>
+    <script src="fixture-lib.js"></script>
+    <script>
+      (function () {
+        var F = window.__fixture;
+        var proto = HTMLCanvasElement.prototype;
+        var nativeToString = Function.prototype.toString;
+        var before = proto.toDataURL;
+        var beforeSource = F.attempt(function () { return nativeToString.call(before); });
+        var pageWrapperCalls = 0;
+        var pageWrapper = function toDataURL() {
+          pageWrapperCalls++;
+          return before.apply(this, arguments);
+        };
+        proto.toDataURL = pageWrapper;
+
+        var canvas = document.createElement('canvas');
+        canvas.width = 120;
+        canvas.height = 40;
+        var ctx = canvas.getContext('2d');
+        ctx.font = '14px sans-serif';
+        ctx.fillText('hook-replaced', 2, 16);
+        var call = F.attempt(function () {
+          var u = canvas.toDataURL();
+          return { isString: typeof u === 'string', prefixOk: u.indexOf('data:image/png') === 0 };
+        });
+        var tsDescriptor = Object.getOwnPropertyDescriptor(Function.prototype, 'toString');
+        var tsSelf = F.attempt(function () { return nativeToString.call(nativeToString); });
+        window.__readbackAgain = function (n) {
+          var count = 0;
+          for (var i = 0; i < (n || 1); i++) if (typeof canvas.toDataURL() === 'string') count++;
+          return count;
+        };
+        F.publish({
+          fixture: 'hook-replaced',
+          rewrapInstalled: proto.toDataURL === pageWrapper,
+          callWorks: !call.threw && call.value.isString && call.value.prefixOk,
+          call: call,
+          pageWrapperCalls: pageWrapperCalls,
+          previousToDataURLLooksNative: !beforeSource.threw && /\[native code\]/.test(beforeSource.value),
+          previousToDataURLSourceLength: beforeSource.threw ? null : beforeSource.value.length,
+          toStringIsNative: !tsSelf.threw && tsSelf.value === 'function toString() { [native code] }',
+          toStringDescriptor: { writable: tsDescriptor.writable, configurable: tsDescriptor.configurable, enumerable: tsDescriptor.enumerable, isFunction: typeof tsDescriptor.value === 'function' },
+          toStringIdentityStable: Function.prototype.toString === nativeToString
+        });
+      })();
+    </script>
+  </body>
+</html>

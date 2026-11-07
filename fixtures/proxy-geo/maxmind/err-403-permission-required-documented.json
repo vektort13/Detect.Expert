@@ -1,0 +1,13 @@
+{
+  "provider": "maxmind",
+  "ip": "8.8.8.8",
+  "service": "geoip-insights",
+  "status": 403,
+  "headers": {
+    "content-type": "application/vnd.maxmind.com-error+json; charset=UTF-8; version=2.1"
+  },
+  "body": {
+    "code": "PERMISSION_REQUIRED",
+    "error": "You do not have permission to use the service."
+  }
+}

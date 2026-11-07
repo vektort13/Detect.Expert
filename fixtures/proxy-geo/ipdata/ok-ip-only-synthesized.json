@@ -1,0 +1,11 @@
+{
+  "provider": "ipdata",
+  "ip": "8.8.8.8",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": {
+    "ip": "8.8.8.8"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "provider": "ipapi",
+  "ip": "8.8.8.8",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json; charset=utf-8"
+  },
+  "text": "{\"__proto__\":{\"polluted\":\"top\"},\"constructor\":{\"prototype\":{\"polluted\":\"ctor\"}},\"status\":\"success\",\"query\":\"8.8.8.8\",\"city\":\"Mountain View\",\"countryCode\":\"US\",\"country\":\"United States\",\"proxy\":false,\"hosting\":\"__proto__\"}"
+}

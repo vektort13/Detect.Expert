@@ -1,0 +1,25 @@
+/* ADR-090: grouped internal navigation and authoritative module indicators. */
+.management-shell .management-tabs { gap: 16px; }
+.management-shell .management-nav-group { --navigation-group: light-dark(#7846b1, #c8acf0); min-width: 0; width: 100%; margin: 0; padding: 8px 5px 6px; border: 1px solid color-mix(in srgb, var(--navigation-group) 24%, var(--border)); border-radius: 12px; background: color-mix(in srgb, var(--navigation-group) 3%, var(--surface)); }
+.management-shell .management-nav-group--defense { --navigation-group: light-dark(#087e90, #7cdae7); }
+.management-shell .management-nav-group--tools { --navigation-group: light-dark(#94601d, #eccb87); }
+.management-shell .management-nav-group__legend { display: flex; align-items: center; gap: 7px; max-width: calc(100% - 14px); margin-inline-start: 6px; padding-inline: 6px; color: var(--navigation-group); font-size: 12px; line-height: 1.45; font-weight: 700; overflow-wrap: anywhere; }
+.management-shell .management-nav-group__legend .management-icon { width: 16px; height: 16px; }
+.management-shell .management-nav-group__items { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; min-width: 0; }
+:root body .management-shell .management-tab { gap: 8px; min-height: 44px; padding: 10px 9px; font-size: 13px; }
+.management-shell .management-status-dot { display: inline-block; flex: 0 0 8px; width: 8px; height: 8px; margin-inline-start: auto; border-radius: 50%; background: #ed667d; outline: 1px solid light-dark(#972138, #ed667d); box-shadow: 0 0 0 3px #ed667d14, 0 0 9px #ed667d80; }
+.management-shell .management-status-dot--active { background: #31cd91; outline-color: light-dark(#176544, #31cd91); box-shadow: 0 0 0 3px #31cd911a, 0 0 10px #31cd9199; }
+@media (max-width: 1119px) {
+ .management-shell .management-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+}
+@media (max-width: 680px) {
+ .management-shell .management-tabs { grid-template-columns: minmax(0, 1fr); }
+ .management-shell .management-nav-group__items { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 359px) { .management-shell .management-nav-group__items { grid-template-columns: minmax(0, 1fr); } }
+@media (forced-colors: active) {
+ .management-shell .management-nav-group { background: Canvas; border-color: CanvasText; }
+ .management-shell .management-nav-group__legend { color: CanvasText; }
+ .management-shell .management-status-dot { background: GrayText; box-shadow: none; border: 1px solid CanvasText; }
+ .management-shell .management-status-dot--active { background: Highlight; border-color: Highlight; }
+}

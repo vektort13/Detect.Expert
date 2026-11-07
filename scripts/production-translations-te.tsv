@@ -1,0 +1,762 @@
+consent_startup	సేవ్ చేసిన సమ్మతిని నేపథ్య ప్రక్రియ తనిఖీ చేస్తున్నప్పుడు, సంక్షిప్త మెమరీ బఫర్ పరిమిత వనరు/హెడర్ మెటాడేటాను మాత్రమే ఉంచుతుంది. పూర్వ సమ్మతి నిర్ధారితమైతేనే దీన్ని ఉపయోగిస్తాం; లేకపోతే తొలగిస్తాం. తర్వాత సమ్మతించినా అది తిరిగి రాదు.
+consent_title	పరికరంలోనే డేటా ప్రాసెసింగ్
+consent_intro	మీరు అంగీకరించే వరకు పరిశీలన ఆఫ్‌లో ఉంటుంది. వెబ్‌సైట్ API వినియోగాన్ని తనిఖీ చేయడానికి Detect.Expert మీ పరికరంలోనే డేటాను ప్రాసెస్ చేస్తుంది. నివేదికలు లేదా టెలిమెట్రీ డెవలపర్‌కు అప్‌లోడ్ కావు.
+consent_reports	బ్రౌజింగ్, వనరుల మెటాడేటా, API కార్యకలాపాలు, గణనలు బ్రౌజర్ సెషన్ నిల్వలో ఉంటాయి. ప్రత్యేక WebRTC చరిత్రలో కాన్ఫిగర్ చేసిన ICE సర్వర్ హోస్ట్ పేర్లు/IPలు, పోర్టులు ఉంటాయి. మీ ఆదేశంతోనే Pro రికార్డింగ్ మొదలవుతుంది. సెట్టింగ్‌లు స్థానిక నిల్వలో ఉంటాయి.
+consent_previews	స్థానిక ప్రివ్యూలలో పేజీ ఇప్పటికే చదివిన Canvas/WebGL చిత్రాలు, ఖచ్చితమైన సాంకేతిక API విలువలు, WebRTC సర్టిఫికెట్ ఫింగర్‌ప్రింట్‌లు, Google X-Client-Data ఉండవచ్చు. చిత్రాలు, పేజీ శీర్షికల్లో వ్యక్తిగత లేదా సున్నితమైన సమాచారం ఉండవచ్చు. చిత్రాలు, Google IDలు పరిమిత RAMలోనే ఉంటాయి; నిల్వ, Pro/PDF, ఎగుమతుల్లో చేరవు. ఎంపిక చేసిన సాంకేతిక పారామీటర్లు, తిరిగి ఇచ్చిన విలువలు నడుస్తున్న స్థానిక Pro నివేదికలో చేరవచ్చు.
+consent_controls	ప్రారంభించిన తర్వాత, ఎంచుకున్న పరిధిలో బ్రౌజర్ అనుమతించిన సైట్‌లు స్వయంచాలకంగా పరిశీలించబడతాయి. పరిధిని తగ్గించవచ్చు లేదా ఆఫ్ చేయవచ్చు, ఫలితాలను పాజ్/క్లియర్ చేయవచ్చు, సెట్టింగ్‌లలో సమ్మతిని ఉపసంహరించవచ్చు. ఇప్పటికే తెరిచిన పేజీలను మళ్లీ లోడ్ చేయాలి. ఐచ్ఛిక API నిరాకరణలను విడిగా ప్రారంభించాలి. సేవ్ చేసిన JSON/PDF ఫైళ్లు మీ నియంత్రణలోనే ఉంటాయి.
+consent_enable	స్థానిక పరిశీలన ప్రారంభించండి
+consent_decline	పరిశీలనను ఆఫ్‌లో ఉంచండి
+consent_revoke	సమ్మతిని ఉపసంహరించి సెషన్‌ను క్లియర్ చేయండి
+consent_error	సమ్మతిని నిర్ధారించలేకపోయాం. పరిశీలన అందుబాటులో లేదు; మళ్లీ ప్రయత్నించండి.
+consent_saved	ఈ డేటా వివరణ సంస్కరణను ఈ పరికరంలో అంగీకరించారు.
+consent_policy	గోప్యతా విధానం (ఆఫ్‌లైన్‌లో అందుబాటులో ఉంది)
+google_ids_title	Google / Chrome IDలు
+google_ids_meaning	ఇవి Chrome ప్రయోగ IDలు; ప్రత్యేక పరికరం లేదా వినియోగదారు ID అని నిరూపితం కాలేదు. ఈ విలువ ట్రాకింగ్‌ను లేదా CAPTCHA కారణాన్ని నిర్ధారించదు.
+google_ids_source	బ్రౌజర్ గమనించిన బయటకు వెళ్లే హెడర్ (onSendHeaders); సర్వర్ అందుకున్నట్లు రుజువు కాదు. ఖచ్చితమైన విలువలు RAM/Lightలో మాత్రమే ఉంటాయి; నిల్వ, Pro/PDF, ఎగుమతుల్లో ఉండవు.
+google_ids_destination	గమ్యస్థానం
+google_ids_not_present	ఈ గమ్యస్థానం చివరిగా గమనించిన అభ్యర్థన హెడర్‌లలో X-Client-Data లేదు.
+google_ids_unavailable	ప్రస్తుత హెడర్ విలువ అందుబాటులో లేదు. హెడర్ పంపలేదని ఇది నిర్ధారించదు.
+google_ids_too_large	హెడర్ 4096 అక్షరాల ప్రివ్యూ పరిమితిని మించింది; విలువను నిల్వ చేయలేదు.
+google_ids_invalid	హెడర్ పునరావృతమైంది లేదా దాని రూపానికి మద్దతు లేదు; విలువను నిల్వ చేయలేదు.
+google_ids_decode_unknown	గమనించిన హెడర్‌ను యథాతథంగా చూపుతున్నాం; దాని protobuf విషయాలను డీకోడ్ చేయలేకపోయాం.
+google_ids_variations	ప్రయోగ IDలు
+google_ids_triggers	సర్వర్ ట్రిగర్ IDలు
+google_ids_none	డీకోడ్ చేసిన ఫీల్డ్‌లలో ఏవీ లేవు
+google_ids_decode_limited	డీకోడింగ్ పాక్షికం: తెలియని ఫీల్డ్‌లు లేదా 256 IDల పరిమితి. ప్రయోగ పేర్లు లేదా ప్రత్యేకతను ఊహించడం లేదు.
+google_ids_empty	ప్రస్తుత మెమరీ కాలంలో ఈ డాక్యుమెంట్‌కు అర్హమైన Google అభ్యర్థనను గమనించలేదు.
+google_ids_limited	కొన్ని అభ్యర్థనలు లేదా విలువలు వదిలివేయబడ్డాయి లేదా గడువు ముగిశాయి. చూపిన జాబితా అసంపూర్ణం.
+google_ids_scope_title	పరిశీలన పరిమితులు
+google_ids_scope	నిర్దిష్ట HTTPS Google గమ్యస్థానాలు మాత్రమే; గమ్యస్థానం, ప్రారంభ మూలానికి యాక్సెస్ అవసరం. గరిష్ఠంగా ఎనిమిది హోస్ట్‌ల చివరి హెడర్‌లు; మొత్తం బ్రౌజర్ ID కాదు. నావిగేషన్‌ను సంగ్రహించడానికి ఇప్పటికే అన్ని సైట్‌ల యాక్సెస్, రెండు సెకన్లలో స్పష్టమైన బ్రౌజర్ ఈవెంట్‌లు అవసరం. Chrome అంతర్గత ట్రాఫిక్, అందుబాటులో లేని ఫ్రేమ్‌లు పరిధిలో లేవు. విలువలు పది నిమిషాలకు ముగుస్తాయి; క్లియర్, పాజ్, యాక్సెస్ మార్పు లేదా service worker పునఃప్రారంభంలో తొలగుతాయి. Incognitoలో Chrome సాధారణంగా variations హెడర్‌ను పంపదు. ఫ్లాగ్‌లు, కుకీలు, CAPTCHA స్కోర్‌లు చదవబడవు.
+api_note_webrtc	కాల్స్, స్థితి రీడ్‌లు కనెక్షన్, హార్డ్‌వేర్ గుర్తింపు లేదా ట్రాకింగ్‌ను నిరూపించవు. సర్టిఫికెట్ సృష్టి, చిన్న offer/read/close క్రమాలను సాధారణ యాప్‌లు కూడా ఉపయోగిస్తాయి.
+rtc_values_returned	వెబ్‌సైట్‌కు తిరిగి ఇచ్చిన ఎంపిక చేసిన ఫీల్డ్‌లు
+rtc_values_snapshot	అదనపు స్థానిక నేటివ్ స్నాప్‌షాట్
+rtc_values_limited	గోప్యత లేదా డేటా పరిమితుల వల్ల కొన్ని ఫీల్డ్‌లు లేదా పరిశీలనలు వదిలివేయబడ్డాయి.
+rtc_values_empty	ఈ పరిశీలనలో ఎంపిక చేసిన ఫీల్డ్‌లు అందుబాటులో లేవు.
+rtc_values_certificate	ఈ ఫింగర్‌ప్రింట్ సర్టిఫికెట్‌ను గుర్తిస్తుంది, పరికరాన్ని కాదు. దాన్ని మళ్లీ ఉపయోగించడం కనెక్షన్‌లను అనుసంధానించవచ్చు; ట్రాకింగ్‌కు రుజువు కాదు. ఇది ఈ స్థానిక మెమరీ ప్రివ్యూలో మాత్రమే ఉంటుంది.
+rtc_values_storage	ప్రత్యక్ష సర్టిఫికెట్ ఆబ్జెక్ట్‌లను మాత్రమే గుర్తిస్తాం. IndexedDB రైట్ అభ్యర్థన తిరిగి రావడం ట్రాన్సాక్షన్ కమిట్ లేదా సందర్శనల మధ్య నిల్వకు రుజువు కాదు. లోపలి రికార్డ్‌లను తనిఖీ చేయం.
+rtc_values_scope	ఎంపిక చేసిన సమకాలిక ఫలితాలు మాత్రమే. Promise ఫలితాలు, stats iteration, పూర్తి SDP, ICE పాస్‌వర్డ్‌లు, పరికర IDలు, నెట్‌వర్క్ DTLS handshakes తనిఖీ చేయబడవు. అదనపు సర్టిఫికెట్ స్నాప్‌షాట్‌లకు వేరు లేబుల్ ఉంటుంది. ఈ విలువలు నిల్వ, Pro, ఎగుమతుల్లో చేరవు.
+inspector_group_media_capabilities	కోడెక్‌లు, మీడియా సామర్థ్యాలు
+inspector_group_media_devices	కెమెరా, మైక్రోఫోన్, మీడియా పరికరాలు
+inspector_group_speech	వాయిస్‌లు, వాక్కు గుర్తింపు
+inspector_group_drm	రక్షిత ప్లేబ్యాక్ / DRM
+inspector_group_device_access	బాహ్య పరికరాల యాక్సెస్
+inspector_group_browser_capabilities	బ్రౌజర్ సామర్థ్యాలు
+inspector_group_builtin_ai	అంతర్నిర్మిత AI, అనువాదం
+inspector_group_recognition	చిత్రం, చేతిరాత గుర్తింపు
+inspector_group_app_integration	ప్లాట్‌ఫారమ్ అనుసంధానం
+inspector_group_response_headers	గమనించిన స్పందన హెడర్‌లు
+api_activity_capability	సామర్థ్య తనిఖీ
+api_activity_list	జాబితా అభ్యర్థన
+api_activity_access	యాక్సెస్ అభ్యర్థన
+api_activity_state	స్థితి ప్రశ్న
+api_activity_operation	API ఆపరేషన్
+api_note_media_capabilities	ప్లేయర్‌లు, ఎడిటర్‌లు, కాల్స్ కోడెక్ అనుకూలతను తనిఖీ చేస్తాయి. RTP getCapabilities కనెక్షన్‌ను సృష్టించదు. తిరిగి ఇచ్చిన కొన్ని కోడెక్ ఫీల్డ్‌లు స్థానిక ప్రివ్యూలో మాత్రమే కనిపించవచ్చు; అవి హార్డ్‌వేర్ మోడల్ లేదా విజయవంతమైన ప్లేబ్యాక్‌ను నిర్ధారించవు.
+api_note_media_devices	పరికరాల జాబితా, సెట్టింగ్‌ల తనిఖీ, క్యాప్చర్ అభ్యర్థన వేర్వేరు. కాల్ అనుమతి లేదా రికార్డింగ్‌కు రుజువు కాదు. కొన్ని ట్రాక్ సెట్టింగ్‌లు స్థానికంగా కనిపించవచ్చు; పరికర IDలు, లేబుల్‌లు, మీడియా విషయాలు చేర్చబడవు.
+api_note_speech	వాక్కు, యాక్సెసిబిలిటీ ఫీచర్‌లు వాయిస్‌లు, గుర్తింపు లభ్యతను కూడా ప్రశ్నిస్తాయి. వాయిస్ జాబితాలు, భాషలు, ఆడియో చదవబడవు. install కాల్ ప్యాకేజీ డౌన్‌లోడ్ పూర్తయిందని నిరూపించదు.
+api_note_drm	DRM, HDCP తనిఖీలు రక్షిత ప్లేబ్యాక్‌కు ఉపయోగపడతాయి. అభ్యర్థన ట్రాకింగ్, లైసెన్స్ డెలివరీ లేదా పరికర రక్షణ స్థాయికి రుజువు కాదు; కాన్ఫిగరేషన్‌లు, లైసెన్స్‌లు తనిఖీ చేయబడవు.
+api_note_device_access	getDevices/getPorts సైట్‌కు అందుబాటులో ఉన్న జాబితాను అభ్యర్థిస్తాయి; requestDevice/requestPort ఎంపిక లేదా యాక్సెస్‌ను అభ్యర్థిస్తాయి. కాల్ గణనలు పరికరాల సంఖ్య కాదు. IDలు, స్పందన విషయాలు చేర్చబడవు.
+api_note_browser_capabilities	పరిసరాలు, అనుమతి స్థితి తనిఖీలు గమనించబడతాయి. cpuPerformance వర్గాన్ని తెలుపుతుంది; CPU కొలత కాదు. ఆర్గ్యుమెంట్‌లు, జాబితాలు చదవబడవు; పునరావృత ప్రశ్నలు వేర్వేరు అనుమతుల లెక్కింపు లేదా ఫింగర్‌ప్రింటింగ్‌కు రుజువు కాదు.
+api_note_builtin_ai	AI లభ్యత, సృష్టి, వినియోగం వేర్వేరు. కాల్స్ GPU, డౌన్‌లోడ్ చేసిన మోడల్ లేదా డేటా బదిలీకి రుజువు కాదు. టెక్స్ట్, భాష జతలు, అవుట్‌పుట్‌లు చదవబడవు; Promise పూర్తయిందో తెలియదు.
+api_note_recognition	గుర్తింపు బ్రౌజర్, ప్లాట్‌ఫారమ్‌పై ఆధారపడి ఉంటుంది. సామర్థ్య ప్రశ్న లేదా detect కాల్ ముఖం లేదా వినియోగదారును గుర్తించినట్లు రుజువు కాదు. చిత్రాలు, చేతిరాత, టెక్స్ట్, ఫార్మాట్ జాబితాలు చదవబడవు.
+api_note_app_integration	యాప్, ఫైల్, లాక్, నేపథ్య APIలకు సాధారణ ఉపయోగాలు ఉన్నాయి. కాల్ ఇన్‌స్టాల్ చేసిన యాప్, ట్యాబ్‌ల సంఖ్య, ఫైల్ యాక్సెస్ లేదా Trusted Types అమలుకు రుజువు కాదు. విషయాలు, మార్గాలు, callbacks తనిఖీ చేయబడవు.
+headers_note	అందుబాటులో ఉన్న డాక్యుమెంట్‌లో బ్రౌజర్ గమనించిన పూర్తయిన స్పందనల వివరాలు. ప్రతి స్పందనకు ఒక్కో హెడర్ ఒకసారి లెక్కించబడుతుంది. విలువలు, రిపోర్టింగ్ చిరునామాలు, సెషన్ కీలు చేర్చబడవు; బ్రౌజర్ అమలు నిర్ధారితం కాదు.
+headers_observation	బ్రౌజర్ ఎంపిక చేసిన స్పందన హెడర్‌లను గమనించింది.
+headers_interpretation	హెడర్ ఉండటం డేటా బదిలీ లేదా రహస్య ట్రాకింగ్‌కు రుజువు కాదు.
+headers_truncated	పరిశీలన అసంపూర్ణం: కొన్ని స్పందనలు లేదా hint పేర్లు వదిలివేయబడ్డాయి. గణనలు కనీస విలువలు.
+headers_hints	అభ్యర్థించిన Client Hint పేర్లు
+headers_client_hints_note	సర్వర్ client hints కోరుతోంది; వాస్తవ ప్రసారం నిర్ధారితం కాదు.
+headers_policy_note	ఈ విధానం సామర్థ్యాలను పరిమితం చేస్తుంది; అనుమతి ఇవ్వదు.
+headers_reporting_note	బ్రౌజర్ రిపోర్టింగ్ కాన్ఫిగరేషన్; నివేదిక పంపినట్లు రుజువు కాదు.
+headers_session_note	సెషన్ బైండింగ్ విధానం; విలువలు, కీలు దాచబడ్డాయి, నమోదు నిర్ధారితం కాదు.
+headers_dictionary_note	కంప్రెషన్ డిక్షనరీ ప్రకటన; వినియోగం నిర్ధారితం కాదు.
+api_webnn_coverage_note	అందుబాటులో ఉన్నప్పుడు ఎంపిక చేసిన graph operators సహా 44 API ప్రవేశ బిందువుల వరకు మాత్రమే కవరేజ్; మొత్తం WebNN కాదు. Workers, అంతర్గత గణనలు గమనించబడవు; ఎంట్రీ లేకపోవడం కాల్ జరగలేదని నిరూపించదు.
+inspector_group_webnn	WebNN / న్యూరల్ నెట్‌వర్క్‌లు
+api_note_webnn	WebNN సామర్థ్య తనిఖీలు అనుకూల మోడల్‌ను ఎంచుకోవచ్చు. context అభ్యర్థనలు, build, dispatch ఎంచుకున్న హార్డ్‌వేర్, పూర్తి కావడం లేదా ఫింగర్‌ప్రింటింగ్‌ను నిర్ధారించవు. options, support matrices, tensor విషయాలు, Worker కార్యకలాపాలు తనిఖీ చేయబడవు.
+api_preview_webnn	పేజీ ఇప్పటికే చదివిన scalar మెటాడేటా మాత్రమే ఇక్కడ కనిపించవచ్చు. tensor ఆకారాలు, డేటా, support matrix విషయాలు చేర్చబడవు; async పూర్తి కావడం తెలియదు. గణనలు కాల్స్‌కు సంబంధించినవి, graph nodes లేదా పూర్తయిన inferenceలకు కాదు.
+api_preview_audio	ప్రివ్యూలో sample rate, latency, channel గణనలు ఉండవచ్చు. samples, hashes చేర్చబడవు; కాల్స్ ఫింగర్‌ప్రింటింగ్ లేదా మైక్రోఫోన్ యాక్సెస్‌కు రుజువు కాదు.
+api_preview_webgpu	బ్రౌజర్ ఇచ్చిన సమాచారం పరిమితం లేదా సాధారణీకరించబడి ఉండవచ్చు. GPU మోడల్‌కు స్వతంత్ర నిర్ధారణ కాదు. యాక్టివ్ GPU పరీక్షలు లేదా shader సమయ కొలతలు చేయబడవు.
+api_preview_wasm	JavaScript API ఫలితాలు మాత్రమే చూపబడతాయి. module bytes, అంతర్గత అమలు తనిఖీ చేయబడవు; CPU, architecture, SIMD నిర్ధారితం కాదు.
+api_preview_window_management	పేజీ ఇప్పటికే చదివిన స్క్రీన్, విండో విలువలు. getScreenDetails కాల్ అనుమతి మంజూరైందని లేదా పూర్తి మానిటర్ జాబితా అందిందని నిరూపించదు.
+api_preview_compute_pressure	పేజీ చదివిన స్థూల స్థితులు. ఖచ్చితమైన timestamps దాచబడ్డాయి; ఇతర ట్యాబ్‌ల కార్యకలాపాలు, శీతలీకరణ లక్షణాలు నిర్ధారితం కాదు.
+api_preview_idle_detection	పేజీ చదివిన తాజా స్థితి. start కాల్ యాక్టివ్ subscriptionను నిర్ధారించదు. హాజరు చరిత్ర, వెళ్లిన లేదా తిరిగొచ్చిన సమయాలు రికార్డ్ చేయబడవు.
+api_preview_display	పేజీకి వాస్తవంగా తిరిగి ఇచ్చిన తాజా కొలతలు, scale. పొడిగింపు స్వయంగా మానిటర్ జాబితాను అభ్యర్థించదు.
+api_preview_cpu	hardwareConcurrency అనేది అందుబాటులో ఉన్న logical processors గురించి బ్రౌజర్ అంచనా; physical CPU cores సంఖ్య కాదు.
+api_preview_memory	Device Memory సుమారైన మెమరీ వర్గాన్ని తెలుపుతుంది; అమర్చిన RAM ఖచ్చితమైన మొత్తం కాదు.
+api_results_title	తాజా ఫలితాలు
+api_results_note	తాజాగా గమనించిన ఫలితాల స్థానిక ప్రివ్యూ. ఎంపిక చేసిన సాంకేతిక పారామీటర్లు, వేర్వేరు తిరిగి ఇచ్చిన విలువలు రికార్డింగ్ నడుస్తున్నప్పుడు స్థానిక Pro నివేదికలో నిలుస్తాయి.
+api_result_returned	తిరిగి ఇచ్చినది
+api_result_setter	Setter తిరిగి ఇచ్చిన విలువ
+api_result_missing	ఫలితం గమనించబడలేదు.
+api_result_object	ఆబ్జెక్ట్; విషయాలు చదవబడలేదు.
+api_result_async	అసమకాలిక పూర్తి కావడం గమనించబడలేదు.
+api_result_exception	Exception విషయాలు చదవబడలేదు.
+api_result_sensitive	విలువను ప్రివ్యూ నుంచి మినహాయించాం.
+api_result_limit	విలువ ప్రివ్యూ పరిమితిని మించింది.
+api_result_unsupported	ఫలితం రకానికి మద్దతు లేదు.
+api_results_truncated	సంగ్రహణ లేదా డెలివరీ పరిమితుల వల్ల కొన్ని ఫలితాలు అందుబాటులో లేవు.
+api_results_unavailable	ఫలితాల ప్రివ్యూ ప్రస్తుతం అందుబాటులో లేదు.
+protection_title	ఐచ్ఛిక API నిరోధం
+protection_enable	అన్ని సైట్‌లకు నిరోధం ప్రారంభించండి
+protection_risk	API నిరాకరణలు వెబ్‌సైట్‌లు, సైన్ ఇన్, ఎడిటర్‌లు, కాల్స్‌ను దెబ్బతీయవచ్చు. అనుకూల నియమాలు మీ బ్రౌజర్‌ను మరింత ప్రత్యేకంగా కనిపించేలా చేయవచ్చు. అనామకత్వం లేదా పూర్తి రక్షణకు హామీ లేదు.
+protection_consent	వెబ్‌సైట్‌లు పనిచేయకపోయే ప్రమాదం నాకు తెలుసు; నిరోధాన్ని ప్రారంభించాలనుకుంటున్నాను.
+protection_preset	అన్ని సైట్‌ల ప్రీసెట్
+protection_custom	ఎంపిక చేసిన నియమాలు మాత్రమే
+protection_limited	పరిమిత
+protection_strict	కఠిన
+protection_site	ఖచ్చితమైన హోస్ట్ పేరు
+protection_global	అన్ని సైట్‌ల నియమాలు
+protection_add_site	జోడించండి
+protection_no_host	వెబ్‌సైట్ అందుబాటులో లేదు
+protection_host_note	ఈ ఖచ్చితమైన హోస్ట్ పేరు, HTTP, HTTPS, అన్ని పోర్టులు. ఉపడొమైన్‌లు, మూడవ పక్ష ఫ్రేమ్‌లకు వాటి స్వంత నియమాలు ఉంటాయి; ఇది మొత్తం ట్యాబ్ మినహాయింపు కాదు.
+protection_site_off	ఈ హోస్ట్‌లో మద్దతు ఉన్న అన్ని APIలను అనుమతించండి
+protection_remove_site	హోస్ట్ మినహాయింపులను తొలగించండి
+protection_search	APIను కనుగొనండి
+protection_configured	నిరోధం కాన్ఫిగర్ చేయబడింది
+protection_inherit	పూర్వ నియమాన్ని అనుసరించు
+protection_allow	అనుమతించు
+protection_block	నిరోధించు
+protection_high_risk	పనిచేయకపోయే ప్రమాదం ఎక్కువ
+protection_stopped	Handler ఆగింది; మళ్లీ లోడ్ చేయాలి.
+protection_partial	Handler పాక్షిక కవరేజ్‌ను నివేదించింది.
+protection_missing	ఈ API ఇన్‌స్టాలేషన్ నిర్ధారితం కాదు; కవరేజ్ తెలియదు.
+protection_denied	నివేదించిన నిరాకరణలు
+protection_removed	API ప్రవేశ బిందువులు తొలగించబడ్డాయి; మళ్లీ లోడ్ చేసి పునరుద్ధరించండి.
+protection_no_rows	సరిపోలే APIలు లేవు
+protection_limits	జాబితాలోని APIలు, అనుమతి ఉన్న HTTP(S) డాక్యుమెంట్‌లు మాత్రమే. Workers, inherited-origin ఫ్రేమ్‌లు, నిలిపి ఉంచిన references, పేజీ జోక్యం కవరేజ్ లోపాలుగా ఉంటాయి. JavaScript client hint నిరోధం HTTP హెడర్‌లను తొలగించదు. గణనలు పేజీ నియంత్రిత MAIN world నుంచి వస్తాయి; రక్షణకు రుజువు కాదు.
+protection_error	సెట్టింగ్‌లు లేదా నమోదు నిర్ధారించలేకపోయాం. రిఫ్రెష్ చేసి మళ్లీ ప్రయత్నించండి; నిరోధం యాక్టివ్‌గా ఉందని అనుకోకండి.
+protection_ready	కొత్త డాక్యుమెంట్‌లకు నమోదు పూర్తయింది. నియమాలు మార్చిన తర్వాత తెరిచిన పేజీలను మళ్లీ లోడ్ చేయండి.
+protection_inactive	కొత్త డాక్యుమెంట్‌లకు నిరోధం నమోదు కాలేదు. మోడ్, నియమాలు, అనుమతి ఉన్న పరిశీలన పరిధిని తనిఖీ చేయండి.
+protection_dirty	సేవ్ చేయని మార్పులు
+protection_save	నియమాలు సేవ్ చేయండి
+protection_save_reload	సేవ్ చేసి మళ్లీ లోడ్ చేయండి
+protection_refresh	రిఫ్రెష్ చేసి సేవ్ చేయని మార్పులను వదిలేయండి
+protection_restore_reload	ఈ హోస్ట్‌ను అనుమతించి మళ్లీ లోడ్ చేయండి
+protection_feature_window_management	బహుళ మానిటర్ వివరాలు
+protection_feature_compute_pressure	గణన ఒత్తిడి
+protection_feature_idle_detection	నిష్క్రియ గుర్తింపు
+protection_feature_local_fonts	స్థానిక ఫాంట్ యాక్సెస్
+protection_feature_canvas_readback	Canvas తిరిగి చదవడం, సంగ్రహణ
+protection_feature_webgl	WebGL context సృష్టి
+protection_feature_webgpu	WebGPU adapter యాక్సెస్
+protection_feature_audio	Web Audio constructors
+protection_feature_webrtc	WebRTC కనెక్షన్‌లు
+protection_feature_webassembly	WebAssembly
+protection_feature_battery	బ్యాటరీ స్థితి
+protection_feature_network_information	నెట్‌వర్క్ సమాచారం
+protection_feature_keyboard	కీబోర్డ్ API
+protection_feature_client_hints	JavaScript client hints
+protection_feature_clipboard_read	క్లిప్‌బోర్డ్ చదవడం
+visual_webgl_image_count	చిత్రాలు: $N$
+visual_webgl_empty	ఈ డాక్యుమెంట్‌లో మద్దతు ఉన్న WebGL చిత్రం సంగ్రహించబడలేదు. పారామీటర్, extension ప్రశ్నలు pixelsను ఇవ్వవు. ప్రివ్యూ కోసం పేజీ మద్దతు ఉన్న ఫార్మాట్‌లు, సంగ్రహణ పరిమితులలో చిత్రాన్ని చదవాలి లేదా ఎగుమతి చేయాలి.
+visual_gallery_count	Canvasలు: $N$
+visual_canvas_id	Canvas $N$
+visual_readbacks	గమనించిన రీడ్‌లు: $N$
+visual_previous	మునుపటి చిత్రాలు
+visual_next	తర్వాతి చిత్రాలు
+visual_actions	గమనించిన ఆపరేషన్‌లు
+visual_gallery_note	ప్రతి Canvasకు మొదటి మద్దతు ఉన్న చిత్రం; లేబుల్‌లు గమనించిన కాల్స్‌ను వివరిస్తాయి, pixel పోలికలను కాదు. 2D అనేది CPU renderingకు, WebGL అనేది hardware accelerationకు రుజువు కాదు. సాధారణ గ్రాఫిక్స్ కూడా ఇదే ఆపరేషన్‌లను ఉపయోగిస్తాయి.
+visual_gallery_limited	కొన్ని చిత్రాలు లేదా నవీకరణలు వదిలివేయబడ్డాయి: సంగ్రహణ సమయం, ఫార్మాట్, డెలివరీ లేదా మెమరీ పరిమితులు. ఈ గ్యాలరీ అసంపూర్ణం.
+visual_op_text	టెక్స్ట్ గీయడం
+visual_op_image_copy	చిత్రం కాపీ
+visual_op_cropped_copy	కత్తిరించిన చిత్రం కాపీ
+visual_op_recombined_copy	కత్తిరించిన Canvasల నుంచి కాపీ
+visual_op_flip_back_copy	మూలం, కాపీపై Y ప్రతిబింబం
+visual_op_canvas_reset	Canvas రీసెట్
+visual_op_pixel_write	Pixel డేటా రైట్
+visual_op_fill	పూరించడం లేదా క్లియర్ చేయడం
+visual_op_gradient	Gradient సృష్టి
+visual_op_pattern	నమూనా సృష్టి
+visual_op_path	Path గీయడం
+visual_op_transform	నిర్దేశాంక పరివర్తన
+visual_op_flip_x	X ప్రతిబింబం అభ్యర్థించబడింది
+visual_op_flip_y	Y ప్రతిబింబం అభ్యర్థించబడింది
+visual_op_fractional	భిన్నాంక transform ఆర్గ్యుమెంట్‌లు
+visual_op_alpha	Alpha అమరిక
+visual_op_composite	Compositing mode అమరిక
+visual_op_repeat_readback	పునరావృత చిత్రం రీడ్‌లు
+visual_op_multiple_readback_formats	బహుళ readback APIలు
+visual_op_texture_upload	Texture అప్‌లోడ్
+visual_op_2d_to_webgl	2D Canvas నుంచి WebGL texture
+visual_op_webgl_to_2d	WebGL Canvas నుంచి 2D కాపీ
+visual_op_webgl_to_webgl	WebGL Canvas నుంచి WebGL texture
+visual_op_shader	Shader లేదా program ఆపరేషన్‌లు
+visual_op_gpu_draw	WebGL గీయడం
+visual_op_gpu_sync	WebGL finish / flush
+visual_op_gl_parameters	GL పారామీటర్ ప్రశ్న
+visual_op_timer_extension	Timer extension అభ్యర్థించబడింది
+visual_op_timer_query	GPU timer query కాల్స్
+visual_op_query_read	Query స్థితి లేదా ఫలితం రీడ్
+visual_op_occlusion_query	Occlusion query కాల్స్
+visual_op_bitmap_transfer	ImageBitmap బదిలీ
+visual_op_offscreen_transfer	OffscreenCanvas బదిలీ
+visual_op_bitmap_create	ImageBitmap సృష్టి అభ్యర్థన
+visual_op_svg_source	Inline SVG చిత్రం మూలం
+api_note_audio	Context సృష్టి, node ఆపరేషన్‌లు, offline rendering కాల్స్, డేటా రీడ్‌లు విడిగా చూపబడతాయి. Rendering పూర్తి కావడం గమనించబడదు. Samples, spectra, పారామీటర్ విలువలు, hashes నిల్వ చేయబడవు. ప్లేయర్‌లు, ఎడిటర్‌లు కూడా ఈ APIలను ఉపయోగిస్తాయి; కాల్స్ మాత్రమే ఫింగర్‌ప్రింటింగ్ లేదా మైక్రోఫోన్ యాక్సెస్‌కు రుజువు కాదు.
+extension_targets_title	పొడిగింపు వనరుల యాక్సెస్
+extension_targets_note	పేజీ contextలో ఈ పొడిగింపు వనరులను సూచించారు. ఇది వాటి ఉనికిని తనిఖీ చేయవచ్చు లేదా సాధారణ అనుసంధానానికి ఉపయోగపడవచ్చు. ఇన్‌స్టాలేషన్, ఫలితం, caller గుర్తింపు తెలియవు; డేటా పేజీ నియంత్రితమైనది.
+extension_targets_unknown	తెలియని లక్ష్యాలు
+extension_targets_unknown_note	గణనలు యాక్సెస్‌లవి, ప్రత్యేక పొడిగింపులవి కాదు. తెలియని target IDలు, వనరు మార్గాలు నిల్వ చేయబడవు.
+extension_targets_reference	src కేటాయించడం అభ్యర్థన పంపినట్లు నిర్ధారించదు.
+extension_targets_limited	ఈ జాబితా అసంపూర్ణం: కొన్ని యాక్సెస్‌లు తప్పిపోయి ఉండవచ్చు.
+extension_targets_privacy	గోప్యతా సాధనాలు మాత్రమే
+extension_targets_empty_filter	ఈ వర్గంలోని లక్ష్యాలు జాబితాలో లేవు.
+local_ports_requested	అభ్యర్థించిన స్థానిక పోర్టులు
+local_ports_unknown	ఈ ప్రయత్నాలకు పోర్టు సంఖ్యలను నిల్వ చేయలేదు.
+local_ports_incomplete	ఈ జాబితా అసంపూర్ణం: కొన్ని పోర్టు సంఖ్యలు తప్పిపోయి ఉండవచ్చు.
+api_actions_title	పేజీ చర్యలు
+api_actions_note	ఈ డాక్యుమెంట్‌లో గమనించిన నిర్దిష్ట కాల్స్ లేదా property రీడ్‌లు. వాటి దశను విడిగా చూపుతాం. కాల్ విజయవంతమైన యాక్సెస్ లేదా ఫింగర్‌ప్రింటింగ్‌కు రుజువు కాదు; పేజీ నియంత్రిత పరిశీలనలు నకిలీ కావచ్చు.
+api_action_get	Property యాక్సెస్
+api_action_set	Property కేటాయింపు
+api_window_events_note	Listener గణనలు registration/removal కాల్స్, handler కేటాయింపులు, clearingను సూచిస్తాయి; యాక్టివ్ listeners లేదా అందిన events కాదు. Window, fullscreen కాల్స్ placementను నిర్ధారించవు. వాటి ఆర్గ్యుమెంట్‌లు, options తనిఖీ చేయబడవు.
+api_pressure_limits_note	sampleInterval=0 స్థితి మారినప్పుడు నోటిఫికేషన్‌లు కోరుతుంది; హామీ ఇచ్చిన రేటు కాదు. Options, callback డెలివరీ, subscription వ్యవధి తనిఖీ చేయబడవు. డెలివరీ focus, policy, బ్రౌజర్ పరిమితులపై ఆధారపడుతుంది.
+api_action_call	Method కాల్
+api_action_construct	Constructor కాల్
+api_action_async	అసమకాలిక కాల్
+api_note_webgpu	జాబితాలో adapter సమాచారం, feature/limit యాక్సెస్, shader లేదా pipeline సృష్టి వేర్వేరుగా ఉన్నాయి. బ్రౌజర్‌లు GPU వివరాలను పరిమితం లేదా సాధారణీకరించవచ్చు. విలువలు నిల్వ చేయబడవు; కాల్స్ ఖచ్చితమైన GPU మోడల్, పూర్తి profile లేదా shader timingను నిర్ధారించవు.
+api_note_wasm	కోడ్ validate, compile, instantiate చేయడానికి లేదా memory యాక్సెస్ కోసం పేజీ WebAssembly APIలను కాల్ చేసింది. Module bytes, ఫలితాలు, అంతర్గత అమలు తనిఖీ చేయబడవు. CPU timing, SIMD features, architecture, నకిలీ User-Agent లేదా Lockdown Mode నిర్ధారితం కాదు.
+api_note_client_hints	getHighEntropyValues అదనపు బ్రౌజర్ లేదా సిస్టమ్ సమాచారాన్ని కోరుతుంది. Chrome సాధారణంగా permission prompt చూపదు; policy, implementation స్పందనను పరిమితం చేయవచ్చు. సాధారణ అనుకూలత తనిఖీలు అదే ఫీల్డ్‌లను కోరవచ్చు; కాల్ ఫింగర్‌ప్రింటింగ్‌కు రుజువు కాదు.
+api_note_window_management	getScreenDetails స్క్రీన్ సమాచారం కోరుతుంది; window-management అనుమతి అవసరం కావచ్చు. Screens, currentScreen, individual properties యాక్సెస్ విడిగా చూపబడుతుంది. మానిటర్ సంఖ్య, లేబుల్‌లు, స్థానాలు నిల్వ చేయబడవు; అభ్యర్థన అనుమతి మంజూరు లేదా కార్యస్థలాన్ని వెల్లడించదు.
+api_note_compute_pressure	Compute Pressure స్థూల CPU pressure స్థితులను ఇవ్వగలదు. Implementationను బట్టి pressure ఈ ట్యాబ్ కంటే ఎక్కువను ప్రతిబింబించవచ్చు. Observer సృష్టి, observe/takeRecords కాల్స్, record రీడ్‌లు వేరు. విలువలు నిల్వ చేయబడవు; ఇతర ట్యాబ్‌ల కార్యకలాపాలు, శీతలీకరణ లక్షణాలు లేదా వినియోగదారు గైర్హాజరు నిర్ధారితం కాదు.
+api_note_idle_detection	Idle Detection అనుమతి తర్వాత activity, screen-lock స్థితులను చూపగలదు. Detector సృష్టి లేదా start కాల్ యాక్టివ్ subscriptionకు రుజువు కాదు. ఇక్కడ state రీడ్‌ల విలువలు వెల్లడించబడవు: హాజరు, lock స్థితి, వెళ్లిన/తిరిగొచ్చిన సమయాలు రికార్డ్ చేయబడవు.
+api_hints_unknown	పరిశీలన మాత్రమే చేసే మోడ్‌లో అభ్యర్థించిన ఫీల్డ్‌లు తెలియవు: sensor ఆర్గ్యుమెంట్‌ను మళ్లీ చదవదు లేదా పేజీ నియంత్రిత collectionలో iterate చేయదు.
+api_mechanism_client_hints	విస్తృత సిస్టమ్ సమాచారం
+api_mechanism_window_management	స్క్రీన్‌లు, విండో నిర్వహణ
+api_mechanism_compute_pressure	CPU pressure పరిశీలన
+api_mechanism_idle_detection	Activity, screen-lock తనిఖీలు
+inspector_group_activity	పరస్పర చర్య, హాజరు APIలు
+extName	Detect.Expert — Fingerprint Protection & Forensics
+extDescription	కాన్ఫిగర్ చేయగల API నిరోధంతో, బ్రౌజర్ APIలు, ఫింగర్‌ప్రింటింగ్ సంకేతాలు, గుర్తింపు సేవల స్థానిక విశ్లేషణ.
+actionTitle	Detect.Expert: బ్రౌజర్ API విశ్లేషణ
+popupTitle	ఈ పేజీలో తనిఖీలు
+sidepanelTitle	ఈ పేజీలో పరిశీలనలు
+optionsTitle	Detect.Expert సెట్టింగ్‌లు
+coverageTitle	పరిశీలన కవరేజ్
+coverageOff	పరిశీలన లేదు: పరిధి ఎంచుకోలేదు. “గుర్తించబడలేదు” అంటే “ఈ కాలంలో అందుబాటులో ఉన్న ప్రాంతంలో గమనించబడలేదు”.
+scopeLabel	పరిశీలన పరిధి
+scope_start_title	దేన్ని పరిశీలించాలి?
+scope_start_hint	క్రింద పరిశీలన పరిధిని ఎంచుకోండి.
+action_reload_page	పేజీని మళ్లీ లోడ్ చేయండి
+error_reload	ట్యాబ్‌ను మళ్లీ లోడ్ చేయలేకపోయాం. పేజీని తెరిచి మళ్లీ ప్రయత్నించండి.
+coverage_restart_desc	Sensorsను పునఃప్రారంభించే ముందు ఈ డాక్యుమెంట్‌ను మళ్లీ లోడ్ చేయండి; తర్వాత పొడిగింపును తెరిచి పరిశీలన ప్రారంభించండి. పేజీ లోడ్ నుంచి పరిశీలించడానికి, మళ్లీ లోడ్ చేసే ముందు “ఈ సైట్‌లో ఎల్లప్పుడూ” ఎంచుకోండి.
+scopeOff	ఆఫ్
+scopeActiveTab	ఇప్పటి నుంచి ప్రస్తుత ట్యాబ్‌లో
+scopeSite	ఈ సైట్‌లో ఎల్లప్పుడూ
+scopeAllSites	అన్ని సైట్‌లలో
+statusLoading	లోడ్ అవుతోంది…
+statusUnavailable	అందుబాటులో లేదు
+vendorsSectionTitle	గుర్తించిన రక్షణ, గుర్తింపు సేవలు
+vendorsEmpty	సరిపోలికలు గమనించలేదు. సరిపోలిక లేకపోవడం anti-fraud లేకపోవడానికి రుజువు కాదు.
+disclaimerNoVerdict	సైట్ భద్రతపై తీర్పు లేదు. డిఫాల్ట్ పర్యవేక్షణ పరిశీలన మాత్రమే; ఐచ్ఛిక API నిరోధాన్ని స్పష్టంగా ప్రారంభించాలి.
+coverage_active_title	పరిశీలిస్తోంది
+coverage_active_desc	అమలు చేసిన sensors డాక్యుమెంట్ ప్రారంభంలో ఇన్‌స్టాల్ అయ్యాయి. ప్రతి గుర్తింపు పద్ధతికి కవరేజ్ ఉందని దీని అర్థం కాదు.
+coverage_partial_title	పాక్షిక పరిశీలన
+coverage_partial_desc	డాక్యుమెంట్‌లో కొంత భాగం మాత్రమే పరిశీలించబడింది: $DETAIL$. అందుబాటులో లేని ప్రాంతాల్లో ఫలితాలు లేకపోవడం ఏదీ సూచించదు.
+coverage_late_start_title	పరిశీలన ఆలస్యంగా ప్రారంభమైంది
+coverage_late_start_desc	పేజీ నడవడం మొదలైన తర్వాత sensors ఇన్‌స్టాల్ అయ్యాయి. తొలినాటి కాల్స్ తప్పిపోయి ఉండవచ్చు. ప్రారంభం నుంచి విశ్లేషించడానికి పేజీని మళ్లీ లోడ్ చేయండి.
+coverage_late_start_active_tab_desc	ప్రారంభించినప్పటి నుంచి ఈ డాక్యుమెంట్ మారే వరకు కాల్స్ పరిశీలించబడతాయి. తొలినాటి కాల్స్ తప్పిపోయి ఉండవచ్చు. పేజీ లోడ్‌ను పరిశీలించడానికి “ఈ సైట్‌లో ఎల్లప్పుడూ” ఎంచుకుని మళ్లీ లోడ్ చేయండి.
+coverage_paused_title	పరిశీలన పాజ్ చేయబడింది
+coverage_paused_desc	పరిశీలన పాజ్ చేయబడింది. పేజీ పని చేస్తూనే ఉంటుంది.
+coverage_paused_reload	Sensorsను పూర్తిగా తొలగించడానికి పేజీని మళ్లీ లోడ్ చేయండి.
+coverage_unsupported_title	ఈ పేజీలో పరిశీలన అందుబాటులో లేదు
+coverage_unsupported_desc	అంతర్నిర్మిత బ్రౌజర్ పేజీలు, Web Store, ఇతర పొడిగింపులు, కొన్ని ప్రత్యేక ఫ్రేమ్‌లలో పరిశీలనకు మద్దతు లేదు.
+coverage_unsupported_chrome_desc	ఈ బ్రౌజర్ సంస్కరణకు మద్దతు లేదు ($VERSION$). పరిశీలన అందుబాటులో లేదు.
+coverage_no_access_title	ఈ పేజీకి యాక్సెస్ లేదు
+coverage_no_access_desc	$HOST$కు యాక్సెస్ లేదు. పరిశీలనలు లేకపోవడం ఏదీ సూచించదు. ప్రారంభించడానికి పరిశీలన స్థాయిని ఎంచుకోండి.
+coverage_revoked_desc	$HOST$ యాక్సెస్ ఉపసంహరించబడింది. కొత్త డేటా సేకరించబడదు. Sensorsను పూర్తిగా తొలగించడానికి పేజీని మళ్లీ లోడ్ చేయండి.
+coverage_degraded_title	పరిశీలన పరిమితమైంది
+coverage_degraded_desc	Event పరిమితి మించిపోయింది: కొంత డేటా వదిలివేయబడింది ($DROPPED$). ఈ కాలాన్ని పూర్తిగా పరిశీలించినట్లు పరిగణించలేం.
+coverage_context_changed	Context మారింది: $HOST$ నివేదిక చూపబడుతోంది.
+coverage_managed_desc	కొన్ని సెట్టింగ్‌లను మీ సంస్థ నిర్వహిస్తుంది.
+coverage_blind_spots_title	తెలిసిన కవరేజ్ లోపాలు
+coverage_blind_spots_desc	అమలు కాలేదు: Math, media devices, CSSOM, WebGPU readback, Generic Sensor, HTTP validators, CNAME patterns, Worker/Worklet సృష్టి. మద్దతు ఉన్న Web Audio, WebAssembly JS కాల్స్ మాత్రమే గమనించబడతాయి. Wasm, workers, CSS అంతర్గతాలు, DNS resolution, TLS, సర్వర్ తనిఖీలు కవరేజ్ వెలుపల ఉంటాయి. సైట్‌లు పొడిగింపును గుర్తించగలవు.
+inspector_group_dns	DNS తనిఖీలు
+card_dns_probe_pattern	సాధ్యమైన DNS పరీక్ష
+inspector_dns_desc	ఒకే డొమైన్‌కు చెందిన వేర్వేరు ఉపడొమైన్‌లకు తక్కువ సమయంలో అభ్యర్థనలు గమనించబడ్డాయి. DNS పరీక్షలు, CDNలు, cache-busting ఈ నమూనాకు కారణం కావచ్చు. గణన పరిమిత విండోలలో కనీస విలువ. వాస్తవ DNS ప్రశ్నలు, resolver చిరునామా, DNS లీక్ నిర్ధారితం కాదు.
+coverage_flags_title	కవరేజ్ పరిమితులు
+coverage_partial_detail_unknown	కారణం పేర్కొనబడలేదు
+coverage_flag_late_start	sensors ఆలస్యంగా ఇన్‌స్టాల్ అయ్యాయి
+coverage_flag_hook_failed	sensors ఇన్‌స్టాలేషన్ పరిమితిని నివేదించాయి; diagnostics పేజీ నియంత్రితమైనవి
+coverage_flag_throttled	event stream పరిమితం చేయబడింది
+coverage_flag_unsupported_realm	కొన్ని execution contextsకు మద్దతు లేదు
+coverage_flag_channel_gap	పేజీ channelలో లోపం లేదా conflict; డేటా పేజీ నియంత్రితమైనది
+coverage_flag_truncated	మెమరీ పరిమితి వల్ల వివరాలు కుదించబడ్డాయి
+coverage_flag_paused	పరిశీలన పాజ్ చేయబడింది
+coverage_flag_revoked	యాక్సెస్ ఉపసంహరించబడింది
+coverage_flag_protocol_mismatch	sensor సంస్కరణ పాతది; పేజీని మళ్లీ లోడ్ చేయండి
+coverage_flag_descriptor_nonconfigurable	కొన్ని APIలను పరిశీలించలేం: రక్షిత descriptors
+coverage_flag_bridge_ring_overflow	బదిలీ బఫర్ నిండిపోయింది; కొంత డేటా పోయింది
+coverage_flag_budget_exceeded	డాక్యుమెంట్ పరిశీలన డేటా పరిమితి మించిపోయింది; కొన్ని వివరాలు నిల్వ కాలేదు
+coverage_flag_no_host_permission	అనుమతుల వల్ల నెట్‌వర్క్ పరిమితమైంది
+coverage_flag_restricted_page	పరిమితం చేసిన బ్రౌజర్ పేజీ
+coverage_flag_worker_not_observed	workers పరిశీలించబడవు
+state_scope_off_title	పరిశీలన ఆఫ్‌లో ఉంది
+state_no_report_title	ఇంకా నివేదిక లేదు
+state_no_report_desc	ఈ డాక్యుమెంట్‌కు ఇంకా పరిశీలనలు లేవు. పరిశీలన ప్రారంభించే ముందే పేజీ తెరిచి ఉంటే, మళ్లీ లోడ్ చేయండి.
+state_unsupported_chrome_title	బ్రౌజర్ సంస్కరణకు మద్దతు లేదు
+state_sw_unavailable_title	నేపథ్య ప్రక్రియ స్పందించడం లేదు
+state_sw_unavailable_desc	పొడిగింపు నేపథ్య ప్రక్రియ సమాధానం ఇవ్వలేదు. ఈ విండో మూసి మళ్లీ తెరవండి; లోపం కొనసాగితే పొడిగింపును పునఃప్రారంభించండి.
+status_active	పరిశీలిస్తోంది
+status_partial	పాక్షికం
+status_late_start	ఆలస్య ప్రారంభం
+status_paused	పాజ్ చేయబడింది
+status_unsupported	అందుబాటులో లేదు
+status_no_access	యాక్సెస్ లేదు
+status_degraded	పరిమితం
+status_off	ఆఫ్
+status_no_report	నివేదిక లేదు
+status_error	లోపం
+host_unknown	హోస్ట్ తెలియదు
+observed_since	$TIME$ నుంచి పరిశీలన
+document_label	డాక్యుమెంట్
+empty_no_findings	ఈ కాలంలో పరిశీలించిన ప్రాంతంలో ఫలితాలు లేవు
+empty_no_findings_hint	ఇది సైట్ భద్రతా అంచనా కాదు. పైన పరిశీలించిన ప్రాంతాన్ని తనిఖీ చేయండి.
+findings_title	పొడిగింపు గమనించినవి
+techniques_title	గమనించిన పద్ధతులు
+techniques_none	అందుబాటులో ఉన్న ప్రాంతంలో పద్ధతులు గమనించబడలేదు.
+more_in_panel	సైడ్ ప్యానెల్‌లో మరో $N$
+level_observation	పరిశీలన
+level_interpretation	వివరణ
+level_purpose	సాధారణ ప్రయోజనం
+card_api_use_label	ఉపయోగించిన API
+card_api_use_generic	$API$ ఉపయోగించబడింది — $COUNT$
+card_api_use_canvas_export	Canvas export కాల్ చేయబడింది ($API$) — $COUNT$
+card_api_use_canvas_readback	Canvas pixel read కాల్ చేయబడింది ($API$) — $COUNT$
+card_api_use_canvas_text	Canvas టెక్స్ట్ కొలత లేదా గీయడం కాల్స్ — $COUNT$
+card_api_use_offscreen	డాక్యుమెంట్‌లో OffscreenCanvas ఉపయోగించబడింది — $COUNT$
+card_api_use_math	Math.* కాల్స్ వరుస — $COUNT$
+card_api_use_webrtc	WebRTC API వినియోగం ($API$) — $COUNT$
+card_api_use_local_probe	స్థానిక కనెక్షన్ ప్రయత్నాలు — $COUNT$
+card_api_use_dns	ప్రత్యేక ఉపడొమైన్‌లకు అభ్యర్థనలు — $COUNT$
+card_api_use_attempt_only	ప్రయత్నం మాత్రమే: కాల్ exception ఇచ్చింది; పేజీకి ఫలితం తిరిగి రాలేదు
+card_api_use_generic_note	API కాల్ ఒక్కటే సాధారణ చర్య; ట్రాకింగ్‌కు రుజువు కాదు.
+card_api_use_purpose	సాధారణంగా ఈ విధానాన్ని బ్రౌజర్ గుర్తింపుకు ఉపయోగించవచ్చు.
+card_purpose_local_probe	స్థానిక కనెక్షన్‌లు సాధారణ యాప్ అనుసంధానాలకు లేదా స్థానిక సేవల తనిఖీలకు ఉపయోగపడవచ్చు. పేజీ ఉద్దేశం నిర్ధారితం కాదు.
+card_purpose_dns	సాధారణంగా ఇటువంటి వరుసను DNS resolver పరీక్షకు ఉపయోగించవచ్చు.
+card_fp_label	ఫింగర్‌ప్రింట్ గణన సంకేతాలు
+card_fp_generic	ఈ కాల్ క్రమం ఫింగర్‌ప్రింట్ నిర్మాణాన్ని పోలి ఉంది
+card_fp_canvas_sequence	టెక్స్ట్ గీసిన తర్వాత రీడ్‌ల వరుస ఫింగర్‌ప్రింట్ నిర్మాణాన్ని పోలి ఉంది
+card_fp_math_sequence	సంఖ్యా తనిఖీల వరుస తెలిసిన నమూనాను పోలి ఉంది
+card_fp_local_probe	ఒకే స్థానిక చిరునామాలో వేర్వేరు పోర్టులకు ప్రయత్నాల వరుస port scanningను పోలి ఉంది.
+inspector_group_local_probe	స్థానిక పోర్టు తనిఖీలు
+inspector_local_probe_desc	స్థానిక చిరునామాలు లేదా పోర్టులను సంప్రదించే ప్రయత్నాలు గమనించబడ్డాయి. ఒకే ప్రయత్నం scanningకు రుజువు కాదు. పోర్టు తెరిచి ఉందా లేదా సేవ అందుబాటులోకి వచ్చిందా ఈ పరిశీలనలు చూపవు.
+card_local_probe_attempt	స్థానిక కనెక్షన్ ప్రయత్నం
+card_local_probe_pattern	సాధ్యమైన పోర్ట్ స్కాన్
+card_fp_dns_pattern	ప్రత్యేక ఉపడొమైన్‌లకు అభ్యర్థనల వరుస గమనించబడింది; DNS పరీక్షల్లో ఇది జరుగుతుంది. ఉపయోగించిన resolver పొడిగింపుకు తెలియదు.
+card_fp_webrtc	పేజీ WebRTC ఉపయోగించింది. ఈ విధానం నెట్‌వర్క్ సమాచారాన్ని యాక్సెస్ చేయగలదు.
+card_fp_not_proven	ఈ పరిశీలన ఉద్దేశం, ప్రత్యేకత, ఫలితం ప్రసారాన్ని నిర్ధారించదు.
+card_fp_alternatives	సాధారణ వివరణలు: $ALTERNATIVES$
+card_fp_insufficient	నిర్ణయానికి సరిపడా డేటా లేదు
+confidence_low	వివరణపై తక్కువ నమ్మకం
+confidence_medium	వివరణపై మధ్యస్థ నమ్మకం
+confidence_high	వివరణపై ఎక్కువ నమ్మకం
+confidence_unassessed	నమ్మకం అంచనా వేయలేదు
+card_vendor_found	$VENDOR$ అనుసంధాన సంకేతాలు కనుగొనబడ్డాయి
+card_vendor_purpose	సేవ ప్రయోజనం: $PURPOSE$. ఇది సైట్ భద్రతా అంచనా కాదు.
+card_vendor_threatmetrix_purpose	ప్రమాద అంచనా, డిజిటల్ గుర్తింపు
+card_vendor_purpose_generic	బాట్ రక్షణ, ప్రమాద అంచనా లేదా గుర్తింపు
+card_vendor_rules	నియమాలు: $RULES$; సరిపోలిక మూలం: $SOURCE$
+card_vendor_match_documented_resource	డాక్యుమెంట్ చేసిన వనరుతో సరిపోలిక
+card_vendor_match_multi_signal	అనేక స్వతంత్ర సంకేతాలు
+card_vendor_match_weak_signal	అనుసంధాన అంశం కనుగొనబడింది (బలహీన సంకేతం; పేజీ నకిలీ చేయవచ్చు)
+card_vendor_match_none	సరిపోలిక లేదు
+card_vendor_not_linked	ఈ సేవకు, పేజీలోని ఇతర పరిశీలనలకు సంబంధం నిర్ధారితం కాదు.
+card_vendor_resource_note	సరిపోలిక అభ్యర్థించిన వనరుకు సంబంధించినది. సేవ కోడ్ అమలైందని లేదా గమనించిన API కాల్స్‌కు కారణమైందని నిరూపించదు.
+card_vendor_unknown	సేవా సంస్థ తెలియదు
+card_vendor_no_trust	గుర్తించిన సేవ సైట్ భద్రతా అంచనా కాదు; అన్ని తనిఖీలు ఆ సేవే చేస్తుందని అర్థం కాదు.
+integrity_browser_observed	బ్రౌజర్ గమనించినది
+integrity_page_controlled	పేజీ context డేటా; నకిలీ కావచ్చు
+integrity_derived	పొడిగింపు నుంచి ఉత్పన్నమైనది
+evidence_browser_network	బ్రౌజర్ నెట్‌వర్క్ events
+evidence_browser_navigation	బ్రౌజర్ నావిగేషన్
+evidence_page_hook	పేజీ contextలో API hook
+evidence_page_dom	పేజీ DOM
+evidence_derived	ఉత్పన్నమైనది
+attribution_exact_resource	కాల్ మూలం: ఖచ్చితమైన వనరు
+attribution_sampled_stack	Stack sample నుంచి కాల్ మూలం (తప్పుదారి పట్టించవచ్చు)
+attribution_frame_only	ఫ్రేమ్ మాత్రమే తెలుసు
+attribution_unknown	కాల్ మూలం తెలియదు
+count_exact	ఖచ్చితమైన గణన
+count_sampled	నమూనా గణన
+count_lower_bound	కనీసం; డేటా పోయింది
+count_value_sampled	సుమారు $N$ (నమూనా)
+count_value_lower_bound	కనీసం $N$
+phase_attempted	ప్రయత్నించారు
+phase_returned_sync	ఫలితం తిరిగి వచ్చింది
+phase_threw_sync	exception వచ్చింది
+phase_async_returned	అసమకాలిక ఫలితం
+phase_settlement_unobserved	పూర్తి కావడం గమనించబడలేదు
+detail_show	వివరాలు
+detail_api	API
+detail_technique	పద్ధతి
+detail_category	వర్గం
+detail_evidence	డేటా మూలం
+detail_rule	నియమం
+detail_finding_id	ఫలితం
+detail_evidence_ids	పరిశీలనలు
+detail_counts	గణనలు
+detail_phases	దశలు
+detail_limitations	పరిమితులు
+detail_alternatives	సాధారణ వివరణలు
+detail_attribution	మూల నిర్ధారణ
+detail_none	ఏదీ లేదు
+category_graphics	గ్రాఫిక్స్, జ్యామితి, ఫాంట్‌లు
+category_audio	ఆడియో, మీడియా, గణన
+category_environment	బ్రౌజర్ పరిసరాలు, స్క్రీన్, భాష/ప్రాంతం
+category_permissions	అనుమతులు, పరికరాలు, పరస్పర చర్యలు
+category_storage	నిల్వ, గుర్తింపులు
+category_network	నెట్‌వర్క్ (స్పష్టంగా అసంపూర్ణ కవరేజ్)
+action_pause	ప్రస్తుత డాక్యుమెంట్‌లో పరిశీలన పాజ్ చేయండి
+action_resume	పరిశీలన కొనసాగించండి
+action_reload	ప్రారంభం నుంచి విశ్లేషించడానికి మళ్లీ లోడ్ చేయండి
+action_clear	ఈ డాక్యుమెంట్ నివేదిక తొలగించండి
+action_export	ఎగుమతి (ప్రివ్యూ)
+action_refresh	రిఫ్రెష్ చేయండి
+action_apply	వర్తింపజేయండి
+action_cancel	రద్దు చేయండి
+action_dismiss	మూసివేయండి
+open_sidepanel	సైడ్ ప్యానెల్ తెరవండి
+open_options	సెట్టింగ్‌లు
+export_preview_title	ఎగుమతి ప్రివ్యూ
+export_preview_desc	క్రింది ఫీల్డ్‌లు మాత్రమే చేరతాయి (సున్నిత వివరాలు తొలగించబడ్డాయి). పూర్తి URLలు, కుకీ విలువలు, API ఫలితాలు, ఇన్‌పుట్ విషయాలు లేవు.
+export_host_warning	ఫైల్‌లో పేజీ హోస్ట్ ఉంటుంది: $HOST$. అనవసరంగా షేర్ చేయవద్దు.
+export_fields_title	ఫైల్ ఫీల్డ్‌లు
+export_json_title	పూర్తి JSON విషయం
+export_save	ఫైల్ సేవ్ చేయండి
+export_document_changed	డాక్యుమెంట్ మారింది. ప్రివ్యూ మళ్లీ తెరవండి.
+export_unavailable	ఎగుమతి అందుబాటులో లేదు: పేజీ యాక్సెస్ లేదా నివేదిక లేదు.
+export_saved	ఫైల్ సేవ్ చేయబడింది.
+export_not_implemented	నేపథ్య ప్రక్రియ ఇంకా ఎగుమతి ప్రివ్యూకు మద్దతు ఇవ్వదు.
+mode_off	ఆఫ్
+mode_off_desc	నేపథ్య పరిశీలన ఆఫ్‌లో ఉంది. నివేదికలు సృష్టించబడవు.
+mode_active_tab	ఇప్పటి నుంచి తనిఖీ చేయండి
+mode_active_tab_desc	ప్రారంభించిన తర్వాత పరిశీలనలు; తొలినాటి కాల్స్ తప్పిపోయి ఉండవచ్చు.
+mode_site	ఈ సైట్‌లో ఎల్లప్పుడూ
+mode_site_desc	తర్వాతి లోడ్‌లో అనుమతి ఉన్న డాక్యుమెంట్‌ల తొలినాటి కాల్స్; మూడవ పక్ష నెట్‌వర్క్ పాక్షికంగా కనిపించవచ్చు.
+mode_all	అన్ని సైట్‌లలో పరిశీలించండి
+mode_all_desc	అత్యంత విస్తృత యాక్సెస్; workers, DNS లేదా సర్వర్ logic పూర్తి కవరేజ్‌కు హామీ లేదు.
+scope_permission_denied	అనుమతి మంజూరు కాలేదు. పరిధి మారలేదు.
+scope_permission_granted_reload	యాక్సెస్ మంజూరైంది. ప్రారంభం నుంచి విశ్లేషించడానికి పేజీని మళ్లీ లోడ్ చేయండి.
+scope_site_host_unknown	ప్రస్తుత పేజీ హోస్ట్ తెలియదు: ముందుగా “ఇప్పటి నుంచి తనిఖీ చేయండి” ప్రారంభించండి లేదా సెట్టింగ్‌లలో హోస్ట్ నమోదు చేయండి.
+scope_host_input_label	సైట్ హోస్ట్
+scope_host_invalid	హోస్ట్ నమోదు చేయండి, ఉదాహరణకు example.com
+scope_current	ప్రస్తుత పరిధి: $MODE$
+scope_hosts_list	శాశ్వతంగా పరిశీలించే సైట్‌లు
+scope_hosts_none	ఏవీ లేవు
+scope_granted_all	బ్రౌజర్ విస్తృత సైట్ యాక్సెస్ మంజూరు చేసింది.
+scope_error	పరిధి మార్చలేకపోయాం: $CODE$
+scope_applied	పరిశీలన పరిధి నవీకరించబడింది.
+scope_applied_reload	పరిశీలన పరిధి నవీకరించబడింది. పేజీ లోడ్ నుంచి పరిశీలన మొదలుపెట్టడానికి మళ్లీ లోడ్ చేయండి.
+options_onboarding_title	పొడిగింపు చేసే పని
+onboarding_limits	డిఫాల్ట్ పర్యవేక్షణ API ఫలితాలను యథాతథంగా ఉంచుతుంది. స్పష్టంగా ప్రారంభించే వరకు ఐచ్ఛిక API నిరోధం ఆఫ్‌లో ఉంటుంది; అది సైట్‌లను దెబ్బతీయవచ్చు. Wrappersను గుర్తించవచ్చు; అమలుకు అదనపు సమయం పడుతుంది. పూర్తి కవరేజ్‌కు హామీ లేదు.
+onboarding_no_server	పొడిగింపు విశ్లేషణ ఫలితాలను పంపదు; డెవలపర్ సర్వర్‌లను సంప్రదించదు.
+options_clear_session	సెషన్ డేటా క్లియర్ చేయండి
+options_clear_session_desc	సెషన్ మెమరీలోని అన్ని డాక్యుమెంట్ నివేదికలను తొలగిస్తుంది. సెట్టింగ్‌లు అలాగే ఉంటాయి.
+options_clear_done	సెషన్ డేటా తొలగించబడింది.
+options_clear_unavailable	ఈ buildలో చర్య ఇంకా అందుబాటులో లేదు.
+options_inventory_title	నిల్వ చేసే డేటా
+inventory_session	డాక్యుమెంట్ నివేదికలు సెషన్ మెమరీలో (chrome.storage.session) మాత్రమే ఉంటాయి. 10 నిమిషాల నిష్క్రియ తర్వాత వచ్చే పొడిగింపు eventలో డేటా తొలగుతుంది; తనిఖీలు 30 సెకన్లకు ఒకసారి కంటే ఎక్కువ జరగవు, సరిగ్గా 10 నిమిషాలకు కాదు. ట్యాబ్ మూసినా తొలగింపు జరుగుతుంది; బ్రౌజర్ పునఃప్రారంభం సెషన్‌ను క్లియర్ చేస్తుంది.
+inventory_local	సెట్టింగ్‌లు (పరిశీలన పరిధి, ఎంపిక చేసిన సైట్‌లు, ఇంటర్‌ఫేస్ భాష) మీరు తొలగించే వరకు chrome.storage.localలో ఉంటాయి.
+inventory_never	ఎప్పుడూ నిల్వ చేయనివి: audio samples, Math ఆర్గ్యుమెంట్‌లు/ఫలితాలు, పూర్తి URLలు, కుకీ విలువలు, అభ్యర్థన హెడర్‌లు/బాడీలు, keystrokes, form text, client/peer IPలు. Canvas/WebGL చిత్రాలు మెమరీలో మాత్రమే ఉంటాయి. కాన్ఫిగర్ చేసిన ICE server endpoints ప్రత్యేక పరిమిత సెషన్ నిల్వను ఉపయోగిస్తాయి.
+inventory_export	Light Mode (JSON): ఎగుమతి ఫైల్‌లో ప్రివ్యూలో చూపిన ఫీల్డ్‌లు మాత్రమే ఉంటాయి. మీరు స్పష్టంగా చేర్చితే తప్ప పేజీ హోస్ట్ ఉండదు; చిత్రాలు, WebRTC కనెక్షన్ వివరాలు ఎగుమతి కావు.
+inventory_sync	Chrome account sync, disk, బయటి సర్వర్‌లు ఉపయోగించబడవు.
+inventory_link	పూర్తి జాబితా: ప్రాజెక్ట్ రిపోజిటరీలో docs/data-inventory.md.
+tab_overview	అవలోకనం
+tab_techniques	పద్ధతులు
+tab_sources	మూలాలు
+tab_limits	పరిమితులు
+group_techniques	పద్ధతులు
+group_services	సేవలు
+group_third_party	మూడవ పక్ష మూలాలు
+counts_unavailable	ఈ projectionలో డేటా లేదు
+search_label	పద్ధతులు, APIలు వెతకండి
+search_placeholder	పద్ధతి, API లేదా నియమం
+search_empty	ప్రశ్నకు సరిపోలేది లేదు
+sources_hosts_title	హోస్ట్‌లు (బ్రౌజర్ గమనించినవి)
+sources_none	ఈ నివేదిక projectionలో మూడవ పక్ష హోస్ట్ జాబితా అందుబాటులో లేదు. సైట్, అభ్యర్థన మూలం రెండింటికీ అనుమతి ఉన్నప్పుడే network events కనిపిస్తాయి.
+sources_requests	అభ్యర్థనలు: $N$
+dropped_title	పరిమితుల వల్ల వదిలివేసినవి
+dropped_observations	పరిశీలనలు
+dropped_batches	బ్యాచ్‌లు
+dropped_findings	ఫలితాలు
+dropped_hosts	హోస్ట్‌లు
+dropped_counters	గణనలు
+dropped_transport	బదిలీ
+error_invalid_request	చెల్లని అభ్యర్థన
+error_unauthorized_sender	అనుమతి లేని పంపినవారు
+error_not_found	నివేదిక దొరకలేదు: డాక్యుమెంట్ మారి ఉండవచ్చు
+error_stale_revision	నివేదిక మారింది; చర్య రద్దయింది
+error_document_mismatch	డాక్యుమెంట్ మారింది; చర్య రద్దయింది
+error_no_access	పేజీకి యాక్సెస్ లేదు
+error_not_implemented	చర్యకు ఇంకా మద్దతు లేదు
+error_unavailable	నేపథ్య ప్రక్రియ స్పందించలేదు
+scope_active_tab_toolbar	ప్రస్తుత ట్యాబ్ పరిశీలన ప్రారంభించడానికి, బ్రౌజర్ toolbar బటన్‌తో పొడిగింపు తెరిచి “ఇప్పటి నుంచి తనిఖీ చేయండి” ఎంచుకోండి.
+export_include_host	ఎగుమతిలో పేజీ హోస్ట్‌ను చేర్చండి:
+vendors_catalog_unavailable	సేవల కాటలాగ్ ఆఫ్‌లో ఉంది: సేవల గుర్తింపు జరగలేదు.
+limitation_page_controlled_evidence	ఈ పరిశీలనలు పేజీ context నుంచి వస్తాయి; పేజీ నకిలీ చేయగలదు.
+limitation_purpose_unknown	API కాల్స్ ఉద్దేశం తెలియదు.
+limitation_uniqueness_not_established	ఫలితాల ప్రత్యేకత, స్థిరత్వం పరీక్షించబడలేదు.
+limitation_readback_attempted_failed	కనీసం ఒక read ప్రయత్నం exception ఇచ్చింది; విజయవంతమైన readకు రుజువు కాదు.
+limitation_uncalibrated_threshold	నియమాల thresholds ఇంకా ఉదాహరణల corpusతో calibrate చేయబడలేదు.
+limitation_coverage_incomplete	పరిశీలన కవరేజ్ అసంపూర్ణం; కొన్ని కాల్స్ తప్పిపోయి ఉండవచ్చు.
+limitation_catalog_disabled	సేవల కాటలాగ్ ఆఫ్‌లో ఉంది; పరిశీలనలు, సేవా సంస్థల సంబంధాలు తనిఖీ చేయబడలేదు.
+limitation_text_ops_undifferentiated	టెక్స్ట్ కొలత, గీయడం కలిపి లెక్కించబడ్డాయి; వేరు గణనలు తెలియవు.
+limitation_no_time_window	గణనలు డాక్యుమెంట్ జీవితకాలానికి సంబంధించినవి; ప్రత్యేక చిన్న వ్యవధి కార్యకలాపాలను చూపవు.
+alternative_high_volume_rendering	సాధారణ editing లేదా chart renderingలో కూడా ఎక్కువ text operations జరగవచ్చు.
+coverage_flag_network_limited	అందుబాటులో ఉన్న అనుమతుల వల్ల నెట్‌వర్క్ పరిశీలనలు పరిమితమయ్యాయి
+coverage_flag_frames_inaccessible	కొన్ని ఫ్రేమ్‌ల పరిశీలన పరిమితం లేదా ఇంకా నిర్ధారితం కాదు
+aria_live_update	నివేదిక నవీకరించబడింది. ఫలితాలు: $N$; పరిశీలన స్థితి — $STATE$
+badge_tooltip	ఈ ట్యాబ్, దాని ఫ్రేమ్‌లలో గమనించిన పద్ధతులు: $N$
+coverage_sensor_disabled_desc	Sensor $SENSOR$ ఆఫ్‌లో ఉంది ($REASON$). ఈ APIల కాల్స్ పరిశీలించబడవు.
+card_vendor_first_party	సైట్ స్వంత డొమైన్ endpointలో సేవా సంస్థ signature గమనించబడింది
+options_diagnostics_title	పొడిగింపు diagnostics
+options_diagnostics_desc	సంస్కరణలు, నేపథ్య లభ్యత మాత్రమే. పేజీ చిరునామాలు, నివేదిక డేటా చేర్చబడవు.
+options_diagnostics_preview	Diagnostic నివేదిక ప్రివ్యూ
+frame_document_label	చూపుతున్న డాక్యుమెంట్
+frame_main	ప్రధాన డాక్యుమెంట్
+frame_child	Embedded పేజీ $N$
+frame_separate_hint	పరిశీలనలు ఎంచుకున్న డాక్యుమెంట్‌కు సంబంధించినవి. డాక్యుమెంట్‌లు కలపబడవు.
+frame_limit_hint	మొదటి 128 డాక్యుమెంట్‌లు మాత్రమే చూపబడతాయి. మరిన్ని embedded పేజీలు ఉండవచ్చు.
+visual_title	పేజీ చదివిన చిత్రం
+visual_consent	పరిశీలన మొదటి 60 సెకన్లలో, పేజీ ఇప్పటికే చదివిన మద్దతు ఉన్న చిత్రాలు స్వయంచాలకంగా సంగ్రహించబడతాయి. చిత్రాలు మెమరీలోనే ఉంటాయి; నివేదికలు, ఎగుమతుల్లో చేరవు.
+visual_enable	60 సెకన్ల పాటు చిత్రాలు చూపండి
+visual_enable_reload	ప్రారంభించి పేజీని మళ్లీ లోడ్ చేయండి
+visual_disable	చిత్రాలను దాచి క్లియర్ చేయండి
+visual_reload_scope	పేజీ లోడ్ తనిఖీని సంగ్రహించడానికి, ముందుగా ఈ సైట్‌కు నిరంతర పరిశీలన ఎంచుకోండి.
+visual_remaining	చిత్ర ప్రివ్యూ ప్రారంభించబడింది: ఇంకా $N$ సెకన్లు
+visual_waiting	పేజీ చదివే మద్దతు ఉన్న Canvas లేదా WebGL చిత్రం కోసం వేచి ఉంది. పేజీ తన తనిఖీని మళ్లీ చేయడానికి రీలోడ్ చేయండి. పరిశీలనకు ముందు చదివిన చిత్రాలను తిరిగి పొందలేం; ఖాళీ ప్రివ్యూ తనిఖీలు జరగలేదని సూచించదు.
+visual_untrusted	మూలం: పేజీ నియంత్రిత pixels. పేజీ ఈ చిత్రాన్ని మార్చగలదు; చిత్రం ఒక్కటే ఫింగర్‌ప్రింటింగ్ లేదా సైట్ భద్రతను నిర్ధారించదు.
+visual_canvas	Canvas చిత్రం
+visual_webgl	WebGL చిత్రం
+visual_source	$API$ · $WIDTH$ × $HEIGHT$ px
+visual_decode_error	అందిన చిత్రాన్ని చూపలేకపోయాం. దాని ఫార్మాట్ లేదా కొలతలకు మద్దతు లేదు.
+inspector_total	గమనించిన ఉపపద్ధతులు
+inspector_other_documents	ఇతర డాక్యుమెంట్‌లలో పద్ధతులు
+inspector_other_documents_desc	ఆ డాక్యుమెంట్‌ను చూడటానికి వరుసను తెరవండి. గణనలు, చిత్రాలు, ఎగుమతులు వేరుగానే ఉంటాయి.
+inspector_other_documents_limit	ఈ అవలోకనం మొదటి $N$ ఇతర డాక్యుమెంట్‌లను తనిఖీ చేస్తుంది. అదనపు ఫ్రేమ్‌ల కోసం డాక్యుమెంట్ ఎంపికను ఉపయోగించండి.
+inspector_group	పద్ధతి
+inspector_found	కనుగొన్నవి
+inspector_group_canvas	Canvas
+inspector_group_webgl	WebGL
+inspector_group_webgpu	WebGPU
+inspector_group_clientrects	ClientRects / DOM జ్యామితి
+inspector_group_svg_geometry	SVG జ్యామితి
+inspector_group_fonts	ఫాంట్‌లు
+inspector_group_css_styles	CSS styles
+inspector_clientrects_desc	దీర్ఘచతురస్రం, పరిమాణ కొలతలు ఫింగర్‌ప్రింటింగ్‌కు, సాధారణ page layoutకు ఉపయోగపడవచ్చు. ఈ గణనలు వాటి ఉద్దేశాన్ని నిర్ధారించవు. ఖచ్చితమైన నిర్దేశాంకాలు నిల్వ చేయబడవు.
+inspector_api_family_desc	API జాబితా ఒక familyని వివరిస్తుంది. ఈ గణనలు వ్యక్తిగత methods/propertiesను వేరు చేయవు లేదా కాల్స్ ఉద్దేశాన్ని నిర్ధారించవు.
+inspector_group_math	Math
+inspector_group_audio	ఆడియో / మీడియా
+inspector_group_environment	బ్రౌజర్ / పరికరం
+inspector_group_display	స్క్రీన్ / డిస్‌ప్లే
+inspector_group_cpu	CPU cores
+inspector_group_memory	RAM
+inspector_group_performance	పనితీరు / సమయ కొలత
+inspector_display_desc	స్క్రీన్, విండో, మానిటర్ సమాచారం అభ్యర్థనలు. Resolution, కొలతలు, scale విలువలు నిల్వ చేయబడవు; అభ్యర్థన మానిటర్ జాబితా యాక్సెస్‌కు రుజువు కాదు.
+inspector_cpu_desc	hardwareConcurrency అందుబాటులో ఉన్న logical processorsకు బ్రౌజర్ అంచనాను ఇస్తుంది. విలువ లేకుండా రీడ్‌లు రికార్డ్ అవుతాయి; physical CPU cores సంఖ్య నిర్ణయించబడదు.
+inspector_memory_desc	Device Memory ఖచ్చితమైన RAMకు బదులుగా సుమారైన memory category ఇస్తుంది. విలువ నిల్వ చేయకుండా రీడ్‌లు రికార్డ్ అవుతాయి.
+inspector_performance_desc	Timers, Performance APIలు benchmarks, animation, analyticsకు ఉపయోగపడతాయి. కొలత ఫలితాలు లేకుండా కాల్స్ రికార్డ్ అవుతాయి; పరిశీలనలు వాటి ఉద్దేశాన్ని నిర్ధారించవు.
+inspector_group_permissions	అనుమతులు / Sensors
+inspector_group_storage	నిల్వ
+inspector_group_network	నెట్‌వర్క్
+inspector_group_webrtc	WebRTC
+rtc_title	గమనించిన కనెక్షన్‌లు
+rtc_scope_note	ఈ డాక్యుమెంట్, పరిశీలించిన వ్యవధి మాత్రమే. Hooksకు ముందు లేదా అందుబాటులో లేని contextsలోని కనెక్షన్‌లు తప్పిపోయి ఉండవచ్చు.
+rtc_total	నిలిపినవి: $SHOWN$ · గమనించిన ఆబ్జెక్ట్‌లు: $TOTAL$
+rtc_connection	కనెక్షన్ $N$
+rtc_created_unknown	ఈ ఆబ్జెక్ట్ సృష్టి గమనించబడలేదు.
+rtc_closed_retained	close() గమనించబడింది. మూసిన తర్వాత కూడా ఈ రికార్డ్ ఉంటుంది.
+rtc_connected_observed	ఈ కనెక్షన్‌కు connected స్థితి గమనించబడింది.
+rtc_connected_unobserved	Connected స్థితి గమనించబడలేదు.
+rtc_configuration_changes	విజయవంతమైన reconfiguration కాల్స్: $N$
+rtc_state_new	చివరి స్థితి: కొత్తది
+rtc_state_connecting	చివరి స్థితి: కనెక్ట్ అవుతోంది
+rtc_state_connected	చివరి స్థితి: కనెక్ట్ అయింది
+rtc_state_disconnected	చివరి స్థితి: కనెక్షన్ తెగింది
+rtc_state_failed	చివరి స్థితి: విఫలమైంది
+rtc_state_closed	చివరి స్థితి: మూసివేయబడింది
+rtc_state_unknown	స్థితి తెలియదు
+rtc_duration_open	మూసివేత గమనించబడలేదు
+rtc_duration_under_1s	జీవితకాలం 1 సెకను కంటే తక్కువ
+rtc_duration_1_10s	జీవితకాలం 1–10 సెకన్లు
+rtc_duration_10s_plus	జీవితకాలం 10 సెకన్లు లేదా ఎక్కువ
+rtc_duration_unknown	జీవితకాలం తెలియదు
+rtc_server_configured	కాన్ఫిగర్ చేసిన సర్వర్
+rtc_server_candidate	ఈ సర్వర్ ద్వారా ICE candidate సేకరించబడింది
+rtc_server_error	ఈ సర్వర్‌కు ICE gathering లోపం
+rtc_servers_unknown	సర్వర్ వివరాలు గమనించబడలేదు. సర్వర్‌లు కాన్ఫిగర్ చేయలేదని లేదా ఉపయోగించలేదని ఇది నిర్ధారించదు.
+rtc_servers_limited	సర్వర్ వివరాలు అసంపూర్ణం; ఒక్కో కనెక్షన్‌కు గరిష్ఠంగా 8 endpoints నిలుస్తాయి.
+rtc_evidence_note	కాన్ఫిగర్ చేయడం సంప్రదించినట్లు కాదు. Candidate లేదా gathering లోపం ఎంచుకున్న route లేదా డేటా ప్రసారాన్ని నిర్ధారించదు. Connection స్థితి మొత్తం కనెక్షన్‌కు వర్తిస్తుంది. ఈ వివరాలు పేజీ నియంత్రితంగానే ఉంటాయి.
+rtc_empty	ఈ డాక్యుమెంట్, వ్యవధికి కనెక్షన్ వివరాలు అందుబాటులో లేవు. API గణనల్లో పరిశీలనలు ఉండవచ్చు.
+rtc_capture_limited	కనెక్షన్ చరిత్ర అసంపూర్ణం. వదిలివేసిన ఆబ్జెక్ట్‌లు: $N$; capture పరిమితులు updatesను కూడా వదిలేయవచ్చు.
+rtc_export_note	ఈ ప్రత్యేక స్థానిక చరిత్ర history updates లేకుండా గరిష్ఠంగా 10 నిమిషాలు ఉంటుంది. చూడటం నిల్వ వ్యవధిని పొడిగించదు. సర్వర్, కనెక్షన్ వివరాలు JSON ఎగుమతిలో చేరవు.
+inspector_webrtc_desc	WebRTC API కాల్స్ గమనించబడ్డాయి. సాధారణ audio/video calls, data exchangeకు కూడా ఈ APIలు ఉపయోగపడతాయి; కాల్స్ మాత్రమే ఫింగర్‌ప్రింటింగ్ లేదా IP చిరునామా వెల్లడిని నిర్ధారించవు.
+card_api_use_webrtc_network	WebRTC నెట్‌వర్క్ సమాచారం అభ్యర్థనలు ($API$) — $COUNT$
+card_purpose_webrtc	WebRTC audio/video communication, data exchangeకు ఉపయోగపడుతుంది. ఈ పరిశీలనలు కాల్స్ ఉద్దేశాన్ని నిర్ధారించవు.
+inspector_page	పేజీ హోస్ట్
+inspector_document	డాక్యుమెంట్ / ఫ్రేమ్
+inspector_script	స్క్రిప్ట్
+inspector_script_unknown	తెలియదు — ఈ నివేదిక డాక్యుమెంట్‌ను గుర్తిస్తుంది, కాల్ చేసిన స్క్రిప్ట్‌ను కాదు.
+inspector_empty	ఈ డాక్యుమెంట్‌లో మద్దతు ఉన్న పద్ధతి ఇంకా గమనించబడలేదు. పొడిగింపును ఇన్‌స్టాల్ చేసేటప్పటికే తెరిచిన పేజీని మళ్లీ లోడ్ చేయండి.
+inspector_coverage	పరిశీలన కవరేజ్
+inspector_image_waiting	ఈ పేజీ చదివే మద్దతు ఉన్న చిత్రం కోసం వేచి ఉంది. పూర్వ లేదా చాలా తొలి inline reads, పెద్ద చిత్రాలు తప్పిపోవచ్చు; పేజీ తన తనిఖీని మళ్లీ చేయడానికి రీలోడ్ చేయండి.
+language_label	ఇంటర్‌ఫేస్ భాష
+language_change_failed	భాషను సేవ్ చేయలేకపోయాం. మళ్లీ ప్రయత్నించండి.
+inspector_spotted	గమనించిన పద్ధతులు
+inspector_subtitle	యాంటీ ఫ్రాడ్ ఇంజనీర్
+mode_light_tab	Light Mode
+mode_pro_tab	Pro Mode
+mode_save_error	ఈ వీక్షణ ప్రాధాన్యత సేవ్ కాలేదు. పొడిగింపును మళ్లీ తెరిస్తే రీసెట్ కావచ్చు.
+pro_title	డొమైన్ రికార్డింగ్
+pro_current_domain	ప్రస్తుత డొమైన్
+pro_session_domain	రికార్డింగ్ డొమైన్
+pro_ready	రికార్డింగ్‌కు సిద్ధం
+pro_recording	రికార్డింగ్ జరుగుతోంది
+pro_stopped	రికార్డింగ్ ఆగింది
+pro_start	రికార్డింగ్ ప్రారంభించండి
+pro_start_new	కొత్త రికార్డింగ్ ప్రారంభించండి
+pro_stop	రికార్డింగ్ ఆపండి
+pro_generate_pdf	PDF రూపొందించండి
+pro_pdf_hint	నివేదికను సమీక్షించడానికి తెరవండి లేదా బ్రౌజర్ print dialogతో PDFగా సేవ్ చేయండి.
+pro_pdf_error	నివేదిక ప్రివ్యూ తెరవలేకపోయాం. మళ్లీ ప్రయత్నించండి.
+pro_start_note	ఈ సైట్‌లో ఈ ట్యాబ్, సంబంధిత ట్యాబ్‌లలో సందర్శించిన పేజీలను గరిష్ఠంగా 10 నిమిషాలు రికార్డ్ చేస్తుంది. ఈ విండో మూసినా రికార్డింగ్ కొనసాగుతుంది. పూర్వ కార్యకలాపాలు తిరిగి పొందబడవు; loading checks కోసం ప్రారంభించిన తర్వాత పేజీని మళ్లీ లోడ్ చేయండి.
+pro_replace_note	కొత్త రికార్డింగ్ పాత సెషన్‌ను భర్తీ చేస్తుంది. అవసరమైతే ముందుగా దాని నివేదికను సేవ్ చేయండి.
+pro_unavailable	ఈ పేజీలో రికార్డింగ్ ప్రారంభించలేం. పరిశీలన ప్రారంభించిన, అందుబాటులో ఉన్న HTTP లేదా HTTPS సైట్‌ను తెరవండి.
+pro_other_domain	ఈ పేజీ రికార్డింగ్ డొమైన్ వెలుపల ఉంది. దాని కార్యకలాపాలు ఈ సెషన్‌లో చేరవు.
+pro_elapsed	గడిచిన సమయం
+pro_time_limit	గరిష్ఠ రికార్డింగ్ సమయం: 10 నిమిషాలు
+pro_pages_total	పేజీ సందర్శనలు
+pro_domains_total	మూడవ పక్ష డొమైన్‌లు
+pro_resources_total	వనరుల సమూహాలు
+pro_requests_total	అభ్యర్థనలు
+pro_pages_title	రికార్డ్ చేసిన పేజీ సందర్శనలు
+pro_pages_empty	ఇంకా పేజీ సందర్శనలు రికార్డ్ కాలేదు.
+pro_visit	సందర్శన $N$
+pro_document_reports	డాక్యుమెంట్ నివేదికలు: $N$
+pro_visit_totals	$TECHNIQUES$ పద్ధతులు · $RESOURCES$ వనరుల సమూహాలు
+pro_observed_techniques	గమనించిన పద్ధతి IDలు
+pro_no_techniques	ఈ సందర్శనకు మద్దతు ఉన్న API పద్ధతి రికార్డ్ కాలేదు. తనిఖీలు జరగలేదని ఇది నిర్ధారించదు.
+pro_visit_resources	ఈ సందర్శన వనరులు
+pro_resource_type	రకం
+pro_resource_requests	అభ్యర్థనలు
+pro_resource_completed	పూర్తయినవి
+pro_resource_failed	విఫలమైనవి
+pro_resource_redirects	దారి మళ్లింపులు
+pro_resource_status	HTTP స్థితి
+pro_show_more	మరిన్ని వనరులు చూపండి
+pro_open_report	నివేదిక ప్రివ్యూ తెరవండి
+pro_limits_title	రికార్డింగ్ పరిమితులు
+pro_limits_note	కవరేజ్ పేజీ యాక్సెస్, మద్దతు ఉన్న sensorsపై ఆధారపడుతుంది. API వినియోగం, లోడ్ చేసిన వనరులు ట్రాకింగ్, కోడ్ అమలు లేదా సైట్ భద్రతను నిర్ధారించవు. సున్నితమైన అభ్యర్థన విషయాలు, చిత్రాలు, WebRTC కనెక్షన్ వివరాలు ఈ నివేదికలో చేరవు.
+pro_dropped	వదిలివేసినవి: $PAGES$ పేజీలు, $RESOURCES$ వనరులు, $DOCUMENTS$ డాక్యుమెంట్‌లు, $EVENTS$ events.
+pro_stop_manual	మీరు ఆపారు.
+pro_stop_timeout	10 నిమిషాల రికార్డింగ్ పరిమితి చేరింది.
+pro_stop_tab_closed	రికార్డ్ చేసిన ట్యాబ్ మూసివేయబడింది.
+pro_stop_access_revoked	పేజీ యాక్సెస్ ఉపసంహరించడంతో రికార్డింగ్ ఆగింది.
+pro_stop_storage_error	సెషన్ డేటా సేవ్ కాలేక రికార్డింగ్ ఆగింది. నిలిపిన నివేదిక అసంపూర్ణంగా ఉండవచ్చు.
+pro_stop_limit	రికార్డింగ్ డేటా పరిమితి చేరింది. నిలిపిన నివేదిక అసంపూర్ణం.
+report_title	సన్నివేశ విశ్లేషణ నివేదిక
+report_preview	PDF ప్రివ్యూ
+report_save	PDFగా సేవ్ చేయండి
+report_print_hint	బ్రౌజర్ print dialogలో “Save as PDF” ఎంచుకోండి. క్రింద చూపిన నివేదిక PDFలో ఉంటుంది.
+report_recording	నడుస్తున్న రికార్డింగ్‌లను ఎగుమతి చేయలేం. ముందుగా రికార్డింగ్ ఆపండి.
+report_unavailable	ఈ రికార్డింగ్ ఇక అందుబాటులో లేదు.
+report_summary	సారాంశం
+report_started	విశ్లేషణ ప్రారంభం
+report_finished	విశ్లేషణ ముగింపు
+report_duration	వ్యవధి
+report_pages	పేజీలు
+report_domains	మూడవ పక్ష డొమైన్‌లు
+report_resources	వనరుల సమూహాలు
+report_requests	గమనించిన అభ్యర్థనలు
+report_techniques	గమనించిన పద్ధతులు
+report_vendors	గుర్తించిన సేవలు
+report_map	పరస్పర చర్యల మ్యాప్
+report_map_note	ప్రతి పేజీ సందర్శనలో గమనించిన వనరు అభ్యర్థనలను లింకులు చూపుతాయి. యాజమాన్యం, ప్రత్యక్ష script dependency లేదా డేటా ప్రసారానికి రుజువు కాదు.
+report_page	పేజీ
+report_documents	డాక్యుమెంట్‌లు, ఫ్రేమ్‌లు
+report_resource_list	వనరుల సమూహాల జాబితా
+report_first_party	అదే సైట్
+report_third_party	మూడవ పక్షం
+report_unknown	సంబంధం తెలియదు
+report_resource_type	వనరు రకం
+report_requests_count	అభ్యర్థనలు
+report_statuses	HTTP స్థితి కోడ్‌లు
+report_result	గమనించిన పద్ధతులు
+report_no_methods	ఈ కాలంలో అందుబాటులో ఉన్న ప్రాంతంలో మద్దతు ఉన్న methods గమనించబడలేదు.
+report_no_resources	ఈ పేజీకి వనరు అభ్యర్థనలు సంగ్రహించబడలేదు.
+report_no_vendors	మద్దతు ఉన్న సేవ signatureలు సరిపోలలేదు.
+report_scope	రికార్డింగ్ పరిధి, పరిమితులు
+report_scope_note	రికార్డ్ చేసిన browsing సన్నివేశంలో గమనించిన కార్యకలాపాలు మాత్రమే చేరతాయి. సందర్శించని పేజీలు, మద్దతు లేని contexts, బ్రౌజర్ అనుమతుల వెలుపలి అభ్యర్థనలు కవరేజ్‌లో లేవు. API వినియోగం ఒక్కటే ఫింగర్‌ప్రింటింగ్ లేదా భద్రతా తీర్పుకు రుజువు కాదు.
+report_redaction	URLలలో credentials, query strings, fragments ఉండవు. సున్నితమైన లేదా గుర్తింపు కలిగించే path segments భర్తీ చేయబడతాయి. చిత్రాలు, form contents, request/response bodies, cookies, ICE కనెక్షన్ వివరాలు చేరవు.
+report_dropped	సేకరణ పరిమితులు
+report_dropped_note	రికార్డింగ్ పరిమితులు చేరాయి. గణనలు కనీస విలువలు; నివేదిక అసంపూర్ణంగా ఉండవచ్చు.
+report_generation	స్థానిక నివేదిక · అప్‌లోడ్ లేదు
+report_print_failed	Print dialog తెరవలేకపోయాం. మళ్లీ ప్రయత్నించండి.
+report_title_unknown	శీర్షిక లేని పేజీ
+report_map_more	అదనపు డొమైన్‌లు వనరుల జాబితాలో ఉన్నాయి.
+report_completed	పూర్తయినవి
+report_failed	విఫలమైనవి
+report_redirects	దారి మళ్లింపులు
+report_first_seen	మొదట గమనించినది
+report_last_seen	చివరిగా గమనించినది
+report_latency	మొత్తం గమనించిన అభ్యర్థన వ్యవధి
+report_resource_groups_note	శుద్ధి చేసిన URL template, రకం ఆధారంగా వనరులు సమూహాలుగా ఉంటాయి. వేర్వేరు అసలు URLలు కలవవచ్చు; సమూహ గణనలు ఖచ్చితమైన ఫైల్ సంఖ్యలు కావు.
+pro_limit_started_mid_page	పేజీ తెరిచిన తర్వాత రికార్డింగ్ మొదలైంది. పూర్వ తనిఖీలు తప్పిపోవచ్చు; buffer పరిశీలనలు నేపథ్య ప్రక్రియ అందుకున్న సమయం ఆధారంగా కేటాయించబడతాయి.
+pro_limit_service_worker_restarted	ఈ రికార్డింగ్ సమయంలో నేపథ్య worker పునఃప్రారంభమైంది. పెండింగ్ network కార్యకలాపాలు అసంపూర్ణంగా ఉండవచ్చు.
+pro_limit_navigation_gap	కొన్ని కార్యకలాపాలను పేజీ సందర్శనకు నమ్మదగిన విధంగా కేటాయించలేకపోయాం.
+pro_limit_resource_limit	వనరుల సమూహ పరిమితి చేరింది; కొన్ని సమూహాలు వదిలివేయబడ్డాయి.
+pro_limit_page_limit	పేజీ సందర్శన పరిమితి చేరింది; కొన్ని సందర్శనలు వదిలివేయబడ్డాయి.
+pro_limit_document_limit	డాక్యుమెంట్ పరిమితి చేరింది; కొన్ని ఫ్రేమ్ నివేదికలు వదిలివేయబడ్డాయి.
+pro_limit_event_limit	Event buffer పరిమితి చేరింది; కొన్ని కార్యకలాపాలు వదిలివేయబడ్డాయి.
+pro_limit_storage_error	కొంత రికార్డింగ్ డేటా సేవ్ కాలేదు.
+pro_limit_permission_limited	బ్రౌజర్ అనుమతులు రికార్డ్ చేసిన కార్యకలాపాలను పరిమితం చేశాయి.
+pro_limit_unsupported_contexts	సందర్శించని పేజీలు, అందుబాటులో లేని ఫ్రేమ్‌లు, మద్దతు లేని workers, సర్వర్ కార్యకలాపాలు కవరేజ్‌లో లేవు.
+pro_limit_redacted_urls	URLలు శుద్ధి చేసిన templatesతో సమూహాలుగా ఉంటాయి. గుర్తింపు path segments, query strings, fragments చేర్చబడవు.
+inventory_pro	Pro Mode శుద్ధి చేసిన పేజీ URLలు, శీర్షికలు, వనరు మెటాడేటా, detector ఫలితాలను విడిగా గరిష్ఠంగా 10 నిమిషాలు రికార్డ్ చేస్తుంది. భర్తీ, clearing లేదా browser session ముగిసే వరకు స్థానిక సెషన్ ఉంటుంది. PDFలో విశ్లేషించిన డొమైన్, కనిపించే నివేదిక వివరాలు ఉంటాయి. Light/Pro వీక్షణ ప్రాధాన్యత స్థానికంగా సేవ్ అవుతుంది.
+action_clear_results	ఫలితాలు క్లియర్ చేయండి
+light_clear_results_note	ఈ పేజీ, దాని ఫ్రేమ్‌ల ఫలితాలను క్లియర్ చేస్తుంది. Loadingను మళ్లీ పరిశీలించడానికి పేజీని రీలోడ్ చేయండి.
+pro_report_ready	మీ నివేదిక సిద్ధంగా ఉంది
+pro_report_ready_note	నివేదికను సమీక్షించడానికి తెరవండి లేదా బ్రౌజర్ print dialogతో PDFగా సేవ్ చేయండి.
+pro_report_open	నివేదిక తెరవండి
+pro_stop_clear	ఆపి క్లియర్ చేయండి
+pro_clear_results_note	కొత్త విశ్లేషణ ప్రారంభించడానికి ప్రస్తుత రికార్డింగ్, నివేదికను తొలగిస్తుంది.
+results_cleared	ఫలితాలు క్లియర్ అయ్యాయి.
+vendors_scope_page	ప్రస్తుత పేజీ, అందుబాటులో ఉన్న child డాక్యుమెంట్‌లు
+vendors_scope_recording	రికార్డ్ చేసిన సందర్శనల్లో గుర్తించినవి
+vendors_mechanism	గుర్తింపు పూర్తయిన script requests, WebRTC server endpointsను సమీక్షించిన catalog నియమాలతో పోలుస్తుంది. ఇతర బ్రౌజర్ APIలను ఏ సేవ కాల్ చేసిందో నిర్ధారించదు.
+vendors_catalog_coverage	కాటలాగ్: $1 ఉత్పత్తులు · $2 script నియమాలు · $3 WebRTC server నియమాలు. ఇతర, మార్చిన లేదా స్వంతంగా హోస్ట్ చేసిన అనుసంధానాలు గుర్తించబడకపోవచ్చు.
+vendors_details	గుర్తింపు వివరాలు
+vendor_match_rtc_server	WebRTC సర్వర్ సరిపోలిక
+vendor_rtc_resource_note	ఈ పేజీలో గమనించిన WebRTC సర్వర్ catalog endpointతో సరిపోలింది. ఇది ఒక్కటే సేవ SDK అమలైందని, కనెక్షన్ ఆ సర్వర్ ఉపయోగించిందని లేదా డేటా బదిలీ జరిగిందని నిర్ధారించదు. కనెక్షన్ వివరాలు configuration, candidates, connection స్థితిని వేరు చేస్తాయి.
+inspector_group_wasm	WebAssembly
+inspector_group_interaction	మౌస్, pointer కార్యకలాపాలు
+inspector_wasm_desc	Module compile, validate లేదా instantiate కోసం పేజీ JavaScript WebAssembly APIలను ఉపయోగించింది. కాల్స్ ఒక్కటే moduleలోని గణనలు, వాటి ఉద్దేశం లేదా విజయవంతమైన async completionను వెల్లడించవు. Worker కార్యకలాపాలు ఈ page hook వెలుపల ఉంటాయి.
+inspector_interaction_desc	గమనించిన listener registration ప్రయత్నాలు లేదా pointer coordinate రీడ్‌లు. ఈ API కాల్స్ listener యాక్టివ్ అయిందని, movement జరిగిందని లేదా behavior profile రూపొందించిందని నిర్ధారించవు. Coordinates, trajectories, biometric విలువలు రికార్డ్ చేయబడవు.
+interaction_listener_attempt	Movement listener registration ప్రయత్నం గమనించబడింది. Duplicate లేదా aborted registrations కూడా లెక్కించబడవచ్చు.
+interaction_coordinate_read	Pointer coordinate read గమనించబడింది. Click, drag, synthetic event రీడ్‌లు కూడా లెక్కించబడవచ్చు.
+permission_checks_title	గమనించిన అనుమతి తనిఖీలు
+permission_checks_note	పరిశీలనలో వెబ్‌సైట్ చదివిన స్థితులు; ప్రస్తుత బ్రౌజర్ సెట్టింగ్‌లు కాదు. Page policy అనుమతి, permission grant వేరు; హార్డ్‌వేర్ యాక్సెస్‌కు రుజువు కాదు. అనేక స్థితులు కాలక్రమంలో మార్పులను సూచించవచ్చు.
+permission_checks_reads	గమనించిన రీడ్‌లు
+permission_kind_permission	అనుమతి స్థితి
+permission_kind_policy	పేజీ విధానం
+permission_result_granted	మంజూరైంది
+permission_result_denied	నిరాకరించబడింది
+permission_result_prompt	అడుగుతుంది / ఇంకా మంజూరు కాలేదు
+permission_result_allowed	పేజీ విధానం అనుమతించింది
+permission_result_blocked	పేజీ విధానం నిరోధించింది
+permission_name_camera	కెమెరా
+permission_name_microphone	మైక్రోఫోన్
+permission_name_geolocation	స్థానం
+permission_name_notifications	నోటిఫికేషన్‌లు
+permission_name_clipboard_read	క్లిప్‌బోర్డ్ చదవడం
+permission_name_clipboard_write	క్లిప్‌బోర్డ్ రాయడం
+permission_name_persistent_storage	శాశ్వత నిల్వ
+permission_name_background_sync	నేపథ్య sync
+permission_name_midi	MIDI పరికరాలు
+permission_name_sensors	Sensors (సమూహం)
+permission_name_payment_handler	Payment handlers
+permission_name_screen_wake_lock	Screen wake lock
+permission_name_window_management	విండో నిర్వహణ
+permission_name_local_fonts	స్థానిక ఫాంట్‌లు
+permission_name_display_capture	స్క్రీన్ సంగ్రహణ
+permission_name_storage_access	నిల్వ యాక్సెస్
+permission_name_unknown	తెలియని అనుమతి

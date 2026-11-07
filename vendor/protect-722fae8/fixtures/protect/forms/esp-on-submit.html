@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>forms: ESP on submit</title>
+  </head>
+  <body>
+    <h1 id="title">Рассылка (форма отправляется сервису рассылок)</h1>
+    <!-- A plain form POST (application/x-www-form-urlencoded, field `email`) to a mailing service on another site:
+         the submission itself carries the value (third-party-at-submit, body-form email). The service answers 204, so
+         the page stays. -->
+    <form id="form" method="post">
+      <label>E-mail <input id="email" type="email" name="email" autocomplete="email" /></label>
+      <input type="hidden" name="list" value="news" />
+      <button id="submit" type="submit">Подписаться</button>
+    </form>
+    <script src="lib.js"></script>
+    <script>
+      var form = document.getElementById('form');
+      form.setAttribute('action', window.formsLib.receiver('esp.example.org') + '/fsink/subscribe');
+      form.addEventListener('submit', function () {
+        window.formsLib.note('submit');
+      });
+    </script>
+  </body>
+</html>

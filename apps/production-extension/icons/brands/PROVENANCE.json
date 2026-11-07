@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "source": "Font Awesome Free",
+  "version": "6.7.2",
+  "commit": "af620534bfc3c2d4cbefcfeec29603bbe7809e64",
+  "license": "CC-BY-4.0 for SVG icons",
+  "licenseUrl": "https://fontawesome.com/license/free",
+  "accessedAt": "2026-10-09",
+  "icons": [
+    {
+      "id": "google",
+      "file": "google.svg",
+      "sourceUrl": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/af620534bfc3c2d4cbefcfeec29603bbe7809e64/svgs/brands/google.svg",
+      "bytes": 538,
+      "sha256": "8cfcd7f81e7066390e87acf97a731238e750ec8c8484f0ef97b8705fbee09963"
+    },
+    {
+      "id": "facebook",
+      "file": "facebook.svg",
+      "sourceUrl": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/af620534bfc3c2d4cbefcfeec29603bbe7809e64/svgs/brands/facebook.svg",
+      "bytes": 559,
+      "sha256": "6906a171ddf36bf11fbb11b183bddfcf97bc58de068d6a43a5f4817b03bc9a09"
+    },
+    {
+      "id": "microsoft",
+      "file": "microsoft.svg",
+      "sourceUrl": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/af620534bfc3c2d4cbefcfeec29603bbe7809e64/svgs/brands/microsoft.svg",
+      "bytes": 398,
+      "sha256": "f0df231c68b7e464ae6dc3081a019300c738fddbbfca151c7062fb26c0c779e4"
+    },
+    {
+      "id": "amazon",
+      "file": "amazon.svg",
+      "sourceUrl": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/af620534bfc3c2d4cbefcfeec29603bbe7809e64/svgs/brands/amazon.svg",
+      "bytes": 931,
+      "sha256": "5696da9332dfcba2cbc158cdd8a192d17c36b3b0fb609608befab455a90ee2f9"
+    },
+    {
+      "id": "cloudflare",
+      "file": "cloudflare.svg",
+      "sourceUrl": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/af620534bfc3c2d4cbefcfeec29603bbe7809e64/svgs/brands/cloudflare.svg",
+      "bytes": 1321,
+      "sha256": "2d910edc32612733f57264cd0b47e1312e1865afb36c0b18546fd86ce375c9c3"
+    },
+    {
+      "id": "hubspot",
+      "file": "hubspot.svg",
+      "sourceUrl": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/af620534bfc3c2d4cbefcfeec29603bbe7809e64/svgs/brands/hubspot.svg",
+      "bytes": 1043,
+      "sha256": "7fddacf09182699a0ec78d94d31fdc2855d3951b2622e23f7c84d535573bdfe8"
+    },
+    {
+      "id": "wordpress",
+      "file": "wordpress.svg",
+      "sourceUrl": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/af620534bfc3c2d4cbefcfeec29603bbe7809e64/svgs/brands/wordpress.svg",
+      "bytes": 1315,
+      "sha256": "86a160a1ff732c9fcc77afe27f2040819c3fddeac8ac28782ca5ab5344dd664d"
+    },
+    {
+      "id": "yandex",
+      "file": "yandex.svg",
+      "sourceUrl": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/af620534bfc3c2d4cbefcfeec29603bbe7809e64/svgs/brands/yandex.svg",
+      "bytes": 493,
+      "sha256": "374a9b0a44d44844fac5bd9206235aab11a15b3d0fbec09e1a858020eb749e6c"
+    },
+    {
+      "id": "yahoo",
+      "file": "yahoo.svg",
+      "sourceUrl": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/af620534bfc3c2d4cbefcfeec29603bbe7809e64/svgs/brands/yahoo.svg",
+      "bytes": 493,
+      "sha256": "57556a7dbffaf62bb727a8155a43d290600d68b0b50d2641a067429fb27b8a65"
+    },
+    {
+      "id": "linkedin",
+      "file": "linkedin.svg",
+      "sourceUrl": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/af620534bfc3c2d4cbefcfeec29603bbe7809e64/svgs/brands/linkedin.svg",
+      "bytes": 715,
+      "sha256": "cd560ce8da99a254b1ea67f07a0da048c3e6e764146102160fc73fbab67d72b0"
+    },
+    {
+      "id": "tiktok",
+      "file": "tiktok.svg",
+      "sourceUrl": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/af620534bfc3c2d4cbefcfeec29603bbe7809e64/svgs/brands/tiktok.svg",
+      "bytes": 510,
+      "sha256": "338c740fd3a36a7dd32e2c98f30246d8510fbe0dd6a28602418c072751df155f"
+    },
+    {
+      "id": "twitter",
+      "file": "twitter.svg",
+      "sourceUrl": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/af620534bfc3c2d4cbefcfeec29603bbe7809e64/svgs/brands/twitter.svg",
+      "bytes": 1082,
+      "sha256": "0ac2ae8400a13abc3c0852d5cef028472724460a44fae611e590c0c934871638"
+    },
+    {
+      "id": "shopify",
+      "file": "shopify.svg",
+      "sourceUrl": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/af620534bfc3c2d4cbefcfeec29603bbe7809e64/svgs/brands/shopify.svg",
+      "bytes": 1528,
+      "sha256": "f05ef9a92f39468cee96db2a87919292bdf933ce2edd0f03d7645f9c16b0e47f"
+    },
+    {
+      "id": "stripe",
+      "file": "stripe.svg",
+      "sourceUrl": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/af620534bfc3c2d4cbefcfeec29603bbe7809e64/svgs/brands/stripe.svg",
+      "bytes": 1410,
+      "sha256": "d570b0f0ccbf08c52efe12ee938dabf3ebff31718a31049d4bde34668c383d02"
+    },
+    {
+      "id": "paypal",
+      "file": "paypal.svg",
+      "sourceUrl": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/af620534bfc3c2d4cbefcfeec29603bbe7809e64/svgs/brands/paypal.svg",
+      "bytes": 844,
+      "sha256": "269d81f93b3d6ff99d8513980e2f6119dd6b9bec2348ef5f50936a23d1c31a0a"
+    },
+    {
+      "id": "meta",
+      "file": "meta.svg",
+      "sourceUrl": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/af620534bfc3c2d4cbefcfeec29603bbe7809e64/svgs/brands/meta.svg",
+      "bytes": 1050,
+      "sha256": "2d98e27b4c4b607a34907ad73bfc52f03ac15db3d952b560f3c83a0c76e4a555"
+    },
+    {
+      "id": "x-twitter",
+      "file": "x-twitter.svg",
+      "sourceUrl": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/af620534bfc3c2d4cbefcfeec29603bbe7809e64/svgs/brands/x-twitter.svg",
+      "bytes": 447,
+      "sha256": "d8cc9e7c9a70573422297556bd03c6d7e349cb84696fc50b042d0c2c342f52c4"
+    },
+    {
+      "id": "hotjar",
+      "file": "hotjar.svg",
+      "sourceUrl": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/af620534bfc3c2d4cbefcfeec29603bbe7809e64/svgs/brands/hotjar.svg",
+      "bytes": 582,
+      "sha256": "2208fdaf516788d79a48d76819c8c4954f5dea727ec7b26d22b702bc1caf5dee"
+    }
+  ]
+}

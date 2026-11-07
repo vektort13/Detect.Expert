@@ -1,0 +1,27 @@
+{
+  "source": "https://github.com/jkwakman/Open-Cookie-Database",
+  "commit": "749c37c17eb910fa95621f4fee34d9a6d4126c23",
+  "commitDate": "2026-08-21T07:57:04Z",
+  "accessedAt": "2026-10-09",
+  "license": "Apache-2.0",
+  "files": [
+    {
+      "file": "open-cookie-database.json",
+      "url": "https://raw.githubusercontent.com/jkwakman/Open-Cookie-Database/749c37c17eb910fa95621f4fee34d9a6d4126c23/open-cookie-database.json",
+      "sha256": "02a6bf54209273bc21ca0e4bc19c5a8c8946702c7890acbb11172577728e0fb7",
+      "bytes": 1177360
+    },
+    {
+      "file": "LICENSE",
+      "url": "https://raw.githubusercontent.com/jkwakman/Open-Cookie-Database/749c37c17eb910fa95621f4fee34d9a6d4126c23/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "bytes": 11357
+    },
+    {
+      "file": "README.md",
+      "url": "https://raw.githubusercontent.com/jkwakman/Open-Cookie-Database/749c37c17eb910fa95621f4fee34d9a6d4126c23/README.md",
+      "sha256": "f7d3fa9255c4f0ea026f9fa679e125b5720250e3882886e9ac4ddae275244f53",
+      "bytes": 1958
+    }
+  ]
+}

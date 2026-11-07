@@ -1,0 +1,239 @@
+/* ADR-066 / ADR-103 / ADR-107: the saved-profiles library, moved from fingerprint-profile-ui.css; linked right after it.
+   Tokens (--fp-*) come from the enclosing .fingerprint-profiles panel; logical properties keep RTL correct. The reduced-motion
+   and forced-colors blocks repeat the panel overrides for these selectors, because a later file wins at equal specificity. */
+
+/* Library: Dolphin-style toolbar, column header and rows with their own actions. */
+.fingerprint-library__head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; min-width: 0; }
+.fingerprint-count { padding: 2px 8px; border-radius: 999px; color: var(--fp-text-3); background: var(--fp-sunken); font-size: 12px; font-weight: 600; line-height: 1.5; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.fingerprint-library__toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; min-width: 0; }
+.fingerprint-search { position: relative; display: block; flex: 1 1 13rem; min-width: 0; }
+.fingerprint-search > svg { position: absolute; inset-block-start: 50%; inset-inline-start: 11px; color: var(--fp-text-3); transform: translateY(-50%); pointer-events: none; }
+.fingerprint-profiles .fingerprint-search input { padding-inline-start: 34px; }
+.fingerprint-name-row { display: flex; flex: 1 1 18rem; flex-wrap: wrap; align-items: center; gap: 8px; min-width: 0; }
+.fingerprint-name-field { display: block; flex: 1 1 10rem; min-width: 0; }
+.fingerprint-name-row > .button { flex: none; max-width: 100%; }
+.fingerprint-library__columns, .fingerprint-row { display: grid; grid-template-columns: minmax(0, 1fr) var(--fp-status-column) var(--fp-actions-column); align-items: center; gap: 4px 12px; min-width: 0; padding-inline: 8px 6px; border-inline-start: 3px solid transparent; }
+.fingerprint-library__columns { padding-block: 0 6px; border-block-end: 1px solid var(--fp-line); color: var(--fp-text-3); font-size: 11.5px; font-weight: 600; line-height: 1.35; letter-spacing: .02em; }
+.fingerprint-library__columns > span { min-width: 0; overflow-wrap: anywhere; }
+.fingerprint-library__columns > span:last-child { text-align: end; }
+.fingerprint-library-list { display: grid; min-width: 0; max-height: 26rem; margin: 0; padding: 0; overflow: auto; overscroll-behavior: contain; list-style: none; }
+.fingerprint-library-list[hidden] { display: none; }
+.fingerprint-row { padding-block: 4px; border-block-end: 1px solid var(--fp-line); transition: background-color .12s ease, border-color .12s ease; }
+.fingerprint-row:last-child { border-block-end-color: transparent; }
+.fingerprint-row:hover { background: var(--fp-surface-2); }
+.fingerprint-row.is-selected { border-inline-start-color: var(--fp-accent); background: var(--fp-accent-soft); }
+.fingerprint-row__cell { display: flex; align-items: center; min-width: 0; }
+:root body .fingerprint-profiles .fingerprint-row__main { display: flex; align-items: center; gap: 10px; width: 100%; min-width: 0; min-height: 0; margin: 0; padding: 3px 2px; border: 0; border-radius: 8px; color: inherit; background: transparent; background-image: none; box-shadow: none; font: inherit; text-align: start; cursor: pointer; }
+:root[data-ui-theme] body .fingerprint-profiles .fingerprint-row__cell > .fingerprint-row__main:not(:disabled):not([aria-disabled=true]):hover { border-color: transparent; background: transparent; box-shadow: none; }
+.fingerprint-row__avatar { display: inline-grid; place-items: center; flex: none; width: 30px; height: 30px; border-radius: 8px; color: var(--fp-accent); background: var(--fp-accent-soft); font-size: 13px; font-weight: 700; line-height: 1; }
+.fingerprint-row.is-selected .fingerprint-row__avatar { color: var(--fp-surface); background: var(--fp-accent); }
+.fingerprint-row__text { display: grid; gap: 1px; min-width: 0; }
+.fingerprint-row__name { min-width: 0; color: var(--fp-text); font-size: 13.5px; font-weight: 600; line-height: 1.35; overflow-wrap: anywhere; }
+.fingerprint-row__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0 6px; min-width: 0; color: var(--fp-text-3); font-size: 12px; line-height: 1.4; overflow-wrap: anywhere; }
+.fingerprint-row__meta > * + *::before { content: "·"; margin-inline-end: 6px; color: var(--fp-line-2); }
+/* The browser fact turns into a chip only when its major differs from this browser's. */
+.fingerprint-row__meta > .fingerprint-row__chip::before { content: none; }
+.fingerprint-row__chip { display: inline-flex; align-items: center; padding: 0 6px; border: 1px solid color-mix(in srgb, var(--fp-warn) 45%, var(--fp-line)); border-radius: 999px; color: var(--fp-warn); font-weight: 600; line-height: 1.45; }
+.fingerprint-row__status { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; min-width: 0; }
+.fingerprint-row__actions { display: flex; justify-content: flex-end; gap: 2px; min-width: 0; }
+:root body .fingerprint-profiles .fingerprint-row-action { display: inline-grid; place-items: center; flex: none; width: 30px; height: 30px; min-height: 0; padding: 0; border: 1px solid transparent; border-radius: 8px; color: var(--fp-text-2); background: transparent; background-image: none; box-shadow: none; cursor: pointer; transition: color .12s ease, background-color .12s ease, border-color .12s ease; }
+:root[data-ui-theme] body .fingerprint-profiles :is(.fingerprint-row__actions, .fingerprint-row__rename, .fingerprint-menu-wrap) > .fingerprint-row-action:not(:disabled):not([aria-disabled=true]):hover { color: var(--fp-accent); border-color: var(--fp-line); background: var(--fp-surface); box-shadow: none; }
+:root[data-ui-theme] body .fingerprint-profiles .fingerprint-row__actions > .fingerprint-row-action--danger:not(:disabled):not([aria-disabled=true]):hover { color: var(--fp-err); border-color: color-mix(in srgb, var(--fp-err) 30%, var(--fp-line)); background: var(--fp-err-bg); }
+.fingerprint-row-action svg { display: block; }
+.fingerprint-row > .fingerprint-row__peek { grid-column: 1 / -1; min-width: 0; }
+.fingerprint-danger { color: var(--fp-err); }
+.fingerprint-empty { display: grid; justify-items: center; gap: 6px; padding: 22px 12px; border: 1px dashed var(--fp-line-2); border-radius: 12px; text-align: center; }
+.fingerprint-empty__title { margin: 4px 0 0; color: var(--fp-text); font-size: 14px; font-weight: 600; line-height: 1.4; overflow-wrap: anywhere; }
+.fingerprint-empty__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-block-start: 6px; }
+.fingerprint-empty > p { margin: 0; }
+@container fp-library (max-width: 34rem) {
+  .fingerprint-library__columns { display: none; }
+  .fingerprint-row { grid-template-columns: minmax(0, 1fr) auto; }
+  .fingerprint-row__cell { grid-column: 1; grid-row: 1; }
+  .fingerprint-row__status { grid-column: 1; grid-row: 2; padding-inline-start: 42px; }
+  .fingerprint-row__status:empty { display: none; }
+  .fingerprint-row__actions { grid-column: 2; grid-row: 1 / span 2; }
+  .fingerprint-row__status:empty + .fingerprint-row__actions { grid-row: 1; }
+  .fingerprint-row > .fingerprint-row__peek { grid-row: 3; }
+}
+@container fp-library (max-width: 22rem) { .fingerprint-name-row > .button { flex: 1 1 100%; } }
+
+/* Fit pills (the pill shape comes from the panel). */
+.fingerprint-pill--warn { color: var(--fp-warn); background: var(--rd-warn-bg, color-mix(in srgb, var(--fp-warn) 14%, transparent)); }
+.fingerprint-pill--warn::before { background: currentColor; box-shadow: none; }
+.fingerprint-pill--fit { color: var(--fp-ok); background: transparent; box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--fp-ok) 35%, transparent); }
+
+/* Inline rename and field messages. */
+.fingerprint-row__rename { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; width: 100%; min-width: 0; padding-block: 2px; }
+.fingerprint-profiles .fingerprint-row__rename-input { flex: 1 1 10rem; min-width: 0; padding-block: 6px; }
+.fingerprint-field-error { flex: 1 1 100%; min-width: 0; margin: 0; color: var(--fp-err); font-size: 12px; line-height: 1.45; overflow-wrap: anywhere; }
+.fingerprint-profiles :is(.fingerprint-row__rename-input, .fingerprint-name-field input)[aria-invalid=true] { border-color: var(--fp-err); }
+
+/* Filters: a toggle with the active count, groups of pressed options with counts, removable chips. */
+:root body .fingerprint-profiles .fingerprint-filters-toggle { display: inline-flex; align-items: center; gap: 6px; flex: none; max-width: 100%; }
+.fingerprint-filters-toggle__count { min-width: 18px; padding: 0 5px; border-radius: 999px; color: var(--rd-accent-ink, var(--fp-surface)); background: var(--fp-accent); font-size: 11px; font-weight: 700; line-height: 18px; text-align: center; font-variant-numeric: tabular-nums; }
+.fingerprint-filters { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 11.5rem), 1fr)); gap: 10px 14px; min-width: 0; padding: 10px 12px; border: 1px solid var(--fp-line); border-radius: 11px; background: var(--fp-surface-2); }
+.fingerprint-filters__group { display: grid; gap: 6px; min-width: 0; margin: 0; padding: 0; border: 0; }
+.fingerprint-filters__group > legend { margin: 0 0 4px; padding: 0; color: var(--fp-text-3); font-size: 11.5px; font-weight: 600; line-height: 1.35; letter-spacing: .02em; }
+.fingerprint-filters__options { display: flex; flex-wrap: wrap; gap: 4px; min-width: 0; }
+:root body .fingerprint-profiles :is(.fingerprint-filter, .fingerprint-chip) { display: inline-flex; align-items: center; gap: 6px; max-width: 100%; min-height: 28px; padding: 3px 9px; border: 1px solid var(--fp-line-2); border-radius: 999px; color: var(--fp-text-2); background: var(--fp-surface); background-image: none; box-shadow: none; font: 600 12px/1.3 var(--rd-font, var(--font)); text-align: start; overflow-wrap: anywhere; cursor: pointer; }
+:root body .fingerprint-profiles .fingerprint-filter[aria-pressed=true] { color: var(--fp-accent); border-color: color-mix(in srgb, var(--fp-accent) 45%, var(--fp-line)); background: var(--fp-accent-soft); }
+:root[data-ui-theme] body .fingerprint-profiles :is(.fingerprint-filters__options > .fingerprint-filter, .fingerprint-chips > .fingerprint-chip):not(:disabled):not([aria-disabled=true]):hover { border-color: var(--fp-control); box-shadow: none; }
+.fingerprint-filter__count { color: var(--fp-text-3); font-variant-numeric: tabular-nums; }
+.fingerprint-filter[aria-pressed=true] .fingerprint-filter__count { color: inherit; }
+.fingerprint-chips { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; min-width: 0; }
+:root body .fingerprint-profiles .fingerprint-chip { gap: 5px; min-height: 26px; padding-block: 2px; padding-inline: 10px 6px; color: var(--fp-text); border-color: color-mix(in srgb, var(--fp-accent) 35%, var(--fp-line)); background: var(--fp-accent-soft); }
+.fingerprint-chip__group { color: var(--fp-text-3); font-weight: 500; }
+.fingerprint-chip svg { display: block; flex: none; }
+
+/* Peek: read-only facts of one saved profile, in the device-card slot (card) or under its row (row). */
+.fingerprint-peek { container: fp-peek / inline-size; display: grid; align-content: start; min-width: 0; border: 1px solid var(--fp-line); border-radius: 14px; background: var(--fp-surface); box-shadow: var(--fp-shadow); }
+.fingerprint-peek--row { margin-block: 4px 8px; border-radius: 11px; box-shadow: none; }
+.fingerprint-peek__head { display: flex; align-items: center; gap: 10px; min-width: 0; padding: 12px 14px; border-block-end: 1px solid var(--fp-line); border-start-start-radius: inherit; border-start-end-radius: inherit; background: var(--fp-surface-2); }
+.fingerprint-peek__heading { display: flex; flex: 1 1 auto; flex-wrap: wrap; align-items: center; gap: 4px 8px; min-width: 0; }
+.fingerprint-peek__title { min-width: 0; margin: 0; color: var(--fp-text); font-size: 14px; font-weight: 650; line-height: 1.35; overflow-wrap: anywhere; }
+.fingerprint-peek__note { padding: 10px 14px 0; }
+.fingerprint-peek__actions { display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 14px 12px; }
+:root body .fingerprint-profiles .fingerprint-peek__actions .button { display: inline-flex; align-items: center; justify-content: center; gap: 7px; max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+.fingerprint-peek__facts { display: grid; margin: 0; padding: 0; border-block-start: 1px solid var(--fp-line); }
+.fingerprint-peek__fact { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); align-items: baseline; gap: 2px 12px; min-width: 0; padding: 7px 14px; border-block-end: 1px solid var(--fp-line); }
+.fingerprint-peek__fact > dt { min-width: 0; color: var(--fp-text-3); font-size: 12px; line-height: 1.4; overflow-wrap: anywhere; }
+.fingerprint-peek__fact > dd { min-width: 0; margin: 0; color: var(--fp-text); font-size: 12.5px; font-weight: 600; line-height: 1.4; text-align: end; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.fingerprint-peek__diff { margin: 0; padding: 10px 14px; color: var(--fp-text-2); font-size: 12.5px; line-height: 1.5; overflow-wrap: anywhere; }
+.fingerprint-peek__hints { display: grid; gap: 8px; min-width: 0; padding: 0 14px 14px; }
+.fingerprint-peek__subtitle { margin: 0; color: var(--fp-text-2); font-size: 12.5px; font-weight: 650; line-height: 1.4; }
+.fingerprint-peek__issues li[data-severity=info] { color: var(--fp-text-3); }
+/* Only information notes (no conflict): a neutral edge instead of the warning colour. */
+.fingerprint-peek__issues--info { border-inline-start-color: var(--fp-line-2); }
+/* While a Peek is open under its row, the list grows with it instead of scrolling the Peek inside a short box. */
+.fingerprint-profiles .fingerprint-library-list:has(> .fingerprint-row > .fingerprint-row__peek) { max-height: none; }
+@container fp-peek (max-width: 22rem) {
+  .fingerprint-peek__fact { grid-template-columns: minmax(0, 1fr); }
+  .fingerprint-peek__fact > dd { text-align: start; }
+}
+
+/* The "…" menu of the Peek; under a row (inside the scrolling list) it opens in the flow instead of floating. */
+.fingerprint-menu-wrap { position: relative; flex: none; }
+.fingerprint-menu { position: absolute; z-index: 20; inset-block-start: calc(100% + 4px); inset-inline-end: 0; display: grid; gap: 2px; min-width: 11rem; max-width: min(18rem, 80vw); padding: 5px; border: 1px solid var(--fp-line); border-radius: 11px; background: var(--fp-surface); box-shadow: var(--rd-shadow-2, 0 8px 24px rgb(16 24 40 / .14)); }
+.fingerprint-peek--row .fingerprint-peek__head { flex-wrap: wrap; }
+.fingerprint-peek--row .fingerprint-menu-wrap { display: contents; }
+.fingerprint-peek--row .fingerprint-menu { position: static; flex: 1 1 100%; max-width: none; box-shadow: none; }
+:root body .fingerprint-profiles .fingerprint-menu__item { display: block; width: 100%; min-height: 32px; margin: 0; padding: 6px 10px; border: 0; border-radius: 8px; color: var(--fp-text); background: transparent; background-image: none; box-shadow: none; font: 500 13px/1.35 var(--rd-font, var(--font)); text-align: start; overflow-wrap: anywhere; cursor: pointer; }
+:root[data-ui-theme] body .fingerprint-profiles .fingerprint-menu > .fingerprint-menu__item:not(:disabled):not([aria-disabled=true]):is(:hover, :focus-visible) { border-color: transparent; background: var(--fp-surface-2); box-shadow: none; }
+:root body .fingerprint-profiles .fingerprint-menu__item--danger { color: var(--fp-err); }
+
+/* The Undo line: always under the list so rows never move; the bar only decorates the eight seconds. */
+.fingerprint-library__status:empty { display: none; }
+.fingerprint-undo { position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; min-width: 0; padding: 8px 12px 10px; overflow: hidden; border: 1px solid var(--fp-line); border-radius: 11px; color: var(--fp-text); background: var(--fp-surface-2); font-size: 13px; line-height: 1.45; }
+.fingerprint-undo__text { flex: 1 1 12rem; min-width: 0; overflow-wrap: anywhere; }
+.fingerprint-library__name { font-weight: 650; }
+:root body .fingerprint-profiles .fingerprint-undo__button { display: inline-flex; align-items: center; gap: 6px; flex: none; }
+.fingerprint-undo__bar { position: absolute; inset-inline: 0; inset-block-end: 0; height: 3px; background: var(--fp-accent); opacity: .55; transform-origin: left center; }
+.fingerprint-undo__bar:dir(rtl) { transform-origin: right center; }
+.fingerprint-library__notice { margin: 0; }
+@keyframes fp-library-undo { from { transform: scaleX(1); } to { transform: scaleX(0); } }
+@media (prefers-reduced-motion: no-preference) {
+  .fingerprint-undo__bar { animation: fp-library-undo 8s linear forwards; }
+  .fingerprint-undo.is-paused .fingerprint-undo__bar { animation-play-state: paused; }
+  .fingerprint-peek, .fingerprint-menu, .fingerprint-filters { animation: fp-library-appear .14s ease-out; }
+}
+@keyframes fp-library-appear { from { opacity: 0; } to { opacity: 1; } }
+
+/* The honest line about shared cookies and site storage. */
+.fingerprint-library__cookies { padding-block-start: 10px; border-block-start: 1px solid var(--fp-line); }
+.fingerprint-library__link { color: var(--fp-accent); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+
+.fingerprint-profiles :is(.fingerprint-filter, .fingerprint-chip, .fingerprint-menu__item, .fingerprint-library__link):focus-visible { outline-width: 2px; outline-offset: 1px; }
+@media (prefers-reduced-motion: reduce) {
+  .fingerprint-profiles .fingerprint-row, :root body .fingerprint-profiles .fingerprint-row-action { transition: none; }
+  .fingerprint-undo__bar { display: none; }
+}
+@media (forced-colors: active) {
+  .fingerprint-confirm, .fingerprint-empty, .fingerprint-count { color: CanvasText; background: Canvas; border-color: CanvasText; }
+  .fingerprint-count { border: 1px solid CanvasText; }
+  .fingerprint-row__meta, .fingerprint-row__avatar { color: CanvasText; background: transparent; }
+  :root body .fingerprint-profiles :is(.fingerprint-row-action, .fingerprint-row__main) { color: ButtonText; background: ButtonFace; border-color: ButtonText; }
+  .fingerprint-row.is-selected { border-inline-start-color: Highlight; background: Canvas; }
+  .fingerprint-row, .fingerprint-library__columns { border-color: CanvasText; }
+  .fingerprint-peek, .fingerprint-peek__head, .fingerprint-peek__facts, .fingerprint-peek__fact, .fingerprint-menu, .fingerprint-filters, .fingerprint-undo { color: CanvasText; background: Canvas; border-color: CanvasText; }
+  :root body .fingerprint-profiles :is(.fingerprint-filter, .fingerprint-chip, .fingerprint-menu__item) { color: ButtonText; background: ButtonFace; border: 1px solid ButtonText; }
+  :root body .fingerprint-profiles .fingerprint-filter[aria-pressed=true] { color: HighlightText; background: Highlight; border-color: Highlight; }
+  .fingerprint-pill--warn, .fingerprint-pill--fit, .fingerprint-row__chip, .fingerprint-filters-toggle__count { color: CanvasText; background: Canvas; border: 1px solid CanvasText; box-shadow: none; }
+  .fingerprint-undo__bar { background: Highlight; opacity: 1; }
+  .fingerprint-field-error, .fingerprint-peek__diff, .fingerprint-filter__count, .fingerprint-chip__group { color: CanvasText; }
+  .fingerprint-profiles :is(.fingerprint-row__rename-input, .fingerprint-name-field input)[aria-invalid=true] { border: 2px solid CanvasText; }
+  .fingerprint-library__link { color: LinkText; }
+}
+
+/* ADR-107 round 5: tag chips, the tags-and-note editor, the proxy link of a profile, the Trash view and the list of library changes.
+   Same rules as above: tokens only, logical properties, the container of the library decides the narrow layout. */
+.fingerprint-row__tags { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; min-width: 0; margin-block-start: 3px; }
+.fingerprint-tag { display: inline-flex; align-items: center; gap: 4px; max-width: 100%; min-height: 20px; padding: 0 8px; border: 1px solid var(--fp-line-2); border-radius: 999px; color: var(--fp-text-2); background: var(--fp-surface-2); font-size: 11.5px; font-weight: 600; line-height: 1.5; overflow-wrap: anywhere; }
+.fingerprint-tag--more { color: var(--fp-text-3); border-style: dashed; background: transparent; }
+.fingerprint-taglist { display: flex; flex-wrap: wrap; gap: 5px; min-width: 0; margin: 0; padding: 0; list-style: none; }
+.fingerprint-tag--editable { min-height: 26px; padding-inline-end: 2px; color: var(--fp-text); border-color: color-mix(in srgb, var(--fp-accent) 35%, var(--fp-line)); background: var(--fp-accent-soft); }
+:root body .fingerprint-profiles .fingerprint-tag__remove { display: inline-grid; place-items: center; flex: none; width: 20px; height: 20px; min-height: 0; margin: 0; padding: 0; border: 0; border-radius: 999px; color: var(--fp-text-2); background: transparent; background-image: none; box-shadow: none; cursor: pointer; }
+.fingerprint-tag__remove svg { display: block; }
+:root[data-ui-theme] body .fingerprint-profiles .fingerprint-tag--editable > .fingerprint-tag__remove:not(:disabled):not([aria-disabled=true]):hover { color: var(--fp-err); background: var(--fp-err-bg); box-shadow: none; }
+:root body .fingerprint-profiles .fingerprint-tag--suggestion { min-height: 26px; color: var(--fp-text-2); background: var(--fp-surface); background-image: none; box-shadow: none; cursor: pointer; text-align: start; }
+:root[data-ui-theme] body .fingerprint-profiles .fingerprint-meta__suggestions > .fingerprint-tag--suggestion:not(:disabled):not([aria-disabled=true]):hover { color: var(--fp-accent); border-color: var(--fp-control); box-shadow: none; }
+
+/* The tags-and-note editor and the proxy link are sections of the Peek, below its actions. */
+.fingerprint-peek__meta, .fingerprint-peek__bundle { display: grid; gap: 8px; min-width: 0; padding: 12px 14px; border-block-start: 1px solid var(--fp-line); }
+.fingerprint-peek__reason { flex: 1 1 100%; }
+.fingerprint-meta__field { position: relative; min-width: 0; }
+.fingerprint-profiles .fingerprint-meta__input { padding-inline-end: 56px; }
+.fingerprint-meta__field > .fingerprint-meta__count { position: absolute; inset-inline-end: 10px; inset-block-start: 50%; translate: 0 -50%; pointer-events: none; }
+.fingerprint-meta__count { color: var(--fp-text-3); font-size: 11.5px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.fingerprint-meta__label { color: var(--fp-text-2); font-size: 12px; font-weight: 600; line-height: 1.4; }
+.fingerprint-meta__suggestions { display: flex; flex-wrap: wrap; gap: 4px; min-width: 0; }
+.fingerprint-profiles .fingerprint-meta__note { min-height: 4.5rem; resize: vertical; }
+.fingerprint-meta__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; min-width: 0; }
+:root body .fingerprint-profiles .fingerprint-meta__actions .button { display: inline-flex; align-items: center; justify-content: center; max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+.fingerprint-bundle__shared { display: grid; gap: 8px; min-width: 0; padding: 10px 12px; border: 1px solid var(--fp-line); border-radius: 10px; background: var(--fp-surface-2); }
+.fingerprint-bundle__confirm { display: flex; align-items: center; gap: 8px; color: var(--fp-text); font-size: 13px; line-height: 1.4; }
+.fingerprint-bundle__confirm > input { flex: none; width: auto; margin: 0; }
+.fingerprint-bundle__select { min-inline-size: 0; max-inline-size: 100%; text-overflow: ellipsis; }
+.fingerprint-bundle__result { display: grid; gap: 4px; min-width: 0; margin: 0; padding: 8px 12px; border: 1px solid var(--fp-line); border-radius: 10px; list-style: none; background: var(--fp-surface-2); color: var(--fp-text); font-size: 12.5px; line-height: 1.5; overflow-wrap: anywhere; }
+.fingerprint-bundle__result > li.is-failed { color: var(--fp-warn); font-weight: 600; }
+
+/* Trash: rows with the deletion time and the days left, Restore / Delete forever, and the confirmation under the row. */
+:root body .fingerprint-profiles .fingerprint-trash-toggle { display: inline-flex; align-items: center; gap: 6px; flex: none; max-width: 100%; }
+:root body .fingerprint-profiles .fingerprint-trash-toggle[aria-pressed=true] { color: var(--fp-accent); border-color: color-mix(in srgb, var(--fp-accent) 45%, var(--fp-line)); background: var(--fp-accent-soft); }
+.fingerprint-trash { display: grid; gap: 10px; min-width: 0; }
+.fingerprint-trash-list { display: grid; min-width: 0; max-height: 26rem; margin: 0; padding: 0; overflow: auto; overscroll-behavior: contain; list-style: none; }
+.fingerprint-trash-row { display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; align-items: center; gap: 6px 12px; min-width: 0; padding-block: 8px; padding-inline: 6px 8px; border-block-end: 1px solid var(--fp-line); border-inline-start: 3px solid transparent; }
+.fingerprint-trash-row:last-child { border-block-end-color: transparent; }
+.fingerprint-trash-row.is-expiring { border-inline-start-color: var(--fp-warn); }
+.fingerprint-trash-row__text { display: grid; gap: 1px; min-width: 0; }
+.fingerprint-trash-row__actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; min-width: 0; }
+.fingerprint-trash-row > .fingerprint-trash__confirm { grid-column: 1 / -1; }
+.fingerprint-trash__confirm { display: grid; gap: 8px; min-width: 0; padding: 10px 12px; border: 1px solid color-mix(in srgb, var(--fp-err) 40%, var(--fp-line)); border-radius: 10px; background: var(--fp-err-bg); }
+.fingerprint-trash__confirm-text { margin: 0; color: var(--fp-text); font-size: 13px; line-height: 1.5; overflow-wrap: anywhere; }
+.fingerprint-trash__confirm-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.fingerprint-trash__footer { display: flex; justify-content: flex-end; min-width: 0; }
+:root body .fingerprint-profiles .fingerprint-danger-button { color: var(--rd-accent-ink, var(--fp-surface)); border-color: var(--fp-err); background: var(--fp-err); background-image: none; box-shadow: none; }
+:root[data-ui-theme] body .fingerprint-profiles .fingerprint-trash__confirm-actions > .fingerprint-danger-button:not(:disabled):not([aria-disabled=true]):hover { border-color: var(--fp-err); background: color-mix(in srgb, var(--fp-err) 88%, var(--fp-text)); box-shadow: none; }
+.fingerprint-undo__kept { color: var(--fp-text-2); }
+@container fp-library (max-width: 34rem) {
+  .fingerprint-trash-row { grid-template-columns: auto minmax(0, 1fr); }
+  .fingerprint-trash-row > .fingerprint-pill { grid-column: 2; justify-self: start; }
+  .fingerprint-trash-row__actions { grid-column: 1 / -1; justify-content: flex-start; }
+}
+
+/* The library changes an import or a generated state would make, in the preview. */
+.fingerprint-library-changes { display: grid; gap: 6px; min-width: 0; padding: 10px 12px; border: 1px solid var(--fp-line); border-radius: 11px; background: var(--fp-surface-2); }
+.fingerprint-library-changes__list { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.fingerprint-library-changes__list > li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; min-width: 0; }
+.fingerprint-library-changes__note { flex: 1 1 100%; color: var(--fp-text-2); font-size: 12px; line-height: 1.5; white-space: pre-line; overflow-wrap: anywhere; }
+
+.fingerprint-profiles :is(.fingerprint-tag__remove, .fingerprint-tag--suggestion, .fingerprint-trash-toggle):focus-visible { outline-width: 2px; outline-offset: 1px; }
+@media (forced-colors: active) {
+  .fingerprint-tag, .fingerprint-library-changes, .fingerprint-bundle__shared, .fingerprint-bundle__result, .fingerprint-trash__confirm { color: CanvasText; background: Canvas; border-color: CanvasText; }
+  :root body .fingerprint-profiles :is(.fingerprint-tag__remove, .fingerprint-tag--suggestion) { color: ButtonText; background: ButtonFace; border: 1px solid ButtonText; }
+  :root body .fingerprint-profiles .fingerprint-trash-toggle[aria-pressed=true] { color: HighlightText; background: Highlight; border-color: Highlight; }
+  :root body .fingerprint-profiles .fingerprint-danger-button { color: ButtonText; background: ButtonFace; border: 2px solid ButtonText; }
+  .fingerprint-trash-row, .fingerprint-peek__meta, .fingerprint-peek__bundle { border-color: CanvasText; }
+  .fingerprint-trash-row.is-expiring { border-inline-start-color: Highlight; }
+  .fingerprint-meta__count, .fingerprint-meta__label, .fingerprint-undo__kept, .fingerprint-library-changes__note, .fingerprint-bundle__result > li.is-failed { color: CanvasText; }
+}

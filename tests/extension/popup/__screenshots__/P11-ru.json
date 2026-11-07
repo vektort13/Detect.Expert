@@ -1,0 +1,11 @@
+{
+  "requirement": "P11 / ADR-003",
+  "browser": "153.0.8010.12",
+  "width": 360,
+  "height": 600,
+  "locale": "ru",
+  "source": "Профиль test-optional без host grants; настоящее действие toolbar через CDP, popup.html с test-only tabId; ответы SW не подменены. RU выбирает поставляемую таблицу через тестовый i18n override, EN использует Chrome i18n.",
+  "file": "fresh-install-ru-light-360.png",
+  "sha256": "c6c66fd58ec550992da4a072b71fa102d7ad3e31b69a3a5f30e8be8aea484a76",
+  "bytes": 35532
+}

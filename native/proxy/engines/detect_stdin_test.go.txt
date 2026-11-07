@@ -1,0 +1,21 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+package main
+
+import (
+	"strings"
+	"testing"
+
+	"github.com/n0madic/go-openvpn/pkg/ovpn"
+)
+
+func TestDetectProfileStdin(t *testing.T) {
+	parsed, err := readStdinProfile(strings.NewReader("client\ndev tun\nproto udp\nremote vpn.example 1194\nauth-user-pass\n"), &ovpn.ParseOptions{Username: "owned-user", Password: "owned-password"})
+	if err != nil || parsed.Config.Username != "owned-user" || parsed.Config.Password != "owned-password" || parsed.Config.TLSConfig.ServerName != "vpn.example" {
+		t.Fatalf("stdin profile did not preserve TLS/auth configuration: %v", err)
+	}
+	for _, input := range []string{"", strings.Repeat("#", 256*1024+1), "remote\n"} {
+		if _, err := readStdinProfile(strings.NewReader(input), &ovpn.ParseOptions{}); err == nil {
+			t.Fatal("malformed or excessive stdin profile accepted")
+		}
+	}
+}

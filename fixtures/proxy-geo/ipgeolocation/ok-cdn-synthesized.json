@@ -1,0 +1,32 @@
+{
+  "provider": "ipgeolocation",
+  "ip": "1.1.1.1",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": {
+    "ip": "1.1.1.1",
+    "location": {
+      "country_code2": "AU",
+      "country_name": "Australia",
+      "state_prov": "New South Wales",
+      "city": "Sydney"
+    },
+    "network": {
+      "connection_type": "",
+      "route": "1.1.1.0/24",
+      "is_anycast": true,
+      "is_cdn": true,
+      "cdn_provider_name": "Example CDN"
+    },
+    "asn": {
+      "as_number": "AS13335",
+      "organization": "Example CDN Inc.",
+      "country": "US"
+    },
+    "time_zone": {
+      "name": "Australia/Sydney"
+    }
+  }
+}

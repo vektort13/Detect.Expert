@@ -1,0 +1,9 @@
+{
+  "provider": "ipgeolocation",
+  "ip": "8.8.8.8",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "text": "{\"__proto__\":{\"polluted\":\"top\"},\"constructor\":{\"prototype\":{\"polluted\":\"ctor\"}},\"ip\":\"8.8.8.8\",\"location\":{\"__proto__\":{\"city\":\"Pwned\",\"country_code2\":\"ZZ\"},\"country_code2\":\"US\",\"country_name\":\"United States\",\"city\":\"Mountain View\"},\"security\":{\"__proto__\":{\"is_proxy\":true},\"is_tor\":false},\"asn\":{\"constructor\":{\"prototype\":{\"x\":1}},\"as_number\":\"AS15169\",\"type\":\"constructor\"}}"
+}

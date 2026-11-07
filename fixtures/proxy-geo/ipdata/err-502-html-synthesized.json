@@ -1,0 +1,9 @@
+{
+  "provider": "ipdata",
+  "ip": "8.8.8.8",
+  "status": 502,
+  "headers": {
+    "content-type": "text/html"
+  },
+  "text": "<html><body>Bad gateway</body></html>"
+}

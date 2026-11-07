@@ -1,0 +1,9 @@
+{
+  "url": "https://business.safety.google/static/assets/csv/adcookies.csv",
+  "parentUrl": "https://business.safety.google/adscookies/",
+  "accessedAt": "2026-10-09",
+  "sha256": "21ac0e3e27e3f31b2e1cb04ba8ebffa41e57a94ab22d7fd667c4b2cfcc756b36",
+  "bytes": 8325,
+  "usage": "Research-only official table snapshot; shipped rules are authored factual name/category summaries, not a copied vendor database or prose.",
+  "license": "No project license is inferred for the table; it is not copied into extension packages."
+}

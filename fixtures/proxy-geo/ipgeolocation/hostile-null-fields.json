@@ -1,0 +1,42 @@
+{
+  "provider": "ipgeolocation",
+  "ip": "8.8.8.8",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": {
+    "ip": null,
+    "location": {
+      "country_code2": null,
+      "country_name": null,
+      "state_prov": null,
+      "city": null
+    },
+    "asn": {
+      "as_number": null,
+      "organization": null,
+      "type": null
+    },
+    "company": {
+      "name": null,
+      "type": null
+    },
+    "network": {
+      "is_cdn": null,
+      "connection_type": null
+    },
+    "security": {
+      "is_proxy": null,
+      "is_vpn": null,
+      "is_tor": null,
+      "is_cloud_provider": null,
+      "is_relay": null,
+      "is_residential_proxy": null,
+      "is_known_attacker": null
+    },
+    "time_zone": {
+      "name": null
+    }
+  }
+}

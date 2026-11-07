@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:detect-expert:contracts:ack:v1",
+  "title": "Ack v1 — service worker -> ISOLATED, sent after snapshot + watermark are persisted",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "type",
+    "lastCommittedBatchSeq",
+    "paused",
+    "protocolOk"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "$ref": "urn:detect-expert:contracts:common:v1#/$defs/schemaVersion"
+    },
+    "type": {
+      "const": "ack"
+    },
+    "lastCommittedBatchSeq": {
+      "$ref": "urn:detect-expert:contracts:common:v1#/$defs/nonNegInt"
+    },
+    "paused": {
+      "type": "boolean"
+    },
+    "protocolOk": {
+      "type": "boolean"
+    },
+    "stopReason": {
+      "const": "revoked"
+    }
+  }
+}

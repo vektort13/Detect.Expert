@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>Фаервол: страница получателя</title>
+  </head>
+  <body>
+    <!-- ADR-020 §C (S08). Served at collect.example.net: navigation to the receiver itself always works (main_frame is
+         never targeted), and its own requests are first party (excludedTopDomains). -->
+    <h1 id="title">Получатель</h1>
+    <script>
+      fetch('/fw/collect?k=self', { cache: 'no-store' }).then(
+        function (r) { window.__fixtureResult = { ready: true, status: r.status }; },
+        function () { window.__fixtureResult = { ready: true, status: 0 }; }
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>protect: attribution of registrations</title>
+  </head>
+  <body>
+    <!--
+      ADR-020 §F (S10): stand of tests/extension/protect/attribution-registration.spec.ts (shop.example.com). recorder.js
+      (cdn.replay.example.net) registers listeners on window / document / root / a password field and observes the
+      body; inline code registers change on the e-mail field and mousemove / click on a plain div. Nothing reads a value.
+    -->
+    <h1>Attribution of registrations</h1>
+    <form id="login" action="#">
+      <label>E-mail <input id="email" name="email" type="email" autocomplete="email" /></label>
+      <label>Password <input id="password" name="password" type="password" autocomplete="current-password" /></label>
+    </form>
+    <div id="area">area</div>
+    <pre id="result"></pre>
+    <script src="../../fixture-lib.js"></script>
+    <script>
+      (function () {
+        var F = window.__fixture;
+        var s = document.createElement('script');
+        s.src = 'http://cdn.replay.example.net:' + location.port + '/protect/attribution/recorder.js';
+        s.onload = function () {
+          var n = window.recorder.start(document.getElementById('password'));
+          document.getElementById('email').addEventListener('change', function () {});
+          document.getElementById('area').addEventListener('mousemove', function () {});
+          document.getElementById('area').addEventListener('click', function () {});
+          F.publish({ fixture: 'protect-attribution-registration', recorderRegistrations: n, inlineRegistrations: 3 });
+        };
+        document.head.appendChild(s);
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>forms: iframe parent</title>
+  </head>
+  <body>
+    <h1 id="title">Страница со встроенной формой другого сайта</h1>
+    <!-- The form lives in a cross-site frame (forms.example.org, ?frameHost= overrides) that sends the e-mail to its
+         own origin on blur: the evidence is recorded for the top document with frameContext cross-site-frame and
+         receiver-hosts-form-frame. -->
+    <iframe id="form-frame" title="form" width="480" height="160"></iframe>
+    <script src="lib.js"></script>
+    <script>
+      var host = window.formsLib.params.get('frameHost') || 'forms.example.org';
+      var frame = document.getElementById('form-frame');
+      frame.addEventListener('load', function () {
+        window.formsLib.note('frame-loaded');
+      });
+      frame.setAttribute('src', window.formsLib.receiver(host) + '/protect/forms/iframe-form.html');
+    </script>
+  </body>
+</html>

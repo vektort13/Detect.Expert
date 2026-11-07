@@ -1,0 +1,15 @@
+/* ADR-078: source catalogue associations have their own surface and counters. */
+.site-systems-catalog { padding: .8rem .9rem; border: 1px solid color-mix(in srgb, #7c83db 22%, transparent); border-inline-start: 3px solid #7c83db; border-radius: .9rem; background: color-mix(in srgb, #7c83db 4%, transparent); }
+.site-systems-catalog__head { display: flex; align-items: center; gap: .6rem; }
+.site-systems-catalog__head .section__title { margin: 0; font-size: .95rem; }
+.site-systems-catalog__count { display: inline-flex; align-items: center; justify-content: center; min-width: 1.65rem; padding: .12rem .4rem; border-radius: 999px; background: color-mix(in srgb, #7c83db 12%, transparent); font-size: .8rem; font-variant-numeric: tabular-nums; }
+.site-systems-catalog__source { margin: .45rem 0 .7rem; overflow-wrap: anywhere; }
+.site-systems-catalog__source a { color: inherit; text-decoration: underline; text-underline-offset: .15em; }
+.site-systems-catalog__list { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; margin: 0; padding: 0; }
+.site-systems-catalog__list li { min-width: 0; max-width: 100%; }
+.site-systems-catalog__system { display: flex; align-items: center; max-width: 100%; padding: .45rem .6rem; border: 1px solid color-mix(in srgb, currentColor 16%, transparent); border-radius: .7rem; color: inherit; text-decoration: none; background: color-mix(in srgb, #7c83db 5%, transparent); }
+.site-systems-catalog__system:hover { border-color: #7c83db; background: color-mix(in srgb, #7c83db 12%, transparent); }
+.site-systems-catalog a:focus-visible { outline: 2px solid #527bf5; outline-offset: 3px; }
+.site-systems-catalog__system .company-label { min-width: 0; }
+.site-systems-catalog__system .company-label__name { overflow-wrap: anywhere; }
+@media (forced-colors: active) { .site-systems-catalog { border-color: CanvasText; } .site-systems-catalog__system { border-color: LinkText; } }

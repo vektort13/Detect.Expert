@@ -1,0 +1,1380 @@
+[
+  {
+    "id": "sift",
+    "name": "Sift",
+    "provider": "Sift",
+    "category": "transaction-device-fraud",
+    "officialWebsite": "https://sift.com",
+    "sources": [
+      {
+        "url": "https://developers.sift.com/docs/curl/decisions-api/overview/",
+        "title": "Sift API overview and JavaScript integration",
+        "claim": "The browser snippet collects device and interaction data; integration publishes cdn.sift.com/s.js and _sift.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "script-resource",
+        "host": "cdn.sift.com",
+        "scheme": "https",
+        "path": "/s.js",
+        "sourceUrl": "https://developers.sift.com/docs/curl/decisions-api/overview/",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "javascript-global",
+        "name": "_sift",
+        "sourceUrl": "https://developers.sift.com/docs/curl/decisions-api/overview/",
+        "status": "documented-candidate"
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "A product family rather than independently distinguishable Payment Protection / Account Defense deployments. Query parameters, beacon keys, user IDs and session IDs are excluded."
+    ]
+  },
+  {
+    "id": "forter",
+    "name": "Forter Fraud Prevention",
+    "provider": "Forter",
+    "category": "transaction-device-fraud",
+    "officialWebsite": "https://www.forter.com",
+    "sources": [
+      {
+        "url": "https://docs.forter.com/front-end-integration",
+        "title": "Front-end Integration",
+        "claim": "Forter documents its website JavaScript snippet and ftr:tokenReady event; customer-specific snippet and CSP resources are supplied through the Integration Center.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "dom-event",
+        "name": "ftr:tokenReady",
+        "sourceUrl": "https://docs.forter.com/front-end-integration",
+        "status": "documented-candidate"
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "No guessed CDN hostname is included. Event name is page-controlled evidence and does not authenticate Forter. Token values are excluded."
+    ]
+  },
+  {
+    "id": "riskified",
+    "name": "Riskified",
+    "provider": "Riskified",
+    "category": "transaction-device-fraud",
+    "officialWebsite": "https://www.riskified.com",
+    "sources": [
+      {
+        "url": "https://support.riskified.com/hc/en-us/articles/360012160393-API-Integration-Guide",
+        "title": "API Integration Guide",
+        "claim": "Riskified describes the beacon's collection of device and on-site behavior data.",
+        "accessedAt": "2026-10-09"
+      },
+      {
+        "url": "https://github.com/Riskified/beacon-agent/blob/main/beacon-integrate.md",
+        "title": "Official Riskified beacon integration instructions",
+        "claim": "Published integration template loads beacon.riskified.com; verification instructions name c.riskified.com/v2/client_infos and list img.riskified.com in CSP.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "script-resource",
+        "host": "beacon.riskified.com",
+        "scheme": "document-context",
+        "path": "/",
+        "sourceUrl": "https://github.com/Riskified/beacon-agent/blob/main/beacon-integrate.md",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "request-resource",
+        "host": "c.riskified.com",
+        "scheme": "unknown",
+        "path": "/v2/client_infos",
+        "sourceUrl": "https://github.com/Riskified/beacon-agent/blob/main/beacon-integrate.md",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "request-host",
+        "host": "img.riskified.com",
+        "scheme": "unknown",
+        "sourceUrl": "https://github.com/Riskified/beacon-agent/blob/main/beacon-integrate.md",
+        "status": "documented-candidate"
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "The source is an official vendor repository; its automation instructions were read as evidence and were not executed. Session query values, request bodies and localStorage values are excluded."
+    ]
+  },
+  {
+    "id": "seon",
+    "name": "SEON Device Intelligence",
+    "provider": "SEON",
+    "category": "device-intelligence",
+    "officialWebsite": "https://seon.io",
+    "sources": [
+      {
+        "url": "https://docs.seon.io/api-reference/fraud-api",
+        "title": "Fraud API — JavaScript Agent v6",
+        "claim": "SEON publishes three script CDNs and the seon.init / seon.getSession interface.",
+        "accessedAt": "2026-10-09"
+      },
+      {
+        "url": "https://docs.seon.io/integration/device-intelligence",
+        "title": "Device Intelligence integration",
+        "claim": "The Web SDK documents Canvas, WebGL, font and screen fingerprint data.",
+        "accessedAt": "2026-10-09"
+      },
+      {
+        "url": "https://docs.seon.io/api-reference/deprecated-versions",
+        "title": "Deprecated versions",
+        "claim": "Official older agent versions publish additional script resources and configurable fingerprint options.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "script-resource",
+        "host": "cdn.dfsdk.com",
+        "scheme": "https",
+        "path": "/js/v6/agent.umd.js",
+        "sourceUrl": "https://docs.seon.io/api-reference/fraud-api",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "script-resource",
+        "host": "cdn.deviceinf.com",
+        "scheme": "https",
+        "path": "/js/v6/agent.umd.js",
+        "sourceUrl": "https://docs.seon.io/api-reference/fraud-api",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "script-resource",
+        "host": "cdn.seonintelligence.com",
+        "scheme": "https",
+        "path": "/js/v6/agent.umd.js",
+        "sourceUrl": "https://docs.seon.io/api-reference/fraud-api",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "javascript-global",
+        "name": "seon",
+        "sourceUrl": "https://docs.seon.io/api-reference/fraud-api",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "script-resource",
+        "host": "cdn.dfsdk.com",
+        "scheme": "https",
+        "path": "/js/v5/agent.js",
+        "sourceUrl": "https://docs.seon.io/api-reference/deprecated-versions",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "script-resource",
+        "host": "cdn.deviceinf.com",
+        "scheme": "https",
+        "path": "/js/v5/agent.js",
+        "sourceUrl": "https://docs.seon.io/api-reference/deprecated-versions",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "script-resource",
+        "host": "cdn.seonintelligence.com",
+        "scheme": "https",
+        "path": "/js/v5/agent.js",
+        "sourceUrl": "https://docs.seon.io/api-reference/deprecated-versions",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "script-resource",
+        "host": "cdn.seondf.com",
+        "scheme": "https",
+        "path": "/js/v4/agent.js",
+        "sourceUrl": "https://docs.seon.io/api-reference/deprecated-versions",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "script-resource",
+        "host": "cdn.deviceinf.com",
+        "scheme": "https",
+        "path": "/js/v4/agent.js",
+        "sourceUrl": "https://docs.seon.io/api-reference/deprecated-versions",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "script-resource",
+        "host": "cdn.getdeviceinf.com",
+        "scheme": "https",
+        "path": "/js/v4/agent.js",
+        "sourceUrl": "https://docs.seon.io/api-reference/deprecated-versions",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "script-resource",
+        "host": "cdn.seon.io",
+        "scheme": "https",
+        "path": "/v3.0/js/agent.js",
+        "sourceUrl": "https://docs.seon.io/api-reference/deprecated-versions",
+        "status": "documented-candidate"
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "v3/v4/v5 resources are documented legacy candidates, not a recommendation to integrate an obsolete version. The response field webrtc_activated does not document an attributable ICE server and therefore does not establish a WebRTC vendor signature. No randomized DNS labels or payload values are retained."
+    ]
+  },
+  {
+    "id": "kount",
+    "name": "Kount Device Data Collector",
+    "provider": "Equifax / Kount",
+    "category": "device-intelligence",
+    "officialWebsite": "https://kount.com",
+    "sources": [
+      {
+        "url": "https://github.com/Kount/kount-ris-java-sdk/wiki/Kount-Data-Collector",
+        "title": "Kount Data Collector — official SDK wiki",
+        "claim": "The legacy integration publishes production ssl.kaptcha.com, test tst.kaptcha.com, /collect/sdk and ka.ClientSDK.",
+        "accessedAt": "2026-10-09"
+      },
+      {
+        "url": "https://github.com/Kount/kount-web-sdk",
+        "title": "Kount Web Client SDK",
+        "claim": "The official vendor repository describes a client-hosted JavaScript SDK.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "script-resource",
+        "host": "ssl.kaptcha.com",
+        "scheme": "https",
+        "path": "/collect/sdk",
+        "sourceUrl": "https://github.com/Kount/kount-ris-java-sdk/wiki/Kount-Data-Collector",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "script-resource",
+        "host": "tst.kaptcha.com",
+        "scheme": "https",
+        "path": "/collect/sdk",
+        "sourceUrl": "https://github.com/Kount/kount-ris-java-sdk/wiki/Kount-Data-Collector",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "javascript-global",
+        "name": "ka.ClientSDK",
+        "sourceUrl": "https://github.com/Kount/kount-ris-java-sdk/wiki/Kount-Data-Collector",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "sdk-name",
+        "name": "Kount Web Client SDK",
+        "sourceUrl": "https://github.com/Kount/kount-web-sdk",
+        "status": "documented-candidate"
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "Legacy vendor wiki was last edited in 2018; the exact domains are historical candidates and need modern positive/negative fixtures. Client-hosted SDK deployments may have no vendor-domain request. No merchant/session query values are retained."
+    ]
+  },
+  {
+    "id": "iovation",
+    "name": "TruValidate Device Risk (iovation)",
+    "provider": "TransUnion",
+    "category": "device-intelligence",
+    "officialWebsite": "https://www.transunion.com",
+    "sources": [
+      {
+        "url": "https://www.transunion.com/solution/truvalidate/digital-insights/device-risk",
+        "title": "TruValidate Device Risk",
+        "claim": "Official product page documents device fingerprinting, device-account association and predictive fraud risk.",
+        "accessedAt": "2026-10-09"
+      },
+      {
+        "url": "https://github.com/iovation/deviceprint-SDK-Android",
+        "title": "Official iovation Android SDK",
+        "claim": "The published SDK documents FraudForce and blackbox collection for native and hybrid apps.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "This research has no public vendor-authored desktop-browser resource signature. Native/hybrid SDK names and iov:// examples are not promoted to desktop browser detection. Device Risk and NeuroID behavioral analytics may coexist; they are not mutually exclusive."
+    ]
+  },
+  {
+    "id": "biocatch",
+    "name": "BioCatch Connect",
+    "provider": "BioCatch",
+    "category": "behavioral-intelligence",
+    "officialWebsite": "https://www.biocatch.com",
+    "sources": [
+      {
+        "url": "https://www.biocatch.com/",
+        "title": "BioCatch — platform overview",
+        "claim": "Official overview describes BioCatch Connect and its Align SDK.",
+        "accessedAt": "2026-10-09"
+      },
+      {
+        "url": "https://www.biocatch.com/hubfs/BioCatch_Connect_SolutionBrief_8.8.2023.pdf?hsLang=en",
+        "title": "BioCatch Connect Solution Brief",
+        "claim": "The vendor solution brief documents web and mobile SDK collection for behavioral fraud analysis.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "sdk-name",
+        "name": "BioCatch Align SDK",
+        "sourceUrl": "https://www.biocatch.com/",
+        "status": "documented-candidate"
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "No integration CDN/path or JavaScript global is established by the cited public material. Marketing descriptions are product provenance, not a runtime signature."
+    ]
+  },
+  {
+    "id": "behaviosec",
+    "name": "LexisNexis BehavioSec",
+    "provider": "LexisNexis Risk Solutions",
+    "category": "behavioral-intelligence",
+    "officialWebsite": "https://risk.lexisnexis.com",
+    "sources": [
+      {
+        "url": "https://risk.lexisnexis.com/products/behaviosec",
+        "title": "LexisNexis BehavioSec",
+        "claim": "Official product page documents behavior and device intelligence with API integration.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "No publicly documented browser-domain or SDK symbol was established. Shared LexisNexis corporate domains do not prove BehavioSec use."
+    ]
+  },
+  {
+    "id": "callsign",
+    "name": "Callsign Intelligence Engine",
+    "provider": "Callsign",
+    "category": "behavioral-device-intelligence",
+    "officialWebsite": "https://www.callsign.com",
+    "sources": [
+      {
+        "url": "https://www.callsign.com/platform/intelligence-engine",
+        "title": "Intelligence Engine",
+        "claim": "The vendor documents risk analysis of device, location and behavior.",
+        "accessedAt": "2026-10-09"
+      },
+      {
+        "url": "https://docs.callsign.com/",
+        "title": "Callsign documentation",
+        "claim": "The public documentation landing page is JavaScript-gated and did not expose integration identifiers.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "Public product provenance only; integration hosts, SDK names and WebRTC remain unknown."
+    ]
+  },
+  {
+    "id": "incode",
+    "name": "Incode Identity Verification Web SDK",
+    "provider": "Incode",
+    "category": "identity-fraud",
+    "officialWebsite": "https://incode.com",
+    "sources": [
+      {
+        "url": "https://developer.incode.com/get-started-with-incode/quickstart/",
+        "title": "Quick Start: Your First Verification",
+        "claim": "Official quickstart publishes the v1 SDK CDN file sdk.incode.com/sdk/onBoarding-1.85.0.js.",
+        "accessedAt": "2026-10-09"
+      },
+      {
+        "url": "https://developer.incode.com/sdk-reference/web-sdk-2-getting-started/",
+        "title": "Web SDK 2 — Getting Started",
+        "claim": "The v2 guide documents @incodetech/web, @incodetech/core and the incode-flow Web Component.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "script-resource",
+        "host": "sdk.incode.com",
+        "scheme": "https",
+        "path": "/sdk/onBoarding-1.85.0.js",
+        "sourceUrl": "https://developer.incode.com/get-started-with-incode/quickstart/",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "sdk-package",
+        "name": "@incodetech/web",
+        "sourceUrl": "https://developer.incode.com/sdk-reference/web-sdk-2-getting-started/",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "sdk-package",
+        "name": "@incodetech/core",
+        "sourceUrl": "https://developer.incode.com/sdk-reference/web-sdk-2-getting-started/",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "dom-element",
+        "name": "incode-flow",
+        "sourceUrl": "https://developer.incode.com/sdk-reference/web-sdk-2-getting-started/",
+        "status": "documented-candidate"
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "v1 and v2 integrations differ; the exact published v1 version is retained without inventing a version-wildcard path. Identity verification component presence is not proof of an independent device-fraud check."
+    ]
+  },
+  {
+    "id": "socure",
+    "name": "Socure Digital Intelligence (Sigma Device)",
+    "provider": "Socure",
+    "category": "device-identity-fraud",
+    "officialWebsite": "https://www.socure.com",
+    "sources": [
+      {
+        "url": "https://help.socure.com/riskos/docs/digital-intelligence-web-sdk",
+        "title": "Digital Intelligence Web SDK",
+        "claim": "The vendor publishes sdk.dv.socure.io/latest/device-risk-sdk.js, @socure-inc/device-risk-sdk and SigmaDeviceManager.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "script-resource",
+        "host": "sdk.dv.socure.io",
+        "scheme": "https",
+        "path": "/latest/device-risk-sdk.js",
+        "sourceUrl": "https://help.socure.com/riskos/docs/digital-intelligence-web-sdk",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "sdk-package",
+        "name": "@socure-inc/device-risk-sdk",
+        "sourceUrl": "https://help.socure.com/riskos/docs/digital-intelligence-web-sdk",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "javascript-global",
+        "name": "SigmaDeviceManager",
+        "sourceUrl": "https://help.socure.com/riskos/docs/digital-intelligence-web-sdk",
+        "status": "documented-candidate"
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "SDK configuration can override resource locations. Session tokens, public SDK keys and device cookies are excluded; package presence in a bundle requires attribution before runtime detection."
+    ]
+  },
+  {
+    "id": "sardine",
+    "name": "Sardine Device Intelligence",
+    "provider": "Sardine",
+    "category": "device-transaction-fraud",
+    "officialWebsite": "https://www.sardine.ai",
+    "sources": [
+      {
+        "url": "https://www.sardine.ai/engineering/fake-job-candidate-detection-system",
+        "title": "Fake Job Candidate Detection System — engineering article",
+        "claim": "Vendor engineering article documents integrating the Sardine web SDK for device and behavior signals; technical SDK documents are available to existing clients.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "sdk-name",
+        "name": "Sardine Web SDK",
+        "sourceUrl": "https://www.sardine.ai/engineering/fake-job-candidate-detection-system",
+        "status": "documented-candidate"
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "No CDN or loader path is promoted from partner material. Integration host and WebRTC attribution remain unknown."
+    ]
+  },
+  {
+    "id": "stripe-radar",
+    "name": "Stripe Radar / Stripe.js fraud signals",
+    "provider": "Stripe",
+    "category": "payment-fraud",
+    "officialWebsite": "https://stripe.com",
+    "sources": [
+      {
+        "url": "https://docs.stripe.com/disputes/prevention/advanced-fraud-detection",
+        "title": "Advanced fraud detection",
+        "claim": "Stripe documents device/activity signals collected by Stripe.js and transmitted to m.stripe.com to support systems including Radar.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "request-host",
+        "host": "m.stripe.com",
+        "scheme": "unknown",
+        "sourceUrl": "https://docs.stripe.com/disputes/prevention/advanced-fraud-detection",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "sdk-name",
+        "name": "Stripe.js",
+        "sourceUrl": "https://docs.stripe.com/disputes/prevention/advanced-fraud-detection",
+        "status": "documented-candidate"
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "Stripe.js is a general payment SDK. Its presence, and even device signal collection, do not independently prove a particular Radar configuration. Collection can be disabled on merchant pages; hCaptcha presence is not uniquely attributable to Stripe."
+    ]
+  },
+  {
+    "id": "adyen-protect",
+    "name": "Adyen Protect (RevenueProtect)",
+    "provider": "Adyen",
+    "category": "payment-fraud",
+    "officialWebsite": "https://www.adyen.com",
+    "sources": [
+      {
+        "url": "https://docs.adyen.com/risk-management/fraud-data-collection/",
+        "title": "Data collection to detect fraud",
+        "claim": "Official guide publishes test/live datacollection.js URLs and adyenGetData; risk data collection is included in checkout and independent of Protect configuration.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "script-resource",
+        "host": "checkoutshopper-live.adyen.com",
+        "scheme": "https",
+        "path": "/checkoutshopper/assets/js/datacollection/datacollection.js",
+        "sourceUrl": "https://docs.adyen.com/risk-management/fraud-data-collection/",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "script-resource",
+        "host": "checkoutshopper-test.adyen.com",
+        "scheme": "https",
+        "path": "/checkoutshopper/assets/js/datacollection/datacollection.js",
+        "sourceUrl": "https://docs.adyen.com/risk-management/fraud-data-collection/",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "javascript-global",
+        "name": "adyenGetData",
+        "sourceUrl": "https://docs.adyen.com/risk-management/fraud-data-collection/",
+        "status": "documented-candidate"
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "Checkout SDK risk collection does not prove an enabled Protect risk profile. RevenueProtect is retained as a historical search alias; current cited docs use Protect. No payment/clientData values are retained."
+    ]
+  },
+  {
+    "id": "paypal-fraudnet",
+    "name": "PayPal FraudNet / Fraud Protection Advanced",
+    "provider": "PayPal",
+    "category": "payment-device-fraud",
+    "officialWebsite": "https://www.paypal.com",
+    "sources": [
+      {
+        "url": "https://developer.paypal.com/platforms/checkout/apm/pay-upon-invoice/fraudnet/",
+        "title": "Integrate FraudNet",
+        "claim": "Official guide publishes c.paypal.com/da/r/fb.js and CSP hosts c.paypal.com / b.stats.paypal.com.",
+        "accessedAt": "2026-10-09"
+      },
+      {
+        "url": "https://developer.paypal.com/platforms/checkout/advanced/customize/fraud-protection/fraud-protection-advanced/integration/",
+        "title": "FPA API integration guide",
+        "claim": "Official FPA guide links FraudNet for browser device identifiers.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "script-resource",
+        "host": "c.paypal.com",
+        "scheme": "https",
+        "path": "/da/r/fb.js",
+        "sourceUrl": "https://developer.paypal.com/platforms/checkout/apm/pay-upon-invoice/fraudnet/",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "request-host",
+        "host": "b.stats.paypal.com",
+        "scheme": "https",
+        "sourceUrl": "https://developer.paypal.com/platforms/checkout/apm/pay-upon-invoice/fraudnet/",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "dom-attribute",
+        "name": "fncls",
+        "sourceUrl": "https://developer.paypal.com/platforms/checkout/apm/pay-upon-invoice/fraudnet/",
+        "status": "documented-candidate"
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "Generic fncls attribute alone is weak; the documented static attribute value or exact script is needed for a future fixture. FraudNet can support multiple PayPal products; it does not uniquely prove Fraud Protection Advanced. Configuration JSON, metadata identifiers and token values are excluded."
+    ]
+  },
+  {
+    "id": "braintree-fraud-protection",
+    "name": "Braintree Fraud Protection",
+    "provider": "PayPal / Braintree",
+    "category": "payment-fraud",
+    "officialWebsite": "https://www.braintreepayments.com",
+    "sources": [
+      {
+        "url": "https://developer.paypal.com/braintree/docs/guides/premium-fraud-management-tools/client-side/javascript/v3/",
+        "title": "Premium Fraud Management Tools — Client-side Implementation",
+        "claim": "The official guide publishes the data-collector component script and braintree.dataCollector.create.",
+        "accessedAt": "2026-10-09"
+      },
+      {
+        "url": "https://developer.paypal.com/braintree/articles/guides/fraud-tools/premium/overview/",
+        "title": "Premium Fraud Tools Overview",
+        "claim": "The overview describes Fraud Protection Lite and Advanced and their required device data integration.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "script-resource",
+        "host": "js.braintreegateway.com",
+        "scheme": "https",
+        "path": "/web/3.146.0/js/data-collector.min.js",
+        "sourceUrl": "https://developer.paypal.com/braintree/docs/guides/premium-fraud-management-tools/client-side/javascript/v3/",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "javascript-global",
+        "name": "braintree.dataCollector",
+        "sourceUrl": "https://developer.paypal.com/braintree/docs/guides/premium-fraud-management-tools/client-side/javascript/v3/",
+        "status": "documented-candidate"
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "Exact documentation version is retained; no guessed wildcard detector is produced. Shared SDK cannot distinguish Lite/Advanced/chargeback-product enablement. A FraudNet dependency may create overlapping PayPal evidence."
+    ]
+  },
+  {
+    "id": "maxmind-minfraud",
+    "name": "MaxMind minFraud Device Tracking",
+    "provider": "MaxMind",
+    "category": "device-transaction-fraud",
+    "officialWebsite": "https://www.maxmind.com",
+    "sources": [
+      {
+        "url": "https://dev.maxmind.com/minfraud/track-devices/web/",
+        "title": "Web — Device Tracking Add-On",
+        "claim": "The guide publishes device.js / device-module.js, @maxmind/device-tracking and explicit CSP connection hosts.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "script-resource",
+        "host": "device.maxmind.com",
+        "scheme": "https",
+        "path": "/js/device.js",
+        "sourceUrl": "https://dev.maxmind.com/minfraud/track-devices/web/",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "script-resource",
+        "host": "device.maxmind.com",
+        "scheme": "https",
+        "path": "/js/device-module.js",
+        "sourceUrl": "https://dev.maxmind.com/minfraud/track-devices/web/",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "request-host",
+        "host": "d-ipv4.mmapiws.com",
+        "scheme": "unknown",
+        "sourceUrl": "https://dev.maxmind.com/minfraud/track-devices/web/",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "request-host",
+        "host": "d-ipv6.mmapiws.com",
+        "scheme": "unknown",
+        "sourceUrl": "https://dev.maxmind.com/minfraud/track-devices/web/",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "sdk-package",
+        "name": "@maxmind/device-tracking",
+        "sourceUrl": "https://dev.maxmind.com/minfraud/track-devices/web/",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "javascript-global",
+        "name": "__mmapiws",
+        "sourceUrl": "https://dev.maxmind.com/minfraud/track-devices/web/",
+        "status": "documented-candidate"
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "Vendor explicitly supports first-party custom hostname hosting, which removes default-domain evidence. minFraud Score / Insights / Factors share this add-on and are not independently identified. Tracking tokens and cookies are excluded."
+    ]
+  },
+  {
+    "id": "nudata-nudetect",
+    "name": "NuData NuDetect",
+    "provider": "Mastercard",
+    "category": "behavioral-device-intelligence",
+    "officialWebsite": "https://www.mastercard.com",
+    "sources": [
+      {
+        "url": "https://www.mastercard.com/br/pt/news-and-trends/Press/2025/july/biometria-comportamental-e-aliada-no-combate-a-fraudes.html",
+        "title": "Biometria comportamental é aliada no combate a fraudes",
+        "claim": "Mastercard identifies NuDetect as NuData Security's device/behavioral biometric system.",
+        "accessedAt": "2026-10-09"
+      },
+      {
+        "url": "https://rakbankpay-nam.gateway.mastercard.com/api/documentation/apiDocumentation/nvp/version/100/apiReference.html?locale=en_US",
+        "title": "Mastercard Gateway API Reference",
+        "claim": "The official gateway reference describes a JavaScript client SDK integration with NuDetect.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "sdk-name",
+        "name": "NuDetect JavaScript client-side SDK",
+        "sourceUrl": "https://rakbankpay-nam.gateway.mastercard.com/api/documentation/apiDocumentation/nvp/version/100/apiReference.html?locale=en_US",
+        "status": "documented-candidate"
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "No customer hostname pattern is inferred. NuDetect product provenance is confirmed; a domain/path/browser global suitable for matching remains unknown."
+    ]
+  },
+  {
+    "id": "ekata",
+    "name": "Ekata Identity Verification",
+    "provider": "Mastercard / Ekata",
+    "category": "identity-fraud-intelligence",
+    "officialWebsite": "https://www.mastercard.com",
+    "sources": [
+      {
+        "url": "https://www.mastercard.com/global/en/identity-agreements-and-terms/msa.html",
+        "title": "Ekata Master Services Agreement",
+        "claim": "Official terms describe identity verification / fraud prevention products accessed via APIs and web portal.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "The cited agreement is superseded, so it establishes historical product identity rather than current API semantics. No browser fingerprint collector is established. Server-side use can have no browser-visible vendor signal."
+    ]
+  },
+  {
+    "id": "cybersource-decision-manager",
+    "name": "Cybersource Decision Manager",
+    "provider": "Visa / Cybersource",
+    "category": "payment-fraud",
+    "officialWebsite": "https://www.cybersource.com",
+    "sources": [
+      {
+        "url": "https://developer.cybersource.com/docs/cybs/en-us/isv-plugins/admin/all/na/isv-plugin-o/built-by-us/adobe-commerce-m-overview/adobe-commerce-m-backend-conf-settings/adobe-commerce-m-config-gen-settings/adobe-commerce-m-conf-device-fp.html",
+        "title": "Configure Device Fingerprinting",
+        "claim": "Official integration guide links Device Fingerprinting to Decision Manager and requires an organization ID provided by Cybersource.",
+        "accessedAt": "2026-10-09"
+      },
+      {
+        "url": "https://docs.cybersource.com/content/dam/new-documentation/documentation/en/platform-cybs/relnote/all/na/rn-2022-06-03.pdf",
+        "title": "Cybersource Release Notes — June 3, 2022",
+        "claim": "Official release notes identify ThreatMetrix fingerprint mobile SDKs used by Decision Manager.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "Device profiling dependency may overlap ThreatMetrix evidence. Online-Metrix domains do not uniquely establish Cybersource; a vendor-authored exact browser resource from current public integration documentation was not established in this pass."
+    ]
+  },
+  {
+    "id": "accertify",
+    "name": "Accertify Account Protection / Fraud Management",
+    "provider": "Accertify",
+    "category": "account-transaction-fraud",
+    "officialWebsite": "https://www.accertify.com",
+    "sources": [
+      {
+        "url": "https://atlas.accertify.com/public-apis/account-protection-api-overview",
+        "title": "Account Protection API Overview",
+        "claim": "Official API overview describes account-event risk evaluation and explicitly requires backend submission; client-side JavaScript API submission is not supported.",
+        "accessedAt": "2026-10-09"
+      },
+      {
+        "url": "https://www.accertify.com/developers-center/",
+        "title": "Developer's Center",
+        "claim": "Official center lists account protection, retail fraud and other integration APIs.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "Backend API presence is not a browser signature. No public collector CDN/path was established, and private integration domains are not guessed."
+    ]
+  },
+  {
+    "id": "signifyd",
+    "name": "Signifyd Device Fingerprint",
+    "provider": "Signifyd",
+    "category": "transaction-device-fraud",
+    "officialWebsite": "https://www.signifyd.com",
+    "sources": [
+      {
+        "url": "https://signifydapi.docs.apiary.io/",
+        "title": "Signifyd API — Device Fingerprint",
+        "claim": "Vendor-branded API reference publishes the script-tag.js integration and sig-api script element ID.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "script-resource",
+        "host": "cdn-scripts.signifyd.com",
+        "scheme": "https",
+        "path": "/api/script-tag.js",
+        "sourceUrl": "https://signifydapi.docs.apiary.io/",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "dom-element-id",
+        "name": "sig-api",
+        "sourceUrl": "https://signifydapi.docs.apiary.io/",
+        "status": "documented-candidate"
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "The indexed vendor-branded Apiary document was readable through search; a direct open timed out. Source ownership should be rechecked in review before fixture validation. No session attributes or values are retained."
+    ]
+  },
+  {
+    "id": "ravelin",
+    "name": "RavelinJS",
+    "provider": "Ravelin",
+    "category": "transaction-device-fraud",
+    "officialWebsite": "https://www.ravelin.com",
+    "sources": [
+      {
+        "url": "https://developer.ravelin.com/merchant/libraries-and-sdks/ravelinjs/integration/",
+        "title": "RavelinJS v2 Integration",
+        "claim": "Official integration describes browser ID / event tracking and ravelinjs package, self-hosted bundles and ravelin.click CSP connections; older fingerprint APIs are removed.",
+        "accessedAt": "2026-10-09"
+      },
+      {
+        "url": "https://developer.ravelin.com/merchant/libraries-and-sdks/ravelinjs/v0/usage-guide/",
+        "title": "RavelinJS v0 Usage Guide — Deprecated",
+        "claim": "Historical integration publishes a cdn.ravelin.net fallback script.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "sdk-package",
+        "name": "ravelinjs",
+        "sourceUrl": "https://developer.ravelin.com/merchant/libraries-and-sdks/ravelinjs/integration/",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "javascript-global",
+        "name": "Ravelin",
+        "sourceUrl": "https://developer.ravelin.com/merchant/libraries-and-sdks/ravelinjs/integration/",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "script-name",
+        "name": "ravelin-core+track+encrypt.min.js",
+        "sourceUrl": "https://developer.ravelin.com/merchant/libraries-and-sdks/ravelinjs/integration/",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "request-host",
+        "host": "*.ravelin.click",
+        "scheme": "https",
+        "sourceUrl": "https://developer.ravelin.com/merchant/libraries-and-sdks/ravelinjs/integration/",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "script-resource",
+        "host": "cdn.ravelin.net",
+        "scheme": "https",
+        "path": "/js/rvn-0.1.18-lite.min.js",
+        "sourceUrl": "https://developer.ravelin.com/merchant/libraries-and-sdks/ravelinjs/v0/usage-guide/",
+        "status": "documented-candidate"
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "The wildcard is the exact documented CSP pattern, not a collected list of live assets. Current v2 may self-host bundles. The v0 CDN is a legacy candidate. Removed fingerprint / trackFingerprint methods must not be attributed to current v2. No card data is collected by this catalog."
+    ]
+  },
+  {
+    "id": "bolt-managed-fraud",
+    "name": "Bolt Managed Fraud / Checkout",
+    "provider": "Bolt",
+    "category": "payment-fraud",
+    "officialWebsite": "https://www.boltapp.com",
+    "sources": [
+      {
+        "url": "https://www.boltapp.com/developers",
+        "title": "Bolt for Developers",
+        "claim": "Official developer page describes Managed Fraud and JavaScript checkout using the Connect script and BoltCheckout.configure.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "javascript-global",
+        "name": "BoltCheckout",
+        "sourceUrl": "https://www.boltapp.com/developers",
+        "status": "documented-candidate"
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "BoltCheckout is shared checkout infrastructure, not unique proof of Managed Fraud enablement. No script CDN/path is guessed from inaccessible older documentation."
+    ]
+  },
+  {
+    "id": "prove",
+    "name": "Prove Pre-Fill / Identity Verification",
+    "provider": "Prove",
+    "category": "identity-fraud",
+    "officialWebsite": "https://www.prove.com",
+    "sources": [
+      {
+        "url": "https://www.prove.com/blog/prove-pre-fill-simplifying-identity-verification-for-faster-app-integrations",
+        "title": "Prove Pre-Fill — App Integrations",
+        "claim": "Official integration overview documents client-side SDKs for web, iOS and Android; REST/server SDKs are distinct.",
+        "accessedAt": "2026-10-09"
+      },
+      {
+        "url": "https://developer.prove.com/",
+        "title": "Prove Developer Portal",
+        "claim": "Public portal redirected to an access-restricted documentation login.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "sdk-name",
+        "name": "Prove client-side Web SDK",
+        "sourceUrl": "https://www.prove.com/blog/prove-pre-fill-simplifying-identity-verification-for-faster-app-integrations",
+        "status": "documented-candidate"
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "SDK existence is documented; exact browser package, domains and paths remain unknown. Server-side @prove-identity/prove-api is not promoted to a browser signal."
+    ]
+  },
+  {
+    "id": "neuroid",
+    "name": "NeuroID",
+    "provider": "Experian",
+    "category": "behavioral-device-intelligence",
+    "officialWebsite": "https://www.experian.com",
+    "sources": [
+      {
+        "url": "https://www.experian.com/business/products/neuroid",
+        "title": "NeuroID — Experian",
+        "claim": "Official product page documents behavior, device and network risk for account opening and defense.",
+        "accessedAt": "2026-10-09"
+      },
+      {
+        "url": "https://github.com/Neuro-ID",
+        "title": "Neuro-ID official GitHub organization",
+        "claim": "Verified vendor organization publishes native iOS / Android and React Native SDKs.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "The former neuro-id.com website redirects to Experian. No public browser SDK resource was verified; mobile SDKs are not desktop browser evidence. Product can appear as an integrated component of TransUnion TruValidate."
+    ]
+  },
+  {
+    "id": "feedzai-digital-trust",
+    "name": "Feedzai Digital Trust",
+    "provider": "Feedzai",
+    "category": "behavioral-device-intelligence",
+    "officialWebsite": "https://www.feedzai.com",
+    "sources": [
+      {
+        "url": "https://www.feedzai.com/solutions/digital-trust/",
+        "title": "Digital Trust",
+        "claim": "Official solution page documents device fingerprinting, behavior biometrics, network and threat intelligence.",
+        "accessedAt": "2026-10-09"
+      },
+      {
+        "url": "https://www.feedzai.com/blog/device-identity-digital-fraud-protection/",
+        "title": "Advancing Digital Fraud Protection",
+        "claim": "Vendor describes its Web Device Identity model and fraud score model updates.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "No public browser collector hostname, file path or SDK symbol is established. Product capabilities do not establish a recognizable WebRTC server."
+    ]
+  },
+  {
+    "id": "fico-falcon",
+    "name": "FICO Falcon Fraud Manager",
+    "provider": "FICO",
+    "category": "transaction-fraud",
+    "officialWebsite": "https://www.fico.com",
+    "sources": [
+      {
+        "url": "https://investors.fico.com/news-releases/news-release-details/fico-wins-machine-learning-award-scams-detection-model/",
+        "title": "FICO Fraud Manager — Scam Detection Model",
+        "claim": "Official press release identifies Falcon Fraud Manager retail-banking/payment fraud models.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "Transaction risk engine; no browser integration signal established. FICO Falcon is distinct from Experian FraudNet and the company Fraud.net."
+    ]
+  },
+  {
+    "id": "experian-fraudnet",
+    "name": "Experian FraudNet",
+    "provider": "Experian",
+    "category": "device-fraud-intelligence",
+    "officialWebsite": "https://www.experian.com",
+    "sources": [
+      {
+        "url": "https://www.experian.com/business/products/fraudnet",
+        "title": "FraudNet — Experian",
+        "claim": "Official product page documents digital-channel device intelligence and risk assessment.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "Distinct product from PayPal FraudNet and the Fraud.net company. No exact public browser integration domain or SDK name verified."
+    ]
+  },
+  {
+    "id": "fraud-net",
+    "name": "Fraud.net Device AI",
+    "provider": "Fraud.net",
+    "category": "device-transaction-fraud",
+    "officialWebsite": "https://www.fraud.net",
+    "sources": [
+      {
+        "url": "https://www.fraud.net/resources/fact-sheet-fraud-detection-device-ai",
+        "title": "Fact Sheet: Device AI",
+        "claim": "Official fact sheet describes device and account events, API risk scores and fraud case management.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "Distinct vendor from PayPal FraudNet and Experian FraudNet. API/event capability is not a browser resource signature."
+    ]
+  },
+  {
+    "id": "featurespace-aric",
+    "name": "Featurespace ARIC Risk Hub",
+    "provider": "Visa / Featurespace",
+    "category": "transaction-application-fraud",
+    "officialWebsite": "https://www.featurespace.com",
+    "sources": [
+      {
+        "url": "https://www2.featurespace.com/solutions/application-fraud-prevention/",
+        "title": "ARIC for Application Fraud Prevention",
+        "claim": "Official page describes application risk modeling and use of device fingerprints.",
+        "accessedAt": "2026-10-09"
+      },
+      {
+        "url": "https://www.visa.com.br/sobre-a-visa/noticias-visa/nova-sala-de-imprensa/visa-expande-portfolio-de-solucoes-antifraude-no-brasil-com-o-aric-risk-hub-da-featurespace.html",
+        "title": "Visa expands fraud solutions with ARIC Risk Hub",
+        "claim": "Visa identifies ARIC as part of its fraud solutions portfolio.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "A device fingerprint may be an input from another system; no vendor-authored browser collector resource was established. Do not equate all behavioral analytics with browser biometrics."
+    ]
+  },
+  {
+    "id": "castle",
+    "name": "Castle Browser SDK",
+    "provider": "Castle",
+    "category": "device-account-fraud",
+    "officialWebsite": "https://castle.io",
+    "sources": [
+      {
+        "url": "https://docs.castle.io/docs/sdk-browser",
+        "title": "Browser SDK",
+        "claim": "Official guide documents @castleio/castle-js, Castle.configure and createRequestToken; current SDK generates tokens rather than sending client-side activity events.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [
+      {
+        "kind": "sdk-package",
+        "name": "@castleio/castle-js",
+        "sourceUrl": "https://docs.castle.io/docs/sdk-browser",
+        "status": "documented-candidate"
+      },
+      {
+        "kind": "javascript-global",
+        "name": "Castle",
+        "sourceUrl": "https://docs.castle.io/docs/sdk-browser",
+        "status": "documented-candidate"
+      }
+    ],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "Current v3 removed the old client-side event APIs. The SDK can be bundled and use self-hosted worker assets; a fixed third-party network request is not required. Token values and form bodies are excluded."
+    ]
+  },
+  {
+    "id": "aci-red",
+    "name": "ACI Fraud Management (ReD)",
+    "provider": "ACI Worldwide",
+    "category": "payment-fraud",
+    "officialWebsite": "https://www.aciworldwide.com",
+    "sources": [
+      {
+        "url": "https://www.aciworldwide.com/solutions/aci-fraud-management-merchants",
+        "title": "ACI Fraud Management for Merchants",
+        "claim": "Official current product page describes fraud orchestration through one API.",
+        "accessedAt": "2026-10-09"
+      },
+      {
+        "url": "https://investor.aciworldwide.com/news-releases/news-release-details/aci-worldwide-acquire-red",
+        "title": "ACI Worldwide to Acquire ReD",
+        "claim": "Official corporate release establishes the ReD Shield / Retail Decisions product lineage.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "ReD is a historical product/vendor alias. No exact public browser resource or WebRTC integration established; server-side risk decisions may have no browser-visible signature."
+    ]
+  },
+  {
+    "id": "ibm-trusteer",
+    "name": "IBM Trusteer Pinpoint Detect",
+    "provider": "IBM",
+    "category": "device-account-fraud",
+    "officialWebsite": "https://www.ibm.com",
+    "sources": [
+      {
+        "url": "https://www.ibm.com/products/trusteer-pinpoint-detect/resources",
+        "title": "Trusteer Pinpoint Detect — Resources",
+        "claim": "Official FAQ states desktop/mobile browsers use embedded page code while native apps use a mobile SDK.",
+        "accessedAt": "2026-10-09"
+      },
+      {
+        "url": "https://community.ibm.com/community/user/security/blogs/beery-holstein1/2020/08/13/whats-new-with-ibm-trusteer-pinpoint-july-2020",
+        "title": "IBM Trusteer Pinpoint — client-side snippets",
+        "claim": "Vendor-authored technical blog documents page JavaScript snippets and SPA collection.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "The evidence confirms browser integration but does not publish an exact hostname/path/global identifier. Pinpoint is distinct from the locally installed Trusteer Rapport product."
+    ]
+  },
+  {
+    "id": "emailage",
+    "name": "LexisNexis Emailage Adaptive",
+    "provider": "LexisNexis Risk Solutions",
+    "category": "identity-fraud-intelligence",
+    "officialWebsite": "https://risk.lexisnexis.com",
+    "sources": [
+      {
+        "url": "https://risk.lexisnexis.com/products/lexisnexis-emailage",
+        "title": "LexisNexis Emailage Adaptive",
+        "claim": "Official product page describes email/IP/phone/address risk and a single API integration.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "Email intelligence API provenance; no browser collector is established. Shared LexisNexis resources cannot uniquely identify Emailage."
+    ]
+  },
+  {
+    "id": "netreveal",
+    "name": "SymphonyAI NetReveal",
+    "provider": "SymphonyAI",
+    "category": "transaction-financial-crime",
+    "officialWebsite": "https://www.symphonyai.com",
+    "sources": [
+      {
+        "url": "https://www.symphonyai.com/news/symphonyai-acquires-netreveal-from-bae-systems",
+        "title": "SymphonyAI acquires NetReveal from BAE Systems",
+        "claim": "Official acquisition release establishes the current owner and financial-crime/fraud platform lineage.",
+        "accessedAt": "2026-10-09"
+      },
+      {
+        "url": "https://www.symphonyai.com/wp-content/uploads/2022/10/Data-Sheet_SymphonyAI-NetReveal-Payments-Fraud_20220919.pdf",
+        "title": "NetReveal payments fraud datasheet",
+        "claim": "Official product datasheet documents transaction and cross-channel behavioral risk analytics.",
+        "accessedAt": "2026-10-09"
+      }
+    ],
+    "browserSignals": [],
+    "webrtc": {
+      "status": "unknown",
+      "sourceUrls": []
+    },
+    "notes": [
+      "BAE Systems is a historical owner alias. Payment/financial-crime analytics do not establish a browser collector or an independently attributable WebRTC signal."
+    ]
+  }
+]

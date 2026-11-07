@@ -1,0 +1,9 @@
+{
+  "provider": "ipdata",
+  "ip": "8.8.8.8",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "text": "{\"__proto__\":{\"polluted\":\"top\"},\"constructor\":{\"prototype\":{\"polluted\":\"ctor\"}},\"ip\":\"8.8.8.8\",\"city\":\"Mountain View\",\"country_code\":\"us\",\"country_name\":\"United States\",\"threat\":{\"__proto__\":{\"is_proxy\":true},\"is_tor\":false},\"asn\":{\"__proto__\":{\"asn\":\"AS1\"},\"asn\":\"AS15169\",\"name\":\"Google LLC\",\"type\":\"__proto__\"}}"
+}

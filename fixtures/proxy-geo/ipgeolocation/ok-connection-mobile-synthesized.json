@@ -1,0 +1,24 @@
+{
+  "provider": "ipgeolocation",
+  "ip": "8.8.4.4",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": {
+    "ip": "8.8.4.4",
+    "location": {
+      "country_code2": "GB",
+      "country_name": "United Kingdom",
+      "city": "London"
+    },
+    "network": {
+      "connection_type": "Mobile",
+      "is_cdn": false
+    },
+    "asn": {
+      "as_number": "AS64501",
+      "organization": "Example Mobile Ltd"
+    }
+  }
+}

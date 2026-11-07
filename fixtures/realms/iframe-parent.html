@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>P06 frame parent</title></head><body>
+<h1>Frame identity parent</h1><script>
+document.createElement('canvas').toDataURL();
+var mode = new URLSearchParams(location.search).get('mode');
+var frame = document.createElement('iframe');
+frame.id = 'child';
+frame.src = mode === 'same' ? '/realms/frame-child.html' : location.protocol + '//' + (mode === 'ungranted' ? 'localhost' : location.hostname) + ':' + (Number(location.port) + 1) + '/realms/frame-child.html';
+document.body.appendChild(frame);
+</script></body></html>

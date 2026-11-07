@@ -1,0 +1,626 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-09",
+  "researchOnly": true,
+  "productionEnabled": false,
+  "fixtureVerified": false,
+  "vendors": [
+    {
+      "id": "shield",
+      "name": "SHIELD Device Intelligence",
+      "provider": "SHIELD",
+      "category": "device-intelligence",
+      "officialWebsite": "https://shield.com/",
+      "sources": [
+        {
+          "url": "https://shield.com/device-fingerprinting",
+          "title": "Device Fingerprinting Solution for Mobile Apps & Websites",
+          "claim": "Official product page describes app and web device intelligence and Android, iOS and JavaScript integration.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "JavaScript integration is documented, but no stable exact browser loader was confirmed. The public guide root rendered a JavaScript-required shell during fresh retrieval."
+      ]
+    },
+    {
+      "id": "incognia",
+      "name": "Incognia AI-Powered Browser ID",
+      "provider": "Incognia",
+      "category": "device-intelligence",
+      "officialWebsite": "https://www.incognia.com/",
+      "sources": [
+        {
+          "url": "https://www.incognia.com/ai-powered-browser-id",
+          "title": "AI-Powered Browser ID",
+          "claim": "Official product page describes browser device recognition.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "Browser product exists; no published unique loader or WebRTC endpoint was confirmed."
+      ]
+    },
+    {
+      "id": "outseer",
+      "name": "Outseer Fraud Manager",
+      "provider": "Outseer",
+      "category": "behavioral-fraud",
+      "officialWebsite": "https://www.outseer.com/",
+      "sources": [
+        {
+          "url": "https://www.outseer.com/products/outseer-fraud-manager/behavioral-biometrics",
+          "title": "Behavioral Biometrics for Fraud Manager",
+          "claim": "Official page describes a JavaScript component collecting browser behavior.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "A JavaScript component is documented, but its exact public integration resource is unknown."
+      ]
+    },
+    {
+      "id": "nice-actimize",
+      "name": "NICE Actimize IFM",
+      "provider": "NICE Actimize",
+      "category": "transaction-fraud",
+      "officialWebsite": "https://www.niceactimize.com/",
+      "sources": [
+        {
+          "url": "https://www.niceactimize.com/fraud-management",
+          "title": "Enterprise Fraud Management",
+          "claim": "Official page documents the IFM fraud-management product.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "Product/catalog evidence does not establish a browser detector."
+      ]
+    },
+    {
+      "id": "experian-crosscore",
+      "name": "Experian CrossCore",
+      "provider": "Experian",
+      "category": "identity-orchestration",
+      "officialWebsite": "https://www.experian.com/",
+      "sources": [
+        {
+          "url": "https://www.experian.com/business/products/crosscore",
+          "title": "CrossCore",
+          "claim": "Official page describes identity and fraud orchestration.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "CrossCore, Experian FraudNet and the separate Fraud.net company must not be conflated."
+      ]
+    },
+    {
+      "id": "sentilink",
+      "name": "SentiLink Synthetic Score",
+      "provider": "SentiLink",
+      "category": "identity-fraud",
+      "officialWebsite": "https://www.sentilink.com/",
+      "sources": [
+        {
+          "url": "https://resources.sentilink.com/hubfs/Whitepapers/SentiLink-Synthetic-Score-White-Paper.pdf",
+          "title": "Synthetic Score White Paper",
+          "claim": "Official paper describes a hosted API for synthetic identity assessment.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "A backend scoring API has no mandatory browser-visible integration."
+      ]
+    },
+    {
+      "id": "unit21",
+      "name": "Unit21 Fraud Prevention",
+      "provider": "Unit21",
+      "category": "transaction-fraud",
+      "officialWebsite": "https://www.unit21.ai/",
+      "sources": [
+        {
+          "url": "https://www.unit21.ai/markets/fintech",
+          "title": "Unit21 for Fintechs",
+          "claim": "Official platform page documents fraud prevention and device intelligence including a Fingerprint integration.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "Observing Fingerprint does not independently attribute the site to Unit21."
+      ]
+    },
+    {
+      "id": "worldpay-fraudsight",
+      "name": "Worldpay FraudSight",
+      "provider": "Worldpay",
+      "category": "payment-risk",
+      "officialWebsite": "https://www.worldpay.com/",
+      "sources": [
+        {
+          "url": "https://docs.worldpay.com/access/products/fraudsight/changelog",
+          "title": "FraudSight Versioning and Change Log",
+          "claim": "The 16 July 2026 change log introduces the Ravelin SDK and states that ThreatMetrix SDK is being phased out; current assessment instructions use Ravelin.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "The documented ThreatMetrix association is legacy and being phased out; Ravelin is the current SDK recommendation as of the 16 July 2026 change log.",
+        "Observing ThreatMetrix or Ravelin device collection alone cannot distinguish Worldpay from other integrators."
+      ]
+    },
+    {
+      "id": "telesign",
+      "name": "Telesign Intelligence",
+      "provider": "Telesign",
+      "category": "identity-risk",
+      "officialWebsite": "https://www.telesign.com/",
+      "sources": [
+        {
+          "url": "https://www.telesign.com/industries/financial-services",
+          "title": "Financial Services",
+          "claim": "Official page describes Intelligence risk analysis and phone identity services.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "Phone risk and authentication APIs do not imply a unique browser collector."
+      ]
+    },
+    {
+      "id": "scamalytics",
+      "name": "Scamalytics IP Fraud Intelligence",
+      "provider": "Scamalytics",
+      "category": "ip-risk",
+      "officialWebsite": "https://scamalytics.com/",
+      "sources": [
+        {
+          "url": "https://scamalytics.com/products/",
+          "title": "IP Fraud Intelligence",
+          "claim": "Official product page documents API, MMDB and bulk risk data delivery.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "Server-side IP intelligence and local MMDB lookups need not generate any browser request."
+      ]
+    },
+    {
+      "id": "group-ib-fraud-protection",
+      "name": "Group-IB Fraud Protection",
+      "provider": "Group-IB",
+      "category": "behavioral-fraud",
+      "officialWebsite": "https://www.group-ib.com/",
+      "sources": [
+        {
+          "url": "https://www.group-ib.com/products/fraud-protection/",
+          "title": "Fraud Protection",
+          "claim": "Official page describes device, session and behavioral fraud analysis.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "Product page alone does not establish a stable JavaScript domain or WebRTC signature."
+      ]
+    },
+    {
+      "id": "bureau",
+      "name": "Bureau Device Intelligence",
+      "provider": "Bureau",
+      "category": "device-intelligence",
+      "officialWebsite": "https://www.bureau.id/",
+      "sources": [
+        {
+          "url": "https://bureau.id/products/device-id",
+          "title": "Bureau Device ID",
+          "claim": "Official Device ID product page describes browser and device identification, device graphs, and behavioral risk analysis.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "Exact public browser loader remains unconfirmed; product claims are not detector validation. The old landing-page URL redirects to the general homepage and was replaced with the current Device ID product page."
+      ]
+    },
+    {
+      "id": "cleafy",
+      "name": "Cleafy FxDR",
+      "provider": "Cleafy",
+      "category": "behavioral-fraud",
+      "officialWebsite": "https://www.cleafy.com/",
+      "sources": [
+        {
+          "url": "https://www.cleafy.com/platform",
+          "title": "Fraud Extended Detection and Response",
+          "claim": "Official page describes behavioral, device, identity and session fraud analysis.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "No unique published browser resource was confirmed."
+      ]
+    },
+    {
+      "id": "deduce",
+      "name": "Deduce Identity Intelligence",
+      "provider": "Deduce",
+      "category": "identity-risk",
+      "officialWebsite": "https://www.deduce.com/",
+      "sources": [
+        {
+          "url": "https://www.deduce.com/product/",
+          "title": "Deduce Product",
+          "claim": "Official product page describes API-based identity fraud analysis without required JavaScript.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "No-JavaScript API deployments cannot be recognized using a presumed browser loader."
+      ]
+    },
+    {
+      "id": "darwinium",
+      "name": "Darwinium JavaScript Profiling",
+      "provider": "Darwinium",
+      "category": "behavioral-fraud",
+      "officialWebsite": "https://www.darwinium.com/",
+      "sources": [
+        {
+          "url": "https://docs.darwinium.com/docs/tags-deployment",
+          "title": "Tags Deployment",
+          "claim": "Official tag deployment documents customer-defined script URL and the profiling API object.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://docs.darwinium.com/docs/inserting-darwinium-js-profiling",
+          "title": "Inserting Darwinium JS Profiling",
+          "claim": "Official edge deployment describes the dwn-profiling header or a form field; values are opaque session data.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [
+        {
+          "kind": "global-name",
+          "name": "dwn",
+          "scope": "deployment-specific",
+          "limitations": "The profiling object name is configurable; unrelated globals can share this name.",
+          "sourceUrl": "https://docs.darwinium.com/docs/tags-deployment",
+          "status": "documented-candidate",
+          "lifecycle": "current"
+        },
+        {
+          "kind": "header-name",
+          "name": "dwn-profiling",
+          "scope": "product",
+          "sourceUrl": "https://docs.darwinium.com/docs/inserting-darwinium-js-profiling",
+          "limitations": "Name only. Never retain header values or form contents.",
+          "status": "documented-candidate",
+          "lifecycle": "current"
+        },
+        {
+          "kind": "request-host",
+          "host": "aps.wowscale.com",
+          "scheme": "unknown",
+          "scope": "deployment-specific",
+          "lifecycle": "current",
+          "status": "documented-candidate",
+          "sourceUrl": "https://docs.darwinium.com/docs/inserting-darwinium-js-profiling",
+          "limitations": "The guide mentions connection profiling requests to this host; no path or unique product inference is established. Custom hosts are configurable."
+        }
+      ],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "Custom host, custom path and configurable object name make a universal host-only detector unavailable."
+      ]
+    },
+    {
+      "id": "transmit-security",
+      "name": "Transmit Security Mosaic Fraud Prevention",
+      "provider": "Transmit Security",
+      "category": "device-risk",
+      "officialWebsite": "https://transmitsecurity.com/",
+      "sources": [
+        {
+          "url": "https://developer.transmitsecurity.com/guides/risk/quick_start_web",
+          "title": "JavaScript SDK Quick Start",
+          "claim": "Official guide documents the Fraud Prevention module and regional risk-collect bases.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [
+        {
+          "kind": "sdk-package",
+          "name": "@transmitsecurity/platform-web-sdk",
+          "scope": "generic-sdk",
+          "limitations": "Shared multi-module SDK; package presence alone does not establish enabled fraud prevention.",
+          "sourceUrl": "https://developer.transmitsecurity.com/guides/risk/quick_start_web",
+          "status": "documented-candidate",
+          "lifecycle": "current"
+        },
+        {
+          "kind": "request-resource",
+          "host": "api.transmitsecurity.io",
+          "path": "/risk-collect/",
+          "pathMatch": "prefix",
+          "scope": "product",
+          "limitations": "Published SDK telemetry base; custom-domain and bundled deployments may not match.",
+          "sourceUrl": "https://developer.transmitsecurity.com/guides/risk/quick_start_web",
+          "status": "documented-candidate",
+          "lifecycle": "current",
+          "scheme": "https"
+        },
+        {
+          "kind": "request-resource",
+          "host": "api.eu.transmitsecurity.io",
+          "path": "/risk-collect/",
+          "pathMatch": "prefix",
+          "scope": "product",
+          "limitations": "Published SDK telemetry base; custom-domain and bundled deployments may not match.",
+          "sourceUrl": "https://developer.transmitsecurity.com/guides/risk/quick_start_web",
+          "status": "documented-candidate",
+          "lifecycle": "current",
+          "scheme": "https"
+        },
+        {
+          "kind": "request-resource",
+          "host": "api.ca.transmitsecurity.io",
+          "path": "/risk-collect/",
+          "pathMatch": "prefix",
+          "scope": "product",
+          "limitations": "Published SDK telemetry base; custom-domain and bundled deployments may not match.",
+          "sourceUrl": "https://developer.transmitsecurity.com/guides/risk/quick_start_web",
+          "status": "documented-candidate",
+          "lifecycle": "current",
+          "scheme": "https"
+        },
+        {
+          "kind": "request-resource",
+          "host": "api.au.transmitsecurity.io",
+          "path": "/risk-collect/",
+          "pathMatch": "prefix",
+          "scope": "product",
+          "limitations": "Published SDK telemetry base; custom-domain and bundled deployments may not match.",
+          "sourceUrl": "https://developer.transmitsecurity.com/guides/risk/quick_start_web",
+          "status": "documented-candidate",
+          "lifecycle": "current",
+          "scheme": "https"
+        },
+        {
+          "kind": "request-resource",
+          "host": "api.gasne1-ts01.transmitsecurity.io",
+          "path": "/risk-collect/",
+          "pathMatch": "prefix",
+          "scope": "product",
+          "limitations": "Published SDK telemetry base; custom-domain and bundled deployments may not match.",
+          "sourceUrl": "https://developer.transmitsecurity.com/guides/risk/quick_start_web",
+          "status": "documented-candidate",
+          "lifecycle": "current",
+          "scheme": "https"
+        },
+        {
+          "kind": "request-resource",
+          "host": "api.sbx.transmitsecurity.io",
+          "path": "/risk-collect/",
+          "pathMatch": "prefix",
+          "scope": "product",
+          "limitations": "Published SDK telemetry base; custom-domain and bundled deployments may not match.",
+          "sourceUrl": "https://developer.transmitsecurity.com/guides/risk/quick_start_web",
+          "status": "documented-candidate",
+          "lifecycle": "current",
+          "scheme": "https"
+        }
+      ],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "The shared Platform SDK includes identity and orchestration modules; its presence alone does not prove Fraud Prevention is active."
+      ]
+    },
+    {
+      "id": "pingone-protect",
+      "name": "PingOne Protect Signals SDK",
+      "provider": "Ping Identity",
+      "category": "device-risk",
+      "officialWebsite": "https://www.pingidentity.com/",
+      "sources": [
+        {
+          "url": "https://docs.pingidentity.com/pingone/threat_protection_using_pingone_protect/p1_protect_troubleshooting.html",
+          "title": "Troubleshooting PingOne Protect",
+          "claim": "Official documentation lists risk profiling/embedded/Signals script filenames and a legacy SDK resource.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [
+        {
+          "kind": "script-basename",
+          "name": "pingone-risk-profiling-signals-sdk.js",
+          "scope": "provider-family",
+          "limitations": "Weak filename hint; cannot attribute a provider without a verified deployment/resource.",
+          "sourceUrl": "https://docs.pingidentity.com/pingone/threat_protection_using_pingone_protect/p1_protect_troubleshooting.html",
+          "status": "documented-candidate",
+          "lifecycle": "current"
+        },
+        {
+          "kind": "script-basename",
+          "name": "pingone-risk-management-embedded.js",
+          "scope": "provider-family",
+          "limitations": "Weak filename hint; cannot attribute a provider without a verified deployment/resource.",
+          "sourceUrl": "https://docs.pingidentity.com/pingone/threat_protection_using_pingone_protect/p1_protect_troubleshooting.html",
+          "status": "documented-candidate",
+          "lifecycle": "current"
+        },
+        {
+          "kind": "script-basename",
+          "name": "signals-sdk.js",
+          "scope": "provider-family",
+          "limitations": "Weak filename hint; cannot attribute a provider without a verified deployment/resource.",
+          "sourceUrl": "https://docs.pingidentity.com/pingone/threat_protection_using_pingone_protect/p1_protect_troubleshooting.html",
+          "status": "documented-candidate",
+          "lifecycle": "current"
+        },
+        {
+          "kind": "script-resource",
+          "host": "apps.pingone.com",
+          "path": "/signals/web-sdk/5.2.7/signals-sdk.js",
+          "scope": "product",
+          "limitations": "Officially linked fallback for legacy embedded browsers. Not a current-version match.",
+          "sourceUrl": "https://docs.pingidentity.com/pingone/threat_protection_using_pingone_protect/p1_protect_troubleshooting.html",
+          "status": "documented-candidate",
+          "lifecycle": "legacy",
+          "scheme": "https"
+        }
+      ],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "Script basenames alone are weak integration hints; published 5.2.7 resource is a legacy compatibility version."
+      ]
+    },
+    {
+      "id": "fastly",
+      "name": "Fastly Bot Management",
+      "provider": "Fastly",
+      "category": "bot-management",
+      "officialWebsite": "https://www.fastly.com/products/bot-management",
+      "sources": [
+        {
+          "url": "https://www.fastly.com/products/bot-management",
+          "title": "Fastly Bot Management",
+          "claim": "Official product page documents bot-management functionality; no unique browser integration resource is confirmed here.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "CDN identity or hosting infrastructure alone does not attribute the bot-management product."
+      ]
+    },
+    {
+      "id": "radware",
+      "name": "Radware Bot Manager",
+      "provider": "Radware",
+      "category": "bot-management",
+      "officialWebsite": "https://www.radware.com/products/bot-manager/",
+      "sources": [
+        {
+          "url": "https://www.radware.com/products/bot-manager/",
+          "title": "Radware Bot Manager",
+          "claim": "Official product page documents bot-management functionality; no unique browser integration resource is confirmed here.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "CDN identity or hosting infrastructure alone does not attribute the bot-management product."
+      ]
+    },
+    {
+      "id": "cequence",
+      "name": "Cequence Bot Management",
+      "provider": "Cequence Security",
+      "category": "bot-management",
+      "officialWebsite": "https://www.cequence.ai/products/bot-management",
+      "sources": [
+        {
+          "url": "https://www.cequence.ai/products/bot-management",
+          "title": "Cequence Bot Management",
+          "claim": "Official product page documents bot-management functionality; no unique browser integration resource is confirmed here.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "CDN identity or hosting infrastructure alone does not attribute the bot-management product."
+      ]
+    }
+  ]
+}

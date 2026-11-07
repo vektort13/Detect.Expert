@@ -1,0 +1,77 @@
+diff --git a/openvpn.go b/openvpn.go
+index 15a0d2b..7818f77 100644
+--- a/openvpn.go
++++ b/openvpn.go
+@@ -754,8 +754,6 @@ func validateControlChannel(cfg *Config) error {
+ 		set++
+ 	}
+ 	switch {
+-	case set == 0:
+-		return errors.New("openvpn: a control-channel key is required (set one of TLSCryptV1, TLSCryptV2 or TLSAuth)")
+ 	case set > 1:
+ 		return errors.New("openvpn: only one control-channel key may be set (TLSCryptV1, TLSCryptV2 or TLSAuth)")
+ 	}
+diff --git a/internal/session/session.go b/internal/session/session.go
+index 7eba804..3b49964 100644
+--- a/internal/session/session.go
++++ b/internal/session/session.go
+@@ -1411,13 +1411,16 @@ func validateConfig(cfg *Config) error {
+ 	if len(cfg.TLSAuth) > 0 {
+ 		set++
+ 	}
+-	if set != 1 {
++	if set > 1 {
+ 		return errors.New("session: exactly one control-channel key required (tls-crypt v1, tls-crypt-v2 or tls-auth)")
+ 	}
+ 	return nil
+ }
+ 
+ func buildWrapper(cfg Config) (controlWrapper, proto.Opcode, error) {
++	if len(cfg.TLSAuth) == 0 && len(cfg.TLSCryptV1) == 0 && len(cfg.TLSCryptV2) == 0 {
++		return plainControl{}, proto.PControlHardResetClientV2, nil
++	}
+ 	if len(cfg.TLSAuth) > 0 {
+ 		rawKey, err := tlscrypt.ParseStaticKey(cfg.TLSAuth)
+ 		if err != nil {
+diff --git a/pkg/ovpn/parse.go b/pkg/ovpn/parse.go
+index 067892a..32e60b0 100644
+--- a/pkg/ovpn/parse.go
++++ b/pkg/ovpn/parse.go
+@@ -888,8 +888,6 @@ func (s *parseState) finalize() (*Parsed, error) {
+ 		}
+ 	}
+ 	switch {
+-	case ctrlKeys == 0:
+-		return nil, errors.New("missing control-channel protection: provide tls-crypt, tls-crypt-v2 or tls-auth (this library requires a protected control channel)")
+ 	case ctrlKeys > 1:
+ 		return nil, errors.New("multiple control-channel keys set; use exactly one of tls-crypt, tls-crypt-v2 or tls-auth")
+ 	}
+diff --git a/pkg/ovpn/parse_test.go b/pkg/ovpn/parse_test.go
+index 8d2de14..7475f12 100644
+--- a/pkg/ovpn/parse_test.go
++++ b/pkg/ovpn/parse_test.go
+@@ -202,19 +202,12 @@ remote vpn.example 1194
+ 	}
+ }
+ 
+-func TestMissingControlChannelEncryption(t *testing.T) {
++func TestPlainTLSControlProfile(t *testing.T) {
+ 	t.Parallel()
+-	src := `client
+-dev tun
+-proto udp
+-remote vpn.example 1194
+-`
+-	_, err := Parse(strings.NewReader(src), nil)
+-	if err == nil {
+-		t.Fatal("expected error about missing tls-crypt")
+-	}
+-	if !strings.Contains(err.Error(), "tls-crypt") {
+-		t.Errorf("err=%v, want mention of tls-crypt", err)
++	src := "client\ndev tun\nproto udp\nremote vpn.example 1194\n"
++	parsed, err := Parse(strings.NewReader(src), nil)
++	if err != nil || parsed.Config.TLSConfig == nil || parsed.Config.TLSConfig.ServerName != "vpn.example" {
++		t.Fatalf("TLS verification was not retained: %v", err)
+ 	}
+ }
+ 

@@ -1,0 +1,7 @@
+{
+  "ruleVersion": "1",
+  "calibrated": false,
+  "minDistinctCategories": 5,
+  "possibleConfidence": "low",
+  "maxConfidence": "low"
+}

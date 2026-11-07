@@ -1,0 +1,22 @@
+{
+  "browser": "Chrome/153.0.8010.12",
+  "errorTrace": [
+    {
+      "kind": "before",
+      "frameId": 0,
+      "documentId": null,
+      "lifecycle": "active",
+      "error": null
+    },
+    {
+      "kind": "error",
+      "frameId": 0,
+      "documentId": "18695D1B946AF8EE6DACD6E731C17C85",
+      "lifecycle": "active",
+      "error": "net::ERR_FAILED"
+    }
+  ],
+  "crashTrace": [],
+  "rendererCrashObserved": true,
+  "crashObservationMs": 1000
+}

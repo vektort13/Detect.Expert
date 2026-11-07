@@ -1,0 +1,9 @@
+{
+  "provider": "ipdata",
+  "ip": "8.8.8.8",
+  "status": 403,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "text": "{\"message\":\"You have made 20,000 requests and have exceeded your daily quota. Upgrade to the next plan to re-activate your account.\"}"
+}

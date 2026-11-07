@@ -1,0 +1,19 @@
+{
+  "extends": "../../baseline-ts/tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "types": ["chrome", "node"],
+    "paths": {
+      "@detect-expert/contracts": ["../../baseline-ts/packages/contracts/src/index.ts"],
+      "@detect-expert/sensors": ["../../baseline-ts/packages/sensors/src/index.ts"]
+    }
+  },
+  "files": [
+    "../../baseline-ts/packages/sensors/src/value-capture-policy.ts",
+    "../../baseline-ts/packages/sensors/src/visual.ts",
+    "../../baseline-ts/packages/sensors/src/api-results.ts",
+    "../../baseline-ts/packages/sensors/src/runtime.ts",
+    "../../baseline-ts/packages/sensors/src/rtc-details.ts",
+    "../../baseline-ts/apps/extension/entrypoints/hook.main.ts"
+  ]
+}

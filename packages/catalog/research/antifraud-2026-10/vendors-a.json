@@ -1,0 +1,1391 @@
+{
+  "schemaVersion": 1,
+  "researchDate": "2026-10-09",
+  "researchOnly": true,
+  "productionEnabled": false,
+  "fixtureVerified": false,
+  "scope": "Publicly documented browser integration resources and named SDK/DOM/cookie artifacts; no infrastructure asset inventory.",
+  "records": [
+    {
+      "id": "threatmetrix",
+      "name": "LexisNexis ThreatMetrix",
+      "provider": "LexisNexis Risk Solutions",
+      "category": "device-intelligence",
+      "officialWebsite": "https://risk.lexisnexis.com/products/threatmetrix",
+      "sources": [
+        {
+          "url": "https://risk.lexisnexis.com/products/threatmetrix",
+          "title": "ThreatMetrix: Automated Risk Management & Fraud Detection",
+          "claim": "ThreatMetrix is a digital identity and fraud risk decision product.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://docs.pingidentity.com/integrations/threatmetrix/setup/pf_threatmetrix_ik_integrating_device_profiling_web_app_basic.html",
+          "title": "Integrating device profiling - Web app (basic)",
+          "claim": "Ping Identity documents h-api.online-metrix.net/fp/tags.js and custom profiling domains.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://docs.cielo.com.br/risco/docs/web-fingerprint",
+          "title": "Fingerprint web",
+          "claim": "Cielo explicitly labels h.online-metrix.net/fp/tags.js as ThreatMetrix.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [
+        {
+          "kind": "script-resource",
+          "host": "h-api.online-metrix.net",
+          "scheme": "https",
+          "path": "/fp/tags.js",
+          "sourceUrl": "https://docs.pingidentity.com/integrations/threatmetrix/setup/pf_threatmetrix_ik_integrating_device_profiling_web_app_basic.html",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "script-resource",
+          "host": "h.online-metrix.net",
+          "scheme": "https",
+          "path": "/fp/tags.js",
+          "sourceUrl": "https://docs.cielo.com.br/risco/docs/web-fingerprint",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "sdk-file",
+          "name": "tmx_sdk_profiling.js",
+          "sourceUrl": "https://docs.pingidentity.com/integrations/threatmetrix/setup/pf_threatmetrix_ik_integrating_device_profiling_web_app_basic.html",
+          "status": "documented-candidate"
+        }
+      ],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "The SDK file can be self-hosted/renamed: its filename is weak evidence. Query identifiers and token values are excluded. No new public WebRTC attribution was established."
+      ]
+    },
+    {
+      "id": "human-bot-defender",
+      "name": "HUMAN Bot Defender",
+      "provider": "HUMAN Security",
+      "category": "bot-management",
+      "officialWebsite": "https://docs.humansecurity.com/home",
+      "sources": [
+        {
+          "url": "https://docs.humansecurity.com/home",
+          "title": "Home | HUMAN Documentation",
+          "claim": "HUMAN lists Bot Defender, Account Defender, Code Defender and Sightline Cyberfraud Defense.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://docs.humansecurity.com/applications/use-of-cookies-web-storage",
+          "title": "Use of cookies & web storage",
+          "claim": "HUMAN documents cookie-name product mappings, including names shared by multiple products.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [
+        {
+          "kind": "cookie-name",
+          "name": "_px2",
+          "sourceUrl": "https://docs.humansecurity.com/applications/use-of-cookies-web-storage",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "cookie-name",
+          "name": "_px3",
+          "sourceUrl": "https://docs.humansecurity.com/applications/use-of-cookies-web-storage",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "cookie-name",
+          "name": "_pxhd",
+          "sourceUrl": "https://docs.humansecurity.com/applications/use-of-cookies-web-storage",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "cookie-name",
+          "name": "_pxvid",
+          "sourceUrl": "https://docs.humansecurity.com/applications/use-of-cookies-web-storage",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "cookie-name",
+          "name": "pxcts",
+          "sourceUrl": "https://docs.humansecurity.com/applications/use-of-cookies-web-storage",
+          "status": "documented-candidate"
+        }
+      ],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "PerimeterX is a historical technology/brand association. The listed names are shared with Sightline; presence alone does not select the product."
+      ]
+    },
+    {
+      "id": "human-account-defender",
+      "name": "HUMAN Account Defender",
+      "provider": "HUMAN Security",
+      "category": "account-protection",
+      "officialWebsite": "https://docs.humansecurity.com/home",
+      "sources": [
+        {
+          "url": "https://docs.humansecurity.com/home",
+          "title": "Home | HUMAN Documentation",
+          "claim": "HUMAN lists Bot Defender, Account Defender, Code Defender and Sightline Cyberfraud Defense.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://docs.humansecurity.com/applications/use-of-cookies-web-storage",
+          "title": "Use of cookies & web storage",
+          "claim": "HUMAN documents cookie-name product mappings, including names shared by multiple products.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [
+        {
+          "kind": "cookie-name",
+          "name": "_pxwvm",
+          "sourceUrl": "https://docs.humansecurity.com/applications/use-of-cookies-web-storage",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "cookie-name",
+          "name": "_pxmd",
+          "sourceUrl": "https://docs.humansecurity.com/applications/use-of-cookies-web-storage",
+          "status": "documented-candidate"
+        }
+      ],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "These shared names describe mobile SDK/WebView integration. A universal desktop browser signature was not established."
+      ]
+    },
+    {
+      "id": "human-code-defender",
+      "name": "HUMAN Code Defender",
+      "provider": "HUMAN Security",
+      "category": "client-side-protection",
+      "officialWebsite": "https://docs.humansecurity.com/home",
+      "sources": [
+        {
+          "url": "https://docs.humansecurity.com/home",
+          "title": "Home | HUMAN Documentation",
+          "claim": "HUMAN lists Bot Defender, Account Defender, Code Defender and Sightline Cyberfraud Defense.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://docs.humansecurity.com/applications/use-of-cookies-web-storage",
+          "title": "Use of cookies & web storage",
+          "claim": "HUMAN documents cookie-name product mappings, including names shared by multiple products.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [
+        {
+          "kind": "cookie-name",
+          "name": "__pxvid",
+          "sourceUrl": "https://docs.humansecurity.com/applications/use-of-cookies-web-storage",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "cookie-name",
+          "name": "_pxvid",
+          "sourceUrl": "https://docs.humansecurity.com/applications/use-of-cookies-web-storage",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "cookie-name",
+          "name": "pxcts",
+          "sourceUrl": "https://docs.humansecurity.com/applications/use-of-cookies-web-storage",
+          "status": "documented-candidate"
+        }
+      ],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "__pxvid is documented for Code Defender; _pxvid and pxcts are shared. Cookie values are excluded."
+      ]
+    },
+    {
+      "id": "human-sightline-cyberfraud",
+      "name": "HUMAN Sightline Cyberfraud Defense",
+      "provider": "HUMAN Security",
+      "category": "fraud-platform",
+      "officialWebsite": "https://docs.humansecurity.com/home",
+      "sources": [
+        {
+          "url": "https://docs.humansecurity.com/applications/whats-different-in-sightline-cyberfraud-defense",
+          "title": "What's different in Sightline Cyberfraud Defense",
+          "claim": "HUMAN describes migrating Account Defender, Bot Defender and Credential Intelligence into Sightline.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://docs.humansecurity.com/applications/use-of-cookies-web-storage",
+          "title": "Use of cookies & web storage",
+          "claim": "HUMAN documents cookie-name product mappings, including names shared by multiple products.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [
+        {
+          "kind": "cookie-name",
+          "name": "_px3",
+          "sourceUrl": "https://docs.humansecurity.com/applications/use-of-cookies-web-storage",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "cookie-name",
+          "name": "_pxhd",
+          "sourceUrl": "https://docs.humansecurity.com/applications/use-of-cookies-web-storage",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "cookie-name",
+          "name": "_pxvid",
+          "sourceUrl": "https://docs.humansecurity.com/applications/use-of-cookies-web-storage",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "cookie-name",
+          "name": "pxcts",
+          "sourceUrl": "https://docs.humansecurity.com/applications/use-of-cookies-web-storage",
+          "status": "documented-candidate"
+        }
+      ],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "These shared markers allow a HUMAN-family hint; they do not distinguish Sightline from legacy products."
+      ]
+    },
+    {
+      "id": "datadome-bot-protect",
+      "name": "DataDome Bot Protect",
+      "provider": "DataDome",
+      "category": "bot-management",
+      "officialWebsite": "https://docs.datadome.co/docs/javascript-tag",
+      "sources": [
+        {
+          "url": "https://docs.datadome.co/docs/javascript-tag",
+          "title": "JavaScript Tag Integration for Bot Protect",
+          "claim": "DataDome documents tags.js, versioned routes, first-party proxies, /js/ collection, globals and datadome cookie.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [
+        {
+          "kind": "script-resource",
+          "host": "js.datadome.co",
+          "path": "/tags.js",
+          "scheme": "https",
+          "sourceUrl": "https://docs.datadome.co/docs/javascript-tag",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "script-path-template",
+          "host": "js.datadome.co",
+          "path": "/v{version}/tags.js",
+          "scheme": "https",
+          "sourceUrl": "https://docs.datadome.co/docs/javascript-tag",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "browser-request-resource",
+          "host": "api-js.datadome.co",
+          "scheme": "https",
+          "path": "/js/",
+          "sourceUrl": "https://docs.datadome.co/docs/javascript-tag",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "global-name",
+          "name": "ddjskey",
+          "sourceUrl": "https://docs.datadome.co/docs/javascript-tag",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "global-name",
+          "name": "ddoptions",
+          "sourceUrl": "https://docs.datadome.co/docs/javascript-tag",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "cookie-name",
+          "name": "datadome",
+          "sourceUrl": "https://docs.datadome.co/docs/javascript-tag",
+          "status": "documented-candidate"
+        }
+      ],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "First-party proxies/custom endpoints are documented. Third-party-host absence is inconclusive; cookie/global names alone are weak evidence."
+      ]
+    },
+    {
+      "id": "datadome-account-protect",
+      "name": "DataDome Account Protect",
+      "provider": "DataDome",
+      "category": "account-protection",
+      "officialWebsite": "https://docs.datadome.co/docs/account-protect-login",
+      "sources": [
+        {
+          "url": "https://docs.datadome.co/docs/account-protect-login",
+          "title": "SDK integration for login",
+          "claim": "Account Protect uses server-side SDKs to obtain login-risk recommendations.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "No distinct browser loader was established from the reviewed server-side login SDK page. Do not relabel the shared Bot Protect tag as Account Protect."
+      ]
+    },
+    {
+      "id": "akamai-bot-manager",
+      "name": "Akamai Bot Manager",
+      "provider": "Akamai",
+      "category": "bot-management",
+      "officialWebsite": "https://www.akamai.com/products/bot-manager",
+      "sources": [
+        {
+          "url": "https://www.akamai.com/products/bot-manager",
+          "title": "Akamai Bot Manager: Enterprise bot and abuse protection",
+          "claim": "Akamai documents bot scoring and injected browser telemetry.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "Generic Akamai delivery/TLS/cookies do not distinguish Bot Manager. The reviewed primary source does not define a stable loader path."
+      ]
+    },
+    {
+      "id": "akamai-account-protector",
+      "name": "Akamai Account Protector",
+      "provider": "Akamai",
+      "category": "account-protection",
+      "officialWebsite": "https://techdocs.akamai.com/cloud-security/docs/account-protector",
+      "sources": [
+        {
+          "url": "https://techdocs.akamai.com/cloud-security/docs/account-protector",
+          "title": "Prevent account abuse",
+          "claim": "Account Protector evaluates user risk and includes Bot Manager Premier capabilities.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "Bot Manager evidence alone does not confirm Account Protector; login endpoints are customer-specific."
+      ]
+    },
+    {
+      "id": "akamai-client-side-protection",
+      "name": "Akamai Client-Side Protection & Compliance",
+      "provider": "Akamai",
+      "category": "client-side-protection",
+      "officialWebsite": "https://techdocs.akamai.com/cloud-security/docs/page-integrity-manager",
+      "sources": [
+        {
+          "url": "https://techdocs.akamai.com/cloud-security/docs/page-integrity-manager",
+          "title": "Protect your site against web skimming attacks",
+          "claim": "Client-Side Protection & Compliance identifies suspicious script behavior.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "Separate client-side protection product; a stable browser endpoint was not established from the reviewed source."
+      ]
+    },
+    {
+      "id": "f5-distributed-cloud-bot-defense",
+      "name": "F5 Distributed Cloud Bot Defense",
+      "provider": "F5",
+      "category": "bot-management",
+      "officialWebsite": "https://docs.cloud.f5.com/docs-v2/bot-defense/plan-bot-advanced/web",
+      "sources": [
+        {
+          "url": "https://docs.cloud.f5.com/docs-v2/bot-defense/plan-bot-advanced/web",
+          "title": "Protect web endpoints",
+          "claim": "F5 documents browser telemetry and expressly customer-selected script URLs.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "Shape is a historical technology association. Script URLs are customer-defined; examplepath.js is not a universal signature."
+      ]
+    },
+    {
+      "id": "kasada-bot-defense",
+      "name": "Kasada Bot Defense",
+      "provider": "Kasada",
+      "category": "bot-management",
+      "officialWebsite": "https://www.kasada.io/bot-defense",
+      "sources": [
+        {
+          "url": "https://www.kasada.io/bot-defense",
+          "title": "Bot Defense | Kasada",
+          "claim": "Kasada describes client-side challenges and server-side bot detection.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "The reviewed public source does not establish stable cookie/header/loader names. Unverified third-party names are excluded."
+      ]
+    },
+    {
+      "id": "kasada-account-intelligence",
+      "name": "Kasada Account Intelligence",
+      "provider": "Kasada",
+      "category": "account-protection",
+      "officialWebsite": "https://www.kasada.io/account-intelligence",
+      "sources": [
+        {
+          "url": "https://www.kasada.io/account-intelligence",
+          "title": "Account Intelligence | Kasada",
+          "claim": "Kasada publishes Account Intelligence as an account/human-fraud capability.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "Published product entry; shared Kasada bot technology cannot prove this product's deployment."
+      ]
+    },
+    {
+      "id": "imperva-advanced-bot-protection",
+      "name": "Imperva Advanced Bot Protection",
+      "provider": "Imperva",
+      "category": "bot-management",
+      "officialWebsite": "https://www.imperva.com/products/advanced-bot-protection-management/",
+      "sources": [
+        {
+          "url": "https://www.imperva.com/products/advanced-bot-protection-management/",
+          "title": "Advanced Bot Protection",
+          "claim": "Imperva describes behavior/device-based bot detection for websites, mobile apps and APIs.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "Generic Incapsula/Imperva/WAF evidence does not confirm Advanced Bot Protection. No server asset inventory is included."
+      ]
+    },
+    {
+      "id": "fingerprint-device-intelligence",
+      "name": "Fingerprint Device Intelligence",
+      "provider": "Fingerprint",
+      "category": "device-intelligence",
+      "officialWebsite": "https://docs.fingerprint.com/docs/quick-start-guide",
+      "sources": [
+        {
+          "url": "https://docs.fingerprint.com/docs/quick-start-guide",
+          "title": "Quick Start Guide",
+          "claim": "Fingerprint documents fpjscdn.net/v4/{public-key}, @fingerprint/agent and custom proxy integration.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [
+        {
+          "kind": "script-path-template",
+          "host": "fpjscdn.net",
+          "scheme": "https",
+          "path": "/v4/{public-key}",
+          "sourceUrl": "https://docs.fingerprint.com/docs/quick-start-guide",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "sdk-package",
+          "name": "@fingerprint/agent",
+          "sourceUrl": "https://docs.fingerprint.com/docs/quick-start-guide",
+          "status": "documented-candidate"
+        }
+      ],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "Fingerprint in the example is a module binding, not necessarily a global. Custom proxies exist. No WebRTC endpoint was inferred."
+      ]
+    },
+    {
+      "id": "arkose-bot-manager",
+      "name": "Arkose Bot Manager",
+      "provider": "Arkose Labs",
+      "category": "bot-challenge",
+      "officialWebsite": "https://developer.arkoselabs.com/docs/bot-manager-quickstart",
+      "sources": [
+        {
+          "url": "https://developer.arkoselabs.com/docs/bot-manager-quickstart",
+          "title": "Bot Manager Quickstart",
+          "claim": "Arkose documents client-api.arkoselabs.com/v2/{public-key}/api.js.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://developer.arkoselabs.com/docs/standard-setup",
+          "title": "Client-Side Instructions",
+          "claim": "Arkose documents company-specific client API hostnames and customer-defined callbacks.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [
+        {
+          "kind": "script-path-template",
+          "host": "client-api.arkoselabs.com",
+          "scheme": "document-context",
+          "limitations": "The quickstart embeds a protocol-relative // URL, so the scheme follows the embedding document.",
+          "path": "/v2/{public-key}/api.js",
+          "sourceUrl": "https://developer.arkoselabs.com/docs/bot-manager-quickstart",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "script-path-template",
+          "host": "{company}-api.arkoselabs.com",
+          "scheme": "document-context",
+          "limitations": "The standard script example uses a protocol-relative // URL; a separate dynamic-load example explicitly uses HTTPS. This remains a configurable deployment template.",
+          "path": "/v2/{public-key}/api.js",
+          "sourceUrl": "https://developer.arkoselabs.com/docs/standard-setup",
+          "status": "documented-candidate"
+        }
+      ],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "The company hostname is a documented template, not an inventory. Callback names are customer-defined."
+      ]
+    },
+    {
+      "id": "google-recaptcha-classic",
+      "name": "Google reCAPTCHA classic",
+      "provider": "Google",
+      "category": "bot-challenge",
+      "officialWebsite": "https://developers.google.com/recaptcha/docs/display",
+      "sources": [
+        {
+          "url": "https://developers.google.com/recaptcha/docs/display",
+          "title": "reCAPTCHA v2 | Google for Developers",
+          "claim": "Google specifies www.google.com/recaptcha/api.js, grecaptcha and the g-recaptcha class.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [
+        {
+          "kind": "script-resource",
+          "host": "www.google.com",
+          "path": "/recaptcha/api.js",
+          "scheme": "https",
+          "sourceUrl": "https://developers.google.com/recaptcha/docs/display",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "global-name",
+          "name": "grecaptcha",
+          "sourceUrl": "https://developers.google.com/recaptcha/docs/display",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "dom-class",
+          "name": "g-recaptcha",
+          "sourceUrl": "https://developers.google.com/recaptcha/docs/display",
+          "status": "documented-candidate"
+        }
+      ],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "Compatibility libraries may expose grecaptcha without Google loading. The DOM class alone does not distinguish classic/enterprise."
+      ]
+    },
+    {
+      "id": "google-recaptcha-enterprise",
+      "name": "Google reCAPTCHA Enterprise / Google Cloud Fraud Defense",
+      "provider": "Google Cloud",
+      "category": "bot-challenge",
+      "officialWebsite": "https://docs.cloud.google.com/recaptcha/docs/instrument-web-pages",
+      "sources": [
+        {
+          "url": "https://docs.cloud.google.com/recaptcha/docs/instrument-web-pages",
+          "title": "Install score-based keys on websites",
+          "claim": "Google Cloud specifies /recaptcha/enterprise.js and grecaptcha.enterprise.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [
+        {
+          "kind": "script-resource",
+          "host": "www.google.com",
+          "path": "/recaptcha/enterprise.js",
+          "scheme": "https",
+          "sourceUrl": "https://docs.cloud.google.com/recaptcha/docs/instrument-web-pages",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "global-name",
+          "name": "grecaptcha.enterprise",
+          "sourceUrl": "https://docs.cloud.google.com/recaptcha/docs/instrument-web-pages",
+          "status": "documented-candidate"
+        }
+      ],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "Current official documentation groups this integration under Google Cloud Fraud Defense. Loading is not an assessment outcome."
+      ]
+    },
+    {
+      "id": "cloudflare-turnstile",
+      "name": "Cloudflare Turnstile",
+      "provider": "Cloudflare",
+      "category": "bot-challenge",
+      "officialWebsite": "https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/",
+      "sources": [
+        {
+          "url": "https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/",
+          "title": "Embed the widget",
+          "claim": "Cloudflare specifies challenges.cloudflare.com/turnstile/v0/api.js, turnstile and cf-turnstile.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [
+        {
+          "kind": "script-resource",
+          "host": "challenges.cloudflare.com",
+          "scheme": "https",
+          "path": "/turnstile/v0/api.js",
+          "sourceUrl": "https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "global-name",
+          "name": "turnstile",
+          "sourceUrl": "https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "dom-class",
+          "name": "cf-turnstile",
+          "sourceUrl": "https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/",
+          "status": "documented-candidate"
+        }
+      ],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "Independent of general Cloudflare CDN usage; require the exact loader path. Token/form-field values are excluded."
+      ]
+    },
+    {
+      "id": "cloudflare-bot-management",
+      "name": "Cloudflare Bot Management",
+      "provider": "Cloudflare",
+      "category": "bot-management",
+      "officialWebsite": "https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/",
+      "sources": [
+        {
+          "url": "https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/",
+          "title": "Cloudflare Cookies",
+          "claim": "__cf_bm is shared by bot products; cf_clearance represents challenge/JavaScript-detection state.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [
+        {
+          "kind": "cookie-name",
+          "name": "__cf_bm",
+          "sourceUrl": "https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "cookie-name",
+          "name": "cf_clearance",
+          "sourceUrl": "https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/",
+          "status": "documented-candidate"
+        }
+      ],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "The cookie names are shared; neither proves the enterprise Bot Management product alone."
+      ]
+    },
+    {
+      "id": "cloudflare-super-bot-fight-mode",
+      "name": "Cloudflare Super Bot Fight Mode",
+      "provider": "Cloudflare",
+      "category": "bot-management",
+      "officialWebsite": "https://developers.cloudflare.com/bots/get-started/super-bot-fight-mode/",
+      "sources": [
+        {
+          "url": "https://developers.cloudflare.com/bots/get-started/super-bot-fight-mode/",
+          "title": "Super Bot Fight Mode",
+          "claim": "Super Bot Fight Mode shares underlying technology with Bot Management.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/",
+          "title": "Cloudflare Cookies",
+          "claim": "__cf_bm is shared by bot products; cf_clearance represents challenge/JavaScript-detection state.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "No browser-only product discriminator was established. Shared cookies should produce a family-level hint."
+      ]
+    },
+    {
+      "id": "hcaptcha",
+      "name": "hCaptcha",
+      "provider": "Intuition Machines",
+      "category": "bot-challenge",
+      "officialWebsite": "https://docs.hcaptcha.com/",
+      "sources": [
+        {
+          "url": "https://docs.hcaptcha.com/",
+          "title": "Developer Guide | hCaptcha",
+          "claim": "The guide specifies js.hcaptcha.com/1/api.js, hcaptcha and h-captcha; asset subdomains can vary.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [
+        {
+          "kind": "script-resource",
+          "host": "js.hcaptcha.com",
+          "scheme": "https",
+          "path": "/1/api.js",
+          "sourceUrl": "https://docs.hcaptcha.com/",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "global-name",
+          "name": "hcaptcha",
+          "sourceUrl": "https://docs.hcaptcha.com/",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "dom-class",
+          "name": "h-captcha",
+          "sourceUrl": "https://docs.hcaptcha.com/",
+          "status": "documented-candidate"
+        }
+      ],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "Asset subdomains vary. Compatibility API/copied markup alone does not prove loading or execution."
+      ]
+    },
+    {
+      "id": "geetest-captcha-v4",
+      "name": "GeeTest CAPTCHA v4",
+      "provider": "GeeTest",
+      "category": "bot-challenge",
+      "officialWebsite": "https://docs.geetest.com/gt4/deploy/client/web",
+      "sources": [
+        {
+          "url": "https://docs.geetest.com/gt4/deploy/client/web",
+          "title": "验证-gcaptcha4-部署文档 | GeeTest CAPTCHA v4",
+          "claim": "GeeTest specifies static.geetest.com/v4/gt4.js and initGeetest4.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [
+        {
+          "kind": "script-resource",
+          "host": "static.geetest.com",
+          "scheme": "https",
+          "path": "/v4/gt4.js",
+          "sourceUrl": "https://docs.geetest.com/gt4/deploy/client/web",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "global-name",
+          "name": "initGeetest4",
+          "sourceUrl": "https://docs.geetest.com/gt4/deploy/client/web",
+          "status": "documented-candidate"
+        }
+      ],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "Only the documented v4 loader is represented; earlier generations are not inferred."
+      ]
+    },
+    {
+      "id": "aws-waf-bot-control",
+      "name": "AWS WAF Bot Control",
+      "provider": "Amazon Web Services",
+      "category": "bot-management",
+      "officialWebsite": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-bot-control.html",
+      "sources": [
+        {
+          "url": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-bot-control.html",
+          "title": "AWS WAF Bot Control",
+          "claim": "Targeted Bot Control can use browser interrogation, fingerprinting and behavior heuristics.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-js-challenge-api.html",
+          "title": "Using the intelligent threat JavaScript API",
+          "claim": "Deployment-specific /challenge.js integration is shared by targeted Bot Control, ATP and ACFP.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-js-challenge-api-specification.html",
+          "title": "Intelligent threat API specification",
+          "claim": "The public browser API is AwsWafIntegration and its cookie name is aws-waf-token.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [
+        {
+          "kind": "global-name",
+          "name": "AwsWafIntegration",
+          "sourceUrl": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-js-challenge-api-specification.html",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "cookie-name",
+          "name": "aws-waf-token",
+          "sourceUrl": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-js-challenge-api-specification.html",
+          "status": "documented-candidate"
+        }
+      ],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "These markers are shared across AWS WAF products. They do not prove Bot Control or its inspection level."
+      ]
+    },
+    {
+      "id": "aws-waf-captcha-challenge",
+      "name": "AWS WAF CAPTCHA and Challenge",
+      "provider": "Amazon Web Services",
+      "category": "bot-challenge",
+      "officialWebsite": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-js-captcha-api.html",
+      "sources": [
+        {
+          "url": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-js-captcha-api.html",
+          "title": "Using the CAPTCHA JavaScript API",
+          "claim": "The CAPTCHA loader uses deployment-specific integrationURL/jsapi.js and installs intelligent-threat APIs.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-js-captcha-api-specification.html",
+          "title": "CAPTCHA JavaScript API specification",
+          "claim": "The public browser CAPTCHA API is AwsWafCaptcha.renderCaptcha.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-js-challenge-api-specification.html",
+          "title": "Intelligent threat API specification",
+          "claim": "The public browser API is AwsWafIntegration and its cookie name is aws-waf-token.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [
+        {
+          "kind": "global-name",
+          "name": "AwsWafCaptcha",
+          "sourceUrl": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-js-captcha-api-specification.html",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "global-name",
+          "name": "AwsWafIntegration",
+          "sourceUrl": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-js-challenge-api-specification.html",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "cookie-name",
+          "name": "aws-waf-token",
+          "sourceUrl": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-js-challenge-api-specification.html",
+          "status": "documented-candidate"
+        }
+      ],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "AwsWafCaptcha narrows to CAPTCHA integration; shared globals/cookies do not. Generic jsapi.js/challenge.js filenames cannot stand alone."
+      ]
+    },
+    {
+      "id": "aws-waf-fraud-control-atp",
+      "name": "AWS WAF Fraud Control ATP",
+      "provider": "Amazon Web Services",
+      "category": "account-protection",
+      "officialWebsite": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-atp.html",
+      "sources": [
+        {
+          "url": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-atp.html",
+          "title": "AWS WAF Fraud Control account takeover prevention (ATP)",
+          "claim": "ATP inspects login requests and has companion application SDKs.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-js-challenge-api.html",
+          "title": "Using the intelligent threat JavaScript API",
+          "claim": "Deployment-specific /challenge.js integration is shared by targeted Bot Control, ATP and ACFP.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "Shared browser integration cannot distinguish ATP from ACFP, Bot Control or generic Challenge. No exclusive browser marker established."
+      ]
+    },
+    {
+      "id": "aws-waf-fraud-control-acfp",
+      "name": "AWS WAF Fraud Control ACFP",
+      "provider": "Amazon Web Services",
+      "category": "account-protection",
+      "officialWebsite": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-acfp.html",
+      "sources": [
+        {
+          "url": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-acfp.html",
+          "title": "AWS WAF Fraud Control account creation fraud prevention (ACFP)",
+          "claim": "AWS publishes account-creation fraud prevention as a managed-rule product.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-js-challenge-api.html",
+          "title": "Using the intelligent threat JavaScript API",
+          "claim": "Deployment-specific /challenge.js integration is shared by targeted Bot Control, ATP and ACFP.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "Shared browser integration cannot distinguish ACFP. Customer signup paths are not universal signatures."
+      ]
+    },
+    {
+      "id": "friendly-captcha",
+      "name": "Friendly Captcha",
+      "provider": "Friendly Captcha",
+      "category": "bot-challenge",
+      "officialWebsite": "https://developer.friendlycaptcha.com/docs/v2/getting-started/install",
+      "sources": [
+        {
+          "url": "https://developer.friendlycaptcha.com/docs/v2/getting-started/install",
+          "title": "Install the widget",
+          "claim": "The v2 scripts use @friendlycaptcha/sdk, the frc-captcha class and optional self-hosting.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [
+        {
+          "kind": "script-path-template",
+          "host": "cdn.jsdelivr.net",
+          "path": "/npm/@friendlycaptcha/sdk@{version}/site.min.js",
+          "scheme": "https",
+          "sourceUrl": "https://developer.friendlycaptcha.com/docs/v2/getting-started/install",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "script-path-template",
+          "host": "cdn.jsdelivr.net",
+          "path": "/npm/@friendlycaptcha/sdk@{version}/site.compat.min.js",
+          "scheme": "https",
+          "sourceUrl": "https://developer.friendlycaptcha.com/docs/v2/getting-started/install",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "sdk-package",
+          "name": "@friendlycaptcha/sdk",
+          "sourceUrl": "https://developer.friendlycaptcha.com/docs/v2/getting-started/install",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "dom-class",
+          "name": "frc-captcha",
+          "sourceUrl": "https://developer.friendlycaptcha.com/docs/v2/getting-started/install",
+          "status": "documented-candidate"
+        }
+      ],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "Shared CDN hostname is insufficient. SDK is also used for Risk Intelligence; self-hosting is documented."
+      ]
+    },
+    {
+      "id": "friendly-captcha-risk-intelligence",
+      "name": "Friendly Captcha Risk Intelligence",
+      "provider": "Friendly Captcha",
+      "category": "device-intelligence",
+      "officialWebsite": "https://developer.friendlycaptcha.com/docs/v2/risk-intelligence/getting-started/generate",
+      "sources": [
+        {
+          "url": "https://developer.friendlycaptcha.com/docs/v2/risk-intelligence/getting-started/generate",
+          "title": "Generate a Risk Intelligence token",
+          "claim": "Risk Intelligence uses frc-risk-intelligence elements and global.frcapi.com/api/v2/riskIntelligence.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [
+        {
+          "kind": "dom-class",
+          "name": "frc-risk-intelligence",
+          "sourceUrl": "https://developer.friendlycaptcha.com/docs/v2/risk-intelligence/getting-started/generate",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "browser-request-resource",
+          "host": "global.frcapi.com",
+          "scheme": "https",
+          "scope": "product",
+          "path": "/api/v2/riskIntelligence",
+          "sourceUrl": "https://developer.friendlycaptcha.com/docs/v2/risk-intelligence/getting-started/generate",
+          "status": "documented-candidate"
+        }
+      ],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "Specific endpoint/element is needed to distinguish Risk Intelligence from the shared CAPTCHA SDK. Hidden input/token values are excluded."
+      ]
+    },
+    {
+      "id": "mtcaptcha",
+      "name": "MTCaptcha",
+      "provider": "MTCaptcha",
+      "category": "bot-challenge",
+      "officialWebsite": "https://docs.mtcaptcha.com/dev-guide",
+      "sources": [
+        {
+          "url": "https://docs.mtcaptcha.com/dev-guide",
+          "title": "Developer Guide",
+          "claim": "MTCaptcha specifies service.mtcaptcha.com/mtcv1/client/mtcaptcha.min.js, mtcaptchaConfig and window.mtcaptcha.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [
+        {
+          "kind": "script-resource",
+          "host": "service.mtcaptcha.com",
+          "scheme": "https",
+          "path": "/mtcv1/client/mtcaptcha.min.js",
+          "sourceUrl": "https://docs.mtcaptcha.com/dev-guide",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "global-name",
+          "name": "mtcaptchaConfig",
+          "sourceUrl": "https://docs.mtcaptcha.com/dev-guide",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "global-name",
+          "name": "mtcaptcha",
+          "sourceUrl": "https://docs.mtcaptcha.com/dev-guide",
+          "status": "documented-candidate"
+        }
+      ],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "Copied configuration is page-controlled evidence; correlate with browser-observed resource loading."
+      ]
+    },
+    {
+      "id": "yandex-smartcaptcha",
+      "name": "Yandex SmartCaptcha",
+      "provider": "Yandex Cloud",
+      "category": "bot-challenge",
+      "officialWebsite": "https://yandex.cloud/en/docs/smartcaptcha/concepts/widget-methods",
+      "sources": [
+        {
+          "url": "https://yandex.cloud/en/docs/smartcaptcha/concepts/widget-methods",
+          "title": "Yandex SmartCaptcha widget installation methods",
+          "claim": "The current loader is smartcaptcha.cloud.yandex.ru/captcha.js and browser API is smartCaptcha.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [
+        {
+          "kind": "script-resource",
+          "host": "smartcaptcha.cloud.yandex.ru",
+          "scheme": "https",
+          "path": "/captcha.js",
+          "sourceUrl": "https://yandex.cloud/en/docs/smartcaptcha/concepts/widget-methods",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "global-name",
+          "name": "smartCaptcha",
+          "sourceUrl": "https://yandex.cloud/en/docs/smartcaptcha/concepts/widget-methods",
+          "status": "documented-candidate"
+        }
+      ],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "Use the current documented hostname; older/unrelated host spellings are not presumed equivalent."
+      ]
+    },
+    {
+      "id": "tencent-captcha",
+      "name": "Tencent Cloud CAPTCHA / 天御验证码",
+      "provider": "Tencent Cloud",
+      "category": "bot-challenge",
+      "officialWebsite": "https://cloud.tencent.com/document/product/1110/36841",
+      "sources": [
+        {
+          "url": "https://cloud.tencent.com/document/product/1110/36841",
+          "title": "验证码 Web 客户端接入",
+          "claim": "Tencent specifies current TJCaptcha.js, retained TCaptcha.js, and TencentCaptcha.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://intl.cloud.tencent.com/zh/document/product/1159/73397",
+          "title": "JS 迁移指引",
+          "claim": "The international migration guide specifies the current HTTPS ca.turing.captcha.qcloud.com/TJNCaptcha-global.js loader and TencentCaptcha constructor in the updated browser example.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [
+        {
+          "kind": "script-resource",
+          "host": "turing.captcha.qcloud.com",
+          "path": "/TJCaptcha.js",
+          "scheme": "https",
+          "sourceUrl": "https://cloud.tencent.com/document/product/1110/36841",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "script-resource",
+          "host": "turing.captcha.qcloud.com",
+          "path": "/TCaptcha.js",
+          "scheme": "https",
+          "sourceUrl": "https://cloud.tencent.com/document/product/1110/36841",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "script-resource",
+          "host": "ca.turing.captcha.qcloud.com",
+          "scheme": "https",
+          "path": "/TJNCaptcha-global.js",
+          "sourceUrl": "https://intl.cloud.tencent.com/zh/document/product/1159/73397",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "global-name",
+          "name": "TencentCaptcha",
+          "sourceUrl": "https://cloud.tencent.com/document/product/1110/36841",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "global-name",
+          "name": "TencentCaptcha",
+          "sourceUrl": "https://intl.cloud.tencent.com/zh/document/product/1159/73397",
+          "status": "documented-candidate",
+          "lifecycle": "current",
+          "limitations": "The same constructor appears in the current international migration example; its name alone cannot identify a region or loader generation."
+        }
+      ],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "Generation/region differences are explicit. Retired hostnames are not silently activated."
+      ]
+    },
+    {
+      "id": "alibaba-cloud-captcha",
+      "name": "Alibaba Cloud Captcha 2.0",
+      "provider": "Alibaba Cloud",
+      "category": "bot-challenge",
+      "officialWebsite": "https://help.aliyun.com/en/captcha/captcha2-0/user-guide/new-architecture-for-web-and-h5-client-access",
+      "sources": [
+        {
+          "url": "https://help.aliyun.com/en/captcha/captcha2-0/user-guide/new-architecture-for-web-and-h5-client-access",
+          "title": "Web and H5 client integration (V3 architecture)",
+          "claim": "Alibaba specifies o.alicdn.com/captcha-frontend/aliyunCaptcha/AliyunCaptcha.js, AliyunCaptchaConfig and initAliyunCaptcha.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://help.aliyun.com/en/edge-security-acceleration/esa/user-guide/get-started-with-ai-captchas",
+          "title": "AI CAPTCHA quick start",
+          "claim": "ESA AI CAPTCHA documents the same AliyunCaptcha.js loader and initialization API.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [
+        {
+          "kind": "script-resource",
+          "host": "o.alicdn.com",
+          "scheme": "https",
+          "path": "/captcha-frontend/aliyunCaptcha/AliyunCaptcha.js",
+          "sourceUrl": "https://help.aliyun.com/en/captcha/captcha2-0/user-guide/new-architecture-for-web-and-h5-client-access",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "global-name",
+          "name": "AliyunCaptchaConfig",
+          "sourceUrl": "https://help.aliyun.com/en/captcha/captcha2-0/user-guide/new-architecture-for-web-and-h5-client-access",
+          "status": "documented-candidate"
+        },
+        {
+          "kind": "global-name",
+          "name": "initAliyunCaptcha",
+          "sourceUrl": "https://help.aliyun.com/en/captcha/captcha2-0/user-guide/new-architecture-for-web-and-h5-client-access",
+          "status": "documented-candidate"
+        }
+      ],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "Shared CDN requires the exact path. The same loader is also documented for ESA AI CAPTCHA; it cannot distinguish those deployment products."
+      ]
+    },
+    {
+      "id": "netacea-bot-management",
+      "name": "Netacea Bot Management",
+      "provider": "Netacea",
+      "category": "bot-management",
+      "officialWebsite": "https://docs.netacea.com/",
+      "sources": [
+        {
+          "url": "https://docs.netacea.com/",
+          "title": "Overview | Netacea Documentation",
+          "claim": "Netacea describes web-log analysis and server-side connectors without requiring a client agent.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "No universal browser loader/global/WebRTC signature follows from the reviewed server-side documentation. Browser silence does not exclude deployment."
+      ]
+    },
+    {
+      "id": "vercel-botid",
+      "name": "Vercel BotID",
+      "provider": "Vercel",
+      "category": "bot-management",
+      "officialWebsite": "https://vercel.com/docs/botid",
+      "sources": [
+        {
+          "url": "https://vercel.com/docs/botid",
+          "title": "BotID",
+          "claim": "Vercel publishes Basic and Deep Analysis browser challenges; Deep Analysis is powered by Kasada.",
+          "accessedAt": "2026-10-09"
+        },
+        {
+          "url": "https://vercel.com/docs/botid/get-started",
+          "title": "Get Started with BotID",
+          "claim": "BotID integrates through the botid package, a client component and proxy rewrites.",
+          "accessedAt": "2026-10-09"
+        }
+      ],
+      "browserSignals": [
+        {
+          "kind": "sdk-package",
+          "name": "botid",
+          "sourceUrl": "https://vercel.com/docs/botid/get-started",
+          "status": "documented-candidate"
+        }
+      ],
+      "webrtc": {
+        "status": "unknown",
+        "sourceUrls": []
+      },
+      "notes": [
+        "The package name is a development artifact, not necessarily a browser global. The reviewed source gives no stable universal browser endpoint."
+      ]
+    }
+  ]
+}

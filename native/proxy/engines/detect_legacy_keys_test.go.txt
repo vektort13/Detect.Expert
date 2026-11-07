@@ -1,0 +1,33 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+package control
+
+import (
+	"encoding/hex"
+	"testing"
+
+	"github.com/n0madic/go-openvpn/internal/proto"
+)
+
+func TestDetectLegacyOpenSSLVector(t *testing.T) {
+	// Independently generated with OpenSSL 3 TLS1-PRF, digest MD5-SHA1.
+	var client, server proto.KeyMethod2
+	for i := range client.PreMaster { client.PreMaster[i] = byte(i) }
+	for i := range client.Random1 {
+		client.Random1[i] = byte(i+1); server.Random1[i] = byte(i+33)
+		client.Random2[i] = byte(i+65); server.Random2[i] = byte(i+97)
+	}
+	want := "9668b1cd25cf98997ae5539f303b03285b5bfb13f59829d11d254e0ab9e7334fb72cbecc5244675743a326e53c862cc8907a770dbaa4ae5523fa2996aaf1888c6d1dc901beab9d944d697bf2703410933aaa9d9d450db02baf56af29ac07f3450ac644613463a8f59d4904a9caf1bc1a97d6a5edf13aa49b83e4f1395328e73c4a51739b88d7b44bd342c736f552ee7a6d26d329822e2fedf182444c652f0c3fc22003e9778847cdd840dbf5f5906efcb8507d2ace463cc13ce23c11db16ce15a28b24257b9306c24d38e7b71bb804983d0b33fd055beaa5b0350bd6c67f6bf0850adcb93d60d8d90614fde315c4ef30fa81c6eb0caa4a28a19ad5c398953df3"
+	got := DeriveLegacyDataKeys(client, server, 0x0102030405060708, 0x1112131415161718)
+	if hex.EncodeToString(got[:]) != want { t.Fatal("legacy data keys differ from independent OpenSSL vector") }
+	changed := DeriveLegacyDataKeys(client, server, 0x0102030405060709, 0x1112131415161718)
+	if got == changed { t.Fatal("client session ID was not bound into keys") }
+}
+
+func TestDetectNegotiatedExporter(t *testing.T) {
+	for _, value := range []string{"key-derivation tls-ekm", "cipher AES-256-GCM,protocol-flags cc-exit tls-ekm,tun-mtu 1500"} {
+		if !NegotiatedTLSExporter(value) { t.Fatal("authenticated exporter flag ignored") }
+	}
+	for _, value := range []string{"", "cipher AES-256-GCM", "echo tls-ekm", "protocol-flags no-tls-ekm", "key-derivation other"} {
+		if NegotiatedTLSExporter(value) { t.Fatal("unnegotiated exporter selected") }
+	}
+}

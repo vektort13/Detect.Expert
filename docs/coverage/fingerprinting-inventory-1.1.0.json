@@ -1,0 +1,6701 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-10",
+  "version": "1.1.0",
+  "scope": "delivered-production-source-inventory",
+  "counts": {
+    "taxonomyIds": 74,
+    "withObservationChannel": 68,
+    "defaultObservationCategories": 66,
+    "proOnlyCategories": 2,
+    "pageHookCategories": 65,
+    "browserNetworkCategories": 4,
+    "mixedChannelCategories": 1,
+    "notImplementedCategories": 6,
+    "namedRegistryOperations": 398,
+    "proMathSignatures": 7,
+    "responseHeaderNames": 18,
+    "clientHintNames": 27,
+    "antifraudProducts": 32,
+    "antifraudResourceRules": 61,
+    "antifraudRtcHints": 2,
+    "socialProviders": 45,
+    "socialRuleFamilies": 57,
+    "gtmDestinations": 9,
+    "beaconServices": 6,
+    "beaconProfiles": 11,
+    "backgroundOperations": 12,
+    "cookieEntries": 6687,
+    "compiledCookieRules": 6673,
+    "cookiePrimaryRules": 443,
+    "extensionTargets": 128,
+    "visualActivityMarkers": 35
+  },
+  "techniques": [
+    {
+      "id": "DET-001",
+      "name": "Экспорт Canvas",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "Обёртки HTMLCanvasElement.toDataURL и toBlob фиксируют обращение и фазу.",
+      "limitation": "Результат callback toBlob не наблюдается; одиночный экспорт имеет интерпретацию api-use.",
+      "uiTaxonomy": {
+        "category": "graphics",
+        "api": "HTMLCanvasElement.toDataURL / toBlob",
+        "family": "canvas",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "HTMLCanvasElement.toDataURL",
+        "HTMLCanvasElement.toBlob"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 3922,
+        "marker": "function installCanvasSensor("
+      }
+    },
+    {
+      "id": "DET-002",
+      "name": "Чтение пикселей Canvas 2D",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "Обёртка CanvasRenderingContext2D.getImageData фиксирует чтение и ошибку.",
+      "limitation": "Пиксели не входят в обычный счётчик; визуальное preview использует отдельный канал.",
+      "uiTaxonomy": {
+        "category": "graphics",
+        "api": "CanvasRenderingContext2D.getImageData",
+        "family": "canvas",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "CanvasRenderingContext2D.getImageData"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 3922,
+        "marker": "function installCanvasSensor("
+      }
+    },
+    {
+      "id": "DET-003",
+      "name": "Canvas: измерение и рисование текста",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "measureText, fillText, strokeText; отдельные признаки text-measured и text-drawn.",
+      "limitation": "Измеряемая строка не сохраняется; measureText сам по себе не подтверждает fingerprint.",
+      "uiTaxonomy": {
+        "category": "graphics",
+        "api": "measureText / fillText / strokeText",
+        "family": "canvas",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "CanvasRenderingContext2D.measureText",
+        "CanvasRenderingContext2D.fillText",
+        "CanvasRenderingContext2D.strokeText",
+        "OffscreenCanvasRenderingContext2D.measureText",
+        "OffscreenCanvasRenderingContext2D.fillText",
+        "OffscreenCanvasRenderingContext2D.strokeText"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 3922,
+        "marker": "function installCanvasSensor("
+      }
+    },
+    {
+      "id": "DET-004",
+      "name": "OffscreenCanvas в Window",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "convertToBlob и OffscreenCanvasRenderingContext2D.getImageData; текстовые операции идут в DET-003.",
+      "limitation": "Обработка после переноса в Worker недоступна; transferControlToOffscreen отмечает worker-not-observed.",
+      "uiTaxonomy": {
+        "category": "graphics",
+        "api": "OffscreenCanvas.getContext / convertToBlob",
+        "family": "canvas",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "OffscreenCanvas.convertToBlob",
+        "OffscreenCanvasRenderingContext2D.getImageData"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 3922,
+        "marker": "function installCanvasSensor("
+      }
+    },
+    {
+      "id": "DET-005",
+      "name": "DOM-геометрия и косвенные проверки шрифтов",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "Element.getClientRects/getBoundingClientRect и HTMLElement.offsetWidth/offsetHeight.",
+      "limitation": "Фиксируются обращения; список установленных шрифтов по геометрии не вычисляется.",
+      "uiTaxonomy": {
+        "category": "graphics",
+        "api": "Element.getClientRects / getBoundingClientRect; HTMLElement.offsetWidth / offsetHeight",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "Element.getClientRects",
+        "Element.getBoundingClientRect",
+        "HTMLElement.offsetWidth",
+        "HTMLElement.offsetHeight"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 4216,
+        "marker": "function installGeometrySensor("
+      }
+    },
+    {
+      "id": "DET-006",
+      "name": "Range-геометрия",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "Range.getClientRects и getBoundingClientRect.",
+      "limitation": "Нет отдельного алгоритма вывода шрифтов или идентичности пользователя.",
+      "uiTaxonomy": {
+        "category": "graphics",
+        "api": "Range.getClientRects / getBoundingClientRect",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "Range.getClientRects",
+        "Range.getBoundingClientRect"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 4216,
+        "marker": "function installGeometrySensor("
+      }
+    },
+    {
+      "id": "DET-007",
+      "name": "SVG-метрики",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "SVGGraphicsElement.getBBox; SVGTextContentElement.getComputedTextLength/getSubStringLength.",
+      "limitation": "Это наблюдение измерения геометрии/текста.",
+      "uiTaxonomy": {
+        "category": "graphics",
+        "api": "SVG getBBox / getComputedTextLength / getSubStringLength",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "SVGGraphicsElement.getBBox",
+        "SVGTextContentElement.getComputedTextLength",
+        "SVGTextContentElement.getSubStringLength"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 4216,
+        "marker": "function installGeometrySensor("
+      }
+    },
+    {
+      "id": "DET-008",
+      "name": "CSS Font Loading / FontFaceSet",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "check, load, values, keys, entries, forEach, Symbol.iterator.",
+      "limitation": "Перечень возвращённых FontFace не читается; асинхронный результат load не перехватывается.",
+      "uiTaxonomy": {
+        "category": "graphics",
+        "api": "FontFaceSet.check / load",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "FontFaceSet.check",
+        "FontFaceSet.load",
+        "FontFaceSet.values",
+        "FontFaceSet.keys",
+        "FontFaceSet.entries",
+        "FontFaceSet.forEach",
+        "FontFaceSet.[Symbol.iterator]"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 4216,
+        "marker": "function installGeometrySensor("
+      }
+    },
+    {
+      "id": "DET-009",
+      "name": "Local Font Access",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "window.queryLocalFonts.",
+      "limitation": "Видна попытка запроса; содержимое Promise и полная установленная коллекция шрифтов недоступны.",
+      "uiTaxonomy": {
+        "category": "graphics",
+        "api": "window.queryLocalFonts",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "Window.queryLocalFonts"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 4216,
+        "marker": "function installGeometrySensor("
+      }
+    },
+    {
+      "id": "DET-010",
+      "name": "CSSOM / computed styles",
+      "status": "not-implemented",
+      "channel": null,
+      "channels": [],
+      "activation": null,
+      "method": "В taxonomy предусмотрены getComputedStyle и computedStyleMap.",
+      "limitation": "Production hooks не установлены.",
+      "uiTaxonomy": {
+        "category": "graphics",
+        "api": "getComputedStyle / computedStyleMap",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [],
+      "source": null
+    },
+    {
+      "id": "DET-011",
+      "name": "WebGL 1/2: GPU, расширения, лимиты, точность shader",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "getParameter, getExtension, getSupportedExtensions, getShaderPrecisionFormat; поля WebGLShaderPrecisionFormat.",
+      "limitation": "Видно чтение возможностей, включая GPU vendor/renderer при соответствующем запросе; аппаратный backend автоматически не классифицируется.",
+      "uiTaxonomy": {
+        "category": "graphics",
+        "api": "WebGL getParameter / getExtension / getSupportedExtensions / getShaderPrecisionFormat",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "WebGLRenderingContext.getParameter",
+        "WebGLRenderingContext.getExtension",
+        "WebGLRenderingContext.getSupportedExtensions",
+        "WebGLRenderingContext.getShaderPrecisionFormat",
+        "WebGL2RenderingContext.getParameter",
+        "WebGL2RenderingContext.getExtension",
+        "WebGL2RenderingContext.getSupportedExtensions",
+        "WebGL2RenderingContext.getShaderPrecisionFormat",
+        "WebGLShaderPrecisionFormat.rangeMin",
+        "WebGLShaderPrecisionFormat.rangeMax",
+        "WebGLShaderPrecisionFormat.precision"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 4284,
+        "marker": "function installGraphicsSensor("
+      }
+    },
+    {
+      "id": "DET-012",
+      "name": "WebGL 1/2: чтение framebuffer",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "readPixels на обоих WebGL-контекстах.",
+      "limitation": "Счётчик обращения; отдельное preview может показать уже прочитанное изображение.",
+      "uiTaxonomy": {
+        "category": "graphics",
+        "api": "WebGL readPixels",
+        "family": "canvas",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "WebGLRenderingContext.readPixels",
+        "WebGL2RenderingContext.readPixels"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 4284,
+        "marker": "function installGraphicsSensor("
+      }
+    },
+    {
+      "id": "DET-013",
+      "name": "WebGPU capabilities / GPUAdapterInfo / shader-pipeline",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "56 фиксированных операций: adapter/device, features/limits/info, shader module и compute/render pipeline.",
+      "limitation": "Условная установка при наличии API; benchmark GPU и отдельный классификатор модели не запускаются.",
+      "uiTaxonomy": {
+        "category": "graphics",
+        "api": "GPU.requestAdapter; GPUAdapter / GPUDevice / GPUAdapterInfo / GPUSupportedLimits",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "GPU.requestAdapter",
+          "DET-013",
+          "webgpu",
+          "async-call"
+        ],
+        [
+          "GPUAdapter.requestDevice",
+          "DET-013",
+          "webgpu",
+          "async-call"
+        ],
+        [
+          "GPUAdapter.info",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUAdapter.features",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUAdapter.limits",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUDevice.adapterInfo",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUDevice.features",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUDevice.limits",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUDevice.createShaderModule",
+          "DET-013",
+          "webgpu",
+          "call"
+        ],
+        [
+          "GPUDevice.createComputePipeline",
+          "DET-013",
+          "webgpu",
+          "call"
+        ],
+        [
+          "GPUDevice.createComputePipelineAsync",
+          "DET-013",
+          "webgpu",
+          "async-call"
+        ],
+        [
+          "GPUDevice.createRenderPipeline",
+          "DET-013",
+          "webgpu",
+          "call"
+        ],
+        [
+          "GPUDevice.createRenderPipelineAsync",
+          "DET-013",
+          "webgpu",
+          "async-call"
+        ],
+        [
+          "GPUShaderModule.getCompilationInfo",
+          "DET-013",
+          "webgpu",
+          "async-call"
+        ],
+        [
+          "GPUAdapterInfo.vendor",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUAdapterInfo.architecture",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUAdapterInfo.device",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUAdapterInfo.description",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUAdapterInfo.powerPreference",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUAdapterInfo.isFallbackAdapter",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUAdapterInfo.subgroupMinSize",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUAdapterInfo.subgroupMaxSize",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUAdapterInfo.type",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUAdapterInfo.backend",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.maxTextureDimension1D",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.maxTextureDimension2D",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.maxTextureDimension3D",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.maxTextureArrayLayers",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.maxBindGroups",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.maxBindGroupsPlusVertexBuffers",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.maxBindingsPerBindGroup",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.maxDynamicUniformBuffersPerPipelineLayout",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.maxDynamicStorageBuffersPerPipelineLayout",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.maxSampledTexturesPerShaderStage",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.maxSamplersPerShaderStage",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.maxStorageBuffersPerShaderStage",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.maxStorageTexturesPerShaderStage",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.maxUniformBuffersPerShaderStage",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.maxUniformBufferBindingSize",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.maxStorageBufferBindingSize",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.minUniformBufferOffsetAlignment",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.minStorageBufferOffsetAlignment",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.maxVertexBuffers",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.maxBufferSize",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.maxVertexAttributes",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.maxVertexBufferArrayStride",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.maxInterStageShaderComponents",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.maxInterStageShaderVariables",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.maxColorAttachments",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.maxColorAttachmentBytesPerSample",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.maxComputeWorkgroupStorageSize",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.maxComputeInvocationsPerWorkgroup",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.maxComputeWorkgroupSizeX",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.maxComputeWorkgroupSizeY",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.maxComputeWorkgroupSizeZ",
+          "DET-013",
+          "webgpu",
+          "get"
+        ],
+        [
+          "GPUSupportedLimits.maxComputeWorkgroupsPerDimension",
+          "DET-013",
+          "webgpu",
+          "get"
+        ]
+      ],
+      "additionalNamedSurfaces": [],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 4284,
+        "marker": "function installGraphicsSensor("
+      }
+    },
+    {
+      "id": "DET-014",
+      "name": "WebGPU buffer mapping / readback API",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "GPUBuffer.mapAsync, getMappedRange и unmap: попытка, синхронный результат или ошибка.",
+      "limitation": "Байты ArrayBuffer и GPU-результаты не читаются; Promise mapAsync возвращается без подписки. Наблюдение API не подтверждает успешное чтение GPU данных.",
+      "uiTaxonomy": {
+        "category": "graphics",
+        "api": "GPUBuffer.mapAsync / getMappedRange",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "GPUBuffer.mapAsync",
+          "DET-014",
+          "webgpu",
+          "async-call"
+        ],
+        [
+          "GPUBuffer.getMappedRange",
+          "DET-014",
+          "webgpu",
+          "call"
+        ],
+        [
+          "GPUBuffer.unmap",
+          "DET-014",
+          "webgpu",
+          "call"
+        ]
+      ],
+      "additionalNamedSurfaces": [],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5973,
+        "marker": "function createExtendedSurfacesSupport("
+      }
+    },
+    {
+      "id": "DET-015",
+      "name": "Web Audio: построение графа и OfflineAudioContext",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "OfflineAudioContext, startRendering, oscillator/compressor/analyser/gain, connect/start, buffer source и biquad.",
+      "limitation": "Факт создания/запуска графа; fingerprint из результата рендеринга автоматически не вычисляется.",
+      "uiTaxonomy": {
+        "category": "audio",
+        "api": "OfflineAudioContext.startRendering / AudioNode.connect",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "OfflineAudioContext",
+          "DET-015",
+          "audio",
+          "construct"
+        ],
+        [
+          "OfflineAudioContext.startRendering",
+          "DET-015",
+          "audio",
+          "async-call"
+        ],
+        [
+          "BaseAudioContext.createOscillator",
+          "DET-015",
+          "audio",
+          "call"
+        ],
+        [
+          "BaseAudioContext.createDynamicsCompressor",
+          "DET-015",
+          "audio",
+          "call"
+        ],
+        [
+          "BaseAudioContext.createAnalyser",
+          "DET-015",
+          "audio",
+          "call"
+        ],
+        [
+          "BaseAudioContext.createGain",
+          "DET-015",
+          "audio",
+          "call"
+        ],
+        [
+          "BaseAudioContext.createBiquadFilter",
+          "DET-015",
+          "audio",
+          "call"
+        ],
+        [
+          "BaseAudioContext.createBufferSource",
+          "DET-015",
+          "audio",
+          "call"
+        ],
+        [
+          "AudioNode.connect",
+          "DET-015",
+          "audio",
+          "call"
+        ],
+        [
+          "AudioScheduledSourceNode.start",
+          "DET-015",
+          "audio",
+          "call"
+        ],
+        [
+          "OscillatorNode",
+          "DET-015",
+          "audio",
+          "construct"
+        ],
+        [
+          "DynamicsCompressorNode",
+          "DET-015",
+          "audio",
+          "construct"
+        ],
+        [
+          "AnalyserNode",
+          "DET-015",
+          "audio",
+          "construct"
+        ],
+        [
+          "GainNode",
+          "DET-015",
+          "audio",
+          "construct"
+        ]
+      ],
+      "additionalNamedSurfaces": [
+        "webkitOfflineAudioContext (OfflineAudioContext alias)"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5645,
+        "marker": "function installAudioSensor("
+      }
+    },
+    {
+      "id": "DET-016",
+      "name": "Web Audio: чтение sample/frequency/time-domain данных",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "AudioBuffer.getChannelData/copyFromChannel и четыре метода AnalyserNode.",
+      "limitation": "Наблюдение чтения; audio samples и их fingerprint hash не записываются обычным детектором.",
+      "uiTaxonomy": {
+        "category": "audio",
+        "api": "AudioBuffer.getChannelData / copyFromChannel / AnalyserNode",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "AudioBuffer.getChannelData",
+          "DET-016",
+          "audio",
+          "call"
+        ],
+        [
+          "AudioBuffer.copyFromChannel",
+          "DET-016",
+          "audio",
+          "call"
+        ],
+        [
+          "AnalyserNode.getFloatFrequencyData",
+          "DET-016",
+          "audio",
+          "call"
+        ],
+        [
+          "AnalyserNode.getByteFrequencyData",
+          "DET-016",
+          "audio",
+          "call"
+        ],
+        [
+          "AnalyserNode.getFloatTimeDomainData",
+          "DET-016",
+          "audio",
+          "call"
+        ],
+        [
+          "AnalyserNode.getByteTimeDomainData",
+          "DET-016",
+          "audio",
+          "call"
+        ]
+      ],
+      "additionalNamedSurfaces": [],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5645,
+        "marker": "function installAudioSensor("
+      }
+    },
+    {
+      "id": "DET-017",
+      "name": "Аудиосреда",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "AudioContext, sampleRate, destination, baseLatency, outputLatency, maxChannelCount.",
+      "limitation": "Видно обращение к характеристикам; создание аудиотеста расширением отсутствует.",
+      "uiTaxonomy": {
+        "category": "audio",
+        "api": "AudioContext properties",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "AudioContext",
+          "DET-017",
+          "audio",
+          "construct"
+        ],
+        [
+          "BaseAudioContext.sampleRate",
+          "DET-017",
+          "audio",
+          "get"
+        ],
+        [
+          "BaseAudioContext.destination",
+          "DET-017",
+          "audio",
+          "get"
+        ],
+        [
+          "AudioContext.baseLatency",
+          "DET-017",
+          "audio",
+          "get"
+        ],
+        [
+          "AudioContext.outputLatency",
+          "DET-017",
+          "audio",
+          "get"
+        ],
+        [
+          "AudioDestinationNode.maxChannelCount",
+          "DET-017",
+          "audio",
+          "get"
+        ]
+      ],
+      "additionalNamedSurfaces": [
+        "webkitAudioContext (AudioContext alias)"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5645,
+        "marker": "function installAudioSensor("
+      }
+    },
+    {
+      "id": "DET-018",
+      "name": "Голоса и Speech Recognition capabilities",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "SpeechSynthesis.getVoices; SpeechRecognition.available/install.",
+      "limitation": "Возвращённые списки голосов и языков не раскрываются.",
+      "uiTaxonomy": {
+        "category": "audio",
+        "api": "speechSynthesis.getVoices",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "SpeechSynthesis.getVoices",
+          "DET-018",
+          "speech",
+          "call"
+        ],
+        [
+          "SpeechRecognition.available",
+          "DET-018",
+          "speech",
+          "async-call"
+        ],
+        [
+          "SpeechRecognition.install",
+          "DET-018",
+          "speech",
+          "async-call"
+        ]
+      ],
+      "additionalNamedSurfaces": [],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5762,
+        "marker": "function installCapabilitySensor("
+      }
+    },
+    {
+      "id": "DET-019",
+      "name": "Медиоустройства и параметры MediaStreamTrack",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "enumerateDevices/getSupportedConstraints/getUserMedia/getDisplayMedia; track.getCapabilities/getSettings.",
+      "limitation": "Запрос списка/доступа отделён от результата; device IDs и labels не сохраняются.",
+      "uiTaxonomy": {
+        "category": "audio",
+        "api": "MediaDevices.enumerateDevices / MediaStreamTrack.getCapabilities",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "MediaDevices.enumerateDevices",
+          "DET-019",
+          "media-devices",
+          "async-call"
+        ],
+        [
+          "MediaDevices.getSupportedConstraints",
+          "DET-019",
+          "media-devices",
+          "call"
+        ],
+        [
+          "MediaDevices.getUserMedia",
+          "DET-019",
+          "media-devices",
+          "async-call"
+        ],
+        [
+          "MediaDevices.getDisplayMedia",
+          "DET-019",
+          "media-devices",
+          "async-call"
+        ],
+        [
+          "MediaStreamTrack.getCapabilities",
+          "DET-019",
+          "media-devices",
+          "call"
+        ],
+        [
+          "MediaStreamTrack.getSettings",
+          "DET-019",
+          "media-devices",
+          "call"
+        ]
+      ],
+      "additionalNamedSurfaces": [],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5762,
+        "marker": "function installCapabilitySensor("
+      }
+    },
+    {
+      "id": "DET-020",
+      "name": "Кодеки / RTP / MediaCapabilities / WebCodecs",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "canPlayType, isTypeSupported, RTP capabilities/parameters, decodingInfo/encodingInfo, isConfigSupported и ImageDecoder.isTypeSupported.",
+      "limitation": "13 именованных операций; факт проверки поддержки не означает полученный полный codec fingerprint.",
+      "uiTaxonomy": {
+        "category": "audio",
+        "api": "RTCRtpSender / RTCRtpReceiver.getCapabilities; WebCodecs.isConfigSupported; MediaCapabilities / canPlayType",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "RTCRtpSender.getCapabilities",
+          "DET-020",
+          "media-capabilities",
+          "call"
+        ],
+        [
+          "RTCRtpReceiver.getCapabilities",
+          "DET-020",
+          "media-capabilities",
+          "call"
+        ],
+        [
+          "HTMLMediaElement.canPlayType",
+          "DET-020",
+          "media-capabilities",
+          "call"
+        ],
+        [
+          "MediaSource.isTypeSupported",
+          "DET-020",
+          "media-capabilities",
+          "call"
+        ],
+        [
+          "MediaCapabilities.decodingInfo",
+          "DET-020",
+          "media-capabilities",
+          "async-call"
+        ],
+        [
+          "MediaCapabilities.encodingInfo",
+          "DET-020",
+          "media-capabilities",
+          "async-call"
+        ],
+        [
+          "AudioDecoder.isConfigSupported",
+          "DET-020",
+          "media-capabilities",
+          "async-call"
+        ],
+        [
+          "AudioEncoder.isConfigSupported",
+          "DET-020",
+          "media-capabilities",
+          "async-call"
+        ],
+        [
+          "VideoDecoder.isConfigSupported",
+          "DET-020",
+          "media-capabilities",
+          "async-call"
+        ],
+        [
+          "VideoEncoder.isConfigSupported",
+          "DET-020",
+          "media-capabilities",
+          "async-call"
+        ],
+        [
+          "ImageDecoder.isTypeSupported",
+          "DET-020",
+          "media-capabilities",
+          "async-call"
+        ],
+        [
+          "RTCRtpSender.getParameters",
+          "DET-020",
+          "webrtc",
+          "call"
+        ],
+        [
+          "RTCRtpReceiver.getParameters",
+          "DET-020",
+          "webrtc",
+          "call"
+        ]
+      ],
+      "additionalNamedSurfaces": [],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5762,
+        "marker": "function installCapabilitySensor("
+      }
+    },
+    {
+      "id": "DET-021",
+      "name": "DRM / EME / HDCP",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "requestMediaKeySystemAccess; getConfiguration/createMediaKeys; getStatusForPolicy.",
+      "limitation": "Четыре операции; результаты Promise и лицензии не читаются.",
+      "uiTaxonomy": {
+        "category": "audio",
+        "api": "Navigator.requestMediaKeySystemAccess / MediaKeySystemAccess / MediaKeys.getStatusForPolicy",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "Navigator.requestMediaKeySystemAccess",
+          "DET-021",
+          "drm",
+          "async-call"
+        ],
+        [
+          "MediaKeySystemAccess.getConfiguration",
+          "DET-021",
+          "drm",
+          "call"
+        ],
+        [
+          "MediaKeySystemAccess.createMediaKeys",
+          "DET-021",
+          "drm",
+          "async-call"
+        ],
+        [
+          "MediaKeys.getStatusForPolicy",
+          "DET-021",
+          "drm",
+          "async-call"
+        ]
+      ],
+      "additionalNamedSurfaces": [],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5762,
+        "marker": "function installCapabilitySensor("
+      }
+    },
+    {
+      "id": "DET-022",
+      "name": "Math: известные аргументные сигнатуры",
+      "status": "partial",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "pro-recording-only",
+      "method": "Только во время Pro: sin/cos/tan/acos/acosh/asin при точном совпадении семи фиксированных числовых маркеров вместе с DET-023.",
+      "limitation": "Не полный журнал Math calls, не универсальный classifier; аргументы и результаты не выходят из сенсора. Учитывается api-use + known-numeric-pattern.",
+      "uiTaxonomy": {
+        "category": "audio",
+        "api": "Math.* (trigonometric, hyperbolic, exp / log)",
+        "family": "math",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "Math.sin (Pro signature only)",
+        "Math.cos (Pro signature only)",
+        "Math.tan (Pro signature only)",
+        "Math.acos (Pro signature only)",
+        "Math.acosh (Pro signature only)",
+        "Math.asin (Pro signature only)"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 6052,
+        "marker": "function createMathSignatureSupport("
+      }
+    },
+    {
+      "id": "DET-023",
+      "name": "Math.pow: известная аргументная сигнатура",
+      "status": "partial",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "pro-recording-only",
+      "method": "Только во время Pro: Math.pow(Math.PI, -100) при двух primitive number аргументах.",
+      "limitation": "sqrt/hypot/cbrt/fround и произвольные pow не наблюдаются этим сенсором. Результат не читается и не экспортируется.",
+      "uiTaxonomy": {
+        "category": "audio",
+        "api": "Math.pow / sqrt / hypot / cbrt / fround",
+        "family": "math",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "Math.pow (Pro signature only)"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 6052,
+        "marker": "function createMathSignatureSupport("
+      }
+    },
+    {
+      "id": "DET-024",
+      "name": "CSS math",
+      "status": "not-implemented",
+      "channel": null,
+      "channels": [],
+      "activation": null,
+      "method": "ID для вычислений CSS math.",
+      "limitation": "CSS math classifier не реализован.",
+      "uiTaxonomy": {
+        "category": "audio",
+        "api": "CSS math functions (partial coverage)",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [],
+      "source": null
+    },
+    {
+      "id": "DET-025",
+      "name": "User Agent и базовые Navigator-поля",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "Getters userAgent/platform/vendor/language/languages и app/product/sub полей.",
+      "limitation": "Факт чтения; не автоматический вывод об антидетект-браузере.",
+      "uiTaxonomy": {
+        "category": "environment",
+        "api": "Navigator.userAgent / platform / vendor / language / languages / appVersion / appName / appCodeName / product / productSub / vendorSub",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "Navigator.userAgent",
+        "Navigator.platform",
+        "Navigator.vendor",
+        "Navigator.language",
+        "Navigator.languages",
+        "Navigator.appVersion",
+        "Navigator.appName",
+        "Navigator.appCodeName",
+        "Navigator.product",
+        "Navigator.productSub",
+        "Navigator.vendorSub"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 4962,
+        "marker": "function installEnvironmentSensor("
+      }
+    },
+    {
+      "id": "DET-026",
+      "name": "User-Agent Client Hints",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "userAgentData, brands/mobile/platform, getHighEntropyValues.",
+      "limitation": "Пять операций; Promise с high-entropy данными не раскрывается.",
+      "uiTaxonomy": {
+        "category": "environment",
+        "api": "Navigator.userAgentData; NavigatorUAData.brands / mobile / platform / getHighEntropyValues",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "Navigator.userAgentData",
+          "DET-026",
+          "client-hints",
+          "get"
+        ],
+        [
+          "NavigatorUAData.brands",
+          "DET-026",
+          "client-hints",
+          "get"
+        ],
+        [
+          "NavigatorUAData.mobile",
+          "DET-026",
+          "client-hints",
+          "get"
+        ],
+        [
+          "NavigatorUAData.platform",
+          "DET-026",
+          "client-hints",
+          "get"
+        ],
+        [
+          "NavigatorUAData.getHighEntropyValues",
+          "DET-026",
+          "client-hints",
+          "async-call"
+        ]
+      ],
+      "additionalNamedSurfaces": [],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 4962,
+        "marker": "function installEnvironmentSensor("
+      }
+    },
+    {
+      "id": "DET-027",
+      "name": "Plugins / MIME / PDF capability",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "Navigator.plugins, mimeTypes, pdfViewerEnabled.",
+      "limitation": "Нет чтения содержимого PluginArray и автоматического перечня plugins.",
+      "uiTaxonomy": {
+        "category": "environment",
+        "api": "navigator.plugins / mimeTypes / pdfViewerEnabled",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "Navigator.plugins",
+        "Navigator.mimeTypes",
+        "Navigator.pdfViewerEnabled"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 4962,
+        "marker": "function installEnvironmentSensor("
+      }
+    },
+    {
+      "id": "DET-028",
+      "name": "Automation flag",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "Navigator.webdriver getter.",
+      "limitation": "Наблюдается проверка флага; собственный бот-/automation-classifier отсутствует.",
+      "uiTaxonomy": {
+        "category": "environment",
+        "api": "navigator.webdriver",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "Navigator.webdriver"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 4962,
+        "marker": "function installEnvironmentSensor("
+      }
+    },
+    {
+      "id": "DET-029",
+      "name": "Screen и ориентация",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "width/height/availWidth/availHeight/colorDepth/pixelDepth/orientation; ScreenOrientation.type/angle.",
+      "limitation": "Девять именованных операций.",
+      "uiTaxonomy": {
+        "category": "environment",
+        "api": "Screen.width / height / availWidth / availHeight / colorDepth / pixelDepth / orientation; ScreenOrientation.type / angle",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "Screen.width",
+          "DET-029",
+          "window-management",
+          "get"
+        ],
+        [
+          "Screen.height",
+          "DET-029",
+          "window-management",
+          "get"
+        ],
+        [
+          "Screen.availWidth",
+          "DET-029",
+          "window-management",
+          "get"
+        ],
+        [
+          "Screen.availHeight",
+          "DET-029",
+          "window-management",
+          "get"
+        ],
+        [
+          "Screen.colorDepth",
+          "DET-029",
+          "window-management",
+          "get"
+        ],
+        [
+          "Screen.pixelDepth",
+          "DET-029",
+          "window-management",
+          "get"
+        ],
+        [
+          "Screen.orientation",
+          "DET-029",
+          "window-management",
+          "get"
+        ],
+        [
+          "ScreenOrientation.angle",
+          "DET-029",
+          "window-management",
+          "get"
+        ],
+        [
+          "ScreenOrientation.type",
+          "DET-029",
+          "window-management",
+          "get"
+        ]
+      ],
+      "additionalNamedSurfaces": [],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 4962,
+        "marker": "function installEnvironmentSensor("
+      }
+    },
+    {
+      "id": "DET-030",
+      "name": "Window / VisualViewport",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "Размеры и координаты окна, devicePixelRatio, visualViewport и его offset/page/width/height/scale.",
+      "limitation": "Показывается обращение к параметрам viewport; это не перечисление мониторов.",
+      "uiTaxonomy": {
+        "category": "environment",
+        "api": "window.innerWidth / innerHeight / outerWidth / outerHeight / devicePixelRatio / visualViewport; VisualViewport.offsetLeft / offsetTop / pageLeft / pageTop / width / height / scale",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "Window.screenX",
+          "DET-030",
+          "window-management",
+          "get"
+        ],
+        [
+          "Window.screenY",
+          "DET-030",
+          "window-management",
+          "get"
+        ],
+        [
+          "Window.screenLeft",
+          "DET-030",
+          "window-management",
+          "get"
+        ],
+        [
+          "Window.screenTop",
+          "DET-030",
+          "window-management",
+          "get"
+        ],
+        [
+          "Window.outerWidth",
+          "DET-030",
+          "window-management",
+          "get"
+        ],
+        [
+          "Window.outerHeight",
+          "DET-030",
+          "window-management",
+          "get"
+        ]
+      ],
+      "additionalNamedSurfaces": [
+        "Window.innerWidth",
+        "Window.innerHeight",
+        "Window.devicePixelRatio",
+        "Window.visualViewport",
+        "VisualViewport.offsetLeft",
+        "VisualViewport.offsetTop",
+        "VisualViewport.pageLeft",
+        "VisualViewport.pageTop",
+        "VisualViewport.width",
+        "VisualViewport.height",
+        "VisualViewport.scale"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 4962,
+        "marker": "function installEnvironmentSensor("
+      }
+    },
+    {
+      "id": "DET-031",
+      "name": "Несколько мониторов и управление окнами",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "isExtended/getScreenDetails/ScreenDetails/ScreenDetailed, fullscreen, move/resize/open и screen change handlers.",
+      "limitation": "26 операций; списки из Promise не раскрываются, события учитываются только на известных screen targets.",
+      "uiTaxonomy": {
+        "category": "environment",
+        "api": "window.getScreenDetails / screen.isExtended; ScreenDetails / ScreenDetailed",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "Screen.isExtended",
+          "DET-031",
+          "window-management",
+          "get"
+        ],
+        [
+          "Window.getScreenDetails",
+          "DET-031",
+          "window-management",
+          "async-call"
+        ],
+        [
+          "ScreenDetails.screens",
+          "DET-031",
+          "window-management",
+          "get"
+        ],
+        [
+          "ScreenDetails.currentScreen",
+          "DET-031",
+          "window-management",
+          "get"
+        ],
+        [
+          "ScreenDetailed.left",
+          "DET-031",
+          "window-management",
+          "get"
+        ],
+        [
+          "ScreenDetailed.top",
+          "DET-031",
+          "window-management",
+          "get"
+        ],
+        [
+          "Screen.availLeft",
+          "DET-031",
+          "window-management",
+          "get"
+        ],
+        [
+          "Screen.availTop",
+          "DET-031",
+          "window-management",
+          "get"
+        ],
+        [
+          "ScreenDetailed.devicePixelRatio",
+          "DET-031",
+          "window-management",
+          "get"
+        ],
+        [
+          "ScreenDetailed.label",
+          "DET-031",
+          "window-management",
+          "get"
+        ],
+        [
+          "ScreenDetailed.isPrimary",
+          "DET-031",
+          "window-management",
+          "get"
+        ],
+        [
+          "ScreenDetailed.isInternal",
+          "DET-031",
+          "window-management",
+          "get"
+        ],
+        [
+          "Element.requestFullscreen",
+          "DET-031",
+          "window-management",
+          "async-call"
+        ],
+        [
+          "Document.exitFullscreen",
+          "DET-031",
+          "window-management",
+          "async-call"
+        ],
+        [
+          "Window.open",
+          "DET-031",
+          "window-management",
+          "call"
+        ],
+        [
+          "Window.moveTo",
+          "DET-031",
+          "window-management",
+          "call"
+        ],
+        [
+          "Window.moveBy",
+          "DET-031",
+          "window-management",
+          "call"
+        ],
+        [
+          "Window.resizeTo",
+          "DET-031",
+          "window-management",
+          "call"
+        ],
+        [
+          "Window.resizeBy",
+          "DET-031",
+          "window-management",
+          "call"
+        ],
+        [
+          "Screen.onchange",
+          "DET-031",
+          "window-management",
+          "set"
+        ],
+        [
+          "ScreenDetails.onscreenschange",
+          "DET-031",
+          "window-management",
+          "set"
+        ],
+        [
+          "ScreenDetails.oncurrentscreenchange",
+          "DET-031",
+          "window-management",
+          "set"
+        ],
+        [
+          "Screen.addEventListener",
+          "DET-031",
+          "window-management",
+          "call"
+        ],
+        [
+          "Screen.removeEventListener",
+          "DET-031",
+          "window-management",
+          "call"
+        ],
+        [
+          "ScreenDetails.addEventListener",
+          "DET-031",
+          "window-management",
+          "call"
+        ],
+        [
+          "ScreenDetails.removeEventListener",
+          "DET-031",
+          "window-management",
+          "call"
+        ]
+      ],
+      "additionalNamedSurfaces": [],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 4962,
+        "marker": "function installEnvironmentSensor("
+      }
+    },
+    {
+      "id": "DET-032",
+      "name": "CPU capabilities",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "Navigator.hardwareConcurrency и условный cpuPerformance.",
+      "limitation": "Не определяется модель CPU; cpuPerformance наблюдается только если существует.",
+      "uiTaxonomy": {
+        "category": "environment",
+        "api": "Navigator.hardwareConcurrency / cpuPerformance",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "Navigator.cpuPerformance",
+          "DET-032",
+          "browser-capabilities",
+          "get"
+        ]
+      ],
+      "additionalNamedSurfaces": [
+        "Navigator.hardwareConcurrency"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 4962,
+        "marker": "function installEnvironmentSensor("
+      }
+    },
+    {
+      "id": "DET-033",
+      "name": "Оперативная память",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "Navigator.deviceMemory getter.",
+      "limitation": "Не собственное измерение фактической RAM.",
+      "uiTaxonomy": {
+        "category": "environment",
+        "api": "navigator.deviceMemory",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "Navigator.deviceMemory"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 4962,
+        "marker": "function installEnvironmentSensor("
+      }
+    },
+    {
+      "id": "DET-034",
+      "name": "Touch capabilities",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "Navigator.maxTouchPoints getter.",
+      "limitation": "Факт чтения.",
+      "uiTaxonomy": {
+        "category": "environment",
+        "api": "navigator.maxTouchPoints",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "Navigator.maxTouchPoints"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 4962,
+        "marker": "function installEnvironmentSensor("
+      }
+    },
+    {
+      "id": "DET-035",
+      "name": "Часовой пояс",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "Date.prototype.getTimezoneOffset.",
+      "limitation": "Факт чтения смещения; конструкторы Date и все возможные timezone probes не классифицируются.",
+      "uiTaxonomy": {
+        "category": "environment",
+        "api": "Date.prototype.getTimezoneOffset",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "Date.prototype.getTimezoneOffset"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 4962,
+        "marker": "function installEnvironmentSensor("
+      }
+    },
+    {
+      "id": "DET-036",
+      "name": "Intl / locale capabilities",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "resolvedOptions у восьми Intl классов и Intl.supportedValuesOf.",
+      "limitation": "Вызовы наблюдаются; все locale, календарные и timezone результаты не перечисляются автоматически.",
+      "uiTaxonomy": {
+        "category": "environment",
+        "api": "Intl.Collator / DateTimeFormat / NumberFormat / PluralRules / RelativeTimeFormat / ListFormat / Segmenter / DisplayNames: resolvedOptions",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "Intl.supportedValuesOf",
+          "DET-036",
+          "browser-capabilities",
+          "call"
+        ]
+      ],
+      "additionalNamedSurfaces": [
+        "Intl.Collator.resolvedOptions",
+        "Intl.DateTimeFormat.resolvedOptions",
+        "Intl.NumberFormat.resolvedOptions",
+        "Intl.PluralRules.resolvedOptions",
+        "Intl.RelativeTimeFormat.resolvedOptions",
+        "Intl.ListFormat.resolvedOptions",
+        "Intl.Segmenter.resolvedOptions",
+        "Intl.DisplayNames.resolvedOptions"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 4962,
+        "marker": "function installEnvironmentSensor("
+      }
+    },
+    {
+      "id": "DET-037",
+      "name": "JS media queries",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "window.matchMedia.",
+      "limitation": "Чистые CSS @media без JS не наблюдаются; аргумент media query не сохраняется.",
+      "uiTaxonomy": {
+        "category": "environment",
+        "api": "window.matchMedia",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "Window.matchMedia"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 4962,
+        "marker": "function installEnvironmentSensor("
+      }
+    },
+    {
+      "id": "DET-038",
+      "name": "JS CSS feature detection",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "CSS.supports.",
+      "limitation": "Нет сканирования всех CSS @supports/env/anchor правил и полного CSSOM.",
+      "uiTaxonomy": {
+        "category": "environment",
+        "api": "CSS.supports",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "CSS.supports"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 4962,
+        "marker": "function installEnvironmentSensor("
+      }
+    },
+    {
+      "id": "DET-039",
+      "name": "Permissions и policy capabilities",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "Permissions.query, PermissionStatus.state, Notification.permission/maxActions; FeaturePolicy/PermissionsPolicy.",
+      "limitation": "Известные permission/policy enum states учитываются; это не keylogging и не выдача доступа расширением.",
+      "uiTaxonomy": {
+        "category": "permissions",
+        "api": "navigator.permissions.query · PermissionStatus.state · Notification.permission · FeaturePolicy / PermissionsPolicy",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "Notification.maxActions",
+          "DET-039",
+          "browser-capabilities",
+          "get"
+        ],
+        [
+          "Permissions.query",
+          "DET-039",
+          "browser-capabilities",
+          "async-call"
+        ]
+      ],
+      "additionalNamedSurfaces": [
+        "PermissionStatus.state",
+        "Notification.permission",
+        "FeaturePolicy.allowsFeature",
+        "FeaturePolicy.features",
+        "FeaturePolicy.allowedFeatures",
+        "FeaturePolicy.getAllowlistForFeature",
+        "PermissionsPolicy.allowsFeature",
+        "PermissionsPolicy.features",
+        "PermissionsPolicy.allowedFeatures",
+        "PermissionsPolicy.getAllowlistForFeature"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5434,
+        "marker": "function installPermissionsSensor("
+      }
+    },
+    {
+      "id": "DET-040",
+      "name": "Battery status",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "getBattery и charging/chargingTime/dischargingTime/level.",
+      "limitation": "Доступность зависит от браузера; расширение не запрашивает батарею самостоятельно.",
+      "uiTaxonomy": {
+        "category": "permissions",
+        "api": "navigator.getBattery; BatteryManager.charging / chargingTime / dischargingTime / level",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "Navigator.getBattery",
+        "BatteryManager.charging",
+        "BatteryManager.chargingTime",
+        "BatteryManager.dischargingTime",
+        "BatteryManager.level"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 4962,
+        "marker": "function installEnvironmentSensor("
+      }
+    },
+    {
+      "id": "DET-041",
+      "name": "Network Information",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "Navigator.connection; type/effectiveType/rtt/downlink/downlinkMax/saveData.",
+      "limitation": "Характеристики API, не собственное сетевое измерение.",
+      "uiTaxonomy": {
+        "category": "permissions",
+        "api": "Navigator.connection; NetworkInformation.type / effectiveType / rtt / downlink / downlinkMax / saveData",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "Navigator.connection",
+        "NetworkInformation.type",
+        "NetworkInformation.effectiveType",
+        "NetworkInformation.rtt",
+        "NetworkInformation.downlink",
+        "NetworkInformation.downlinkMax",
+        "NetworkInformation.saveData"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 4962,
+        "marker": "function installEnvironmentSensor("
+      }
+    },
+    {
+      "id": "DET-042",
+      "name": "Compute Pressure / Generic Sensor / motion events",
+      "status": "partial",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "PressureObserver/PressureRecord; конструкторы Accelerometer, Gyroscope, LinearAccelerationSensor, GravitySensor, Magnetometer, AbsoluteOrientationSensor, RelativeOrientationSensor; три Window deviceorientation/devicemotion/deviceorientationabsolute listeners и on-handlers.",
+      "limitation": "Generic Sensor start/stop, показания датчиков и данные событий не читаются; конструктор или подписка не доказывает наличие аппаратуры.",
+      "uiTaxonomy": {
+        "category": "permissions",
+        "api": "PressureObserver / PressureRecord; Generic Sensor / DeviceMotion / DeviceOrientation",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "PressureObserver",
+          "DET-042",
+          "compute-pressure",
+          "construct"
+        ],
+        [
+          "PressureObserver.knownSources",
+          "DET-042",
+          "compute-pressure",
+          "get"
+        ],
+        [
+          "PressureObserver.observe",
+          "DET-042",
+          "compute-pressure",
+          "async-call"
+        ],
+        [
+          "PressureObserver.unobserve",
+          "DET-042",
+          "compute-pressure",
+          "call"
+        ],
+        [
+          "PressureObserver.disconnect",
+          "DET-042",
+          "compute-pressure",
+          "call"
+        ],
+        [
+          "PressureObserver.takeRecords",
+          "DET-042",
+          "compute-pressure",
+          "call"
+        ],
+        [
+          "PressureRecord.source",
+          "DET-042",
+          "compute-pressure",
+          "get"
+        ],
+        [
+          "PressureRecord.state",
+          "DET-042",
+          "compute-pressure",
+          "get"
+        ],
+        [
+          "PressureRecord.time",
+          "DET-042",
+          "compute-pressure",
+          "get"
+        ],
+        [
+          "PressureRecord.toJSON",
+          "DET-042",
+          "compute-pressure",
+          "call"
+        ],
+        [
+          "Accelerometer",
+          "DET-042",
+          "device-sensor",
+          "construct"
+        ],
+        [
+          "Gyroscope",
+          "DET-042",
+          "device-sensor",
+          "construct"
+        ],
+        [
+          "LinearAccelerationSensor",
+          "DET-042",
+          "device-sensor",
+          "construct"
+        ],
+        [
+          "GravitySensor",
+          "DET-042",
+          "device-sensor",
+          "construct"
+        ],
+        [
+          "Magnetometer",
+          "DET-042",
+          "device-sensor",
+          "construct"
+        ],
+        [
+          "AbsoluteOrientationSensor",
+          "DET-042",
+          "device-sensor",
+          "construct"
+        ],
+        [
+          "RelativeOrientationSensor",
+          "DET-042",
+          "device-sensor",
+          "construct"
+        ],
+        [
+          "Window.addEventListener.deviceorientation",
+          "DET-042",
+          "device-sensor",
+          "call"
+        ],
+        [
+          "Window.ondeviceorientation",
+          "DET-042",
+          "device-sensor",
+          "set"
+        ],
+        [
+          "Window.addEventListener.devicemotion",
+          "DET-042",
+          "device-sensor",
+          "call"
+        ],
+        [
+          "Window.ondevicemotion",
+          "DET-042",
+          "device-sensor",
+          "set"
+        ],
+        [
+          "Window.addEventListener.deviceorientationabsolute",
+          "DET-042",
+          "device-sensor",
+          "call"
+        ],
+        [
+          "Window.ondeviceorientationabsolute",
+          "DET-042",
+          "device-sensor",
+          "set"
+        ]
+      ],
+      "additionalNamedSurfaces": [],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5973,
+        "marker": "function createExtendedSurfacesSupport("
+      }
+    },
+    {
+      "id": "DET-043",
+      "name": "Движения указателя / чтение координат / Idle Detection",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "mousemove/pointermove/pointerrawupdate listeners и on-handlers, 12 MouseEvent getters; IdleDetector.",
+      "limitation": "Координаты и ввод пользователя не записываются; keylogging и classifier поведенческой биометрии отсутствуют.",
+      "uiTaxonomy": {
+        "category": "permissions",
+        "api": "EventTarget / MouseEvent / PointerEvent / IdleDetector",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "IdleDetector",
+          "DET-043",
+          "idle-detection",
+          "construct"
+        ],
+        [
+          "IdleDetector.requestPermission",
+          "DET-043",
+          "idle-detection",
+          "async-call"
+        ],
+        [
+          "IdleDetector.start",
+          "DET-043",
+          "idle-detection",
+          "async-call"
+        ],
+        [
+          "IdleDetector.userState",
+          "DET-043",
+          "idle-detection",
+          "get"
+        ],
+        [
+          "IdleDetector.screenState",
+          "DET-043",
+          "idle-detection",
+          "get"
+        ]
+      ],
+      "additionalNamedSurfaces": [
+        "EventTarget.addEventListener(mousemove/pointermove/pointerrawupdate)",
+        "Window.onmousemove",
+        "Window.onpointermove",
+        "Window.onpointerrawupdate",
+        "Document.onmousemove",
+        "Document.onpointermove",
+        "Document.onpointerrawupdate",
+        "HTMLElement.onmousemove",
+        "HTMLElement.onpointermove",
+        "HTMLElement.onpointerrawupdate",
+        "SVGElement.onmousemove",
+        "SVGElement.onpointermove",
+        "SVGElement.onpointerrawupdate",
+        "MathMLElement.onmousemove",
+        "MathMLElement.onpointermove",
+        "MathMLElement.onpointerrawupdate",
+        "MouseEvent.clientX",
+        "MouseEvent.clientY",
+        "MouseEvent.screenX",
+        "MouseEvent.screenY",
+        "MouseEvent.pageX",
+        "MouseEvent.pageY",
+        "MouseEvent.offsetX",
+        "MouseEvent.offsetY",
+        "MouseEvent.movementX",
+        "MouseEvent.movementY",
+        "MouseEvent.x",
+        "MouseEvent.y"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5542,
+        "marker": "function installInteractionSensor("
+      }
+    },
+    {
+      "id": "DET-044",
+      "name": "Geolocation",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "getCurrentPosition/watchPosition.",
+      "limitation": "Попытка запроса; координаты callback не читаются.",
+      "uiTaxonomy": {
+        "category": "permissions",
+        "api": "navigator.geolocation.getCurrentPosition / watchPosition",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "Geolocation.getCurrentPosition",
+        "Geolocation.watchPosition"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5131,
+        "marker": "function installBrowserRequestSensor("
+      }
+    },
+    {
+      "id": "DET-045",
+      "name": "Bluetooth",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "getAvailability/getDevices/requestDevice.",
+      "limitation": "Не инвентаризация физических устройств; Promise со списком не читается.",
+      "uiTaxonomy": {
+        "category": "permissions",
+        "api": "navigator.bluetooth.getAvailability / getDevices / requestDevice",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "Bluetooth.getAvailability",
+          "DET-045",
+          "device-access",
+          "async-call"
+        ],
+        [
+          "Bluetooth.getDevices",
+          "DET-045",
+          "device-access",
+          "async-call"
+        ],
+        [
+          "Bluetooth.requestDevice",
+          "DET-045",
+          "device-access",
+          "async-call"
+        ]
+      ],
+      "additionalNamedSurfaces": [],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5131,
+        "marker": "function installBrowserRequestSensor("
+      }
+    },
+    {
+      "id": "DET-046",
+      "name": "USB / HID / Serial",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "USB/HID.getDevices/requestDevice; Serial.getPorts/requestPort.",
+      "limitation": "Список уже разрешённых устройств и запрос нового доступа различаются по операции.",
+      "uiTaxonomy": {
+        "category": "permissions",
+        "api": "USB.getDevices / requestDevice; HID.getDevices / requestDevice; Serial.getPorts / requestPort",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "USB.getDevices",
+          "DET-046",
+          "device-access",
+          "async-call"
+        ],
+        [
+          "USB.requestDevice",
+          "DET-046",
+          "device-access",
+          "async-call"
+        ],
+        [
+          "HID.getDevices",
+          "DET-046",
+          "device-access",
+          "async-call"
+        ],
+        [
+          "HID.requestDevice",
+          "DET-046",
+          "device-access",
+          "async-call"
+        ],
+        [
+          "Serial.getPorts",
+          "DET-046",
+          "device-access",
+          "async-call"
+        ],
+        [
+          "Serial.requestPort",
+          "DET-046",
+          "device-access",
+          "async-call"
+        ]
+      ],
+      "additionalNamedSurfaces": [],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5131,
+        "marker": "function installBrowserRequestSensor("
+      }
+    },
+    {
+      "id": "DET-047",
+      "name": "Gamepads",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "Navigator.getGamepads.",
+      "limitation": "Содержимое массива controllers не классифицируется.",
+      "uiTaxonomy": {
+        "category": "permissions",
+        "api": "navigator.getGamepads",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "Navigator.getGamepads"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5131,
+        "marker": "function installBrowserRequestSensor("
+      }
+    },
+    {
+      "id": "DET-048",
+      "name": "WebXR",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "XRSystem.isSessionSupported/requestSession.",
+      "limitation": "Capabilities и запрос сессии; результат Promise не раскрывается.",
+      "uiTaxonomy": {
+        "category": "permissions",
+        "api": "XRSystem.isSessionSupported / requestSession",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "XRSystem.isSessionSupported",
+        "XRSystem.requestSession"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5131,
+        "marker": "function installBrowserRequestSensor("
+      }
+    },
+    {
+      "id": "DET-049",
+      "name": "Cookie API access и скрипт записи",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "Document.cookie.get/set; CookieStore.get/getAll/set/delete. Setter связывает cookie name с currentScript или ограниченной выборкой stack.",
+      "limitation": "Значение из setter не читается и не сохраняется; имя только из primitive string. Metadata записи page-controlled не доказывает, что браузер принял cookie.",
+      "uiTaxonomy": {
+        "category": "storage",
+        "api": "Document.cookie getter; CookieStore.get / getAll / set / delete",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "Document.cookie.get",
+          "DET-049",
+          "storage",
+          "get"
+        ],
+        [
+          "Document.cookie.set",
+          "DET-049",
+          "storage",
+          "set"
+        ]
+      ],
+      "additionalNamedSurfaces": [
+        "CookieStore.get",
+        "CookieStore.getAll",
+        "CookieStore.set",
+        "CookieStore.delete"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5788,
+        "marker": "function createCookieWriterSupport("
+      }
+    },
+    {
+      "id": "DET-050",
+      "name": "localStorage / sessionStorage",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "Storage.getItem/setItem/removeItem/clear/key.",
+      "limitation": "Ключи и значения не сохраняются; прямой доступ storage.foo не охвачен.",
+      "uiTaxonomy": {
+        "category": "storage",
+        "api": "Storage.getItem / setItem / removeItem / clear / key",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "Storage.getItem",
+        "Storage.setItem",
+        "Storage.removeItem",
+        "Storage.clear",
+        "Storage.key"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5131,
+        "marker": "function installBrowserRequestSensor("
+      }
+    },
+    {
+      "id": "DET-051",
+      "name": "IndexedDB / RTC certificate persistence",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "IDBFactory.open/deleteDatabase/databases; IDBObjectStore.put/add и IDBRequest.result при распознанном RTCCertificate.",
+      "limitation": "Дополнительные три операции не означают универсальное чтение всех IDB records.",
+      "uiTaxonomy": {
+        "category": "storage",
+        "api": "IDBFactory.open / deleteDatabase / databases",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "IDBObjectStore.put",
+          "DET-051",
+          "webrtc",
+          "call"
+        ],
+        [
+          "IDBObjectStore.add",
+          "DET-051",
+          "webrtc",
+          "call"
+        ],
+        [
+          "IDBRequest.result",
+          "DET-051",
+          "webrtc",
+          "get"
+        ]
+      ],
+      "additionalNamedSurfaces": [
+        "IDBFactory.open",
+        "IDBFactory.deleteDatabase",
+        "IDBFactory.databases"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5131,
+        "marker": "function installBrowserRequestSensor("
+      }
+    },
+    {
+      "id": "DET-052",
+      "name": "CacheStorage / Cache",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "open/match/has/delete/keys и match/matchAll/add/addAll/put/delete/keys.",
+      "limitation": "Вызовы в документе; внутренние Service Worker операции не наблюдаются.",
+      "uiTaxonomy": {
+        "category": "storage",
+        "api": "CacheStorage.open / match / has / delete / keys; Cache.match / matchAll / add / addAll / put / delete / keys",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "CacheStorage.open",
+        "CacheStorage.match",
+        "CacheStorage.has",
+        "CacheStorage.delete",
+        "CacheStorage.keys",
+        "Cache.match",
+        "Cache.matchAll",
+        "Cache.add",
+        "Cache.addAll",
+        "Cache.put",
+        "Cache.delete",
+        "Cache.keys"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5131,
+        "marker": "function installBrowserRequestSensor("
+      }
+    },
+    {
+      "id": "DET-053",
+      "name": "Storage quota / persistence",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "StorageManager.estimate/persist/persisted.",
+      "limitation": "Факт запроса; Promise с quota/persistence не читается.",
+      "uiTaxonomy": {
+        "category": "storage",
+        "api": "navigator.storage.estimate / persist / persisted",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "StorageManager.estimate",
+        "StorageManager.persist",
+        "StorageManager.persisted"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5131,
+        "marker": "function installBrowserRequestSensor("
+      }
+    },
+    {
+      "id": "DET-054",
+      "name": "Storage Access API",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "hasStorageAccess/requestStorageAccess/hasUnpartitionedCookieAccess/requestStorageAccessFor.",
+      "limitation": "Факт проверки/запроса; фактический доступ после Promise этим hook не подтверждается.",
+      "uiTaxonomy": {
+        "category": "storage",
+        "api": "Document.hasStorageAccess / requestStorageAccess / hasUnpartitionedCookieAccess / requestStorageAccessFor",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "Document.hasStorageAccess",
+        "Document.requestStorageAccess",
+        "Document.hasUnpartitionedCookieAccess",
+        "Document.requestStorageAccessFor"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5131,
+        "marker": "function installBrowserRequestSensor("
+      }
+    },
+    {
+      "id": "DET-055",
+      "name": "ETag / If-None-Match identification",
+      "status": "not-implemented",
+      "channel": null,
+      "channels": [],
+      "activation": null,
+      "method": "Предусмотрен ID HTTP validator persistence.",
+      "limitation": "Детектор ETag/If-None-Match не реализован, эти header names не входят в allowlist.",
+      "uiTaxonomy": {
+        "category": "storage",
+        "api": "ETag / If-None-Match (network)",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [],
+      "source": null
+    },
+    {
+      "id": "DET-056",
+      "name": "WebRTC connection и configuration",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "23 операции PeerConnection: ctor, offer/answer, descriptions/configuration/certificate, ICE, tracks, channels, состояния.",
+      "limitation": "Дополнительный RTC канал показывает разрешённую STUN/TURN metadata и lifecycle; не запускает соединения.",
+      "uiTaxonomy": {
+        "category": "network",
+        "api": "RTCPeerConnection / generateCertificate / offer / answer / configuration / tracks / connection state",
+        "family": "webrtc",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "RTCPeerConnection",
+          "DET-056",
+          "webrtc",
+          "construct"
+        ],
+        [
+          "RTCPeerConnection.generateCertificate",
+          "DET-056",
+          "webrtc",
+          "async-call"
+        ],
+        [
+          "RTCPeerConnection.createOffer",
+          "DET-056",
+          "webrtc",
+          "async-call"
+        ],
+        [
+          "RTCPeerConnection.createAnswer",
+          "DET-056",
+          "webrtc",
+          "async-call"
+        ],
+        [
+          "RTCPeerConnection.setLocalDescription",
+          "DET-056",
+          "webrtc",
+          "async-call"
+        ],
+        [
+          "RTCPeerConnection.setRemoteDescription",
+          "DET-056",
+          "webrtc",
+          "async-call"
+        ],
+        [
+          "RTCPeerConnection.addIceCandidate",
+          "DET-056",
+          "webrtc",
+          "async-call"
+        ],
+        [
+          "RTCPeerConnection.createDataChannel",
+          "DET-056",
+          "webrtc",
+          "call"
+        ],
+        [
+          "RTCPeerConnection.addTrack",
+          "DET-056",
+          "webrtc",
+          "call"
+        ],
+        [
+          "RTCPeerConnection.removeTrack",
+          "DET-056",
+          "webrtc",
+          "call"
+        ],
+        [
+          "RTCPeerConnection.addTransceiver",
+          "DET-056",
+          "webrtc",
+          "call"
+        ],
+        [
+          "RTCPeerConnection.getConfiguration",
+          "DET-056",
+          "webrtc",
+          "call"
+        ],
+        [
+          "RTCPeerConnection.setConfiguration",
+          "DET-056",
+          "webrtc",
+          "call"
+        ],
+        [
+          "RTCPeerConnection.restartIce",
+          "DET-056",
+          "webrtc",
+          "call"
+        ],
+        [
+          "RTCPeerConnection.close",
+          "DET-056",
+          "webrtc",
+          "call"
+        ],
+        [
+          "RTCPeerConnection.getSenders",
+          "DET-056",
+          "webrtc",
+          "call"
+        ],
+        [
+          "RTCPeerConnection.getReceivers",
+          "DET-056",
+          "webrtc",
+          "call"
+        ],
+        [
+          "RTCPeerConnection.getTransceivers",
+          "DET-056",
+          "webrtc",
+          "call"
+        ],
+        [
+          "RTCPeerConnection.connectionState",
+          "DET-056",
+          "webrtc",
+          "get"
+        ],
+        [
+          "RTCPeerConnection.iceConnectionState",
+          "DET-056",
+          "webrtc",
+          "get"
+        ],
+        [
+          "RTCPeerConnection.iceGatheringState",
+          "DET-056",
+          "webrtc",
+          "get"
+        ],
+        [
+          "RTCPeerConnection.signalingState",
+          "DET-056",
+          "webrtc",
+          "get"
+        ],
+        [
+          "RTCPeerConnection.canTrickleIceCandidates",
+          "DET-056",
+          "webrtc",
+          "get"
+        ]
+      ],
+      "additionalNamedSurfaces": [
+        "webkitRTCPeerConnection (RTCPeerConnection alias)"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 4839,
+        "marker": "function installWebRTCSensor("
+      }
+    },
+    {
+      "id": "DET-057",
+      "name": "WebRTC SDP / certificates / ICE / stats",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "18 registry операций descriptions/getStats/RTCSessionDescription/RTCCertificate/RTCStatsReport плюс ICE getters.",
+      "limitation": "Технические поля ограничены allowlist; raw IP/SDP/ICE/credentials не являются обычной export metadata.",
+      "uiTaxonomy": {
+        "category": "network",
+        "api": "RTCCertificate / RTCSessionDescription / RTCStatsReport / ICE candidate getters",
+        "family": "webrtc",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "RTCPeerConnection.localDescription",
+          "DET-057",
+          "webrtc",
+          "get"
+        ],
+        [
+          "RTCPeerConnection.currentLocalDescription",
+          "DET-057",
+          "webrtc",
+          "get"
+        ],
+        [
+          "RTCPeerConnection.pendingLocalDescription",
+          "DET-057",
+          "webrtc",
+          "get"
+        ],
+        [
+          "RTCPeerConnection.remoteDescription",
+          "DET-057",
+          "webrtc",
+          "get"
+        ],
+        [
+          "RTCPeerConnection.currentRemoteDescription",
+          "DET-057",
+          "webrtc",
+          "get"
+        ],
+        [
+          "RTCPeerConnection.pendingRemoteDescription",
+          "DET-057",
+          "webrtc",
+          "get"
+        ],
+        [
+          "RTCPeerConnection.getStats",
+          "DET-057",
+          "webrtc",
+          "async-call"
+        ],
+        [
+          "RTCSessionDescription.sdp",
+          "DET-057",
+          "webrtc",
+          "get"
+        ],
+        [
+          "RTCSessionDescription.type",
+          "DET-057",
+          "webrtc",
+          "get"
+        ],
+        [
+          "RTCSessionDescription.toJSON",
+          "DET-057",
+          "webrtc",
+          "call"
+        ],
+        [
+          "RTCCertificate.getFingerprints",
+          "DET-057",
+          "webrtc",
+          "call"
+        ],
+        [
+          "RTCCertificate.expires",
+          "DET-057",
+          "webrtc",
+          "get"
+        ],
+        [
+          "RTCRtpSender.getStats",
+          "DET-057",
+          "webrtc",
+          "async-call"
+        ],
+        [
+          "RTCRtpReceiver.getStats",
+          "DET-057",
+          "webrtc",
+          "async-call"
+        ],
+        [
+          "RTCStatsReport.get",
+          "DET-057",
+          "webrtc",
+          "call"
+        ],
+        [
+          "RTCStatsReport.values",
+          "DET-057",
+          "webrtc",
+          "call"
+        ],
+        [
+          "RTCStatsReport.entries",
+          "DET-057",
+          "webrtc",
+          "call"
+        ],
+        [
+          "RTCStatsReport.forEach",
+          "DET-057",
+          "webrtc",
+          "call"
+        ]
+      ],
+      "additionalNamedSurfaces": [
+        "RTCIceCandidate.candidate",
+        "RTCIceCandidate.sdpMid",
+        "RTCIceCandidate.sdpMLineIndex",
+        "RTCIceCandidate.foundation",
+        "RTCIceCandidate.component",
+        "RTCIceCandidate.priority",
+        "RTCIceCandidate.address",
+        "RTCIceCandidate.protocol",
+        "RTCIceCandidate.port",
+        "RTCIceCandidate.type",
+        "RTCIceCandidate.tcpType",
+        "RTCIceCandidate.relatedAddress",
+        "RTCIceCandidate.relatedPort",
+        "RTCIceCandidate.usernameFragment",
+        "RTCPeerConnectionIceEvent.candidate"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 4839,
+        "marker": "function installWebRTCSensor("
+      }
+    },
+    {
+      "id": "DET-058",
+      "name": "WebSocket handshake / WebTransport creation",
+      "status": "partial",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook",
+        "browser-network"
+      ],
+      "activation": "document-monitoring",
+      "method": "Native webRequest type websocket и ws/wss; отдельно page-hook конструктора WebTransport.",
+      "limitation": "Пакеты QUIC, WebTransport streams и WebSocket messages не читаются. Конструктор не подтверждает установку соединения.",
+      "uiTaxonomy": {
+        "category": "network",
+        "api": "WebSocket / WebTransport",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "WebTransport",
+          "DET-058",
+          "webtransport",
+          "construct"
+        ]
+      ],
+      "additionalNamedSurfaces": [],
+      "source": {
+        "file": "apps/production-extension/background.js",
+        "line": 18219,
+        "marker": "NetworkAttemptObserver"
+      }
+    },
+    {
+      "id": "DET-059",
+      "name": "Browser requests / beacon / extension probing",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "fetch, XHR context/send, sendBeacon, image/script src, CredentialsContainer.get; отдельный fixed extension target словарь.",
+      "limitation": "Ссылка src не означает успешный запрос; результат probing не даёт список установленных extensions.",
+      "uiTaxonomy": {
+        "category": "network",
+        "api": "window.fetch / XMLHttpRequest.send / navigator.sendBeacon",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "Window.fetch",
+        "XMLHttpRequest.open (context preparation)",
+        "XMLHttpRequest.send",
+        "Navigator.sendBeacon",
+        "HTMLImageElement.src (extension-resource / social)",
+        "HTMLScriptElement.src (extension-resource / loader / social)",
+        "CredentialsContainer.get"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5131,
+        "marker": "function installBrowserRequestSensor("
+      }
+    },
+    {
+      "id": "DET-060",
+      "name": "Local address / multi-port probing pattern",
+      "status": "implemented",
+      "channel": "browser-network",
+      "channels": [
+        "browser-network"
+      ],
+      "activation": "document-monitoring",
+      "method": "Native network обращения к локальным адресам/именам; 4 разных порта одной цели за 10 секунд.",
+      "limitation": "Пассивный pattern с confidence low; расширение не сканирует порты и не устанавливает, какой сервис отвечает.",
+      "uiTaxonomy": {
+        "category": "network",
+        "api": "local address and port access sequences",
+        "family": "local-probe",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [],
+      "source": {
+        "file": "apps/production-extension/background.js",
+        "line": 18074,
+        "marker": "LocalProbeWindow = class"
+      }
+    },
+    {
+      "id": "DET-061",
+      "name": "Randomized subdomain / DNS-like pattern",
+      "status": "implemented",
+      "channel": "browser-network",
+      "channels": [
+        "browser-network"
+      ],
+      "activation": "document-monitoring",
+      "method": "8 разных qualifying subdomain requests за 10 секунд под одним registrable domain.",
+      "limitation": "Нет DNS resolver/answer наблюдения; это DNS-like HTTP request pattern, confidence low.",
+      "uiTaxonomy": {
+        "category": "network",
+        "api": "unique subdomain request series",
+        "family": "dns",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [],
+      "source": {
+        "file": "apps/production-extension/background.js",
+        "line": 18152,
+        "marker": "DnsProbeWindow = class"
+      }
+    },
+    {
+      "id": "DET-062",
+      "name": "CNAME cloaking / first-party proxy",
+      "status": "not-implemented",
+      "channel": null,
+      "channels": [],
+      "activation": null,
+      "method": "ID предусмотрен для CNAME/first-party vendor delivery.",
+      "limitation": "CNAME resolution и detector скрытого vendor не реализованы.",
+      "uiTaxonomy": {
+        "category": "network",
+        "api": "vendor delivery via first-party hostname / CNAME",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [],
+      "source": null
+    },
+    {
+      "id": "DET-063",
+      "name": "Service Worker API",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "ServiceWorkerContainer.register/getRegistration/getRegistrations.",
+      "limitation": "Внутренние worker callbacks и отправки после закрытия вкладки не наблюдаются; отдельный inventory описан ниже.",
+      "uiTaxonomy": {
+        "category": "network",
+        "api": "ServiceWorkerContainer.register / getRegistration / getRegistrations",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [
+        "ServiceWorkerContainer.register",
+        "ServiceWorkerContainer.getRegistration",
+        "ServiceWorkerContainer.getRegistrations"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5131,
+        "marker": "function installBrowserRequestSensor("
+      }
+    },
+    {
+      "id": "DET-064",
+      "name": "Worker / SharedWorker / Worklet creation",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "Конструкторы Worker/SharedWorker и Worklet.addModule, включая общий метод AudioWorklet/PaintWorklet при доступном native descriptor.",
+      "limitation": "Наблюдается создание из документа; URL/options, внутренние worker/worklet callbacks, Math и сетевые отправки worker не читаются. Успешный вызов отмечает worker-not-observed.",
+      "uiTaxonomy": {
+        "category": "network",
+        "api": "Worker / SharedWorker / Worklet",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "Worker",
+          "DET-064",
+          "worker",
+          "construct"
+        ],
+        [
+          "SharedWorker",
+          "DET-064",
+          "worker",
+          "construct"
+        ],
+        [
+          "Worklet.addModule",
+          "DET-064",
+          "worker",
+          "async-call"
+        ]
+      ],
+      "additionalNamedSurfaces": [],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5904,
+        "marker": "function createWorkerSurfacesSupport("
+      }
+    },
+    {
+      "id": "DET-065",
+      "name": "WebAssembly API",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "compile/instantiate/streaming/validate; Module/Instance/Memory, grow/buffer.",
+      "limitation": "Десять операций; инструкции, SIMD/threads и внутренний Wasm fingerprint не классифицируются.",
+      "uiTaxonomy": {
+        "category": "network",
+        "api": "WebAssembly.compile / instantiate / compileStreaming / instantiateStreaming / validate · Module / Instance / Memory",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "WebAssembly.compile",
+          "DET-065",
+          "wasm",
+          "async-call"
+        ],
+        [
+          "WebAssembly.instantiate",
+          "DET-065",
+          "wasm",
+          "async-call"
+        ],
+        [
+          "WebAssembly.compileStreaming",
+          "DET-065",
+          "wasm",
+          "async-call"
+        ],
+        [
+          "WebAssembly.instantiateStreaming",
+          "DET-065",
+          "wasm",
+          "async-call"
+        ],
+        [
+          "WebAssembly.validate",
+          "DET-065",
+          "wasm",
+          "call"
+        ],
+        [
+          "WebAssembly.Module",
+          "DET-065",
+          "wasm",
+          "construct"
+        ],
+        [
+          "WebAssembly.Instance",
+          "DET-065",
+          "wasm",
+          "construct"
+        ],
+        [
+          "WebAssembly.Memory",
+          "DET-065",
+          "wasm",
+          "construct"
+        ],
+        [
+          "WebAssembly.Memory.grow",
+          "DET-065",
+          "wasm",
+          "call"
+        ],
+        [
+          "WebAssembly.Memory.buffer",
+          "DET-065",
+          "wasm",
+          "get"
+        ]
+      ],
+      "additionalNamedSurfaces": [],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5281,
+        "marker": "function installWebAssemblySensor("
+      }
+    },
+    {
+      "id": "DET-066",
+      "name": "Timing / Performance APIs",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "performance.now/Date.now sampled 1/64; mark/measure/getEntries; supportedEntryTypes.",
+      "limitation": "Не полный счётчик sampled timers; classifier uptime/history/cache timing отсутствует.",
+      "uiTaxonomy": {
+        "category": "network",
+        "api": "performance.now / Date.now; Performance.mark / measure / getEntries / getEntriesByName / getEntriesByType",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "PerformanceObserver.supportedEntryTypes",
+          "DET-066",
+          "browser-capabilities",
+          "get"
+        ]
+      ],
+      "additionalNamedSurfaces": [
+        "Performance.now (1/64)",
+        "Date.now (1/64)",
+        "Performance.mark",
+        "Performance.measure",
+        "Performance.getEntries",
+        "Performance.getEntriesByName",
+        "Performance.getEntriesByType"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5235,
+        "marker": "function installTimingSensor("
+      }
+    },
+    {
+      "id": "DET-067",
+      "name": "Server-side TLS / HTTP / QUIC fingerprint",
+      "status": "not-implemented",
+      "channel": null,
+      "channels": [],
+      "activation": null,
+      "method": "Архитектурная граница taxonomy.",
+      "limitation": "Server-side fingerprint, JA3/JA4, DPI/MITM detector не реализованы.",
+      "uiTaxonomy": {
+        "category": "network",
+        "api": "server-side fingerprint (TLS / HTTP / QUIC)",
+        "family": "generic",
+        "boundary": true
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [],
+      "source": null
+    },
+    {
+      "id": "DET-068",
+      "name": "Pure CSS fingerprint без JavaScript",
+      "status": "not-implemented",
+      "channel": null,
+      "channels": [],
+      "activation": null,
+      "method": "Архитектурная граница taxonomy.",
+      "limitation": "Пассивное исполнение CSS без JS hooks не анализируется.",
+      "uiTaxonomy": {
+        "category": "network",
+        "api": "CSS without JavaScript",
+        "family": "generic",
+        "boundary": true
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [],
+      "source": null
+    },
+    {
+      "id": "DET-069",
+      "name": "WebAuthn / Credential creation / Clipboard API",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "PublicKeyCredential platform authenticator / conditional mediation / client capabilities; CredentialsContainer.create; Clipboard.read/readText/write/writeText.",
+      "limitation": "Видно обращение к API. Credential options/attestation и clipboard contents не читаются; create не доказывает WebAuthn, TPM, аппаратный ID или успешную регистрацию.",
+      "uiTaxonomy": {
+        "category": "permissions",
+        "api": "PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable / isConditionalMediationAvailable / getClientCapabilities",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "CredentialsContainer.create",
+          "DET-069",
+          "webauthn",
+          "async-call"
+        ],
+        [
+          "Clipboard.read",
+          "DET-069",
+          "clipboard",
+          "async-call"
+        ],
+        [
+          "Clipboard.readText",
+          "DET-069",
+          "clipboard",
+          "async-call"
+        ],
+        [
+          "Clipboard.write",
+          "DET-069",
+          "clipboard",
+          "async-call"
+        ],
+        [
+          "Clipboard.writeText",
+          "DET-069",
+          "clipboard",
+          "async-call"
+        ]
+      ],
+      "additionalNamedSurfaces": [
+        "PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable",
+        "PublicKeyCredential.isConditionalMediationAvailable",
+        "PublicKeyCredential.getClientCapabilities"
+      ],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5973,
+        "marker": "function createExtendedSurfacesSupport("
+      }
+    },
+    {
+      "id": "DET-070",
+      "name": "WebNN / ML capabilities",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "44 операции ML/MLContext/MLGraphBuilder/MLTensor/MLOperand, включая builder math ops.",
+      "limitation": "Не измерение NPU и не benchmark backend; model/tensor contents не исследуются.",
+      "uiTaxonomy": {
+        "category": "environment",
+        "api": "Navigator.ml / ML.createContext / MLContext.opSupportLimits / MLGraphBuilder / MLContext.dispatch / MLTensor",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "Navigator.ml",
+          "DET-070",
+          "webnn",
+          "get"
+        ],
+        [
+          "ML.createContext",
+          "DET-070",
+          "webnn",
+          "async-call"
+        ],
+        [
+          "MLContext.opSupportLimits",
+          "DET-070",
+          "webnn",
+          "call"
+        ],
+        [
+          "MLGraphBuilder",
+          "DET-070",
+          "webnn",
+          "construct"
+        ],
+        [
+          "MLGraphBuilder.input",
+          "DET-070",
+          "webnn",
+          "call"
+        ],
+        [
+          "MLGraphBuilder.constant",
+          "DET-070",
+          "webnn",
+          "call"
+        ],
+        [
+          "MLGraphBuilder.build",
+          "DET-070",
+          "webnn",
+          "async-call"
+        ],
+        [
+          "MLContext.createTensor",
+          "DET-070",
+          "webnn",
+          "async-call"
+        ],
+        [
+          "MLContext.readTensor",
+          "DET-070",
+          "webnn",
+          "async-call"
+        ],
+        [
+          "MLContext.writeTensor",
+          "DET-070",
+          "webnn",
+          "call"
+        ],
+        [
+          "MLContext.dispatch",
+          "DET-070",
+          "webnn",
+          "call"
+        ],
+        [
+          "MLContext.compute",
+          "DET-070",
+          "webnn",
+          "async-call"
+        ],
+        [
+          "MLContext.destroy",
+          "DET-070",
+          "webnn",
+          "call"
+        ],
+        [
+          "MLContext.lost",
+          "DET-070",
+          "webnn",
+          "get"
+        ],
+        [
+          "MLGraph.destroy",
+          "DET-070",
+          "webnn",
+          "call"
+        ],
+        [
+          "MLTensor.dataType",
+          "DET-070",
+          "webnn",
+          "get"
+        ],
+        [
+          "MLTensor.shape",
+          "DET-070",
+          "webnn",
+          "get"
+        ],
+        [
+          "MLTensor.readable",
+          "DET-070",
+          "webnn",
+          "get"
+        ],
+        [
+          "MLTensor.writable",
+          "DET-070",
+          "webnn",
+          "get"
+        ],
+        [
+          "MLTensor.constant",
+          "DET-070",
+          "webnn",
+          "get"
+        ],
+        [
+          "MLTensor.destroy",
+          "DET-070",
+          "webnn",
+          "call"
+        ],
+        [
+          "MLOperand.dataType",
+          "DET-070",
+          "webnn",
+          "get"
+        ],
+        [
+          "MLOperand.shape",
+          "DET-070",
+          "webnn",
+          "get"
+        ],
+        [
+          "MLGraphBuilder.add",
+          "DET-070",
+          "webnn",
+          "call"
+        ],
+        [
+          "MLGraphBuilder.sub",
+          "DET-070",
+          "webnn",
+          "call"
+        ],
+        [
+          "MLGraphBuilder.mul",
+          "DET-070",
+          "webnn",
+          "call"
+        ],
+        [
+          "MLGraphBuilder.div",
+          "DET-070",
+          "webnn",
+          "call"
+        ],
+        [
+          "MLGraphBuilder.matmul",
+          "DET-070",
+          "webnn",
+          "call"
+        ],
+        [
+          "MLGraphBuilder.gemm",
+          "DET-070",
+          "webnn",
+          "call"
+        ],
+        [
+          "MLGraphBuilder.conv2d",
+          "DET-070",
+          "webnn",
+          "call"
+        ],
+        [
+          "MLGraphBuilder.convTranspose2d",
+          "DET-070",
+          "webnn",
+          "call"
+        ],
+        [
+          "MLGraphBuilder.relu",
+          "DET-070",
+          "webnn",
+          "call"
+        ],
+        [
+          "MLGraphBuilder.sigmoid",
+          "DET-070",
+          "webnn",
+          "call"
+        ],
+        [
+          "MLGraphBuilder.softmax",
+          "DET-070",
+          "webnn",
+          "call"
+        ],
+        [
+          "MLGraphBuilder.reshape",
+          "DET-070",
+          "webnn",
+          "call"
+        ],
+        [
+          "MLGraphBuilder.transpose",
+          "DET-070",
+          "webnn",
+          "call"
+        ],
+        [
+          "MLGraphBuilder.concat",
+          "DET-070",
+          "webnn",
+          "call"
+        ],
+        [
+          "MLGraphBuilder.split",
+          "DET-070",
+          "webnn",
+          "call"
+        ],
+        [
+          "MLGraphBuilder.cast",
+          "DET-070",
+          "webnn",
+          "call"
+        ],
+        [
+          "MLGraphBuilder.reduceSum",
+          "DET-070",
+          "webnn",
+          "call"
+        ],
+        [
+          "MLGraphBuilder.reduceMean",
+          "DET-070",
+          "webnn",
+          "call"
+        ],
+        [
+          "MLGraphBuilder.gather",
+          "DET-070",
+          "webnn",
+          "call"
+        ],
+        [
+          "MLGraphBuilder.quantizeLinear",
+          "DET-070",
+          "webnn",
+          "call"
+        ],
+        [
+          "MLGraphBuilder.dequantizeLinear",
+          "DET-070",
+          "webnn",
+          "call"
+        ]
+      ],
+      "additionalNamedSurfaces": [],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5699,
+        "marker": "function installWebNNSensor("
+      }
+    },
+    {
+      "id": "DET-071",
+      "name": "Built-in AI capabilities",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "33 операции LanguageModel/Translator/Summarizer/Writer/Rewriter/LanguageDetector/Proofreader.",
+      "limitation": "Условные hooks; наличие в registry не гарантирует API в текущем browser; prompts/output не читаются.",
+      "uiTaxonomy": {
+        "category": "environment",
+        "api": "LanguageModel / Translator / Summarizer / Writer / Rewriter / LanguageDetector / Proofreader",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "LanguageModel.availability",
+          "DET-071",
+          "builtin-ai",
+          "async-call"
+        ],
+        [
+          "LanguageModel.params",
+          "DET-071",
+          "builtin-ai",
+          "async-call"
+        ],
+        [
+          "LanguageModel.create",
+          "DET-071",
+          "builtin-ai",
+          "async-call"
+        ],
+        [
+          "Translator.availability",
+          "DET-071",
+          "builtin-ai",
+          "async-call"
+        ],
+        [
+          "Translator.params",
+          "DET-071",
+          "builtin-ai",
+          "async-call"
+        ],
+        [
+          "Translator.create",
+          "DET-071",
+          "builtin-ai",
+          "async-call"
+        ],
+        [
+          "Summarizer.availability",
+          "DET-071",
+          "builtin-ai",
+          "async-call"
+        ],
+        [
+          "Summarizer.params",
+          "DET-071",
+          "builtin-ai",
+          "async-call"
+        ],
+        [
+          "Summarizer.create",
+          "DET-071",
+          "builtin-ai",
+          "async-call"
+        ],
+        [
+          "Writer.availability",
+          "DET-071",
+          "builtin-ai",
+          "async-call"
+        ],
+        [
+          "Writer.params",
+          "DET-071",
+          "builtin-ai",
+          "async-call"
+        ],
+        [
+          "Writer.create",
+          "DET-071",
+          "builtin-ai",
+          "async-call"
+        ],
+        [
+          "Rewriter.availability",
+          "DET-071",
+          "builtin-ai",
+          "async-call"
+        ],
+        [
+          "Rewriter.params",
+          "DET-071",
+          "builtin-ai",
+          "async-call"
+        ],
+        [
+          "Rewriter.create",
+          "DET-071",
+          "builtin-ai",
+          "async-call"
+        ],
+        [
+          "LanguageDetector.availability",
+          "DET-071",
+          "builtin-ai",
+          "async-call"
+        ],
+        [
+          "LanguageDetector.params",
+          "DET-071",
+          "builtin-ai",
+          "async-call"
+        ],
+        [
+          "LanguageDetector.create",
+          "DET-071",
+          "builtin-ai",
+          "async-call"
+        ],
+        [
+          "Proofreader.availability",
+          "DET-071",
+          "builtin-ai",
+          "async-call"
+        ],
+        [
+          "Proofreader.params",
+          "DET-071",
+          "builtin-ai",
+          "async-call"
+        ],
+        [
+          "Proofreader.create",
+          "DET-071",
+          "builtin-ai",
+          "async-call"
+        ],
+        [
+          "LanguageModel.prompt",
+          "DET-071",
+          "builtin-ai",
+          "async-call"
+        ],
+        [
+          "LanguageModel.promptStreaming",
+          "DET-071",
+          "builtin-ai",
+          "call"
+        ],
+        [
+          "Translator.translate",
+          "DET-071",
+          "builtin-ai",
+          "async-call"
+        ],
+        [
+          "Translator.translateStreaming",
+          "DET-071",
+          "builtin-ai",
+          "call"
+        ],
+        [
+          "Summarizer.summarize",
+          "DET-071",
+          "builtin-ai",
+          "async-call"
+        ],
+        [
+          "Summarizer.summarizeStreaming",
+          "DET-071",
+          "builtin-ai",
+          "call"
+        ],
+        [
+          "Writer.write",
+          "DET-071",
+          "builtin-ai",
+          "async-call"
+        ],
+        [
+          "Writer.writeStreaming",
+          "DET-071",
+          "builtin-ai",
+          "call"
+        ],
+        [
+          "Rewriter.rewrite",
+          "DET-071",
+          "builtin-ai",
+          "async-call"
+        ],
+        [
+          "Rewriter.rewriteStreaming",
+          "DET-071",
+          "builtin-ai",
+          "call"
+        ],
+        [
+          "LanguageDetector.detect",
+          "DET-071",
+          "builtin-ai",
+          "async-call"
+        ],
+        [
+          "Proofreader.proofread",
+          "DET-071",
+          "builtin-ai",
+          "async-call"
+        ]
+      ],
+      "additionalNamedSurfaces": [],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5762,
+        "marker": "function installCapabilitySensor("
+      }
+    },
+    {
+      "id": "DET-072",
+      "name": "Handwriting / Shape Detection",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "query/createHandwritingRecognizer, BarcodeDetector/FaceDetector/TextDetector и detect/getSupportedFormats.",
+      "limitation": "Девять условных операций; successful native recognition каждого API не подтверждён.",
+      "uiTaxonomy": {
+        "category": "environment",
+        "api": "Handwriting Recognition / BarcodeDetector / FaceDetector / TextDetector",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "Navigator.queryHandwritingRecognizer",
+          "DET-072",
+          "recognition",
+          "async-call"
+        ],
+        [
+          "Navigator.createHandwritingRecognizer",
+          "DET-072",
+          "recognition",
+          "async-call"
+        ],
+        [
+          "BarcodeDetector",
+          "DET-072",
+          "recognition",
+          "construct"
+        ],
+        [
+          "BarcodeDetector.getSupportedFormats",
+          "DET-072",
+          "recognition",
+          "async-call"
+        ],
+        [
+          "BarcodeDetector.detect",
+          "DET-072",
+          "recognition",
+          "async-call"
+        ],
+        [
+          "FaceDetector",
+          "DET-072",
+          "recognition",
+          "construct"
+        ],
+        [
+          "FaceDetector.detect",
+          "DET-072",
+          "recognition",
+          "async-call"
+        ],
+        [
+          "TextDetector",
+          "DET-072",
+          "recognition",
+          "construct"
+        ],
+        [
+          "TextDetector.detect",
+          "DET-072",
+          "recognition",
+          "async-call"
+        ]
+      ],
+      "additionalNamedSurfaces": [],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5762,
+        "marker": "function installCapabilitySensor("
+      }
+    },
+    {
+      "id": "DET-073",
+      "name": "Интеграция веб-приложений",
+      "status": "implemented",
+      "channel": "page-hook",
+      "channels": [
+        "page-hook"
+      ],
+      "activation": "document-monitoring",
+      "method": "48 операций RelatedApps/protocols/DigitalGoods/locks/share/badges/files/Push/Sync/Navigation/CloseWatcher/Popover/Ink/TrustedTypes.",
+      "limitation": "Это наблюдение capability/API использования; список приложений/файлов, фактические background sends и отдельный app fingerprint не выводятся.",
+      "uiTaxonomy": {
+        "category": "environment",
+        "api": "Related Apps / Web Locks / File System Access / Share / Sync / Navigation / Trusted Types",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [
+        [
+          "Navigator.getInstalledRelatedApps",
+          "DET-073",
+          "app-integration",
+          "async-call"
+        ],
+        [
+          "Navigator.registerProtocolHandler",
+          "DET-073",
+          "app-integration",
+          "call"
+        ],
+        [
+          "Navigator.unregisterProtocolHandler",
+          "DET-073",
+          "app-integration",
+          "call"
+        ],
+        [
+          "Window.getDigitalGoodsService",
+          "DET-073",
+          "app-integration",
+          "async-call"
+        ],
+        [
+          "Navigator.locks",
+          "DET-073",
+          "app-integration",
+          "get"
+        ],
+        [
+          "LockManager.query",
+          "DET-073",
+          "app-integration",
+          "async-call"
+        ],
+        [
+          "LockManager.request",
+          "DET-073",
+          "app-integration",
+          "async-call"
+        ],
+        [
+          "Navigator.setAppBadge",
+          "DET-073",
+          "app-integration",
+          "async-call"
+        ],
+        [
+          "Navigator.clearAppBadge",
+          "DET-073",
+          "app-integration",
+          "async-call"
+        ],
+        [
+          "Navigator.canShare",
+          "DET-073",
+          "app-integration",
+          "call"
+        ],
+        [
+          "Navigator.share",
+          "DET-073",
+          "app-integration",
+          "async-call"
+        ],
+        [
+          "Window.showOpenFilePicker",
+          "DET-073",
+          "app-integration",
+          "async-call"
+        ],
+        [
+          "Window.showSaveFilePicker",
+          "DET-073",
+          "app-integration",
+          "async-call"
+        ],
+        [
+          "Window.showDirectoryPicker",
+          "DET-073",
+          "app-integration",
+          "async-call"
+        ],
+        [
+          "StorageManager.getDirectory",
+          "DET-073",
+          "app-integration",
+          "async-call"
+        ],
+        [
+          "FileSystemHandle.queryPermission",
+          "DET-073",
+          "app-integration",
+          "async-call"
+        ],
+        [
+          "FileSystemHandle.requestPermission",
+          "DET-073",
+          "app-integration",
+          "async-call"
+        ],
+        [
+          "PushManager.permissionState",
+          "DET-073",
+          "app-integration",
+          "async-call"
+        ],
+        [
+          "PushManager.getSubscription",
+          "DET-073",
+          "app-integration",
+          "async-call"
+        ],
+        [
+          "PushManager.subscribe",
+          "DET-073",
+          "app-integration",
+          "async-call"
+        ],
+        [
+          "SyncManager.register",
+          "DET-073",
+          "app-integration",
+          "async-call"
+        ],
+        [
+          "SyncManager.getTags",
+          "DET-073",
+          "app-integration",
+          "async-call"
+        ],
+        [
+          "PeriodicSyncManager.register",
+          "DET-073",
+          "app-integration",
+          "async-call"
+        ],
+        [
+          "PeriodicSyncManager.getTags",
+          "DET-073",
+          "app-integration",
+          "async-call"
+        ],
+        [
+          "PeriodicSyncManager.unregister",
+          "DET-073",
+          "app-integration",
+          "async-call"
+        ],
+        [
+          "BackgroundFetchManager.fetch",
+          "DET-073",
+          "app-integration",
+          "async-call"
+        ],
+        [
+          "BackgroundFetchManager.get",
+          "DET-073",
+          "app-integration",
+          "async-call"
+        ],
+        [
+          "BackgroundFetchManager.getIds",
+          "DET-073",
+          "app-integration",
+          "async-call"
+        ],
+        [
+          "Navigation.navigate",
+          "DET-073",
+          "app-integration",
+          "call"
+        ],
+        [
+          "Navigation.reload",
+          "DET-073",
+          "app-integration",
+          "call"
+        ],
+        [
+          "Navigation.back",
+          "DET-073",
+          "app-integration",
+          "call"
+        ],
+        [
+          "Navigation.forward",
+          "DET-073",
+          "app-integration",
+          "call"
+        ],
+        [
+          "Navigation.traverseTo",
+          "DET-073",
+          "app-integration",
+          "call"
+        ],
+        [
+          "CloseWatcher",
+          "DET-073",
+          "app-integration",
+          "construct"
+        ],
+        [
+          "CloseWatcher.requestClose",
+          "DET-073",
+          "app-integration",
+          "call"
+        ],
+        [
+          "CloseWatcher.close",
+          "DET-073",
+          "app-integration",
+          "call"
+        ],
+        [
+          "CloseWatcher.destroy",
+          "DET-073",
+          "app-integration",
+          "call"
+        ],
+        [
+          "HTMLElement.showPopover",
+          "DET-073",
+          "app-integration",
+          "call"
+        ],
+        [
+          "HTMLElement.hidePopover",
+          "DET-073",
+          "app-integration",
+          "call"
+        ],
+        [
+          "HTMLElement.togglePopover",
+          "DET-073",
+          "app-integration",
+          "call"
+        ],
+        [
+          "Navigator.ink",
+          "DET-073",
+          "app-integration",
+          "get"
+        ],
+        [
+          "Ink.requestPresenter",
+          "DET-073",
+          "app-integration",
+          "async-call"
+        ],
+        [
+          "TrustedTypePolicyFactory.createPolicy",
+          "DET-073",
+          "app-integration",
+          "call"
+        ],
+        [
+          "TrustedTypePolicyFactory.isHTML",
+          "DET-073",
+          "app-integration",
+          "call"
+        ],
+        [
+          "TrustedTypePolicyFactory.isScript",
+          "DET-073",
+          "app-integration",
+          "call"
+        ],
+        [
+          "TrustedTypePolicyFactory.isScriptURL",
+          "DET-073",
+          "app-integration",
+          "call"
+        ],
+        [
+          "TrustedTypePolicyFactory.getAttributeType",
+          "DET-073",
+          "app-integration",
+          "call"
+        ],
+        [
+          "TrustedTypePolicyFactory.getPropertyType",
+          "DET-073",
+          "app-integration",
+          "call"
+        ]
+      ],
+      "additionalNamedSurfaces": [],
+      "source": {
+        "file": "apps/production-extension/hook.main.js",
+        "line": 5762,
+        "marker": "function installCapabilitySensor("
+      }
+    },
+    {
+      "id": "DET-074",
+      "name": "Response headers / requested Client Hints",
+      "status": "implemented",
+      "channel": "browser-network",
+      "channels": [
+        "browser-network"
+      ],
+      "activation": "document-monitoring",
+      "method": "18 фиксированных имён headers, включая Set-Login, CSP, HSTS, COOP, COEP, X-Frame-Options; Accept-CH/Critical-CH разбираются в 27 известных hint names.",
+      "limitation": "Считаются ответы с конкретным заголовком. Значения новых headers не читаются; Set-Login не раскрывает факт входа, наличие policy не доказывает её применение.",
+      "uiTaxonomy": {
+        "category": "network",
+        "api": "HTTP response headers / Client Hints / Permissions Policy / Reporting / Session Binding",
+        "family": "generic",
+        "boundary": false
+      },
+      "registeredOperations": [],
+      "additionalNamedSurfaces": [],
+      "source": {
+        "file": "apps/production-extension/background.js",
+        "line": 1483,
+        "marker": "// packages/contracts/src/response-headers.ts"
+      }
+    }
+  ],
+  "antifraud": [
+    {
+      "id": "cloudflare-turnstile",
+      "name": "Cloudflare Turnstile",
+      "brand": "cloudflare",
+      "resourceRules": [
+        {
+          "id": "turnstile-loader-v1",
+          "vendorId": "cloudflare-turnstile",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "challenges.cloudflare.com",
+            "pathExact": "/turnstile/v0/api.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": []
+    },
+    {
+      "id": "google-recaptcha",
+      "name": "Google reCAPTCHA",
+      "brand": "google",
+      "resourceRules": [
+        {
+          "id": "recaptcha-loader-v1",
+          "vendorId": "google-recaptcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "www.google.com",
+            "pathExact": "/recaptcha/api.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "recaptcha-net-loader-v1",
+          "vendorId": "google-recaptcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "www.recaptcha.net",
+            "pathExact": "/recaptcha/api.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "recaptcha-enterprise-loader-v1",
+          "vendorId": "google-recaptcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "www.google.com",
+            "pathExact": "/recaptcha/enterprise.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "recaptcha-net-enterprise-loader-v1",
+          "vendorId": "google-recaptcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "www.recaptcha.net",
+            "pathExact": "/recaptcha/enterprise.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": []
+    },
+    {
+      "id": "hcaptcha",
+      "name": "hCaptcha",
+      "brand": "hcaptcha",
+      "resourceRules": [
+        {
+          "id": "hcaptcha-loader-v1",
+          "vendorId": "hcaptcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "js.hcaptcha.com",
+            "pathExact": "/1/api.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": []
+    },
+    {
+      "id": "datadome",
+      "name": "DataDome",
+      "brand": "datadome",
+      "resourceRules": [
+        {
+          "id": "datadome-loader-v1",
+          "vendorId": "datadome",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "js.datadome.co",
+            "pathExact": "/tags.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": []
+    },
+    {
+      "id": "sift",
+      "name": "Sift",
+      "brand": "sift",
+      "resourceRules": [
+        {
+          "id": "sift-loader-v1",
+          "vendorId": "sift",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "cdn.sift.com",
+            "pathExact": "/s.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": []
+    },
+    {
+      "id": "maxmind-minfraud",
+      "name": "MaxMind minFraud",
+      "brand": "maxmind",
+      "resourceRules": [
+        {
+          "id": "maxmind-device-loader-v1",
+          "vendorId": "maxmind-minfraud",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "device.maxmind.com",
+            "pathExact": "/js/device.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "maxmind-module-loader-v1",
+          "vendorId": "maxmind-minfraud",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "device.maxmind.com",
+            "pathExact": "/js/device-module.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": []
+    },
+    {
+      "id": "threatmetrix",
+      "name": "LexisNexis ThreatMetrix",
+      "brand": "lexisnexis",
+      "resourceRules": [
+        {
+          "id": "threatmetrix-h-loader-v1",
+          "vendorId": "threatmetrix",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "h.online-metrix.net",
+            "pathExact": "/fp/tags.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "threatmetrix-h-api-loader-v1",
+          "vendorId": "threatmetrix",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "h-api.online-metrix.net",
+            "pathExact": "/fp/tags.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": [
+        {
+          "id": "threatmetrix-aa-turn-v1",
+          "vendorId": "threatmetrix",
+          "matcher": {
+            "hostExact": "aa.online-metrix.net",
+            "schemes": [
+              "stun",
+              "turn",
+              "turns"
+            ]
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2026-10-12T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "arkose",
+      "name": "Arkose Labs",
+      "brand": "arkose",
+      "resourceRules": [
+        {
+          "id": "arkose-client-loader-v1",
+          "vendorId": "arkose",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "client-api.arkoselabs.com",
+            "pathTemplate": "arkose-v2-public-key",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": []
+    },
+    {
+      "id": "cybersource",
+      "name": "Cybersource Device Fingerprint",
+      "brand": "cybersource",
+      "resourceRules": [
+        {
+          "id": "cybersource-production-loader-v1",
+          "vendorId": "cybersource",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "h.online-metrix.net",
+            "pathExact": "/fp/tags.js",
+            "publicOrgId": "k8vif92e",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "cybersource-sandbox-loader-v1",
+          "vendorId": "cybersource",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "h.online-metrix.net",
+            "pathExact": "/fp/tags.js",
+            "publicOrgId": "1snn5n9w",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": []
+    },
+    {
+      "id": "seon",
+      "name": "SEON",
+      "brand": "seon",
+      "resourceRules": [
+        {
+          "id": "seon-dfsdk-v6-loader-v1",
+          "vendorId": "seon",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "cdn.dfsdk.com",
+            "pathExact": "/js/v6/agent.umd.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "seon-deviceinf-v6-loader-v1",
+          "vendorId": "seon",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "cdn.deviceinf.com",
+            "pathExact": "/js/v6/agent.umd.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "seon-intelligence-v6-loader-v1",
+          "vendorId": "seon",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "cdn.seonintelligence.com",
+            "pathExact": "/js/v6/agent.umd.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "seon-v5-loader-v1",
+          "vendorId": "seon",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "cdn.seon.io",
+            "pathExact": "/js/v5/agent.prod.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": []
+    },
+    {
+      "id": "human",
+      "name": "HUMAN / PerimeterX",
+      "brand": "human",
+      "resourceRules": [
+        {
+          "id": "human-sensor-loader-v1",
+          "vendorId": "human",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "client.perimeterx.net",
+            "pathTemplate": "human-app-sensor",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "human-captcha-loader-v1",
+          "vendorId": "human",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "captcha.px-cdn.net",
+            "pathTemplate": "human-app-captcha",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": []
+    },
+    {
+      "id": "signifyd",
+      "name": "Signifyd",
+      "brand": "signifyd",
+      "resourceRules": [
+        {
+          "id": "signifyd-loader-v1",
+          "vendorId": "signifyd",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "cdn-scripts.signifyd.com",
+            "pathExact": "/api/script-tag.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": []
+    },
+    {
+      "id": "iovation",
+      "name": "iovation",
+      "brand": "iovation",
+      "resourceRules": [
+        {
+          "id": "iovation-loader-v1",
+          "vendorId": "iovation",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "mpsnare.iesnare.com",
+            "pathExact": "/snare.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": []
+    },
+    {
+      "id": "fingerprint",
+      "name": "Fingerprint (FingerprintJS Pro)",
+      "brand": "fingerprint",
+      "resourceRules": [
+        {
+          "id": "fingerprint-v3-loader-v1",
+          "vendorId": "fingerprint",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "fpjscdn.net",
+            "pathTemplate": "fingerprint-v3-key",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "fingerprint-v3-iife-loader-v1",
+          "vendorId": "fingerprint",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "fpjscdn.net",
+            "pathTemplate": "fingerprint-v3-key-iife",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "fingerprint-v4-loader-v1",
+          "vendorId": "fingerprint",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "fpjscdn.net",
+            "pathTemplate": "fingerprint-v4-key",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "fingerprint-v3-npm-loader-v1",
+          "vendorId": "fingerprint",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "fpnpmcdn.net",
+            "pathTemplate": "fingerprint-v3-npm-loader",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": [
+        {
+          "id": "fingerprint-turn-family-v1",
+          "vendorId": "fingerprint",
+          "matcher": {
+            "hostTemplate": "fingerprint-turn-region-v1",
+            "schemes": [
+              "stun",
+              "turn",
+              "turns"
+            ]
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2026-12-13T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "fingerprintjs",
+      "name": "FingerprintJS",
+      "brand": "fingerprint",
+      "resourceRules": [
+        {
+          "id": "fingerprintjs-v5-loader-v1",
+          "vendorId": "fingerprintjs",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "openfpcdn.io",
+            "pathExact": "/fingerprintjs/v5",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "fingerprintjs-v5-iife-loader-v1",
+          "vendorId": "fingerprintjs",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "openfpcdn.io",
+            "pathExact": "/fingerprintjs/v5/iife.min.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": []
+    },
+    {
+      "id": "geetest",
+      "name": "GeeTest CAPTCHA",
+      "brand": "geetest",
+      "resourceRules": [
+        {
+          "id": "geetest-v4-loader-v1",
+          "vendorId": "geetest",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "static.geetest.com",
+            "pathExact": "/v4/gt4.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "geetest-v3-loader-v1",
+          "vendorId": "geetest",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "static.geetest.com",
+            "pathExact": "/static/js/gt.0.5.0.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": []
+    },
+    {
+      "id": "yandex-smartcaptcha",
+      "name": "Yandex SmartCaptcha",
+      "brand": "yandex",
+      "resourceRules": [
+        {
+          "id": "yandex-smartcaptcha-loader-v1",
+          "vendorId": "yandex-smartcaptcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "smartcaptcha.cloud.yandex.ru",
+            "pathExact": "/captcha.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": []
+    },
+    {
+      "id": "kount",
+      "name": "Kount",
+      "brand": "kount",
+      "resourceRules": [
+        {
+          "id": "kount-ddc-loader-v1",
+          "vendorId": "kount",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "ssl.kaptcha.com",
+            "pathExact": "/collect/sdk",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": []
+    },
+    {
+      "id": "fraudlabs-pro",
+      "name": "FraudLabs Pro",
+      "brand": "fraudlabs-pro",
+      "resourceRules": [
+        {
+          "id": "fraudlabs-pro-loader-v1",
+          "vendorId": "fraudlabs-pro",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "cdn.fraudlabspro.com",
+            "pathExact": "/s.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": []
+    },
+    {
+      "id": "adyen",
+      "name": "Adyen Risk Data Collection",
+      "brand": "adyen",
+      "resourceRules": [
+        {
+          "id": "adyen-live-data-loader-v1",
+          "vendorId": "adyen",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "checkoutshopper-live.adyen.com",
+            "pathExact": "/checkoutshopper/assets/js/datacollection/datacollection.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "adyen-test-data-loader-v1",
+          "vendorId": "adyen",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "checkoutshopper-test.adyen.com",
+            "pathExact": "/checkoutshopper/assets/js/datacollection/datacollection.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": []
+    },
+    {
+      "id": "forter",
+      "name": "Forter",
+      "brand": "forter",
+      "resourceRules": [
+        {
+          "id": "forter-3ds-loader-v1",
+          "vendorId": "forter",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "sdk.checkouttools.com",
+            "pathExact": "/v1.2/managedOrders.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "forter-cdn-resource-v1",
+          "vendorId": "forter",
+          "matcher": {
+            "scheme": "https",
+            "hostGroup": "forter-cdn-v1",
+            "resourceTypes": [
+              "script",
+              "xmlhttprequest",
+              "image",
+              "ping"
+            ]
+          },
+          "sourceAccessedAt": "2026-10-10",
+          "reviewDueAt": "2027-01-10T00:00:00.000Z"
+        },
+        {
+          "id": "forter-cloudfront-connect-v1",
+          "vendorId": "forter",
+          "matcher": {
+            "scheme": "https",
+            "hostGroup": "forter-cloudfront-connect-v1",
+            "resourceTypes": [
+              "xmlhttprequest",
+              "image",
+              "ping"
+            ]
+          },
+          "sourceAccessedAt": "2026-10-10",
+          "reviewDueAt": "2027-01-10T00:00:00.000Z"
+        },
+        {
+          "id": "forter-cloudfront-script-v1",
+          "vendorId": "forter",
+          "matcher": {
+            "scheme": "https",
+            "hostGroup": "forter-cloudfront-script-v1",
+            "resourceTypes": [
+              "script"
+            ]
+          },
+          "sourceAccessedAt": "2026-10-10",
+          "reviewDueAt": "2027-01-10T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": []
+    },
+    {
+      "id": "paypal-fraudnet",
+      "name": "PayPal FraudNet",
+      "brand": "paypal",
+      "resourceRules": [
+        {
+          "id": "paypal-fraudnet-loader-v1",
+          "vendorId": "paypal-fraudnet",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "c.paypal.com",
+            "pathExact": "/da/r/fb.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": []
+    },
+    {
+      "id": "alibaba-captcha",
+      "name": "Alibaba Cloud CAPTCHA",
+      "brand": "alibabacloud",
+      "resourceRules": [
+        {
+          "id": "alibaba-captcha-loader-v1",
+          "vendorId": "alibaba-captcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "o.alicdn.com",
+            "pathExact": "/captcha-frontend/aliyunCaptcha/AliyunCaptcha.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": []
+    },
+    {
+      "id": "tencent-captcha",
+      "name": "Tencent Cloud CAPTCHA",
+      "brand": "tencent",
+      "resourceRules": [
+        {
+          "id": "tencent-global-captcha-loader-v1",
+          "vendorId": "tencent-captcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "ca.turing.captcha.qcloud.com",
+            "pathExact": "/TJNCaptcha-global.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "tencent-current-captcha-loader-v1",
+          "vendorId": "tencent-captcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "turing.captcha.qcloud.com",
+            "pathExact": "/TJCaptcha.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "tencent-legacy-captcha-loader-v1",
+          "vendorId": "tencent-captcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "turing.captcha.qcloud.com",
+            "pathExact": "/TCaptcha.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": []
+    },
+    {
+      "id": "mtcaptcha",
+      "name": "MTCaptcha",
+      "brand": "mtcaptcha",
+      "resourceRules": [
+        {
+          "id": "mtcaptcha-loader-v1",
+          "vendorId": "mtcaptcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "service.mtcaptcha.com",
+            "pathExact": "/mtcv1/client/mtcaptcha.min.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "mtcaptcha-fallback-loader-v1",
+          "vendorId": "mtcaptcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "service2.mtcaptcha.com",
+            "pathExact": "/mtcv1/client/mtcaptcha2.min.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": []
+    },
+    {
+      "id": "baidu-waf-captcha",
+      "name": "Baidu Cloud WAF challenge components",
+      "brand": "baidu",
+      "resourceRules": [
+        {
+          "id": "baidu-waf-nox-loader-v1",
+          "vendorId": "baidu-waf-captcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "sec-captcha-waf.cdn.bcebos.com",
+            "pathExact": "/static/wb/1.0/nox_20241230.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "baidu-waf-tox-loader-v1",
+          "vendorId": "baidu-waf-captcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "sec-captcha-waf.cdn.bcebos.com",
+            "pathExact": "/static/wb/1.0/tox_20241230.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": []
+    },
+    {
+      "id": "friendly-captcha",
+      "name": "Friendly Captcha",
+      "brand": "friendly-captcha",
+      "resourceRules": [
+        {
+          "id": "friendly-captcha-hcaptcha-module-loader-v1",
+          "vendorId": "friendly-captcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "cdn.jsdelivr.net",
+            "pathExact": "/npm/@friendlycaptcha/sdk@1.0.2/contrib/hcaptcha-site.min.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "friendly-captcha-hcaptcha-compat-loader-v1",
+          "vendorId": "friendly-captcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "cdn.jsdelivr.net",
+            "pathExact": "/npm/@friendlycaptcha/sdk@1.0.2/contrib/hcaptcha-site.compat.min.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "friendly-captcha-module-loader-v1",
+          "vendorId": "friendly-captcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "cdn.jsdelivr.net",
+            "pathExact": "/npm/@friendlycaptcha/sdk@1.0.2/site.min.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "friendly-captcha-compat-loader-v1",
+          "vendorId": "friendly-captcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "cdn.jsdelivr.net",
+            "pathExact": "/npm/@friendlycaptcha/sdk@1.0.2/site.compat.min.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": []
+    },
+    {
+      "id": "sumsub",
+      "name": "Sumsub WebSDK",
+      "brand": "sumsub",
+      "resourceRules": [
+        {
+          "id": "sumsub-websdk-loader-v1",
+          "vendorId": "sumsub",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "static.sumsub.com",
+            "pathExact": "/idensic/static/sns-websdk-builder.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": []
+    },
+    {
+      "id": "trustdecision",
+      "name": "TrustDecision Behavior SDK",
+      "brand": "trustdecision",
+      "resourceRules": [
+        {
+          "id": "trustdecision-behavior-loader-v1",
+          "vendorId": "trustdecision",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "static.trustdecision.com",
+            "pathExact": "/tdbh/tdbehavior.min.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": []
+    },
+    {
+      "id": "netease-yidun",
+      "name": "NetEase Yidun CAPTCHA",
+      "brand": "netease",
+      "resourceRules": [
+        {
+          "id": "netease-yidun-loader-1-v1",
+          "vendorId": "netease-yidun",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "cstaticdun.126.net",
+            "pathExact": "/load.min.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "netease-yidun-loader-2-v1",
+          "vendorId": "netease-yidun",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "cstatic.dun.163yun.com",
+            "pathExact": "/load.min.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "netease-yidun-loader-3-v1",
+          "vendorId": "netease-yidun",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "cstaticdun-v6.126.net",
+            "pathExact": "/load.min.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "netease-yidun-loader-4-v1",
+          "vendorId": "netease-yidun",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "cstatic-v6.dun.163yun.com",
+            "pathExact": "/load.min.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": []
+    },
+    {
+      "id": "clearsale",
+      "name": "ClearSale Behavior Analytics",
+      "brand": "clearsale",
+      "resourceRules": [
+        {
+          "id": "clearsale-behavior-loader-v1",
+          "vendorId": "clearsale",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "device.clearsale.com.br",
+            "pathExact": "/p/fp.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": []
+    },
+    {
+      "id": "socure",
+      "name": "Socure Digital Intelligence",
+      "brand": "socure",
+      "resourceRules": [
+        {
+          "id": "socure-device-risk-loader-v1",
+          "vendorId": "socure",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "sdk.dv.socure.io",
+            "pathExact": "/latest/device-risk-sdk.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ],
+      "rtcRules": []
+    }
+  ],
+  "forterResourcePolicy": {
+    "sourceAccessedAt": "2026-10-10",
+    "reviewDueAt": "2027-01-10T00:00:00.000Z",
+    "connectHosts": [
+      "d2o5idwacg3gyw.cloudfront.net",
+      "dz8rit8v72mig.cloudfront.net",
+      "db7q4jg5rkhk8.cloudfront.net",
+      "d94qwxh6czci4.cloudfront.net",
+      "dr6vcclmzwk74.cloudfront.net",
+      "d6wfl40rgh70w.cloudfront.net",
+      "d6rak4b14t5gp.cloudfront.net",
+      "d3k4bt74u9esq1.cloudfront.net",
+      "d1ezzflfzltk6e.cloudfront.net",
+      "d3nocrch4qti4v.cloudfront.net",
+      "duuytoqss3gu4.cloudfront.net",
+      "df45ay5pw60dy.cloudfront.net"
+    ],
+    "scriptHosts": [
+      "dlthst9q2beh8.cloudfront.net",
+      "d2nww8zpyj5pk0.cloudfront.net",
+      "d2w2nqfk3z9hdt.cloudfront.net"
+    ]
+  },
+  "socialProviders": [
+    {
+      "id": "facebook",
+      "hosts": [
+        "facebook.com",
+        "facebook.net"
+      ]
+    },
+    {
+      "id": "instagram",
+      "hosts": [
+        "instagram.com"
+      ]
+    },
+    {
+      "id": "x",
+      "hosts": [
+        "twitter.com",
+        "x.com",
+        "t.co",
+        "ads-twitter.com"
+      ]
+    },
+    {
+      "id": "linkedin",
+      "hosts": [
+        "linkedin.com",
+        "licdn.com"
+      ]
+    },
+    {
+      "id": "tiktok",
+      "hosts": [
+        "tiktok.com"
+      ]
+    },
+    {
+      "id": "snapchat",
+      "hosts": [
+        "snapchat.com",
+        "sc-static.net"
+      ]
+    },
+    {
+      "id": "pinterest",
+      "hosts": [
+        "pinterest.com",
+        "pinimg.com"
+      ]
+    },
+    {
+      "id": "reddit",
+      "hosts": [
+        "reddit.com",
+        "redditmedia.com",
+        "redditstatic.com"
+      ]
+    },
+    {
+      "id": "discord",
+      "hosts": [
+        "discord.com",
+        "discordapp.com"
+      ]
+    },
+    {
+      "id": "twitch",
+      "hosts": [
+        "twitch.tv"
+      ]
+    },
+    {
+      "id": "youtube",
+      "hosts": [
+        "youtube.com",
+        "youtube-nocookie.com"
+      ]
+    },
+    {
+      "id": "github",
+      "hosts": [
+        "github.com"
+      ]
+    },
+    {
+      "id": "gitlab",
+      "hosts": [
+        "gitlab.com"
+      ]
+    },
+    {
+      "id": "vk",
+      "hosts": [
+        "vk.com",
+        "vk.ru",
+        "vkuser.net"
+      ]
+    },
+    {
+      "id": "ok",
+      "hosts": [
+        "ok.ru"
+      ]
+    },
+    {
+      "id": "weibo",
+      "hosts": [
+        "weibo.com"
+      ]
+    },
+    {
+      "id": "wechat",
+      "hosts": [
+        "weixin.qq.com",
+        "wx.qq.com"
+      ]
+    },
+    {
+      "id": "qq",
+      "hosts": [
+        "qq.com"
+      ]
+    },
+    {
+      "id": "telegram",
+      "hosts": [
+        "telegram.org"
+      ]
+    },
+    {
+      "id": "line",
+      "hosts": [
+        "line.me",
+        "line-scdn.net"
+      ]
+    },
+    {
+      "id": "google",
+      "hosts": [
+        "accounts.google.com",
+        "apis.google.com",
+        "googletagmanager.com",
+        "google-analytics.com",
+        "analytics.google.com",
+        "googleadservices.com",
+        "googlesyndication.com",
+        "doubleclick.net"
+      ]
+    },
+    {
+      "id": "microsoft",
+      "hosts": [
+        "login.microsoftonline.com",
+        "login.live.com",
+        "bat.bing.com"
+      ]
+    },
+    {
+      "id": "apple",
+      "hosts": [
+        "appleid.apple.com"
+      ]
+    },
+    {
+      "id": "spotify",
+      "hosts": [
+        "accounts.spotify.com"
+      ]
+    },
+    {
+      "id": "steam",
+      "hosts": [
+        "steamcommunity.com"
+      ]
+    },
+    {
+      "id": "yahoo",
+      "hosts": [
+        "login.yahoo.com"
+      ]
+    },
+    {
+      "id": "tumblr",
+      "hosts": [
+        "tumblr.com"
+      ]
+    },
+    {
+      "id": "quora",
+      "hosts": [
+        "quora.com"
+      ]
+    },
+    {
+      "id": "disqus",
+      "hosts": [
+        "disqus.com"
+      ]
+    },
+    {
+      "id": "yandex",
+      "hosts": [
+        "yandex.ru",
+        "yandex.com"
+      ]
+    },
+    {
+      "id": "mailru",
+      "hosts": [
+        "mail.ru"
+      ]
+    },
+    {
+      "id": "kakao",
+      "hosts": [
+        "kakao.com",
+        "kakaocdn.net",
+        "bc.ad.daum.net"
+      ]
+    },
+    {
+      "id": "naver",
+      "hosts": [
+        "naver.com",
+        "naver.net"
+      ]
+    },
+    {
+      "id": "baidu",
+      "hosts": [
+        "baidu.com"
+      ]
+    },
+    {
+      "id": "bluesky",
+      "hosts": [
+        "bsky.app"
+      ]
+    },
+    {
+      "id": "sharethis",
+      "hosts": [
+        "sharethis.com"
+      ]
+    },
+    {
+      "id": "douyin",
+      "hosts": [
+        "douyin.com"
+      ]
+    },
+    {
+      "id": "mastodon",
+      "hosts": [
+        "mastodon.social",
+        "mastodon.online"
+      ]
+    },
+    {
+      "id": "addthis",
+      "hosts": [
+        "addthis.com"
+      ]
+    },
+    {
+      "id": "whatsapp",
+      "hosts": [
+        "whatsapp.com",
+        "wa.me"
+      ]
+    },
+    {
+      "id": "viber",
+      "hosts": [
+        "viber.com"
+      ]
+    },
+    {
+      "id": "threads",
+      "hosts": [
+        "threads.com",
+        "threads.net"
+      ]
+    },
+    {
+      "id": "vimeo",
+      "hosts": [
+        "vimeo.com"
+      ]
+    },
+    {
+      "id": "dailymotion",
+      "hosts": [
+        "dailymotion.com"
+      ]
+    },
+    {
+      "id": "soundcloud",
+      "hosts": [
+        "soundcloud.com"
+      ]
+    }
+  ],
+  "socialRuleFamilies": {
+    "trackingSdk": 19,
+    "sdk": 15,
+    "trackingPixel": 14,
+    "embed": 9
+  },
+  "gtmDestinations": [
+    "Google Analytics",
+    "Google Ads",
+    "Facebook Pixel",
+    "Hotjar",
+    "Criteo OneTag",
+    "Microsoft Clarity",
+    "TikTok Pixel",
+    "LinkedIn Insight",
+    "Bing UET"
+  ],
+  "headers": [
+    "accept-ch",
+    "critical-ch",
+    "permissions-policy",
+    "feature-policy",
+    "nel",
+    "report-to",
+    "reporting-endpoints",
+    "secure-session-registration",
+    "sec-session-registration",
+    "secure-session-challenge",
+    "sec-session-challenge",
+    "use-as-dictionary",
+    "set-login",
+    "content-security-policy",
+    "strict-transport-security",
+    "cross-origin-opener-policy",
+    "cross-origin-embedder-policy",
+    "x-frame-options"
+  ],
+  "clientHintNames": [
+    "sec-ch-ua",
+    "sec-ch-ua-mobile",
+    "sec-ch-ua-platform",
+    "sec-ch-ua-arch",
+    "sec-ch-ua-bitness",
+    "sec-ch-ua-model",
+    "sec-ch-ua-platform-version",
+    "sec-ch-ua-full-version",
+    "sec-ch-ua-full-version-list",
+    "sec-ch-ua-wow64",
+    "sec-ch-ua-form-factors",
+    "device-memory",
+    "sec-ch-device-memory",
+    "dpr",
+    "sec-ch-dpr",
+    "width",
+    "sec-ch-width",
+    "viewport-width",
+    "sec-ch-viewport-width",
+    "sec-ch-viewport-height",
+    "rtt",
+    "downlink",
+    "ect",
+    "save-data",
+    "sec-ch-prefers-color-scheme",
+    "sec-ch-prefers-reduced-motion",
+    "sec-ch-prefers-reduced-transparency"
+  ],
+  "visualActivityMarkers": [
+    "text",
+    "image-copy",
+    "cropped-copy",
+    "recombined-copy",
+    "flip-back-copy",
+    "canvas-reset",
+    "pixel-write",
+    "fill",
+    "gradient",
+    "pattern",
+    "path",
+    "transform",
+    "flip-x",
+    "flip-y",
+    "fractional",
+    "alpha",
+    "composite",
+    "repeat-readback",
+    "multiple-readback-formats",
+    "texture-upload",
+    "2d-to-webgl",
+    "webgl-to-2d",
+    "webgl-to-webgl",
+    "shader",
+    "gpu-draw",
+    "gpu-sync",
+    "gl-parameters",
+    "timer-extension",
+    "timer-query",
+    "query-read",
+    "occlusion-query",
+    "bitmap-transfer",
+    "offscreen-transfer",
+    "bitmap-create",
+    "svg-source"
+  ],
+  "rtcValues": {
+    "operations": [
+      [
+        "RTCPeerConnection.getConfiguration",
+        "configuration"
+      ],
+      [
+        "RTCPeerConnection.configurationSnapshot",
+        "configuration"
+      ],
+      [
+        "RTCCertificate.getFingerprints",
+        "certificate"
+      ],
+      [
+        "RTCRtpSender.getCapabilities",
+        "capabilities"
+      ],
+      [
+        "RTCRtpReceiver.getCapabilities",
+        "capabilities"
+      ],
+      [
+        "RTCRtpSender.getParameters",
+        "capabilities"
+      ],
+      [
+        "RTCRtpReceiver.getParameters",
+        "capabilities"
+      ],
+      [
+        "RTCSessionDescription.sdp",
+        "description"
+      ],
+      [
+        "RTCSessionDescription.toJSON",
+        "description"
+      ],
+      [
+        "RTCStatsReport.get",
+        "stats"
+      ],
+      [
+        "IDBObjectStore.put",
+        "certificate-storage"
+      ],
+      [
+        "IDBObjectStore.add",
+        "certificate-storage"
+      ],
+      [
+        "IDBRequest.result",
+        "certificate-storage"
+      ],
+      [
+        "MediaStreamTrack.getSettings",
+        "media-settings"
+      ]
+    ],
+    "fields": {
+      "codec.mimeType": {
+        "type": "enum",
+        "values": [
+          "audio/opus",
+          "audio/PCMU",
+          "audio/PCMA",
+          "audio/G722",
+          "audio/ISAC",
+          "audio/CN",
+          "audio/telephone-event",
+          "audio/red",
+          "video/VP8",
+          "video/VP9",
+          "video/H264",
+          "video/H265",
+          "video/AV1",
+          "video/rtx",
+          "video/red",
+          "video/ulpfec",
+          "video/flexfec-03"
+        ]
+      },
+      "codec.clockRate": {
+        "type": "integer",
+        "maximum": 384000
+      },
+      "codec.channels": {
+        "type": "integer",
+        "maximum": 32
+      },
+      "codec.payloadType": {
+        "type": "integer",
+        "maximum": 127
+      },
+      "codec.mediaSection": {
+        "type": "integer",
+        "maximum": 31
+      },
+      "codec.parameters": {
+        "type": "pattern",
+        "pattern": "^(?:(?:apt|level-asymmetry-allowed|packetization-mode|profile-id|level-id|tier-flag|minptime|maxplaybackrate|sprop-maxcapturerate|stereo|sprop-stereo|useinbandfec|usedtx|maxaveragebitrate|max-fr|tx-mode|L|D|repair-window)=[0-9]{1,9}|profile-level-id=[A-Fa-f0-9]{6})(?:;(?:(?:apt|level-asymmetry-allowed|packetization-mode|profile-id|level-id|tier-flag|minptime|maxplaybackrate|sprop-maxcapturerate|stereo|sprop-stereo|useinbandfec|usedtx|maxaveragebitrate|max-fr|tx-mode|L|D|repair-window)=[0-9]{1,9}|profile-level-id=[A-Fa-f0-9]{6})){0,15}$",
+        "maximum": 256
+      },
+      "headerExtension.uri": {
+        "type": "enum",
+        "values": [
+          "urn:ietf:params:rtp-hdrext:ssrc-audio-level",
+          "urn:ietf:params:rtp-hdrext:csrc-audio-level",
+          "urn:ietf:params:rtp-hdrext:sdes:mid",
+          "urn:ietf:params:rtp-hdrext:sdes:rtp-stream-id",
+          "urn:ietf:params:rtp-hdrext:sdes:repaired-rtp-stream-id",
+          "urn:ietf:params:rtp-hdrext:toffset",
+          "urn:3gpp:video-orientation",
+          "http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time",
+          "http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01",
+          "http://www.webrtc.org/experiments/rtp-hdrext/playout-delay",
+          "http://www.webrtc.org/experiments/rtp-hdrext/video-content-type",
+          "http://www.webrtc.org/experiments/rtp-hdrext/video-timing",
+          "http://www.webrtc.org/experiments/rtp-hdrext/color-space",
+          "http://www.webrtc.org/experiments/rtp-hdrext/abs-capture-time",
+          "http://www.webrtc.org/experiments/rtp-hdrext/video-layers-allocation00",
+          "https://aomediacodec.github.io/av1-rtp-spec/#dependency-descriptor-rtp-header-extension"
+        ]
+      },
+      "headerExtension.id": {
+        "type": "integer",
+        "maximum": 255
+      },
+      "headerExtension.mediaSection": {
+        "type": "integer",
+        "maximum": 31
+      },
+      "description.type": {
+        "type": "enum",
+        "values": [
+          "offer",
+          "answer",
+          "pranswer",
+          "rollback"
+        ]
+      },
+      "media.kind": {
+        "type": "enum",
+        "values": [
+          "audio",
+          "video",
+          "application"
+        ]
+      },
+      "media.protocol": {
+        "type": "enum",
+        "values": [
+          "UDP/TLS/RTP/SAVPF",
+          "RTP/SAVPF",
+          "UDP/DTLS/SCTP",
+          "DTLS/SCTP"
+        ]
+      },
+      "media.payloadTypes": {
+        "type": "pattern",
+        "pattern": "^(?:[0-9]|[1-9][0-9]|1[01][0-9]|12[0-7])(?: (?:[0-9]|[1-9][0-9]|1[01][0-9]|12[0-7])){0,31}$",
+        "maximum": 127
+      },
+      "media.direction": {
+        "type": "enum",
+        "values": [
+          "sendrecv",
+          "sendonly",
+          "recvonly",
+          "inactive"
+        ]
+      },
+      "media.rtcpMux": {
+        "type": "boolean"
+      },
+      "dtls.setup": {
+        "type": "enum",
+        "values": [
+          "active",
+          "passive",
+          "actpass",
+          "holdconn"
+        ]
+      },
+      "certificate.sha-256": {
+        "type": "pattern",
+        "pattern": "^[A-Fa-f0-9]{2}(?::[A-Fa-f0-9]{2}){31}$",
+        "maximum": 95
+      },
+      "certificate.sha-384": {
+        "type": "pattern",
+        "pattern": "^[A-Fa-f0-9]{2}(?::[A-Fa-f0-9]{2}){47}$",
+        "maximum": 143
+      },
+      "certificate.sha-512": {
+        "type": "pattern",
+        "pattern": "^[A-Fa-f0-9]{2}(?::[A-Fa-f0-9]{2}){63}$",
+        "maximum": 191
+      },
+      "certificate.expires": {
+        "type": "integer",
+        "maximum": 8640000000000000
+      },
+      "configuration.bundlePolicy": {
+        "type": "enum",
+        "values": [
+          "balanced",
+          "max-compat",
+          "max-bundle"
+        ]
+      },
+      "configuration.iceTransportPolicy": {
+        "type": "enum",
+        "values": [
+          "all",
+          "relay"
+        ]
+      },
+      "configuration.rtcpMuxPolicy": {
+        "type": "enum",
+        "values": [
+          "require",
+          "negotiate"
+        ]
+      },
+      "configuration.iceCandidatePoolSize": {
+        "type": "integer",
+        "maximum": 255
+      },
+      "configuration.certificates": {
+        "type": "integer",
+        "maximum": 32
+      },
+      "storage.operation": {
+        "type": "enum",
+        "values": [
+          "put",
+          "add",
+          "result"
+        ]
+      },
+      "storage.completion": {
+        "type": "enum",
+        "values": [
+          "request-returned",
+          "value-returned"
+        ]
+      },
+      "stats.type": {
+        "type": "enum",
+        "values": [
+          "codec",
+          "inbound-rtp",
+          "outbound-rtp",
+          "certificate",
+          "transport",
+          "peer-connection",
+          "data-channel"
+        ]
+      },
+      "stats.encoderImplementation": {
+        "type": "enum",
+        "values": [
+          "libvpx",
+          "OpenH264",
+          "ExternalEncoder",
+          "ExternalEncoder (Unknown)",
+          "VideoToolbox",
+          "MediaCodec"
+        ]
+      },
+      "stats.decoderImplementation": {
+        "type": "enum",
+        "values": [
+          "libvpx",
+          "OpenH264",
+          "ExternalDecoder",
+          "ExternalDecoder (Unknown)",
+          "VideoToolbox",
+          "MediaCodec",
+          "FFmpeg",
+          "libaom",
+          "dav1d"
+        ]
+      },
+      "stats.powerEfficientEncoder": {
+        "type": "boolean"
+      },
+      "stats.powerEfficientDecoder": {
+        "type": "boolean"
+      },
+      "stats.dtlsState": {
+        "type": "enum",
+        "values": [
+          "new",
+          "connecting",
+          "connected",
+          "closed",
+          "failed"
+        ]
+      },
+      "media.width": {
+        "type": "integer",
+        "maximum": 65535
+      },
+      "media.height": {
+        "type": "integer",
+        "maximum": 65535
+      },
+      "media.frameRate": {
+        "type": "number",
+        "maximum": 10000
+      },
+      "media.aspectRatio": {
+        "type": "number",
+        "maximum": 65535
+      },
+      "media.sampleRate": {
+        "type": "integer",
+        "maximum": 384000
+      },
+      "media.sampleSize": {
+        "type": "integer",
+        "maximum": 128
+      },
+      "media.channelCount": {
+        "type": "integer",
+        "maximum": 32
+      },
+      "media.echoCancellation": {
+        "type": "boolean"
+      },
+      "media.noiseSuppression": {
+        "type": "boolean"
+      },
+      "media.autoGainControl": {
+        "type": "boolean"
+      }
+    }
+  },
+  "rtcReviewPolicy": {
+    "ruleId": "threatmetrix-aa-turn-v1",
+    "staleRuleId": "threatmetrix-aa-turn-v1-stale",
+    "vendorId": "threatmetrix",
+    "hostExact": "aa.online-metrix.net",
+    "sourceAccessedAt": "2026-09-13",
+    "reviewDueAt": "2026-10-12T00:00:00.000Z",
+    "expiryAction": "downgrade_to_stale_hint"
+  },
+  "proTechnicalValues": {
+    "operations": {
+      "Navigator.languages": [
+        "languages",
+        "DET-025"
+      ],
+      "Navigator.plugins": [
+        "plugins",
+        "DET-027"
+      ],
+      "Navigator.mimeTypes": [
+        "mime-types",
+        "DET-027"
+      ],
+      "NavigatorUAData.brands": [
+        "ua-data",
+        "DET-026"
+      ],
+      "NavigatorUAData.toJSON": [
+        "ua-data",
+        "DET-026"
+      ],
+      "Window.matchMedia": [
+        "media-query",
+        "DET-037"
+      ],
+      "Element.getBoundingClientRect": [
+        "geometry",
+        "DET-005"
+      ],
+      "Element.getClientRects": [
+        "geometry",
+        "DET-005"
+      ],
+      "Range.getBoundingClientRect": [
+        "geometry",
+        "DET-006"
+      ],
+      "Range.getClientRects": [
+        "geometry",
+        "DET-006"
+      ],
+      "SVGGraphicsElement.getBBox": [
+        "geometry",
+        "DET-007"
+      ],
+      "CanvasRenderingContext2D.measureText": [
+        "text-metrics",
+        "DET-003"
+      ],
+      "OffscreenCanvasRenderingContext2D.measureText": [
+        "text-metrics",
+        "DET-003"
+      ],
+      "WebGLRenderingContext.getSupportedExtensions": [
+        "webgl-extensions",
+        "DET-011"
+      ],
+      "WebGL2RenderingContext.getSupportedExtensions": [
+        "webgl-extensions",
+        "DET-011"
+      ],
+      "Intl.Collator.resolvedOptions": [
+        "intl",
+        "DET-036"
+      ],
+      "Intl.DateTimeFormat.resolvedOptions": [
+        "intl",
+        "DET-036"
+      ],
+      "Intl.NumberFormat.resolvedOptions": [
+        "intl",
+        "DET-036"
+      ],
+      "Intl.PluralRules.resolvedOptions": [
+        "intl",
+        "DET-036"
+      ],
+      "Intl.RelativeTimeFormat.resolvedOptions": [
+        "intl",
+        "DET-036"
+      ],
+      "Intl.ListFormat.resolvedOptions": [
+        "intl",
+        "DET-036"
+      ],
+      "Intl.Segmenter.resolvedOptions": [
+        "intl",
+        "DET-036"
+      ],
+      "Intl.DisplayNames.resolvedOptions": [
+        "intl",
+        "DET-036"
+      ]
+    },
+    "fields": {
+      "languages": {
+        "language": "string"
+      },
+      "plugins": {
+        "name": "string",
+        "description": "string",
+        "filename": "string",
+        "length": "number"
+      },
+      "mime-types": {
+        "type": "string",
+        "description": "string",
+        "suffixes": "string"
+      },
+      "ua-data": {
+        "brand": "string",
+        "version": "string",
+        "mobile": "boolean",
+        "platform": "string"
+      },
+      "media-query": {
+        "media": "string",
+        "matches": "boolean"
+      },
+      "geometry": {
+        "x": "number",
+        "y": "number",
+        "width": "number",
+        "height": "number",
+        "top": "number",
+        "right": "number",
+        "bottom": "number",
+        "left": "number"
+      },
+      "text-metrics": {
+        "width": "number",
+        "actualBoundingBoxLeft": "number",
+        "actualBoundingBoxRight": "number",
+        "fontBoundingBoxAscent": "number",
+        "fontBoundingBoxDescent": "number",
+        "actualBoundingBoxAscent": "number",
+        "actualBoundingBoxDescent": "number",
+        "emHeightAscent": "number",
+        "emHeightDescent": "number",
+        "hangingBaseline": "number",
+        "alphabeticBaseline": "number",
+        "ideographicBaseline": "number"
+      },
+      "webgl-extensions": {
+        "extension": "string"
+      },
+      "intl": {
+        "locale": "string",
+        "usage": "string",
+        "sensitivity": "string",
+        "collation": "string",
+        "caseFirst": "string",
+        "calendar": "string",
+        "numberingSystem": "string",
+        "timeZone": "string",
+        "hourCycle": "string",
+        "weekday": "string",
+        "era": "string",
+        "year": "string",
+        "month": "string",
+        "day": "string",
+        "dayPeriod": "string",
+        "hour": "string",
+        "minute": "string",
+        "second": "string",
+        "timeZoneName": "string",
+        "dateStyle": "string",
+        "timeStyle": "string",
+        "style": "string",
+        "currency": "string",
+        "currencyDisplay": "string",
+        "currencySign": "string",
+        "unit": "string",
+        "unitDisplay": "string",
+        "notation": "string",
+        "compactDisplay": "string",
+        "signDisplay": "string",
+        "roundingMode": "string",
+        "roundingPriority": "string",
+        "trailingZeroDisplay": "string",
+        "type": "string",
+        "pluralCategory": "string",
+        "numeric": "string|boolean",
+        "granularity": "string",
+        "fallback": "string",
+        "languageDisplay": "string",
+        "fractionalSecondDigits": "number",
+        "minimumIntegerDigits": "number",
+        "minimumFractionDigits": "number",
+        "maximumFractionDigits": "number",
+        "minimumSignificantDigits": "number",
+        "maximumSignificantDigits": "number",
+        "roundingIncrement": "number",
+        "ignorePunctuation": "boolean",
+        "hour12": "boolean",
+        "useGrouping": "string|boolean"
+      }
+    },
+    "maxFields": 128,
+    "maxBytes": 8192
+  },
+  "proRequestValues": {
+    "headerNames": [
+      "User-Agent",
+      "Accept",
+      "Accept-Language",
+      "Accept-Encoding",
+      "DNT",
+      "Sec-GPC",
+      "Sec-CH-UA",
+      "Sec-CH-UA-Arch",
+      "Sec-CH-UA-Bitness",
+      "Sec-CH-UA-Full-Version",
+      "Sec-CH-UA-Full-Version-List",
+      "Sec-CH-UA-Mobile",
+      "Sec-CH-UA-Model",
+      "Sec-CH-UA-Platform",
+      "Sec-CH-UA-Platform-Version",
+      "Sec-CH-UA-WoW64",
+      "Sec-CH-UA-Form-Factors",
+      "Sec-CH-Prefers-Color-Scheme",
+      "Sec-CH-Prefers-Reduced-Motion",
+      "Sec-CH-Prefers-Reduced-Transparency",
+      "Sec-CH-Device-Memory",
+      "Sec-CH-DPR",
+      "Sec-CH-Viewport-Height",
+      "Sec-CH-Viewport-Width",
+      "Sec-CH-Width",
+      "Device-Memory",
+      "DPR",
+      "Viewport-Width",
+      "Width",
+      "Downlink",
+      "ECT",
+      "RTT",
+      "Save-Data",
+      "Sec-Fetch-Site",
+      "Sec-Fetch-Mode",
+      "Sec-Fetch-User",
+      "Sec-Fetch-Dest",
+      "Sec-Fetch-Storage-Access"
+    ],
+    "maxRows": 256,
+    "maxBytes": 262144,
+    "maxValueLength": 4096
+  },
+  "mathSignatures": {
+    "activation": "pro-recording-only",
+    "recorded": [
+      "techniqueId",
+      "phase",
+      "api-use",
+      "known-numeric-pattern",
+      "count"
+    ],
+    "argumentsOrResultsCaptured": false,
+    "signatures": [
+      {
+        "operation": "Math.sin",
+        "techniqueId": "DET-022",
+        "primitiveArguments": [
+          -1e+300
+        ]
+      },
+      {
+        "operation": "Math.cos",
+        "techniqueId": "DET-022",
+        "primitiveArguments": [
+          10.000000000123
+        ]
+      },
+      {
+        "operation": "Math.tan",
+        "techniqueId": "DET-022",
+        "primitiveArguments": [
+          -1e+300
+        ]
+      },
+      {
+        "operation": "Math.acos",
+        "techniqueId": "DET-022",
+        "primitiveArguments": [
+          0.12312423423423424
+        ]
+      },
+      {
+        "operation": "Math.acosh",
+        "techniqueId": "DET-022",
+        "primitiveArguments": [
+          1e+308
+        ]
+      },
+      {
+        "operation": "Math.asin",
+        "techniqueId": "DET-022",
+        "primitiveArguments": [
+          0.12312423423423424
+        ]
+      },
+      {
+        "operation": "Math.pow",
+        "techniqueId": "DET-023",
+        "primitiveArguments": [
+          3.141592653589793,
+          -100
+        ]
+      }
+    ]
+  },
+  "archives": [
+    {
+      "browser": "chrome",
+      "file": "release/Detect.Expert-1.1.0-chrome.zip",
+      "bytes": 8539428,
+      "sha256": "c5e6acbc3ec62200c157be55800a3dc27d93af0a804b15985e83ef662c165dc9",
+      "deterministic": true,
+      "files": 917
+    },
+    {
+      "browser": "firefox",
+      "file": "release/Detect.Expert-1.1.0-firefox.zip",
+      "bytes": 8561245,
+      "sha256": "27050a0cc6ef7a98a7f4cc8a3c77f4733bfc06c948b084c3f3ed349a81667f39",
+      "deterministic": true,
+      "files": 917
+    }
+  ],
+  "sourceHashes": {
+    "apps/production-extension/hook.main.js": "de7ad3c115f9ccfdcb78e37aedaa33c83ab133549ef92f869d0c82187bf4d02a",
+    "apps/production-extension/hook.early.js": "6900e21160604f3e52796e2e78c0561b5c98173a936c06d29f30fbb44046899d",
+    "apps/production-extension/background.js": "32964e410e6ad51c1c9bcf3a7de368596f1ff52d8096e10c2f05fe6994a5e30d",
+    "apps/production-extension/popup.js": "c6640142676a921e1be7b2318c0ca645e791e8b7232625f431ebd8088931c3a9",
+    "apps/production-extension/social-network-detector.js": "72dc0e48186101972049dd24daa2d70873474e2a49f5d0f181647c1530b8fdce",
+    "apps/production-extension/cookie-catalog.js": "6a447d65d9d5e3d219c81b945b351240ddca11a7a3cb81b0e22ed066f546ce97",
+    "scripts/production/loader-sensor-runtime.mjs": "2bb9ed4e360260f1f17c8eca9784432ca00fc03f9048d3c29ea7b327b2bb20e2",
+    "scripts/production/pro-values-runtime.mjs": "f30f15f6045ab35cf3682b6b0800a6dcfb9634be551e8c57050041c652222706",
+    "scripts/production/extended-surfaces-runtime.mjs": "d9f779dade3a7e39d65601d996b3e5801cb74a8814e0c06abb55ba835f0c6a4a",
+    "scripts/production/worker-surfaces-runtime.mjs": "25d9094ba16494b4f30876e0953c2ca59a06f5f9f38b34d9c7aa19f22a26bb69",
+    "scripts/production/math-signature-runtime.mjs": "c35ed1b14e85178d3272a5580eaadd6449b966bc3e8d68950ffc555d723640c1",
+    "scripts/production/cookie-writer-runtime.mjs": "1945400c7ecd906cc3698b20dd8a446178c59b10a60ca7175ed8147ddd29eb9a",
+    "scripts/production/review-header-plan.mjs": "8dc115b505fef1cf39e93129e7303e75054bc7e70520a712b1cc4e019e8f6a63",
+    "scripts/production/rtc-review-plan.mjs": "f83b0f566d58dc2c45de1215cfd04ce51f3d7ad0c08d30b96454ff1d11bad7b3",
+    "packages/contracts/src/background-activity.mjs": "728df838e63c1378b46384cef56b373a804e54743052bb309eaa71423a4d7579",
+    "packages/contracts/src/cookie-writers.mjs": "7a9612661ef417eb256d21ac94ee684ba61111be07b817a134592274a549aae8",
+    "packages/contracts/src/pro-cookie-values.mjs": "3ac8dec36840606931b19dcfb82c38b2916a7a7d443e49b5eca3f81480f2950a",
+    "packages/contracts/src/pro-technical-values.mjs": "562e16f163de98838260af730f88cd78e25b583330167d149c8c9a2550a4631e",
+    "packages/contracts/src/pro-request-values.mjs": "b56cbdbf5015031742ab7840211b40fc201eb3e9eac24a42e2269856ff0f09dd",
+    "scripts/production/pro-technical-values-runtime.mjs": "748cd5b02db49fd431d9a6c544e4d91d1c74fa7c250fc940dcc592f57e49d54b",
+    "apps/production-extension/pro-request-values.js": "e0461be50bc56a5cf3fd5061e31325ed327357e0bac7d40c2baf48b5b17a5b53",
+    "apps/production-extension/pro-report-tables.js": "3e58b43440724f922c43d49ba8c155e47f0bc5666300c2309b4f132de0fdcb42",
+    "apps/production-extension/report.js": "1e7141ec79eeb274fd0b490b59bc314ec7bf54889eb5a8383ec9ec9735c19b1f"
+  },
+  "validation": {
+    "method": "source-literal extraction, source-marker resolution, cardinality/identity assertions, delivered production source comparison using build compatibility/Firefox adapter for two browsers, actual archive hash/byte-size comparison",
+    "deliveredSourcesChecked": 18,
+    "newRuntimeTestsExecuted": false,
+    "previousReleaseTests": {
+      "vitest": 1157,
+      "node": 1528,
+      "failures": 0,
+      "skipped": 0
+    }
+  }
+}

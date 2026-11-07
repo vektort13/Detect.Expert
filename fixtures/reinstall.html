@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>reinstall</title>
+  </head>
+  <body>
+    <h1>Sensor reinstall</h1>
+    <p>Does nothing at load. The test injects hook.main.js again (twice) into this document and then calls window.__readback(n); the report must count exactly n, not 2n or 3n.</p>
+    <pre id="result"></pre>
+    <script src="fixture-lib.js"></script>
+    <script>
+      (function () {
+        var F = window.__fixture;
+        var canvas = document.createElement('canvas');
+        canvas.width = 120;
+        canvas.height = 40;
+        var ctx = canvas.getContext('2d');
+        ctx.font = '14px sans-serif';
+        ctx.fillText('reinstall', 2, 16);
+        var total = 0;
+        window.__readback = function (n) {
+          var done = 0;
+          for (var i = 0; i < (n || 1); i++) if (ctx.getImageData(0, 0, 4, 4) instanceof ImageData) done++;
+          total += done;
+          F.publish({ fixture: 'reinstall', ready: true, readbacks: total });
+          return done;
+        };
+        F.publish({ fixture: 'reinstall', ready: true, readbacks: 0 });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+package session
+
+import (
+	"encoding/binary"
+	"errors"
+)
+
+// plainControl carries ordinary OpenVPN TLS control packets when the imported
+// profile has no tls-auth/tls-crypt key. TLS still authenticates the server and
+// protects the handshake; the AEAD data channel is unchanged.
+type plainControl struct{}
+
+func (plainControl) Wrap(opcodeKID byte, sessionID uint64, payload []byte) []byte {
+	packet := make([]byte, 9+len(payload))
+	packet[0] = opcodeKID
+	binary.BigEndian.PutUint64(packet[1:9], sessionID)
+	copy(packet[9:], payload)
+	return packet
+}
+
+func (plainControl) Unwrap(packet []byte) (byte, uint64, uint32, []byte, error) {
+	if len(packet) < 9 {
+		return 0, 0, 0, nil, errors.New("OpenVPN control packet is truncated")
+	}
+	return packet[0], binary.BigEndian.Uint64(packet[1:9]), 0, append([]byte(nil), packet[9:]...), nil
+}

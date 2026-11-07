@@ -1,0 +1,7180 @@
+{
+  "consent_startup": {
+    "message": "バックグラウンド処理が保存済みの同意を確認する間、縮約したリソースとヘッダーのメタデータのみを一時メモリに保持します。以前の同意が確認できた場合だけ使用し、それ以外は破棄します。後から同意しても復元しません。"
+  },
+  "consent_title": {
+    "message": "監視"
+  },
+  "consent_intro": {
+    "message": "同意するまで観測は無効です。Detect.Expert はサイトの API 使用を分析するため、端末内でデータを処理します。報告やテレメトリを開発者に送信しません。"
+  },
+  "consent_reports": {
+    "message": "訪問・リソースのメタデータ、API 活動と回数はブラウザのセッションストレージに保存されます。個別の WebRTC 履歴には設定された ICE サーバーのホスト名/IP とポートが含まれます。Pro 記録は操作した場合のみ開始します。設定はローカル保存です。"
+  },
+  "consent_previews": {
+    "message": "ローカルプレビューでは、ページがすでに読み取った Canvas/WebGL 画像、正確な技術的 API 値、WebRTC 証明書のフィンガープリント、Google X-Client-Data をコピーできます。画像やページタイトルには個人情報や機微情報が含まれる場合があります。画像、Google ヘッダーは容量制限のあるメモリ内に留まり、ブラウザー ストレージ、Pro/PDF、エクスポートには含まれません。Pro 記録の実行中は、選択された技術的 API パラメーターと異なる戻り値がローカルレポートに保存されます。"
+  },
+  "consent_controls": {
+    "message": "有効にすると、ブラウザー が許可したサイトを選択範囲で自動観測します。範囲の縮小・無効化、一時停止、結果消去、設定での同意撤回が可能です。既に開いたページは再読み込みが必要です。API 拒否は別に有効化します。保存した JSON/PDF は利用者が管理します。"
+  },
+  "consent_enable": {
+    "message": "監視を有効にする"
+  },
+  "consent_decline": {
+    "message": "観測を無効のままにする"
+  },
+  "consent_revoke": {
+    "message": "無効にして消去"
+  },
+  "consent_error": {
+    "message": "監視設定を更新できませんでした。もう一度お試しください。"
+  },
+  "consent_saved": {
+    "message": "この端末では、この版のデータ処理説明に同意済みです。"
+  },
+  "consent_policy": {
+    "message": "プライバシーポリシー（オフライン）"
+  },
+  "google_ids_title": {
+    "message": "Google / Chrome IDs"
+  },
+  "google_ids_meaning": {
+    "message": "Chrome の実験 ID であり、端末や利用者の一意な ID と確認されたものではありません。この値から追跡や CAPTCHA の原因は断定できません。"
+  },
+  "google_ids_source": {
+    "message": "ブラウザが観測した送信ヘッダー（onSendHeaders）で、サーバー受信の証明ではありません。正確な値は RAM/Light のみに保持し、storage、Pro/PDF、エクスポートには含めません。"
+  },
+  "google_ids_destination": {
+    "message": "送信先"
+  },
+  "google_ids_not_present": {
+    "message": "この送信先で最後に観測したリクエストヘッダーには X-Client-Data がありませんでした。"
+  },
+  "google_ids_unavailable": {
+    "message": "現在のヘッダー値は利用できません。ヘッダーが送信されなかったことを意味しません。"
+  },
+  "google_ids_too_large": {
+    "message": "ヘッダーがプレビュー上限の 4096 文字を超えたため、値は保持していません。"
+  },
+  "google_ids_invalid": {
+    "message": "ヘッダーが重複しているか未対応の形式だったため、値は保持していません。"
+  },
+  "google_ids_decode_unknown": {
+    "message": "観測したヘッダーをそのまま表示しています。protobuf の内容はデコードできませんでした。"
+  },
+  "google_ids_variations": {
+    "message": "実験 ID"
+  },
+  "google_ids_triggers": {
+    "message": "サーバー側トリガー ID"
+  },
+  "google_ids_none": {
+    "message": "デコード済みフィールドにはありません"
+  },
+  "google_ids_decode_limited": {
+    "message": "未知のフィールドまたは 256 ID の上限により、デコードは一部のみです。実験名や一意性は推定しません。"
+  },
+  "google_ids_empty": {
+    "message": "現在のメモリ期間では、この文書の対象となる Google リクエストは観測されていません。"
+  },
+  "google_ids_limited": {
+    "message": "一部のリクエストや値が省略または期限切れになりました。リストは不完全です。"
+  },
+  "google_ids_scope_title": {
+    "message": "観測範囲の制限"
+  },
+  "google_ids_scope": {
+    "message": "送信先と開始元へのアクセス権がある固定の Google HTTPS 宛先のみが対象です。最大八つのホストの最新ヘッダーであり、ブラウザ全体の ID ではありません。ナビゲーションには事前の全サイト権限と二秒以内の明確なブラウザイベントが必要です。Chrome 内部通信やアクセスできないフレームは対象外です。値は10分後に期限切れとなり、消去、一時停止、アクセス変更、SW 再起動で削除されます。シークレットモードでは通常 Chrome 自身の variations ヘッダーは付きません。フラグ、Cookie、CAPTCHA スコアは読み取りません。"
+  },
+  "api_note_webrtc": {
+    "message": "呼び出しや状態の読み取りは、接続、機器の特定、追跡を証明しません。通常のアプリも証明書を生成し、短い offer/read/close シーケンスを実行します。"
+  },
+  "rtc_values_returned": {
+    "message": "サイトに返された選択済みフィールド"
+  },
+  "rtc_values_snapshot": {
+    "message": "追加のローカル native スナップショット"
+  },
+  "rtc_values_limited": {
+    "message": "プライバシーまたはデータ量の制限により一部のフィールドや観測を省略しました。"
+  },
+  "rtc_values_empty": {
+    "message": "この観測には表示可能な選択済みフィールドがありません。"
+  },
+  "rtc_values_certificate": {
+    "message": "この指紋は機器ではなく証明書を識別します。再利用は接続を関連付ける可能性がありますが、追跡の証明ではありません。Pro 記録中は、選択された技術的な結果がローカルに保存されます。"
+  },
+  "rtc_values_storage": {
+    "message": "直接渡された証明書オブジェクトのみ認識します。IndexedDB の書き込み要求が返っても、トランザクションの確定や訪問をまたぐ保存は証明されません。入れ子の記録は調べません。"
+  },
+  "rtc_values_scope": {
+    "message": "選択した同期結果のみです。Promise の結果、統計の反復、完全な SDP、ICE パスワード、機器 ID、ネットワーク上の DTLS ハンドシェイクは調べません。追加スナップショットは区別して表示します。Pro 記録中は、選択された技術的な結果がローカルに保存されます。"
+  },
+  "inspector_group_media_capabilities": {
+    "message": "コーデックとメディア機能"
+  },
+  "inspector_group_media_devices": {
+    "message": "カメラ・マイク・メディア機器"
+  },
+  "inspector_group_speech": {
+    "message": "音声一覧と音声認識"
+  },
+  "inspector_group_drm": {
+    "message": "保護された再生 / DRM"
+  },
+  "inspector_group_device_access": {
+    "message": "周辺機器へのアクセス"
+  },
+  "inspector_group_browser_capabilities": {
+    "message": "ブラウザー機能"
+  },
+  "inspector_group_builtin_ai": {
+    "message": "組み込み AI と翻訳"
+  },
+  "inspector_group_recognition": {
+    "message": "画像・手書き認識"
+  },
+  "inspector_group_app_integration": {
+    "message": "プラットフォーム連携"
+  },
+  "inspector_group_response_headers": {
+    "message": "観測した応答ヘッダー"
+  },
+  "api_activity_capability": {
+    "message": "機能確認"
+  },
+  "api_activity_list": {
+    "message": "一覧の要求"
+  },
+  "api_activity_access": {
+    "message": "アクセス要求"
+  },
+  "api_activity_state": {
+    "message": "状態の照会"
+  },
+  "api_activity_operation": {
+    "message": "API 操作"
+  },
+  "api_note_media_capabilities": {
+    "message": "プレーヤー、編集ソフト、通話もコーデック互換性を確認します。RTP getCapabilities は接続を作りません。返された選択済みフィールドは結果プレビューで表示し、機器の型番や再生成功は確認しません。"
+  },
+  "api_note_media_devices": {
+    "message": "機器一覧、設定確認、キャプチャ要求は別の操作です。呼び出しは許可や録画を証明しません。返された一部のトラック設定をローカルで表示しますが、機器 ID、名前、メディア内容は除外します。"
+  },
+  "api_note_speech": {
+    "message": "読み上げやアクセシビリティ機能も音声一覧や認識機能を調べます。一覧、言語、音声は読みません。install の呼び出しはダウンロード完了を証明しません。"
+  },
+  "api_note_drm": {
+    "message": "DRM と HDCP は保護された再生の互換性を確認します。要求は追跡、ライセンス取得、保護レベルを証明しません。設定やライセンスは読みません。"
+  },
+  "api_note_device_access": {
+    "message": "getDevices/getPorts はサイトから利用できる一覧を要求し、requestDevice/requestPort は選択やアクセスを要求します。呼び出し回数は機器数ではありません。ID と応答内容は対象外です。"
+  },
+  "api_note_browser_capabilities": {
+    "message": "環境と権限状態の確認を観測します。cpuPerformance は区分であり CPU の測定値ではありません。引数や一覧は読まず、query の反復は異なる権限の列挙や指紋採取を証明しません。"
+  },
+  "api_note_builtin_ai": {
+    "message": "AI の利用可能性、作成、使用は別です。呼び出しは GPU、ダウンロード済みモデル、データ転送を証明しません。テキスト、言語ペア、出力は読まず、Promise の完了は不明です。"
+  },
+  "api_note_recognition": {
+    "message": "認識はブラウザーとプラットフォームに依存します。機能照会や detect は顔や利用者の認識を証明しません。画像、手書き、テキスト、形式一覧は読みません。"
+  },
+  "api_note_app_integration": {
+    "message": "アプリ、ファイル、ロック、バックグラウンド API には通常の用途があります。呼び出しはインストール済みアプリ、タブ数、ファイルアクセス、Trusted Types 強制を証明しません。内容、パス、コールバックは調べません。"
+  },
+  "headers_note": {
+    "message": "アクセス可能な文書でブラウザーが観測した完了済み応答の情報です。各ヘッダーは応答ごとに一度数えます。値、報告先、セッション鍵は除外し、ブラウザーでの適用は未確認です。"
+  },
+  "headers_observation": {
+    "message": "ブラウザーが対象の応答ヘッダーを観測しました。"
+  },
+  "headers_interpretation": {
+    "message": "ヘッダーの存在はデータ転送や隠れた追跡を証明しません。"
+  },
+  "headers_truncated": {
+    "message": "観測は不完全です。一部の応答やヒント名を省略しており、件数は下限です。"
+  },
+  "headers_hints": {
+    "message": "要求された Client Hints 名"
+  },
+  "headers_client_hints_note": {
+    "message": "サーバーがクライアントヒントを要求しています。実際の送信は未確認です。"
+  },
+  "headers_policy_note": {
+    "message": "ポリシーは機能を制限するもので、権限の付与ではありません。"
+  },
+  "headers_reporting_note": {
+    "message": "ブラウザー報告の設定であり、報告送信の証明ではありません。"
+  },
+  "headers_session_note": {
+    "message": "セッション連携機構。値と鍵は非表示で、登録は未確認です。"
+  },
+  "headers_dictionary_note": {
+    "message": "圧縮辞書の宣言。使用は未確認です。"
+  },
+  "api_webnn_coverage_note": {
+    "message": "対象は存在する場合の 44 の API エントリーポイントと一部のグラフ演算子に限られ、WebNN 全体ではありません。Worker と内部計算は観測しません。記録がなくても呼び出しがなかったとは限りません。"
+  },
+  "inspector_group_webnn": {
+    "message": "WebNN / ニューラルネットワーク"
+  },
+  "api_note_webnn": {
+    "message": "WebNN の機能確認は互換性のあるモデルの選択にも使われます。コンテキスト要求、build、dispatch だけでは、選択されたハードウェア、計算の完了、フィンガープリント目的は判断できません。オプション、対応表、テンソルの内容、Worker の動作は読み取りません。"
+  },
+  "api_preview_webnn": {
+    "message": "ここにはページが既に読み取ったスカラーメタデータのみを表示します。テンソルの形状・データと対応表の内容は含めず、非同期呼び出しの完了は不明です。件数は呼び出し回数であり、グラフのノード数や完了した推論数ではありません。"
+  },
+  "api_preview_audio": {
+    "message": "サンプルレート、遅延、チャンネル数を表示できる場合があります。サンプルとハッシュは対象外です。呼び出しだけでは指紋採取やマイクへのアクセスを証明しません。"
+  },
+  "api_preview_webgpu": {
+    "message": "ブラウザーの情報は制限・一般化される場合があり、GPU 型番の独立した確認ではありません。能動的な GPU テストやシェーダー時間測定は行いません。"
+  },
+  "api_preview_wasm": {
+    "message": "JavaScript API の結果のみを表示します。モジュールのバイト列や内部実行は調べず、CPU、アーキテクチャ、SIMD は判定しません。"
+  },
+  "api_preview_window_management": {
+    "message": "ページがすでに読み取った画面とウィンドウの値です。getScreenDetails の呼び出しは、許可や完全なモニター一覧の取得を証明しません。"
+  },
+  "api_preview_compute_pressure": {
+    "message": "ページが読み取った大まかな状態です。正確な時刻は非表示で、他のタブの動作や冷却特性は判定しません。"
+  },
+  "api_preview_idle_detection": {
+    "message": "ページが最後に読み取った状態です。start は有効な監視を証明しません。在席履歴や離席・復帰時刻は記録しません。"
+  },
+  "api_preview_display": {
+    "message": "ページに実際に返された直近の寸法と倍率です。拡張機能自体はモニター一覧を要求しません。"
+  },
+  "api_preview_cpu": {
+    "message": "hardwareConcurrency は使用可能な論理プロセッサー数のブラウザーによる推定で、物理 CPU コア数ではありません。"
+  },
+  "api_preview_memory": {
+    "message": "Device Memory はメモリの概算区分であり、搭載 RAM の正確な容量ではありません。"
+  },
+  "api_results_title": {
+    "message": "直近の結果"
+  },
+  "api_results_note": {
+    "message": "最近観測された結果。Pro 記録の実行中は、選択された技術的パラメーターと異なる戻り値がローカルレポートに保存されます。"
+  },
+  "api_result_returned": {
+    "message": "返された値"
+  },
+  "api_result_setter": {
+    "message": "セッターの戻り値"
+  },
+  "api_result_missing": {
+    "message": "結果は観測されていません。"
+  },
+  "api_result_object": {
+    "message": "オブジェクト。内容は読み取っていません。"
+  },
+  "api_result_async": {
+    "message": "非同期呼び出しの完了は観測していません。"
+  },
+  "api_result_exception": {
+    "message": "例外の内容は読み取っていません。"
+  },
+  "api_result_sensitive": {
+    "message": "この値はプレビュー対象外です。"
+  },
+  "api_result_limit": {
+    "message": "値がプレビューの上限を超えています。"
+  },
+  "api_result_unsupported": {
+    "message": "この結果の型には対応していません。"
+  },
+  "api_results_truncated": {
+    "message": "収集または配信の制限により、一部の結果を利用できません。"
+  },
+  "api_results_unavailable": {
+    "message": "結果のプレビューは現在利用できません。"
+  },
+  "protection_title": {
+    "message": "API Guard"
+  },
+  "protection_enable": {
+    "message": "全体でブロックを有効にする"
+  },
+  "protection_risk": {
+    "message": "API の拒否により、サイト、ログイン、編集機能、通話が動作しなくなる場合があります。独自のルールはブラウザの識別性を高める可能性があります。匿名性や完全な保護は保証されません。"
+  },
+  "protection_consent": {
+    "message": "サイトが正常に動作しなくなるリスクを理解し、ブロックを有効にします。"
+  },
+  "protection_preset": {
+    "message": "全体のプリセット"
+  },
+  "protection_custom": {
+    "message": "選択したルールのみ"
+  },
+  "protection_limited": {
+    "message": "限定"
+  },
+  "protection_strict": {
+    "message": "厳格"
+  },
+  "protection_site": {
+    "message": "完全一致のホスト名"
+  },
+  "protection_global": {
+    "message": "全体のルール"
+  },
+  "protection_add_site": {
+    "message": "追加"
+  },
+  "protection_no_host": {
+    "message": "サイトを取得できません"
+  },
+  "protection_host_note": {
+    "message": "このホスト名のみ、HTTP と HTTPS、すべてのポートに適用します。サブドメインや第三者フレームには独自のルールがあり、タブ全体の例外ではありません。"
+  },
+  "protection_site_off": {
+    "message": "このサイトを除外"
+  },
+  "protection_remove_site": {
+    "message": "ホストの個別ルールを削除"
+  },
+  "protection_search": {
+    "message": "API を検索"
+  },
+  "protection_configured": {
+    "message": "ブロック設定あり"
+  },
+  "protection_inherit": {
+    "message": "継承"
+  },
+  "protection_block": {
+    "message": "ブロック"
+  },
+  "protection_stopped": {
+    "message": "ハンドラー停止中。再読み込みが必要です。"
+  },
+  "protection_partial": {
+    "message": "ハンドラーは部分的な対応を報告しています。"
+  },
+  "protection_denied": {
+    "message": "報告された拒否回数"
+  },
+  "protection_removed": {
+    "message": "API の入口を削除済み。再読み込みで復元します。"
+  },
+  "protection_no_rows": {
+    "message": "該当する API はありません"
+  },
+  "protection_limits": {
+    "message": "記載した API と許可された HTTP(S) 文書のみが対象です。Worker、継承元の origin を使うフレーム、保持された参照、ページの干渉は対象外です。JavaScript の client hints を止めても HTTP ヘッダーは削除されません。ページ管理の MAIN 世界からの件数は保護の証拠ではありません。"
+  },
+  "protection_error": {
+    "message": "設定を取得できません。再試行してください。"
+  },
+  "protection_ready": {
+    "message": "ブロックは有効です"
+  },
+  "protection_inactive": {
+    "message": "ブロックは無効です"
+  },
+  "protection_dirty": {
+    "message": "未保存の変更"
+  },
+  "protection_save": {
+    "message": "ルールを保存"
+  },
+  "protection_save_reload": {
+    "message": "保存して再読み込み"
+  },
+  "protection_refresh": {
+    "message": "更新して未保存の変更を破棄"
+  },
+  "protection_restore_reload": {
+    "message": "このサイトで無効にして再読み込み"
+  },
+  "protection_feature_window_management": {
+    "message": "複数モニターの情報"
+  },
+  "protection_feature_compute_pressure": {
+    "message": "計算負荷"
+  },
+  "protection_feature_idle_detection": {
+    "message": "アイドル検出"
+  },
+  "protection_feature_local_fonts": {
+    "message": "ローカルフォントへのアクセス"
+  },
+  "protection_feature_canvas_readback": {
+    "message": "Canvas の読み取りとキャプチャ"
+  },
+  "protection_feature_webgl": {
+    "message": "WebGL コンテキスト作成"
+  },
+  "protection_feature_webgpu": {
+    "message": "WebGPU アダプターへのアクセス"
+  },
+  "protection_feature_audio": {
+    "message": "Web Audio コンストラクター"
+  },
+  "protection_feature_webrtc": {
+    "message": "WebRTC 接続"
+  },
+  "protection_feature_webassembly": {
+    "message": "WebAssembly"
+  },
+  "protection_feature_battery": {
+    "message": "バッテリー状態"
+  },
+  "protection_feature_network_information": {
+    "message": "ネットワーク情報"
+  },
+  "protection_feature_keyboard": {
+    "message": "キーボード API"
+  },
+  "protection_feature_client_hints": {
+    "message": "JavaScript クライアントヒント"
+  },
+  "protection_feature_clipboard_read": {
+    "message": "クリップボードの読み取り"
+  },
+  "visual_webgl_image_count": {
+    "message": "画像数: $N$",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "visual_webgl_empty": {
+    "message": "この文書では対応する WebGL 画像を取得していません。WebGL のパラメーターや拡張機能の照会は画素を返しません。プレビューには、ページ自身による画像の読み取りまたは書き出しが、対応する形式と取得制限の範囲内で行われる必要があります。"
+  },
+  "visual_gallery_count": {
+    "message": "キャンバス数: $N$",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "visual_canvas_id": {
+    "message": "キャンバス $N$",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "visual_readbacks": {
+    "message": "観測した読み取り: $N$",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "visual_previous": {
+    "message": "前の画像"
+  },
+  "visual_next": {
+    "message": "次の画像"
+  },
+  "visual_actions": {
+    "message": "観測した操作"
+  },
+  "visual_gallery_note": {
+    "message": "各キャンバスで最初に取得した対応画像です。ラベルは呼び出しを示し、画素比較を示すものではありません。2D は CPU 描画の証明ではなく、WebGL もハードウェア高速化の証明ではありません。通常の描画も同じ操作を使います。"
+  },
+  "visual_gallery_limited": {
+    "message": "取得時間、形式、転送、メモリの制限により、一部の画像や更新を省略しました。このギャラリーは完全ではありません。"
+  },
+  "visual_op_text": {
+    "message": "テキスト描画"
+  },
+  "visual_op_image_copy": {
+    "message": "画像コピー"
+  },
+  "visual_op_cropped_copy": {
+    "message": "切り出した領域のコピー"
+  },
+  "visual_op_recombined_copy": {
+    "message": "切り出したキャンバスからコピー"
+  },
+  "visual_op_flip_back_copy": {
+    "message": "元画像とコピーの Y 軸反転"
+  },
+  "visual_op_canvas_reset": {
+    "message": "キャンバスのリセット"
+  },
+  "visual_op_pixel_write": {
+    "message": "画素の書き込み"
+  },
+  "visual_op_fill": {
+    "message": "塗りつぶしまたは消去"
+  },
+  "visual_op_gradient": {
+    "message": "グラデーション作成"
+  },
+  "visual_op_pattern": {
+    "message": "パターン作成"
+  },
+  "visual_op_path": {
+    "message": "パス描画"
+  },
+  "visual_op_transform": {
+    "message": "座標変換"
+  },
+  "visual_op_flip_x": {
+    "message": "X 軸反転の要求"
+  },
+  "visual_op_flip_y": {
+    "message": "Y 軸反転の要求"
+  },
+  "visual_op_fractional": {
+    "message": "小数を含む変換引数"
+  },
+  "visual_op_alpha": {
+    "message": "アルファ値の設定"
+  },
+  "visual_op_composite": {
+    "message": "合成モードの設定"
+  },
+  "visual_op_repeat_readback": {
+    "message": "画像の繰り返し読み取り"
+  },
+  "visual_op_multiple_readback_formats": {
+    "message": "複数の画像読み取り API"
+  },
+  "visual_op_texture_upload": {
+    "message": "テクスチャのアップロード"
+  },
+  "visual_op_2d_to_webgl": {
+    "message": "2D キャンバスから WebGL テクスチャへ"
+  },
+  "visual_op_webgl_to_2d": {
+    "message": "WebGL キャンバスから 2D へコピー"
+  },
+  "visual_op_webgl_to_webgl": {
+    "message": "WebGL キャンバスから WebGL テクスチャへ"
+  },
+  "visual_op_shader": {
+    "message": "シェーダーまたはプログラムの操作"
+  },
+  "visual_op_gpu_draw": {
+    "message": "WebGL 描画"
+  },
+  "visual_op_gpu_sync": {
+    "message": "WebGL finish / flush"
+  },
+  "visual_op_gl_parameters": {
+    "message": "GL パラメーターの照会"
+  },
+  "visual_op_timer_extension": {
+    "message": "タイマー拡張の要求"
+  },
+  "visual_op_timer_query": {
+    "message": "GPU タイマークエリの呼び出し"
+  },
+  "visual_op_query_read": {
+    "message": "クエリの状態または結果の読み取り"
+  },
+  "visual_op_occlusion_query": {
+    "message": "オクルージョンクエリの呼び出し"
+  },
+  "visual_op_bitmap_transfer": {
+    "message": "ImageBitmap の転送"
+  },
+  "visual_op_offscreen_transfer": {
+    "message": "OffscreenCanvas の転送"
+  },
+  "visual_op_bitmap_create": {
+    "message": "ImageBitmap 作成の要求"
+  },
+  "visual_op_svg_source": {
+    "message": "インライン SVG の画像ソース"
+  },
+  "api_note_audio": {
+    "message": "音声コンテキストの作成、ノード操作、オフラインレンダリング呼び出し、データ読み取りを個別に表示します。レンダリングの完了は観測しません。サンプル、スペクトル、ハッシュは保存しません。プレーヤーや編集ツールもこれらの API を使うため、呼び出しだけではフィンガープリントの計算やマイクへのアクセスは証明できません。"
+  },
+  "extension_targets_title": {
+    "message": "拡張機能のリソースへのアクセス"
+  },
+  "extension_targets_note": {
+    "message": "ページのコンテキストで、これらの拡張機能のリソースが参照されました。存在確認の場合も、通常の連携の場合もあります。インストール状況、結果、呼び出し元の識別は不明です。データはページから操作できます。"
+  },
+  "extension_targets_unknown": {
+    "message": "不明な対象"
+  },
+  "extension_targets_unknown_note": {
+    "message": "件数はアクセス数であり、異なる拡張機能の数ではありません。不明な対象の ID やリソースのパスは保存されません。"
+  },
+  "extension_targets_reference": {
+    "message": "src の設定だけではリクエストの送信は確認できません。"
+  },
+  "extension_targets_limited": {
+    "message": "この一覧は不完全です。一部のアクセスが含まれていない可能性があります。"
+  },
+  "extension_targets_privacy": {
+    "message": "プライバシーツールのみ"
+  },
+  "extension_targets_empty_filter": {
+    "message": "このカテゴリの対象は一覧にありません。"
+  },
+  "local_ports_requested": {
+    "message": "アクセスが要求されたローカルポート"
+  },
+  "local_ports_unknown": {
+    "message": "これらの試行のポート番号は保存されていません。"
+  },
+  "local_ports_incomplete": {
+    "message": "この一覧は不完全です。一部のポート番号が含まれていない可能性があります。"
+  },
+  "api_actions_title": {
+    "message": "ページの操作"
+  },
+  "api_actions_note": {
+    "message": "この文書で観測された具体的な呼び出しや属性アクセスです。段階は別に表示します。呼び出しだけではアクセスの成功やフィンガープリント生成は証明できません。情報はページが制御でき、偽造される可能性があります。"
+  },
+  "api_action_get": {
+    "message": "属性へのアクセス"
+  },
+  "api_action_set": {
+    "message": "属性への代入"
+  },
+  "api_window_events_note": {
+    "message": "回数は登録・解除の呼び出しとハンドラーへの代入（クリアを含む）を表し、有効な購読数や受信イベント数ではありません。ウィンドウや全画面 API の呼び出しだけでは配置の成功を確認できません。引数やオプションは調べません。"
+  },
+  "api_pressure_limits_note": {
+    "message": "sampleInterval=0 は状態変化時の通知を要求し、一定の頻度を保証しません。オプション、コールバックへの配信、購読時間は観測しません。配信はフォーカス、ポリシー、ブラウザーの制限に依存します。"
+  },
+  "api_action_call": {
+    "message": "メソッド呼び出し"
+  },
+  "api_action_construct": {
+    "message": "コンストラクター呼び出し"
+  },
+  "api_action_async": {
+    "message": "非同期呼び出し"
+  },
+  "api_note_webgpu": {
+    "message": "一覧では、アダプター情報、機能や制限へのアクセス、シェーダーやパイプラインの作成を区別します。ブラウザーは GPU 情報を制限・一般化する場合があります。Pro 記録中は、選択された技術的な結果がローカルに保存されます。正確な GPU 型番、完全なプロファイル、シェーダー時間測定を示すものではありません。"
+  },
+  "api_note_wasm": {
+    "message": "コードの検証、コンパイル、インスタンス化やメモリへのアクセスに使う WebAssembly API の呼び出しが観測されました。モジュールのバイト列、内部実行は調べません。CPU 計時、SIMD 機能、アーキテクチャ、User-Agent の偽装、Lockdown Mode は確認できません。"
+  },
+  "api_note_client_hints": {
+    "message": "getHighEntropyValues はブラウザーやシステムの追加情報を要求します。Chrome は通常、権限ダイアログを表示しませんが、ポリシーや実装により応答が制限される場合があります。通常の互換性チェックでも同じ項目を要求するため、呼び出しは指紋識別の証拠ではありません。"
+  },
+  "api_note_window_management": {
+    "message": "getScreenDetails は画面情報を要求し、window-management 権限が必要な場合があります。screens、currentScreen、各属性へのアクセスは別に示します。Pro 記録中は、選択された技術的な結果がローカルに保存されます。要求だけでは権限の付与や作業場所を確認できません。"
+  },
+  "api_note_compute_pressure": {
+    "message": "Compute Pressure は大まかな CPU 負荷状態を提供する場合があります。実装によっては、このタブ以外の負荷も反映されます。観測器の作成、observe/takeRecords の呼び出し、記録の読み取りは別の事実です。Pro 記録中は、選択された技術的な結果がローカルに保存されます。他タブの動作、冷却特性、ユーザーの不在は確認しません。"
+  },
+  "api_note_idle_detection": {
+    "message": "Idle Detection は許可後に活動状態や画面のロック状態を提供する場合があります。検出器の作成や start の呼び出しだけでは、有効な監視の開始を証明できません。Pro 記録中は、選択された技術的な結果がローカルに保存されます。"
+  },
+  "api_hints_unknown": {
+    "message": "受動モードでは要求項目は不明です。センサーは引数を再読したり、ページが制御するコレクションを走査したりしません。"
+  },
+  "api_mechanism_client_hints": {
+    "message": "システムの追加情報"
+  },
+  "api_mechanism_window_management": {
+    "message": "画面とウィンドウ管理"
+  },
+  "api_mechanism_compute_pressure": {
+    "message": "CPU 負荷の観測"
+  },
+  "api_mechanism_idle_detection": {
+    "message": "活動・画面ロックのチェック"
+  },
+  "inspector_group_activity": {
+    "message": "操作・在席状態の API"
+  },
+  "extName": {
+    "message": "Detect.Expert — Fingerprint Protection & Forensics"
+  },
+  "extDescription": {
+    "message": "ブラウザー API、フィンガープリントの兆候、識別サービスをローカルで分析。API のブロックを個別に設定できます。"
+  },
+  "actionTitle": {
+    "message": "Detect.Expert: ブラウザー API 分析"
+  },
+  "popupTitle": {
+    "message": "このページのチェック情報"
+  },
+  "sidepanelTitle": {
+    "message": "このページの観測結果"
+  },
+  "optionsTitle": {
+    "message": "Detect.Expert の設定"
+  },
+  "coverageTitle": {
+    "message": "観測範囲"
+  },
+  "coverageOff": {
+    "message": "対象範囲が選択されていないため、観測していません。「未検出」は「対象期間中、アクセス可能な範囲で観測されなかった」ことを意味します。"
+  },
+  "scopeLabel": {
+    "message": "観測対象"
+  },
+  "scope_start_title": {
+    "message": "何を観測しますか？"
+  },
+  "scope_start_hint": {
+    "message": "以下から観測対象を選択してください。"
+  },
+  "action_reload_page": {
+    "message": "ページを再読み込み"
+  },
+  "error_reload": {
+    "message": "タブを再読み込みできませんでした。ページを開いて再試行してください。"
+  },
+  "coverage_restart_desc": {
+    "message": "センサーを再起動する前にこの文書を再読み込みし、拡張機能を開いて観測を再度有効にしてください。読み込み開始時から観測するには、再読み込み前に「このサイトで常に観測」を選択してください。"
+  },
+  "scopeOff": {
+    "message": "オフ"
+  },
+  "scopeActiveTab": {
+    "message": "現在のタブを今から観測"
+  },
+  "scopeSite": {
+    "message": "このサイトで常に観測"
+  },
+  "scopeAllSites": {
+    "message": "すべてのサイトで観測"
+  },
+  "statusLoading": {
+    "message": "読み込み中…"
+  },
+  "statusUnavailable": {
+    "message": "利用不可"
+  },
+  "vendorsSectionTitle": {
+    "message": "認識された保護・識別サービス"
+  },
+  "vendorsEmpty": {
+    "message": "不正対策システムは特定されていません。"
+  },
+  "disclaimerNoVerdict": {
+    "message": "サイトの安全性は判定しません。既定では受動的に観測し、API のブロックには明示的な有効化が必要です。"
+  },
+  "coverage_active_title": {
+    "message": "観測中"
+  },
+  "coverage_active_desc": {
+    "message": "実装済みのセンサーは文書の開始時に導入されました。すべての検出手法を網羅しているという意味ではありません。"
+  },
+  "coverage_partial_title": {
+    "message": "一部を観測中"
+  },
+  "coverage_partial_desc": {
+    "message": "文書の一部のみを観測しています：$DETAIL$。アクセスできない範囲で結果がないことからは、何も判断できません。",
+    "placeholders": {
+      "detail": {
+        "content": "$1"
+      }
+    }
+  },
+  "coverage_late_start_title": {
+    "message": "観測開始に遅れあり"
+  },
+  "coverage_late_start_desc": {
+    "message": "ページの動作開始後にセンサーが導入されました。初期の呼び出しを見逃した可能性があります。最初から解析するには、ページを再読み込みしてください。"
+  },
+  "coverage_late_start_active_tab_desc": {
+    "message": "有効化時点からこの文書が置き換わるまでの呼び出しを観測します。初期の呼び出しを見逃した可能性があります。読み込み開始時から観測するには、「このサイトで常に観測」を選択して再読み込みしてください。"
+  },
+  "coverage_paused_title": {
+    "message": "観測を一時停止中"
+  },
+  "coverage_paused_desc": {
+    "message": "観測は一時停止中です。ページの動作は継続します。"
+  },
+  "coverage_paused_reload": {
+    "message": "センサーを完全に取り除くには、ページを再読み込みしてください。"
+  },
+  "coverage_unsupported_title": {
+    "message": "このページでは観測できません"
+  },
+  "coverage_unsupported_desc": {
+    "message": "Chrome の内部ページ、ウェブストア、ほかの拡張機能、一部の特殊なフレームでは観測を利用できません。"
+  },
+  "coverage_unsupported_chrome_desc": {
+    "message": "この Chrome バージョン（$VERSION$）には対応していません。観測は利用できません。",
+    "placeholders": {
+      "version": {
+        "content": "$1"
+      }
+    }
+  },
+  "coverage_no_access_title": {
+    "message": "このページへのアクセス権なし"
+  },
+  "coverage_no_access_desc": {
+    "message": "$HOST$ へのアクセス権がありません。観測結果がないことからは何も判断できません。開始するには、観測対象を選択してください。",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "coverage_revoked_desc": {
+    "message": "$HOST$ へのアクセス権が取り消されました。新しいデータは収集されません。センサーを完全に取り除くには、ページを再読み込みしてください。",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "coverage_degraded_title": {
+    "message": "観測に制限あり"
+  },
+  "coverage_degraded_desc": {
+    "message": "イベント数の上限を超えたため、一部のデータが破棄されました（$DROPPED$）。この期間を完全に観測できたとは見なせません。",
+    "placeholders": {
+      "dropped": {
+        "content": "$1"
+      }
+    }
+  },
+  "coverage_context_changed": {
+    "message": "コンテキストが変更されました。$HOST$ のレポートを表示しています。",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "coverage_managed_desc": {
+    "message": "一部の設定は組織によって管理されています。"
+  },
+  "coverage_blind_spots_title": {
+    "message": "既知の観測上の制約"
+  },
+  "coverage_blind_spots_desc": {
+    "message": "Math パターン：Pro 記録中。Worker/Worklet、WebGPU バッファー、センサー：一部の API 呼び出し。未観測：CSSOM、HTTP 検証子、CNAME、Wasm/worker/CSS 内部処理、DNS、TLS、サーバー側の検査。"
+  },
+  "inspector_group_dns": {
+    "message": "DNS チェック"
+  },
+  "card_dns_probe_pattern": {
+    "message": "DNS テストの可能性"
+  },
+  "inspector_dns_desc": {
+    "message": "短時間に同一ドメインの異なるサブドメインへのリクエストが観測されました。DNS テスト、CDN、キャッシュ回避でもこのパターンが生じます。件数は制限付きの時間窓内における下限値です。実際の DNS 問い合わせ、リゾルバーのアドレス、DNS 漏えいが確認されたわけではありません。"
+  },
+  "coverage_flags_title": {
+    "message": "観測範囲の制限"
+  },
+  "coverage_partial_detail_unknown": {
+    "message": "理由は指定されていません"
+  },
+  "coverage_flag_late_start": {
+    "message": "センサーの導入が遅れました"
+  },
+  "coverage_flag_hook_failed": {
+    "message": "センサーが導入上の制限を報告しました。診断情報はページが制御できます"
+  },
+  "coverage_flag_throttled": {
+    "message": "イベントの流量が制限されています"
+  },
+  "coverage_flag_unsupported_realm": {
+    "message": "一部の実行コンテキストには対応していません"
+  },
+  "coverage_flag_channel_gap": {
+    "message": "ページの通信経路に欠落または競合があります。データはページが制御できます"
+  },
+  "coverage_flag_truncated": {
+    "message": "メモリ上限により詳細が省略されました"
+  },
+  "coverage_flag_paused": {
+    "message": "観測は一時停止中です"
+  },
+  "coverage_flag_revoked": {
+    "message": "アクセス権が取り消されました"
+  },
+  "coverage_flag_protocol_mismatch": {
+    "message": "センサーのバージョンが古いため、ページを再読み込みしてください"
+  },
+  "coverage_flag_descriptor_nonconfigurable": {
+    "message": "保護されたプロパティ記述子により、一部の API を観測できません"
+  },
+  "coverage_flag_bridge_ring_overflow": {
+    "message": "転送バッファーの上限を超え、一部のデータが失われました"
+  },
+  "coverage_flag_budget_exceeded": {
+    "message": "文書の観測データ上限を超え、一部の情報が保存されませんでした"
+  },
+  "coverage_flag_no_host_permission": {
+    "message": "権限によりネットワーク観測が制限されています"
+  },
+  "coverage_flag_restricted_page": {
+    "message": "制限されたブラウザーページです"
+  },
+  "coverage_flag_worker_not_observed": {
+    "message": "Worker は観測されません"
+  },
+  "state_scope_off_title": {
+    "message": "観測はオフです"
+  },
+  "state_no_report_title": {
+    "message": "レポートはまだありません"
+  },
+  "state_no_report_desc": {
+    "message": "この文書の観測結果はまだありません。観測を有効にする前からページを開いていた場合は、再読み込みしてください。"
+  },
+  "state_unsupported_chrome_title": {
+    "message": "未対応の Chrome バージョン"
+  },
+  "state_sw_unavailable_title": {
+    "message": "バックグラウンド処理が応答しません"
+  },
+  "state_sw_unavailable_desc": {
+    "message": "拡張機能のバックグラウンド処理が応答しませんでした。このウィンドウを閉じて開き直してください。問題が続く場合は、拡張機能を再起動してください。"
+  },
+  "status_active": {
+    "message": "観測中"
+  },
+  "status_partial": {
+    "message": "一部のみ"
+  },
+  "status_late_start": {
+    "message": "開始に遅れあり"
+  },
+  "status_paused": {
+    "message": "一時停止中"
+  },
+  "status_unsupported": {
+    "message": "利用不可"
+  },
+  "status_no_access": {
+    "message": "アクセス権なし"
+  },
+  "status_degraded": {
+    "message": "制限あり"
+  },
+  "status_off": {
+    "message": "オフ"
+  },
+  "status_no_report": {
+    "message": "レポートなし"
+  },
+  "status_error": {
+    "message": "エラー"
+  },
+  "host_unknown": {
+    "message": "ホスト不明"
+  },
+  "observed_since": {
+    "message": "$TIME$ から観測",
+    "placeholders": {
+      "time": {
+        "content": "$1"
+      }
+    }
+  },
+  "document_label": {
+    "message": "文書"
+  },
+  "empty_no_findings": {
+    "message": "対象期間中、観測可能な範囲では結果が得られませんでした"
+  },
+  "empty_no_findings_hint": {
+    "message": "これはサイトの安全性の評価ではありません。上の観測範囲を確認してください。"
+  },
+  "findings_title": {
+    "message": "拡張機能が捉えた情報"
+  },
+  "techniques_title": {
+    "message": "観測された手法"
+  },
+  "techniques_none": {
+    "message": "アクセス可能な範囲では手法が観測されていません。"
+  },
+  "more_in_panel": {
+    "message": "サイドパネルにさらに $N$ 件",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "level_observation": {
+    "message": "観測"
+  },
+  "level_interpretation": {
+    "message": "解釈"
+  },
+  "level_purpose": {
+    "message": "一般的な用途"
+  },
+  "card_api_use_label": {
+    "message": "API の使用"
+  },
+  "card_api_use_generic": {
+    "message": "$API$ の使用：$COUNT$",
+    "placeholders": {
+      "api": {
+        "content": "$1"
+      },
+      "count": {
+        "content": "$2"
+      }
+    }
+  },
+  "card_api_use_canvas_export": {
+    "message": "Canvas 書き出し API の呼び出し（$API$）：$COUNT$",
+    "placeholders": {
+      "api": {
+        "content": "$1"
+      },
+      "count": {
+        "content": "$2"
+      }
+    }
+  },
+  "card_api_use_canvas_readback": {
+    "message": "Canvas ピクセル読み取り API の呼び出し（$API$）：$COUNT$",
+    "placeholders": {
+      "api": {
+        "content": "$1"
+      },
+      "count": {
+        "content": "$2"
+      }
+    }
+  },
+  "card_api_use_canvas_text": {
+    "message": "Canvas 上のテキスト測定・描画呼び出し：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "card_api_use_offscreen": {
+    "message": "文書内の OffscreenCanvas の使用：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "card_api_use_math": {
+    "message": "一連の Math.* 呼び出し：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "card_api_use_webrtc": {
+    "message": "WebRTC API の使用（$API$）：$COUNT$",
+    "placeholders": {
+      "api": {
+        "content": "$1"
+      },
+      "count": {
+        "content": "$2"
+      }
+    }
+  },
+  "card_api_use_local_probe": {
+    "message": "ローカル接続の試行：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "card_api_use_dns": {
+    "message": "異なるサブドメインへのリクエスト：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "card_api_use_attempt_only": {
+    "message": "試行のみ：呼び出しで例外が発生し、ページに結果は返されませんでした"
+  },
+  "card_api_use_generic_note": {
+    "message": "API の呼び出し自体は通常の動作であり、追跡の証拠にはなりません。"
+  },
+  "card_api_use_purpose": {
+    "message": "一般に、この仕組みはブラウザーの識別に利用される場合があります。"
+  },
+  "card_purpose_local_probe": {
+    "message": "ローカル接続は通常のアプリ連携やローカルサービスの確認にも使われます。このページの目的は確認されていません。"
+  },
+  "card_purpose_dns": {
+    "message": "一般に、このような一連のリクエストは DNS リゾルバーのテストに使われる場合があります。"
+  },
+  "card_fp_label": {
+    "message": "フィンガープリント生成の兆候"
+  },
+  "card_fp_generic": {
+    "message": "呼び出しの並びがフィンガープリント生成に似ています"
+  },
+  "card_fp_canvas_sequence": {
+    "message": "テキスト描画後の連続した読み取りがフィンガープリント生成に似ています"
+  },
+  "card_fp_math_sequence": {
+    "message": "一連の数値チェックが既知のパターンに似ています"
+  },
+  "card_fp_local_probe": {
+    "message": "同じローカルアドレスの異なるポートへの一連の接続試行が、ポートスキャンに似ています。"
+  },
+  "inspector_group_local_probe": {
+    "message": "ローカルポートのチェック"
+  },
+  "inspector_local_probe_desc": {
+    "message": "ローカルアドレスまたはポートへの接続試行が観測されました。単独の試行ではスキャンと断定できません。ポートが開いているか、サービスに到達したかは、この観測からは分かりません。"
+  },
+  "card_local_probe_attempt": {
+    "message": "ローカル接続の試行"
+  },
+  "card_local_probe_pattern": {
+    "message": "ポートスキャンの可能性"
+  },
+  "card_fp_dns_pattern": {
+    "message": "異なるサブドメインへの一連のリクエストが観測されました。DNS テストでも見られる動作です。使用されたリゾルバーは拡張機能には分かりません。"
+  },
+  "card_fp_webrtc": {
+    "message": "ページが WebRTC を使用しました。この仕組みはネットワーク情報にアクセスできる場合があります。"
+  },
+  "card_fp_not_proven": {
+    "message": "この観測だけでは、目的、結果の固有性、結果の送信は確認できません。"
+  },
+  "card_fp_alternatives": {
+    "message": "通常の用途として考えられる説明：$ALTERNATIVES$",
+    "placeholders": {
+      "alternatives": {
+        "content": "$1"
+      }
+    }
+  },
+  "card_fp_insufficient": {
+    "message": "判断に必要なデータが不足しています"
+  },
+  "confidence_low": {
+    "message": "解釈の確信度：低"
+  },
+  "confidence_medium": {
+    "message": "解釈の確信度：中"
+  },
+  "confidence_high": {
+    "message": "解釈の確信度：高"
+  },
+  "confidence_unassessed": {
+    "message": "確信度は未評価"
+  },
+  "card_vendor_found": {
+    "message": "$VENDOR$ との連携を示す兆候",
+    "placeholders": {
+      "vendor": {
+        "content": "$1"
+      }
+    }
+  },
+  "card_vendor_purpose": {
+    "message": "サービスの用途：$PURPOSE$。サイトの安全性の評価ではありません。",
+    "placeholders": {
+      "purpose": {
+        "content": "$1"
+      }
+    }
+  },
+  "card_vendor_threatmetrix_purpose": {
+    "message": "リスク評価とデジタル識別"
+  },
+  "card_vendor_purpose_generic": {
+    "message": "ボット対策、リスク評価、識別"
+  },
+  "card_vendor_rules": {
+    "message": "ルール：$RULES$、一致の情報源：$SOURCE$",
+    "placeholders": {
+      "rules": {
+        "content": "$1"
+      },
+      "source": {
+        "content": "$2"
+      }
+    }
+  },
+  "card_vendor_match_documented_resource": {
+    "message": "文書化されたリソースと一致"
+  },
+  "card_vendor_match_multi_signal": {
+    "message": "複数の独立した兆候"
+  },
+  "card_vendor_match_weak_signal": {
+    "message": "連携要素を確認（弱い兆候であり、ページが偽装できる可能性があります）"
+  },
+  "card_vendor_match_none": {
+    "message": "一致なし"
+  },
+  "card_vendor_not_linked": {
+    "message": "このサービスと、ページ上のほかの観測結果との関連は確認されていません。"
+  },
+  "card_vendor_resource_note": {
+    "message": "一致はリクエストされたリソースに関するものです。サービスのコードが実行されたことや、観測された API 呼び出しを引き起こしたことの証拠ではありません。"
+  },
+  "card_vendor_unknown": {
+    "message": "提供元不明"
+  },
+  "card_vendor_no_trust": {
+    "message": "サービスの認識はサイトの安全性の評価ではなく、そのサービスがすべてのチェックを行うという意味でもありません。"
+  },
+  "integrity_browser_observed": {
+    "message": "ブラウザーが観測"
+  },
+  "integrity_page_controlled": {
+    "message": "ページのコンテキストに由来するデータで、偽装される可能性があります"
+  },
+  "integrity_derived": {
+    "message": "拡張機能が導出"
+  },
+  "evidence_browser_network": {
+    "message": "ブラウザーのネットワークイベント"
+  },
+  "evidence_browser_navigation": {
+    "message": "ブラウザーのナビゲーション"
+  },
+  "evidence_page_hook": {
+    "message": "ページ内の API フック"
+  },
+  "evidence_page_dom": {
+    "message": "ページの DOM"
+  },
+  "evidence_derived": {
+    "message": "導出された情報"
+  },
+  "attribution_exact_resource": {
+    "message": "呼び出し元：正確なリソース"
+  },
+  "attribution_sampled_stack": {
+    "message": "スタックのサンプルから推定した呼び出し元（誤っている可能性があります）"
+  },
+  "attribution_frame_only": {
+    "message": "フレームのみ判明"
+  },
+  "attribution_unknown": {
+    "message": "呼び出し元不明"
+  },
+  "count_exact": {
+    "message": "正確な件数"
+  },
+  "count_sampled": {
+    "message": "サンプリングによる件数"
+  },
+  "count_lower_bound": {
+    "message": "下限値、データの欠落あり"
+  },
+  "count_value_sampled": {
+    "message": "約 $N$（サンプリング）",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "count_value_lower_bound": {
+    "message": "少なくとも $N$",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "phase_attempted": {
+    "message": "試行"
+  },
+  "phase_returned_sync": {
+    "message": "結果を返却"
+  },
+  "phase_threw_sync": {
+    "message": "例外が発生"
+  },
+  "phase_async_returned": {
+    "message": "非同期の戻り値"
+  },
+  "phase_settlement_unobserved": {
+    "message": "最終的な完了状態は未観測"
+  },
+  "detail_show": {
+    "message": "詳細"
+  },
+  "detail_api": {
+    "message": "API"
+  },
+  "detail_technique": {
+    "message": "手法"
+  },
+  "detail_category": {
+    "message": "分類"
+  },
+  "detail_evidence": {
+    "message": "データの出所"
+  },
+  "detail_rule": {
+    "message": "ルール"
+  },
+  "detail_finding_id": {
+    "message": "検出結果"
+  },
+  "detail_evidence_ids": {
+    "message": "観測記録"
+  },
+  "detail_counts": {
+    "message": "カウンター"
+  },
+  "detail_phases": {
+    "message": "段階"
+  },
+  "detail_limitations": {
+    "message": "制限事項"
+  },
+  "detail_alternatives": {
+    "message": "通常の用途による説明"
+  },
+  "detail_attribution": {
+    "message": "呼び出し元の特定"
+  },
+  "detail_none": {
+    "message": "なし"
+  },
+  "category_graphics": {
+    "message": "グラフィックス、形状、フォント"
+  },
+  "category_audio": {
+    "message": "音声、メディア、計算"
+  },
+  "category_environment": {
+    "message": "ブラウザー環境、画面、ロケール"
+  },
+  "category_permissions": {
+    "message": "権限、デバイス、操作"
+  },
+  "category_storage": {
+    "message": "ストレージと識別子"
+  },
+  "category_network": {
+    "message": "ネットワーク（観測範囲は明示的に不完全）"
+  },
+  "action_pause": {
+    "message": "現在の文書の観測を一時停止"
+  },
+  "action_resume": {
+    "message": "観測を再開"
+  },
+  "action_reload": {
+    "message": "最初から解析するために再読み込み"
+  },
+  "action_clear": {
+    "message": "この文書のレポートを削除"
+  },
+  "action_export": {
+    "message": "エクスポート（プレビュー）"
+  },
+  "action_refresh": {
+    "message": "更新"
+  },
+  "action_apply": {
+    "message": "適用"
+  },
+  "action_cancel": {
+    "message": "キャンセル"
+  },
+  "action_dismiss": {
+    "message": "閉じる"
+  },
+  "open_sidepanel": {
+    "message": "サイドパネルを開く"
+  },
+  "open_options": {
+    "message": "設定"
+  },
+  "export_preview_title": {
+    "message": "エクスポートのプレビュー"
+  },
+  "export_preview_desc": {
+    "message": "以下の項目のみが含まれます（機微情報は除去済み）。完全な URL、cookie の値、API の結果、入力内容は含まれません。"
+  },
+  "export_host_warning": {
+    "message": "ファイルにはページのホスト $HOST$ が含まれます。不要な共有は避けてください。",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "export_fields_title": {
+    "message": "ファイルの項目"
+  },
+  "export_json_title": {
+    "message": "JSON の全内容"
+  },
+  "export_save": {
+    "message": "ファイルを保存"
+  },
+  "export_document_changed": {
+    "message": "文書が変更されました。プレビューを開き直してください。"
+  },
+  "export_unavailable": {
+    "message": "エクスポートできません。ページへのアクセス権、またはレポートがありません。"
+  },
+  "export_saved": {
+    "message": "ファイルを保存しました。"
+  },
+  "export_not_implemented": {
+    "message": "バックグラウンド処理はまだエクスポートプレビューに対応していません。"
+  },
+  "mode_off": {
+    "message": "オフ"
+  },
+  "mode_off_desc": {
+    "message": "バックグラウンドでの観測はオフです。レポートは作成されません。"
+  },
+  "mode_active_tab": {
+    "message": "今からチェック"
+  },
+  "mode_active_tab_desc": {
+    "message": "有効化後を観測します。初期の呼び出しは見逃している可能性があります。"
+  },
+  "mode_site": {
+    "message": "このサイトで常に観測"
+  },
+  "mode_site_desc": {
+    "message": "次の読み込みでは、許可された文書の初期の呼び出しを観測します。第三者へのネットワーク通信は一部しか見えない場合があります。"
+  },
+  "mode_all": {
+    "message": "すべてのサイトで観測"
+  },
+  "mode_all_desc": {
+    "message": "最も広いアクセス範囲です。ただし、Worker、DNS、サーバー側の処理を完全に観測できるという保証はありません。"
+  },
+  "scope_permission_denied": {
+    "message": "権限は付与されませんでした。対象範囲は変更されていません。"
+  },
+  "scope_permission_granted_reload": {
+    "message": "アクセスが許可されました。最初から解析するには、ページを再読み込みしてください。"
+  },
+  "scope_site_host_unknown": {
+    "message": "現在のページのホストが不明です。先に「今からチェック」を有効にするか、設定でホストを入力してください。"
+  },
+  "scope_host_input_label": {
+    "message": "サイトのホスト"
+  },
+  "scope_host_invalid": {
+    "message": "example.com のようにホストを入力してください"
+  },
+  "scope_current": {
+    "message": "現在の対象範囲：$MODE$",
+    "placeholders": {
+      "mode": {
+        "content": "$1"
+      }
+    }
+  },
+  "scope_hosts_list": {
+    "message": "常に観測するサイト"
+  },
+  "scope_hosts_none": {
+    "message": "なし"
+  },
+  "scope_granted_all": {
+    "message": "広範なサイトへのアクセスがブラウザーによって許可されています。"
+  },
+  "scope_error": {
+    "message": "対象範囲を変更できませんでした：$CODE$",
+    "placeholders": {
+      "code": {
+        "content": "$1"
+      }
+    }
+  },
+  "scope_applied": {
+    "message": "観測対象を更新しました。"
+  },
+  "scope_applied_reload": {
+    "message": "観測対象を更新しました。読み込み開始時から観測するには、ページを再読み込みしてください。"
+  },
+  "options_onboarding_title": {
+    "message": "拡張機能の役割"
+  },
+  "onboarding_limits": {
+    "message": "既定の観測では API の結果を保持します。任意のブロックは明示的に有効にするまで停止しており、サイトの動作を損なう場合があります。ラッパーは検出可能で実行時間も増えます。完全な観測範囲は保証しません。"
+  },
+  "onboarding_no_server": {
+    "message": "拡張機能は解析結果を送信せず、開発者のサーバーにも接続しません。"
+  },
+  "options_clear_session": {
+    "message": "セッションデータを削除"
+  },
+  "options_clear_session_desc": {
+    "message": "セッションメモリ内のすべての文書レポートを削除します。設定は保持されます。"
+  },
+  "options_clear_done": {
+    "message": "セッションデータを削除しました。"
+  },
+  "options_clear_unavailable": {
+    "message": "このビルドではまだこの操作を利用できません。"
+  },
+  "options_inventory_title": {
+    "message": "保存されるデータ"
+  },
+  "inventory_session": {
+    "message": "文書レポートはセッションメモリ（chrome.storage.session）のみに保存されます。10 分間の非アクティブ状態が続くと、次の拡張機能イベント時に削除されます。確認間隔は最短 30 秒で、正確に 10 分後に削除されるわけではありません。タブを閉じることでも削除が開始され、ブラウザーを再起動するとセッションは消去されます。"
+  },
+  "inventory_local": {
+    "message": "設定、および Antidetect、Proxy、Firewall、自動巡回のデータは、削除するまで、このコンピューター上の chrome.storage.local と拡張機能のデータベースに保存されます。完全な一覧はプライバシーポリシーに記載されています。"
+  },
+  "inventory_never": {
+    "message": "保存しないデータ：音声サンプル、Math の引数と結果、完全な URL、リクエストのヘッダーと本文、キー入力、フォームのテキスト、クライアントと相手側の IP アドレス。Canvas/WebGL の画像はメモリ内のみに保持されます。設定された ICE サーバーのエンドポイントは、別の制限付きセッションストレージを使用します。 Pro 記録中は、送信された Cookie の名前と値、および固定リストの技術的なリクエストヘッダーの値がレポート用にローカル保存されます。"
+  },
+  "inventory_export": {
+    "message": "ライトモード（JSON）：エクスポートファイルにはプレビューに表示された項目のみが含まれます。ページのホストは明示的に含めない限り除外されます。画像と WebRTC 接続の詳細はエクスポートされません。"
+  },
+  "inventory_sync": {
+    "message": "ブラウザーのアカウント同期、アナリティクス、テレメトリは使用せず、開発者には何も送信されません。ネットワークリクエストは、ユーザーが開始した場合にのみ行われます（Cloudflare ゾーンへの接続、オンにした位置情報の照会、ご自身のプロキシと補助アプリ、プロキシの確認、自動巡回）。そのほか、観測対象のページのアイコンの自動読み込みも行われます。詳細はプライバシーポリシーを参照してください。"
+  },
+  "inventory_link": {
+    "message": "完全なデータ一覧：プロジェクトリポジトリの docs/data-inventory.md。"
+  },
+  "tab_overview": {
+    "message": "概要"
+  },
+  "tab_techniques": {
+    "message": "手法"
+  },
+  "tab_sources": {
+    "message": "情報源"
+  },
+  "tab_limits": {
+    "message": "制限事項"
+  },
+  "group_techniques": {
+    "message": "手法"
+  },
+  "group_services": {
+    "message": "サービス"
+  },
+  "group_third_party": {
+    "message": "第三者の情報源"
+  },
+  "counts_unavailable": {
+    "message": "表示用データに情報なし"
+  },
+  "search_label": {
+    "message": "手法と API を検索"
+  },
+  "search_placeholder": {
+    "message": "手法、API、ルール"
+  },
+  "search_empty": {
+    "message": "検索条件に一致する項目はありません"
+  },
+  "sources_hosts_title": {
+    "message": "ホスト（ブラウザーによる観測）"
+  },
+  "sources_none": {
+    "message": "このレポートの表示用データには、第三者ホストの一覧がありません。ネットワークイベントは、サイトとリクエスト元の両方に対する権限がある場合にのみ見えます。"
+  },
+  "sources_requests": {
+    "message": "リクエスト：$N$",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "dropped_title": {
+    "message": "上限により破棄された項目"
+  },
+  "dropped_observations": {
+    "message": "観測記録"
+  },
+  "dropped_batches": {
+    "message": "バッチ"
+  },
+  "dropped_findings": {
+    "message": "検出結果"
+  },
+  "dropped_hosts": {
+    "message": "ホスト"
+  },
+  "dropped_counters": {
+    "message": "カウンター"
+  },
+  "dropped_transport": {
+    "message": "転送"
+  },
+  "error_invalid_request": {
+    "message": "無効なリクエスト"
+  },
+  "error_unauthorized_sender": {
+    "message": "許可されていない送信元"
+  },
+  "error_not_found": {
+    "message": "レポートが見つかりません。文書が変更された可能性があります"
+  },
+  "error_stale_revision": {
+    "message": "レポートが変更されたため、操作を取り消しました"
+  },
+  "error_document_mismatch": {
+    "message": "文書が変更されたため、操作を取り消しました"
+  },
+  "error_no_access": {
+    "message": "ページへのアクセス権がありません"
+  },
+  "error_not_implemented": {
+    "message": "この操作にはまだ対応していません"
+  },
+  "error_unavailable": {
+    "message": "バックグラウンド処理が応答しませんでした"
+  },
+  "scope_active_tab_toolbar": {
+    "message": "現在のタブの観測を開始するには、Chrome のツールバーから拡張機能を開き、「今からチェック」を選択してください。"
+  },
+  "export_include_host": {
+    "message": "ページのホストをエクスポートに含める："
+  },
+  "vendors_catalog_unavailable": {
+    "message": "サービスカタログは無効です。サービスの認識は行われていません。"
+  },
+  "limitation_page_controlled_evidence": {
+    "message": "これらの観測情報はページのコンテキストに由来し、ページによって偽造される可能性があります。"
+  },
+  "limitation_purpose_unknown": {
+    "message": "API 呼び出しの目的は不明です。"
+  },
+  "limitation_uniqueness_not_established": {
+    "message": "結果の固有性と安定性は検証されていません。"
+  },
+  "limitation_readback_attempted_failed": {
+    "message": "少なくとも 1 回の読み取り試行で例外が発生しました。読み取りの成功を示すものではありません。"
+  },
+  "limitation_uncalibrated_threshold": {
+    "message": "ルールのしきい値は、事例集を用いた較正がまだ行われていません。"
+  },
+  "limitation_coverage_incomplete": {
+    "message": "観測範囲は不完全であり、一部の呼び出しを見逃した可能性があります。"
+  },
+  "limitation_catalog_disabled": {
+    "message": "サービスカタログは無効です。観測結果と提供元の関連は確認されていません。"
+  },
+  "limitation_text_ops_undifferentiated": {
+    "message": "テキストの測定と描画は合算されています。それぞれの件数は不明です。"
+  },
+  "limitation_no_time_window": {
+    "message": "カウンターは文書の存続期間全体を対象とし、別の短時間区間内の動作は示しません。"
+  },
+  "alternative_high_volume_rendering": {
+    "message": "大量のテキスト操作は、通常の編集やグラフ描画でも発生します。"
+  },
+  "coverage_flag_network_limited": {
+    "message": "利用可能な権限によりネットワーク観測が制限されています"
+  },
+  "coverage_flag_frames_inaccessible": {
+    "message": "一部のフレームの観測は制限されているか、まだ確認されていません"
+  },
+  "aria_live_update": {
+    "message": "レポートを更新しました。検出結果：$N$、観測状態：$STATE$",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      },
+      "state": {
+        "content": "$2"
+      }
+    }
+  },
+  "badge_tooltip": {
+    "message": "このタブとフレームで観測された手法：$N$",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "coverage_sensor_disabled_desc": {
+    "message": "センサー $SENSOR$ は無効です（$REASON$）。これらの API 呼び出しは観測されません。",
+    "placeholders": {
+      "sensor": {
+        "content": "$1"
+      },
+      "reason": {
+        "content": "$2"
+      }
+    }
+  },
+  "card_vendor_first_party": {
+    "message": "サイト自身のドメインのエンドポイントで提供元の識別パターンを観測"
+  },
+  "options_diagnostics_title": {
+    "message": "拡張機能の診断"
+  },
+  "options_diagnostics_desc": {
+    "message": "バージョンとバックグラウンド処理の利用状況のみを含みます。ページのアドレスとレポートのデータは除外されます。"
+  },
+  "options_diagnostics_preview": {
+    "message": "診断レポートをプレビュー"
+  },
+  "frame_document_label": {
+    "message": "表示する文書"
+  },
+  "frame_main": {
+    "message": "メイン文書"
+  },
+  "frame_child": {
+    "message": "埋め込みページ $N$",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "frame_separate_hint": {
+    "message": "選択中のドキュメント"
+  },
+  "frame_limit_hint": {
+    "message": "最初の 128 文書のみを表示しています。ほかにも埋め込みページが存在する可能性があります。"
+  },
+  "visual_title": {
+    "message": "ページが読み取った画像"
+  },
+  "visual_consent": {
+    "message": "観測開始から最初の 60 秒間に、ページがすでに読み取った対応画像を自動取得します。画像はメモリ内にのみ保持され、レポートとエクスポートには含まれません。"
+  },
+  "visual_enable": {
+    "message": "60 秒間画像を表示"
+  },
+  "visual_enable_reload": {
+    "message": "有効にしてページを再読み込み"
+  },
+  "visual_disable": {
+    "message": "画像を非表示にして削除"
+  },
+  "visual_reload_scope": {
+    "message": "読み込み時のチェックを取得するには、先にこのサイトの常時観測を選択してください。"
+  },
+  "visual_remaining": {
+    "message": "画像プレビュー有効：残り $N$ 秒",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "visual_waiting": {
+    "message": "ページが読み取る対応 Canvas または WebGL 画像を待っています。ページ自身のチェックを再実行するには、再読み込みしてください。観測開始前の画像は復元できません。プレビューが空でも、チェックがなかったという意味ではありません。"
+  },
+  "visual_untrusted": {
+    "message": "情報源：ページが制御できるピクセル。ページはこの画像を変更できます。画像だけではフィンガープリント生成やサイトの安全性を判断できません。"
+  },
+  "visual_canvas": {
+    "message": "Canvas 画像"
+  },
+  "visual_webgl": {
+    "message": "WebGL 画像"
+  },
+  "visual_source": {
+    "message": "$API$ · $WIDTH$ × $HEIGHT$ px",
+    "placeholders": {
+      "api": {
+        "content": "$1"
+      },
+      "width": {
+        "content": "$2"
+      },
+      "height": {
+        "content": "$3"
+      }
+    }
+  },
+  "visual_decode_error": {
+    "message": "受信した画像を表示できませんでした。形式または寸法に対応していません。"
+  },
+  "inspector_total": {
+    "message": "観測された詳細手法"
+  },
+  "inspector_other_documents": {
+    "message": "ほかの文書の手法"
+  },
+  "inspector_other_documents_desc": {
+    "message": "行を開くと、その文書を表示します。件数、画像、エクスポートは文書ごとに分かれています。"
+  },
+  "inspector_other_documents_limit": {
+    "message": "この概要は、ほかの文書の先頭 $N$ 件を確認します。追加のフレームは文書選択欄から確認してください。",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "inspector_group": {
+    "message": "手法"
+  },
+  "inspector_found": {
+    "message": "確認"
+  },
+  "inspector_group_canvas": {
+    "message": "Canvas"
+  },
+  "inspector_group_webgl": {
+    "message": "WebGL"
+  },
+  "inspector_group_webgpu": {
+    "message": "WebGPU"
+  },
+  "inspector_group_clientrects": {
+    "message": "ClientRects / DOM の形状"
+  },
+  "inspector_group_svg_geometry": {
+    "message": "SVG の形状"
+  },
+  "inspector_group_fonts": {
+    "message": "フォント"
+  },
+  "inspector_group_css_styles": {
+    "message": "CSS スタイル"
+  },
+  "inspector_clientrects_desc": {
+    "message": "矩形や寸法の測定は、フィンガープリント生成にも通常のページレイアウトにも使われます。この件数から目的は確認できません。正確な座標は保持されません。"
+  },
+  "inspector_api_family_desc": {
+    "message": "API 一覧は一群の機能を示しています。このカウンターでは個別のメソッドやプロパティを区別できず、呼び出しの目的も確認できません。"
+  },
+  "inspector_group_math": {
+    "message": "Math"
+  },
+  "inspector_group_audio": {
+    "message": "音声 / メディア"
+  },
+  "inspector_group_environment": {
+    "message": "ブラウザー / デバイス"
+  },
+  "inspector_group_display": {
+    "message": "画面 / ディスプレイ"
+  },
+  "inspector_group_cpu": {
+    "message": "CPU コア"
+  },
+  "inspector_group_memory": {
+    "message": "RAM"
+  },
+  "inspector_group_performance": {
+    "message": "パフォーマンス / 時間測定"
+  },
+  "inspector_display_desc": {
+    "message": "画面、ウィンドウ、モニター情報へのリクエストです。Pro 記録中は、選択された技術的な結果がローカルに保存されます。リクエストだけではモニター一覧にアクセスできたとは判断できません。"
+  },
+  "inspector_cpu_desc": {
+    "message": "hardwareConcurrency は、利用可能な論理プロセッサー数のブラウザーによる推定値です。Pro 記録中は、選択された技術的な結果がローカルに保存されます。物理 CPU コア数を特定するものではありません。"
+  },
+  "inspector_memory_desc": {
+    "message": "Device Memory が示すのはメモリ容量の概算区分であり、実際に搭載された正確な RAM 容量ではありません。Pro 記録中は、選択された技術的な結果がローカルに保存されます。"
+  },
+  "inspector_performance_desc": {
+    "message": "タイマーと Performance API は、ベンチマーク、アニメーション、解析にも使われます。Pro 記録中は、選択された技術的な結果がローカルに保存されます。この観測から目的は確認できません。"
+  },
+  "inspector_group_permissions": {
+    "message": "権限 / センサー"
+  },
+  "inspector_group_storage": {
+    "message": "ストレージ"
+  },
+  "inspector_group_network": {
+    "message": "ネットワーク"
+  },
+  "inspector_group_webrtc": {
+    "message": "WebRTC"
+  },
+  "rtc_title": {
+    "message": "観測された接続"
+  },
+  "rtc_scope_note": {
+    "message": "この文書と観測期間のみが対象です。フック導入前やアクセスできないコンテキストの接続は含まれていない場合があります。"
+  },
+  "rtc_total": {
+    "message": "保持：$SHOWN$ · 観測オブジェクト：$TOTAL$",
+    "placeholders": {
+      "shown": {
+        "content": "$1"
+      },
+      "total": {
+        "content": "$2"
+      }
+    }
+  },
+  "rtc_connection": {
+    "message": "接続 $N$",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "rtc_created_unknown": {
+    "message": "このオブジェクトの作成は観測されていません。"
+  },
+  "rtc_closed_retained": {
+    "message": "close() が観測されました。切断後もこの記録は保持されます。"
+  },
+  "rtc_connected_observed": {
+    "message": "この接続で接続済み状態が観測されました。"
+  },
+  "rtc_connected_unobserved": {
+    "message": "接続済み状態は観測されていません。"
+  },
+  "rtc_configuration_changes": {
+    "message": "成功した設定変更呼び出し：$N$",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "rtc_state_new": {
+    "message": "最後の状態：新規"
+  },
+  "rtc_state_connecting": {
+    "message": "最後の状態：接続中"
+  },
+  "rtc_state_connected": {
+    "message": "最後の状態：接続済み"
+  },
+  "rtc_state_disconnected": {
+    "message": "最後の状態：接続切れ"
+  },
+  "rtc_state_failed": {
+    "message": "最後の状態：失敗"
+  },
+  "rtc_state_closed": {
+    "message": "最後の状態：終了"
+  },
+  "rtc_state_unknown": {
+    "message": "状態不明"
+  },
+  "rtc_duration_open": {
+    "message": "終了は未観測"
+  },
+  "rtc_duration_under_1s": {
+    "message": "存続時間：1 秒未満"
+  },
+  "rtc_duration_1_10s": {
+    "message": "存続時間：1～10 秒"
+  },
+  "rtc_duration_10s_plus": {
+    "message": "存続時間：10 秒以上"
+  },
+  "rtc_duration_unknown": {
+    "message": "存続時間不明"
+  },
+  "rtc_server_configured": {
+    "message": "設定されたサーバー"
+  },
+  "rtc_server_candidate": {
+    "message": "このサーバー経由で ICE 候補を取得"
+  },
+  "rtc_server_error": {
+    "message": "このサーバーの ICE 候補収集でエラー"
+  },
+  "rtc_servers_unknown": {
+    "message": "サーバーの詳細は観測されていません。サーバーが設定・使用されなかったという意味ではありません。"
+  },
+  "rtc_servers_limited": {
+    "message": "サーバーの詳細は不完全です。接続ごとに最大 8 エンドポイントを保持します。"
+  },
+  "rtc_evidence_note": {
+    "message": "設定されているだけでは、そのサーバーと通信したことは確認できません。候補の取得や収集エラーだけでは、選択された経路やデータ送信を確認できません。接続状態は接続全体に関するものです。これらの詳細はページが制御できます。"
+  },
+  "rtc_empty": {
+    "message": "この文書と期間について接続の詳細はありません。API カウンターには観測記録が含まれている場合があります。"
+  },
+  "rtc_capture_limited": {
+    "message": "接続履歴は不完全です。省略オブジェクト：$N$。取得上限により更新も省略される場合があります。",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "rtc_export_note": {
+    "message": "この独立したローカル履歴は、更新がなければ最大 10 分間保持されます。表示しても保持期間は延長されません。サーバーと接続の詳細は JSON エクスポートに含まれません。"
+  },
+  "inspector_webrtc_desc": {
+    "message": "WebRTC API の呼び出しが観測されました。これらの API は通常の音声・ビデオ通話やデータ交換にも使われます。呼び出しだけでは、フィンガープリント生成や IP アドレスの開示を確認できません。"
+  },
+  "card_api_use_webrtc_network": {
+    "message": "WebRTC ネットワーク情報のリクエスト（$API$）：$COUNT$",
+    "placeholders": {
+      "api": {
+        "content": "$1"
+      },
+      "count": {
+        "content": "$2"
+      }
+    }
+  },
+  "card_purpose_webrtc": {
+    "message": "WebRTC は音声・ビデオ通信やデータ交換に使われます。これらの観測から呼び出しの目的は確認できません。"
+  },
+  "inspector_page": {
+    "message": "ページのホスト"
+  },
+  "inspector_document": {
+    "message": "文書 / フレーム"
+  },
+  "inspector_script": {
+    "message": "スクリプト"
+  },
+  "inspector_script_unknown": {
+    "message": "不明。このレポートで特定できるのは文書であり、呼び出したスクリプトではありません。"
+  },
+  "inspector_empty": {
+    "message": "この文書では、対応する手法はまだ観測されていません。拡張機能の導入前から開いていたページは、再読み込みしてください。"
+  },
+  "inspector_coverage": {
+    "message": "観測範囲"
+  },
+  "inspector_image_waiting": {
+    "message": "このページが読み取る対応画像を待っています。過去の読み取り、非常に早いインライン呼び出し、大きすぎる画像は取得できない場合があります。ページ自身のチェックを再実行するには、再読み込みしてください。"
+  },
+  "language_label": {
+    "message": "表示言語"
+  },
+  "language_change_failed": {
+    "message": "言語を保存できませんでした。再試行してください。"
+  },
+  "inspector_spotted": {
+    "message": "観測された手法"
+  },
+  "inspector_subtitle": {
+    "message": "不正対策インスペクター"
+  },
+  "mode_light_tab": {
+    "message": "ライトモード"
+  },
+  "mode_pro_tab": {
+    "message": "Pro モード"
+  },
+  "mode_save_error": {
+    "message": "表示モードの設定を保存できませんでした。拡張機能を開き直すと元に戻る場合があります。"
+  },
+  "pro_title": {
+    "message": "ドメインの記録"
+  },
+  "pro_current_domain": {
+    "message": "現在のドメイン"
+  },
+  "pro_session_domain": {
+    "message": "記録対象のドメイン"
+  },
+  "pro_ready": {
+    "message": "記録準備完了"
+  },
+  "pro_recording": {
+    "message": "記録中"
+  },
+  "pro_stopped": {
+    "message": "記録停止"
+  },
+  "pro_start": {
+    "message": "記録を開始"
+  },
+  "pro_start_new": {
+    "message": "新しい記録を開始"
+  },
+  "pro_stop": {
+    "message": "記録を停止"
+  },
+  "pro_generate_pdf": {
+    "message": "PDF を作成"
+  },
+  "pro_pdf_hint": {
+    "message": "レポートを開いて内容を確認するか、ブラウザーの印刷ダイアログで PDF として保存できます。"
+  },
+  "pro_pdf_error": {
+    "message": "レポートのプレビューを開けませんでした。再試行してください。"
+  },
+  "pro_start_note": {
+    "message": "このタブと関連するタブで、このサイトの訪問ページを最大 10 分間記録します。このウィンドウを閉じても記録は続きます。開始前の動作は復元できません。読み込み時のチェックを観測するには、開始後にページを再読み込みしてください。 Pro 記録中は、送信された Cookie の名前と値、および固定リストの技術的なリクエストヘッダーの値がレポート用にローカル保存されます。"
+  },
+  "pro_replace_note": {
+    "message": "新しい記録を開始すると、前のセッションが置き換わります。必要な場合は先にレポートを保存してください。"
+  },
+  "pro_unavailable": {
+    "message": "このページでは記録を開始できません。観測が有効な、アクセス可能な HTTP または HTTPS サイトを開いてください。"
+  },
+  "pro_other_domain": {
+    "message": "このページは記録対象ドメインの外にあります。その動作はこのセッションに追加されません。"
+  },
+  "pro_elapsed": {
+    "message": "経過時間"
+  },
+  "pro_time_limit": {
+    "message": "記録時間の上限：10 分"
+  },
+  "pro_pages_total": {
+    "message": "ページ訪問数"
+  },
+  "pro_domains_total": {
+    "message": "第三者ドメイン数"
+  },
+  "pro_resources_total": {
+    "message": "リソースグループ数"
+  },
+  "pro_requests_total": {
+    "message": "リクエスト数"
+  },
+  "pro_pages_title": {
+    "message": "記録されたページ訪問"
+  },
+  "pro_pages_empty": {
+    "message": "ページ訪問はまだ記録されていません。"
+  },
+  "pro_visit": {
+    "message": "訪問 $N$",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "pro_document_reports": {
+    "message": "文書レポート：$N$",
+    "placeholders": {
+      "n": {
+        "content": "$1"
+      }
+    }
+  },
+  "pro_visit_totals": {
+    "message": "手法 $TECHNIQUES$ 件 · リソースグループ $RESOURCES$ 件",
+    "placeholders": {
+      "techniques": {
+        "content": "$1"
+      },
+      "resources": {
+        "content": "$2"
+      }
+    }
+  },
+  "pro_observed_techniques": {
+    "message": "観測された手法 ID"
+  },
+  "pro_no_techniques": {
+    "message": "この訪問では、対応する API 手法は記録されていません。チェックが行われなかったことを示すものではありません。"
+  },
+  "pro_visit_resources": {
+    "message": "この訪問のリソース"
+  },
+  "pro_resource_type": {
+    "message": "種類"
+  },
+  "pro_resource_requests": {
+    "message": "リクエスト"
+  },
+  "pro_resource_completed": {
+    "message": "完了"
+  },
+  "pro_resource_failed": {
+    "message": "失敗"
+  },
+  "pro_resource_redirects": {
+    "message": "リダイレクト"
+  },
+  "pro_resource_status": {
+    "message": "HTTP ステータス"
+  },
+  "pro_show_more": {
+    "message": "リソースをさらに表示"
+  },
+  "pro_open_report": {
+    "message": "レポートのプレビューを開く"
+  },
+  "pro_limits_title": {
+    "message": "記録の制限"
+  },
+  "pro_limits_note": {
+    "message": "観測範囲はページへのアクセス権と対応センサーに依存します。API の使用やリソースの読み込みだけでは、追跡、コード実行、サイトの安全性を判断できません。 リクエストの機微な内容と画像は、このレポートから除外されます。"
+  },
+  "pro_dropped": {
+    "message": "省略：ページ $PAGES$ 件、リソース $RESOURCES$ 件、文書 $DOCUMENTS$ 件、イベント $EVENTS$ 件。",
+    "placeholders": {
+      "pages": {
+        "content": "$1"
+      },
+      "resources": {
+        "content": "$2"
+      },
+      "documents": {
+        "content": "$3"
+      },
+      "events": {
+        "content": "$4"
+      }
+    }
+  },
+  "pro_stop_manual": {
+    "message": "ユーザーが停止しました。"
+  },
+  "pro_stop_timeout": {
+    "message": "記録時間の上限 10 分に達しました。"
+  },
+  "pro_stop_tab_closed": {
+    "message": "記録対象のタブが閉じられました。"
+  },
+  "pro_stop_access_revoked": {
+    "message": "ページへのアクセス権が取り消されたため、記録を停止しました。"
+  },
+  "pro_stop_storage_error": {
+    "message": "セッションデータを保存できなかったため、記録を停止しました。保持されたレポートは不完全な可能性があります。"
+  },
+  "pro_stop_limit": {
+    "message": "記録データの上限に達しました。保持されたレポートは不完全です。"
+  },
+  "report_title": {
+    "message": "シナリオ解析レポート"
+  },
+  "report_preview": {
+    "message": "PDF プレビュー"
+  },
+  "report_save": {
+    "message": "PDF として保存"
+  },
+  "report_print_hint": {
+    "message": "ブラウザーの印刷ダイアログで「PDF に保存」を選択してください。PDF には以下のレポートが含まれます。"
+  },
+  "report_recording": {
+    "message": "記録中のセッションはエクスポートできません。先に記録を停止してください。"
+  },
+  "report_unavailable": {
+    "message": "この記録は利用できなくなりました。"
+  },
+  "report_summary": {
+    "message": "概要"
+  },
+  "report_started": {
+    "message": "解析開始"
+  },
+  "report_finished": {
+    "message": "解析終了"
+  },
+  "report_duration": {
+    "message": "所要時間"
+  },
+  "report_pages": {
+    "message": "ページ"
+  },
+  "report_domains": {
+    "message": "第三者ドメイン"
+  },
+  "report_resources": {
+    "message": "リソースグループ"
+  },
+  "report_requests": {
+    "message": "観測されたリクエスト"
+  },
+  "report_techniques": {
+    "message": "観測された手法"
+  },
+  "report_vendors": {
+    "message": "認識されたサービス"
+  },
+  "report_map": {
+    "message": "関連マップ"
+  },
+  "report_map_note": {
+    "message": "リンクは各ページ訪問中に観測されたリソースリクエストを示します。所有関係、スクリプト間の直接の依存関係、データ送信の証拠を示すものではありません。"
+  },
+  "report_page": {
+    "message": "ページ"
+  },
+  "report_documents": {
+    "message": "文書とフレーム"
+  },
+  "report_resource_list": {
+    "message": "リソースグループ一覧"
+  },
+  "report_first_party": {
+    "message": "同一サイト"
+  },
+  "report_third_party": {
+    "message": "第三者"
+  },
+  "report_unknown": {
+    "message": "関係不明"
+  },
+  "report_resource_type": {
+    "message": "リソースの種類"
+  },
+  "report_requests_count": {
+    "message": "リクエスト"
+  },
+  "report_statuses": {
+    "message": "HTTP ステータスコード"
+  },
+  "report_result": {
+    "message": "観測された手法"
+  },
+  "report_no_methods": {
+    "message": "対象期間中、アクセス可能な範囲では対応する手法が観測されませんでした。"
+  },
+  "report_no_resources": {
+    "message": "このページのリソースリクエストは取得されていません。"
+  },
+  "report_no_vendors": {
+    "message": "対応するサービスの識別パターンと一致しませんでした。"
+  },
+  "report_scope": {
+    "message": "記録の対象範囲と制限"
+  },
+  "report_scope_note": {
+    "message": "記録された閲覧シナリオ内で観測した動作のみを含みます。未訪問のページ、未対応のコンテキスト、ブラウザー権限の範囲外のリクエストは対象外です。API の使用だけでは、フィンガープリント生成や安全性について判断できません。"
+  },
+  "report_redaction": {
+    "message": "URL から認証情報、クエリ文字列、フラグメントを除外しています。機微な情報や識別情報を含むパス部分は置き換えられます。画像、フォーム内容、リクエストとレスポンスの本文、cookie、ICE 接続の詳細は含まれません。"
+  },
+  "report_dropped": {
+    "message": "収集上限"
+  },
+  "report_dropped_note": {
+    "message": "記録上限に達しました。件数は下限値であり、レポートは不完全な可能性があります。"
+  },
+  "report_generation": {
+    "message": "ローカルレポート · アップロードなし"
+  },
+  "report_print_failed": {
+    "message": "印刷ダイアログを開けませんでした。再試行してください。"
+  },
+  "report_title_unknown": {
+    "message": "無題のページ"
+  },
+  "report_map_more": {
+    "message": "追加のドメインはリソース一覧に記載されています。"
+  },
+  "report_completed": {
+    "message": "完了"
+  },
+  "report_failed": {
+    "message": "失敗"
+  },
+  "report_redirects": {
+    "message": "リダイレクト"
+  },
+  "report_first_seen": {
+    "message": "最初の観測"
+  },
+  "report_last_seen": {
+    "message": "最後の観測"
+  },
+  "report_latency": {
+    "message": "観測されたリクエスト時間の合計"
+  },
+  "report_resource_groups_note": {
+    "message": "リソースは機微情報を除いた URL テンプレートと種類ごとにまとめられます。異なる元の URL が同じグループになる場合があるため、グループ総数は正確なファイル数ではありません。"
+  },
+  "pro_limit_started_mid_page": {
+    "message": "ページを開いた後に記録を開始しました。初期のチェックが欠けている可能性があります。バッファー内の観測は、バックグラウンド処理の受信時刻によって割り当てられます。"
+  },
+  "pro_limit_service_worker_restarted": {
+    "message": "記録中にバックグラウンドワーカーが再起動しました。処理待ちのネットワーク動作は不完全な可能性があります。"
+  },
+  "pro_limit_navigation_gap": {
+    "message": "一部の動作をページ訪問に確実に割り当てることができませんでした。"
+  },
+  "pro_limit_resource_limit": {
+    "message": "リソースグループの上限に達し、一部のグループが省略されました。"
+  },
+  "pro_limit_page_limit": {
+    "message": "ページ訪問数の上限に達し、一部の訪問が省略されました。"
+  },
+  "pro_limit_document_limit": {
+    "message": "文書数の上限に達し、一部のフレームレポートが省略されました。"
+  },
+  "pro_limit_event_limit": {
+    "message": "イベントバッファーの上限に達し、一部の動作が省略されました。"
+  },
+  "pro_limit_storage_error": {
+    "message": "記録データの一部を保存できませんでした。"
+  },
+  "pro_limit_permission_limited": {
+    "message": "ブラウザーの権限により記録対象の動作が制限されました。"
+  },
+  "pro_limit_unsupported_contexts": {
+    "message": "未訪問ページ、アクセスできないフレーム、未対応の Worker、サーバー側の動作は対象外です。"
+  },
+  "pro_limit_redacted_urls": {
+    "message": "URL は機微情報を除いたテンプレートごとにまとめられます。識別情報を含むパス部分、クエリ文字列、フラグメントは除外されます。"
+  },
+  "inventory_pro": {
+    "message": "Pro モードでは、機微情報を除いたページ URL、タイトル、リソースのメタデータ、検出結果に加え、記録したリクエストの Cookie ヘッダーの名前と値、および固定リストの技術的なリクエストヘッダーの値を、最大 10 分間、別枠で記録します。ローカルセッションは、置き換え、削除、ブラウザーセッション終了まで保持されます。保存済みレポートは、削除するまでローカルのデータベースに残ることがあります。PDF には解析対象ドメインと、Cookie の値を含む表示中のレポート詳細が含まれます。ライト/Pro の表示モード設定はローカルに保存されます。"
+  },
+  "action_clear_results": {
+    "message": "結果を消去"
+  },
+  "light_clear_results_note": {
+    "message": "このページとフレームの結果を消去します。読み込み時の動作を再び観測するには、ページを再読み込みしてください。"
+  },
+  "pro_report_ready": {
+    "message": "レポートの準備ができました"
+  },
+  "pro_report_ready_note": {
+    "message": "レポートを開いて確認するか、ブラウザーの印刷ダイアログで PDF として保存できます。"
+  },
+  "pro_report_open": {
+    "message": "レポートを開く"
+  },
+  "pro_stop_clear": {
+    "message": "停止して消去"
+  },
+  "pro_clear_results_note": {
+    "message": "現在の記録とレポートを削除し、新しい解析を開始できるようにします。"
+  },
+  "results_cleared": {
+    "message": "結果を消去しました。"
+  },
+  "vendors_scope_page": {
+    "message": "現在のページとアクセス可能な子文書"
+  },
+  "vendors_scope_recording": {
+    "message": "記録された訪問全体で認識"
+  },
+  "vendors_mechanism": {
+    "message": "認識では、完了したスクリプトリクエストと WebRTC サーバーのエンドポイントを、レビュー済みカタログのルールと照合します。ほかのブラウザー API をどのサービスが呼び出したかは確認できません。"
+  },
+  "vendors_catalog_coverage": {
+    "message": "カタログ：製品 $1 件 · スクリプトルール $2 件 · WebRTC サーバールール $3 件。ほかの連携、変更された連携、自己ホスト型の連携は認識できない場合があります。"
+  },
+  "vendors_details": {
+    "message": "認識の詳細"
+  },
+  "vendor_match_rtc_server": {
+    "message": "WebRTC サーバーの一致"
+  },
+  "vendor_rtc_resource_note": {
+    "message": "このページで観測された WebRTC サーバーがカタログのエンドポイントに一致しました。これだけではサービス SDK の実行、このサーバーを経由した接続、データ送信は確認できません。接続の詳細では、設定、候補、接続状態を区別します。"
+  },
+  "inspector_group_wasm": {
+    "message": "WebAssembly"
+  },
+  "inspector_group_interaction": {
+    "message": "マウスとポインターの操作"
+  },
+  "inspector_wasm_desc": {
+    "message": "モジュールのコンパイル、検証、またはインスタンス化に用いる WebAssembly の JavaScript API の呼び出しが観測されました。呼び出しだけでは、モジュール内部の計算や目的、非同期処理の正常完了は分かりません。Worker の動作はこのページフックの対象外です。"
+  },
+  "inspector_interaction_desc": {
+    "message": "リスナー登録の試行、またはポインター座標の読み取りが観測されました。これらの API 呼び出しだけでは、リスナーの有効化、実際の移動、行動のプロファイリングは確認できません。座標、軌跡、生体情報は記録されません。"
+  },
+  "interaction_listener_attempt": {
+    "message": "移動リスナーの登録試行が観測されました。重複した登録や中断された登録も計数される場合があります。"
+  },
+  "interaction_coordinate_read": {
+    "message": "ポインター座標の読み取りが観測されました。クリック、ドラッグ、合成イベントでの読み取りも計数される場合があります。"
+  },
+  "permission_checks_title": {
+    "message": "観測された権限チェック"
+  },
+  "permission_checks_note": {
+    "message": "観測中にサイトが読み取った状態であり、現在のブラウザー設定ではありません。ページポリシーによる許可と権限の付与は別であり、ハードウェアへのアクセスを証明しません。複数の状態は時間の経過に伴う変更を反映している場合があります。"
+  },
+  "permission_checks_reads": {
+    "message": "観測された読み取り"
+  },
+  "permission_kind_permission": {
+    "message": "権限の状態"
+  },
+  "permission_kind_policy": {
+    "message": "ページポリシー"
+  },
+  "permission_result_granted": {
+    "message": "付与済み"
+  },
+  "permission_result_denied": {
+    "message": "拒否"
+  },
+  "permission_result_prompt": {
+    "message": "prompt 状態 / 未付与"
+  },
+  "permission_result_allowed": {
+    "message": "ページポリシーで許可"
+  },
+  "permission_result_blocked": {
+    "message": "ページポリシーでブロック"
+  },
+  "permission_name_camera": {
+    "message": "カメラ"
+  },
+  "permission_name_microphone": {
+    "message": "マイク"
+  },
+  "permission_name_geolocation": {
+    "message": "位置情報"
+  },
+  "permission_name_notifications": {
+    "message": "通知"
+  },
+  "permission_name_clipboard_read": {
+    "message": "クリップボードの読み取り"
+  },
+  "permission_name_clipboard_write": {
+    "message": "クリップボードへの書き込み"
+  },
+  "permission_name_persistent_storage": {
+    "message": "永続ストレージ"
+  },
+  "permission_name_background_sync": {
+    "message": "バックグラウンド同期"
+  },
+  "permission_name_midi": {
+    "message": "MIDI デバイス"
+  },
+  "permission_name_sensors": {
+    "message": "センサー（一括）"
+  },
+  "permission_name_payment_handler": {
+    "message": "支払いハンドラー"
+  },
+  "permission_name_screen_wake_lock": {
+    "message": "画面のスリープ防止"
+  },
+  "permission_name_window_management": {
+    "message": "ウィンドウ管理"
+  },
+  "permission_name_local_fonts": {
+    "message": "ローカルフォント"
+  },
+  "permission_name_display_capture": {
+    "message": "画面キャプチャ"
+  },
+  "permission_name_storage_access": {
+    "message": "ストレージへのアクセス"
+  },
+  "permission_name_unknown": {
+    "message": "不明な権限"
+  },
+  "pro_graph_third_party": {
+    "message": "第三者"
+  },
+  "pro_graph_type_filter": {
+    "message": "リソースの種類"
+  },
+  "pro_graph_pages": {
+    "message": "ページ訪問数"
+  },
+  "pro_graph_requests": {
+    "message": "リクエスト"
+  },
+  "pro_graph_completed": {
+    "message": "完了"
+  },
+  "pro_graph_failed": {
+    "message": "失敗"
+  },
+  "pro_graph_redirects": {
+    "message": "リダイレクト"
+  },
+  "pro_graph_statuses": {
+    "message": "HTTP ステータスコード"
+  },
+  "pro_graph_resource_groups": {
+    "message": "リソースグループ"
+  },
+  "pro_graph_title": {
+    "message": "Pro リクエストマップ"
+  },
+  "pro_graph_domains": {
+    "message": "ドメイン"
+  },
+  "pro_graph_all_parties": {
+    "message": "すべてのドメイン"
+  },
+  "pro_graph_all_types": {
+    "message": "すべての種類"
+  },
+  "pro_graph_page": {
+    "message": "ページ訪問 $NUMBER$",
+    "placeholders": {
+      "number": {
+        "content": "$1"
+      }
+    }
+  },
+  "pro_graph_select_domain": {
+    "message": "ドメインを選択すると、関連するページ訪問とリクエスト数を確認できます。"
+  },
+  "pro_graph_selected_domain": {
+    "message": "ドメインの詳細"
+  },
+  "pro_graph_clear_selection": {
+    "message": "選択を解除"
+  },
+  "pro_graph_empty": {
+    "message": "条件に一致するリソースリクエストはありません。"
+  },
+  "pro_graph_omitted": {
+    "message": "表示上限により非表示：ページ訪問 $PAGES$ 件、ドメイン $DOMAINS$ 件、リンク $EDGES$ 件。",
+    "placeholders": {
+      "pages": {
+        "content": "$1"
+      },
+      "domains": {
+        "content": "$2"
+      },
+      "edges": {
+        "content": "$3"
+      }
+    }
+  },
+  "pro_graph_graph_label": {
+    "message": "リクエスト先ドメインにつながるページ訪問"
+  },
+  "pro_graph_parties": {
+    "message": "ドメイン"
+  },
+  "pro_graph_input_limited": {
+    "message": "入力データがマップの上限を超えているため、表示は不完全です。"
+  },
+  "identification_vendors_title": {
+    "message": "検出された不正対策システム"
+  },
+  "identification_active": {
+    "message": "アクティブ識別"
+  },
+  "identification_passive": {
+    "message": "パッシブ識別"
+  },
+  "identification_technique_count": {
+    "message": "検出された手法：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookie_tracking_count": {
+    "message": "追跡 Cookie：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookie_permission_required": {
+    "message": "Cookie のメタデータを表示するには、Cookie へのアクセスを許可してください。"
+  },
+  "cookie_allow_access": {
+    "message": "Cookie へのアクセスを許可"
+  },
+  "cookie_refresh": {
+    "message": "更新"
+  },
+  "cookie_empty": {
+    "message": "このドキュメントの Cookie は見つかりませんでした。"
+  },
+  "cookie_unavailable": {
+    "message": "Cookie のメタデータを取得できません。"
+  },
+  "cookie_loading": {
+    "message": "Cookie のメタデータを読み込み中…"
+  },
+  "cookie_tracking": {
+    "message": "追跡"
+  },
+  "cookie_other": {
+    "message": "その他の Cookie"
+  },
+  "cookie_name": {
+    "message": "名前"
+  },
+  "cookie_domain": {
+    "message": "ドメイン"
+  },
+  "cookie_expiry": {
+    "message": "有効期限"
+  },
+  "cookie_session": {
+    "message": "セッション"
+  },
+  "cookie_partitioned": {
+    "message": "パーティションあり"
+  },
+  "cookie_unpartitioned": {
+    "message": "パーティションなし"
+  },
+  "cookie_attributes": {
+    "message": "属性"
+  },
+  "cookie_limit": {
+    "message": "Cookie の表示上限に達しました。"
+  },
+  "cookie_report_title": {
+    "message": "Cookie のメタデータ"
+  },
+  "cookie_scope_title": {
+    "message": "サイトと読み込まれたサービスの Cookie"
+  },
+  "cookie_owner": {
+    "message": "サービス"
+  },
+  "cookie_category": {
+    "message": "カテゴリ"
+  },
+  "cookie_purpose": {
+    "message": "目的"
+  },
+  "cookie_confidence": {
+    "message": "一致の確信度"
+  },
+  "cookie_category_necessary": {
+    "message": "必須"
+  },
+  "cookie_category_functional": {
+    "message": "機能"
+  },
+  "cookie_category_analytics": {
+    "message": "分析"
+  },
+  "cookie_category_advertising": {
+    "message": "広告"
+  },
+  "cookie_category_security": {
+    "message": "セキュリティ"
+  },
+  "cookie_category_consent": {
+    "message": "同意"
+  },
+  "cookie_category_unknown": {
+    "message": "不明"
+  },
+  "cookie_confidence_documented": {
+    "message": "文書による裏付け"
+  },
+  "cookie_confidence_community": {
+    "message": "コミュニティのカタログ"
+  },
+  "cookie_confidence_ambiguous": {
+    "message": "曖昧"
+  },
+  "cookie_confidence_unknown": {
+    "message": "不明"
+  },
+  "tag_manager_title": {
+    "message": "Tag Manager の関連"
+  },
+  "tag_manager_source": {
+    "message": "ローダーのコンテキスト"
+  },
+  "tag_manager_target": {
+    "message": "サービス"
+  },
+  "tag_manager_count": {
+    "message": "観測数"
+  },
+  "tag_manager_empty": {
+    "message": "Tag Manager の関連は未観測です。"
+  },
+  "tag_manager_limit": {
+    "message": "Tag Manager の観測情報は不完全です。"
+  },
+  "identification_active_empty": {
+    "message": "ページの操作は未観測です。"
+  },
+  "identification_third_empty": {
+    "message": "埋め込みドキュメントの API 操作は記録されていません。"
+  },
+  "identification_third_party": {
+    "message": "第三者による追跡"
+  },
+  "identification_cookie": {
+    "message": "Cookie"
+  },
+  "tag_manager_loading_summary": {
+    "message": "Google Tag Manager が読み込みを開始: $SERVICES$",
+    "placeholders": {
+      "services": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookie_tab_total": {
+    "message": "Cookie · $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookie_total_count": {
+    "message": "Cookie の総数: $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookie_site_count": {
+    "message": "このサイトの Cookie: $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookie_other_count": {
+    "message": "表示中のその他の Cookie: $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookie_clear_site": {
+    "message": "このサイトの Cookie を削除"
+  },
+  "cookie_clearing": {
+    "message": "サイトの Cookie を削除中…"
+  },
+  "cookie_clear_result": {
+    "message": "削除: $REMOVED$。失敗: $FAILED$。",
+    "placeholders": {
+      "removed": {
+        "content": "$1"
+      },
+      "failed": {
+        "content": "$2"
+      }
+    }
+  },
+  "cookie_clear_unavailable": {
+    "message": "Cookie の削除は利用できません。"
+  },
+  "cookie_clear_partial": {
+    "message": "Cookie は一部のみ削除されました。"
+  },
+  "cookie_analysis": {
+    "message": "メタデータの分析"
+  },
+  "cookie_analysis_unknown": {
+    "message": "ローカルカタログで用途を一意に特定できません。"
+  },
+  "cookie_analysis_host_only": {
+    "message": "範囲: 完全一致するホスト。"
+  },
+  "cookie_analysis_domain": {
+    "message": "範囲: ドメインとサブドメイン。"
+  },
+  "cookie_analysis_secure": {
+    "message": "Secure: 安全な接続のみ。"
+  },
+  "cookie_analysis_no_secure": {
+    "message": "Secure 属性はありません。"
+  },
+  "cookie_analysis_http_only": {
+    "message": "HttpOnly: ページの JavaScript から読み取り不可。"
+  },
+  "cookie_analysis_no_http_only": {
+    "message": "HttpOnly 属性はありません。"
+  },
+  "cookie_analysis_session": {
+    "message": "保存期間: ブラウザーのセッション。"
+  },
+  "cookie_analysis_persistent": {
+    "message": "保存期間: 永続 Cookie。"
+  },
+  "cookie_analysis_partitioned": {
+    "message": "パーティション: 最上位サイト。"
+  },
+  "cookie_analysis_no_partition": {
+    "message": "パーティションのメタデータはありません。"
+  },
+  "cookie_analysis_samesite_strict": {
+    "message": "SameSite=Strict: サイト間送信を制限。"
+  },
+  "cookie_analysis_samesite_lax": {
+    "message": "SameSite=Lax: サイト間送信を限定。"
+  },
+  "cookie_analysis_samesite_no_restriction": {
+    "message": "SameSite=None: この属性はサイト間での使用を許可。"
+  },
+  "cookie_analysis_samesite_unspecified": {
+    "message": "SameSite 属性は未指定です。"
+  },
+  "cookie_company_unknown": {
+    "message": "企業は未特定です。"
+  },
+  "cookie_value": {
+    "message": "値"
+  },
+  "cookie_value_show": {
+    "message": "値を表示"
+  },
+  "cookie_value_hide": {
+    "message": "値を非表示"
+  },
+  "cookie_value_empty": {
+    "message": "空の値"
+  },
+  "cookie_value_unavailable": {
+    "message": "Cookie の値を取得できません。"
+  },
+  "cookie_value_loading": {
+    "message": "値を読み込み中…"
+  },
+  "cookie_value_limit": {
+    "message": "値の表示上限に達しました。"
+  },
+  "cookie_name_reference": {
+    "message": "カタログ内の名前の一致"
+  },
+  "cookie_report_identity": {
+    "message": "Cookie / 企業"
+  },
+  "cookie_report_classification": {
+    "message": "分類 / 追跡 / 根拠"
+  },
+  "cookie_report_explanation": {
+    "message": "用途 / 説明 / 出典"
+  },
+  "cookie_report_properties": {
+    "message": "属性 / 有効期限"
+  },
+  "cookie_report_rows": {
+    "message": "表示中の Cookie：$TOTAL$ 件中 $SHOWN$ 件",
+    "placeholders": {
+      "shown": {
+        "content": "$1"
+      },
+      "total": {
+        "content": "$2"
+      }
+    }
+  },
+  "cookie_vendor_declaration": {
+    "message": "提供元の申告：$VENDOR$",
+    "placeholders": {
+      "vendor": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookie_report_source": {
+    "message": "出典 $INDEX$",
+    "placeholders": {
+      "index": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookie_report_saved_at": {
+    "message": "スナップショット：$TIME$",
+    "placeholders": {
+      "time": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookie_yes": {
+    "message": "はい"
+  },
+  "cookie_no": {
+    "message": "いいえ"
+  },
+  "cookie_scope_host_only": {
+    "message": "ホストのみ"
+  },
+  "cookie_scope_domain": {
+    "message": "ドメインとサブドメイン"
+  },
+  "cookie_cross_site_ancestor": {
+    "message": "別サイトの祖先コンテキストありと報告"
+  },
+  "cookie_no_cross_site_ancestor": {
+    "message": "別サイトの祖先コンテキストなしと報告"
+  },
+  "cookie_ancestor_unreported": {
+    "message": "祖先コンテキストの状態は報告されていません"
+  },
+  "cookie_purpose_declared": {
+    "message": "提供者が申告した用途：$PURPOSES$。",
+    "placeholders": {
+      "purposes": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookie_purpose_storage": {
+    "message": "端末上のデータの保存とアクセス"
+  },
+  "cookie_purpose_basic_advertising": {
+    "message": "基本的な広告"
+  },
+  "cookie_purpose_advertising_profile": {
+    "message": "広告プロファイルの作成"
+  },
+  "cookie_purpose_personalised_advertising": {
+    "message": "パーソナライズ広告"
+  },
+  "cookie_purpose_content_profile": {
+    "message": "コンテンツの好みのプロファイル作成"
+  },
+  "cookie_purpose_personalised_content": {
+    "message": "パーソナライズされたコンテンツ"
+  },
+  "cookie_purpose_advertising_measurement": {
+    "message": "広告効果の測定"
+  },
+  "cookie_purpose_content_measurement": {
+    "message": "コンテンツ効果の測定"
+  },
+  "cookie_purpose_audience_research": {
+    "message": "オーディエンス調査"
+  },
+  "cookie_purpose_service_development": {
+    "message": "サービス開発"
+  },
+  "cookie_purpose_basic_content": {
+    "message": "基本的なコンテンツ選択"
+  },
+  "cookie_purpose_security": {
+    "message": "セキュリティと不正防止"
+  },
+  "cookie_purpose_delivery": {
+    "message": "広告とコンテンツの配信"
+  },
+  "cookie_purpose_privacy_choices": {
+    "message": "プライバシー設定"
+  },
+  "cookie_purpose_opt_out": {
+    "message": "提供者は、この Cookie が追跡を拒否する選択を保存すると申告しています。"
+  },
+  "cookie_purpose_without_ids": {
+    "message": "提供者は、この Cookie とドメインを申告していますが、TCF の用途 ID は示していません。"
+  },
+  "cookie_purpose_cookieblock_exception": {
+    "message": "CookieBlock はこの名前を自動ブロックの例外として登録しています。例外であることから用途や提供者は特定できません。"
+  },
+  "identification_social": {
+    "message": "ソーシャルネットワーク"
+  },
+  "social_title": {
+    "message": "ソーシャルサービスと追跡"
+  },
+  "social_service_count": {
+    "message": "検出されたソーシャルサービス：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "social_empty": {
+    "message": "ソーシャルサービスの動作は観測されていません。"
+  },
+  "social_request_count": {
+    "message": "リクエスト数：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "social_script": {
+    "message": "リクエスト開始元のスクリプト"
+  },
+  "social_initiator": {
+    "message": "開始元"
+  },
+  "social_script_unknown": {
+    "message": "スクリプト未取得"
+  },
+  "social_current_document": {
+    "message": "現在のドキュメント"
+  },
+  "social_kind_service_request": {
+    "message": "サービスへのリクエスト"
+  },
+  "social_kind_sdk_load": {
+    "message": "SDK の読み込み"
+  },
+  "social_kind_tracking_pixel": {
+    "message": "追跡ピクセル"
+  },
+  "social_kind_embedded_content": {
+    "message": "埋め込みコンテンツ"
+  },
+  "social_kind_authentication_navigation": {
+    "message": "認証のナビゲーション"
+  },
+  "social_kind_authentication_frame": {
+    "message": "認証フレーム"
+  },
+  "social_kind_authentication_request": {
+    "message": "認証リクエスト"
+  },
+  "social_kind_possible_login_probe": {
+    "message": "ログイン状態を調べる可能性のあるリクエスト"
+  },
+  "social_kind_manual_redirect_request": {
+    "message": "リダイレクトを手動で処理するリクエスト"
+  },
+  "social_kind_fedcm_call": {
+    "message": "FedCM 呼び出し"
+  },
+  "social_kind_login_status_api": {
+    "message": "ログイン状態 API"
+  },
+  "social_report_title": {
+    "message": "ソーシャルサービスと追跡"
+  },
+  "social_limit": {
+    "message": "表示上限に達しました。"
+  },
+  "social_refresh": {
+    "message": "更新"
+  },
+  "social_kind_tracking_sdk": {
+    "message": "追跡 SDK"
+  },
+  "social_tracking_services": {
+    "message": "観測された追跡サービス：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "social_browser_request_count": {
+    "message": "準備されたリクエスト：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "social_page_action_count": {
+    "message": "ページの操作：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "social_pro_documents": {
+    "message": "ドキュメント数：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "social_pro_rows": {
+    "message": "レポート項目数：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "social_document": {
+    "message": "ドキュメント $NUMBER$",
+    "placeholders": {
+      "number": {
+        "content": "$1"
+      }
+    }
+  },
+  "social_service_column": {
+    "message": "サービス / 操作"
+  },
+  "social_count_column": {
+    "message": "件数 / 情報源"
+  },
+  "social_method": {
+    "message": "メソッド"
+  },
+  "social_endpoint": {
+    "message": "エンドポイント"
+  },
+  "social_resource_type": {
+    "message": "リソース種別"
+  },
+  "social_method_unknown": {
+    "message": "報告なし"
+  },
+  "social_endpoint_service": {
+    "message": "サービス"
+  },
+  "social_endpoint_sdk": {
+    "message": "SDK"
+  },
+  "social_endpoint_pixel": {
+    "message": "追跡ピクセル"
+  },
+  "social_endpoint_embed": {
+    "message": "埋め込みコンテンツ"
+  },
+  "social_endpoint_login": {
+    "message": "ログイン"
+  },
+  "social_endpoint_oauth": {
+    "message": "OAuth"
+  },
+  "social_endpoint_fedcm": {
+    "message": "FedCM"
+  },
+  "social_endpoint_login_status": {
+    "message": "ログイン状態"
+  },
+  "social_resource_main_frame": {
+    "message": "メインドキュメント"
+  },
+  "social_resource_sub_frame": {
+    "message": "子ドキュメント"
+  },
+  "social_resource_stylesheet": {
+    "message": "スタイルシート"
+  },
+  "social_resource_script": {
+    "message": "スクリプト"
+  },
+  "social_resource_image": {
+    "message": "画像"
+  },
+  "social_resource_font": {
+    "message": "フォント"
+  },
+  "social_resource_object": {
+    "message": "オブジェクト"
+  },
+  "social_resource_xmlhttprequest": {
+    "message": "Fetch / XHR"
+  },
+  "social_resource_ping": {
+    "message": "ビーコン / ping"
+  },
+  "social_resource_csp_report": {
+    "message": "CSP レポート"
+  },
+  "social_resource_media": {
+    "message": "メディア"
+  },
+  "social_resource_websocket": {
+    "message": "WebSocket"
+  },
+  "social_resource_webtransport": {
+    "message": "WebTransport"
+  },
+  "social_resource_webbundle": {
+    "message": "ウェブバンドル"
+  },
+  "social_resource_other": {
+    "message": "その他"
+  },
+  "third_party_title": {
+    "message": "サードパーティのリクエスト"
+  },
+  "third_party_requests_total": {
+    "message": "リクエスト数：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "third_party_domains_total": {
+    "message": "ドメイン数：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "third_party_resource": {
+    "message": "リソース"
+  },
+  "third_party_domain": {
+    "message": "ドメイン"
+  },
+  "third_party_type": {
+    "message": "リクエスト種別"
+  },
+  "third_party_document": {
+    "message": "ドキュメント"
+  },
+  "third_party_initiator": {
+    "message": "開始元"
+  },
+  "third_party_status": {
+    "message": "HTTP ステータス"
+  },
+  "third_party_completed": {
+    "message": "完了"
+  },
+  "third_party_failed": {
+    "message": "失敗"
+  },
+  "third_party_redirects": {
+    "message": "リダイレクト"
+  },
+  "third_party_script_unknown": {
+    "message": "開始元のスクリプトを取得できません"
+  },
+  "third_party_empty": {
+    "message": "サードパーティのリクエストは記録されていません"
+  },
+  "third_party_unavailable": {
+    "message": "リクエストデータを取得できません"
+  },
+  "third_party_limited": {
+    "message": "リソース一覧は一部省略されています"
+  },
+  "third_party_requests_badge": {
+    "message": "サードパーティのリクエスト：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "third_party_children": {
+    "message": "埋め込みドキュメントの API 操作"
+  },
+  "third_party_filter": {
+    "message": "ドメインまたはリソースで絞り込む"
+  },
+  "third_party_no_filter_match": {
+    "message": "一致するリソースはありません"
+  },
+  "advanced_unknown": {
+    "message": "不明"
+  },
+  "advanced_unavailable": {
+    "message": "データを取得できません"
+  },
+  "advanced_truncated": {
+    "message": "結果は省略されています"
+  },
+  "advanced_supported": {
+    "message": "対応"
+  },
+  "advanced_unsupported": {
+    "message": "非対応"
+  },
+  "advanced_presence_present": {
+    "message": "送信あり"
+  },
+  "advanced_presence_absent": {
+    "message": "送信なし"
+  },
+  "advanced_presence_unknown": {
+    "message": "不明"
+  },
+  "advanced_presence_invalid": {
+    "message": "無効な形式"
+  },
+  "advanced_presence_ambiguous": {
+    "message": "値が矛盾しています"
+  },
+  "advanced_presence_granted": {
+    "message": "許可済み"
+  },
+  "advanced_presence_denied": {
+    "message": "拒否"
+  },
+  "advanced_presence_prompt": {
+    "message": "権限未付与"
+  },
+  "advanced_presence_unsupported": {
+    "message": "非対応"
+  },
+  "beacon_title": {
+    "message": "ビーコン解析"
+  },
+  "beacon_total": {
+    "message": "リクエスト数：$COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "beacon_empty": {
+    "message": "既知のビーコンは記録されていません"
+  },
+  "beacon_money": {
+    "message": "金額"
+  },
+  "beacon_money_value": {
+    "message": "イベントの価値"
+  },
+  "beacon_money_goal_value": {
+    "message": "目標の価値"
+  },
+  "beacon_money_revenue": {
+    "message": "収益"
+  },
+  "beacon_identifiers": {
+    "message": "識別子"
+  },
+  "beacon_consent": {
+    "message": "同意パラメータ"
+  },
+  "beacon_fields": {
+    "message": "認識したフィールド"
+  },
+  "beacon_transport": {
+    "message": "送信方式"
+  },
+  "beacon_request_count": {
+    "message": "件数"
+  },
+  "beacon_script": {
+    "message": "呼び出し元スクリプト"
+  },
+  "beacon_decode": {
+    "message": "解析"
+  },
+  "beacon_id_clientId": {
+    "message": "クライアント識別子"
+  },
+  "beacon_id_browserId": {
+    "message": "ブラウザー識別子"
+  },
+  "beacon_id_sessionId": {
+    "message": "セッション識別子"
+  },
+  "beacon_id_userId": {
+    "message": "ユーザー識別子"
+  },
+  "beacon_id_hashedEmail": {
+    "message": "メールアドレスのハッシュ欄"
+  },
+  "beacon_id_hashedPhone": {
+    "message": "電話番号のハッシュ欄"
+  },
+  "beacon_consent_gcs": {
+    "message": "gcs：保存への同意"
+  },
+  "beacon_consent_gcd": {
+    "message": "gcd：同意設定"
+  },
+  "beacon_consent_adUserData": {
+    "message": "広告用ユーザーデータ"
+  },
+  "beacon_consent_adPersonalization": {
+    "message": "パーソナライズ広告"
+  },
+  "beacon_field_event": {
+    "message": "イベント"
+  },
+  "beacon_field_value": {
+    "message": "価値"
+  },
+  "beacon_field_currency": {
+    "message": "通貨"
+  },
+  "beacon_field_client_id": {
+    "message": "クライアント識別子"
+  },
+  "beacon_field_browser_id": {
+    "message": "ブラウザー識別子"
+  },
+  "beacon_field_session_id": {
+    "message": "セッション識別子"
+  },
+  "beacon_field_user_id": {
+    "message": "ユーザー識別子"
+  },
+  "beacon_field_hashed_email": {
+    "message": "メールアドレスのハッシュ"
+  },
+  "beacon_field_hashed_phone": {
+    "message": "電話番号のハッシュ"
+  },
+  "beacon_field_consent": {
+    "message": "同意"
+  },
+  "beacon_field_conversion_id": {
+    "message": "コンバージョン識別子"
+  },
+  "beacon_decode_complete": {
+    "message": "解析済み"
+  },
+  "beacon_decode_partial": {
+    "message": "一部解析済み"
+  },
+  "beacon_decode_invalid": {
+    "message": "無効な形式"
+  },
+  "beacon_decode_truncated": {
+    "message": "解析上限に達しました"
+  },
+  "beacon_decode_ambiguous": {
+    "message": "フィールドが矛盾しています"
+  },
+  "beacon_decode_endpoint_only": {
+    "message": "送信先を特定しました"
+  },
+  "beacon_page_calls": {
+    "message": "ページの呼び出しとスクリプト"
+  },
+  "beacon_browser_requests": {
+    "message": "ネットワークリクエスト"
+  },
+  "beacon_event_purchase": {
+    "message": "購入"
+  },
+  "beacon_event_page_view": {
+    "message": "ページ閲覧"
+  },
+  "beacon_event_view_item": {
+    "message": "商品閲覧"
+  },
+  "beacon_event_add_to_cart": {
+    "message": "カートに追加"
+  },
+  "beacon_event_lead": {
+    "message": "見込み客"
+  },
+  "beacon_event_checkout": {
+    "message": "購入手続き開始"
+  },
+  "beacon_event_login": {
+    "message": "ログイン"
+  },
+  "beacon_event_signup": {
+    "message": "登録"
+  },
+  "beacon_event_search": {
+    "message": "検索"
+  },
+  "background_title": {
+    "message": "バックグラウンド動作"
+  },
+  "background_check": {
+    "message": "登録を確認"
+  },
+  "background_api": {
+    "message": "API の対応状況"
+  },
+  "background_permission": {
+    "message": "権限"
+  },
+  "background_registrations": {
+    "message": "Service Worker の登録"
+  },
+  "background_subscriptions": {
+    "message": "Push の購読"
+  },
+  "background_tasks": {
+    "message": "登録済みタスク"
+  },
+  "background_scope": {
+    "message": "適用範囲"
+  },
+  "background_worker": {
+    "message": "Worker スクリプト"
+  },
+  "background_state": {
+    "message": "Worker の状態"
+  },
+  "background_sync": {
+    "message": "Sync タスク"
+  },
+  "background_periodic_sync": {
+    "message": "Periodic Sync タスク"
+  },
+  "background_calls": {
+    "message": "観測したページの呼び出し"
+  },
+  "background_empty": {
+    "message": "バックグラウンド API の呼び出しは記録されていません"
+  },
+  "background_checked_at": {
+    "message": "状態の確認時刻"
+  },
+  "background_not_checked": {
+    "message": "未確認"
+  },
+  "background_state_activated": {
+    "message": "有効化済み"
+  },
+  "background_state_installing": {
+    "message": "インストール中"
+  },
+  "background_state_installed": {
+    "message": "インストール済み"
+  },
+  "background_state_activating": {
+    "message": "有効化中"
+  },
+  "background_state_redundant": {
+    "message": "置換済み"
+  },
+  "background_state_unknown": {
+    "message": "不明"
+  },
+  "cookie_probe_title": {
+    "message": "Cookie 復元テスト"
+  },
+  "cookie_probe_action_description": {
+    "message": "選択した追跡 cookie を10秒間削除し、サイトが再作成しなければ元に戻します。"
+  },
+  "cookie_probe_select": {
+    "message": "追跡 cookie を選択"
+  },
+  "cookie_probe_start": {
+    "message": "復元をテスト"
+  },
+  "cookie_probe_cancel": {
+    "message": "テストを中止"
+  },
+  "cookie_probe_watching": {
+    "message": "復元を監視中…"
+  },
+  "cookie_probe_copies": {
+    "message": "ストレージ内の一致する値"
+  },
+  "cookie_probe_result_none": {
+    "message": "結果はまだありません"
+  },
+  "cookie_probe_result_restored_same": {
+    "message": "サイトが cookie の元の値を復元しました"
+  },
+  "cookie_probe_result_recreated_different": {
+    "message": "値の異なる cookie が作成されました"
+  },
+  "cookie_probe_result_not_restored": {
+    "message": "テスト中に cookie は復元されませんでした"
+  },
+  "cookie_probe_result_cancelled": {
+    "message": "テストを中止しました"
+  },
+  "cookie_probe_result_failed": {
+    "message": "テストに失敗しました"
+  },
+  "cookie_probe_reason_not_eligible": {
+    "message": "この cookie はテストできません"
+  },
+  "cookie_probe_reason_ambiguous_cookie": {
+    "message": "削除先に複数の cookie が一致します"
+  },
+  "cookie_probe_reason_cookie_missing": {
+    "message": "Cookie は既に存在しません"
+  },
+  "cookie_probe_reason_delete_failed": {
+    "message": "Cookie の削除に失敗しました"
+  },
+  "cookie_probe_reason_observation_unavailable": {
+    "message": "Cookie の変更イベントを取得できません"
+  },
+  "cookie_probe_reason_access_changed": {
+    "message": "サイトへのアクセス権が変更されました"
+  },
+  "cookie_probe_reason_busy": {
+    "message": "別のテストが実行中です"
+  },
+  "cookie_probe_reason_timeout": {
+    "message": "制限時間に達しました"
+  },
+  "cookie_probe_reason_cookie_changed": {
+    "message": "削除前に cookie が変更されました"
+  },
+  "cookie_probe_cleanup_restored": {
+    "message": "テスト後に元の cookie を復元しました"
+  },
+  "cookie_probe_cleanup_skipped": {
+    "message": "現在のサイトの状態では元の cookie を復元できません"
+  },
+  "cookie_probe_cleanup_failed": {
+    "message": "元の cookie の復元に失敗しました"
+  },
+  "protection_page_title": {
+    "message": "ブロック設定"
+  },
+  "protection_open_settings": {
+    "message": "ブロック設定を開く"
+  },
+  "protection_master": {
+    "message": "API Guard"
+  },
+  "protection_back": {
+    "message": "戻る"
+  },
+  "protection_scope": {
+    "message": "ルールの適用範囲"
+  },
+  "protection_reset": {
+    "message": "ルールをリセット"
+  },
+  "protection_saved": {
+    "message": "設定を保存しました"
+  },
+  "protection_current_site": {
+    "message": "現在のサイト"
+  },
+  "report_data_title": {
+    "message": "サイトが読み取ったデータ"
+  },
+  "report_data_parameters": {
+    "message": "引数"
+  },
+  "report_data_value": {
+    "message": "値"
+  },
+  "report_data_document": {
+    "message": "ドキュメント"
+  },
+  "report_data_operation": {
+    "message": "サイトの操作"
+  },
+  "report_data_samples": {
+    "message": "記録された呼び出し"
+  },
+  "report_data_no_values": {
+    "message": "このセッションでは技術的な値は記録されていません。"
+  },
+  "report_data_checks": {
+    "message": "チェックと API 呼び出し"
+  },
+  "report_data_details": {
+    "message": "記録の詳細"
+  },
+  "report_data_companies": {
+    "message": "検出された企業とサービス"
+  },
+  "cookie_purpose_visitor_differentiation": {
+    "message": "訪問者の区別"
+  },
+  "cookie_purpose_meta_browser_attribution": {
+    "message": "Meta 広告のブラウザーアトリビューション"
+  },
+  "cookie_purpose_php_session_identifier": {
+    "message": "PHP の既定のセッション識別子：リクエストを、ログイン状態やショッピングカートなど、サーバー側のセッション状態に関連付けます。アプリケーションは別のセッション名を設定できます。"
+  },
+  "report_summary_values_title": {
+    "message": "ブラウザー値の一覧"
+  },
+  "report_summary_cookies_title": {
+    "message": "送信された Cookie の一覧"
+  },
+  "report_summary_name": {
+    "message": "名前"
+  },
+  "report_cookie_values_unavailable": {
+    "message": "このブラウザーでは送信された Cookie の値を取得できません。"
+  },
+  "report_cookie_values_limited": {
+    "message": "送信された Cookie の値の一部は記録されませんでした。"
+  },
+  "report_data_limited": {
+    "message": "一部の観測結果を記録できませんでした。"
+  },
+  "cookie_writers_title": {
+    "message": "Cookie を書き込むスクリプト"
+  },
+  "headers_login_status_note": {
+    "message": "FedCM のログイン状態シグナル。"
+  },
+  "headers_csp_note": {
+    "message": "コンテンツの読み込みと実行のポリシー。"
+  },
+  "headers_hsts_note": {
+    "message": "HTTPS 接続のポリシー。"
+  },
+  "headers_coop_note": {
+    "message": "最上位の閲覧コンテキストを分離するポリシー。"
+  },
+  "headers_coep_note": {
+    "message": "異なるオリジンのリソースを読み込むポリシー。"
+  },
+  "headers_frame_note": {
+    "message": "ページをフレームに埋め込むポリシー。"
+  },
+  "headers_presence_note": {
+    "message": "レスポンスヘッダーを検出。"
+  },
+  "vendor_match_rtc_server_stale": {
+    "message": "WebRTC サーバーの一致 · ルールのレビュー期限切れ"
+  },
+  "api_mechanism_device_sensor": {
+    "message": "デバイスセンサー"
+  },
+  "api_mechanism_webtransport": {
+    "message": "WebTransport"
+  },
+  "api_mechanism_webauthn": {
+    "message": "WebAuthn"
+  },
+  "api_mechanism_clipboard": {
+    "message": "クリップボード"
+  },
+  "api_mechanism_worker": {
+    "message": "Worker と Worklet"
+  },
+  "api_mechanism_storage": {
+    "message": "ストレージ"
+  },
+  "observation_master_label": {
+    "message": "拡張機能"
+  },
+  "observation_master_disable": {
+    "message": "拡張機能をオフにする"
+  },
+  "protection_feature_media_enumeration": {
+    "message": "カメラとマイクの一覧"
+  },
+  "protection_feature_media_capture": {
+    "message": "カメラ・マイク・画面のキャプチャ"
+  },
+  "protection_feature_geolocation": {
+    "message": "位置情報"
+  },
+  "protection_feature_generic_sensors": {
+    "message": "動作・環境センサー"
+  },
+  "protection_feature_bluetooth": {
+    "message": "Bluetooth デバイス"
+  },
+  "protection_feature_usb": {
+    "message": "USB デバイス"
+  },
+  "protection_feature_serial": {
+    "message": "シリアルポート"
+  },
+  "protection_feature_hid": {
+    "message": "HID デバイス"
+  },
+  "protection_feature_midi": {
+    "message": "MIDI デバイス"
+  },
+  "protection_feature_gamepads": {
+    "message": "ゲームパッド"
+  },
+  "protection_feature_speech_voices": {
+    "message": "音声合成の音声一覧"
+  },
+  "protection_feature_service_worker": {
+    "message": "Service Worker 登録"
+  },
+  "protection_feature_push": {
+    "message": "Push 購読"
+  },
+  "protection_feature_background_sync": {
+    "message": "バックグラウンド同期の登録"
+  },
+  "protection_feature_periodic_sync": {
+    "message": "定期バックグラウンド同期の登録"
+  },
+  "protection_feature_notifications": {
+    "message": "通知の許可リクエスト"
+  },
+  "protection_feature_storage_estimate": {
+    "message": "ストレージ割り当ての推定"
+  },
+  "protection_group_graphics": {
+    "message": "グラフィックスとフォント"
+  },
+  "protection_group_media": {
+    "message": "音声とメディア"
+  },
+  "protection_group_device": {
+    "message": "デバイスと環境"
+  },
+  "protection_group_hardware": {
+    "message": "接続されたデバイス"
+  },
+  "protection_group_background": {
+    "message": "バックグラウンド動作"
+  },
+  "protection_group_browser": {
+    "message": "ブラウザー API"
+  },
+  "protection_rule_count": {
+    "message": "ブロックルール"
+  },
+  "protection_feature_videoframe_readback": {
+    "message": "動画フレームのピクセル読み取り"
+  },
+  "protection_feature_screen_extended": {
+    "message": "複数画面の検出"
+  },
+  "protection_feature_webcodecs_capabilities": {
+    "message": "コーデック対応の照会"
+  },
+  "protection_feature_media_capabilities": {
+    "message": "メディア再生機能"
+  },
+  "protection_feature_encrypted_media": {
+    "message": "DRM キーシステムへのアクセス"
+  },
+  "protection_feature_hdcp_policy": {
+    "message": "HDCP ステータスの照会"
+  },
+  "protection_feature_autoplay_policy": {
+    "message": "自動再生ポリシー"
+  },
+  "protection_feature_webrtc_codecs": {
+    "message": "WebRTC コーデック機能"
+  },
+  "protection_feature_device_motion": {
+    "message": "モーション・向きイベント"
+  },
+  "protection_feature_hardware_concurrency": {
+    "message": "CPU コア数"
+  },
+  "protection_feature_device_memory": {
+    "message": "デバイスのメモリ容量"
+  },
+  "protection_feature_performance_memory": {
+    "message": "JavaScript メモリ指標"
+  },
+  "protection_feature_cpu_performance": {
+    "message": "CPU 性能クラス"
+  },
+  "protection_feature_touch_points": {
+    "message": "タッチポイント数"
+  },
+  "protection_feature_webxr": {
+    "message": "VR・AR デバイス"
+  },
+  "protection_feature_speech_recognition": {
+    "message": "音声認識"
+  },
+  "protection_feature_shape_detection": {
+    "message": "バーコード・顔・テキストの検出"
+  },
+  "protection_feature_handwriting_recognition": {
+    "message": "手書き文字認識"
+  },
+  "protection_feature_webnn": {
+    "message": "ニューラルネットワーク アクセラレータ"
+  },
+  "protection_feature_builtin_ai_models": {
+    "message": "内蔵 AI モデル"
+  },
+  "protection_feature_translation_ai": {
+    "message": "内蔵の翻訳と言語検出"
+  },
+  "protection_feature_screen_wake_lock": {
+    "message": "画面のスリープ防止"
+  },
+  "protection_feature_picture_in_picture": {
+    "message": "動画のピクチャー イン ピクチャー"
+  },
+  "protection_feature_document_picture_in_picture": {
+    "message": "ピクチャー イン ピクチャー ウィンドウ"
+  },
+  "protection_feature_fullscreen": {
+    "message": "全画面表示リクエスト"
+  },
+  "protection_feature_pointer_lock": {
+    "message": "ポインターロック"
+  },
+  "protection_feature_file_system_pickers": {
+    "message": "ファイル・フォルダー選択"
+  },
+  "protection_feature_protocol_handlers": {
+    "message": "プロトコルハンドラーの登録"
+  },
+  "protection_feature_installed_related_apps": {
+    "message": "インストール済みの関連アプリ"
+  },
+  "protection_feature_media_session": {
+    "message": "システムのメディア操作"
+  },
+  "protection_feature_opfs": {
+    "message": "サイト専用のファイルシステム"
+  },
+  "protection_feature_cookie_store": {
+    "message": "Cookie への非同期アクセス"
+  },
+  "protection_feature_document_cookie": {
+    "message": "スクリプトからの Cookie アクセス"
+  },
+  "protection_feature_storage_buckets": {
+    "message": "ストレージバケット"
+  },
+  "protection_feature_persistent_storage": {
+    "message": "永続ストレージのリクエスト"
+  },
+  "protection_feature_indexeddb_enumeration": {
+    "message": "IndexedDB データベース一覧"
+  },
+  "protection_feature_cache_storage": {
+    "message": "キャッシュストレージ"
+  },
+  "protection_feature_legacy_quota": {
+    "message": "旧式のクォータ・ファイル API"
+  },
+  "protection_feature_cast_discovery": {
+    "message": "キャストデバイスの検出"
+  },
+  "protection_feature_send_beacon": {
+    "message": "ページ離脱時のビーコン"
+  },
+  "protection_feature_fetch_later": {
+    "message": "遅延リクエスト"
+  },
+  "protection_feature_websocket": {
+    "message": "WebSocket 接続"
+  },
+  "protection_feature_webtransport": {
+    "message": "WebTransport 接続"
+  },
+  "protection_feature_platform_authenticator": {
+    "message": "プラットフォーム認証器の確認"
+  },
+  "protection_feature_web_share": {
+    "message": "システムの共有シート"
+  },
+  "protection_feature_credential_management": {
+    "message": "認証情報と passkey のリクエスト"
+  },
+  "protection_feature_fedcm_user_info": {
+    "message": "ログインプロバイダーのユーザー情報"
+  },
+  "protection_feature_payment_probes": {
+    "message": "保存済み支払い方法の確認"
+  },
+  "protection_feature_storage_access": {
+    "message": "サードパーティ Cookie へのアクセス要求"
+  },
+  "protection_feature_private_state_tokens": {
+    "message": "Private State Tokens の確認"
+  },
+  "protection_feature_background_fetch": {
+    "message": "バックグラウンドダウンロード"
+  },
+  "protection_feature_shared_worker": {
+    "message": "共有ワーカー"
+  },
+  "protection_feature_dedicated_worker": {
+    "message": "専用ワーカー"
+  },
+  "protection_feature_clipboard_write": {
+    "message": "クリップボードへの書き込み"
+  },
+  "protection_feature_permission_probes": {
+    "message": "権限状態の照会"
+  },
+  "protection_feature_reporting_observer": {
+    "message": "ページ内のブラウザーレポート"
+  },
+  "protection_feature_feature_policy": {
+    "message": "許可された機能の一覧"
+  },
+  "protection_group_system": {
+    "message": "ウィンドウと OS 連携"
+  },
+  "protection_group_ai": {
+    "message": "AI と認識"
+  },
+  "protection_group_storage": {
+    "message": "ストレージと Cookie"
+  },
+  "protection_group_network": {
+    "message": "ネットワークとデータ転送"
+  },
+  "protection_group_identity": {
+    "message": "アカウント・支払い・共有"
+  },
+  "protection_filter_label": {
+    "message": "カテゴリで API を絞り込む"
+  },
+  "protection_filter_all": {
+    "message": "すべて"
+  },
+  "protection_filter_hardware": {
+    "message": "ハードウェア"
+  },
+  "protection_filter_os": {
+    "message": "OS"
+  },
+  "protection_filter_network": {
+    "message": "ネットワーク"
+  },
+  "protection_filter_browser": {
+    "message": "ブラウザー"
+  },
+  "protection_filter_social": {
+    "message": "ソーシャル"
+  },
+  "protection_filter_shown": {
+    "message": "表示中のルール: $SHOWN$ / $TOTAL$",
+    "placeholders": {
+      "shown": {
+        "content": "$1"
+      },
+      "total": {
+        "content": "$2"
+      }
+    }
+  },
+  "protection_filter_clear": {
+    "message": "すべてのルールを表示"
+  },
+  "protection_rule_partial": {
+    "message": "一部のみ"
+  },
+  "protection_rule_partial_hint": {
+    "message": "同じデータや操作には他の標準 API から引き続きアクセスできます"
+  },
+  "management_tab_firewall": {
+    "message": "Firewall"
+  },
+  "management_tab_api": {
+    "message": "API Guard"
+  },
+  "management_tab_settings": {
+    "message": "設定"
+  },
+  "management_tab_contacts": {
+    "message": "連絡先"
+  },
+  "management_navigation": {
+    "message": "拡張機能の管理"
+  },
+  "management_firewall_unavailable": {
+    "message": "このブラウザーでは Firewall を利用できません。"
+  },
+  "protection_group_webassembly": {
+    "message": "WebAssembly"
+  },
+  "protection_webassembly_expand": {
+    "message": "関数を表示"
+  },
+  "protection_webassembly_collapse": {
+    "message": "関数を非表示"
+  },
+  "protection_mode_filter_label": {
+    "message": "モードでAPIを絞り込む"
+  },
+  "protection_mode_filter_spoofed": {
+    "message": "独自の値"
+  },
+  "protection_mode_filter_blocked": {
+    "message": "ブロック中"
+  },
+  "protection_mode_filter_reset": {
+    "message": "すべてのモードを表示"
+  },
+  "protection_webrtc_network_title": {
+    "message": "WebRTC ネットワークポリシー"
+  },
+  "protection_webrtc_network_scope": {
+    "message": "API モードやサイトとは独立して、ブラウザー全体に適用されます。"
+  },
+  "protection_webrtc_policy_system": {
+    "message": "ブラウザーの設定"
+  },
+  "protection_webrtc_policy_public": {
+    "message": "パブリックインターフェースのみ"
+  },
+  "protection_webrtc_policy_udp": {
+    "message": "プロキシ外の UDP を無効化"
+  },
+  "protection_webrtc_effective": {
+    "message": "有効なポリシー"
+  },
+  "protection_webrtc_inactive": {
+    "message": "ブラウザーの設定は未変更"
+  },
+  "protection_webrtc_permission_required": {
+    "message": "権限が必要です"
+  },
+  "protection_webrtc_unsupported": {
+    "message": "このブラウザーでは利用できません"
+  },
+  "protection_webrtc_error": {
+    "message": "ポリシーを適用できませんでした"
+  },
+  "protection_webrtc_applied": {
+    "message": "ポリシーを適用しました"
+  },
+  "protection_webrtc_not_controllable": {
+    "message": "他の拡張機能または管理者が制御しています"
+  },
+  "protection_webrtc_grant": {
+    "message": "ネットワークポリシーの管理を許可"
+  },
+  "protection_webrtc_refresh": {
+    "message": "状態を更新"
+  },
+  "protection_webrtc_denied": {
+    "message": "権限が付与されませんでした。"
+  },
+  "protection_webrtc_refresh_error": {
+    "message": "ネットワークポリシーを更新できませんでした。"
+  },
+  "protection_webrtc_addresses": {
+    "message": "カスタム ICE アドレス"
+  },
+  "protection_webrtc_host": {
+    "message": "host アドレス"
+  },
+  "protection_webrtc_stun": {
+    "message": "STUN アドレス (srflx)"
+  },
+  "protection_webrtc_turn": {
+    "message": "TURN アドレス (relay)"
+  },
+  "protection_webrtc_address_note": {
+    "message": "JavaScript に提供するアドレスを変更します。ネットワーク経路と送信元 IP は変わりません。"
+  },
+  "protection_webrtc_transport": {
+    "message": "ICE トランスポート"
+  },
+  "protection_webrtc_preserve": {
+    "message": "サイトの設定を維持"
+  },
+  "protection_webrtc_relay": {
+    "message": "リレーのみ"
+  },
+  "protection_webrtc_relay_note": {
+    "message": "サイトの TURN サーバーを使用します。"
+  },
+  "protection_webrtc_devices": {
+    "message": "デバイス識別子をランダム化"
+  },
+  "protection_webrtc_lifetime": {
+    "message": "デバイス識別子の有効期間"
+  },
+  "protection_webrtc_session": {
+    "message": "ブラウザーセッション"
+  },
+  "protection_webrtc_site": {
+    "message": "サイト"
+  },
+  "protection_webrtc_certificates": {
+    "message": "接続ごとに新しい DTLS 証明書"
+  },
+  "protection_webrtc_invalid": {
+    "message": "WebRTC プロファイルを確認してください。有効にした各アドレスには IPv4 または IPv6 のリテラルが必要です。"
+  },
+  "protection_webrtc_no_addresses": {
+    "message": "元のアドレス"
+  },
+  "protection_webrtc_permission_save": {
+    "message": "保存する前にネットワークポリシーの管理を許可してください。"
+  },
+  "protection_webrtc_conflict": {
+    "message": "カスタムデバイス一覧かランダムなデバイス識別子のどちらかを選択してください。"
+  },
+  "protection_api_mode_saving": {
+    "message": "APIモードを保存中…"
+  },
+  "protection_api_mode_saved_reload": {
+    "message": "モードを保存しました。開いているページを再読み込みして適用してください。"
+  },
+  "protection_api_inherited_custom": {
+    "message": "すべてのサイトから継承したCustom"
+  },
+  "protection_webrtc_profile_title": {
+    "message": "WebRTC"
+  },
+  "protection_webrtc_profile_configure": {
+    "message": "WebRTCを設定"
+  },
+  "protection_webrtc_profile_addresses": {
+    "message": "STUN / TURN · IPv4 / IPv6"
+  },
+  "protection_webrtc_profile_devices": {
+    "message": "デバイス"
+  },
+  "protection_webrtc_profile_certificates": {
+    "message": "DTLS証明書"
+  },
+  "protection_webrtc_profile_save": {
+    "message": "保存してCustomを使用"
+  },
+  "protection_webrtc_search_terms": {
+    "message": "WebRTC STUN TURN ICE IPv4 IPv6 IP DTLS デバイス 機器 識別子 証明書"
+  },
+  "management_tab_browser_debug": {
+    "message": "Browser Debug"
+  },
+  "browser_debug_not_applied": {
+    "message": "設定は適用されませんでした。データを更新してください。"
+  },
+  "browser_debug_origin_placeholder": {
+    "message": "https://…"
+  },
+  "browser_debug_subtitle": {
+    "message": "ブラウザーのデータと設定"
+  },
+  "browser_debug_datasets": {
+    "message": "データ分類"
+  },
+  "browser_debug_export": {
+    "message": "JSONをエクスポート"
+  },
+  "browser_debug_refresh": {
+    "message": "更新"
+  },
+  "browser_debug_load": {
+    "message": "データを読み込む"
+  },
+  "browser_debug_search": {
+    "message": "検索"
+  },
+  "browser_debug_origin": {
+    "message": "正確なオリジン"
+  },
+  "browser_debug_grant": {
+    "message": "アクセスを許可"
+  },
+  "browser_debug_records": {
+    "message": "レコード"
+  },
+  "browser_debug_details": {
+    "message": "詳細"
+  },
+  "browser_debug_actions": {
+    "message": "操作"
+  },
+  "browser_debug_pages": {
+    "message": "ページ"
+  },
+  "browser_debug_previous": {
+    "message": "前へ"
+  },
+  "browser_debug_next": {
+    "message": "次へ"
+  },
+  "browser_debug_draft": {
+    "message": "下書き"
+  },
+  "browser_debug_changes": {
+    "message": "変更内容"
+  },
+  "browser_debug_save": {
+    "message": "保存"
+  },
+  "browser_debug_cancel": {
+    "message": "キャンセル"
+  },
+  "browser_debug_confirm": {
+    "message": "確認"
+  },
+  "browser_debug_export_preview": {
+    "message": "JSONエクスポートのプレビュー"
+  },
+  "browser_debug_download": {
+    "message": "JSONをダウンロード"
+  },
+  "browser_debug_yes": {
+    "message": "はい"
+  },
+  "browser_debug_no": {
+    "message": "いいえ"
+  },
+  "browser_debug_confirm_action": {
+    "message": "選択したレコードへの操作を確認してください。"
+  },
+  "browser_debug_finish_edit": {
+    "message": "更新する前に編集を保存またはキャンセルしてください。"
+  },
+  "browser_debug_not_loaded": {
+    "message": "この分類を読むには「データを読み込む」を選択してください。"
+  },
+  "browser_debug_empty": {
+    "message": "一致するレコードはありません。"
+  },
+  "browser_debug_limited": {
+    "message": "読み込んだレコードに限定した結果"
+  },
+  "browser_debug_saved": {
+    "message": "保存しました"
+  },
+  "browser_debug_access_granted": {
+    "message": "アクセスを許可しました。データを読み込んでください。"
+  },
+  "browser_debug_access_changed": {
+    "message": "アクセスが変わりました。再読み込みしてください。"
+  },
+  "browser_debug_permission_required": {
+    "message": "この分類にはアクセス許可が必要です。"
+  },
+  "browser_debug_permission_denied": {
+    "message": "アクセスは許可されませんでした。"
+  },
+  "browser_debug_unsupported": {
+    "message": "このブラウザーでは利用できません。"
+  },
+  "browser_debug_invalid_input": {
+    "message": "入力した値を確認してください。"
+  },
+  "browser_debug_not_controllable": {
+    "message": "他の拡張機能または管理者が制御しています。"
+  },
+  "browser_debug_stale": {
+    "message": "レコードが変わりました。最新データを読み込んでください。"
+  },
+  "browser_debug_inactive": {
+    "message": "続行するにはこの分類を開いてください。"
+  },
+  "browser_debug_timeout": {
+    "message": "操作がタイムアウトしました。"
+  },
+  "browser_debug_busy": {
+    "message": "操作を実行中です。"
+  },
+  "browser_debug_operation_failed": {
+    "message": "操作を完了できませんでした。"
+  },
+  "browser_debug_invalid_origin": {
+    "message": "パス、クエリー、フラグメントを含まないHTTPまたはHTTPSオリジンを入力してください。"
+  },
+  "browser_debug_dataset_overview": {
+    "message": "概要"
+  },
+  "browser_debug_dataset_history": {
+    "message": "履歴"
+  },
+  "browser_debug_dataset_bookmarks": {
+    "message": "ブックマーク"
+  },
+  "browser_debug_dataset_downloads": {
+    "message": "ダウンロード"
+  },
+  "browser_debug_dataset_cookies": {
+    "message": "Cookies"
+  },
+  "browser_debug_dataset_tabs": {
+    "message": "タブとウィンドウ"
+  },
+  "browser_debug_dataset_sessions": {
+    "message": "セッション"
+  },
+  "browser_debug_dataset_top_sites": {
+    "message": "よく使うサイト"
+  },
+  "browser_debug_dataset_reading_list": {
+    "message": "リーディングリスト"
+  },
+  "browser_debug_dataset_extensions": {
+    "message": "拡張機能"
+  },
+  "browser_debug_dataset_privacy": {
+    "message": "プライバシー設定"
+  },
+  "browser_debug_dataset_site_permissions": {
+    "message": "サイトの権限"
+  },
+  "browser_debug_dataset_system": {
+    "message": "システム"
+  },
+  "browser_debug_dataset_account": {
+    "message": "アカウント"
+  },
+  "browser_debug_dataset_internals": {
+    "message": "内部ページ"
+  },
+  "browser_debug_action_create": {
+    "message": "作成"
+  },
+  "browser_debug_action_edit": {
+    "message": "編集"
+  },
+  "browser_debug_action_move": {
+    "message": "移動"
+  },
+  "browser_debug_action_remove": {
+    "message": "削除"
+  },
+  "browser_debug_action_pause": {
+    "message": "一時停止"
+  },
+  "browser_debug_action_resume": {
+    "message": "再開"
+  },
+  "browser_debug_action_cancel": {
+    "message": "キャンセル"
+  },
+  "browser_debug_action_erase": {
+    "message": "記録を消去"
+  },
+  "browser_debug_action_activate": {
+    "message": "アクティブ化"
+  },
+  "browser_debug_action_restore": {
+    "message": "復元"
+  },
+  "browser_debug_action_clear": {
+    "message": "ブラウザー設定を使用"
+  },
+  "browser_debug_action_open": {
+    "message": "開く"
+  },
+  "browser_debug_action_api_guard": {
+    "message": "API Guardを開く"
+  },
+  "browser_debug_field_name": {
+    "message": "名前"
+  },
+  "browser_debug_field_value": {
+    "message": "値"
+  },
+  "browser_debug_field_title": {
+    "message": "タイトル"
+  },
+  "browser_debug_field_url": {
+    "message": "URL"
+  },
+  "browser_debug_field_lastVisitTime": {
+    "message": "最終訪問"
+  },
+  "browser_debug_field_visitCount": {
+    "message": "訪問回数"
+  },
+  "browser_debug_field_parentId": {
+    "message": "親フォルダーID"
+  },
+  "browser_debug_field_dateAdded": {
+    "message": "追加日時"
+  },
+  "browser_debug_field_state": {
+    "message": "状態"
+  },
+  "browser_debug_field_bytesReceived": {
+    "message": "受信バイト"
+  },
+  "browser_debug_field_totalBytes": {
+    "message": "合計バイト"
+  },
+  "browser_debug_field_domain": {
+    "message": "ドメイン"
+  },
+  "browser_debug_field_path": {
+    "message": "パス"
+  },
+  "browser_debug_field_expirationDate": {
+    "message": "有効期限"
+  },
+  "browser_debug_field_secure": {
+    "message": "セキュア"
+  },
+  "browser_debug_field_httpOnly": {
+    "message": "HTTPのみ"
+  },
+  "browser_debug_field_windowId": {
+    "message": "ウィンドウID"
+  },
+  "browser_debug_field_pinned": {
+    "message": "固定"
+  },
+  "browser_debug_field_muted": {
+    "message": "ミュート"
+  },
+  "browser_debug_field_lastModified": {
+    "message": "最終更新"
+  },
+  "browser_debug_field_hasBeenRead": {
+    "message": "既読"
+  },
+  "browser_debug_field_creationTime": {
+    "message": "作成日時"
+  },
+  "browser_debug_field_version": {
+    "message": "バージョン"
+  },
+  "browser_debug_field_enabled": {
+    "message": "有効"
+  },
+  "browser_debug_field_type": {
+    "message": "種類"
+  },
+  "browser_debug_field_installType": {
+    "message": "インストールの種類"
+  },
+  "browser_debug_field_levelOfControl": {
+    "message": "制御レベル"
+  },
+  "browser_debug_field_origin": {
+    "message": "オリジン"
+  },
+  "browser_debug_field_setting": {
+    "message": "設定"
+  },
+  "browser_debug_field_primaryPattern": {
+    "message": "主パターン"
+  },
+  "browser_debug_field_secondaryPattern": {
+    "message": "副パターン"
+  },
+  "browser_debug_field_scope": {
+    "message": "範囲"
+  },
+  "browser_debug_field_storeId": {
+    "message": "ストアID"
+  },
+  "browser_debug_field_partitionTopLevelSite": {
+    "message": "パーティションの最上位サイト"
+  },
+  "browser_debug_field_hasCrossSiteAncestor": {
+    "message": "クロスサイトの祖先"
+  },
+  "browser_debug_field_firstPartyDomain": {
+    "message": "ファーストパーティードメイン"
+  },
+  "management_tab_antidetect": {
+    "message": "Antidetect"
+  },
+  "antidetect_description": {
+    "message": "ハードウェア、OS、ネットワークの設定。"
+  },
+  "antidetect_navigation": {
+    "message": "Antidetect のカテゴリ"
+  },
+  "antidetect_category_hardware": {
+    "message": "ハードウェア"
+  },
+  "antidetect_category_os": {
+    "message": "OS"
+  },
+  "antidetect_category_network": {
+    "message": "ネットワーク"
+  },
+  "antidetect_category_all": {
+    "message": "すべて"
+  },
+  "antidetect_category_browser": {
+    "message": "ブラウザー"
+  },
+  "antidetect_master": {
+    "message": "Antidetect"
+  },
+  "antidetect_mode": {
+    "message": "WebRTC モード"
+  },
+  "antidetect_allow": {
+    "message": "許可"
+  },
+  "antidetect_block": {
+    "message": "ブロック"
+  },
+  "antidetect_spoof": {
+    "message": "置換"
+  },
+  "antidetect_save": {
+    "message": "保存"
+  },
+  "antidetect_cancel": {
+    "message": "キャンセル"
+  },
+  "antidetect_refresh": {
+    "message": "更新"
+  },
+  "antidetect_loading": {
+    "message": "設定を読み込み中…"
+  },
+  "antidetect_unsaved": {
+    "message": "未保存の変更"
+  },
+  "antidetect_saved": {
+    "message": "設定を保存しました"
+  },
+  "antidetect_stale": {
+    "message": "別のウィンドウで設定が変更されました。更新してから保存してください。"
+  },
+  "antidetect_invalid": {
+    "message": "入力値を確認してください。"
+  },
+  "antidetect_failed": {
+    "message": "設定を保存できませんでした。"
+  },
+  "antidetect_denied": {
+    "message": "権限が許可されませんでした。"
+  },
+  "antidetect_inactive": {
+    "message": "Antidetect はオフです。置換は無効です。"
+  },
+  "antidetect_reload_required": {
+    "message": "保存した変更を適用するには、開いているページを再読み込みしてください。"
+  },
+  "antidetect_changed_external": {
+    "message": "設定が別の場所で変更されました。下書きは保持されています。"
+  },
+  "antidetect_addresses_enabled": {
+    "message": "カスタム ICE アドレスを使用"
+  },
+  "antidetect_mapped": {
+    "message": "IPv4 射影 IPv6 を作成"
+  },
+  "antidetect_family_empty": {
+    "message": "空欄は、そのアドレスファミリーと候補タイプのアドレスを非表示にします。"
+  },
+  "antidetect_media_mode": {
+    "message": "メディアデバイスのモード"
+  },
+  "antidetect_original": {
+    "message": "元の値"
+  },
+  "antidetect_random": {
+    "message": "ランダムな識別子"
+  },
+  "antidetect_custom": {
+    "message": "カスタム一覧"
+  },
+  "antidetect_device_kind": {
+    "message": "デバイスの種類"
+  },
+  "antidetect_device_label": {
+    "message": "表示名"
+  },
+  "antidetect_device_id": {
+    "message": "デバイス ID"
+  },
+  "antidetect_group_id": {
+    "message": "グループ ID"
+  },
+  "antidetect_add_device": {
+    "message": "デバイスを追加"
+  },
+  "antidetect_remove_device": {
+    "message": "デバイスを削除"
+  },
+  "antidetect_microphone": {
+    "message": "マイク"
+  },
+  "antidetect_camera": {
+    "message": "カメラ"
+  },
+  "antidetect_speaker": {
+    "message": "音声出力"
+  },
+  "antidetect_no_devices": {
+    "message": "一覧は空です。サイトにはデバイスが表示されません。"
+  },
+  "antidetect_device_metadata": {
+    "message": "列挙データのみを変更します。カメラ、マイク、メディアストリームは作成されません。"
+  },
+  "antidetect_native_certificates": {
+    "message": "ブラウザーの証明書"
+  },
+  "antidetect_leak_title": {
+    "message": "漏洩防止"
+  },
+  "antidetect_udp_note": {
+    "message": "拡張機能はすべての UDP 通信をブロックできません。WebRTC ポリシーは、WebRTC のプロキシ外 UDP のみを制御します。"
+  },
+  "antidetect_quic_note": {
+    "message": "Chrome と Firefox には、QUIC だけを無効にする拡張機能 API がありません。"
+  },
+  "antidetect_ipv6_note": {
+    "message": "拡張機能はブラウザーの全接続で IPv6 を無効にできません。"
+  },
+  "antidetect_websocket_note": {
+    "message": "通常の HTTP/HTTPS リクエストに影響せず、新しい WebSocket 接続をブロックします。"
+  },
+  "antidetect_webtransport_note": {
+    "message": "WebSocket とは独立して、新しい WebTransport 接続をブロックします。"
+  },
+  "antidetect_unavailable": {
+    "message": "利用不可"
+  },
+  "antidetect_early_required": {
+    "message": "サイトのスクリプトより前に設定を適用するには、ユーザースクリプトを許可してください。"
+  },
+  "antidetect_grant_early": {
+    "message": "Custom を許可"
+  },
+  "antidetect_early_settings": {
+    "message": "ブラウザー設定を開く"
+  },
+  "antidetect_network_scope": {
+    "message": "ネットワーク設定はすべてのサイトに適用されます。"
+  },
+  "antidetect_effective": {
+    "message": "実際の状態"
+  },
+  "antidetect_block_active": {
+    "message": "WebRTC はブロックされています"
+  },
+  "antidetect_spoof_active": {
+    "message": "WebRTC の置換は有効です"
+  },
+  "antidetect_allow_active": {
+    "message": "WebRTC は許可されています"
+  },
+  "antidetect_api_active": {
+    "message": "Antidetect はオンです"
+  },
+  "antidetect_refresh_dirty": {
+    "message": "更新する前に下書きをキャンセルしてください。"
+  },
+  "antidetect_conflict_devices": {
+    "message": "カスタム一覧またはランダムな識別子を選択してください。"
+  },
+  "antidetect_inherited": {
+    "message": "API Guard から継承"
+  },
+  "antidetect_scope_inactive": {
+    "message": "現在のアクセス範囲では無効"
+  },
+  "antidetect_scope_browser": {
+    "message": "ブラウザー全体"
+  },
+  "antidetect_scope_page": {
+    "message": "対象ページ"
+  },
+  "antidetect_status_error": {
+    "message": "未適用"
+  },
+  "antidetect_status_reload": {
+    "message": "ページの再読み込み待ち"
+  },
+  "antidetect_editor_edit": {
+    "message": "編集"
+  },
+  "antidetect_editor_delete": {
+    "message": "削除"
+  },
+  "antidetect_editor_label": {
+    "message": "名前"
+  },
+  "antidetect_editor_value": {
+    "message": "値"
+  },
+  "antidetect_editor_save": {
+    "message": "保存"
+  },
+  "antidetect_editor_cancel": {
+    "message": "キャンセル"
+  },
+  "antidetect_editor_actual": {
+    "message": "値"
+  },
+  "antidetect_editor_export": {
+    "message": "JSONをエクスポート"
+  },
+  "antidetect_editor_previewExport": {
+    "message": "JSONエクスポートのプレビュー"
+  },
+  "antidetect_editor_download": {
+    "message": "JSONをダウンロード"
+  },
+  "antidetect_editor_error": {
+    "message": "設定を保存できませんでした。"
+  },
+  "antidetect_editor_stale": {
+    "message": "別のウィンドウで設定が変更されました。更新してから保存してください。"
+  },
+  "antidetect_editor_invalidValue": {
+    "message": "入力値を確認してください。"
+  },
+  "antidetect_editor_confirm": {
+    "message": "削除"
+  },
+  "antidetect_editor_master": {
+    "message": "Antidetect"
+  },
+  "antidetect_editor_loading": {
+    "message": "設定を読み込み中…"
+  },
+  "antidetect_editor_saveConfig": {
+    "message": "保存"
+  },
+  "antidetect_editor_saveReload": {
+    "message": "保存して再読み込み"
+  },
+  "antidetect_editor_refresh": {
+    "message": "更新"
+  },
+  "antidetect_editor_discard": {
+    "message": "キャンセル"
+  },
+  "antidetect_editor_reset": {
+    "message": "ルールをリセット"
+  },
+  "antidetect_editor_scope": {
+    "message": "ルールの適用範囲"
+  },
+  "antidetect_editor_site": {
+    "message": "サイト"
+  },
+  "antidetect_editor_addSite": {
+    "message": "追加"
+  },
+  "antidetect_editor_removeSite": {
+    "message": "ホストの個別ルールを削除"
+  },
+  "antidetect_editor_siteOff": {
+    "message": "このサイトを除外"
+  },
+  "antidetect_editor_searchApis": {
+    "message": "API を検索"
+  },
+  "antidetect_editor_draft": {
+    "message": "未保存の変更"
+  },
+  "antidetect_editor_configSaved": {
+    "message": "設定を保存しました"
+  },
+  "antidetect_editor_inactive": {
+    "message": "Antidetect はオフです。置換は無効です。"
+  },
+  "antidetect_editor_active": {
+    "message": "Antidetect はオンです"
+  },
+  "antidetect_editor_reload": {
+    "message": "保存した変更を適用するには、開いているページを再読み込みしてください。"
+  },
+  "antidetect_editor_preset": {
+    "message": "全体のプリセット"
+  },
+  "antidetect_editor_limited": {
+    "message": "限定"
+  },
+  "antidetect_editor_strict": {
+    "message": "厳格"
+  },
+  "antidetect_editor_noApis": {
+    "message": "該当する API はありません"
+  },
+  "antidetect_editor_inherited": {
+    "message": "継承"
+  },
+  "antidetect_editor_earlyPermission": {
+    "message": "サイトのスクリプトより前に設定を適用するには、ユーザースクリプトを許可してください。"
+  },
+  "antidetect_editor_earlyUnsupported": {
+    "message": "このブラウザーでは利用できません"
+  },
+  "antidetect_editor_earlyGrant": {
+    "message": "Custom を許可"
+  },
+  "antidetect_editor_earlySettings": {
+    "message": "ブラウザー設定を開く"
+  },
+  "antidetect_editor_earlyRefresh": {
+    "message": "更新"
+  },
+  "antidetect_editor_earlyDenied": {
+    "message": "権限が許可されませんでした。"
+  },
+  "antidetect_editor_groups_graphics": {
+    "message": "グラフィックスとフォント"
+  },
+  "antidetect_editor_groups_media": {
+    "message": "音声とメディア"
+  },
+  "antidetect_editor_groups_device": {
+    "message": "デバイスと環境"
+  },
+  "antidetect_editor_groups_hardware": {
+    "message": "接続されたデバイス"
+  },
+  "antidetect_editor_groups_background": {
+    "message": "バックグラウンド動作"
+  },
+  "antidetect_editor_groups_browser": {
+    "message": "ブラウザー API"
+  },
+  "antidetect_editor_groups_system": {
+    "message": "ウィンドウと OS 連携"
+  },
+  "antidetect_editor_groups_ai": {
+    "message": "AI と認識"
+  },
+  "antidetect_editor_groups_storage": {
+    "message": "ストレージと Cookie"
+  },
+  "antidetect_editor_groups_network": {
+    "message": "ネットワークとデータ転送"
+  },
+  "antidetect_editor_groups_identity": {
+    "message": "アカウント・支払い・共有"
+  },
+  "antidetect_editor_choose": {
+    "message": "値を選択"
+  },
+  "antidetect_editor_search": {
+    "message": "値を検索"
+  },
+  "antidetect_editor_create": {
+    "message": "新しい値を作成"
+  },
+  "antidetect_editor_presets": {
+    "message": "プリセット値"
+  },
+  "antidetect_editor_own": {
+    "message": "自分の値"
+  },
+  "antidetect_editor_noMatches": {
+    "message": "一致する値がありません"
+  },
+  "antidetect_editor_valueType": {
+    "message": "値の種類"
+  },
+  "antidetect_editor_unset": {
+    "message": "未選択"
+  },
+  "antidetect_editor_empty": {
+    "message": "空文字列 (\"\")"
+  },
+  "antidetect_editor_saved": {
+    "message": "値を保存しました"
+  },
+  "antidetect_editor_deleted": {
+    "message": "値を削除しました"
+  },
+  "antidetect_editor_import": {
+    "message": "JSON をインポート"
+  },
+  "antidetect_editor_previewImport": {
+    "message": "インポートのプレビュー"
+  },
+  "antidetect_editor_apply": {
+    "message": "インポートを適用"
+  },
+  "antidetect_editor_undo": {
+    "message": "インポートを元に戻す"
+  },
+  "antidetect_editor_imported": {
+    "message": "設定をインポートしました"
+  },
+  "antidetect_editor_undone": {
+    "message": "インポートを元に戻しました"
+  },
+  "antidetect_editor_changed": {
+    "message": "変更された API"
+  },
+  "antidetect_editor_changedSites": {
+    "message": "変更されたサイト"
+  },
+  "antidetect_editor_all": {
+    "message": "すべての API"
+  },
+  "antidetect_editor_noChanges": {
+    "message": "変更なし"
+  },
+  "antidetect_editor_migrated": {
+    "message": "以前の設定形式を変換しました"
+  },
+  "antidetect_editor_tooLarge": {
+    "message": "設定ファイルが大きすぎます。"
+  },
+  "antidetect_editor_invalidJson": {
+    "message": "無効な JSON ファイルです。"
+  },
+  "antidetect_editor_nameRequired": {
+    "message": "値の名前を入力してください。"
+  },
+  "antidetect_editor_invalidNumber": {
+    "message": "有限の数値を入力してください。"
+  },
+  "antidetect_editor_unsupported": {
+    "message": "この API ではカスタム値を利用できません。"
+  },
+  "antidetect_editor_confirmDelete": {
+    "message": "この保存済みの値を削除しますか？"
+  },
+  "antidetect_editor_format": {
+    "message": "形式のバージョン"
+  },
+  "antidetect_editor_selected": {
+    "message": "値を選択しました"
+  },
+  "antidetect_editor_showValue": {
+    "message": "現在の値"
+  },
+  "antidetect_editor_hints_string": {
+    "message": "テキスト。空文字列は独立した値です。"
+  },
+  "antidetect_editor_hints_integer": {
+    "message": "整数。"
+  },
+  "antidetect_editor_hints_number": {
+    "message": "有限の数値。"
+  },
+  "antidetect_editor_hints_boolean": {
+    "message": "真偽値：true または false。"
+  },
+  "antidetect_editor_hints_object": {
+    "message": "JSON オブジェクト。"
+  },
+  "antidetect_editor_hints_array": {
+    "message": "JSON 配列。"
+  },
+  "antidetect_editor_title": {
+    "message": "ブラウザー API の設定"
+  },
+  "antidetect_editor_global": {
+    "message": "すべてのサイト"
+  },
+  "antidetect_editor_noHost": {
+    "message": "サイトを選択"
+  },
+  "antidetect_editor_hostError": {
+    "message": "example.com などの正確なホスト名を入力してください。"
+  },
+  "antidetect_editor_configured": {
+    "message": "設定済みのみ"
+  },
+  "antidetect_editor_allGroups": {
+    "message": "すべてのカテゴリ"
+  },
+  "antidetect_editor_customOnly": {
+    "message": "Custom 対応"
+  },
+  "antidetect_editor_activationFailed": {
+    "message": "設定は保存されましたが API の変更は適用されていません。Custom 権限を確認し、サイト再読み込み前に設定を更新してください。"
+  },
+  "antidetect_editor_earlyToggle": {
+    "message": "ブラウザーの拡張機能設定でユーザースクリプトを許可し、ブラウザーを再起動してこのエディターを開き直してください。"
+  },
+  "antidetect_editor_null": {
+    "message": "null"
+  },
+  "antidetect_editor_undefined": {
+    "message": "undefined"
+  },
+  "antidetect_editor_custom": {
+    "message": "Custom"
+  },
+  "antidetect_math_title": {
+    "message": "Math 超越関数"
+  },
+  "antidetect_math_description": {
+    "message": "23 個の JavaScript Math 関数"
+  },
+  "antidetect_math_mode": {
+    "message": "Math モード"
+  },
+  "antidetect_math_allow": {
+    "message": "許可"
+  },
+  "antidetect_math_spoof": {
+    "message": "安定した置換"
+  },
+  "antidetect_math_inherited": {
+    "message": "API Guard から継承"
+  },
+  "antidetect_math_search": {
+    "message": "関数を検索"
+  },
+  "antidetect_math_selected": {
+    "message": "選択済み"
+  },
+  "antidetect_math_all": {
+    "message": "すべて選択"
+  },
+  "antidetect_math_clear": {
+    "message": "選択を解除"
+  },
+  "antidetect_math_empty": {
+    "message": "一致する関数がありません"
+  },
+  "antidetect_math_group_trig": {
+    "message": "三角関数"
+  },
+  "antidetect_math_group_hyperbolic": {
+    "message": "双曲線関数"
+  },
+  "antidetect_math_group_exp_log": {
+    "message": "指数・対数関数"
+  },
+  "antidetect_math_group_power": {
+    "message": "べき乗・根・ノルム"
+  },
+  "antidetect_math_precision": {
+    "message": "対象の結果の変化は最大 1 ULP です。"
+  },
+  "antidetect_math_stability": {
+    "message": "同一オリジンとブラウザーセッション内では、繰り返し呼び出しの結果が安定します。"
+  },
+  "antidetect_math_special_cases": {
+    "message": "厳密な結果と特殊値は保持されます。"
+  },
+  "antidetect_math_coverage": {
+    "message": "Workers、** 演算子、WebAssembly、CSS 計算は対象外です。"
+  },
+  "antidetect_math_method": {
+    "message": "方式：結果の決定的な置換です。エンジン間の正規化は行いません。"
+  },
+  "antidetect_math_status_active": {
+    "message": "新しいページ向けに登録済み"
+  },
+  "antidetect_math_status_allow": {
+    "message": "元の Math 結果"
+  },
+  "antidetect_math_status_inactive": {
+    "message": "無効"
+  },
+  "antidetect_math_status_unknown": {
+    "message": "実際の状態：—"
+  },
+  "antidetect_math_status_pending": {
+    "message": "ページの再読み込み待ち"
+  },
+  "antidetect_math_status_error": {
+    "message": "未適用"
+  },
+  "antidetect_math_functions": {
+    "message": "変更する関数"
+  },
+  "antidetect_math_pow_note": {
+    "message": "Math.pow と ** 演算子は別の計算経路を使います。"
+  },
+  "antidetect_math_status_empty": {
+    "message": "関数未選択"
+  },
+  "antidetect_math_opaque": {
+    "message": "アクセスできない不透明なフレームでは、このグループの関数は無効になります。"
+  },
+  "antidetect_math_primitive_numbers": {
+    "message": "置換はプリミティブの Number 引数にのみ適用されます。他の型の引数はブラウザーが置換せずに処理します。"
+  },
+  "protection_feature_math_transcendentals": {
+    "message": "Math 超越関数"
+  },
+  "fingerprint_title": {
+    "message": "フィンガープリントプロファイル"
+  },
+  "fingerprint_description": {
+    "message": "API テスト設定を作成、プレビュー、再利用できます。"
+  },
+  "fingerprint_generator": {
+    "message": "プロファイル生成"
+  },
+  "fingerprint_recipe": {
+    "message": "設定"
+  },
+  "fingerprint_recipe_balanced": {
+    "message": "バランス"
+  },
+  "fingerprint_recipe_laptop": {
+    "message": "ノートパソコン"
+  },
+  "fingerprint_recipe_desktop": {
+    "message": "デスクトップ"
+  },
+  "fingerprint_recipe_workstation": {
+    "message": "ワークステーション"
+  },
+  "fingerprint_recipe_strict": {
+    "message": "厳格"
+  },
+  "fingerprint_system": {
+    "message": "オペレーティングシステム"
+  },
+  "fingerprint_language": {
+    "message": "言語"
+  },
+  "fingerprint_display": {
+    "message": "ディスプレイ"
+  },
+  "fingerprint_preserve": {
+    "message": "現在の設定を維持"
+  },
+  "fingerprint_generate": {
+    "message": "プレビューを生成"
+  },
+  "fingerprint_library": {
+    "message": "保存済みプロファイル"
+  },
+  "fingerprint_save_profile": {
+    "message": "プロファイルとして保存"
+  },
+  "fingerprint_load_profile": {
+    "message": "プレビューに読み込む"
+  },
+  "fingerprint_rename": {
+    "message": "名前を変更"
+  },
+  "fingerprint_delete_confirm": {
+    "message": "このプロファイルをライブラリから削除しますか？"
+  },
+  "fingerprint_search_profiles": {
+    "message": "プロファイルを検索"
+  },
+  "fingerprint_no_profiles": {
+    "message": "一致するプロファイルはありません。"
+  },
+  "fingerprint_preview": {
+    "message": "設定のプレビュー"
+  },
+  "fingerprint_apply": {
+    "message": "設定を適用"
+  },
+  "fingerprint_edit_api": {
+    "message": "プレビュー内の API を編集"
+  },
+  "fingerprint_stage_api": {
+    "message": "プレビューを更新"
+  },
+  "fingerprint_scope": {
+    "message": "これは API 設定です。Cookie、アカウント、ブラウザーのストレージは共有されたままです。生成時も全体スイッチとサイトの例外は維持されます。実際のネットワーク IP と TLS 証明書は変わりません。"
+  },
+  "fingerprint_profile_limit": {
+    "message": "プロファイルライブラリがいっぱいです。"
+  },
+  "fingerprint_duplicate_profile": {
+    "message": "このプロファイルは既に存在します。"
+  },
+  "fingerprint_missing_profile": {
+    "message": "選択したプロファイルは存在しません。"
+  },
+  "fingerprint_preview_ready": {
+    "message": "プレビューの準備ができました。適用すると設定が保存されます。"
+  },
+  "fingerprint_issue_platform_agent": {
+    "message": "選択したプラットフォームと User-Agent は異なる OS を示しています。"
+  },
+  "fingerprint_issue_client_hints_agent": {
+    "message": "Client Hints と User-Agent が一致しません。"
+  },
+  "fingerprint_issue_language_list": {
+    "message": "主言語が言語一覧の先頭と異なります。"
+  },
+  "fingerprint_issue_screen_available": {
+    "message": "利用可能な画面領域が画面全体の寸法を超えています。"
+  },
+  "fingerprint_issue_screen_depth": {
+    "message": "色深度とピクセル深度が異なります。"
+  },
+  "fingerprint_issue_orientation_size": {
+    "message": "画面の向きが選択した寸法と一致しません。"
+  },
+  "fingerprint_issue_gpu_pair": {
+    "message": "WebGL と WebGPU は異なるグラフィックスハードウェアを示しています。"
+  },
+  "fingerprint_issue_memory_bucket": {
+    "message": "メモリ値が標準の deviceMemory 区分外です。"
+  },
+  "fingerprint_issue_timezone_metadata": {
+    "message": "カスタムのタイムゾーン名と固定オフセットは Date の書式設定や夏時間の規則を変更しません。"
+  },
+  "fingerprint_issue_network_ua": {
+    "message": "JavaScript の User-Agent 設定は HTTP User-Agent ヘッダーを変更しません。"
+  },
+  "fingerprint_issue_network_language": {
+    "message": "JavaScript の言語設定は Accept-Language ヘッダーを変更しません。"
+  },
+  "fingerprint_issue_screen_css": {
+    "message": "画面の値はブラウザーウィンドウや CSS ビューポートのサイズを変更しません。"
+  },
+  "fingerprint_issue_worker_scope": {
+    "message": "生成したページ設定は worker コンテキストを対象にしません。"
+  },
+  "antidetect_category_profiles": {
+    "message": "フィンガープリントプロファイル"
+  },
+  "api_observed_title": {
+    "message": "ページの観測"
+  },
+  "api_observed_filter": {
+    "message": "このページで使用"
+  },
+  "api_observed_observed": {
+    "message": "観測済み"
+  },
+  "api_observed_attempted": {
+    "message": "呼び出しの試行"
+  },
+  "api_observed_fingerprint": {
+    "message": "フィンガープリントパターン"
+  },
+  "api_observed_first_party": {
+    "message": "サイトのフレーム内"
+  },
+  "api_observed_third_party": {
+    "message": "第三者のフレーム内"
+  },
+  "api_observed_unknown_party": {
+    "message": "発生元不明"
+  },
+  "api_observed_loading": {
+    "message": "観測を読み込み中…"
+  },
+  "api_observed_no_site": {
+    "message": "ウェブサイトのページを選択してください"
+  },
+  "api_observed_no_access": {
+    "message": "ページの観測にアクセスできません"
+  },
+  "api_observed_paused": {
+    "message": "観測は一時停止中です"
+  },
+  "api_observed_unsupported": {
+    "message": "このブラウザーでは観測できません"
+  },
+  "api_observed_unavailable": {
+    "message": "観測を読み込めませんでした"
+  },
+  "api_observed_stale": {
+    "message": "観測が古くなっています"
+  },
+  "api_observed_scope": {
+    "message": "現在のページとアクセス可能なフレーム"
+  },
+  "api_observed_none": {
+    "message": "この一覧の呼び出しは観測されていません"
+  },
+  "api_observed_empty_filtered": {
+    "message": "このセクションに観測済みの API はありません"
+  },
+  "antidetect_api_inactive": {
+    "message": "API Guard はオフです。ブロックは無効です。"
+  },
+  "antidetect_block_owner": {
+    "message": "ブロックは API Guard が制御します。"
+  },
+  "guard_launcher_antidetect_open": {
+    "message": "Antidetect を開く"
+  },
+  "guard_launcher_antidetect_master": {
+    "message": "Antidetect をオンまたはオフにする"
+  },
+  "guard_launcher_coming_soon": {
+    "message": "近日公開"
+  },
+  "guard_launcher_firewall_unavailable": {
+    "message": "このブラウザーでは利用できません"
+  },
+  "guard_launcher_error": {
+    "message": "Antidetect の状態を変更できませんでした。もう一度お試しください。"
+  },
+  "guard_launcher_open_error": {
+    "message": "Antidetect の設定を開けませんでした。"
+  },
+  "management_tab_cookies": {
+    "message": "Cookies"
+  },
+  "cookies_workspace_subtitle": {
+    "message": "Cookie の管理とブラウザー間の移行"
+  },
+  "cookies_workspace_store": {
+    "message": "Cookie ストア"
+  },
+  "cookies_workspace_all_domains": {
+    "message": "すべてのドメイン"
+  },
+  "cookies_workspace_sort": {
+    "message": "並べ替え"
+  },
+  "cookies_workspace_import": {
+    "message": "インポート"
+  },
+  "cookies_workspace_export": {
+    "message": "エクスポート"
+  },
+  "cookies_workspace_show": {
+    "message": "表示"
+  },
+  "cookies_workspace_hide": {
+    "message": "非表示"
+  },
+  "cookies_workspace_hidden": {
+    "message": "値は非表示です"
+  },
+  "cookies_workspace_select_page": {
+    "message": "このページを選択"
+  },
+  "cookies_workspace_selected": {
+    "message": "選択済み"
+  },
+  "cookies_workspace_clear_selection": {
+    "message": "選択を解除"
+  },
+  "cookies_workspace_delete_selected": {
+    "message": "選択項目を削除"
+  },
+  "cookies_workspace_delete_confirmation": {
+    "message": "次の Cookie を削除："
+  },
+  "cookies_workspace_host_only": {
+    "message": "このホストのみ"
+  },
+  "cookies_workspace_session": {
+    "message": "セッション Cookie"
+  },
+  "cookies_workspace_same_site": {
+    "message": "SameSite"
+  },
+  "cookies_workspace_unspecified": {
+    "message": "未指定"
+  },
+  "cookies_workspace_expiry_seconds": {
+    "message": "有効期限：Unix 秒"
+  },
+  "cookies_workspace_partitioned": {
+    "message": "パーティション化"
+  },
+  "cookies_workspace_editor_create": {
+    "message": "Cookie を作成"
+  },
+  "cookies_workspace_editor_edit": {
+    "message": "Cookie を編集"
+  },
+  "cookies_workspace_format": {
+    "message": "形式"
+  },
+  "cookies_workspace_json": {
+    "message": "すべての属性を含む JSON"
+  },
+  "cookies_workspace_encrypted_json": {
+    "message": "暗号化 JSON"
+  },
+  "cookies_workspace_netscape": {
+    "message": "Netscape cookies.txt"
+  },
+  "cookies_workspace_password": {
+    "message": "パスワード"
+  },
+  "cookies_workspace_allow_lossy": {
+    "message": "Netscape が対応しない属性を省略してエクスポート"
+  },
+  "cookies_workspace_choose_file": {
+    "message": "ファイルを選択"
+  },
+  "cookies_workspace_import_text": {
+    "message": "JSON または cookies.txt を貼り付け"
+  },
+  "cookies_workspace_conflict_policy": {
+    "message": "既存の Cookie"
+  },
+  "cookies_workspace_skip_existing": {
+    "message": "既存をスキップ"
+  },
+  "cookies_workspace_overwrite_existing": {
+    "message": "既存を上書き"
+  },
+  "cookies_workspace_source_store": {
+    "message": "移行元ストア"
+  },
+  "cookies_workspace_target_store": {
+    "message": "移行先ストア"
+  },
+  "cookies_workspace_choose_store": {
+    "message": "ストアを選択"
+  },
+  "cookies_workspace_preview": {
+    "message": "プレビュー"
+  },
+  "cookies_workspace_apply_import": {
+    "message": "インポートを適用"
+  },
+  "cookies_workspace_undo": {
+    "message": "最後の変更を元に戻す"
+  },
+  "cookies_workspace_close": {
+    "message": "閉じる"
+  },
+  "cookies_workspace_action_create": {
+    "message": "作成"
+  },
+  "cookies_workspace_action_overwrite": {
+    "message": "上書き"
+  },
+  "cookies_workspace_action_skip": {
+    "message": "スキップ"
+  },
+  "cookies_workspace_action_error": {
+    "message": "エラー"
+  },
+  "cookies_workspace_succeeded": {
+    "message": "適用済み"
+  },
+  "cookies_workspace_failed": {
+    "message": "失敗"
+  },
+  "cookies_workspace_skipped": {
+    "message": "スキップ済み"
+  },
+  "cookies_workspace_conflicts": {
+    "message": "競合"
+  },
+  "cookies_workspace_adjusted": {
+    "message": "ブラウザーが調整"
+  },
+  "cookies_workspace_total": {
+    "message": "合計"
+  },
+  "cookies_workspace_operation_failed": {
+    "message": "操作を完了できませんでした。"
+  },
+  "cookies_workspace_error_invalid_json": {
+    "message": "無効な JSON です。"
+  },
+  "cookies_workspace_error_unsupported_format": {
+    "message": "未対応のファイル形式またはバージョンです。"
+  },
+  "cookies_workspace_error_duplicate_cookie": {
+    "message": "Cookie の識別情報が重複しています。"
+  },
+  "cookies_workspace_error_store_unmapped": {
+    "message": "各移行元ストアを移行先ストアに対応付けてください。"
+  },
+  "cookies_workspace_error_unsupported_context": {
+    "message": "このブラウザーではこの Cookie コンテキストを利用できません。"
+  },
+  "cookies_workspace_error_file_too_large": {
+    "message": "ファイルがサイズ制限を超えています。"
+  },
+  "cookies_workspace_error_decryption_failed": {
+    "message": "ファイルを復号できませんでした。"
+  },
+  "cookies_workspace_error_invalid_password": {
+    "message": "8 文字以上のパスワードを入力してください。"
+  },
+  "cookies_workspace_error_lossy_format": {
+    "message": "この形式では選択されたすべての属性を保持できません。"
+  },
+  "cookies_workspace_all_stores": {
+    "message": "すべてのストア"
+  },
+  "cookies_workspace_unknown": {
+    "message": "結果未確認"
+  },
+  "cookies_workspace_expired": {
+    "message": "期限切れ"
+  },
+  "management_tab_proxy": {
+    "message": "Proxy"
+  },
+  "proxy_workspace_subtitle": {
+    "message": "接続プロファイルとブラウザのトラフィック経路"
+  },
+  "proxy_workspace_profiles": {
+    "message": "プロファイル"
+  },
+  "proxy_workspace_routing": {
+    "message": "ルーティング"
+  },
+  "proxy_workspace_companion": {
+    "message": "補助アプリ"
+  },
+  "proxy_workspace_new_profile": {
+    "message": "新規プロファイル"
+  },
+  "proxy_workspace_all_types": {
+    "message": "すべてのプロトコル"
+  },
+  "proxy_workspace_host": {
+    "message": "ホストまたは IP アドレス"
+  },
+  "proxy_workspace_port": {
+    "message": "ポート"
+  },
+  "proxy_workspace_username": {
+    "message": "ユーザー名"
+  },
+  "proxy_workspace_password": {
+    "message": "パスワード"
+  },
+  "proxy_workspace_uri": {
+    "message": "VLESS リンク"
+  },
+  "proxy_workspace_configuration": {
+    "message": "OpenVPN 設定"
+  },
+  "proxy_workspace_choose_file": {
+    "message": ".ovpn ファイルを選択"
+  },
+  "proxy_workspace_connect": {
+    "message": "接続"
+  },
+  "proxy_workspace_disconnect": {
+    "message": "切断"
+  },
+  "proxy_workspace_all_traffic": {
+    "message": "すべてのブラウザ通信"
+  },
+  "proxy_workspace_selected_domains": {
+    "message": "選択したドメインのみ"
+  },
+  "proxy_workspace_proxy_domains": {
+    "message": "プロキシ対象：完全なホスト名または *.ドメイン"
+  },
+  "proxy_workspace_direct_domains": {
+    "message": "直接接続：完全なホスト名または *.ドメイン"
+  },
+  "proxy_workspace_bypass_local": {
+    "message": "ローカルアドレスを除外"
+  },
+  "proxy_workspace_protect_webrtc": {
+    "message": "WebRTC をプロキシ対応の接続に制限"
+  },
+  "proxy_workspace_disable_prediction": {
+    "message": "ネットワーク予測を無効化"
+  },
+  "proxy_workspace_auto_connect": {
+    "message": "ブラウザ起動時に接続"
+  },
+  "proxy_workspace_companion_check": {
+    "message": "補助アプリを確認"
+  },
+  "proxy_workspace_companion_available": {
+    "message": "補助アプリが利用可能"
+  },
+  "proxy_workspace_companion_missing": {
+    "message": "補助アプリ未導入または利用不可"
+  },
+  "proxy_workspace_companion_install": {
+    "message": "GitHub（Releases）から補助アプリのアーカイブをダウンロードし、展開してインストーラーを実行："
+  },
+  "proxy_workspace_companion_detail": {
+    "message": "補助アプリは VLESS 用 Xray、ユーザー空間 OpenVPN、ログイン付き SOCKS5・HTTP・HTTPS プロキシ用のリレーを実行します。リレーが運ぶのは TCP 接続だけです。"
+  },
+  "proxy_workspace_socks_detail": {
+    "message": "認証なし SOCKS5 はブラウザで接続し、認証付き接続は補助アプリを使用します。"
+  },
+  "proxy_workspace_vless_detail": {
+    "message": "VLESS リンクは補助アプリの Xray で動作します。"
+  },
+  "proxy_workspace_openvpn_detail": {
+    "message": ".ovpn を読み込み、補助アプリで OpenVPN を実行します。"
+  },
+  "proxy_workspace_export": {
+    "message": "プロファイルのメタデータ JSON を書き出す"
+  },
+  "proxy_workspace_delete_confirmation": {
+    "message": "このプロファイルを削除しますか？"
+  },
+  "proxy_workspace_secret_saved": {
+    "message": "認証情報は補助アプリに保存済み"
+  },
+  "proxy_workspace_replace_secret": {
+    "message": "保存済み認証情報を保つには秘密の欄を空にしてください。"
+  },
+  "proxy_workspace_remote_dns": {
+    "message": "プロキシ経由の DNS"
+  },
+  "proxy_workspace_kill_switch": {
+    "message": "キルスイッチ"
+  },
+  "proxy_workspace_kill_switch_detail": {
+    "message": "接続失敗後もプロキシ経由のリクエストを遮断します。"
+  },
+  "proxy_workspace_smart_paste": {
+    "message": "接続情報を貼り付け"
+  },
+  "proxy_workspace_parse": {
+    "message": "解析"
+  },
+  "proxy_workspace_retry": {
+    "message": "プロファイルを確認して再試行してください。"
+  },
+  "proxy_workspace_state_off": {
+    "message": "オフ"
+  },
+  "proxy_workspace_state_connecting": {
+    "message": "接続中"
+  },
+  "proxy_workspace_state_connected": {
+    "message": "接続済み"
+  },
+  "proxy_workspace_state_blocked": {
+    "message": "通信を遮断中"
+  },
+  "proxy_workspace_state_error": {
+    "message": "接続エラー"
+  },
+  "proxy_workspace_state_conflict": {
+    "message": "外部で制御中"
+  },
+  "proxy_workspace_state_permission_required": {
+    "message": "権限が必要"
+  },
+  "proxy_workspace_error_auth": {
+    "message": "認証に失敗しました。"
+  },
+  "proxy_workspace_error_dns": {
+    "message": "DNS 解決に失敗しました。"
+  },
+  "proxy_workspace_error_connection": {
+    "message": "サーバーが接続を拒否しました。"
+  },
+  "proxy_workspace_error_tls": {
+    "message": "TLS ネゴシエーションに失敗しました。"
+  },
+  "proxy_workspace_error_reality": {
+    "message": "REALITY ネゴシエーションに失敗しました。"
+  },
+  "proxy_workspace_error_config": {
+    "message": "プロファイルの設定を確認してください。"
+  },
+  "proxy_workspace_error_engine_missing": {
+    "message": "接続エンジンがありません。"
+  },
+  "proxy_workspace_error_engine_failed": {
+    "message": "接続エンジンが停止しました。"
+  },
+  "proxy_workspace_error_proxy": {
+    "message": "プロキシからエラーが返されました。"
+  },
+  "proxy_workspace_error_disconnected": {
+    "message": "トンネルが切断されました。"
+  },
+  "proxy_workspace_error_unsupported": {
+    "message": "このプロファイルは未対応です。"
+  },
+  "proxy_workspace_error_vault": {
+    "message": "認証情報保管庫を利用できません。"
+  },
+  "proxy_workspace_error_identity": {
+    "message": "この拡張機能 ID 用の補助アプリを導入してください。"
+  },
+  "proxy_workspace_analyzer": {
+    "message": "接続アナライザー"
+  },
+  "proxy_workspace_check_connection": {
+    "message": "接続を確認"
+  },
+  "proxy_workspace_target_url": {
+    "message": "テスト URL"
+  },
+  "proxy_workspace_check_pass": {
+    "message": "応答を受信"
+  },
+  "proxy_workspace_check_fail": {
+    "message": "確認に失敗"
+  },
+  "proxy_workspace_remote_ip": {
+    "message": "外部 IP アドレス"
+  },
+  "proxy_workspace_http_status": {
+    "message": "HTTP ステータス"
+  },
+  "proxy_workspace_tls_verified": {
+    "message": "証明書を検証済み"
+  },
+  "proxy_workspace_tls_plain": {
+    "message": "未使用（HTTP）"
+  },
+  "proxy_workspace_elapsed": {
+    "message": "リクエスト時間"
+  },
+  "proxy_workspace_not_checked": {
+    "message": "未確認です。"
+  },
+  "proxy_workspace_checking": {
+    "message": "確認中…"
+  },
+  "proxy_workspace_check_visible": {
+    "message": "表示中のプロファイルを確認"
+  },
+  "proxy_workspace_copy_all": {
+    "message": "認証情報を含む全 JSON をコピー"
+  },
+  "proxy_workspace_copy_json": {
+    "message": "認証情報を含む完全な JSON をコピー"
+  },
+  "proxy_workspace_copied": {
+    "message": "JSON をコピーしました"
+  },
+  "proxy_workspace_sort_by": {
+    "message": "並べ替え"
+  },
+  "proxy_workspace_activity": {
+    "message": "動作状態"
+  },
+  "proxy_workspace_last_check": {
+    "message": "最後の手動確認"
+  },
+  "proxy_workspace_latency": {
+    "message": "応答時間"
+  },
+  "proxy_workspace_no_check": {
+    "message": "未確認"
+  },
+  "proxy_workspace_check_result": {
+    "message": "確認結果"
+  },
+  "proxy_workspace_stopping": {
+    "message": "停止中…"
+  },
+  "proxy_workspace_error_active_vpn": {
+    "message": "別の OpenVPN 接続が有効です。このプロファイルを確認する前に切断してください。"
+  },
+  "proxy_workspace_native_restart": {
+    "message": "アクセスが許可されました。Proxy をオフにして拡張機能を一度再起動し、連携アプリを有効にしてください。このページは再び開きます。未保存の項目は再入力が必要です。"
+  },
+  "proxy_workspace_native_restart_action": {
+    "message": "拡張機能を再起動"
+  },
+  "precursor_title": {
+    "message": "Cloudflare Precursor"
+  },
+  "precursor_observed": {
+    "message": "リソースを観測"
+  },
+  "precursor_not_observed": {
+    "message": "リソースは未観測"
+  },
+  "precursor_mode": {
+    "message": "モード"
+  },
+  "precursor_mode_unknown": {
+    "message": "不明"
+  },
+  "precursor_loading": {
+    "message": "観測結果を読み込み中…"
+  },
+  "precursor_no_site": {
+    "message": "ウェブサイトのページを選択"
+  },
+  "precursor_no_access": {
+    "message": "観測結果にアクセスできません"
+  },
+  "precursor_paused": {
+    "message": "観測は一時停止中"
+  },
+  "precursor_unsupported": {
+    "message": "観測できません"
+  },
+  "precursor_unavailable": {
+    "message": "観測結果を読み込めませんでした"
+  },
+  "management_tab_autosurf": {
+    "message": "自動巡回"
+  },
+  "autosurf_title": {
+    "message": "自動巡回"
+  },
+  "autosurf_subtitle": {
+    "message": "計画したサイト訪問とローカルのリソース測定"
+  },
+  "autosurf_settings": {
+    "message": "訪問プラン"
+  },
+  "autosurf_urls": {
+    "message": "サイトのURL"
+  },
+  "autosurf_urls_help": {
+    "message": "HTTP(S)、1行に1件。最大200件。"
+  },
+  "autosurf_sample": {
+    "message": "抽出件数（0＝すべて）"
+  },
+  "autosurf_cycles": {
+    "message": "繰り返し回数"
+  },
+  "autosurf_depth": {
+    "message": "サイト内移動の深さ"
+  },
+  "autosurf_seed": {
+    "message": "シード"
+  },
+  "autosurf_order": {
+    "message": "訪問順序"
+  },
+  "autosurf_sequential": {
+    "message": "一覧の順序"
+  },
+  "autosurf_shuffle": {
+    "message": "シャッフル"
+  },
+  "autosurf_duration": {
+    "message": "実行上限、分"
+  },
+  "autosurf_dwell_min": {
+    "message": "ページ最短滞在、秒"
+  },
+  "autosurf_dwell_max": {
+    "message": "ページ最長滞在、秒"
+  },
+  "autosurf_gap_min": {
+    "message": "最短間隔、秒"
+  },
+  "autosurf_gap_max": {
+    "message": "最長間隔、秒"
+  },
+  "autosurf_scroll": {
+    "message": "ページをスクロール"
+  },
+  "autosurf_hover": {
+    "message": "ポインターを移動してホバー"
+  },
+  "autosurf_metrics": {
+    "message": "リソース測定を記録"
+  },
+  "autosurf_grant_metrics": {
+    "message": "システムCPUとRAMの測定を許可"
+  },
+  "autosurf_start": {
+    "message": "開始"
+  },
+  "autosurf_stop": {
+    "message": "停止"
+  },
+  "autosurf_discard": {
+    "message": "変更を破棄"
+  },
+  "autosurf_dirty": {
+    "message": "未保存の変更"
+  },
+  "autosurf_status": {
+    "message": "実行状態"
+  },
+  "autosurf_progress": {
+    "message": "進捗"
+  },
+  "autosurf_current": {
+    "message": "サイト"
+  },
+  "autosurf_phase": {
+    "message": "段階"
+  },
+  "autosurf_elapsed": {
+    "message": "経過時間"
+  },
+  "autosurf_remaining": {
+    "message": "段階の残り時間"
+  },
+  "autosurf_results": {
+    "message": "訪問結果"
+  },
+  "autosurf_no_results": {
+    "message": "完了した訪問はまだありません。"
+  },
+  "autosurf_preview": {
+    "message": "プレビュー"
+  },
+  "autosurf_close": {
+    "message": "閉じる"
+  },
+  "autosurf_download": {
+    "message": "ダウンロード"
+  },
+  "autosurf_interrupted": {
+    "message": "中断"
+  },
+  "autosurf_status_idle": {
+    "message": "準備完了"
+  },
+  "autosurf_status_running": {
+    "message": "実行中"
+  },
+  "autosurf_status_paused": {
+    "message": "一時停止"
+  },
+  "autosurf_status_completed": {
+    "message": "完了"
+  },
+  "autosurf_status_stopped": {
+    "message": "停止済み"
+  },
+  "autosurf_status_error": {
+    "message": "エラー"
+  },
+  "autosurf_phase_opening": {
+    "message": "タブを開いています"
+  },
+  "autosurf_phase_navigating": {
+    "message": "ページを読み込み中"
+  },
+  "autosurf_phase_settling": {
+    "message": "ページの安定を待機"
+  },
+  "autosurf_phase_interacting": {
+    "message": "閲覧中"
+  },
+  "autosurf_phase_gap": {
+    "message": "訪問間の待機"
+  },
+  "autosurf_metrics_title": {
+    "message": "リソース測定"
+  },
+  "autosurf_system_cpu": {
+    "message": "システムCPU"
+  },
+  "autosurf_system_ram": {
+    "message": "システムRAM使用量"
+  },
+  "autosurf_renderer_heap": {
+    "message": "レンダラーのJSヒープ"
+  },
+  "autosurf_renderer_task": {
+    "message": "レンダラーの累積タスク時間"
+  },
+  "autosurf_gpu": {
+    "message": "GPU使用率"
+  },
+  "autosurf_unavailable": {
+    "message": "利用不可"
+  },
+  "autosurf_sample_time": {
+    "message": "測定時刻"
+  },
+  "autosurf_chrome_required": {
+    "message": "自動巡回にはデバッガーアクセスがあるChromeが必要です。"
+  },
+  "autosurf_invalid_url": {
+    "message": "有効なHTTP(S) URLを入力してください。"
+  },
+  "autosurf_duplicate_url": {
+    "message": "このURLは一覧にあります。"
+  },
+  "autosurf_invalid_range": {
+    "message": "値と最小・最大の範囲を確認してください。"
+  },
+  "autosurf_line": {
+    "message": "行"
+  },
+  "autosurf_reason_challenge": {
+    "message": "サイトに認証画面が表示されたため一時停止しました。"
+  },
+  "autosurf_reason_http403": {
+    "message": "サイトがHTTP 403を返したため一時停止しました。"
+  },
+  "autosurf_reason_http429": {
+    "message": "サイトがHTTP 429を返したため一時停止しました。"
+  },
+  "autosurf_reason_tab_closed": {
+    "message": "作業用タブが利用できなくなりました。"
+  },
+  "autosurf_reason_foreground": {
+    "message": "作業ウィンドウがフォーカスを失いました。"
+  },
+  "autosurf_reason_navigation": {
+    "message": "ナビゲーションが変更されたか完了しませんでした。"
+  },
+  "autosurf_reason_debugger": {
+    "message": "ブラウザーのデバッガーが切断されました。"
+  },
+  "autosurf_reason_restored": {
+    "message": "前回の実行を一時停止状態で復元しました。"
+  },
+  "autosurf_reason_limit": {
+    "message": "設定された実行または結果の上限に達しました。"
+  },
+  "autosurf_reason_clock": {
+    "message": "システム時刻が変更されたため一時停止しました。"
+  },
+  "autosurf_clear_report": {
+    "message": "レポートを消去"
+  },
+  "autosurf_metrics_granted": {
+    "message": "システムCPUとRAMの測定を許可しました。"
+  },
+  "autosurf_stale": {
+    "message": "別のウィンドウでプランが変更されました。「変更を破棄」を選んで現在のバージョンを読み込んでください。"
+  },
+  "precursor_modes_title": {
+    "message": "Cloudflare Precursor"
+  },
+  "precursor_modes_source": {
+    "message": "Cloudflare API"
+  },
+  "precursor_modes_mode_off": {
+    "message": "Off"
+  },
+  "precursor_modes_mode_monitor": {
+    "message": "Monitor"
+  },
+  "precursor_modes_mode_arm": {
+    "message": "Armed"
+  },
+  "precursor_modes_mode_unknown": {
+    "message": "不明"
+  },
+  "precursor_modes_notification_title": {
+    "message": "Cloudflare Precursor"
+  },
+  "precursor_modes_subtitle": {
+    "message": "ゾーンのモードと変更"
+  },
+  "precursor_modes_settings": {
+    "message": "Precursor 設定"
+  },
+  "precursor_modes_connect": {
+    "message": "接続"
+  },
+  "precursor_modes_disconnect": {
+    "message": "切断"
+  },
+  "precursor_modes_refresh": {
+    "message": "更新"
+  },
+  "precursor_modes_zone_id": {
+    "message": "ゾーン ID"
+  },
+  "precursor_modes_token": {
+    "message": "API トークン"
+  },
+  "precursor_modes_token_help": {
+    "message": "トークンは切断またはブラウザーを閉じるまで、ブラウザーセッションのメモリに保持されます。"
+  },
+  "precursor_modes_access_help": {
+    "message": "対象ゾーンの Precursor 読み取り権限と Zone Read を持つトークンを使用してください。"
+  },
+  "precursor_modes_connection": {
+    "message": "接続"
+  },
+  "precursor_modes_mode": {
+    "message": "モード"
+  },
+  "precursor_modes_zone": {
+    "message": "ゾーン"
+  },
+  "precursor_modes_last_checked": {
+    "message": "最終確認"
+  },
+  "precursor_modes_last_known": {
+    "message": "最後に確認したモード"
+  },
+  "precursor_modes_history": {
+    "message": "モード履歴"
+  },
+  "precursor_modes_history_empty": {
+    "message": "確認されたモード変更はまだありません。"
+  },
+  "precursor_modes_notifications": {
+    "message": "モードの変更を通知する"
+  },
+  "precursor_modes_disconnected": {
+    "message": "未接続"
+  },
+  "precursor_modes_connecting": {
+    "message": "接続中…"
+  },
+  "precursor_modes_ready": {
+    "message": "接続済み"
+  },
+  "precursor_modes_stale": {
+    "message": "更新が必要"
+  },
+  "precursor_modes_error": {
+    "message": "エラー"
+  },
+  "precursor_modes_unknown": {
+    "message": "不明"
+  },
+  "precursor_modes_from": {
+    "message": "変更前"
+  },
+  "precursor_modes_to": {
+    "message": "変更後"
+  },
+  "precursor_modes_at": {
+    "message": "観測時刻"
+  },
+  "precursor_modes_api_error": {
+    "message": "操作に失敗しました。再試行してください。"
+  },
+  "precursor_modes_auth_error": {
+    "message": "トークンとこのゾーンへのアクセス権を確認してください。"
+  },
+  "precursor_modes_rate_error": {
+    "message": "後でもう一度試してください。"
+  },
+  "precursor_modes_invalid_error": {
+    "message": "ゾーン ID と API トークンを確認してください。"
+  },
+  "precursor_modes_permission_error": {
+    "message": "必要なブラウザー権限を許可して再試行してください。"
+  },
+  "precursor_modes_consent_error": {
+    "message": "拡張機能の設定で観測を有効にしてください。"
+  },
+  "precursor_modes_unavailable": {
+    "message": "利用不可"
+  },
+  "precursor_modes_back": {
+    "message": "拡張機能の設定"
+  },
+  "precursor_modes_language": {
+    "message": "言語"
+  },
+  "precursor_modes_changed": {
+    "message": "モードが変更されました"
+  },
+  "precursor_modes_notification_body": {
+    "message": "$1: $2 → $3"
+  },
+  "precursor_modes_zone_mode": {
+    "message": "ゾーンのモード"
+  },
+  "autosurf_sites_title": {
+    "message": "サイトを探す"
+  },
+  "autosurf_sites_subtitle": {
+    "message": "国とテーマから訪問プランを作成します。"
+  },
+  "autosurf_sites_search": {
+    "message": "サイトを検索"
+  },
+  "autosurf_sites_search_placeholder": {
+    "message": "名前またはドメイン"
+  },
+  "autosurf_sites_country": {
+    "message": "国"
+  },
+  "autosurf_sites_all_countries": {
+    "message": "すべての国"
+  },
+  "autosurf_sites_country_search": {
+    "message": "国を検索"
+  },
+  "autosurf_sites_countries_empty": {
+    "message": "国が見つかりません"
+  },
+  "autosurf_sites_categories": {
+    "message": "カテゴリー"
+  },
+  "autosurf_sites_all_categories": {
+    "message": "すべてのカテゴリー"
+  },
+  "autosurf_sites_results": {
+    "message": "見つかったサイト"
+  },
+  "autosurf_sites_select_page": {
+    "message": "このページを選択"
+  },
+  "autosurf_sites_clear_selection": {
+    "message": "選択を解除"
+  },
+  "autosurf_sites_selected": {
+    "message": "選択済み"
+  },
+  "autosurf_sites_add": {
+    "message": "プランに追加"
+  },
+  "autosurf_sites_in_plan": {
+    "message": "プランに追加済み"
+  },
+  "autosurf_sites_available": {
+    "message": "残りの枠"
+  },
+  "autosurf_sites_empty": {
+    "message": "条件に一致するサイトはありません"
+  },
+  "autosurf_sites_empty_hint": {
+    "message": "上のフィルターを変更するか、解除してください。"
+  },
+  "autosurf_sites_clear_filters": {
+    "message": "条件をクリア"
+  },
+  "autosurf_sites_previous": {
+    "message": "前へ"
+  },
+  "autosurf_sites_next": {
+    "message": "次へ"
+  },
+  "autosurf_sites_page": {
+    "message": "ページ"
+  },
+  "autosurf_sites_catalog": {
+    "message": "カタログ"
+  },
+  "autosurf_sites_sources": {
+    "message": "出典"
+  },
+  "autosurf_sites_category": {
+    "message": "テーマ"
+  },
+  "autosurf_sites_check_plan": {
+    "message": "先に訪問プランのアドレスを確認してください。"
+  },
+  "autosurf_sites_added": {
+    "message": "追加済み"
+  },
+  "autosurf_sites_duplicates": {
+    "message": "プランに追加済み"
+  },
+  "autosurf_sites_error_capacity": {
+    "message": "プランには最大200サイトまで追加できます。"
+  },
+  "autosurf_sites_error_existing": {
+    "message": "先に訪問プランのアドレスを修正してください。"
+  },
+  "autosurf_sites_error_selection": {
+    "message": "サイトを選び直してください。"
+  },
+  "autosurf_sites_category_news": {
+    "message": "ニュース"
+  },
+  "autosurf_sites_category_automotive": {
+    "message": "自動車"
+  },
+  "autosurf_sites_category_gaming": {
+    "message": "ゲーム"
+  },
+  "autosurf_sites_category_shopping": {
+    "message": "ショッピング"
+  },
+  "autosurf_sites_category_classifieds": {
+    "message": "掲示広告"
+  },
+  "autosurf_sites_category_finance": {
+    "message": "金融"
+  },
+  "autosurf_sites_category_government": {
+    "message": "行政サービス"
+  },
+  "autosurf_sites_category_education": {
+    "message": "教育"
+  },
+  "autosurf_sites_category_sports": {
+    "message": "スポーツ"
+  },
+  "autosurf_sites_category_travel": {
+    "message": "旅行"
+  },
+  "autosurf_sites_category_real_estate": {
+    "message": "不動産"
+  },
+  "autosurf_sites_category_jobs": {
+    "message": "求人"
+  },
+  "autosurf_sites_category_video": {
+    "message": "動画"
+  },
+  "autosurf_sites_category_music": {
+    "message": "音楽"
+  },
+  "autosurf_sites_category_health": {
+    "message": "健康"
+  },
+  "autosurf_sites_category_food": {
+    "message": "グルメ"
+  },
+  "autosurf_sites_category_technology": {
+    "message": "テクノロジー"
+  },
+  "autosurf_sites_category_forums": {
+    "message": "フォーラム"
+  },
+  "autosurf_sites_category_weather": {
+    "message": "天気・地図"
+  },
+  "autosurf_sites_category_reference": {
+    "message": "資料"
+  },
+  "autosurf_sites_error_unavailable": {
+    "message": "現在サイトを追加できません。"
+  },
+  "autosurf_sites_systems_catalog_title": {
+    "message": "カタログのシステム"
+  },
+  "autosurf_sites_tracking_systems": {
+    "message": "トラッキングシステム"
+  },
+  "autosurf_sites_all_systems": {
+    "message": "すべてのシステム"
+  },
+  "autosurf_sites_system_search": {
+    "message": "システムを検索"
+  },
+  "autosurf_sites_systems_empty": {
+    "message": "システムが見つかりません"
+  },
+  "autosurf_sites_show_all_systems": {
+    "message": "すべてのシステムを表示"
+  },
+  "autosurf_sites_show_fewer_systems": {
+    "message": "一覧を折りたたむ"
+  },
+  "autosurf_sites_uncategorized": {
+    "message": "その他のサイト"
+  },
+  "autosurf_sites_system_categories": {
+    "message": "システムカテゴリー"
+  },
+  "autosurf_sites_all_system_categories": {
+    "message": "すべてのカテゴリー"
+  },
+  "autosurf_sites_system_category_fraud_prevention": {
+    "message": "不正対策"
+  },
+  "autosurf_sites_system_category_bot_management": {
+    "message": "ボット管理"
+  },
+  "autosurf_sites_system_category_ecommerce_intelligence": {
+    "message": "EC分析"
+  },
+  "autosurf_sites_system_category_device_fingerprinting": {
+    "message": "デバイスフィンガープリント"
+  },
+  "autosurf_sites_system_category_bot_detection": {
+    "message": "ボット検出"
+  },
+  "autosurf_sites_system_category_captcha": {
+    "message": "CAPTCHA"
+  },
+  "autosurf_sites_active_filters": {
+    "message": "適用中のフィルター"
+  },
+  "autosurf_sites_clear_all_filters": {
+    "message": "すべて解除"
+  },
+  "autosurf_sites_remove_filter": {
+    "message": "フィルターを解除"
+  },
+  "autosurf_sites_any_selected_system": {
+    "message": "選択したいずれかのシステムを使用するサイト"
+  },
+  "autosurf_sites_selected_systems": {
+    "message": "選択中のシステム"
+  },
+  "protection_feature_navigator_metadata": {
+    "message": "Navigator メタデータ"
+  },
+  "protection_feature_navigator_plugins": {
+    "message": "プラグインと MIME メタデータ"
+  },
+  "protection_feature_screen_geometry": {
+    "message": "ウィンドウの寸法"
+  },
+  "protection_feature_css_media": {
+    "message": "CSS メディアクエリー"
+  },
+  "protection_feature_css_supports": {
+    "message": "CSS 機能対応"
+  },
+  "protection_feature_intl_formatting": {
+    "message": "Intl 書式設定"
+  },
+  "protection_feature_webgl_capabilities": {
+    "message": "WebGL 機能"
+  },
+  "protection_feature_webgpu_capabilities": {
+    "message": "WebGPU 機能"
+  },
+  "protection_feature_canvas_text_metrics": {
+    "message": "Canvas テキスト計測"
+  },
+  "protection_feature_audio_fingerprint": {
+    "message": "音声フィンガープリント"
+  },
+  "protection_feature_audio_metadata": {
+    "message": "音声メタデータ"
+  },
+  "protection_feature_clock_precision": {
+    "message": "時計の精度"
+  },
+  "protection_feature_canvas_font_policy": {
+    "message": "フォント"
+  },
+  "protection_feature_browser_surface": {
+    "message": "ブラウザーのインターフェース"
+  },
+  "protection_feature_webgl_readback": {
+    "message": "WebGL ピクセル読み取り"
+  },
+  "proxy_workspace_setup_required": {
+    "message": "接続するにはプロファイルを追加してください。"
+  },
+  "proxy_workspace_choose_profile": {
+    "message": "接続するには一覧からプロファイルを選択してください。"
+  },
+  "autosurf_empty_plan": {
+    "message": "開始するにはサイトを追加してください。"
+  },
+  "protection_webrtc_host_mdns": {
+    "message": "mDNS 名（.local）"
+  },
+  "protection_webrtc_host_mdns_note": {
+    "message": "ローカルアドレスをランダムな .local 名の背後に隠します。カメラの権限がない Chrome と同じ動作です。名前は解決されず、ネットワーク経路も変わりません。"
+  },
+  "proxy_workspace_bulk_import": {
+    "message": "リストをインポート"
+  },
+  "proxy_workspace_bulk_detail": {
+    "message": "1 行に 1 つの SOCKS5、HTTP、HTTPS または VLESS プロファイル。スキーム（socks5://、http://、https://、vless://）で種類を指定します。スペースと # の後の文字列がプロファイル名になります。ユーザー名とパスワードは保存するまでこのページのメモリにだけ保持されます。"
+  },
+  "proxy_workspace_bulk_text": {
+    "message": "プロファイル（1 行に 1 つ）"
+  },
+  "proxy_workspace_bulk_placeholder": {
+    "message": "203.0.113.10:1080\n203.0.113.11:1080:ユーザー:パスワード #オフィス\nユーザー:パスワード@proxy.example:1080\nsocks5://ユーザー:パスワード@[2001:db8::1]:1080 #IPv6\nhttp://user:password@203.0.113.12:8080 #HTTP\nhttps://203.0.113.13:8443 #HTTPS\nvless://UUID@vpn.example:443?security=reality&… #名前"
+  },
+  "proxy_workspace_bulk_format": {
+    "message": "スキームのない行のフィールド順"
+  },
+  "proxy_workspace_bulk_format_host_first": {
+    "message": "ホスト:ポート:ユーザー:パスワード"
+  },
+  "proxy_workspace_bulk_format_login_first": {
+    "message": "ユーザー:パスワード:ホスト:ポート"
+  },
+  "proxy_workspace_bulk_recognized": {
+    "message": "認識済み"
+  },
+  "proxy_workspace_bulk_errors": {
+    "message": "エラー"
+  },
+  "proxy_workspace_bulk_duplicates": {
+    "message": "重複"
+  },
+  "proxy_workspace_bulk_room": {
+    "message": "空き枠"
+  },
+  "proxy_workspace_bulk_line": {
+    "message": "行"
+  },
+  "proxy_workspace_bulk_ready": {
+    "message": "準備完了"
+  },
+  "proxy_workspace_bulk_select_all": {
+    "message": "準備完了の行をすべて選択"
+  },
+  "proxy_workspace_bulk_back": {
+    "message": "戻る"
+  },
+  "proxy_workspace_bulk_save": {
+    "message": "選択した項目を保存"
+  },
+  "proxy_workspace_bulk_saving": {
+    "message": "保存中"
+  },
+  "proxy_workspace_bulk_limit": {
+    "message": "保存できるプロファイルは最大 100 件です。空き枠を超える行は選択できません。"
+  },
+  "proxy_workspace_bulk_saved_endpoint": {
+    "message": "保存済みのプロファイルがすでにこのアドレスを使用しています"
+  },
+  "proxy_workspace_bulk_imported": {
+    "message": "インポート済み"
+  },
+  "proxy_workspace_bulk_check_imported": {
+    "message": "インポートしたものを確認"
+  },
+  "proxy_workspace_bulk_delete_failed": {
+    "message": "失敗したものを削除"
+  },
+  "proxy_workspace_bulk_delete_confirm": {
+    "message": "最後の確認に失敗したインポート済みプロファイルを削除します："
+  },
+  "proxy_workspace_close": {
+    "message": "閉じる"
+  },
+  "proxy_workspace_reason_invalid_line": {
+    "message": "認識できない行"
+  },
+  "proxy_workspace_reason_unsupported_scheme": {
+    "message": "SOCKS5、HTTP、HTTPS、VLESS の行のみ対応しています"
+  },
+  "proxy_workspace_reason_invalid_host": {
+    "message": "ホストまたは IP アドレスが無効です"
+  },
+  "proxy_workspace_reason_invalid_port": {
+    "message": "ポートがないか 1–65535 の範囲外です"
+  },
+  "proxy_workspace_reason_invalid_credentials": {
+    "message": "ユーザー名とパスワードの両方が必要です（各 255 バイトまで）。HTTP / HTTPS のユーザー名にはコロンを含められません"
+  },
+  "proxy_workspace_reason_invalid_vless": {
+    "message": "VLESS リンクが無効です"
+  },
+  "proxy_workspace_reason_invalid_name": {
+    "message": "名前が 96 文字を超えているか制御文字を含んでいます"
+  },
+  "proxy_workspace_reason_wrong_order": {
+    "message": "もう一方のフィールド順に一致します。「スキームのない行のフィールド順」を変更してください"
+  },
+  "proxy_workspace_reason_openvpn_config": {
+    "message": "これは OpenVPN 設定です。新規プロファイル → OpenVPN で作成してください"
+  },
+  "proxy_workspace_reason_duplicate": {
+    "message": "重複"
+  },
+  "proxy_workspace_reason_too_many_lines": {
+    "message": "最初の 1000 行だけを読み込みます"
+  },
+  "proxy_workspace_all_results": {
+    "message": "すべての結果"
+  },
+  "proxy_workspace_with_login": {
+    "message": "ログインあり"
+  },
+  "proxy_workspace_random_session": {
+    "message": "ランダムセッション"
+  },
+  "proxy_workspace_session_format": {
+    "message": "セッション形式"
+  },
+  "proxy_workspace_session_format_detail": {
+    "message": "{session} は 10 文字（a–z、0–9）のランダムなトークンに置き換わります。フィールドがすでにこの形式で終わっている場合はその部分を置き換え、そうでなければ末尾に追加します。プロバイダーの形式を確認してください。"
+  },
+  "proxy_workspace_session_target": {
+    "message": "挿入先"
+  },
+  "proxy_workspace_session_format_invalid": {
+    "message": "形式には 1 つだけの {session} の前に文字が必要で、空白なし、64 文字以内です。結果は 255 バイト以内に収まる必要があります。"
+  },
+  "proxy_workspace_direct_domains_detail": {
+    "message": "このリストのサイトはプロキシを使わずに接続します。サイトには実際の IP アドレスが見え、名前は通常の DNS で解決されます。"
+  },
+  "proxy_workspace_protect_webrtc_detail": {
+    "message": "この場合 WebRTC はプロキシ経由の TCP で TURN サーバーを使うときだけ動作するため、一部のサイトでは通話がつながらないことがあります。"
+  },
+  "proxy_workspace_tcp_fingerprint_detail": {
+    "message": "サイトから見える TCP/IP フィンガープリント（p0f）は、接続を開く側のものです。SOCKS5・HTTP・HTTPS・VLESS ではプロキシサーバー、OpenVPN では補助アプリ自身のネットワークスタックです。拡張機能はこれを変更しません。"
+  },
+  "protection_webrtc_policy_proxy_only": {
+    "message": "プロキシ経由のみ（Firefox）"
+  },
+  "protection_webrtc_proxy_only_note": {
+    "message": "すべての WebRTC 接続をプロキシ経由にし、直接は何も送信しません。UDP を通すプロキシがない場合、通話やビデオチャットは失敗します。Firefox のみ。"
+  },
+  "proxy_workspace_http_detail": {
+    "message": "HTTP プロキシ。ログインなしではブラウザーが直接接続し、ログインありでは補助アプリが接続を中継して Basic 認証を送ります（Digest と NTLM は未対応）。プロキシはすべての接続のホスト名を見ます。HTTP プロキシまでの経路は暗号化されません。その経路上の誰でもログイン情報を読め、通常の HTTP サイトではページも読めます。"
+  },
+  "proxy_workspace_https_detail": {
+    "message": "HTTPS プロキシ：プロキシ自体への接続は暗号化され、証明書が検証されます。ログインなしではブラウザーが直接接続し、ログインありでは補助アプリが接続を中継して Basic 認証を送ります（Digest と NTLM は未対応）。プロキシは引き続きすべての接続のホスト名を見ます。"
+  },
+  "proxy_workspace_http_relay_detail": {
+    "message": "ログインありの場合、すべてのサイト（通常の HTTP を含む）は補助アプリ経由の CONNECT トンネルとしてプロキシに届きます。ポート 80 への CONNECT を拒否するプロキシもあります。接続時にはプロキシが応答することだけを確認し（HTTPS では証明書も）、ログイン情報は最初のリクエストか「接続を確認」で検証されます。"
+  },
+  "proxy_workspace_bulk_default_type": {
+    "message": "スキームのない行の種類"
+  },
+  "proxy_workspace_error_proxy_denied": {
+    "message": "プロキシがこの接続の確立を拒否しました（ルールで許可されていないか、ログイン情報が受け入れられませんでした）。"
+  },
+  "proxy_workspace_error_network_unreachable": {
+    "message": "プロキシが宛先のネットワークに到達できませんでした。"
+  },
+  "proxy_workspace_error_host_unreachable": {
+    "message": "プロキシが宛先のホストに到達できませんでした。"
+  },
+  "proxy_workspace_error_update_companion": {
+    "message": "インストール済みの補助アプリは HTTP / HTTPS プロキシに対応していません。最新の補助アプリのアーカイブをインストールし、「補助アプリを確認」を押してください。"
+  },
+  "proxy_workspace_country_label": {
+    "message": "国タグ（任意）"
+  },
+  "proxy_workspace_country_hint": {
+    "message": "あなた自身のメモです。IP アドレスから検出されることも、自動入力されることも一切ありません。Antidetect タブでタイムゾーンや言語との比較に使われることがあります。"
+  },
+  "proxy_workspace_country_none": {
+    "message": "国なし"
+  },
+  "proxy_workspace_country_no_results": {
+    "message": "国が見つかりません"
+  },
+  "proxy_workspace_country_clear": {
+    "message": "国タグを削除"
+  },
+  "proxy_workspace_country_title": {
+    "message": "あなたが設定した国タグ（自動検出ではありません）"
+  },
+  "proxy_workspace_history": {
+    "message": "履歴"
+  },
+  "proxy_workspace_history_title": {
+    "message": "確認履歴"
+  },
+  "proxy_workspace_history_empty": {
+    "message": "手動確認の記録はまだありません。"
+  },
+  "proxy_workspace_history_note": {
+    "message": "このコンピューターにのみ保存されます：結果、時刻、応答時間、DNS と TLS のフラグ、HTTP ステータス、出口 IP（確認サイトから見たあなた自身のプロキシのアドレス）。プロファイルごとに最大 30 件を 30 日間保持し、最新の 10 件を表示します。確認したアドレス、応答、認証情報、プロキシのホストは保存しません。実行できなかった確認は記録せず、プロファイルの接続を変更するとその履歴は消去されます。"
+  },
+  "proxy_workspace_history_time": {
+    "message": "最後の確認"
+  },
+  "proxy_workspace_history_clear": {
+    "message": "履歴を消去"
+  },
+  "proxy_workspace_history_clear_all": {
+    "message": "すべての確認履歴を消去"
+  },
+  "proxy_workspace_history_clear_confirm": {
+    "message": "このプロファイルの保存済みの確認履歴を削除しますか？"
+  },
+  "proxy_workspace_history_clear_all_confirm": {
+    "message": "すべてのプロファイルの保存済みの確認履歴を削除しますか？"
+  },
+  "proxy_workspace_history_cleared": {
+    "message": "確認履歴を消去しました。"
+  },
+  "proxy_workspace_history_stay": {
+    "message": "{time} から同じ出口 IP · 確認回数：{count}"
+  },
+  "proxy_workspace_history_unknown": {
+    "message": "判定できず"
+  },
+  "proxy_workspace_ip_changed": {
+    "message": "出口 IP が変わりました"
+  },
+  "proxy_workspace_ip_changed_detail": {
+    "message": "出口 IP が前回成功した確認と異なります。"
+  },
+  "proxy_workspace_login_unchecked": {
+    "message": "接続しました。HTTP / HTTPS プロキシのログイン情報は接続時には検証されません。最初のリクエストか「接続を確認」で検証されます。"
+  },
+  "proxy_workspace_error_auth_required": {
+    "message": "プロキシがログインを求めていますが、このプロファイルにはありません。"
+  },
+  "proxy_workspace_history_save": {
+    "message": "確認履歴を保存"
+  },
+  "proxy_workspace_history_save_note": {
+    "message": "手動確認のたびに、結果（時刻、結果、速度、プロキシの出口 IP）をこのコンピューターに保存し、いつ変わったかを確認できるようにします。確認履歴そのものが外部に送信されることは一切ありません。"
+  },
+  "proxy_workspace_count_filtered": {
+    "message": "{shown} / {total}"
+  },
+  "proxy_workspace_duplicate_note": {
+    "message": "{name} を認証情報なしで複製しました。新しい認証情報を入力してください。"
+  },
+  "proxy_workspace_check_summary": {
+    "message": "{total} 件中 {done} 件を確認: 応答 {passed} 件、失敗 {failed} 件。"
+  },
+  "proxy_workspace_check_progress": {
+    "message": "{total} 件中 {done} 件を確認、失敗 {failed} 件"
+  },
+  "proxy_workspace_address_copied": {
+    "message": "アドレスをコピーしました"
+  },
+  "proxy_workspace_column_address": {
+    "message": "アドレス"
+  },
+  "proxy_workspace_country_short": {
+    "message": "国"
+  },
+  "proxy_workspace_column_linked": {
+    "message": "フィンガープリントプロファイル"
+  },
+  "proxy_workspace_column_checked": {
+    "message": "確認日時"
+  },
+  "proxy_workspace_help": {
+    "message": "ヘルプ"
+  },
+  "proxy_workspace_loading": {
+    "message": "プロファイルを読み込み中…"
+  },
+  "proxy_workspace_select_profile": {
+    "message": "プロファイルを選択"
+  },
+  "proxy_workspace_copy_address": {
+    "message": "アドレスをコピー"
+  },
+  "proxy_workspace_more_actions": {
+    "message": "その他の操作"
+  },
+  "proxy_workspace_duplicate": {
+    "message": "認証情報なしで複製"
+  },
+  "proxy_workspace_select_all_rows": {
+    "message": "すべてのプロファイルを選択"
+  },
+  "proxy_workspace_keyboard_hint": {
+    "message": "矢印キーで移動、Space で選択、Enter で詳細、C で確認、Delete で削除、/ で検索。"
+  },
+  "proxy_workspace_chip_all": {
+    "message": "すべて"
+  },
+  "proxy_workspace_chip_pass": {
+    "message": "動作中"
+  },
+  "proxy_workspace_chip_fail": {
+    "message": "失敗"
+  },
+  "proxy_workspace_chip_unchecked": {
+    "message": "未確認"
+  },
+  "proxy_workspace_sort_reverse": {
+    "message": "並び順を逆にする"
+  },
+  "proxy_workspace_density": {
+    "message": "表示密度"
+  },
+  "proxy_workspace_density_comfortable": {
+    "message": "ゆったり"
+  },
+  "proxy_workspace_density_compact": {
+    "message": "コンパクト"
+  },
+  "proxy_workspace_columns": {
+    "message": "列"
+  },
+  "proxy_workspace_filters": {
+    "message": "フィルター"
+  },
+  "proxy_workspace_reset_view": {
+    "message": "ビューをリセット"
+  },
+  "proxy_workspace_skip_to_list": {
+    "message": "プロファイル一覧へ移動"
+  },
+  "proxy_workspace_remove_filter": {
+    "message": "フィルターを外す"
+  },
+  "proxy_workspace_clear_filters": {
+    "message": "フィルターをクリア"
+  },
+  "proxy_workspace_delete_selected_confirm": {
+    "message": "選択したプロファイル（{count} 件）を削除しますか？"
+  },
+  "proxy_workspace_delete_selected": {
+    "message": "選択項目を削除"
+  },
+  "proxy_workspace_selected_count": {
+    "message": "{count} 件選択中"
+  },
+  "proxy_workspace_check_selected": {
+    "message": "選択項目を確認"
+  },
+  "proxy_workspace_clear_selection": {
+    "message": "選択を解除"
+  },
+  "proxy_workspace_empty_title": {
+    "message": "プロキシはまだありません"
+  },
+  "proxy_workspace_empty_detail": {
+    "message": "プロファイルを追加するか、リストを貼り付けるか、OpenVPN ファイルを選んでください。指示するまで、確認も通信も行いません。"
+  },
+  "proxy_workspace_no_results": {
+    "message": "この条件に一致するプロファイルはありません。"
+  },
+  "proxy_workspace_retry_load": {
+    "message": "再試行"
+  },
+  "proxy_workspace_linked_none": {
+    "message": "このプロキシにリンクされているフィンガープリントプロファイルはありません。"
+  },
+  "proxy_workspace_show_password": {
+    "message": "パスワードを表示"
+  },
+  "proxy_workspace_err_name": {
+    "message": "96 文字以内の名前を入力してください。"
+  },
+  "proxy_workspace_err_host": {
+    "message": "スペースや / @ ? # を含まないホスト名または IP アドレスを入力してください。"
+  },
+  "proxy_workspace_err_port": {
+    "message": "1 から 65535 のポートを入力してください。"
+  },
+  "proxy_workspace_err_uri": {
+    "message": "有効な VLESS リンクを入力してください。"
+  },
+  "proxy_workspace_err_config": {
+    "message": "256 KiB 以内の OpenVPN 設定を追加してください。"
+  },
+  "proxy_workspace_protections": {
+    "message": "保護設定"
+  },
+  "proxy_workspace_disable_prediction_detail": {
+    "message": "クリックする前にブラウザーがページの先読みや DNS の名前解決を行うのを止めます。"
+  },
+  "proxy_workspace_unsaved": {
+    "message": "未保存の変更"
+  },
+  "proxy_workspace_domain_add": {
+    "message": "ドメインを追加"
+  },
+  "proxy_workspace_domain_invalid": {
+    "message": "完全なホスト名または *.ドメイン を入力してください。"
+  },
+  "proxy_workspace_domain_taken": {
+    "message": "すでにいずれかのドメインリストにあります。"
+  },
+  "proxy_workspace_domain_remove": {
+    "message": "ドメインを削除"
+  },
+  "proxy_workspace_companion_steps": {
+    "message": "セットアップ手順"
+  },
+  "proxy_workspace_latency_fast": {
+    "message": "高速"
+  },
+  "proxy_workspace_latency_ok": {
+    "message": "普通"
+  },
+  "proxy_workspace_latency_slow": {
+    "message": "低速"
+  },
+  "proxy_workspace_column_ip": {
+    "message": "出口 IP"
+  },
+  "proxy_workspace_facts_limits": {
+    "message": "制限"
+  },
+  "media_codecs_flags": {
+    "message": "ページに返す回答"
+  },
+  "media_codecs_supported": {
+    "message": "対応"
+  },
+  "media_codecs_smooth": {
+    "message": "スムーズな再生"
+  },
+  "media_codecs_power": {
+    "message": "省電力"
+  },
+  "media_codecs_families": {
+    "message": "非表示にするコーデックファミリー"
+  },
+  "media_codecs_note": {
+    "message": "Custom の値は、このブラウザーが報告する内容を下げることしかできません。非表示のファミリーは、ウィンドウと同一オリジンのフレームで MediaCapabilities、canPlayType、isTypeSupported により非対応として報告されます。Workers と、不透明なオリジンを持つドキュメント（about:、blob:、data:）は対象外です。"
+  },
+  "media_codecs_all_off": {
+    "message": "「対応」がオフです。下でどれを選んでも、すべてのコーデックが非対応として報告されます。"
+  },
+  "media_codecs_json_invalid": {
+    "message": "下の JSON は有効な値ではありません。これらのコントロールを使うには修正してください。"
+  },
+  "cookies_workspace_expiry_datetime": {
+    "message": "有効期限：日付と時刻"
+  },
+  "cookies_workspace_convert_to_datetime": {
+    "message": "Unix 秒を日付と時刻に変換"
+  },
+  "cookies_workspace_convert_to_seconds": {
+    "message": "日付と時刻を Unix 秒に変換"
+  },
+  "cookies_workspace_timezone": {
+    "message": "タイムゾーン"
+  },
+  "cookies_workspace_timezone_local": {
+    "message": "ローカル時刻（$OFFSET$）",
+    "placeholders": {
+      "offset": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookies_workspace_datetime_hint": {
+    "message": "形式は YYYY-MM-DD HH:mm:ss で、.fff と Z または ±hh:mm を付けることもできます。オフセットがない場合は選択したタイムゾーンが使われます。保存されるのは Unix 秒だけです。"
+  },
+  "cookies_workspace_converter_error_seconds": {
+    "message": "Unix 秒は正の数で入力してください（例：1797166957.5）。"
+  },
+  "cookies_workspace_converter_error_format": {
+    "message": "実在する日付と時刻を YYYY-MM-DD HH:mm:ss の形式で入力してください。.fff と Z または ±hh:mm も付けられます。"
+  },
+  "cookies_workspace_converter_error_range": {
+    "message": "Cookie の有効期限は 1970-01-01 00:00:00 UTC より後で、275760 年までにする必要があります。"
+  },
+  "cookies_workspace_converter_error_gap": {
+    "message": "この現地時刻は、その時点で時計が切り替わるため存在しません。別の時刻を選ぶか、+03:00 のような UTC オフセットを付けるか、UTC に切り替えてください。"
+  },
+  "cookies_workspace_converter_error_ambiguous": {
+    "message": "この現地時刻は、時計が戻るため 2 回あります。+03:00 のような UTC オフセットを付けるか、UTC に切り替えてください。"
+  },
+  "cookies_workspace_converter_unapplied": {
+    "message": "日付と時刻は編集されましたが、変換されていません。フィールド間の矢印を押して反映するか、もう一方の矢印で Unix 秒から戻してください。"
+  },
+  "cookies_workspace_identity_locked": {
+    "message": "名前、ドメイン、パス、ストア、「このホストのみ」、パーティションがこの Cookie を識別するため、変更できません。別の Cookie にするには、これを新規としてコピーし、これらの項目を変更して保存してください。元の Cookie はそのまま残ります。"
+  },
+  "cookies_workspace_copy_as_new": {
+    "message": "新しい Cookie としてコピー"
+  },
+  "cookies_workspace_copy_same_identity": {
+    "message": "新しい Cookie が元の Cookie と異なるように、名前、ドメイン、パス、ストア、「このホストのみ」、パーティションのいずれかを変更してください。"
+  },
+  "cookies_workspace_partition_hint": {
+    "message": "パーティション化された Cookie は、名前とドメインが同じでも、最上位サイトごとに別々に保存されます。"
+  },
+  "cookies_workspace_store_default": {
+    "message": "既定"
+  },
+  "cookies_workspace_problem_size": {
+    "message": "名前と値で $SIZE$ バイトを使っていますが、Chrome は $LIMIT$ バイトを超える Cookie を拒否します。",
+    "placeholders": {
+      "size": {
+        "content": "$1"
+      },
+      "limit": {
+        "content": "$2"
+      }
+    }
+  },
+  "cookies_workspace_problem_samesite_none": {
+    "message": "SameSite None には Secure フラグが必要です。"
+  },
+  "cookies_workspace_problem_partition_secure": {
+    "message": "パーティション化された Cookie には Secure フラグが必要です。"
+  },
+  "cookies_workspace_problem_prefix": {
+    "message": "この名前の接頭辞には対応する属性が必要です。__Secure- は Secure、__Host- は Secure・このホストのみ・パス /、__Http- は Secure と HttpOnly が必要です。"
+  },
+  "cookies_workspace_details_session_value": {
+    "message": "有効期限なし：ブラウザーのセッションが終わるまで保持"
+  },
+  "cookies_workspace_details_expired": {
+    "message": "期限切れ"
+  },
+  "cookies_workspace_details_size": {
+    "message": "サイズ"
+  },
+  "cookies_workspace_details_size_value": {
+    "message": "$SIZE$ バイト（名前と値）",
+    "placeholders": {
+      "size": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookies_workspace_details_size_limit": {
+    "message": "許可 $LIMIT$ バイトのうち $SIZE$ バイト（名前と値）",
+    "placeholders": {
+      "size": {
+        "content": "$1"
+      },
+      "limit": {
+        "content": "$2"
+      }
+    }
+  },
+  "cookies_workspace_details_host": {
+    "message": "送信先"
+  },
+  "cookies_workspace_details_host_only": {
+    "message": "$HOST$ のみ（サブドメインは含まない）",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookies_workspace_details_host_domain": {
+    "message": "$HOST$ とそのすべてのサブドメイン",
+    "placeholders": {
+      "host": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookies_workspace_details_path_value": {
+    "message": "$PATH$ とその下のすべて",
+    "placeholders": {
+      "path": {
+        "content": "$1"
+      }
+    }
+  },
+  "cookies_workspace_details_connection": {
+    "message": "接続"
+  },
+  "cookies_workspace_details_https_only": {
+    "message": "HTTPS のみ"
+  },
+  "cookies_workspace_details_http_https": {
+    "message": "HTTP と HTTPS"
+  },
+  "cookies_workspace_details_api_limits": {
+    "message": "ブラウザーの拡張機能 API は Cookie の作成時刻、最終アクセス、優先度、ソースのスキームとポートを返さないため、これらは表示されません。"
+  },
+  "cookies_workspace_problem_expired": {
+    "message": "この有効期限はすでに過去です。ブラウザーは Cookie をすぐに削除するため、保存は拒否されます。"
+  },
+  "cookies_workspace_problem_reach": {
+    "message": "Chrome は Cookie の有効期間を現在から 400 日までに制限します。それより後の有効期限は保存時に短縮されます。"
+  },
+  "proxy_workspace_companion_notice_title": {
+    "message": "一部のプロキシには追加のソフトウェアが必要です"
+  },
+  "proxy_workspace_companion_notice": {
+    "message": "VLESS、OpenVPN、およびログイン付きの SOCKS5・HTTP・HTTPS プロキシには、Windows 用の小さな補助アプリが必要です。GitHub から別途ダウンロードするもので、拡張機能がダウンロードやインストールを行うことはありません。アーカイブを展開してインストーラーを実行してください。ログインなしの SOCKS5・HTTP・HTTPS プロキシは補助アプリなしでも動作します。"
+  },
+  "proxy_workspace_companion_download": {
+    "message": "GitHub からダウンロード"
+  },
+  "proxy_workspace_companion_new_tab": {
+    "message": "（新しいタブで開きます）"
+  }
+}

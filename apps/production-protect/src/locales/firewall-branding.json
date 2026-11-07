@@ -1,0 +1,74 @@
+{
+  "aliases": {
+    "protect_title": "firewall_launcher_title",
+    "tab_protect": "firewall_launcher_title",
+    "options_tab_protect": "firewall_launcher_title",
+    "protect_page_title": "firewall_launcher_title",
+    "protect_launcher_title": "firewall_launcher_title",
+    "protect_launcher_open": "firewall_launcher_open",
+    "protect_settings_link": "firewall_launcher_settings",
+    "fw_action_settings": "firewall_launcher_settings",
+    "protect_status_line": "firewall_launcher_status",
+    "fw_brand": "firewall_launcher_title"
+  },
+  "messages": {
+    "ru": {
+      "protect_enable": {
+        "message": "Включить Firewall…"
+      },
+      "protect_disable": {
+        "message": "Выключить Firewall"
+      },
+      "protect_purge_confirm_title": {
+        "message": "Удалить данные Firewall?"
+      },
+      "error_module_disabled": {
+        "message": "Firewall выключен."
+      },
+      "history_off_desc": {
+        "message": "История ведётся только после включения в настройках Firewall и хранится только на этом устройстве."
+      },
+      "protect_req_module_off": {
+        "message": "Журнала нет: Firewall выключен или его данные удалены."
+      },
+      "protect_req_readonly": {
+        "message": "Firewall сейчас не работает. Журнал можно просмотреть, экспортировать и удалить; новые письма и смена статусов доступны после включения в настройках."
+      },
+      "scope_protect_revoke_warning": {
+        "message": "Firewall включён: без доступа ко всем сайтам он будет приостановлен до повторной выдачи доступа."
+      },
+      "protect_disabled_notice_rules_pending": {
+        "message": "Модуль выключен, сравнение остановлено. Правила блокировки удалить не удалось: Chrome не завершил изменение правил. Они могут продолжать действовать до следующего включения Firewall. Обёртки на уже открытых страницах и свойство GPC исчезнут после их перезагрузки."
+      }
+    },
+    "en": {
+      "protect_enable": {
+        "message": "Turn on Firewall…"
+      },
+      "protect_disable": {
+        "message": "Turn off Firewall"
+      },
+      "protect_purge_confirm_title": {
+        "message": "Delete Firewall data?"
+      },
+      "error_module_disabled": {
+        "message": "Firewall is off."
+      },
+      "history_off_desc": {
+        "message": "History is kept only after you turn it on in Firewall settings and is stored only on this device."
+      },
+      "protect_req_module_off": {
+        "message": "There is no log: Firewall is off or its data was deleted."
+      },
+      "protect_req_readonly": {
+        "message": "Firewall is not running now. You can view, export and delete the log; new letters and status changes are available after you turn it on in the settings."
+      },
+      "scope_protect_revoke_warning": {
+        "message": "Firewall is on: without access to all sites it is suspended until access is granted again."
+      },
+      "protect_disabled_notice_rules_pending": {
+        "message": "The module is off and comparison stopped. Blocking rules could not be removed: Chrome did not complete the rule change. They may keep applying until Firewall is turned on again. Wrappers on pages already open and the GPC property go away after they reload."
+      }
+    }
+  }
+}

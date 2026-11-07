@@ -1,0 +1,373 @@
+/* ADR-047 (S3, port plan §2.5 «Внешний вид»): the module «Защита» in the production look of ADR-042/045 — quiet glass
+   cards, grouped settings and segmented choices, as the API blocking page (protection-ui.css) and button-surfaces.css.
+   Screen only, like button-surfaces.css (print keeps the vendored rules). Tokens only: ui.css, button-surfaces.css
+   (--glass-line, --glass-shadow, --control-fill, --selected-fill, --accent-soft; light + dark through
+   prefers-color-scheme there) and the module token --accent-bg, mapped here onto the production --accent-soft.
+   Tones keep the vendored meaning (ADR-020 §D): --accent for the chosen scope and the primary action (never red),
+   --attention* for a request that was sent, --error* only for a rule that did not apply, neutral otherwise. The two
+   decision buttons keep equal size. No literal colours, no animation. */
+
+@media screen {
+  :root {
+    --accent-bg: var(--accent-soft);
+  }
+
+  /* ---------------------------------------------------------------- popup and side panel */
+
+  .protect-island :is(.fw-card, .fw-snoozed) {
+    border: 1px solid var(--glass-line);
+    border-radius: 18px;
+    background: var(--surface);
+    box-shadow: var(--glass-shadow);
+  }
+
+  .protect-island .fw-card {
+    gap: 10px;
+    padding: 14px 14px 10px;
+  }
+
+  .protect-island .fw-snoozed {
+    padding: 12px 14px;
+  }
+
+  .protect-island .fw-card__icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 11px;
+  }
+
+  .protect-island .fw-card__title {
+    font-size: 14px;
+    font-weight: 650;
+    letter-spacing: -0.01em;
+  }
+
+  .protect-island .fw-card__brand {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+  }
+
+  .protect-island :is(.fw-alert, .fw-blocking, .fw-message) {
+    border-radius: 12px;
+  }
+
+  :is(.protect-island, .protect-page) :is(.fw-chip, .leak__chip) {
+    padding: 2px 10px;
+    border: 1px solid var(--glass-line);
+    border-radius: 999px;
+    background: var(--control-fill);
+    color: var(--text);
+    font-weight: 550;
+  }
+
+  .protect-island .fw-rows {
+    gap: 4px;
+    padding: 8px 10px;
+    border: 1px solid var(--glass-line);
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--surface-2) 55%, transparent);
+  }
+
+  .protect-island .fw-evidence__body {
+    border-color: var(--glass-line);
+    border-radius: 10px;
+  }
+
+  /* Scope «Эта вкладка / Этот сайт / Везде»: a segmented control (the radios stay the accessible control). */
+  .protect-island .fw-scope__options {
+    gap: 3px;
+    padding: 3px;
+    border: 1px solid var(--glass-line);
+    border-radius: 13px;
+    background: var(--surface-2);
+  }
+
+  .protect-island .fw-scope__option {
+    position: relative;
+    justify-content: center;
+    min-height: 34px;
+    padding: 6px 8px;
+    border-color: transparent;
+    border-radius: 10px;
+    background: transparent;
+    color: var(--text);
+    font-weight: 550;
+    text-align: center;
+  }
+
+  .protect-island .fw-scope__option input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .protect-island .fw-scope__option--checked {
+    border-color: color-mix(in srgb, var(--accent) 35%, var(--glass-line));
+    background: var(--surface);
+    color: var(--accent);
+    font-weight: 650;
+    box-shadow: var(--glass-shadow);
+  }
+
+  .protect-island .fw-decision {
+    gap: 8px;
+    padding-block: 8px 6px;
+    border-top-color: var(--glass-line);
+  }
+
+  :root body .protect-island .fw-action {
+    min-height: 40px;
+    border-radius: 12px;
+  }
+
+  .protect-island :is(.fw-foot, .fw-receivers__list) {
+    border-color: var(--glass-line);
+  }
+
+  :root body :is(.protect-island, .protect-page) .button--text {
+    padding-inline: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  :root body :is(.protect-island, .protect-page) .button--text:hover {
+    text-decoration: underline;
+  }
+
+  .protect-island .fw-foot__actions {
+    gap: 4px 14px;
+  }
+
+  .protect-island .fw-notice {
+    border-radius: 12px;
+  }
+
+  /* Transfers, session recording, GPC, status: quiet rounded records under the card. */
+  .protect-island :is(.leak, .replay, .gpc, .state) {
+    border-radius: 14px;
+  }
+
+  .protect-island .leak {
+    background: var(--surface);
+  }
+
+  .protect-island .leaks__title,
+  .protect-island .section__title {
+    font-size: 14px;
+    font-weight: 650;
+  }
+
+  /* ---------------------------------------------------------------- Options page (options.html#protect) */
+
+  .protect-page__body {
+    gap: 18px;
+  }
+
+  .protect-page__body > .section {
+    gap: 12px;
+    padding: 20px 22px;
+    border: 1px solid var(--glass-line);
+    border-radius: 20px;
+    background: var(--surface);
+    box-shadow: var(--glass-shadow);
+  }
+
+  .protect-page__body > .section > :is(p, ul, div, form, fieldset) {
+    margin-block: 0;
+  }
+
+  .protect-page__body > .section > .section__title {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 650;
+    letter-spacing: -0.015em;
+  }
+
+  .protect-page .section .section__title {
+    font-size: 14px;
+    font-weight: 650;
+  }
+
+  /* Nested groups of a card: hairline separators instead of boxes in boxes. */
+  .protect-page__body > .section .section {
+    gap: 10px;
+    margin: 0;
+    padding: 14px 0 0;
+    border: 0;
+    border-top: 1px solid var(--glass-line);
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  /* Fieldsets: an inset grouped list (rows divided by hairlines), as .blocking-controls. */
+  :is(.protect-page, .protect-island) .scope__fieldset {
+    gap: 0;
+    padding: 4px 16px;
+    border: 0;
+    border-radius: 14px;
+    background: var(--surface-2);
+  }
+
+  :is(.protect-page, .protect-island) .scope__fieldset > legend {
+    float: left;
+    width: 100%;
+    padding: 10px 0 6px;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  :is(.protect-page, .protect-island) .scope__fieldset > .scope__option {
+    align-items: center;
+    padding-block: 10px;
+    border-top: 1px solid var(--glass-line);
+  }
+
+  :is(.protect-page, .protect-island) .scope__fieldset > legend + .scope__option {
+    border-top: 0;
+  }
+
+  :is(.protect-page, .protect-island) .scope__fieldset > :is(p, .fw-mode__warning) {
+    margin: 2px 0 10px;
+  }
+
+  :is(.protect-page, .protect-island) .scope__option input {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    accent-color: var(--accent);
+  }
+
+  .protect-page .fw-mode__warning {
+    border-radius: 0 8px 8px 0;
+  }
+
+  /* Firewall rules: one grouped list with hairline rows and zebra like .blocking-rules. */
+  .protect-page .fw-list__rows {
+    gap: 0;
+    overflow: hidden;
+    border: 1px solid var(--glass-line);
+    border-radius: 14px;
+    background: var(--surface);
+  }
+
+  .protect-page .fw-list__row {
+    align-items: center;
+    padding: 9px 14px;
+    border-top: 1px solid var(--glass-line);
+  }
+
+  .protect-page .fw-list__row:first-child {
+    border-top: 0;
+  }
+
+  .protect-page .fw-list__row:nth-child(even) {
+    background: color-mix(in srgb, var(--surface-2) 48%, transparent);
+  }
+
+  .protect-page .fw-list__all {
+    align-items: center;
+    padding-inline: 14px;
+  }
+
+  /* Site exclusions: rows like the blocking rules list. */
+  .protect-page .access-list {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid var(--glass-line);
+    border-radius: 14px;
+  }
+
+  .protect-page .access-list__item {
+    padding: 8px 14px;
+    border-color: var(--glass-line);
+  }
+
+  /* History retention 7 / 30 / 90 days and filters: pill segments with the radio kept visible. */
+  :is(.protect-page, .protect-island) .history-window {
+    gap: 6px;
+  }
+
+  :is(.protect-page, .protect-island) :is(.history-window__option, .history-filter) {
+    min-height: 32px;
+    padding: 4px 12px;
+    border: 1px solid var(--glass-line);
+    border-radius: 999px;
+    background: var(--control-fill);
+    font-size: 13px;
+    font-weight: 550;
+  }
+
+  :is(.protect-page, .protect-island) :is(.history-window__option, .history-filter):has(input:checked) {
+    border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+    background: var(--selected-fill);
+    color: var(--accent);
+    font-weight: 650;
+  }
+
+  .protect-page :is(.state, .gpc-state, .requests-facts, .fw-snoozed) {
+    border-radius: 14px;
+  }
+
+  .protect-page .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* Consent and confirmation dialogs of the module. */
+  :is(.protect-page, .protect-island) dialog.dialog {
+    border: 1px solid var(--glass-line);
+    border-radius: 20px;
+    box-shadow: var(--glass-shadow);
+  }
+
+  :is(.protect-page, .protect-island) dialog.dialog .section {
+    padding: 14px 16px;
+    border: 1px solid var(--glass-line);
+    border-radius: 14px;
+    background: var(--surface);
+  }
+
+  /* ---------------------------------------------------------------- requests.html */
+
+  body.protect-requests .app--requests > .section {
+    border-radius: 18px;
+  }
+
+  body.protect-requests :is(.state, .requests-facts) {
+    border-radius: 14px;
+  }
+
+  /* ---------------------------------------------------------------- accessibility */
+
+  @media (prefers-contrast: more) {
+    .protect-island .fw-scope__option--checked,
+    :is(.protect-page, .protect-island) :is(.history-window__option, .history-filter):has(input:checked) {
+      border: 2px solid var(--accent);
+    }
+  }
+
+  @media (forced-colors: active) {
+    .protect-island :is(.fw-card, .fw-snoozed, .fw-rows, .fw-scope__options),
+    .protect-page__body > .section,
+    :is(.protect-page, .protect-island) :is(.scope__fieldset, .fw-list__rows, .access-list, .history-window__option, .history-filter) {
+      border: 1px solid CanvasText;
+      box-shadow: none;
+    }
+
+    .protect-island .fw-scope__option--checked,
+    :is(.protect-page, .protect-island) :is(.history-window__option, .history-filter):has(input:checked) {
+      outline: 2px solid Highlight;
+      outline-offset: -2px;
+    }
+  }
+}

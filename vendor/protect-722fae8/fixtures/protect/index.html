@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>detect.expert: стенд модуля «Защита»</title>
+  </head>
+  <body>
+    <h1>Стенд модуля «Защита» (ADR-020)</h1>
+    <p>Синтетические страницы модуля. Модуль выключен по умолчанию; страницы проверяют поведение включённого модуля и инвариант «модуль выключен». Скрипты страниц не читают значения полей, кроме явно помеченных положительных контролей.</p>
+    <ul>
+      <li><a href="password-tripwire.html">password-tripwire.html</a> — tripwire паролей (E21-05): e-mail, телефон, имя, пароль с кнопкой «показать пароль», одноразовый код, textarea, платёжный iframe (<code>?frame=payment</code>: cc-number рядом с e-mail), кнопка <code>#positive-control</code> — единственное чтение пароля в MAIN.</li>
+      <li><a href="../perf/protect-typing.html">../perf/protect-typing.html</a> — perf-гейт ввода (E21-07): 4 поля и capture-слушатель задержек.</li>
+      <li><a href="forms/README.md">forms/</a> — сопоставление ввода (E21-07, S07): <a href="forms/pixel-hash-on-blur.html">pixel-hash-on-blur.html</a>, <a href="forms/keylogger-beacon.html">keylogger-beacon.html</a>, <a href="forms/esp-on-submit.html">esp-on-submit.html</a>, <a href="forms/first-party-autosave.html">first-party-autosave.html</a>, <a href="forms/thank-you-start.html">thank-you-start.html</a>, <a href="forms/iframe-parent.html">iframe-parent.html</a>, <a href="forms/opaque-batcher.html">opaque-batcher.html</a>, <a href="forms/password-negative.html">password-negative.html</a>, <a href="forms/short-name.html">short-name.html</a>, <a href="forms/large-upload.html">large-upload.html</a>.</li>
+      <li><a href="replay/README.md">replay/</a> — запись сессии (E21-11, S11): <a href="replay/recorder-positive.html">recorder-positive.html</a>, <a href="replay/late-recorder.html">late-recorder.html</a>, <a href="replay/iframe-recorder.html">iframe-recorder.html</a>, негативы <a href="replay/heartbeat-negative.html">heartbeat-negative.html</a>, <a href="replay/autosave-first-party-negative.html">autosave-first-party-negative.html</a>, <a href="replay/element-listeners-negative.html">element-listeners-negative.html</a>, <a href="replay/spa-shortcuts-negative.html">spa-shortcuts-negative.html</a>, <a href="replay/websocket-only.html">websocket-only.html</a>, синтетический вендор <a href="replay/vendor-synthetic.html">vendor-synthetic.html</a> (только тестовый профиль).</li>
+      <li><a href="firewall/leak-form.html">firewall/leak-form.html</a> — фаервол (E21-08, S08): синтетический отправитель с <code>cdn.example.org</code> шлёт SHA-256 введённого e-mail на <code>collect.example.net</code>; также <code>second-site.html</code>, <code>iframe-host.html</code>, <code>first-party.html</code>, <code>receiver.html</code>.</li>
+    </ul>
+    <p>Страницы других дорожек (формы S07, фаервол S08 и др.) добавляют сюда свои строки.</p>
+  </body>
+</html>

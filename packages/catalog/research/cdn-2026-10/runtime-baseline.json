@@ -1,0 +1,964 @@
+{
+  "capturedAt": "2026-10-10",
+  "backgroundSha256": "32964e410e6ad51c1c9bcf3a7de368596f1ff52d8096e10c2f05fe6994a5e30d",
+  "catalogVersion": "curated-2026-10-10.1",
+  "vendors": [
+    {
+      "id": "cloudflare-turnstile",
+      "name": "Cloudflare Turnstile",
+      "resourceRules": [
+        {
+          "id": "turnstile-loader-v1",
+          "vendorId": "cloudflare-turnstile",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "challenges.cloudflare.com",
+            "pathExact": "/turnstile/v0/api.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "google-recaptcha",
+      "name": "Google reCAPTCHA",
+      "resourceRules": [
+        {
+          "id": "recaptcha-loader-v1",
+          "vendorId": "google-recaptcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "www.google.com",
+            "pathExact": "/recaptcha/api.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "recaptcha-net-loader-v1",
+          "vendorId": "google-recaptcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "www.recaptcha.net",
+            "pathExact": "/recaptcha/api.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "recaptcha-enterprise-loader-v1",
+          "vendorId": "google-recaptcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "www.google.com",
+            "pathExact": "/recaptcha/enterprise.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "recaptcha-net-enterprise-loader-v1",
+          "vendorId": "google-recaptcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "www.recaptcha.net",
+            "pathExact": "/recaptcha/enterprise.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "hcaptcha",
+      "name": "hCaptcha",
+      "resourceRules": [
+        {
+          "id": "hcaptcha-loader-v1",
+          "vendorId": "hcaptcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "js.hcaptcha.com",
+            "pathExact": "/1/api.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "datadome",
+      "name": "DataDome",
+      "resourceRules": [
+        {
+          "id": "datadome-loader-v1",
+          "vendorId": "datadome",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "js.datadome.co",
+            "pathExact": "/tags.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "sift",
+      "name": "Sift",
+      "resourceRules": [
+        {
+          "id": "sift-loader-v1",
+          "vendorId": "sift",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "cdn.sift.com",
+            "pathExact": "/s.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "maxmind-minfraud",
+      "name": "MaxMind minFraud",
+      "resourceRules": [
+        {
+          "id": "maxmind-device-loader-v1",
+          "vendorId": "maxmind-minfraud",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "device.maxmind.com",
+            "pathExact": "/js/device.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "maxmind-module-loader-v1",
+          "vendorId": "maxmind-minfraud",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "device.maxmind.com",
+            "pathExact": "/js/device-module.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "threatmetrix",
+      "name": "LexisNexis ThreatMetrix",
+      "resourceRules": [
+        {
+          "id": "threatmetrix-h-loader-v1",
+          "vendorId": "threatmetrix",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "h.online-metrix.net",
+            "pathExact": "/fp/tags.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "threatmetrix-h-api-loader-v1",
+          "vendorId": "threatmetrix",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "h-api.online-metrix.net",
+            "pathExact": "/fp/tags.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "arkose",
+      "name": "Arkose Labs",
+      "resourceRules": [
+        {
+          "id": "arkose-client-loader-v1",
+          "vendorId": "arkose",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "client-api.arkoselabs.com",
+            "pathTemplate": "arkose-v2-public-key",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "cybersource",
+      "name": "Cybersource Device Fingerprint",
+      "resourceRules": [
+        {
+          "id": "cybersource-production-loader-v1",
+          "vendorId": "cybersource",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "h.online-metrix.net",
+            "pathExact": "/fp/tags.js",
+            "publicOrgId": "k8vif92e",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "cybersource-sandbox-loader-v1",
+          "vendorId": "cybersource",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "h.online-metrix.net",
+            "pathExact": "/fp/tags.js",
+            "publicOrgId": "1snn5n9w",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "seon",
+      "name": "SEON",
+      "resourceRules": [
+        {
+          "id": "seon-dfsdk-v6-loader-v1",
+          "vendorId": "seon",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "cdn.dfsdk.com",
+            "pathExact": "/js/v6/agent.umd.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "seon-deviceinf-v6-loader-v1",
+          "vendorId": "seon",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "cdn.deviceinf.com",
+            "pathExact": "/js/v6/agent.umd.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "seon-intelligence-v6-loader-v1",
+          "vendorId": "seon",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "cdn.seonintelligence.com",
+            "pathExact": "/js/v6/agent.umd.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "seon-v5-loader-v1",
+          "vendorId": "seon",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "cdn.seon.io",
+            "pathExact": "/js/v5/agent.prod.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "human",
+      "name": "HUMAN / PerimeterX",
+      "resourceRules": [
+        {
+          "id": "human-sensor-loader-v1",
+          "vendorId": "human",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "client.perimeterx.net",
+            "pathTemplate": "human-app-sensor",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "human-captcha-loader-v1",
+          "vendorId": "human",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "captcha.px-cdn.net",
+            "pathTemplate": "human-app-captcha",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "signifyd",
+      "name": "Signifyd",
+      "resourceRules": [
+        {
+          "id": "signifyd-loader-v1",
+          "vendorId": "signifyd",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "cdn-scripts.signifyd.com",
+            "pathExact": "/api/script-tag.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "iovation",
+      "name": "iovation",
+      "resourceRules": [
+        {
+          "id": "iovation-loader-v1",
+          "vendorId": "iovation",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "mpsnare.iesnare.com",
+            "pathExact": "/snare.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "fingerprint",
+      "name": "Fingerprint (FingerprintJS Pro)",
+      "resourceRules": [
+        {
+          "id": "fingerprint-v3-loader-v1",
+          "vendorId": "fingerprint",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "fpjscdn.net",
+            "pathTemplate": "fingerprint-v3-key",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "fingerprint-v3-iife-loader-v1",
+          "vendorId": "fingerprint",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "fpjscdn.net",
+            "pathTemplate": "fingerprint-v3-key-iife",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "fingerprint-v4-loader-v1",
+          "vendorId": "fingerprint",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "fpjscdn.net",
+            "pathTemplate": "fingerprint-v4-key",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "fingerprint-v3-npm-loader-v1",
+          "vendorId": "fingerprint",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "fpnpmcdn.net",
+            "pathTemplate": "fingerprint-v3-npm-loader",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "fingerprintjs",
+      "name": "FingerprintJS",
+      "resourceRules": [
+        {
+          "id": "fingerprintjs-v5-loader-v1",
+          "vendorId": "fingerprintjs",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "openfpcdn.io",
+            "pathExact": "/fingerprintjs/v5",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "fingerprintjs-v5-iife-loader-v1",
+          "vendorId": "fingerprintjs",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "openfpcdn.io",
+            "pathExact": "/fingerprintjs/v5/iife.min.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "geetest",
+      "name": "GeeTest CAPTCHA",
+      "resourceRules": [
+        {
+          "id": "geetest-v4-loader-v1",
+          "vendorId": "geetest",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "static.geetest.com",
+            "pathExact": "/v4/gt4.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "geetest-v3-loader-v1",
+          "vendorId": "geetest",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "static.geetest.com",
+            "pathExact": "/static/js/gt.0.5.0.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "yandex-smartcaptcha",
+      "name": "Yandex SmartCaptcha",
+      "resourceRules": [
+        {
+          "id": "yandex-smartcaptcha-loader-v1",
+          "vendorId": "yandex-smartcaptcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "smartcaptcha.cloud.yandex.ru",
+            "pathExact": "/captcha.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "kount",
+      "name": "Kount",
+      "resourceRules": [
+        {
+          "id": "kount-ddc-loader-v1",
+          "vendorId": "kount",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "ssl.kaptcha.com",
+            "pathExact": "/collect/sdk",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "fraudlabs-pro",
+      "name": "FraudLabs Pro",
+      "resourceRules": [
+        {
+          "id": "fraudlabs-pro-loader-v1",
+          "vendorId": "fraudlabs-pro",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "cdn.fraudlabspro.com",
+            "pathExact": "/s.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "adyen",
+      "name": "Adyen Risk Data Collection",
+      "resourceRules": [
+        {
+          "id": "adyen-live-data-loader-v1",
+          "vendorId": "adyen",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "checkoutshopper-live.adyen.com",
+            "pathExact": "/checkoutshopper/assets/js/datacollection/datacollection.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "adyen-test-data-loader-v1",
+          "vendorId": "adyen",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "checkoutshopper-test.adyen.com",
+            "pathExact": "/checkoutshopper/assets/js/datacollection/datacollection.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "forter",
+      "name": "Forter",
+      "resourceRules": [
+        {
+          "id": "forter-3ds-loader-v1",
+          "vendorId": "forter",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "sdk.checkouttools.com",
+            "pathExact": "/v1.2/managedOrders.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "forter-cdn-resource-v1",
+          "vendorId": "forter",
+          "matcher": {
+            "scheme": "https",
+            "hostGroup": "forter-cdn-v1",
+            "resourceTypes": [
+              "script",
+              "xmlhttprequest",
+              "image",
+              "ping"
+            ]
+          },
+          "sourceAccessedAt": "2026-10-10",
+          "reviewDueAt": "2027-01-10T00:00:00.000Z"
+        },
+        {
+          "id": "forter-cloudfront-connect-v1",
+          "vendorId": "forter",
+          "matcher": {
+            "scheme": "https",
+            "hostGroup": "forter-cloudfront-connect-v1",
+            "resourceTypes": [
+              "xmlhttprequest",
+              "image",
+              "ping"
+            ]
+          },
+          "sourceAccessedAt": "2026-10-10",
+          "reviewDueAt": "2027-01-10T00:00:00.000Z"
+        },
+        {
+          "id": "forter-cloudfront-script-v1",
+          "vendorId": "forter",
+          "matcher": {
+            "scheme": "https",
+            "hostGroup": "forter-cloudfront-script-v1",
+            "resourceTypes": [
+              "script"
+            ]
+          },
+          "sourceAccessedAt": "2026-10-10",
+          "reviewDueAt": "2027-01-10T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "paypal-fraudnet",
+      "name": "PayPal FraudNet",
+      "resourceRules": [
+        {
+          "id": "paypal-fraudnet-loader-v1",
+          "vendorId": "paypal-fraudnet",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "c.paypal.com",
+            "pathExact": "/da/r/fb.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "alibaba-captcha",
+      "name": "Alibaba Cloud CAPTCHA",
+      "resourceRules": [
+        {
+          "id": "alibaba-captcha-loader-v1",
+          "vendorId": "alibaba-captcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "o.alicdn.com",
+            "pathExact": "/captcha-frontend/aliyunCaptcha/AliyunCaptcha.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "tencent-captcha",
+      "name": "Tencent Cloud CAPTCHA",
+      "resourceRules": [
+        {
+          "id": "tencent-global-captcha-loader-v1",
+          "vendorId": "tencent-captcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "ca.turing.captcha.qcloud.com",
+            "pathExact": "/TJNCaptcha-global.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "tencent-current-captcha-loader-v1",
+          "vendorId": "tencent-captcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "turing.captcha.qcloud.com",
+            "pathExact": "/TJCaptcha.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "tencent-legacy-captcha-loader-v1",
+          "vendorId": "tencent-captcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "turing.captcha.qcloud.com",
+            "pathExact": "/TCaptcha.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "mtcaptcha",
+      "name": "MTCaptcha",
+      "resourceRules": [
+        {
+          "id": "mtcaptcha-loader-v1",
+          "vendorId": "mtcaptcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "service.mtcaptcha.com",
+            "pathExact": "/mtcv1/client/mtcaptcha.min.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "mtcaptcha-fallback-loader-v1",
+          "vendorId": "mtcaptcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "service2.mtcaptcha.com",
+            "pathExact": "/mtcv1/client/mtcaptcha2.min.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "baidu-waf-captcha",
+      "name": "Baidu Cloud WAF challenge components",
+      "resourceRules": [
+        {
+          "id": "baidu-waf-nox-loader-v1",
+          "vendorId": "baidu-waf-captcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "sec-captcha-waf.cdn.bcebos.com",
+            "pathExact": "/static/wb/1.0/nox_20241230.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "baidu-waf-tox-loader-v1",
+          "vendorId": "baidu-waf-captcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "sec-captcha-waf.cdn.bcebos.com",
+            "pathExact": "/static/wb/1.0/tox_20241230.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "friendly-captcha",
+      "name": "Friendly Captcha",
+      "resourceRules": [
+        {
+          "id": "friendly-captcha-hcaptcha-module-loader-v1",
+          "vendorId": "friendly-captcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "cdn.jsdelivr.net",
+            "pathExact": "/npm/@friendlycaptcha/sdk@1.0.2/contrib/hcaptcha-site.min.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "friendly-captcha-hcaptcha-compat-loader-v1",
+          "vendorId": "friendly-captcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "cdn.jsdelivr.net",
+            "pathExact": "/npm/@friendlycaptcha/sdk@1.0.2/contrib/hcaptcha-site.compat.min.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "friendly-captcha-module-loader-v1",
+          "vendorId": "friendly-captcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "cdn.jsdelivr.net",
+            "pathExact": "/npm/@friendlycaptcha/sdk@1.0.2/site.min.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "friendly-captcha-compat-loader-v1",
+          "vendorId": "friendly-captcha",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "cdn.jsdelivr.net",
+            "pathExact": "/npm/@friendlycaptcha/sdk@1.0.2/site.compat.min.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "sumsub",
+      "name": "Sumsub WebSDK",
+      "resourceRules": [
+        {
+          "id": "sumsub-websdk-loader-v1",
+          "vendorId": "sumsub",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "static.sumsub.com",
+            "pathExact": "/idensic/static/sns-websdk-builder.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "trustdecision",
+      "name": "TrustDecision Behavior SDK",
+      "resourceRules": [
+        {
+          "id": "trustdecision-behavior-loader-v1",
+          "vendorId": "trustdecision",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "static.trustdecision.com",
+            "pathExact": "/tdbh/tdbehavior.min.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "netease-yidun",
+      "name": "NetEase Yidun CAPTCHA",
+      "resourceRules": [
+        {
+          "id": "netease-yidun-loader-1-v1",
+          "vendorId": "netease-yidun",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "cstaticdun.126.net",
+            "pathExact": "/load.min.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "netease-yidun-loader-2-v1",
+          "vendorId": "netease-yidun",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "cstatic.dun.163yun.com",
+            "pathExact": "/load.min.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "netease-yidun-loader-3-v1",
+          "vendorId": "netease-yidun",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "cstaticdun-v6.126.net",
+            "pathExact": "/load.min.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        },
+        {
+          "id": "netease-yidun-loader-4-v1",
+          "vendorId": "netease-yidun",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "cstatic-v6.dun.163yun.com",
+            "pathExact": "/load.min.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "clearsale",
+      "name": "ClearSale Behavior Analytics",
+      "resourceRules": [
+        {
+          "id": "clearsale-behavior-loader-v1",
+          "vendorId": "clearsale",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "device.clearsale.com.br",
+            "pathExact": "/p/fp.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "socure",
+      "name": "Socure Digital Intelligence",
+      "resourceRules": [
+        {
+          "id": "socure-device-risk-loader-v1",
+          "vendorId": "socure",
+          "matcher": {
+            "scheme": "https",
+            "hostExact": "sdk.dv.socure.io",
+            "pathExact": "/latest/device-risk-sdk.js",
+            "resourceType": "script"
+          },
+          "sourceAccessedAt": "2026-09-13",
+          "reviewDueAt": "2027-03-13T00:00:00.000Z"
+        }
+      ]
+    }
+  ],
+  "forterPolicy": {
+    "sourceAccessedAt": "2026-10-10",
+    "reviewDueAt": "2027-01-10T00:00:00.000Z",
+    "connectHosts": [
+      "d2o5idwacg3gyw.cloudfront.net",
+      "dz8rit8v72mig.cloudfront.net",
+      "db7q4jg5rkhk8.cloudfront.net",
+      "d94qwxh6czci4.cloudfront.net",
+      "dr6vcclmzwk74.cloudfront.net",
+      "d6wfl40rgh70w.cloudfront.net",
+      "d6rak4b14t5gp.cloudfront.net",
+      "d3k4bt74u9esq1.cloudfront.net",
+      "d1ezzflfzltk6e.cloudfront.net",
+      "d3nocrch4qti4v.cloudfront.net",
+      "duuytoqss3gu4.cloudfront.net",
+      "df45ay5pw60dy.cloudfront.net"
+    ],
+    "scriptHosts": [
+      "dlthst9q2beh8.cloudfront.net",
+      "d2nww8zpyj5pk0.cloudfront.net",
+      "d2w2nqfk3z9hdt.cloudfront.net"
+    ]
+  }
+}

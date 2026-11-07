@@ -1,0 +1,17 @@
+{
+  "name": "@detect-expert/ui",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Shared Preact components, tokens and localization helpers. Read-only view models; no page APIs.",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.ts",
+    "./styles/*": "./src/styles/*"
+  },
+  "dependencies": {
+    "@detect-expert/catalog": "workspace:*",
+    "@detect-expert/contracts": "workspace:*",
+    "@detect-expert/engine": "workspace:*"
+  }
+}

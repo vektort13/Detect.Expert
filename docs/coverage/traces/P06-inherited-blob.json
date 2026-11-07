@@ -1,0 +1,288 @@
+{
+  "task": "P06",
+  "requirement": [
+    "REQ-006",
+    "REQ-009",
+    "REQ-013"
+  ],
+  "at": "2026-09-13T07:09:25.450Z",
+  "platform": "win32",
+  "arch": "x64",
+  "osRelease": "10.0.26200",
+  "browser": "Chrome/153.0.8010.12",
+  "runtimeVersion": "153.0.8010.12",
+  "observations": {
+    "frames": [
+      {
+        "frameId": 0,
+        "parentFrameId": -1,
+        "documentId": "D4EC4BD1E79CF71274AAECBCCBE2B20E",
+        "frameType": "outermost_frame"
+      }
+    ],
+    "senders": [
+      {
+        "tabId": 1580048391,
+        "frameId": 0,
+        "documentId": "8F61F22212DF175631072022EA74004C",
+        "scheme": "chrome-extension:",
+        "inheritedOrigin": false
+      },
+      {
+        "tabId": 1580048391,
+        "frameId": 0,
+        "documentId": "8F61F22212DF175631072022EA74004C",
+        "scheme": "chrome-extension:",
+        "inheritedOrigin": false
+      },
+      {
+        "tabId": 1580048391,
+        "frameId": 0,
+        "documentId": "8F61F22212DF175631072022EA74004C",
+        "scheme": "chrome-extension:",
+        "inheritedOrigin": false
+      },
+      {
+        "tabId": 1580048391,
+        "frameId": 0,
+        "documentId": "8F61F22212DF175631072022EA74004C",
+        "scheme": "chrome-extension:",
+        "inheritedOrigin": false
+      },
+      {
+        "tabId": 1580048392,
+        "frameId": 0,
+        "documentId": "D4EC4BD1E79CF71274AAECBCCBE2B20E",
+        "scheme": "http:",
+        "inheritedOrigin": true
+      },
+      {
+        "tabId": 1580048392,
+        "frameId": 6,
+        "documentId": "B01FE9E3269A9CB0909206243094670D",
+        "scheme": "blob:",
+        "inheritedOrigin": true
+      }
+    ],
+    "navigation": [
+      {
+        "kind": "before",
+        "tabId": 1580048391,
+        "frameId": 0,
+        "documentId": null,
+        "parentDocumentId": null,
+        "lifecycle": "active",
+        "path": "blank",
+        "error": null
+      },
+      {
+        "kind": "committed",
+        "tabId": 1580048391,
+        "frameId": 0,
+        "documentId": "2A133E11BE44F08D2B812A279F51DEF3",
+        "parentDocumentId": null,
+        "lifecycle": "active",
+        "path": "blank",
+        "error": null
+      },
+      {
+        "kind": "completed",
+        "tabId": 1580048391,
+        "frameId": 0,
+        "documentId": "2A133E11BE44F08D2B812A279F51DEF3",
+        "parentDocumentId": null,
+        "lifecycle": "active",
+        "path": "blank",
+        "error": null
+      },
+      {
+        "kind": "before",
+        "tabId": 1580048392,
+        "frameId": 0,
+        "documentId": null,
+        "parentDocumentId": null,
+        "lifecycle": "active",
+        "path": "blank",
+        "error": null
+      },
+      {
+        "kind": "committed",
+        "tabId": 1580048392,
+        "frameId": 0,
+        "documentId": "EDCB37AC07B760E7E03A655466E7A045",
+        "parentDocumentId": null,
+        "lifecycle": "active",
+        "path": "blank",
+        "error": null
+      },
+      {
+        "kind": "completed",
+        "tabId": 1580048392,
+        "frameId": 0,
+        "documentId": "EDCB37AC07B760E7E03A655466E7A045",
+        "parentDocumentId": null,
+        "lifecycle": "active",
+        "path": "blank",
+        "error": null
+      },
+      {
+        "kind": "before",
+        "tabId": 1580048392,
+        "frameId": 0,
+        "documentId": null,
+        "parentDocumentId": null,
+        "lifecycle": "active",
+        "path": "/blob-frame.html",
+        "error": null
+      },
+      {
+        "kind": "committed",
+        "tabId": 1580048392,
+        "frameId": 0,
+        "documentId": "D4EC4BD1E79CF71274AAECBCCBE2B20E",
+        "parentDocumentId": null,
+        "lifecycle": "active",
+        "path": "/blob-frame.html",
+        "error": null
+      },
+      {
+        "kind": "committed",
+        "tabId": 1580048392,
+        "frameId": 6,
+        "documentId": "B01FE9E3269A9CB0909206243094670D",
+        "parentDocumentId": "D4EC4BD1E79CF71274AAECBCCBE2B20E",
+        "lifecycle": "active",
+        "path": "/blob-document",
+        "error": null
+      },
+      {
+        "kind": "completed",
+        "tabId": 1580048392,
+        "frameId": 0,
+        "documentId": "D4EC4BD1E79CF71274AAECBCCBE2B20E",
+        "parentDocumentId": null,
+        "lifecycle": "active",
+        "path": "/blob-frame.html",
+        "error": null
+      }
+    ],
+    "childReport": {
+      "reportRevision": 2,
+      "documentKey": "1580048392:6:B01FE9E3269A9CB0909206243094670D",
+      "host": null,
+      "coverageState": "active",
+      "coverageFlags": [],
+      "techniques": [
+        {
+          "techniqueId": "DET-002",
+          "count": 1,
+          "countQuality": "exact",
+          "phases": [
+            "returned-sync"
+          ],
+          "signalCodes": [
+            "api-use"
+          ],
+          "evidenceSource": "page-hook",
+          "integrity": "page-controlled",
+          "interpretation": "api-use",
+          "interpretationConfidence": "unassessed",
+          "attributionConfidence": "unknown",
+          "firstBucket": 0,
+          "lastBucket": 0
+        }
+      ],
+      "findings": [
+        {
+          "findingId": "canvas-readback-after-text-v2-DET-002-api-use",
+          "ruleId": "canvas-readback-after-text",
+          "ruleVersion": "2",
+          "techniqueId": "DET-002",
+          "interpretation": "api-use",
+          "interpretationConfidence": "unassessed",
+          "evidenceIds": [
+            "DET-002|returned-sync|api-use"
+          ],
+          "counterEvidenceCodes": [],
+          "limitationCodes": [
+            "page-controlled-evidence",
+            "purpose-unknown",
+            "catalog-disabled"
+          ],
+          "vendorMatchIds": [],
+          "coverageRef": "cov-active-0000"
+        }
+      ],
+      "vendors": [],
+      "dropped": {
+        "observations": 0,
+        "batches": 0,
+        "findings": 0,
+        "hosts": 0,
+        "counters": 0,
+        "transport": 0
+      },
+      "observedSince": 1789283365083,
+      "scopeMode": "site"
+    },
+    "parent": {
+      "reportRevision": 1,
+      "documentKey": "1580048392:0:D4EC4BD1E79CF71274AAECBCCBE2B20E",
+      "host": null,
+      "coverageState": "active",
+      "coverageFlags": [],
+      "techniques": [
+        {
+          "techniqueId": "DET-001",
+          "count": 1,
+          "countQuality": "exact",
+          "phases": [
+            "returned-sync"
+          ],
+          "signalCodes": [
+            "api-use"
+          ],
+          "evidenceSource": "page-hook",
+          "integrity": "page-controlled",
+          "interpretation": "api-use",
+          "interpretationConfidence": "unassessed",
+          "attributionConfidence": "unknown",
+          "firstBucket": 0,
+          "lastBucket": 0
+        }
+      ],
+      "findings": [
+        {
+          "findingId": "canvas-readback-after-text-v2-DET-001-api-use",
+          "ruleId": "canvas-readback-after-text",
+          "ruleVersion": "2",
+          "techniqueId": "DET-001",
+          "interpretation": "api-use",
+          "interpretationConfidence": "unassessed",
+          "evidenceIds": [
+            "DET-001|returned-sync|api-use"
+          ],
+          "counterEvidenceCodes": [],
+          "limitationCodes": [
+            "page-controlled-evidence",
+            "purpose-unknown",
+            "catalog-disabled"
+          ],
+          "vendorMatchIds": [],
+          "coverageRef": "cov-active-0000"
+        }
+      ],
+      "vendors": [],
+      "dropped": {
+        "observations": 0,
+        "batches": 0,
+        "findings": 0,
+        "hosts": 0,
+        "counters": 0,
+        "transport": 0
+      },
+      "observedSince": 1789283364790,
+      "scopeMode": "site"
+    }
+  }
+}

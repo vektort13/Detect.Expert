@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>perf-canvas-hot</title>
+  </head>
+  <body>
+    <h1>Hot canvas loop (perf)</h1>
+    <p>1 000 000 measureText calls followed by 10 000 getImageData calls. Runs once ~100 ms after load and publishes wall-clock timings; window.__runPerf() repeats the measurement. scripts/perf.mjs compares runs with and without the extension.</p>
+    <pre id="result"></pre>
+    <script src="fixture-lib.js"></script>
+    <script>
+      (function () {
+        var F = window.__fixture;
+        var canvas = document.createElement('canvas');
+        canvas.width = 64;
+        canvas.height = 64;
+        var ctx = canvas.getContext('2d');
+        ctx.font = '12px sans-serif';
+        ctx.fillText('perf', 1, 12);
+        var runs = 0;
+        function runPerf() {
+          var labels = [];
+          for (var p = 0; p < 256; p++) labels.push('perf ' + p);
+          var sink = 0;
+          var t0 = performance.now();
+          for (var i = 0; i < 1000000; i++) sink += ctx.measureText(labels[i & 255]).width;
+          var t1 = performance.now();
+          var bytes = 0;
+          for (var j = 0; j < 10000; j++) bytes += ctx.getImageData(0, 0, 8, 8).data.length;
+          var t2 = performance.now();
+          runs++;
+          var r = {
+            fixture: 'perf-canvas-hot',
+            run: runs,
+            measureTextCalls: 1000000,
+            getImageDataCalls: 10000,
+            measureTextMs: Math.round((t1 - t0) * 1000) / 1000,
+            getImageDataMs: Math.round((t2 - t1) * 1000) / 1000,
+            totalMs: Math.round((t2 - t0) * 1000) / 1000,
+            sinkPositive: sink > 0 && bytes > 0
+          };
+          F.publish(r);
+          return r;
+        }
+        window.__runPerf = runPerf;
+        setTimeout(runPerf, 100);
+      })();
+    </script>
+  </body>
+</html>

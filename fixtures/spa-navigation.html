@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>spa-navigation</title>
+  </head>
+  <body>
+    <h1>SPA navigation inside one document</h1>
+    <p>Readback, then pushState (with a query string), replaceState (path with an id), a hash change, and a readback after each. The document never changes, so the report must keep one documentKey; none of the URL parts may be stored.</p>
+    <pre id="result"></pre>
+    <script src="fixture-lib.js"></script>
+    <script>
+      (function () {
+        var F = window.__fixture;
+        var canvas = document.createElement('canvas');
+        canvas.width = 120;
+        canvas.height = 40;
+        var ctx = canvas.getContext('2d');
+        ctx.font = '14px sans-serif';
+        ctx.fillText('spa', 2, 16);
+        var readbacks = 0;
+        function readback() {
+          if (ctx.getImageData(0, 0, 4, 4) instanceof ImageData) readbacks++;
+        }
+        var steps = [];
+        readback();
+        steps.push('initial');
+        history.pushState({ step: 1 }, '', '/spa-navigation.html?step=1&token=SPA-QUERY-TOKEN-01');
+        readback();
+        steps.push('pushState');
+        history.replaceState({ step: 2 }, '', '/spa-navigation.html/account/SPA-PATH-ID-4477/settings');
+        readback();
+        steps.push('replaceState');
+        location.hash = '#SPA-FRAGMENT-9021';
+        readback();
+        steps.push('hash');
+        window.__readbackAgain = function (n) {
+          var before = readbacks;
+          for (var i = 0; i < (n || 1); i++) readback();
+          return readbacks - before;
+        };
+        F.publish({ fixture: 'spa-navigation', steps: steps, readbacks: readbacks, finalPathIsSpa: location.pathname.indexOf('/spa-navigation.html') === 0 });
+      })();
+    </script>
+  </body>
+</html>

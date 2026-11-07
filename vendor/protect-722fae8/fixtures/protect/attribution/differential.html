@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>protect: MAIN hooks differential</title>
+  </head>
+  <body>
+    <!--
+      ADR-020 §F, REQ-002 (S10): stand of tests/extension/protect/main-differential.spec.ts. The same page runs in plain
+      Chromium and with the module's MAIN hooks; `result` must be identical. It covers addEventListener semantics
+      (once, passive, capture, signal, removeEventListener, duplicates, handleEvent objects, null listener), error
+      classes of the hooked APIs, a prototype patched later by the page (called exactly once), fetch / XHR / sendBeacon
+      results and Promise identity, and MutationObserver records. `hooks` (whether fetch / addEventListener are wrappers)
+      is reported separately and is not part of the comparison: a wrapper is detectable by design (REQ-003, REQ-014).
+    -->
+    <h1>MAIN hooks differential</h1>
+    <div id="outer"><div id="inner"><button id="btn" type="button">b</button></div></div>
+    <pre id="result"></pre>
+    <script src="../../fixture-lib.js"></script>
+    <script>
+      (async function () {
+        var F = window.__fixture;
+        var out = {};
+        function errorName(fn) {
+          try {
+            fn();
+            return 'none';
+          } catch (e) {
+            return (e && e.constructor && e.constructor.name) + ':' + (e && e.name);
+          }
+        }
+        async function rejection(p) {
+          try {
+            await p;
+            return 'resolved';
+          } catch (e) {
+            return (e && e.constructor && e.constructor.name) + ':' + (e && e.name);
+          }
+        }
+        var btn = document.getElementById('btn');
+        var outer = document.getElementById('outer');
+        var log = [];
+        function click() { btn.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true })); }
+
+        // once / duplicates / null / return value
+        var once = 0;
+        var dup = 0;
+        var dupFn = function () { dup++; };
+        out.returnValue = String(btn.addEventListener('click', function () { once++; }, { once: true }));
+        btn.addEventListener('click', dupFn);
+        btn.addEventListener('click', dupFn);
+        btn.addEventListener('click', null);
+        click(); click();
+        out.once = once;
+        out.duplicates = dup;
+        btn.removeEventListener('click', dupFn);
+        click();
+        out.afterRemove = dup;
+
+        // passive: preventDefault is ignored
+        var passiveEvent = new Event('wheel', { cancelable: true });
+        btn.addEventListener('wheel', function (e) { e.preventDefault(); }, { passive: true });
+        btn.dispatchEvent(passiveEvent);
+        out.passiveDefaultPrevented = passiveEvent.defaultPrevented;
+        var activeEvent = new Event('keydown', { cancelable: true });
+        btn.addEventListener('keydown', function (e) { e.preventDefault(); });
+        btn.dispatchEvent(activeEvent);
+        out.activeDefaultPrevented = activeEvent.defaultPrevented;
+
+        // capture order and removal with the capture flag
+        var cap = function () { log.push('outer-capture'); };
+        outer.addEventListener('input', cap, true);
+        outer.addEventListener('input', function () { log.push('outer-bubble'); });
+        btn.addEventListener('input', function () { log.push('target'); });
+        btn.dispatchEvent(new Event('input', { bubbles: true }));
+        outer.removeEventListener('input', cap, false);
+        btn.dispatchEvent(new Event('input', { bubbles: true }));
+        outer.removeEventListener('input', cap, true);
+        btn.dispatchEvent(new Event('input', { bubbles: true }));
+        out.captureLog = log.slice();
+
+        // signal
+        var ac = new AbortController();
+        var signalled = 0;
+        btn.addEventListener('focusin', function () { signalled++; }, { signal: ac.signal });
+        btn.dispatchEvent(new Event('focusin'));
+        ac.abort();
+        btn.dispatchEvent(new Event('focusin'));
+        out.signal = signalled;
+
+        // handleEvent object
+        var handled = 0;
+        btn.addEventListener('change', { handleEvent: function () { handled++; } });
+        btn.dispatchEvent(new Event('change'));
+        out.handleEvent = handled;
+
+        // error classes
+        out.errors = {
+          addNoArgs: errorName(function () { btn.addEventListener(); }),
+          addIllegalThis: errorName(function () { EventTarget.prototype.addEventListener.call({}, 'input', function () {}); }),
+          observeNoOptions: errorName(function () { new MutationObserver(function () {}).observe(document.body); }),
+          xhrBadMethod: errorName(function () { new XMLHttpRequest().open('BAD METHOD', '/'); }),
+          xhrSendUnopened: errorName(function () { new XMLHttpRequest().send(); }),
+          beaconBadUrl: errorName(function () { navigator.sendBeacon('http://['); }),
+          fetchNoArgs: await rejection(fetch()),
+          fetchBadUrl: await rejection(fetch('http://[')),
+          fetchIllegalThis: errorName(function () { window.fetch.call({}, '/x'); }),
+        };
+
+        // fetch / XHR / sendBeacon results and Promise identity
+        var p = fetch('/protect/attribution/tracker-b.js');
+        out.fetchPromise = { isPromise: p instanceof Promise, protoIsPromise: Object.getPrototypeOf(p) === Promise.prototype, thenIsNative: p.then === Promise.prototype.then };
+        var res = await p;
+        out.fetch = { ok: res.ok, status: res.status, length: (await res.text()).length };
+        out.xhr = await new Promise(function (resolve) {
+          var xhr = new XMLHttpRequest();
+          xhr.open('GET', '/protect/attribution/tracker-b.js');
+          xhr.addEventListener('load', function () { resolve({ status: xhr.status, length: xhr.responseText.length, readyState: xhr.readyState }); });
+          xhr.send();
+        });
+        out.beacon = navigator.sendBeacon('/attr/diff', 'x');
+        out.fetchMeta = { name: window.fetch.name, length: window.fetch.length, hasPrototype: Object.prototype.hasOwnProperty.call(window.fetch, 'prototype') };
+        out.addMeta = { name: EventTarget.prototype.addEventListener.name, length: EventTarget.prototype.addEventListener.length };
+
+        // MutationObserver records
+        out.mutations = await new Promise(function (resolve) {
+          var mo = new MutationObserver(function (records) { mo.disconnect(); resolve(records.length); });
+          mo.observe(document.body, { childList: true });
+          document.body.appendChild(document.createElement('span'));
+        });
+
+        // a prototype patched later by the page: called exactly once per call
+        var original = EventTarget.prototype.addEventListener;
+        var patchCalls = 0;
+        EventTarget.prototype.addEventListener = function () {
+          patchCalls++;
+          return original.apply(this, arguments);
+        };
+        var latePatched = 0;
+        btn.addEventListener('scroll', function () { latePatched++; });
+        btn.dispatchEvent(new Event('scroll'));
+        EventTarget.prototype.addEventListener = original;
+        out.latePatch = { patchCalls: patchCalls, fired: latePatched };
+
+        var hooks = {
+          fetchNative: Function.prototype.toString.call(window.fetch).indexOf('[native code]') >= 0,
+          addNative: Function.prototype.toString.call(EventTarget.prototype.addEventListener).indexOf('[native code]') >= 0,
+        };
+        F.publish({ fixture: 'protect-main-differential', result: out, hooks: hooks });
+      })();
+    </script>
+  </body>
+</html>

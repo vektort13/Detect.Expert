@@ -1,0 +1,101 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+package session_test
+
+import (
+	"bytes"
+	"context"
+	"crypto/tls"
+	"encoding/binary"
+	"errors"
+	"fmt"
+	"github.com/n0madic/go-openvpn/internal/session"
+	"github.com/n0madic/go-openvpn/internal/transport"
+	"testing"
+	"time"
+)
+
+type detectPlainControl struct{}
+
+func (detectPlainControl) Wrap(opcodeKID byte, sessionID uint64, payload []byte) []byte {
+	packet := make([]byte, 9+len(payload))
+	packet[0] = opcodeKID
+	binary.BigEndian.PutUint64(packet[1:9], sessionID)
+	copy(packet[9:], payload)
+	return packet
+}
+
+func (detectPlainControl) Unwrap(packet []byte) (byte, uint64, uint32, []byte, error) {
+	if len(packet) < 9 {
+		return 0, 0, 0, nil, errors.New("OpenVPN control packet is truncated")
+	}
+	return packet[0], binary.BigEndian.Uint64(packet[1:9]), 0, append([]byte(nil), packet[9:]...), nil
+}
+
+func TestDetectPlainTLSControlHandshake(t *testing.T) {
+	t.Parallel()
+	ctx, cancel := context.WithTimeout(t.Context(), 20*time.Second)
+	defer cancel()
+
+	serverAuth := detectPlainControl{}
+
+	cTr, sTr := transport.MemoryPair()
+	cert, pool := genSelfSignedCert(t)
+
+	const peerID = uint32(99)
+	serverErrCh := make(chan error, 1)
+	go func() {
+		serverErrCh <- runServerWithDataEcho(ctx, sTr, serverAuth, cert, peerID, "AES-256-GCM", t)
+	}()
+
+	cfg := session.Config{
+		Network:    "memory",
+		RemoteAddr: "memB",
+		TLSConfig: &tls.Config{
+			ServerName: "localhost",
+			RootCAs:    pool,
+			MinVersion: tls.VersionTLS13,
+		},
+		Ciphers: []string{"AES-256-GCM"},
+	}
+	sess, err := session.DialWithTransport(ctx, cfg, cTr)
+	if err != nil {
+		t.Fatalf("client Dial (tls-auth): %v", err)
+	}
+	defer func() { _ = sess.Close() }()
+
+	payload := []byte("tls-auth echo")
+	if _, err := sess.Write(payload); err != nil {
+		t.Fatalf("Write: %v", err)
+	}
+	buf := make([]byte, 1500)
+	done := make(chan error, 1)
+	go func() {
+		n, err := sess.Read(buf)
+		if err == nil && !bytes.Equal(buf[:n], payload) {
+			err = fmt.Errorf("echo mismatch: got %q", buf[:n])
+		}
+		done <- err
+	}()
+	select {
+	case err := <-done:
+		if err != nil {
+			t.Fatalf("Read: %v", err)
+		}
+	case <-ctx.Done():
+		t.Fatal("read timed out")
+	}
+
+	if pr := sess.PushReply(); pr.PeerID != peerID {
+		t.Errorf("PeerID = %d, want %d", pr.PeerID, peerID)
+	}
+
+	_ = sess.Close()
+	select {
+	case err := <-serverErrCh:
+		if err != nil && !errors.Is(err, context.Canceled) && !errors.Is(err, transport.ErrClosed) {
+			t.Logf("server returned: %v", err)
+		}
+	case <-time.After(2 * time.Second):
+		t.Log("server goroutine still running on test exit")
+	}
+}

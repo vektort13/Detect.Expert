@@ -1,0 +1,12 @@
+{
+  "applyBatch": "c6557b7fda2f0ff06f4ca59cc111e09cfba7f9f76f0f22dd8386ce03284b912d",
+  "onNetworkHost": "4133fc4c1b6685d1646b78eaf44d71599dc2666d2e9b380be1a745b3327a10b5",
+  "reduce": "e172992161dfbdd16d07c96b8162d3ac136df4679c29c24929d9179902fdd38a",
+  "readStoredDocument": "2b7a7d2155b896e5d2924cccb6d931b731e07129026a0bc1cc5c11c4e4d8765f",
+  "SessionRepository.loadAll": [
+    "d0ea293b16065abbdae10c435c81f8ae7e6e73c127eb7cc5dd945166dd413af7",
+    "af92cdc6890e2c5b2ca7d2c0ee4aa05ba2e74858c98a57d480fd0ab2166d422f"
+  ],
+  "SessionRepository.remove": "68e1477b22c27cd7eef0038fea983978181d6d419b68bda8575e5a2ee640704b",
+  "SessionRepository.clearAll": "45ae2d71fffd4d280c615972a1e80eb66c8368ce575d126b2ea994ea5c924575"
+}

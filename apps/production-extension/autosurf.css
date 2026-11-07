@@ -1,0 +1,75 @@
+/* ADR-075: local Autosurfer workspace, shared management theme tokens. */
+.autosurf-workspace { display: grid; gap: 20px; min-width: 0; color: var(--text); }
+.autosurf-workspace[hidden] { display: none !important; }
+.autosurf-heading, .autosurf-toolbar, .autosurf-actions, .autosurf-progress-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; min-width: 0; }
+.autosurf-heading h2 { margin: 0; font-size: 26px; line-height: 1.3; }
+.autosurf-heading p { margin: 6px 0 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.autosurf-card { display: grid; gap: 18px; min-width: 0; margin: 0; padding: 22px; border: 1px solid var(--glass-line, var(--border)); border-radius: 20px; background: var(--glass, var(--surface)); box-shadow: var(--glass-shadow); }
+.autosurf-card h3 { margin: 0; font-size: 18px; line-height: 1.4; }
+.autosurf-toolbar { justify-content: flex-start; }
+.autosurf-toolbar > h3 { margin-inline-end: auto; }
+.autosurf-actions { justify-content: flex-start; }
+/* ADR-107: the last fallbacks are light-dark() pairs, so they follow the chosen theme (root color-scheme), not the system. */
+.autosurf-workspace { --as-ok: var(--rd-ok, light-dark(#16764f, #7bd8ba)); --as-ok-bg: var(--rd-ok-bg, light-dark(#16815414, #7bd8ba16)); --as-ok-fill: var(--rd-ok-fill, #1b9459); --as-warn: var(--rd-warn, light-dark(#8a5600, #f2bd66)); --as-warn-bg: var(--rd-warn-bg, light-dark(#c9850a18, #f2bd6618)); --as-err: var(--rd-err, light-dark(#b8324c, #ff93a7)); --as-err-bg: var(--rd-err-bg, light-dark(#b8324c12, #ff93a716)); --as-off: var(--rd-off, var(--muted)); --as-off-bg: var(--rd-off-bg, var(--surface-2)); --as-line: var(--rd-line, var(--border)); --as-text-2: var(--rd-text-2, var(--muted)); --as-text-3: var(--rd-text-3, var(--muted)); --as-surface: var(--rd-surface, var(--surface)); --as-accent: var(--rd-accent, var(--accent, #2463c9)); --as-head: color-mix(in srgb, var(--as-accent) 7%, var(--as-surface)); --as-hover: color-mix(in srgb, var(--as-accent) 4%, transparent); }
+/* Dolphin-style round launch buttons: one filled Play, soft Pause and Stop, same three controls. */
+.management-shell .autosurf-run-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; min-width: 0; padding-block-start: 4px; }
+.management-shell .autosurf-run-controls button.autosurf-run-control { --as-tone: var(--as-text-2); display: inline-grid; flex: 0 0 48px; place-items: center; box-sizing: border-box; width: 48px; min-width: 48px; height: 48px; min-height: 48px; margin: 0; padding: 0; border: 1px solid transparent; border-radius: 50%; color: var(--as-tone); background: color-mix(in srgb, var(--as-tone) 13%, var(--as-surface)); box-shadow: none; font: inherit; cursor: pointer; }
+.management-shell .autosurf-run-controls button.autosurf-run-control--play { --as-tone: var(--as-ok-fill); color: #fff; background: var(--as-ok-fill); box-shadow: 0 2px 8px color-mix(in srgb, var(--as-ok-fill) 30%, transparent); }
+.management-shell .autosurf-run-controls button.autosurf-run-control--pause { --as-tone: var(--as-warn); }
+.management-shell .autosurf-run-controls button.autosurf-run-control--stop { --as-tone: var(--as-err); }
+.management-shell .autosurf-run-controls button.autosurf-run-control:not(:disabled):hover { border-color: color-mix(in srgb, var(--as-tone) 55%, transparent); background: color-mix(in srgb, var(--as-tone) 20%, var(--as-surface)); }
+.management-shell .autosurf-run-controls button.autosurf-run-control--play:not(:disabled):hover { border-color: transparent; background: color-mix(in srgb, var(--as-ok-fill) 86%, #000); }
+.management-shell .autosurf-run-controls button.autosurf-run-control:disabled { color: var(--as-off); background: var(--as-off-bg); box-shadow: none; opacity: .6; cursor: default; }
+.management-shell .autosurf-run-control svg { display: block; flex: none; width: 22px; height: 22px; }
+@media (forced-colors: active) { .management-shell .autosurf-run-controls button.autosurf-run-control { color: ButtonText; background: ButtonFace; border-color: ButtonText; box-shadow: none; } .management-shell .autosurf-run-controls button.autosurf-run-control:disabled { color: GrayText; border-color: GrayText; } }
+.autosurf-status { padding: 3px 10px; border: 0; border-radius: 999px; color: var(--as-off); background: var(--as-off-bg); font-size: 12px; font-weight: 600; }
+.autosurf-status--running, .autosurf-status--completed { color: var(--as-ok); background: var(--as-ok-bg); }
+.autosurf-status--paused { color: var(--as-warn); background: var(--as-warn-bg); }
+.autosurf-status--error { color: var(--as-err); background: var(--as-err-bg); }
+.autosurf-run progress { appearance: none; width: 100%; height: 8px; border: 0; border-radius: 8px; background: var(--surface-2); accent-color: var(--accent); }
+.autosurf-run progress::-webkit-progress-bar { background: var(--surface-2); border-radius: 8px; }
+.autosurf-run progress::-webkit-progress-value { background: var(--accent); border-radius: 8px; }
+.autosurf-run progress::-moz-progress-bar { background: var(--accent); border-radius: 8px; }
+.autosurf-summary, .autosurf-metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin: 0; }
+.autosurf-metrics { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.autosurf-summary > div, .autosurf-metrics > div { min-width: 0; }
+.autosurf-workspace dt { color: var(--muted); font-size: 12px; line-height: 1.5; }
+.autosurf-workspace dd { margin: 6px 0 0; font-size: 15px; font-weight: 600; overflow-wrap: anywhere; }
+.autosurf-fields { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.autosurf-field { display: grid; gap: 7px; min-width: 0; color: var(--muted); font-size: 13px; }
+.autosurf-workspace input:not([type=checkbox]), .autosurf-workspace textarea, .autosurf-workspace select { box-sizing: border-box; width: 100%; min-width: 0; max-width: 100%; padding: 10px 11px; border: 1px solid var(--border); border-radius: 10px; color: var(--text); background: var(--surface); font: 400 13px/1.5 var(--font); }
+.autosurf-workspace textarea { resize: vertical; min-height: 100px; max-height: 460px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+.autosurf-workspace :is(input, textarea, select, button):focus-visible, .autosurf-preview:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.autosurf-workspace [aria-invalid=true] { border-color: #b8324c; }
+.autosurf-workspace :disabled { opacity: .62; cursor: default; }
+.autosurf-checks { display: flex; flex-wrap: wrap; gap: 18px; }
+.autosurf-check { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; }
+.autosurf-check input { width: 17px; height: 17px; margin: 0; accent-color: var(--accent); }
+.autosurf-dirty, .autosurf-field small, .autosurf-card > small, .autosurf-empty, .autosurf-reason { color: var(--muted); font-size: 12px; line-height: 1.6; }
+.autosurf-message { margin: 0; padding: 12px 16px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface-2); font-size: 13px; line-height: 1.6; overflow-wrap: anywhere; }
+.autosurf-error { color: #b8324c; border-color: #b8324c55; }
+.autosurf-reason { margin: 0; }
+.autosurf-table-wrap { overflow-x: auto; min-width: 0; }
+.autosurf-workspace table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.autosurf-workspace th, .autosurf-workspace td { padding: 10px 9px; border-block-end: 1px solid var(--border); text-align: start; vertical-align: top; overflow-wrap: anywhere; }
+.autosurf-workspace th { color: var(--muted); font-weight: 600; }
+.autosurf-workspace td:first-child { max-width: 260px; }
+/* Visits: the same manager table as Proxy and Cookies. */
+.autosurf-workspace .autosurf-card .autosurf-table-wrap { max-width: 100%; min-width: 0; overflow-x: auto; border: 1px solid var(--as-line); border-radius: 12px; background: var(--as-surface); overscroll-behavior-inline: contain; }
+.autosurf-workspace .autosurf-table-wrap .autosurf-visits { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 12px; line-height: 1.45; }
+.autosurf-workspace .autosurf-table-wrap .autosurf-visits :is(th, td) { padding: 7px 12px; border-block-end: 1px solid var(--as-line); text-align: start; vertical-align: middle; overflow-wrap: anywhere; }
+.autosurf-workspace .autosurf-table-wrap .autosurf-visits td { height: 50px; }
+.autosurf-workspace .autosurf-table-wrap .autosurf-visits thead th { position: sticky; inset-block-start: 0; z-index: 1; height: 40px; color: var(--as-text-2); background: var(--as-head); font-size: 12px; font-weight: 600; line-height: 1.35; overflow-wrap: break-word; }
+.autosurf-workspace .autosurf-table-wrap .autosurf-visits tbody tr:last-child td { border-block-end: 0; }
+.autosurf-workspace .autosurf-table-wrap .autosurf-visits tbody tr:hover td { background: var(--as-hover); }
+.autosurf-visit-origin { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+.autosurf-visit-number { font-variant-numeric: tabular-nums; }
+.autosurf-visit-status { display: inline-flex; align-items: center; gap: 5px; max-width: 100%; padding: 2px 9px; border-radius: 999px; font-size: 11.5px; font-weight: 600; line-height: 1.45; white-space: nowrap; }
+.autosurf-visit-status::before { flex: none; width: 6px; height: 6px; border-radius: 50%; background: currentColor; content: ""; }
+.autosurf-visit-status--completed { color: var(--as-ok); background: var(--as-ok-bg); }
+.autosurf-visit-status--interrupted { color: var(--as-warn); background: var(--as-warn-bg); }
+.autosurf-visit-status--interrupted::before { background: linear-gradient(90deg, currentColor 50%, transparent 50%); box-shadow: inset 0 0 0 1.5px currentColor; }
+@media (forced-colors: active) { .autosurf-workspace .autosurf-table-wrap .autosurf-visits thead th, .autosurf-visit-status, .autosurf-status { color: CanvasText; background: Canvas; border: 1px solid CanvasText; } }
+.autosurf-preview { scroll-margin-block-start: 20px; }
+@media (max-width: 760px) { .autosurf-fields, .autosurf-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); } .autosurf-card { padding: 17px; } }
+@media (max-width: 480px) { .autosurf-fields, .autosurf-summary, .autosurf-metrics { grid-template-columns: minmax(0, 1fr); } .autosurf-heading h2 { font-size: 23px; } .autosurf-actions, .autosurf-toolbar { gap: 8px; } .autosurf-toolbar > .button { flex: 1 1 auto; } }

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>forms: thank you</title>
+  </head>
+  <body>
+    <h1 id="title">Спасибо, мы перезвоним</h1>
+    <!-- The conversion pixel of the previous page's value (see thank-you-start.html). -->
+    <script src="lib.js"></script>
+    <script>
+      var hex = sessionStorage.getItem('forms-conversion');
+      var rp = sessionStorage.getItem('forms-rp') || '4174';
+      if (hex !== null) {
+        var img = document.createElement('img');
+        img.setAttribute('src', 'http://px.tracker.example.net:' + rp + '/tr?ev=Purchase&ud[em]=' + hex);
+        window.formsLib.note('conversion');
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "provider": "ipapi",
+  "ip": "9.9.9.9",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json; charset=utf-8"
+  },
+  "body": {
+    "status": "success",
+    "country": "Germany",
+    "countryCode": "DE",
+    "region": "HE",
+    "regionName": "Hesse",
+    "city": "Frankfurt am Main",
+    "timezone": "Europe/Berlin",
+    "isp": "Example Hosting GmbH",
+    "org": "Example Hosting",
+    "as": "AS64500 Example Hosting GmbH",
+    "asname": "EXAMPLE-AS",
+    "mobile": false,
+    "proxy": false,
+    "hosting": true,
+    "query": "9.9.9.9"
+  }
+}

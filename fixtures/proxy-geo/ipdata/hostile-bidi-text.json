@@ -1,0 +1,9 @@
+{
+  "provider": "ipdata",
+  "ip": "8.8.8.8",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "text": "{\"ip\":\"8.8.8.8\",\"country_code\":\"US\",\"country_name\":\"Be\\u202erl\\u200bin\\u200e \\u2066(x)\\u2069\\ufeff\\u0007\\u2028end\",\"region\":\"Be\\u202erl\\u200bin\\u200e \\u2066(x)\\u2069\\ufeff\\u0007\\u2028end\",\"city\":\"Be\\u202erl\\u200bin\\u200e \\u2066(x)\\u2069\\ufeff\\u0007\\u2028end\",\"asn\":{\"asn\":\"AS15169\",\"name\":\"Be\\u202erl\\u200bin\\u200e \\u2066(x)\\u2069\\ufeff\\u0007\\u2028end\",\"type\":\"Be\\u202erl\\u200bin\\u200e \\u2066(x)\\u2069\\ufeff\\u0007\\u2028end\"},\"company\":{\"name\":\"Be\\u202erl\\u200bin\\u200e \\u2066(x)\\u2069\\ufeff\\u0007\\u2028end\"},\"time_zone\":{\"name\":\"Europe/\\u202eParis\"}}"
+}

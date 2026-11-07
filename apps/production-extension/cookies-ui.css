@@ -1,0 +1,195 @@
+/* ADR-069: cookie workspace shares the management glass palette and local controls. */
+.cookies-workspace { display: grid; gap: 20px; min-width: 0; color: var(--text); }
+.cookies-workspace-header, .cookies-workspace-heading, .cookies-workspace-actions, .cookies-workspace-selection, .cookies-workspace-pagination, .cookies-workspace-dialog-header, .cookies-workspace-dialog-actions { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.cookies-workspace-header, .cookies-workspace-selection, .cookies-workspace-pagination, .cookies-workspace-dialog-header { justify-content: space-between; }
+.cookies-workspace-header, .cookies-workspace-actions, .cookies-workspace-selection, .cookies-workspace-dialog-actions { flex-wrap: wrap; }
+.cookies-workspace-heading { gap: 13px; }
+.cookies-workspace-emblem { display: grid; place-items: center; width: 46px; height: 46px; flex: none; border: 1px solid color-mix(in srgb, #d58b18 30%, var(--border)); border-radius: 15px; color: #b6750f; background: color-mix(in srgb, #f4b841 13%, var(--surface)); }
+.cookies-workspace-emblem .cookies-workspace-icon { width: 27px; height: 27px; }
+.cookies-workspace-icon { width: 17px; height: 17px; display: block; flex: none; }
+.cookies-workspace-header h2 { margin: 0; font-size: 24px; line-height: 1.3; letter-spacing: -.5px; }
+.cookies-workspace-header p { margin: 5px 0 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+.cookies-workspace-card { display: grid; gap: 20px; min-width: 0; padding: 22px; border: 1px solid var(--glass-line, var(--border)); border-radius: 20px; background: var(--glass, var(--surface)); box-shadow: var(--glass-shadow); }
+.cookies-workspace .button { display: inline-flex; justify-content: center; align-items: center; gap: 7px; max-width: 100%; min-height: 36px; padding: 8px 12px; white-space: normal; overflow-wrap: anywhere; font-size: 13px; line-height: 1.35; }
+@media (forced-colors: none) {
+  :root body .cookies-workspace .button--primary:not(:disabled) { color: #fff; border-color: transparent; background: linear-gradient(140deg, #2866ce, #1f50a6); filter: none; }
+  :root body .cookies-workspace .cookies-workspace-danger:not(:disabled) { color: #fff; border-color: transparent; background: #c83246; }
+}
+.cookies-workspace-scope { display: grid; grid-template-columns: minmax(130px, .7fr) minmax(180px, 1.5fr) auto; align-items: end; gap: 12px; min-width: 0; }
+.cookies-workspace-toolbar { display: grid; grid-template-columns: minmax(0, 1fr) minmax(110px, .35fr) auto; align-items: center; gap: 10px; padding-block-start: 18px; border-block-start: 1px solid var(--border); }
+.cookies-workspace-field { display: grid; align-content: start; gap: 6px; min-width: 0; color: var(--muted); font-size: 13px; line-height: 1.45; }
+.cookies-workspace input:not([type=checkbox]), .cookies-workspace select, .cookies-workspace textarea { width: 100%; min-width: 0; box-sizing: border-box; padding: 9px 11px; border: 1px solid var(--border); border-radius: 11px; color: var(--text); background: var(--surface); font: 400 13px/1.5 var(--font); }
+.cookies-workspace input[type=checkbox] { width: 16px; height: 16px; flex: none; margin: 0; accent-color: var(--accent); }
+.cookies-workspace input:disabled, .cookies-workspace select:disabled { color: var(--muted); opacity: .65; }
+.cookies-workspace :is(input, select, textarea, button, summary, [tabindex]):focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+.cookies-workspace-check { display: flex; align-items: center; gap: 9px; min-width: 0; color: var(--text); font-size: 13px; line-height: 1.5; }
+.cookies-workspace-checks { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; grid-column: 1 / -1; padding-block: 4px; }
+.cookies-workspace-checks .cookies-workspace-check { min-height: 30px; }
+.cookies-workspace-access, .cookies-workspace-result { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 14px; border: 1px solid var(--border); border-radius: 13px; background: var(--surface-2); }
+.cookies-workspace-access p, .cookies-workspace-status { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.cookies-workspace-error { margin: 0; padding: 12px 14px; border: 1px solid var(--error); border-radius: 12px; color: var(--error); background: var(--surface-2); font-size: 13px; line-height: 1.5; overflow-wrap: anywhere; }
+/* ADR-107: light-dark() pairs follow the chosen theme through the root color-scheme, not the system setting. */
+.cookies-workspace { --cw-ok: var(--rd-ok, light-dark(#16764f, #7bd8ba)); --cw-ok-bg: var(--rd-ok-bg, light-dark(#16815414, #7bd8ba16)); --cw-warn: var(--rd-warn, light-dark(#8a5600, #f2bd66)); --cw-warn-bg: var(--rd-warn-bg, light-dark(#c9850a18, #f2bd6618)); --cw-off: var(--rd-off, var(--muted)); --cw-off-bg: var(--rd-off-bg, var(--surface-2)); --cw-line: var(--rd-line, var(--border)); --cw-text: var(--rd-text, var(--text)); --cw-text-2: var(--rd-text-2, var(--muted)); --cw-text-3: var(--rd-text-3, var(--muted)); --cw-surface: var(--rd-surface, var(--surface)); --cw-accent: var(--rd-accent, var(--accent, #2463c9)); --cw-head: color-mix(in srgb, var(--cw-accent) 7%, var(--cw-surface)); --cw-hover: color-mix(in srgb, var(--cw-accent) 4%, transparent); --cw-partition: light-dark(#7a58bd, #c7a6f2); }
+.cookies-workspace-sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.cookies-workspace-filter { position: relative; }
+.cookies-workspace-filter > .cookies-workspace-icon { position: absolute; inset-block-end: 11px; inset-inline-start: 13px; z-index: 1; width: 16px; height: 16px; color: var(--cw-text-3); pointer-events: none; }
+.cookies-workspace .cookies-workspace-card .cookies-workspace-toolbar > .cookies-workspace-filter.cookies-workspace-field :is(input, select) { height: 38px; padding-block: 0; padding-inline: 38px 14px; border-radius: 999px; }
+.cookies-workspace-filter input::placeholder { color: var(--cw-text-3); opacity: 1; }
+.cookies-workspace-results { display: grid; gap: 12px; min-width: 0; }
+.cookies-workspace-selection, .cookies-workspace-pagination { color: var(--cw-text-2); font-size: 12px; line-height: 1.5; }
+.cookies-workspace-selection .button { min-height: 30px; padding: 5px 10px; font-size: 12px; }
+.cookies-workspace .cookies-workspace-table-scroll { max-width: 100%; min-width: 0; overflow-x: auto; border: 1px solid var(--cw-line); border-radius: 12px; background: var(--cw-surface); overscroll-behavior-inline: contain; }
+.cookies-workspace-table { width: 100%; min-width: 650px; table-layout: fixed; border-collapse: separate; border-spacing: 0; color: var(--cw-text); font-size: 12px; line-height: 1.5; }
+.cookies-workspace .cookies-workspace-table-scroll .cookies-workspace-table { min-width: 760px; }
+.cookies-workspace .cookies-workspace-import-preview .cookies-workspace-table-scroll .cookies-workspace-table { min-width: 640px; }
+.cookies-workspace .cookies-workspace-table-scroll .cookies-workspace-table :is(th, td) { padding: 8px 12px; border-block-end: 1px solid var(--cw-line); text-align: start; vertical-align: middle; overflow-wrap: anywhere; }
+.cookies-workspace .cookies-workspace-table-scroll .cookies-workspace-table td { height: 50px; }
+.cookies-workspace .cookies-workspace-table-scroll .cookies-workspace-table thead th { height: 40px; color: var(--cw-text-2); background: var(--cw-head); font-size: 12px; font-weight: 600; line-height: 1.35; overflow-wrap: break-word; }
+.cookies-workspace-table th:first-child { width: 30px; }
+.cookies-workspace-table th.cookies-workspace-expiry-column { width: 118px; }
+.cookies-workspace-table th:nth-last-child(2) { width: 20%; }
+.cookies-workspace-table th:last-child { width: 132px; }
+.cookies-workspace-import-preview .cookies-workspace-table th:last-child { width: 22%; }
+.cookies-workspace .cookies-workspace-table-scroll .cookies-workspace-table tbody tr:last-child td { border-block-end: 0; }
+.cookies-workspace .cookies-workspace-table-scroll .cookies-workspace-table tbody tr:not(.is-selected):hover td { background: var(--cw-hover); }
+.cookies-workspace .cookies-workspace-table-scroll .cookies-workspace-table tr.is-selected td { background: color-mix(in srgb, var(--cw-accent) 8%, var(--cw-surface)); }
+.cookies-workspace .cookies-workspace-table-scroll .cookies-workspace-table tr.is-selected td:first-child { box-shadow: inset 3px 0 0 var(--cw-accent); }
+.cookies-workspace:dir(rtl) .cookies-workspace-table-scroll .cookies-workspace-table tr.is-selected td:first-child { box-shadow: inset -3px 0 0 var(--cw-accent); }
+.cookies-workspace-table .cookies-workspace-check span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.cookies-workspace-name, .cookies-workspace-domain, .cookies-workspace-path { display: block; unicode-bidi: plaintext; overflow-wrap: anywhere; }
+.cookies-workspace-name { font-size: 13px; font-weight: 650; line-height: 1.35; }
+.cookies-workspace-domain { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 12px; }
+.cookies-workspace-path { margin-block-start: 2px; color: var(--cw-text-3); font-size: 11px; }
+.cookies-workspace-pills { display: flex; flex-wrap: wrap; gap: 4px; margin-block-start: 5px; }
+.cookies-workspace-pill { display: inline-flex; align-items: center; padding: 1px 8px; border-radius: 999px; color: var(--cw-off); background: var(--cw-off-bg); font-size: 10.5px; font-weight: 600; line-height: 1.5; white-space: nowrap; }
+.cookies-workspace-pill--http { color: var(--cw-accent); background: color-mix(in srgb, var(--cw-accent) 11%, transparent); }
+.cookies-workspace-pill--secure { color: var(--cw-ok); background: var(--cw-ok-bg); }
+.cookies-workspace-pill--partition { color: var(--cw-partition); background: color-mix(in srgb, var(--cw-partition) 12%, transparent); }
+.cookies-workspace-pill--samesite { color: var(--cw-text-2); background: transparent; box-shadow: inset 0 0 0 1px var(--cw-line); }
+.cookies-workspace-pill--session { color: var(--cw-warn); background: var(--cw-warn-bg); }
+.cookies-workspace-expiry { display: grid; gap: 1px; min-width: 0; }
+.cookies-workspace-expiry-date { font-size: 12px; font-variant-numeric: tabular-nums; }
+.cookies-workspace-masked { display: inline-block; padding: 0 9px; border-radius: 999px; color: var(--cw-text-3); background: var(--cw-off-bg); font-size: 14px; line-height: 22px; letter-spacing: 2px; }
+.cookies-workspace-value { display: block; max-height: 160px; overflow: auto; white-space: pre-wrap; unicode-bidi: plaintext; overflow-wrap: anywhere; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 11px; }
+.cookies-workspace-row-actions { text-align: end; }
+.cookies-workspace-row-buttons { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 2px 4px; }
+:root body .cookies-workspace .cookies-workspace-text-button { display: inline-flex; align-items: center; justify-content: start; gap: 5px; max-width: 100%; min-height: 28px; padding: 3px 8px; border: 0; border-radius: 999px; color: var(--cw-accent); background: transparent; box-shadow: none; font: 600 12px/1.4 var(--font); cursor: pointer; white-space: normal; overflow-wrap: anywhere; }
+:root body .cookies-workspace .cookies-workspace-text-button .cookies-workspace-icon { width: 15px; height: 15px; }
+:root body .cookies-workspace .cookies-workspace-text-button:hover:not(:disabled) { background: color-mix(in srgb, currentColor 10%, transparent); box-shadow: none; }
+:root body .cookies-workspace .cookies-workspace-text-button--danger { color: var(--error); }
+:root body .cookies-workspace .cookies-workspace-text-button:disabled { opacity: .5; cursor: default; }
+.cookies-workspace-dialog { box-sizing: border-box; width: min(760px, calc(100vw - 32px)); max-width: calc(100vw - 32px); max-height: calc(100dvh - 40px); margin: auto; padding: 0; border: 1px solid var(--glass-line, var(--border)); border-radius: 23px; color: var(--text); background: var(--surface); box-shadow: 0 24px 80px #0003; overflow: auto; }
+.cookies-workspace-dialog::backdrop { background: #17233a70; backdrop-filter: blur(4px); }
+.cookies-workspace-dialog-header { position: sticky; top: 0; z-index: 1; gap: 16px; padding: 19px 22px 15px; border-block-end: 1px solid var(--border); background: var(--surface); }
+.cookies-workspace-dialog-header h3 { margin: 0; font-size: 20px; line-height: 1.4; letter-spacing: -.3px; }
+:root body .cookies-workspace-close { display: grid; place-items: center; width: 32px; height: 32px; flex: none; padding: 0; border: 1px solid var(--border); border-radius: 10px; color: var(--muted); background: var(--surface-2); box-shadow: none; }
+.cookies-workspace-close > span { display: none; }
+.cookies-workspace-dialog-body { display: grid; gap: 18px; padding: 22px; min-width: 0; }
+.cookies-workspace-dialog > .cookies-workspace-error { margin: 0 22px 22px; }
+.cookies-workspace-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; min-width: 0; padding: 0; margin: 0; border: 0; }
+.cookies-workspace-value-field { display: flex; align-items: end; gap: 8px; grid-column: 1 / -1; min-width: 0; }
+.cookies-workspace-value-field > label { flex: 1; }
+.cookies-workspace-value-field > button { min-height: 38px; }
+.cookies-workspace-partition { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; grid-column: 1 / -1; min-width: 0; padding: 15px; border: 1px solid var(--border); border-radius: 13px; background: var(--surface-2); }
+.cookies-workspace-partition > .cookies-workspace-check { grid-column: 1 / -1; }
+.cookies-workspace-dialog-actions { justify-content: flex-end; padding-block-start: 6px; }
+.cookies-workspace-import-input { display: grid; gap: 14px; min-width: 0; }
+.cookies-workspace-import-input > button { justify-self: start; }
+.cookies-workspace textarea { min-height: 240px; resize: vertical; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 11px; }
+.cookies-workspace-store-map { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; min-width: 0; padding: 15px; border: 1px solid var(--border); border-radius: 13px; background: var(--surface-2); }
+.cookies-workspace-import-preview { display: grid; gap: 14px; min-width: 0; }
+.cookies-workspace-import-preview .cookies-workspace-table { min-width: 540px; }
+.cookies-workspace-import-preview .cookies-workspace-table th:first-child { width: auto; }
+.cookies-workspace-counts { display: flex; flex-wrap: wrap; gap: 10px; min-width: 0; }
+.cookies-workspace-counts > span { display: flex; align-items: baseline; gap: 5px; padding: 5px 9px; border: 1px solid var(--border); border-radius: 9px; color: var(--muted); background: var(--surface); font-size: 12px; }
+.cookies-workspace-counts strong { color: var(--text); font-size: 15px; font-weight: 650; }
+.cookies-workspace-issues { display: grid; gap: 5px; margin: 0; padding: 12px; border: 1px solid var(--border); border-radius: 11px; background: var(--surface-2); color: var(--muted); font-size: 12px; }
+.cookies-workspace-issues p { margin: 0; }
+.cookies-workspace-action { display: inline-flex; padding: 3px 7px; border-radius: 7px; background: var(--surface-2); color: var(--muted); font-size: 11px; }
+.cookies-workspace-action--create { color: #178658; background: color-mix(in srgb, #199765 10%, var(--surface)); }
+.cookies-workspace-action--overwrite { color: #a76a0b; background: color-mix(in srgb, #d69b20 12%, var(--surface)); }
+.cookies-workspace-action--error { color: var(--error); background: color-mix(in srgb, var(--error) 9%, var(--surface)); }
+/* ADR-069 addendum 2026-11-07: editor date converter, identity lock note, form problems and read-only details. */
+.cookies-workspace-editor { container: cookie-editor / inline-size; }
+.cookies-workspace-cell { display: grid; align-content: start; gap: 6px; min-width: 0; }
+.cookies-workspace-hint { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
+.cookies-workspace-lock { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; grid-column: 1 / -1; margin: 0; padding: 10px 12px; border: 1px solid var(--border); border-radius: 11px; color: var(--muted); background: var(--surface); font-size: 12.5px; line-height: 1.5; }
+.cookies-workspace-lock > p { flex: 1 1 260px; margin: 0; }
+:root body .cookies-workspace .button.cookies-workspace-copy { min-height: 32px; padding: 5px 10px; flex: none; font-size: 12px; }
+.cookies-workspace-converter { display: grid; grid-column: 1 / -1; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: end; column-gap: 10px; row-gap: 8px; min-width: 0; }
+.cookies-workspace-converter__seconds { grid-column: 1; grid-row: 1; min-width: 0; }
+.cookies-workspace-converter__actions { grid-column: 2; grid-row: 1; display: flex; align-items: center; gap: 6px; }
+.cookies-workspace-converter__datetime { grid-column: 3; grid-row: 1; min-width: 0; }
+.cookies-workspace-converter__zone { grid-column: 3; grid-row: 2; min-width: 0; }
+.cookies-workspace-converter__hint, .cookies-workspace-converter__message { grid-column: 1 / -1; }
+:root body .cookies-workspace .button.cookies-workspace-convert { width: 40px; min-width: 40px; height: 40px; min-height: 40px; padding: 0; flex: none; }
+.cookies-workspace-convert > span { display: none; }
+.cookies-workspace-convert .cookies-workspace-icon { width: 18px; height: 18px; }
+.cookies-workspace-convert--back .cookies-workspace-icon { transform: scaleX(-1); }
+.cookies-workspace:dir(rtl) .cookies-workspace-convert .cookies-workspace-icon { transform: scaleX(-1); }
+.cookies-workspace:dir(rtl) .cookies-workspace-convert--back .cookies-workspace-icon { transform: none; }
+.cookies-workspace-field-error { margin: 0; color: var(--error); font-size: 12.5px; line-height: 1.5; overflow-wrap: anywhere; }
+.cookies-workspace input[aria-invalid=true] { border-color: var(--error); box-shadow: 0 0 0 1px var(--error); }
+.cookies-workspace-partition__hint { grid-column: 1 / -1; }
+.cookies-workspace-problems { display: grid; grid-column: 1 / -1; gap: 4px; margin: 0; padding: 10px 12px; padding-inline-start: 30px; border: 1px solid color-mix(in srgb, var(--cw-warn) 40%, var(--border)); border-radius: 11px; color: var(--cw-warn); background: var(--cw-warn-bg); font-size: 12.5px; line-height: 1.5; list-style: disc; }
+.cookies-workspace-details { display: grid; grid-column: 1 / -1; gap: 8px; min-width: 0; padding: 12px 14px; border: 1px solid var(--border); border-radius: 13px; background: var(--surface); }
+.cookies-workspace-details h4 { margin: 0; color: var(--text); font-size: 13px; font-weight: 650; line-height: 1.4; }
+.cookies-workspace-details dl { display: grid; gap: 6px; min-width: 0; margin: 0; }
+.cookies-workspace-detail { display: grid; grid-template-columns: minmax(96px, 150px) minmax(0, 1fr); align-items: baseline; gap: 2px 14px; min-width: 0; }
+.cookies-workspace-detail dt { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+.cookies-workspace-detail dd { margin: 0; color: var(--text); font-size: 13px; line-height: 1.5; overflow-wrap: anywhere; }
+.cookies-workspace-detail .cookies-workspace-pill { margin-inline-end: 8px; }
+/* The editor is a block with a sticky action bar, so Save stays reachable however tall the form grows (--cw-edge is the form padding). */
+.management-shell .cookies-workspace-dialog-body.cookies-workspace-editor { --cw-edge: 18px; display: block; padding: var(--cw-edge); }
+.cookies-workspace-editor > .cookies-workspace-fields { margin-block-end: 16px; }
+.cookies-workspace-editor > .cookies-workspace-dialog-actions { position: sticky; inset-block-end: 0; z-index: 2; margin-inline: calc(var(--cw-edge) * -1); margin-block-end: calc(var(--cw-edge) * -1); padding: 12px var(--cw-edge) var(--cw-edge); border-block-start: 1px solid var(--border); background: var(--surface); }
+@media (max-width: 560px) { .management-shell .cookies-workspace-dialog-body.cookies-workspace-editor { --cw-edge: 14px; } }
+/* A narrow editor stacks the converter: Unix seconds, the two arrows (now pointing down and up) and the date field. */
+@container cookie-editor (max-width: 560px) {
+  .cookies-workspace-converter { grid-template-columns: minmax(0, 1fr); }
+  .cookies-workspace-converter > * { grid-column: 1; grid-row: auto; }
+  .cookies-workspace-converter__actions { justify-content: center; }
+  .cookies-workspace:is(:dir(ltr), :dir(rtl)) .cookies-workspace-convert--forward .cookies-workspace-icon { transform: rotate(90deg); }
+  .cookies-workspace:is(:dir(ltr), :dir(rtl)) .cookies-workspace-convert--back .cookies-workspace-icon { transform: rotate(-90deg); }
+}
+@container cookie-editor (max-width: 440px) { .cookies-workspace-detail { grid-template-columns: minmax(0, 1fr); } }
+@media (forced-colors: active) {
+  .cookies-workspace-lock, .cookies-workspace-details, .cookies-workspace-problems, .cookies-workspace-editor > .cookies-workspace-dialog-actions { color: CanvasText; background: Canvas; border-color: CanvasText; }
+  .cookies-workspace input[aria-invalid=true] { border-color: Highlight; box-shadow: none; outline: 2px solid Highlight; }
+  .cookies-workspace-field-error, .cookies-workspace-hint { color: CanvasText; }
+}
+@media (max-width: 760px) {
+  .cookies-workspace-card { padding: 17px; border-radius: 17px; }
+  .cookies-workspace-scope { grid-template-columns: minmax(120px, .75fr) minmax(130px, 1fr); }
+  .cookies-workspace-scope > button { grid-column: 1 / -1; justify-self: start; }
+}
+@media (max-width: 480px) {
+  .cookies-workspace-header { align-items: flex-start; gap: 16px; }
+  .cookies-workspace-header h2 { font-size: 22px; }
+  .cookies-workspace-heading { gap: 9px; }
+  .cookies-workspace-emblem { width: 40px; height: 40px; border-radius: 12px; }
+  .cookies-workspace-scope, .cookies-workspace-toolbar { grid-template-columns: minmax(0, 1fr); }
+  .cookies-workspace-scope > button { grid-column: auto; }
+  .cookies-workspace-toolbar > button { justify-self: start; }
+  .cookies-workspace-dialog { width: calc(100vw - 18px); max-width: calc(100vw - 18px); max-height: calc(100dvh - 20px); border-radius: 18px; }
+  .cookies-workspace-dialog-header { padding: 15px; }
+  .cookies-workspace-dialog-body { padding: 16px; }
+  .cookies-workspace-dialog-header h3 { font-size: 18px; }
+  .cookies-workspace-fields, .cookies-workspace-partition { grid-template-columns: minmax(0, 1fr); }
+  .cookies-workspace-dialog-actions { justify-content: stretch; }
+  .cookies-workspace-dialog-actions .button { flex: 1; }
+  .cookies-workspace-dialog > .cookies-workspace-error { margin-inline: 16px; }
+}
+@media (prefers-reduced-motion: no-preference) { :root body .cookies-workspace-text-button { transition: background-color .15s ease, color .15s ease; } }
+@media (prefers-reduced-motion: reduce) { .cookies-workspace * { transition: none; scroll-behavior: auto; } }
+@media (forced-colors: active) {
+  .cookies-workspace-card, .cookies-workspace-access, .cookies-workspace-result, .cookies-workspace-table-scroll, .cookies-workspace-table th, .cookies-workspace-dialog, .cookies-workspace-dialog-header, .cookies-workspace-partition, .cookies-workspace-store-map, .cookies-workspace-issues, .cookies-workspace-counts > span { background: Canvas; color: CanvasText; border-color: CanvasText; box-shadow: none; }
+  .cookies-workspace input:not([type=checkbox]), .cookies-workspace select, .cookies-workspace textarea { color: FieldText; background: Field; border-color: FieldText; }
+  .cookies-workspace-emblem, .cookies-workspace-pill, .cookies-workspace-action { color: CanvasText; background: Canvas; border-color: CanvasText; }
+  :root body .cookies-workspace .cookies-workspace-text-button, :root body .cookies-workspace-close { color: ButtonText; background: ButtonFace; border-color: ButtonText; }
+  .cookies-workspace .cookies-workspace-table-scroll .cookies-workspace-table :is(thead th, tr.is-selected td) { color: CanvasText; background: Canvas; box-shadow: none; }
+  .cookies-workspace-table tr.is-selected td { outline: 1px solid Highlight; outline-offset: -1px; }
+  .cookies-workspace-masked { color: CanvasText; background: Canvas; border: 1px solid CanvasText; }
+  .cookies-workspace-filter > .cookies-workspace-icon { color: CanvasText; }
+  .cookies-workspace :focus-visible { outline-color: Highlight; }
+}

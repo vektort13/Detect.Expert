@@ -1,0 +1,13 @@
+{
+  "provider": "maxmind",
+  "ip": "8.8.8.8",
+  "service": "geolite-city",
+  "status": 402,
+  "headers": {
+    "content-type": "application/vnd.maxmind.com-error+json; charset=UTF-8; version=2.1"
+  },
+  "body": {
+    "code": "INSUFFICIENT_FUNDS",
+    "error": "You do not have sufficient funds to use this service."
+  }
+}

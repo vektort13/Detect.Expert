@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>forms: short name</title>
+  </head>
+  <body>
+    <h1 id="title">Короткое имя</h1>
+    <!-- A short name (e.g. «Анна», 4 characters) is below plaintextMinChars: its plain form is never fingerprinted (a
+         coincidental match would be likely), only the hashes of its canonical forms are. On blur the pixel sends the
+         plain name (fn=) and sha256 of its lower-case form (fn_h=): only fn_h may match, with medium confidence. -->
+    <form id="form" action="#" onsubmit="return false">
+      <label>Имя <input id="name" type="text" name="first_name" autocomplete="given-name" /></label>
+    </form>
+    <script src="lib.js"></script>
+    <script>
+      var field = document.getElementById('name');
+      field.addEventListener('blur', function () {
+        var value = field.value.trim();
+        if (value.length === 0) return;
+        var img = document.createElement('img');
+        img.setAttribute('src', window.formsLib.receiver('px.tracker.example.net') + '/tr?fn=' + encodeURIComponent(value) + '&fn_h=' + window.formsLib.sha256Hex(value.toLowerCase()));
+        window.formsLib.note('pixel');
+      });
+    </script>
+  </body>
+</html>

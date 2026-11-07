@@ -1,0 +1,7 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+
+# Build scripts approved for reproducible installs (pnpm 10). esbuild only validates its platform binary.
+onlyBuiltDependencies:
+  - esbuild

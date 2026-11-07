@@ -1,0 +1,222 @@
+/* Module «Защита» (ADR-020 §I, S14): data requests — requests.html (composer, journal, file previews), the popup
+   reminder, the Options section and the «Подготовить запрос о данных» entry. Partial stylesheet built into
+   protect.css after base.css; only the extension palette tokens of ui.css and base.css (surface, surface-2, text,
+   muted, border, accent, accent-bg, attention*), so light and dark follow prefers-color-scheme. Red stays reserved for
+   product errors: an overdue deadline is an attention state, not an error. */
+
+.requests-header {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.requests-header p {
+  margin: 0;
+}
+
+.requests-draft-badge {
+  justify-self: start;
+}
+
+.requests-composer,
+.requests-journal {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.requests-fieldset {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding: var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  min-width: 0;
+}
+
+.requests-fieldset legend {
+  padding: 0 var(--space-1);
+  font-weight: 600;
+}
+
+.requests-option {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  min-height: 24px;
+  cursor: pointer;
+}
+
+.requests-option input {
+  margin-top: 3px;
+  flex: none;
+}
+
+.requests-fact span {
+  overflow-wrap: anywhere;
+}
+
+.requests-warning {
+  margin: 0;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--attention-border);
+  border-radius: var(--radius);
+  background: var(--attention-bg);
+  color: var(--text);
+}
+
+.requests-law select {
+  max-width: 420px;
+}
+
+.requests-preview {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.requests-preview__title {
+  margin: 0;
+  font-size: 15px;
+}
+
+.requests-preview input[readonly],
+.requests-preview__body {
+  font: 13px/1.5 var(--mono);
+  padding: var(--space-2);
+  border: 1px solid var(--control-border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+  width: 100%;
+  min-width: 0;
+}
+
+.requests-preview__body {
+  resize: vertical;
+  white-space: pre-wrap;
+}
+
+.requests-actions a.button {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.requests-notes {
+  margin: 0;
+  padding-left: var(--space-4);
+}
+
+.requests-notice:empty {
+  display: none;
+}
+
+.requests-list {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.requests-row {
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.requests-row__title {
+  margin: 0;
+  font-size: 15px;
+}
+
+.requests-row__line {
+  margin: 0;
+}
+
+.requests-row__actions {
+  display: grid;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.requests-row__actions .actions {
+  margin: 0;
+}
+
+.requests-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--space-2);
+}
+
+.requests-status .field {
+  min-width: 160px;
+}
+
+.requests-status input[type='date'] {
+  font: inherit;
+  padding: var(--space-1) var(--space-2);
+  min-height: 32px;
+  border: 1px solid var(--control-border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.requests-due {
+  padding: var(--space-2) var(--space-3);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--accent-bg);
+}
+
+.requests-due p {
+  margin: 0;
+}
+
+.requests-due--due-soon,
+.requests-due--overdue {
+  border-left-color: var(--attention-border);
+  background: var(--attention-bg);
+}
+
+.requests-due--overdue .requests-due__line {
+  color: var(--attention);
+  font-weight: 600;
+}
+
+.requests-file__text {
+  max-height: 50vh;
+  overflow: auto;
+  white-space: pre-wrap;
+}
+
+/* Popup: one line under the evidence and GPC rows. */
+.requests-reminder {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-1) var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--attention-border);
+  border-radius: var(--radius);
+  background: var(--attention-bg);
+}
+
+.requests-reminder__text {
+  margin: 0;
+}
+
+.requests-entry {
+  justify-self: start;
+}

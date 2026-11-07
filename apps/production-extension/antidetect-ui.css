@@ -1,0 +1,779 @@
+/* ADR-064/066: Antidetect uses the management palette, category sidebar and native controls. */
+.antidetect { display: grid; gap: 20px; min-width: 0; color: var(--text); }
+.antidetect .fingerprint-engine { gap: 14px; }
+.fingerprint-engine__heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; min-width: 0; }
+.fingerprint-engine__heading h3 { display: flex; align-items: center; gap: 10px; min-width: 0; overflow-wrap: anywhere; }
+.fingerprint-engine__heading h3 svg { flex: none; color: var(--accent); }
+.fingerprint-engine__status { box-sizing: border-box; max-width: 100%; padding: 5px 10px; border: 1px solid var(--border); border-radius: 999px; color: var(--muted); background: var(--surface-2); font-size: var(--type-hint-size, 12px); line-height: 1.45; overflow-wrap: anywhere; }
+.fingerprint-engine__form { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; min-width: 0; }
+.fingerprint-engine__url { flex: 1 1 260px; }
+.fingerprint-engine__actions { display: flex; flex: 1 1 360px; flex-wrap: wrap; gap: 9px; min-width: 0; }
+.fingerprint-engine__actions .button { flex: 1 1 130px; min-width: 0; max-width: 100%; min-height: 42px; white-space: normal; overflow-wrap: anywhere; }
+.fingerprint-engine__workers, .fingerprint-engine__error { min-width: 0; margin: 0; overflow-wrap: anywhere; }
+.fingerprint-engine__workers { color: var(--muted); }
+.fingerprint-engine__workers strong { color: var(--text); }
+.fingerprint-engine__error { color: var(--danger, var(--text)); }
+.fingerprint-engine__fields { min-width: 0; color: var(--muted); overflow-wrap: anywhere; }
+.fingerprint-engine__fields summary { cursor: pointer; }
+.fingerprint-engine__fields ul { margin-block: 10px 0; padding-inline-start: 22px; }
+.fingerprint-engine__fields code { color: var(--text); font-size: inherit; overflow-wrap: anywhere; }
+@media (forced-colors: active) { .fingerprint-engine__heading h3 svg, .fingerprint-engine__error, .fingerprint-engine__status { color: CanvasText; } .fingerprint-engine__status { background: Canvas; border-color: CanvasText; } }
+.antidetect-card.api-usage-highlight { border-inline-start: 3px solid var(--api-usage-accent); background: linear-gradient(100deg, var(--api-usage-tint), var(--surface, #fff) 85%); }
+.antidetect-device-usage:not(.api-usage-highlight) { display: contents; }
+.antidetect-device-usage.api-usage-highlight { margin-block-start: 18px; padding: 12px; border: 1px solid var(--border); border-inline-start: 3px solid var(--api-usage-accent); border-radius: 12px; background: var(--api-usage-tint); }
+.antidetect-device-usage.api-usage-highlight > .api-usage-badges { margin-block-start: 0; }
+.antidetect-device-usage.api-usage-highlight > .antidetect-subsection { margin-block-start: 14px; }
+.antidetect-subheading.api-usage-highlight { border-inline-start: 3px solid var(--api-usage-accent); padding-inline-start: 10px; }
+.antidetect-protocol.api-usage-highlight { border-inline-start: 3px solid var(--api-usage-accent); padding-inline-start: 12px; }
+.antidetect-math-usage.api-usage-highlight { min-width: 0; padding: 12px; border: 1px solid var(--border); border-inline-start: 3px solid var(--api-usage-accent); border-radius: 21px; background: var(--api-usage-tint); }
+.antidetect-math-usage.api-usage-highlight > .api-usage-badges { margin-block: 0 12px; }
+.antidetect-math-usage:not(.api-usage-highlight) > .api-usage-badges { display: none; }
+@media (forced-colors: active) { .antidetect-card.api-usage-highlight, .antidetect-device-usage.api-usage-highlight, .antidetect-math-usage.api-usage-highlight { color: CanvasText; background: Canvas; border-color: CanvasText; border-inline-start-color: Highlight; } .antidetect-protocol.api-usage-highlight, .antidetect-subheading.api-usage-highlight { border-inline-start-color: Highlight; } }
+.antidetect-header, .antidetect-card-heading, .antidetect-master, .antidetect-savebar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; min-width: 0; }
+.antidetect-header h2 { margin: 0; font-size: 26px; line-height: 1.3; letter-spacing: -.6px; }
+.antidetect-header p { margin: 5px 0 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+.antidetect-layout { display: grid; grid-template-columns: 182px minmax(0, 1fr); align-items: start; gap: 18px; min-width: 0; }
+.antidetect-main { display: grid; gap: 18px; min-width: 0; }
+.antidetect-categories { box-sizing: border-box; display: grid; gap: 5px; min-width: 0; padding: 7px; border: 1px solid var(--glass-line, var(--border)); border-radius: 18px; background: var(--glass, var(--surface)); }
+:root body .antidetect .antidetect-category { position: relative; display: flex; align-items: center; gap: 10px; min-width: 0; min-height: 46px; padding: 9px 10px; border: 1px solid transparent; border-radius: 11px; color: var(--text); background: transparent; box-shadow: none; text-align: start; font: 600 13px/1.4 var(--font); cursor: pointer; transition: color .15s ease, background-color .15s ease, border-color .15s ease; }
+:root body .antidetect .antidetect-category:not(:disabled):hover { color: var(--text); border-color: var(--border); background: var(--surface-2); box-shadow: none; }
+:root body .antidetect .antidetect-category.is-selected, :root body .antidetect .antidetect-category.is-selected:not(:disabled):hover { color: var(--antidetect-category-color); border-color: var(--antidetect-category-line); background: var(--antidetect-category-tint); box-shadow: none; }
+.antidetect-category.is-selected::before { position: absolute; inset-inline-start: 0; inset-block: 11px; width: 3px; border-radius: 999px; background: currentColor; content: ''; }
+.antidetect-category__label { min-width: 0; overflow-wrap: anywhere; }
+/* Light and dark hues follow the chosen theme, not the operating system: light-dark() reads the root color-scheme that
+   theme-bootstrap.js and theme-controller.js set from the effective theme (Pearl on a dark system stays light). */
+.antidetect-category--quick { --antidetect-category-color: light-dark(#4f57ba, #b3b9ff); --antidetect-category-line: light-dark(#4f57ba40, #b3b9ff45); --antidetect-category-tint: light-dark(#4f57ba0e, #b3b9ff12); }
+.antidetect-category--device { --antidetect-category-color: light-dark(#16718d, #73d0e6); --antidetect-category-line: light-dark(#16718d40, #73d0e645); --antidetect-category-tint: light-dark(#16718d0e, #73d0e612); }
+.antidetect-category--os { --antidetect-category-color: light-dark(#7947a8, #d3acf5); --antidetect-category-line: light-dark(#7947a840, #d3acf545); --antidetect-category-tint: light-dark(#7947a80e, #d3acf512); }
+.antidetect-category--network { --antidetect-category-color: light-dark(#2866ce, #8bb6ff); --antidetect-category-line: light-dark(#2866ce40, #8bb6ff45); --antidetect-category-tint: light-dark(#2866ce0e, #8bb6ff12); }
+.antidetect-category--browser { --antidetect-category-color: light-dark(#8c6418, #eacb86); --antidetect-category-line: light-dark(#8c641840, #eacb8645); --antidetect-category-tint: light-dark(#8c64180e, #eacb8612); }
+.antidetect-icon { display: inline-grid; flex: none; place-items: center; width: 30px; height: 30px; border-radius: 9px; color: #346ed1; background: #346ed115; }
+.antidetect-icon svg { display: block; flex: none; }
+.antidetect-category .antidetect-icon { width: 28px; height: 28px; color: var(--antidetect-category-color); background: var(--antidetect-category-tint); }
+.antidetect-icon--device { color: light-dark(#167fa0, #6ec9e7); background: #167fa015; }
+.antidetect-icon--os, .antidetect-icon--certificates { color: light-dark(#8652b8, #c49ce7); background: #8652b815; }
+.antidetect-icon--browser, .antidetect-icon--quic { color: light-dark(#a67518, #e3be72); background: #a6751815; }
+.antidetect-icon--devices, .antidetect-icon--webtransport { color: light-dark(#248465, #75c9ac); background: #24846515; }
+.antidetect-icon--leak { color: #4878c6; background: #4878c615; }
+.antidetect-icon--websocket { color: light-dark(#8758b1, #c6a0e5); background: #8758b115; }
+.antidetect-icon--ipv6 { color: light-dark(#b56c39, #e2a477); background: #b56c3915; }
+.antidetect-icon--headers { color: light-dark(#2b7f95, #6fc3d6); background: #2b7f9515; }
+.antidetect-content, .antidetect-network, .antidetect-form { display: grid; gap: 18px; min-width: 0; }
+.antidetect-content > [hidden], .antidetect [hidden] { display: none !important; }
+.antidetect-card, .antidetect-master { box-sizing: border-box; min-width: 0; padding: 22px; border: 1px solid var(--glass-line, var(--border)); border-radius: 20px; background: var(--glass, var(--surface)); box-shadow: var(--glass-shadow); }
+.antidetect-card { display: grid; gap: 20px; }
+.antidetect-card h3 { margin: 0; font-size: 20px; font-weight: 650; line-height: 1.35; }
+.antidetect-card h4 { margin: 0; font-size: 14px; line-height: 1.45; font-weight: 650; }
+.antidetect-title-with-icon, .antidetect-subheading { display: flex; align-items: center; gap: 11px; min-width: 0; }
+.antidetect-subheading { gap: 9px; }
+.antidetect-subheading .antidetect-icon { width: 28px; height: 28px; }
+.antidetect-master strong { font-size: 14px; line-height: 1.4; }
+.antidetect-label, .antidetect-note { color: var(--muted); font-size: 13px; line-height: 1.55; }
+.antidetect-note { margin: 0; overflow-wrap: anywhere; }
+.antidetect-webrtc-mode { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; }
+.antidetect-mode-label { display: grid; gap: 5px; justify-items: start; }
+.antidetect-scope { padding: 3px 7px; border: 1px solid var(--border); border-radius: 7px; color: var(--muted); background: var(--surface-2); font-size: 12px; line-height: 1.4; }
+.antidetect-segmented { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 4px; max-width: 100%; padding: 4px; border: 1px solid var(--border); border-radius: 15px; background: var(--surface-2); }
+:root body .antidetect .antidetect-mode { min-height: 34px; min-width: 78px; padding: 7px 13px; border: 1px solid transparent; border-radius: 10px; color: var(--text); background: var(--surface); box-shadow: 0 1px 3px #1c34550a; font: 650 13px/1.35 var(--font); cursor: pointer; }
+:root body .antidetect .antidetect-mode--allow { color: light-dark(#137348, #79d3a8); }
+:root body .antidetect .antidetect-mode--block { color: light-dark(#b42a43, #f49aab); }
+:root body .antidetect .antidetect-mode--spoof { color: light-dark(#7440aa, #cfaaef); }
+@media (forced-colors: none) {
+  :root body .antidetect .antidetect-mode:not(:disabled):hover { color: var(--text); border-color: var(--accent); background: var(--surface); filter: none; box-shadow: 0 2px 6px #1c345519; }
+  :root body .antidetect .antidetect-mode--allow.is-selected, :root body .antidetect .antidetect-mode--allow.is-selected:not(:disabled):hover { color: #fff; background: #168354; border-color: #168354; }
+  :root body .antidetect .antidetect-mode--block.is-selected, :root body .antidetect .antidetect-mode--block.is-selected:not(:disabled):hover { color: #fff; background: #b92d46; border-color: #b92d46; }
+  :root body .antidetect .antidetect-mode--spoof.is-selected, :root body .antidetect .antidetect-mode--spoof.is-selected:not(:disabled):hover { color: #fff; background: #7642b2; border-color: #7642b2; }
+  :root body .antidetect .button--primary:not(:disabled), :root body .antidetect .button--primary:not(:disabled):hover { color: #fff; border-color: transparent; background: linear-gradient(140deg, #2866ce, #1f50a6); filter: none; }
+}
+.antidetect-state { display: inline-flex; align-items: center; gap: 6px; max-width: 100%; padding: 5px 9px; border: 1px solid var(--border); border-radius: 999px; color: var(--muted); background: var(--surface-2); font-size: 12px; line-height: 1.45; overflow-wrap: anywhere; }
+.antidetect-state__dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex: none; }
+.antidetect-state--allow { color: light-dark(#197249, #79d3a8); }
+.antidetect-state--block { color: light-dark(#b02d45, #f49aab); }
+.antidetect-state--spoof { color: light-dark(#7946ad, #cfaaef); }
+.antidetect-spoof, .antidetect-family, .antidetect-address-editor { display: grid; gap: 14px; min-width: 0; margin: 0; padding: 17px; border: 1px solid var(--border); border-radius: 15px; background: var(--surface-2); }
+.antidetect-spoof > legend, .antidetect-family > legend, .antidetect-address-editor > legend { padding-inline: 6px; color: var(--text); font-size: 13px; font-weight: 650; }
+.antidetect-spoof:disabled { opacity: .65; }
+.antidetect-address-families { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; min-width: 0; }
+.antidetect-family { padding: 14px; gap: 12px; background: var(--surface); }
+.antidetect-family--ipv4 { border-block-start: 3px solid #2f75d5; }
+.antidetect-family--ipv6 { border-block-start: 3px solid #8a59c2; }
+.antidetect-field { display: grid; gap: 6px; min-width: 0; color: var(--muted); font-size: 13px; line-height: 1.4; }
+.antidetect input:not([type=checkbox]), .antidetect select { box-sizing: border-box; width: 100%; min-width: 0; padding: 10px 11px; border: 1px solid var(--border); border-radius: 10px; color: var(--text); background: var(--surface); font: 400 13px/1.45 var(--font); }
+.antidetect input[dir=ltr] { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+.antidetect-check { display: flex; align-items: center; gap: 9px; min-width: 0; color: var(--text); font-size: 13px; line-height: 1.55; }
+.antidetect input[type=checkbox] { width: 17px; height: 17px; margin: 0; accent-color: var(--accent); flex: none; }
+.antidetect-mapped { display: grid; justify-items: start; gap: 8px; min-width: 0; }
+.antidetect-subsection { display: grid; gap: 12px; min-width: 0; margin: 0; padding: 20px 0 0; border: 0; border-block-start: 1px solid var(--border); }
+fieldset.antidetect-subsection:disabled { opacity: .65; }
+.antidetect-subsection > .antidetect-field { max-width: 540px; }
+.antidetect-device-list { display: grid; gap: 11px; min-width: 0; max-height: 620px; overflow-y: auto; overscroll-behavior-block: contain; padding: 2px; }
+.antidetect-device-list > .button { justify-self: start; }
+.antidetect-device { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; min-width: 0; padding: 15px; border: 1px solid var(--border); border-radius: 13px; background: var(--surface-2); }
+.antidetect-device-remove { justify-self: start; grid-column: 1 / -1; }
+.antidetect-protocols { min-width: 0; }
+.antidetect-protocol { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 20px; padding-block: 20px; border-block-start: 1px solid var(--border); min-width: 0; }
+.antidetect-protocol:first-child { border-block-start: 0; padding-block-start: 0; }
+.antidetect-protocol:last-child { padding-block-end: 0; }
+.antidetect-protocol__copy { display: grid; gap: 8px; min-width: 0; }
+.antidetect-protocol__copy strong { font-size: 14px; }
+.antidetect-protocol__control { display: grid; justify-items: end; gap: 8px; min-width: 0; max-width: 310px; }
+.antidetect-protocol__scope { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.45; }
+.antidetect-unavailable { padding: 6px 10px; border: 1px solid var(--border); border-radius: 9px; color: var(--muted); background: var(--surface-2); font-size: 12px; line-height: 1.4; }
+.antidetect .button { min-height: 34px; max-width: 100%; font-size: 13px; line-height: 1.4; white-space: normal; overflow-wrap: anywhere; }
+.antidetect-savebar { position: sticky; bottom: 12px; z-index: 2; padding: 13px 16px; border: 1px solid var(--glass-line, var(--border)); border-radius: 15px; background: var(--surface); box-shadow: 0 5px 24px #1c34551a; }
+.antidetect-actions { display: flex; flex-wrap: wrap; gap: 9px; }
+.antidetect-error, .antidetect-warning { margin: 0; padding: 12px 15px; border: 1px solid var(--border); border-radius: 12px; color: var(--text); background: var(--surface-2); font-size: 13px; line-height: 1.55; overflow-wrap: anywhere; }
+.antidetect-error { color: var(--error, #b3261e); border-color: var(--error, #b3261e); }
+.antidetect-warning { border-inline-start: 3px solid #b98c38; }
+.antidetect :focus-visible { outline: 3px solid var(--focus, var(--accent)); outline-offset: 3px; }
+@media (max-width: 760px) { .antidetect-layout { grid-template-columns: minmax(0, 1fr); gap: 14px; } .antidetect-categories { display: flex; flex-wrap: wrap; gap: 5px; } :root body .antidetect .antidetect-category { flex: 1 1 auto; min-height: 42px; padding: 7px 10px; } }
+@media (max-width: 700px) { .antidetect-card, .antidetect-master { padding: 17px; border-radius: 17px; } .antidetect-protocol { grid-template-columns: minmax(0, 1fr); gap: 12px; } .antidetect-protocol__control { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; max-width: 100%; gap: 9px; } }
+@media (max-width: 480px) { .antidetect { gap: 15px; } .antidetect-header h2 { font-size: 23px; } :root body .antidetect .antidetect-category { gap: 7px; } .antidetect-address-families, .antidetect-device { grid-template-columns: minmax(0, 1fr); } .antidetect-spoof { padding: 12px; } .antidetect-webrtc-mode { align-items: flex-start; flex-direction: column; } .antidetect-segmented { align-self: stretch; } :root body .antidetect .antidetect-mode { flex: 1 1 auto; min-width: 0; padding-inline: 10px; } .antidetect-savebar { position: static; padding: 12px; } .antidetect-actions { margin-inline-start: auto; } }
+@media (prefers-reduced-motion: reduce) { .antidetect * { transition: none; scroll-behavior: auto; } }
+@media (forced-colors: active) {
+  .antidetect-categories, .antidetect-card, .antidetect-master, .antidetect-spoof, .antidetect-address-editor, .antidetect-family, .antidetect-device, .antidetect-savebar, .antidetect-access, .antidetect-error, .antidetect-warning, .antidetect-state, .antidetect-unavailable, fieldset.antidetect-subsection:disabled { color: CanvasText; background: Canvas; border-color: CanvasText; box-shadow: none; opacity: 1; }
+  :root body .antidetect .antidetect-category, :root body .antidetect .antidetect-category:not(:disabled):hover, :root body .antidetect .antidetect-mode, :root body .antidetect .antidetect-mode:not(:disabled):hover { color: ButtonText; background: ButtonFace; border-color: ButtonText; box-shadow: none; }
+  :root body .antidetect .antidetect-category.is-selected, :root body .antidetect .antidetect-category.is-selected:not(:disabled):hover, :root body .antidetect .antidetect-mode.is-selected { color: HighlightText; background: Highlight; border-color: Highlight; outline: 1px solid Highlight; }
+  .antidetect-category .antidetect-icon { color: ButtonText; background: transparent; }
+  :root body .antidetect .antidetect-category.is-selected .antidetect-icon { color: HighlightText; background: transparent; }
+  .antidetect-icon, .antidetect-label, .antidetect-note, .antidetect-field, .antidetect-protocol__scope { color: CanvasText; background: transparent; }
+  .antidetect input:not([type=checkbox]), .antidetect select { color: FieldText; background: Field; border-color: FieldText; }
+  .antidetect input:disabled, .antidetect select:disabled, :root body .antidetect .antidetect-mode:disabled { color: GrayText; }
+  .antidetect-protocol, .antidetect-subsection { border-color: CanvasText; }
+  .antidetect :focus-visible { outline-color: Highlight; }
+}
+
+/* Internal management workspace. These overrides never style launcher surfaces. */
+.management-shell .antidetect { gap: 16px; }
+.management-shell .antidetect-header { gap: 12px 20px; padding-block-end: 15px; border-block-end: 1px solid var(--border); }
+.management-shell .antidetect-header h2 { flex: 1 1 auto; margin: 0; font-size: 24px; font-weight: 700; letter-spacing: -.45px; }
+.management-shell .antidetect-header > .button { flex: 0 1 auto; }
+.management-shell .antidetect-header .antidetect-master { flex: 0 1 auto; gap: 12px; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+.management-shell .antidetect-layout { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+.management-shell .antidetect-main { gap: 12px; }
+/* Top tabs with an underline, as in profile editors; same tablist, roles and order. */
+.management-shell .antidetect-categories { display: flex; flex-wrap: wrap; align-items: stretch; gap: 2px; padding: 0; border: 0; border-block-end: 1px solid var(--rd-line, var(--border)); border-radius: 0; background: transparent; box-shadow: none; }
+.management-shell .antidetect .antidetect-categories .antidetect-category { gap: 7px; min-height: 40px; margin-block-end: -1px; padding: 8px 12px; border: 0; border-block-end: 2px solid transparent; border-radius: 0; color: var(--rd-text-3, var(--muted)); background: transparent; font-size: 13px; line-height: 1.35; }
+.management-shell .antidetect .antidetect-categories .antidetect-category:not(:disabled):hover { color: var(--rd-text, var(--text)); border-color: transparent; background: transparent; }
+.management-shell .antidetect .antidetect-categories .antidetect-category.is-selected, .management-shell .antidetect .antidetect-categories .antidetect-category.is-selected:not(:disabled):hover { color: var(--rd-text, var(--text)); border-block-end-color: var(--rd-accent, var(--accent)); background: transparent; }
+.management-shell .antidetect-category.is-selected::before { content: none; }
+.management-shell .antidetect-category .antidetect-icon { width: 20px; height: 20px; border-radius: 5px; background: transparent; }
+.management-shell .antidetect-category .antidetect-icon svg { width: 17px; height: 17px; }
+.management-shell .antidetect-content,
+.management-shell .antidetect-network { gap: 14px; }
+.management-shell .antidetect-form { grid-template-columns: minmax(0, 1fr); align-items: start; gap: 16px; }
+.management-shell .antidetect-card { gap: 16px; padding: 18px; border-radius: 14px; background: var(--surface); box-shadow: none; }
+.management-shell .antidetect-card-heading { gap: 8px 12px; }
+.management-shell .antidetect-card h3 { font-size: 17px; line-height: 1.35; }
+.management-shell .antidetect-card h4 { font-size: 13px; }
+.management-shell .antidetect-title-with-icon { gap: 8px; }
+.management-shell .antidetect-icon { width: 28px; height: 28px; border-radius: 8px; }
+.management-shell .antidetect-label,
+.management-shell .antidetect-note { font-size: 12px; line-height: 1.5; }
+.management-shell .antidetect-webrtc-mode { gap: 10px; }
+.management-shell .antidetect-mode-label { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; }
+.management-shell .antidetect-segmented { gap: 3px; padding: 3px; border-radius: 9px; }
+.management-shell .antidetect .antidetect-mode { min-width: 65px; min-height: 32px; padding: 6px 11px; border-radius: 6px; font-size: 12px; }
+.management-shell .antidetect-state { padding: 4px 8px; font-size: 12px; line-height: 1.35; }
+.management-shell .antidetect-spoof,
+.management-shell .antidetect-address-editor { gap: 12px; padding: 12px; border-radius: 10px; }
+.management-shell .antidetect-address-families { gap: 10px; }
+.management-shell .antidetect-family { gap: 10px; padding: 11px; border-radius: 8px; }
+.management-shell .antidetect-field { gap: 5px; font-size: 12px; }
+.management-shell .antidetect :is(input:not([type=checkbox]), select) { min-height: 36px; padding: 7px 9px; border-radius: 7px; }
+.management-shell .antidetect-check { gap: 8px; font-size: 12px; line-height: 1.45; }
+.management-shell .antidetect-subsection { gap: 10px; padding-block-start: 14px; }
+.management-shell .antidetect-subsection > .antidetect-field { max-width: none; }
+.management-shell .antidetect-device { gap: 10px; padding: 12px; border-radius: 9px; }
+.management-shell .antidetect-device-list { gap: 10px; max-height: 480px; }
+.management-shell .antidetect-protocol { gap: 12px; padding-block: 14px; }
+.management-shell .antidetect-protocol__copy { gap: 5px; }
+.management-shell .antidetect-protocol__copy strong { font-size: 13px; }
+.management-shell .antidetect-protocol__control { gap: 5px; max-width: 100%; }
+.management-shell .antidetect-protocol__scope { font-size: 12px; }
+.management-shell .antidetect-unavailable { padding: 5px 8px; border-radius: 7px; font-size: 12px; }
+.management-shell .antidetect-savebar { bottom: 10px; gap: 10px; padding: 10px 12px; border-radius: 10px; background: var(--surface); box-shadow: 0 3px 16px #1c345512; }
+.management-shell .antidetect-actions { gap: 8px; margin-inline-start: auto; }
+.management-shell .antidetect :is(.antidetect-access, .antidetect-error, .antidetect-warning) { padding: 10px 12px; border-radius: 9px; font-size: 12px; }
+.management-shell .antidetect .api-usage-context { gap: 10px 16px; padding: 12px 14px; border-radius: 10px; box-shadow: none; }
+.management-shell .antidetect .api-usage-context__status { font-size: 12px; line-height: 1.45; }
+.management-shell .antidetect .api-usage-filter { font-size: 12px; }
+.management-shell .antidetect .api-usage-badges { gap: 5px; margin-block: 0; }
+.management-shell .antidetect .antidetect-math-usage.api-usage-highlight { padding: 10px; border-radius: 12px; }
+.management-shell .antidetect .button { min-height: 34px; border-radius: 7px; }
+@media (max-width: 700px) {
+  .management-shell .antidetect-header h2 { font-size: 22px; }
+  .management-shell .antidetect-header .antidetect-master { margin-inline-end: auto; }
+  .management-shell .antidetect .antidetect-category { flex: 1 1 auto; justify-content: center; }
+  .management-shell .antidetect-protocol { grid-template-columns: minmax(0, 1fr); gap: 9px; }
+  .management-shell .antidetect-protocol__control { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
+}
+@media (max-width: 480px) {
+  .management-shell .antidetect { gap: 12px; }
+  .management-shell .antidetect-categories { gap: 3px; }
+  .management-shell .antidetect .antidetect-category { flex-basis: calc(50% - 3px); padding-inline: 7px; }
+  .management-shell .antidetect-card { padding: 13px; border-radius: 11px; }
+  .management-shell .antidetect-webrtc-mode { flex-direction: column; align-items: stretch; }
+  .management-shell .antidetect-segmented { align-self: stretch; }
+  .management-shell .antidetect .antidetect-mode { flex: 1 1 0; min-width: 0; padding-inline: 7px; }
+  .management-shell .antidetect-address-families,
+  .management-shell .antidetect-device { grid-template-columns: minmax(0, 1fr); }
+  .management-shell .antidetect-savebar { position: static; }
+}
+@media (forced-colors: active) {
+  .management-shell .antidetect :is(.antidetect-card, .antidetect-categories, .antidetect-savebar) { color: CanvasText; background: Canvas; border-color: CanvasText; box-shadow: none; }
+  .management-shell .antidetect-header { border-color: CanvasText; }
+}
+
+/* Profile-editor layout: content with a sticky overview on wide screens, collapsible sections and label/control rows. */
+.management-shell .antidetect-workarea { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; gap: 16px; min-width: 0; }
+.management-shell .antidetect-workarea > .antidetect-content { min-width: 0; }
+.management-shell .antidetect-section { gap: 4px; }
+.management-shell .antidetect-section__heading { flex-wrap: wrap; justify-content: space-between; gap: 8px 12px; }
+.management-shell .antidetect-section__title { flex: 1 1 auto; min-width: 0; margin: 0; font-size: inherit; line-height: inherit; }
+.management-shell .antidetect .antidetect-section .antidetect-section__toggle { display: inline-flex; align-items: center; gap: 8px; min-width: 0; max-width: 100%; min-height: 36px; margin: 0; padding: 2px 6px; margin-inline-start: -6px; border: 0; border-radius: 8px; color: var(--rd-text-2, var(--text)); background: transparent; box-shadow: none; font: 700 12px/1.3 var(--rd-font, var(--font)); letter-spacing: .06em; text-align: start; text-transform: uppercase; cursor: pointer; }
+.management-shell .antidetect .antidetect-section .antidetect-section__toggle:hover { color: var(--rd-text, var(--text)); background: transparent; }
+.management-shell .antidetect-section__toggle .antidetect-icon { width: 26px; height: 26px; border-radius: 7px; }
+.management-shell .antidetect-section__label { min-width: 0; overflow-wrap: anywhere; }
+.management-shell .antidetect-section__chevron { flex: none; box-sizing: border-box; width: 7px; height: 7px; margin-inline: 4px 2px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-2px) rotate(45deg); }
+.management-shell .antidetect-section__toggle[aria-expanded="false"] .antidetect-section__chevron { transform: rotate(-45deg); }
+.management-shell .antidetect-section__toggle[aria-expanded="false"] .antidetect-section__chevron:dir(rtl) { transform: rotate(135deg); }
+.management-shell .antidetect-section__body { display: grid; gap: 0; min-width: 0; }
+.management-shell .antidetect-section__body > .antidetect-note { margin-block-end: 10px; }
+.management-shell .antidetect-row { box-sizing: border-box; display: grid; grid-template-columns: minmax(7rem, 10rem) minmax(0, 1fr); align-items: start; gap: 6px 16px; min-width: 0; margin: 0; padding: 12px 0; border: 0; border-block-start: 1px solid var(--rd-line, var(--border)); border-radius: 0; background: transparent; }
+.management-shell .antidetect-row__label { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; min-width: 0; min-height: 34px; color: var(--rd-text-2, var(--text)); font-size: 12.5px; font-weight: 600; line-height: 1.4; overflow-wrap: anywhere; }
+.management-shell .antidetect-row__label :is(.antidetect-label, h4, strong, .antidetect-row__title) { margin: 0; color: inherit; font: inherit; }
+.management-shell .antidetect-row__label .antidetect-icon { width: 24px; height: 24px; border-radius: 7px; }
+/* The shared typography sheet styles subheadings/h4/strong through #root; :not(#_) lets row labels keep one type size, as intended above. */
+.management-shell .antidetect-row__label:not(#_),
+.management-shell .antidetect-row__label:not(#_) :is(.antidetect-label, h4, strong, .antidetect-row__title) { font-size: 12.5px; font-weight: 600; line-height: 1.4; letter-spacing: normal; }
+/* A label after an icon shrinks and wraps beside it instead of dropping below the icon. */
+.management-shell .antidetect-row__label > .antidetect-icon + :is(span, h4, strong) { flex: 1 1 0; min-width: 0; }
+.management-shell .antidetect-row__control { display: grid; justify-items: start; gap: 6px; min-width: 0; max-width: 100%; }
+.management-shell .antidetect-row__control > :is(select, .antidetect-address-families) { width: 100%; max-width: 28rem; }
+.management-shell .antidetect-row__line { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; min-width: 0; max-width: 100%; }
+.management-shell .antidetect-row.api-usage-highlight { padding-inline-start: 10px; border-inline-start: 3px solid var(--api-usage-accent); }
+.management-shell .antidetect-row__label.api-usage-highlight { padding-inline-start: 8px; }
+.management-shell .antidetect-section__body .antidetect-spoof,
+.management-shell .antidetect-section__body .antidetect-subsection { display: grid; gap: 0; min-width: 0; margin: 0; padding: 0; border: 0; border-radius: 0; background: transparent; }
+.management-shell .antidetect-section__body .antidetect-address-families { grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); gap: 10px; }
+.management-shell .antidetect-section__body .antidetect-protocol { gap: 6px 16px; }
+.management-shell .antidetect-overview { box-sizing: border-box; display: grid; align-content: start; gap: 12px; min-width: 0; padding: 16px 14px; border: 1px solid var(--rd-line, var(--border)); border-radius: 14px; color: var(--rd-text, var(--text)); background: var(--rd-surface, var(--surface)); }
+.management-shell .antidetect-overview__title { margin: 0; font-size: 15px; font-weight: 650; line-height: 1.35; }
+.management-shell .antidetect-overview__list { display: grid; min-width: 0; margin: 0; }
+.management-shell .antidetect-overview__row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); align-items: baseline; gap: 2px 12px; min-width: 0; padding-block: 7px; border-block-start: 1px solid var(--rd-line, var(--border)); }
+.management-shell .antidetect-overview__row:first-child { padding-block-start: 0; border-block-start: 0; }
+.management-shell .antidetect-overview__row dt { min-width: 0; color: var(--rd-text-3, var(--muted)); font-size: 12px; line-height: 1.45; overflow-wrap: break-word; }
+.management-shell .antidetect-overview__row dd { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: flex-end; gap: 2px 6px; min-width: 0; margin: 0; font-size: 12.5px; font-weight: 600; line-height: 1.45; text-align: end; overflow-wrap: anywhere; }
+.management-shell .antidetect-overview__value { min-width: 0; }
+.management-shell .antidetect-overview__hint { flex-basis: 100%; min-width: 0; margin: 0; color: var(--rd-text-3, var(--muted)); font-size: 11.5px; font-weight: 400; line-height: 1.45; overflow-wrap: anywhere; }
+.management-shell .antidetect-overview__api { display: grid; gap: 4px; min-width: 0; padding-block-start: 12px; border-block-start: 1px solid var(--rd-line, var(--border)); }
+.management-shell .antidetect-overview__subtitle { margin: 0; color: var(--rd-text-2, var(--text)); font-size: 11.5px; font-weight: 700; line-height: 1.4; letter-spacing: .06em; text-transform: uppercase; }
+.management-shell .antidetect-overview__scroll { min-width: 0; max-width: 100%; overflow-x: auto; }
+.management-shell .antidetect-overview__table { width: 100%; margin-block-start: 4px; border-collapse: collapse; table-layout: auto; font-size: 12px; line-height: 1.4; font-variant-numeric: tabular-nums; }
+.management-shell .antidetect-overview__table :is(th, td) { padding: 5px 2px; border-block-start: 1px solid var(--rd-line, var(--border)); text-align: end; vertical-align: bottom; }
+/* Whole words in the count table (the id outranks the shared ui-typography wrap rule); the wrapper scrolls instead. */
+.management-shell .antidetect-overview #antidetect-overview-table :is(th, td) { overflow-wrap: normal; }
+.management-shell .antidetect-overview__table :is(th, td):first-child { padding-inline-start: 0; text-align: start; }
+.management-shell .antidetect-overview__table thead :is(th, td) { border-block-start: 0; color: var(--rd-text-3, var(--muted)); font-size: 10.5px; font-weight: 600; }
+.management-shell .antidetect-overview__table tbody th { color: var(--rd-text-2, var(--text)); font-weight: 500; }
+.management-shell .antidetect-overview__table tbody td { font-weight: 600; }
+.management-shell .antidetect-overview__table tbody tr:last-child :is(th, td) { font-weight: 700; }
+@media (min-width: 1120px) {
+  .management-shell .antidetect-workarea { grid-template-columns: minmax(0, 1fr) minmax(16rem, 21rem); }
+  .management-shell .antidetect-overview { position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow-y: auto; overscroll-behavior-block: contain; }
+}
+/* The profile library carries its own preview summary; it takes the full width instead of sharing it with the overview. */
+.management-shell .antidetect-workarea:has(> .antidetect-content[aria-labelledby="antidetect-category-quick"]) { grid-template-columns: minmax(0, 1fr); }
+.management-shell .antidetect-workarea:has(> .antidetect-content[aria-labelledby="antidetect-category-quick"]) > .antidetect-overview { display: none; }
+/* The sticky save bar spans only the content column, so it never covers the sticky overview. */
+@media (min-width: 1120px) {
+  .management-shell .antidetect-main > .antidetect-savebar { margin-inline-end: calc(21rem + 16px); }
+  .management-shell .antidetect-main:has(.antidetect-content[aria-labelledby="antidetect-category-quick"]) > .antidetect-savebar { margin-inline-end: 0; }
+}
+@media (max-width: 700px) {
+  .management-shell .antidetect-row { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .management-shell .antidetect-row__label { min-height: 0; }
+  .management-shell .antidetect-row__control { justify-items: stretch; }
+  .management-shell .antidetect-row__control > :is(select, .antidetect-address-families) { max-width: none; }
+}
+@media (max-width: 480px) {
+  .management-shell .antidetect-overview { padding: 13px; border-radius: 11px; }
+  .management-shell .antidetect-row__line > .antidetect-segmented { flex: 1 1 100%; }
+}
+@media (forced-colors: active) {
+  .management-shell .antidetect-overview { color: CanvasText; background: Canvas; border-color: CanvasText; }
+  .management-shell .antidetect :is(.antidetect-row, .antidetect-overview__row, .antidetect-overview__api, .antidetect-overview__table th, .antidetect-overview__table td) { border-color: CanvasText; }
+  .management-shell .antidetect .antidetect-section .antidetect-section__toggle { color: ButtonText; background: ButtonFace; }
+  .management-shell .antidetect .antidetect-categories .antidetect-category.is-selected { border-block-end-color: Highlight; }
+  /* The underline tab has no Highlight fill here, so its icon keeps the text colour instead of HighlightText (it vanished). */
+  .management-shell .antidetect .antidetect-categories .antidetect-category.is-selected .antidetect-icon { color: CanvasText; }
+}
+
+/* ============================================================================
+   Antidetect privacy tab: four-level layout (Device / OS / Browser / Network)
+   plus the Quick-setup section (presets, Randomize, stepped-slider device editor
+   and the virtual-device preview card). Honest privacy tooling — the preview
+   states plainly what is NOT changed (IP / TLS / engine).
+
+   Integration contract (matches scripts/test/antidetect-ui.test.mjs):
+     - Every selector is scoped under `.management-shell ` (the file is sliced from
+       the internal-workspace marker to EOF and each non-media selector must start
+       with that prefix). Only screen/forced-colors media at-rules are used here —
+       no keyframe or feature at-rules — so the scoping guard stays green.
+     - All colours / radii / durations come from the --rd-* token layer; pill
+       shapes use 999px and circular knobs 50%, following redesign.css itself.
+     - No external or imported resources, no fonts.
+     - Motion lives only inside the prefers-reduced-motion: no-preference block,
+       transitions paint properties on laid-out elements, and limits transforms to
+       a momentary scale(.97) press on buttons. No looping, no priority overrides,
+       no delayed or compositor-hint declarations.
+   ============================================================================ */
+
+/* ---------- Level card (one per Device / OS / Browser / Network group) ---------- */
+.management-shell .antidetect-level {
+  box-sizing: border-box; display: grid; gap: 16px; min-width: 0;
+  padding: 18px; border: 1px solid var(--rd-line); border-radius: var(--rd-radius-lg);
+  background: var(--rd-surface); box-shadow: var(--rd-shadow-1);
+}
+.management-shell .antidetect-level__header {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center;
+  column-gap: 13px; row-gap: 1px; min-width: 0;
+}
+.management-shell .antidetect-level__icon {
+  grid-column: 1; grid-row: 1 / span 2; flex: none; display: grid; place-items: center;
+  width: 40px; height: 40px; border-radius: var(--rd-radius);
+  color: var(--rd-accent); background: var(--rd-accent-soft);
+}
+.management-shell .antidetect-level__icon svg { display: block; width: 20px; height: 20px; }
+.management-shell .antidetect-level__title {
+  grid-column: 2; grid-row: 1; margin: 0; min-width: 0;
+  color: var(--rd-text); font: 650 17px/1.3 var(--rd-font-display); letter-spacing: -.01em;
+  overflow-wrap: anywhere;
+}
+.management-shell .antidetect-level__sub {
+  grid-column: 2; grid-row: 2; margin: 0; min-width: 0;
+  color: var(--rd-text-3); font: 400 12.5px/1.45 var(--rd-font); overflow-wrap: anywhere;
+}
+.management-shell .antidetect-level__grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 14px 18px; min-width: 0;
+}
+
+/* ---------- Stepped slider (device editor control) ----------
+   Row 1 is the label + value bubble; row 2 stacks a rail, evenly spaced ticks and
+   the native range input in one grid cell so the thumb rides over the fixed steps.
+   The rail is a pill: its empty part is ::before; the chosen part, from the start to the
+   thumb centre (--fp-end), is ::after: a green gradient, a soft gloss and a few tiny sparks
+   that drift slowly (the motion is only for people who have not asked for less of it). */
+.management-shell .fp-slider {
+  --fp-thumb: 22px; --fp-bar: 12px; --fp-lane: 34px;
+  --fp-fill-a: color-mix(in srgb, var(--rd-ok-fill) 94%, #c8ffe2);
+  --fp-fill-b: color-mix(in srgb, var(--rd-ok-fill) 92%, #000);
+  display: grid; grid-template-columns: minmax(0, 1fr); row-gap: 0; min-width: 0;
+}
+.management-shell .fp-slider__head {
+  grid-column: 1; grid-row: 1; align-self: start; display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; min-width: 0; margin-block-end: 9px;
+}
+.management-shell .fp-slider__label {
+  min-width: 0; color: var(--rd-text-2); font: 600 12.5px/1.4 var(--rd-font); overflow-wrap: anywhere;
+}
+.management-shell .fp-slider__value {
+  flex: none; display: inline-flex; align-items: center; justify-content: center;
+  min-width: 42px; min-height: 24px; padding: 2px 10px; border-radius: 999px;
+  color: var(--rd-ok); background: var(--rd-ok-bg);
+  font: 650 12.5px/1.3 var(--rd-font); font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.management-shell .fp-slider__track {
+  --fp-end: calc(var(--fp-thumb) / 2 + (100% - var(--fp-thumb)) * var(--fp-ratio, 0));
+  --fp-dir: to right; --fp-top: calc((var(--fp-lane) - var(--fp-bar)) / 2);
+  grid-column: 1; grid-row: 2; position: relative; min-width: 0; height: var(--fp-lane);
+  display: flex; align-items: flex-end; justify-content: space-between; padding-inline: calc(var(--fp-thumb) / 2 - 1px);
+}
+.management-shell .fp-slider__track:dir(rtl) { --fp-dir: to left; }
+.management-shell .fp-slider__track::before,
+.management-shell .fp-slider__track::after {
+  content: ""; position: absolute; top: var(--fp-top); height: var(--fp-bar); box-sizing: border-box;
+  border-radius: 999px; pointer-events: none;
+}
+.management-shell .fp-slider__track::before {
+  inset-inline: 0; background: var(--rd-sunken);
+  box-shadow: inset 0 0 0 1px var(--rd-line), inset 0 1px 2px rgb(16 24 40 / .1);
+}
+/* The chosen part: five sparks of different size, pace and height, a moving soft shine, a top gloss, then the green body.
+   The sparks sit in 24px tall tiles so they can bob; every drift is a whole number of tiles, so the loop has no seam. */
+.management-shell .fp-slider__track::after {
+  inset-inline-start: 0; width: var(--fp-end);
+  background:
+    radial-gradient(circle at 50% 50%, rgb(255 255 255 / .95) 0 1.15px, rgb(255 255 255 / 0) 1.9px) 0 -8.4px / 43px 24px repeat-x,
+    radial-gradient(circle at 50% 50%, rgb(255 255 255 / .8) 0 .9px, rgb(255 255 255 / 0) 1.6px) 0 -3.6px / 61px 24px repeat-x,
+    radial-gradient(circle at 50% 50%, rgb(255 255 255 / .9) 0 1.3px, rgb(255 255 255 / 0) 2px) 0 -6.8px / 54px 24px repeat-x,
+    radial-gradient(circle at 50% 50%, rgb(255 255 255 / .7) 0 .8px, rgb(255 255 255 / 0) 1.5px) 0 -4.8px / 74px 24px repeat-x,
+    radial-gradient(circle at 50% 50%, rgb(255 255 255 / .85) 0 1px, rgb(255 255 255 / 0) 1.7px) 0 -7.6px / 97px 24px repeat-x,
+    linear-gradient(105deg, rgb(255 255 255 / 0) 36%, rgb(255 255 255 / .3) 50%, rgb(255 255 255 / 0) 64%) 0 0 / 150px 100% repeat-x,
+    linear-gradient(to bottom, rgb(255 255 255 / .36), rgb(255 255 255 / 0) 60%),
+    linear-gradient(var(--fp-dir), var(--fp-fill-a), var(--fp-fill-b));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--fp-fill-b) 80%, #000);
+}
+@keyframes fp-slider-drift { to { background-position-x: 86px, -61px, 108px, -74px, 97px, 150px, 0%, 0%; } }
+@keyframes fp-slider-bob {
+  from { background-position-y: -8.4px, -3.6px, -6.8px, -4.8px, -7.6px, 0%, 0%, 0%; }
+  to { background-position-y: -5.4px, -6.6px, -4.2px, -7.6px, -5.4px, 0%, 0%, 0%; }
+}
+@media screen and (prefers-reduced-motion: no-preference) {
+  .management-shell .fp-slider__track::after { animation: fp-slider-drift 10s linear infinite, fp-slider-bob 3.6s ease-in-out infinite alternate; }
+}
+/* Auto: the row is not overridden, so the bar only shows where the real value sits (muted, still, no sparks) and the bubble is muted.
+   A locked slider (nothing to set) is dimmed and still as well. These rules come after the motion rule and are more specific. */
+.management-shell .fp-slider.is-auto .fp-slider__track::after {
+  background: color-mix(in srgb, var(--rd-text-3) 38%, var(--rd-sunken)); box-shadow: none; animation: none;
+}
+.management-shell .fp-slider:has(.fp-slider__input:disabled) .fp-slider__track::after { animation: none; }
+.management-shell .fp-slider.is-auto .fp-slider__value { color: var(--rd-text-3); background: var(--rd-sunken); }
+.management-shell .fp-slider:has(.fp-slider__input:disabled) .fp-slider__track { opacity: .55; }
+.management-shell .fp-slider__input:disabled { cursor: not-allowed; opacity: .55; }
+.management-shell .fp-slider__tail { grid-column: 1; grid-row: 4; align-self: start; display: grid; gap: 8px; min-width: 0; margin-top: 6px; }
+.management-shell .fp-slider__hint { margin: 0; color: var(--rd-text-3); font: 400 12px/1.45 var(--rd-font); overflow-wrap: anywhere; }
+.management-shell .fp-slider__tick {
+  position: relative; z-index: 1; flex: none; width: 2px; height: 5px;
+  border-radius: 999px; background: var(--rd-line-2);
+}
+/* The native input overlays the track. The not(#_) part adds one ID of specificity so it
+   clears the generic .antidetect input fallbacks without a priority override (idiomatic in
+   this file). redesign.css excludes [type=range], so nothing higher competes here. */
+.management-shell .fp-slider__input:not(#_) {
+  grid-column: 1; grid-row: 2; z-index: 2; box-sizing: border-box;
+  width: 100%; min-width: 0; height: var(--fp-lane); min-height: var(--fp-lane); margin: 0; padding: 0;
+  border: 0; border-radius: 0; background: transparent; box-shadow: none;
+  -webkit-appearance: none; appearance: none; cursor: pointer;
+}
+.management-shell .fp-slider__input::-webkit-slider-runnable-track {
+  height: var(--fp-thumb); border: 0; background: transparent;
+}
+.management-shell .fp-slider__input::-moz-range-track {
+  height: var(--fp-bar); border: 0; background: transparent;
+}
+.management-shell .fp-slider__input::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none; margin-top: 0; box-sizing: border-box;
+  width: var(--fp-thumb); height: var(--fp-thumb); border: 1px solid var(--rd-control); border-radius: 50%;
+  background: var(--rd-thumb); box-shadow: 0 1px 3px rgb(0 0 0 / .32); cursor: pointer;
+}
+.management-shell .fp-slider__input::-moz-range-thumb {
+  box-sizing: border-box; width: var(--fp-thumb); height: var(--fp-thumb); border: 1px solid var(--rd-control); border-radius: 50%;
+  background: var(--rd-thumb); box-shadow: 0 1px 3px rgb(0 0 0 / .32); cursor: pointer;
+}
+/* Hover / keyboard focus put a soft green ring round the knob (the keyboard focus ring itself is
+   the inherited .antidetect :focus-visible outline, which also holds in forced colours). */
+.management-shell .fp-slider__input:not(:disabled):hover::-webkit-slider-thumb,
+.management-shell .fp-slider__input:focus-visible::-webkit-slider-thumb { border-color: var(--rd-ok); box-shadow: 0 0 0 4px color-mix(in srgb, var(--rd-ok-fill) 28%, transparent), 0 1px 3px rgb(0 0 0 / .32); }
+.management-shell .fp-slider__input:not(:disabled):hover::-moz-range-thumb,
+.management-shell .fp-slider__input:focus-visible::-moz-range-thumb { border-color: var(--rd-ok); box-shadow: 0 0 0 4px color-mix(in srgb, var(--rd-ok-fill) 28%, transparent), 0 1px 3px rgb(0 0 0 / .32); }
+
+/* The four device sliders hang on one shared set of rows (subgrid): the heads wrap differently, but the rails, scales and
+   tails line up across the cards. A slider is four rows: head, rail, scale and the tail (its hint plus whatever the card adds
+   under it: field hints, the window button). Spacing is margins, not a gap, so nothing is left between the rows. */
+.management-shell .fingerprint-profiles .antidetect-level__grid:has(.fp-slider) { row-gap: 0; margin-block-end: -14px; }
+.management-shell .fingerprint-profiles .antidetect-level__grid > .fp-slider { grid-row: span 4; grid-template-rows: subgrid; margin-block-end: 14px; }
+
+/* ---------- Quick-setup presets (segmented, wraps to one column at phone width) ---------- */
+.management-shell .fp-presets {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+  gap: 8px; min-width: 0;
+}
+.management-shell .fp-preset {
+  box-sizing: border-box; display: grid; align-content: start; gap: 3px; min-width: 0;
+  min-height: 56px; padding: 10px 13px; border: 1px solid var(--rd-line-2); border-radius: var(--rd-radius);
+  color: var(--rd-text); background: var(--rd-surface); box-shadow: var(--rd-shadow-1);
+  font: inherit; text-align: start; cursor: pointer;
+}
+.management-shell .fp-preset__name { color: var(--rd-text); font: 650 13px/1.3 var(--rd-font); overflow-wrap: anywhere; }
+.management-shell .fp-preset__desc { color: var(--rd-text-3); font: 400 12px/1.4 var(--rd-font); overflow-wrap: anywhere; }
+.management-shell .fp-preset:not(:disabled):hover { border-color: var(--rd-control); background: var(--rd-surface-2); }
+.management-shell .fp-preset.is-selected,
+.management-shell .fp-preset.is-selected:not(:disabled):hover {
+  border-color: var(--rd-accent); background: var(--rd-accent-soft); box-shadow: inset 0 0 0 1px var(--rd-accent);
+}
+.management-shell .fp-preset.is-selected .fp-preset__name { color: var(--rd-accent); }
+.management-shell .fp-preset.is-selected .fp-preset__desc { color: var(--rd-text-2); }
+.management-shell .fp-preset:disabled { opacity: .5; box-shadow: none; cursor: not-allowed; }
+
+/* ---------- Searchable combobox (one framed field: the wrapper is the frame) ----------
+   For the inner input to render fully
+   borderless under redesign.css (which styles every <input> at #root#root, a
+   specificity a .management-shell selector cannot reach without a priority override), add
+   `.fp-combobox` to the composite-field :is() list in redesign.css lines 181-183,
+   exactly as `.antidetect-math-search` is handled. The rules below are the frame +
+   the borderless intent and are correct once that one-line entry is present. */
+.management-shell .fp-combobox {
+  box-sizing: border-box; position: relative; display: flex; align-items: center; gap: 7px; min-width: 0;
+  padding-inline-start: 11px; border: 1px solid var(--rd-control); border-radius: var(--rd-radius);
+  color: var(--rd-text-3); background: var(--rd-surface);
+}
+.management-shell .fp-combobox > svg { flex: none; width: 16px; height: 16px; }
+.management-shell .fp-combobox__input {
+  flex: 1 1 auto; box-sizing: border-box; width: 100%; min-width: 0; min-height: 36px;
+  margin: 0; padding-block: 8px; padding-inline: 0 11px;
+  border: 0; border-radius: 0; background: transparent; box-shadow: none;
+  color: var(--rd-text); font: 400 13px/1.4 var(--rd-font);
+}
+.management-shell .fp-combobox__input:focus-visible { outline: 0; }
+/* WCAG 1.4.11: the frame carries the full focus colour (the earlier translucent glow measured below 3:1). */
+.management-shell .fp-combobox:focus-within { border-color: var(--rd-focus); outline: 2px solid var(--rd-focus); outline-offset: 0; box-shadow: none; }
+@media (prefers-contrast: more) { .management-shell .fp-combobox:focus-within { outline-width: 3px; } }
+.management-shell .fp-combobox__list {
+  position: absolute; z-index: 20; inset-inline: 0; top: calc(100% + 6px);
+  margin: 0; padding: 5px; max-height: 240px; overflow-y: auto; overscroll-behavior: contain;
+  list-style: none; border: 1px solid var(--rd-line); border-radius: var(--rd-radius);
+  background: var(--rd-surface); box-shadow: var(--rd-shadow-2);
+}
+.management-shell .fp-combobox__option {
+  display: grid; gap: 1px; min-width: 0; padding: 8px 10px; border-radius: var(--rd-radius-sm);
+  color: var(--rd-text-2); background: transparent; font: 400 13px/1.35 var(--rd-font);
+  cursor: pointer; overflow-wrap: anywhere;
+}
+.management-shell .fp-combobox__option:hover { color: var(--rd-text); background: var(--rd-surface-2); }
+/* The keyboard highlight (.is-highlighted) and the chosen entry (.is-selected), with their forced-colours mapping, are styled in
+   fingerprint-profile-ui.css next to the panel that emits them. */
+
+/* ---------- Virtual-device preview card ---------- */
+.management-shell .fp-device-card {
+  box-sizing: border-box; display: grid; min-width: 0; overflow: hidden;
+  border: 1px solid var(--rd-line); border-radius: var(--rd-radius-lg);
+  background: var(--rd-surface); box-shadow: var(--rd-shadow-1);
+}
+.management-shell .fp-device-card__head {
+  display: flex; align-items: center; gap: 10px; min-width: 0; padding: 13px 15px;
+  border-block-end: 1px solid var(--rd-line); background: var(--rd-surface-2);
+  color: var(--rd-text); font: 650 13.5px/1.3 var(--rd-font-display); letter-spacing: -.01em;
+}
+.management-shell .fp-device-card__head svg { flex: none; width: 18px; height: 18px; color: var(--rd-accent); }
+.management-shell .fp-device-card__row {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: baseline;
+  gap: 3px 14px; min-width: 0; padding: 9px 15px; border-block-start: 1px solid var(--rd-line);
+}
+.management-shell .fp-device-card__head + .fp-device-card__row { border-block-start: 0; }
+.management-shell .fp-device-card__row > :first-child { min-width: 0; color: var(--rd-text-3); font: 400 12px/1.4 var(--rd-font); overflow-wrap: anywhere; }
+.management-shell .fp-device-card__row > :last-child { min-width: 0; color: var(--rd-text); font: 600 12.5px/1.4 var(--rd-font); font-variant-numeric: tabular-nums; text-align: end; overflow-wrap: anywhere; }
+/* The honest "not changed" lines: quieter surface, smaller muted text, soft bullets. */
+.management-shell .fp-device-card__disclosures {
+  display: grid; gap: 5px; margin: 0; padding: 11px 15px 13px; list-style: none;
+  border-block-start: 1px solid var(--rd-line); background: var(--rd-surface-2);
+  color: var(--rd-text-3); font: 400 11.5px/1.45 var(--rd-font);
+}
+.management-shell .fp-device-card__disclosures li {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 7px; align-items: baseline;
+  min-width: 0; overflow-wrap: anywhere;
+}
+.management-shell .fp-device-card__disclosures li::before {
+  content: ""; flex: none; width: 5px; height: 5px; margin-top: 5px; border-radius: 50%; background: var(--rd-control);
+}
+
+/* ---------- Randomize (prominent primary action; self-contained, no .button needed) ---------- */
+.management-shell .antidetect-randomize {
+  box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 40px; padding: 9px 18px; border: 1px solid transparent; border-radius: var(--rd-radius);
+  color: var(--rd-accent-ink); background: var(--rd-accent); box-shadow: var(--rd-shadow-1);
+  font: 650 13.5px/1.3 var(--rd-font); text-align: center; cursor: pointer; overflow-wrap: anywhere;
+}
+.management-shell .antidetect-randomize svg { flex: none; width: 17px; height: 17px; }
+.management-shell .antidetect-randomize:not(:disabled):hover { background: color-mix(in srgb, var(--rd-accent) 88%, var(--rd-text)); }
+.management-shell .antidetect-randomize:disabled { opacity: .5; box-shadow: none; cursor: not-allowed; }
+
+/* ---------- Motion: gated, paint-only on laid-out elements, scale press on buttons ---------- */
+@media screen and (prefers-reduced-motion: no-preference) {
+  .management-shell .antidetect-level,
+  .management-shell .fp-device-card { transition-property: border-color, box-shadow; transition-duration: var(--rd-dur-3); transition-timing-function: var(--rd-ease-out); }
+  .management-shell .fp-preset { transition-property: color, background-color, border-color, box-shadow; transition-duration: var(--rd-dur-2); transition-timing-function: var(--rd-ease-out); }
+  .management-shell .fp-combobox,
+  .management-shell .fp-combobox__option,
+  .management-shell .fp-slider__value,
+  .management-shell .antidetect-randomize { transition-property: color, background-color, border-color, box-shadow; transition-duration: var(--rd-dur-1); transition-timing-function: var(--rd-ease-out); }
+  .management-shell .fp-slider__input::-webkit-slider-thumb { transition-property: background-color, border-color, box-shadow; transition-duration: var(--rd-dur-1); transition-timing-function: var(--rd-ease-out); }
+  .management-shell .fp-slider__input::-moz-range-thumb { transition-property: background-color, border-color, box-shadow; transition-duration: var(--rd-dur-1); transition-timing-function: var(--rd-ease-out); }
+  .management-shell .antidetect-randomize:not(:disabled):active,
+  .management-shell .fp-preset:not(:disabled):active { transform: scale(.97); }
+}
+
+/* ---------- Phone width (>= 380px, no horizontal overflow) ---------- */
+@media screen and (max-width: 480px) {
+  .management-shell .antidetect-level { padding: 14px; border-radius: var(--rd-radius); }
+  .management-shell .antidetect-level__grid { gap: 12px; }
+  .management-shell .fp-presets { grid-template-columns: minmax(0, 1fr); }
+  .management-shell .antidetect-randomize { width: 100%; }
+}
+
+/* ---------- Forced colours: map to system colours, keep focus affordances ---------- */
+@media (forced-colors: active) {
+  .management-shell .antidetect-level,
+  .management-shell .fp-preset,
+  .management-shell .fp-combobox,
+  .management-shell .fp-combobox__list,
+  .management-shell .fp-device-card,
+  .management-shell .fp-device-card__head,
+  .management-shell .fp-device-card__disclosures { color: CanvasText; background: Canvas; border-color: CanvasText; box-shadow: none; }
+  .management-shell .fp-preset.is-selected { color: HighlightText; background: Highlight; border-color: Highlight; }
+  .management-shell .fp-slider__track::before { background: Canvas; box-shadow: none; border: 1px solid CanvasText; }
+  .management-shell .fp-slider__track::after { background: Highlight; box-shadow: none; animation: none; }
+  .management-shell .fp-slider.is-auto .fp-slider__track::after { background: GrayText; }
+  .management-shell .fp-slider__tick { background: CanvasText; }
+  .management-shell .fp-slider__input::-webkit-slider-thumb { background: ButtonText; border-color: ButtonText; }
+  .management-shell .fp-slider__input::-moz-range-thumb { background: ButtonText; border-color: ButtonText; }
+  .management-shell .fp-device-card__disclosures li::before { background: CanvasText; }
+  .management-shell .antidetect-randomize { color: ButtonText; background: ButtonFace; border-color: ButtonText; }
+  .management-shell .fp-combobox:focus-within { outline: 2px solid Highlight; }
+}
+
+/* ADR-104: a combobox beside its reset action, and disclosures at the top of the network level. */
+.management-shell .fp-combobox-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; min-width: 0; }
+.management-shell .fp-combobox-row > .fp-combobox { flex: 1 1 11rem; }
+.management-shell .antidetect-network > .fp-device-card__disclosures { border: 1px solid var(--rd-line); border-radius: var(--rd-radius); }
+
+/* ADR-104: a single grid column must be allowed to shrink below its widest child, otherwise the
+   level cards and the embedded editor push the page wider than a narrow (RTL) window. */
+.management-shell :is(.antidetect-content, .antidetect-network, .antidetect-form) { grid-template-columns: minmax(0, 1fr); }
+.management-shell .antidetect-api .api-config-toolbar { grid-template-columns: minmax(0, 1fr); }
+/* The generator's single-column form rules are container queries; a level card is the same kind of container. */
+.management-shell .antidetect-level { container: fp-generator / inline-size; }
+
+/* ADR-104 polish: slider icons and scale, a complete virtual-device card, and the card beside the library. */
+.management-shell .fp-slider__label { display: inline-flex; align-items: center; gap: 7px; }
+.management-shell .fp-slider__icon { display: inline-grid; flex: none; place-items: center; color: var(--rd-accent); }
+.management-shell .fp-slider__reset { flex: none; min-height: 24px; padding: 2px 8px; white-space: nowrap; }
+.management-shell .fp-slider__scale { grid-column: 1; grid-row: 3; align-self: start; display: flex; justify-content: space-between; gap: 8px; margin-top: 0; padding-inline: 2px; color: var(--rd-text-3); font: 500 11px/1.3 var(--rd-font); font-variant-numeric: tabular-nums; }
+.management-shell .fp-slider__readout { display: block; margin-top: 4px; color: var(--rd-text-2); }
+.management-shell .fp-device-card__key { display: inline-flex; align-items: center; gap: 8px; min-width: 0; }
+.management-shell .fp-device-card__key svg { flex: none; color: var(--rd-accent); }
+.management-shell .fp-device-card__note { margin: 0; padding: 10px 15px; border-block-start: 1px solid var(--rd-line); color: var(--rd-text-3); font: 400 12px/1.5 var(--rd-font); overflow-wrap: anywhere; }
+.management-shell .fp-device-card__chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 11px 15px; border-block-start: 1px solid var(--rd-line); }
+.management-shell .fp-chip { display: inline-flex; align-items: center; gap: 6px; min-height: 24px; padding: 2px 10px; border: 1px solid var(--rd-line-2); border-radius: 999px; color: var(--rd-text-2); background: var(--rd-sunken); font: 600 11.5px/1.3 var(--rd-font); }
+.management-shell .fp-chip b { font-weight: 700; }
+.management-shell .fp-chip.is-on { color: var(--rd-ok, #137348); border-color: color-mix(in srgb, var(--rd-ok, #137348) 40%, transparent); background: var(--rd-ok-bg, color-mix(in srgb, #137348 13%, transparent)); }
+.management-shell .fp-chip.is-uncovered { color: var(--rd-text-3); border-style: dashed; }
+.management-shell .fp-quick-pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); gap: 16px; align-items: start; min-width: 0; }
+.management-shell .fp-slider__scale { pointer-events: none; }
+.management-shell .fp-device-card__row { align-items: center; }
+
+/* ADR-104: icon pickers for the device type, Windows version and browser family. */
+.management-shell .fingerprint-segment { display: inline-flex; align-items: center; gap: 7px; }
+.management-shell .fingerprint-segment svg { flex: none; }
+
+/* ---------- Action bar: pending changes can always be applied or cancelled without scrolling (sticky, glass) ---------- */
+.management-shell .fp-actionbar {
+  box-sizing: border-box; position: sticky; bottom: 14px; z-index: 6; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px;
+  margin-block-start: 16px; padding: 12px 16px; border: 1px solid var(--rd-accent); border-radius: var(--rd-radius-lg);
+  background: color-mix(in srgb, var(--rd-surface) 93%, var(--rd-accent)); box-shadow: var(--rd-shadow-2);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+.management-shell .fp-actionbar--early,
+.management-shell .fp-actionbar--stale { border-color: var(--rd-warn); background: color-mix(in srgb, var(--rd-surface) 90%, var(--rd-warn)); }
+.management-shell .fp-actionbar__icon { display: inline-flex; flex: none; color: var(--rd-accent); }
+.management-shell .fp-actionbar--early .fp-actionbar__icon,
+.management-shell .fp-actionbar--stale .fp-actionbar__icon { color: var(--rd-warn); }
+.management-shell .fp-actionbar__text { display: grid; flex: 1 1 18rem; gap: 2px; min-width: 0; }
+.management-shell .fp-actionbar__text strong { color: var(--rd-text); font: 650 13.5px/1.35 var(--rd-font); overflow-wrap: anywhere; }
+.management-shell .fp-actionbar__text span { color: var(--rd-text-2); font: 400 12.5px/1.45 var(--rd-font); overflow-wrap: anywhere; }
+.management-shell .fp-actionbar__buttons { display: flex; flex-wrap: wrap; gap: 8px; margin-inline-start: auto; min-width: 0; }
+.management-shell .fp-actionbar__buttons .button { min-height: 36px; max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+@media (max-width: 480px) {
+  .management-shell .fp-actionbar { bottom: 8px; padding: 10px 12px; gap: 8px 10px; }
+  .management-shell .fp-actionbar__buttons { width: 100%; margin-inline-start: 0; }
+  .management-shell .fp-actionbar__buttons .button { flex: 1 1 8rem; }
+}
+@media (forced-colors: active) {
+  .management-shell .fp-actionbar { border-color: CanvasText; background: Canvas; box-shadow: none; }
+}
+
+/* Apply next to Randomize: visible as soon as a preview exists. */
+.management-shell .antidetect-apply {
+  box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 40px; padding: 9px 18px; border: 1px solid var(--rd-accent); border-radius: var(--rd-radius);
+  color: var(--rd-accent); background: var(--rd-accent-soft); font: 650 13.5px/1.3 var(--rd-font); text-align: center; cursor: pointer; overflow-wrap: anywhere;
+}
+.management-shell .antidetect-apply svg { flex: none; width: 17px; height: 17px; }
+.management-shell .antidetect-apply:not(:disabled):hover { background: color-mix(in srgb, var(--rd-accent-soft) 65%, var(--rd-accent)); }
+.management-shell .antidetect-apply:disabled { opacity: .5; cursor: not-allowed; }
+
+/* ADR-107 activation checklist (replaces the early-access callout and the reload note): numbered steps, the state of each one in
+   words; the marker only repeats it. Amber card while something is left to do, as for every partial state (ADR-103). */
+.management-shell .antidetect-checklist {
+  box-sizing: border-box; display: grid; gap: 10px; min-width: 0; padding: 14px 16px;
+  border: 1px solid var(--rd-warn); border-radius: var(--rd-radius-lg); background: var(--rd-warn-bg);
+}
+.management-shell .antidetect-checklist__title { margin: 0; color: var(--rd-text); font: 650 14px/1.35 var(--rd-font); overflow-wrap: anywhere; }
+.management-shell .antidetect-checklist__steps { display: grid; gap: 8px; min-width: 0; margin: 0; padding: 0; list-style: none; counter-reset: antidetect-step; }
+.management-shell .antidetect-checklist__step {
+  counter-increment: antidetect-step; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: "marker text state" ". actions actions";
+  align-items: start; gap: 6px 10px; min-width: 0; padding: 10px 12px; border-radius: var(--rd-radius); background: var(--rd-surface);
+}
+.management-shell .antidetect-checklist__marker {
+  grid-area: marker; box-sizing: border-box; display: inline-grid; place-items: center; width: 22px; height: 22px;
+  border: 1.5px solid var(--rd-control); border-radius: 50%; color: var(--rd-text-2); font: 650 12px/1 var(--rd-font); font-variant-numeric: tabular-nums;
+}
+.management-shell .antidetect-checklist__marker::before { content: counter(antidetect-step); }
+.management-shell .antidetect-checklist__step.is-done .antidetect-checklist__marker { border-color: var(--rd-ok-fill); color: var(--rd-thumb); background: var(--rd-ok-fill); }
+.management-shell .antidetect-checklist__step.is-done .antidetect-checklist__marker::before { content: "\2713"; }
+.management-shell .antidetect-checklist__step.is-error .antidetect-checklist__marker { border-color: var(--rd-err); color: var(--rd-err); }
+.management-shell .antidetect-checklist__step.is-error .antidetect-checklist__marker::before { content: "!"; }
+.management-shell .antidetect-checklist__step.is-unavailable .antidetect-checklist__marker { border-style: dashed; }
+.management-shell .antidetect-checklist__step.is-unavailable .antidetect-checklist__marker::before { content: "\2013"; }
+.management-shell .antidetect-checklist__step.is-instruction .antidetect-checklist__marker::before { content: "i"; }
+.management-shell .antidetect-checklist__text { grid-area: text; display: grid; gap: 2px; min-width: 0; }
+.management-shell .antidetect-checklist__text strong { color: var(--rd-text); font: 600 13px/1.45 var(--rd-font); overflow-wrap: anywhere; }
+.management-shell .antidetect-checklist__step.is-done .antidetect-checklist__text strong { color: var(--rd-text-2); font-weight: 500; }
+.management-shell .antidetect .antidetect-checklist__text p { margin: 0; color: var(--rd-text-2); font: 400 12.5px/1.5 var(--rd-font); overflow-wrap: anywhere; }
+.management-shell .antidetect-checklist__state {
+  grid-area: state; justify-self: end; padding: 2px 9px; border-radius: 999px; color: var(--rd-off); background: var(--rd-off-bg);
+  font: 600 12px/1.35 var(--rd-font); white-space: nowrap;
+}
+.management-shell .antidetect-checklist__step.is-done .antidetect-checklist__state { color: var(--rd-ok); background: var(--rd-ok-bg); }
+.management-shell .antidetect-checklist__step.is-open .antidetect-checklist__state { color: var(--rd-warn); background: var(--rd-warn-bg); }
+.management-shell .antidetect-checklist__step.is-error .antidetect-checklist__state { color: var(--rd-err); background: var(--rd-err-bg); }
+.management-shell .antidetect-checklist__actions { grid-area: actions; display: flex; flex-wrap: wrap; gap: 8px; min-width: 0; }
+.management-shell .antidetect-checklist__actions .button { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+@media (max-width: 480px) {
+  .management-shell .antidetect-checklist { padding: 12px; }
+  .management-shell .antidetect-checklist__step { grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "marker text" ". state" ". actions"; }
+  .management-shell .antidetect-checklist__state { justify-self: start; white-space: normal; }
+}
+@media (forced-colors: active) {
+  .management-shell .antidetect-checklist, .management-shell .antidetect-checklist__step { color: CanvasText; background: Canvas; border: 1px solid CanvasText; }
+  .management-shell .antidetect-checklist__marker { forced-color-adjust: none; color: CanvasText; background: Canvas; border-color: CanvasText; }
+  .management-shell .antidetect-checklist__step.is-done .antidetect-checklist__marker { color: HighlightText; background: Highlight; border-color: Highlight; }
+  .management-shell .antidetect-checklist__state { color: CanvasText; background: Canvas; border: 1px solid CanvasText; }
+}
+
+/* ADR-107: «Изменено» on a level tab and an overview row with unapplied changes — a word, not a dot. */
+.management-shell .antidetect-pending { display: inline-flex; flex: none; align-items: center; padding: 1px 7px; border-radius: 999px; color: var(--rd-warn); background: var(--rd-warn-bg); font: 600 12px/1.35 var(--rd-font); white-space: nowrap; }
+.management-shell .antidetect-category .antidetect-pending { margin-inline-start: 2px; }
+@media (forced-colors: active) { .management-shell .antidetect-pending { color: CanvasText; background: Canvas; border: 1px solid CanvasText; } }
+
+/* ADR-107: an address field is its label, the input and, once left with a wrong value, the reason in words. The red border of
+   [aria-invalid] inputs comes from redesign.css, which owns the input frame. */
+.management-shell .antidetect-address > label { min-width: 0; overflow-wrap: anywhere; }
+.management-shell .antidetect-field__error { color: var(--rd-err); font: 500 12px/1.45 var(--rd-font); overflow-wrap: anywhere; }
+.management-shell .antidetect-savebar__text { display: grid; flex: 1 1 14rem; gap: 2px; min-width: 0; }
+.management-shell .antidetect-savebar__reason { color: var(--rd-text-2); }
+@media (forced-colors: active) { .management-shell .antidetect-field__error { color: CanvasText; } }
+
+/* The card says "reported to sites": when the master is off it says so honestly and offers the switch. */
+.management-shell .fp-device-card__off {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 11px 15px;
+  border-block-end: 1px solid var(--rd-line); background: var(--rd-warn-bg); color: var(--rd-text); font: 500 12.5px/1.45 var(--rd-font);
+}
+.management-shell .fp-device-card__off span { flex: 1 1 14rem; min-width: 0; overflow-wrap: anywhere; }
+.management-shell .fp-device-card__off .button { min-height: 32px; max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+
+/* ADR-105: the HTTP-headers row is informational only; the header names are code chips, the text follows the UI direction. */
+.management-shell .antidetect-headers__list { display: grid; gap: 6px; margin: 0; min-width: 0; }
+.management-shell .antidetect-headers__list > div { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; min-width: 0; }
+.management-shell .antidetect-headers__list dt { margin: 0; color: var(--rd-text-3); font: 600 11.5px/1.4 var(--rd-font); }
+.management-shell .antidetect-headers__list dd { display: flex; flex-wrap: wrap; gap: 4px; margin: 0; min-width: 0; }
+.management-shell .antidetect-headers__list code { padding: 1px 6px; border: 1px solid var(--rd-line); border-radius: var(--rd-radius-sm); color: var(--rd-text-2); background: var(--rd-surface-2); font-size: 11.5px; line-height: 1.5; overflow-wrap: anywhere; }
+@media (forced-colors: active) { .management-shell .antidetect-headers__list code { color: CanvasText; background: Canvas; border-color: CanvasText; } }
+
+/* Catalog 8 host choice: the mDNS checkbox and its one-line note sit directly under the Host field of their family. */
+.management-shell .antidetect-family .antidetect-mdns { align-items: flex-start; margin-block: -2px 0; }
+.management-shell .antidetect-family .antidetect-mdns input { flex: none; margin-block-start: 2px; }
+.management-shell .antidetect-family .antidetect-mdns span { min-width: 0; overflow-wrap: anywhere; }
+.management-shell .antidetect-family .antidetect-mdns-note { margin-block: 0; }

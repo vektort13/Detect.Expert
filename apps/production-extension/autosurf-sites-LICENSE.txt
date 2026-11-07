@@ -1,0 +1,38 @@
+AUTOSURFER SITE CATALOG — DATA ATTRIBUTION
+
+Contains modified Chrome User Experience Report (CrUX) dataset material by Google.
+CrUX datasets are licensed under the Creative Commons Attribution 4.0
+International License (CC BY 4.0).
+
+License and legal terms:
+https://creativecommons.org/licenses/by/4.0/
+https://creativecommons.org/licenses/by/4.0/legalcode
+
+Google's dataset license statement:
+https://github.com/GoogleChrome/developer.chrome.com/blob/main/site/en/docs/crux/methodology/index.md#license
+
+Country data supplied through Internet Health Report:
+https://github.com/InternetHealthReport/crux-top-lists-country
+Pinned source commit: 1db09887a9952d7f25abc480c6e1edc444a87673
+Collection month: September 2026 (202609)
+Publication date: 13 October 2026
+Country files: data/country/<lowercase-country-code>/202609.csv.gz
+
+Changes made for Detect Expert:
+- Selected an authored exact-domain subset of the original country origin lists.
+- Retained observed HTTPS root origins and their original coarse rank buckets.
+- Chose one observed origin per curated domain, keeping only country membership
+  recorded for that exact origin.
+- Added project-authored display names and thematic categories.
+- Packaged the resulting data in a static offline module for the Autosurfer.
+
+The category assignments are project curation and are not categories supplied
+by Google or Internet Health Report. Original compressed source SHA-256 hashes
+and the filtered source rows are retained with the project's build inputs.
+
+CrUX documentation:
+https://developer.chrome.com/docs/crux/
+https://developer.chrome.com/docs/crux/bigquery
+
+The CC BY 4.0 license applies to the derived CrUX dataset material. This data
+attribution does not change the license of the extension's program code.

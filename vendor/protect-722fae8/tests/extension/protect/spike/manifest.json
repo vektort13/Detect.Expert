@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "detect.expert protect spike (test only)",
+  "version": "0.0.1",
+  "description": "Throwaway ADR-020 spike: records Chrome facts for the optional Protection module. Never built or shipped.",
+  "minimum_chrome_version": "119",
+  "permissions": ["storage", "webRequest", "scripting"],
+  "optional_permissions": ["declarativeNetRequestWithHostAccess"],
+  "optional_host_permissions": ["http://*/*", "https://*/*"],
+  "background": { "service_worker": "sw.js" },
+  "action": { "default_title": "protect spike", "default_popup": "page.html" }
+}

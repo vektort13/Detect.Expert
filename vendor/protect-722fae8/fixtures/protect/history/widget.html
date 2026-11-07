@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>S12: history widget</title>
+  </head>
+  <body>
+    <p>Widget of the receiver (S12): canvas text and an export in the receiver's own frame.</p>
+    <pre id="result"></pre>
+    <script src="../../fixture-lib.js"></script>
+    <script>
+      (function () {
+        var F = window.__fixture;
+        var canvas = document.createElement('canvas');
+        canvas.width = 200;
+        canvas.height = 40;
+        var ctx = canvas.getContext('2d');
+        ctx.textBaseline = 'top';
+        ctx.font = '14px sans-serif';
+        ctx.fillText('history widget', 2, 2);
+        var exported = canvas.toDataURL();
+        // Only whether an export happened: no pixels or data URL leave the page.
+        F.publish({ fixture: 'history-widget', exported: exported.length > 0 });
+      })();
+    </script>
+  </body>
+</html>

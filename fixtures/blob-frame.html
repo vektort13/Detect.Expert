@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>P06: blob</title></head><body>
+<h1>Документ blob</h1><script>
+document.createElement('canvas').toDataURL();
+var frame = document.createElement('iframe');
+frame.id = 'child';
+var blobUrl = URL.createObjectURL(new Blob(['<!doctype html><html lang="ru"><head><title>P06: дочерний blob</title></head><body>Дочерний документ</body></html>'], { type: 'text/html' }));
+frame.src = blobUrl;
+frame.addEventListener('load', function () { window.__blobLoaded = true; URL.revokeObjectURL(blobUrl); });
+document.body.appendChild(frame);
+</script></body></html>

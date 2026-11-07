@@ -1,0 +1,103 @@
+{
+  "task": "P06",
+  "requirement": [
+    "REQ-006",
+    "REQ-009",
+    "REQ-013"
+  ],
+  "at": "2026-09-13T07:09:33.137Z",
+  "platform": "win32",
+  "arch": "x64",
+  "osRelease": "10.0.26200",
+  "browser": "Chrome/153.0.8010.12",
+  "runtimeVersion": "153.0.8010.12",
+  "observations": {
+    "wrapped": false,
+    "before": {
+      "reportRevision": 6,
+      "documentKey": "1291226964:0:D16F26FC0C911598A962EC0C7F9AEBE1",
+      "host": null,
+      "coverageState": "late-start",
+      "coverageFlags": [
+        "late-start",
+        "hook-failed"
+      ],
+      "techniques": [
+        {
+          "techniqueId": "DET-001",
+          "count": 1,
+          "countQuality": "exact",
+          "phases": [
+            "returned-sync"
+          ],
+          "signalCodes": [
+            "api-use"
+          ],
+          "evidenceSource": "page-hook",
+          "integrity": "page-controlled",
+          "interpretation": "api-use",
+          "interpretationConfidence": "unassessed",
+          "attributionConfidence": "unknown",
+          "firstBucket": 0,
+          "lastBucket": 0
+        }
+      ],
+      "findings": [
+        {
+          "findingId": "canvas-readback-after-text-v2-DET-001-api-use",
+          "ruleId": "canvas-readback-after-text",
+          "ruleVersion": "2",
+          "techniqueId": "DET-001",
+          "interpretation": "api-use",
+          "interpretationConfidence": "unassessed",
+          "evidenceIds": [
+            "DET-001|returned-sync|api-use"
+          ],
+          "counterEvidenceCodes": [],
+          "limitationCodes": [
+            "page-controlled-evidence",
+            "purpose-unknown",
+            "catalog-disabled"
+          ],
+          "vendorMatchIds": [],
+          "coverageRef": "cov-late-start-0003"
+        }
+      ],
+      "vendors": [],
+      "dropped": {
+        "observations": 0,
+        "batches": 0,
+        "findings": 0,
+        "hosts": 0,
+        "counters": 0,
+        "transport": 0
+      },
+      "observedSince": 1789283373102,
+      "scopeMode": "active-tab"
+    },
+    "after": {
+      "reportRevision": 0,
+      "documentKey": "1291226964:0:C2679BCFF027F27476D23A1220081869",
+      "host": null,
+      "coverageState": "no-access",
+      "coverageFlags": [
+        "no-host-permission"
+      ],
+      "techniques": [],
+      "findings": [],
+      "vendors": [],
+      "dropped": {
+        "observations": 0,
+        "batches": 0,
+        "findings": 0,
+        "hosts": 0,
+        "counters": 0,
+        "transport": 0
+      },
+      "observedSince": null,
+      "scopeMode": "active-tab"
+    },
+    "browserDenied": true,
+    "optionalOrigins": []
+  }
+}

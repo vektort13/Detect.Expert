@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "about": "Reviewed hits of honest-copy.test.mjs (REQ-007/REQ-014). Each entry is one (source, key, term) whose wording is a negation or a technical meaning, never a promise. An entry that no longer matches the shipped copy fails the test as stale.",
+  "entries": [
+    { "source": "_locales/en/messages.json", "key": "protection_risk", "term": "anonymous", "reason": "Negation: \"No anonymity or complete protection is guaranteed\" warns that the API Guard promises neither." },
+    { "source": "_locales/en/messages.json", "key": "protection_risk", "term": "guarantee", "reason": "Negation: \"No anonymity or complete protection is guaranteed\" warns that the API Guard promises neither." },
+    { "source": "_locales/de/messages.json", "key": "protection_risk", "term": "anonymous", "reason": "Negation: \"Anonymitat oder vollstandiger Schutz werden nicht garantiert\" (German translation of the same warning)." },
+    { "source": "_locales/fr/messages.json", "key": "protection_risk", "term": "anonymous", "reason": "Negation: \"Ni anonymat ni protection complete ne sont garantis\" (French translation of the same warning)." },
+    { "source": "_locales/ru/messages.json", "key": "protection_risk", "term": "анонимн", "reason": "Negation: \"Anonymity and complete protection are not guaranteed\" (Russian translation of the same warning)." },
+    { "source": "_locales/ru/messages.json", "key": "protection_risk", "term": "гарантир", "reason": "Negation: \"Anonymity and complete protection are not guaranteed\" (Russian translation of the same warning)." },
+    { "source": "_locales/en/messages.json", "key": "api_pressure_limits_note", "term": "guarantee", "reason": "Technical negation: sampleInterval=0 requests notifications on change, \"not a guaranteed rate\" of Compute Pressure updates." },
+    { "source": "_locales/ru/messages.json", "key": "api_pressure_limits_note", "term": "гарантир", "reason": "Technical negation: sampleInterval=0 is \"not a guaranteed rate\" of Compute Pressure updates (Russian)." },
+    { "source": "_locales/en/messages.json", "key": "protection_site_off", "term": "bypass", "reason": "Name of the per-site mode that exempts a site from the extension's own rules; it never bypasses a site's protection (REQ-001)." },
+    { "source": "_locales/en/messages.json", "key": "antidetect_editor_siteOff", "term": "bypass", "reason": "Name of the per-site mode that exempts a site from the extension's own Antidetect rules; it never bypasses a site's protection." },
+    { "source": "_locales/en/messages.json", "key": "proxy_workspace_bypass_local", "term": "bypass", "reason": "Proxy routing term: local addresses connect directly instead of through the configured proxy (standard proxy bypass list)." },
+    { "source": "_locales/ru/messages.json", "key": "proxy_workspace_bypass_local", "term": "обход", "reason": "Proxy routing term: local addresses connect directly instead of through the configured proxy (Russian)." },
+    { "source": "_locales/ru/messages.json", "key": "rtc_values_scope", "term": "обход", "reason": "Technical meaning \"traversal of the statistics\": the Pro report says RTC stats traversal is NOT inspected." },
+    { "source": "_locales/ru/messages.json", "key": "api_hints_unknown", "term": "обход", "reason": "Technical meaning \"traverse a collection\": the sensor does not iterate a page-controlled collection (negation)." },
+    { "source": "_locales/uk/messages.json", "key": "api_hints_unknown", "term": "обход", "reason": "Ukrainian \"does not traverse the collection\" (negation, technical meaning), same message as the Russian one." },
+    { "source": "_locales/ru/messages.json", "key": "inspector_dns_desc", "term": "обход", "reason": "Describes a site's CDN cache busting (\"обход кэша\") as an alternative explanation of many subdomains, not an extension action." },
+    { "source": "_locales/uk/messages.json", "key": "inspector_dns_desc", "term": "обход", "reason": "Ukrainian \"обходу кешу\" (cache busting by a CDN) as an alternative explanation of many subdomains, not an extension action." }
+  ]
+}

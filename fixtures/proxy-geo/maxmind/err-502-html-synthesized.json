@@ -1,0 +1,10 @@
+{
+  "provider": "maxmind",
+  "ip": "8.8.8.8",
+  "service": "geoip-city",
+  "status": 502,
+  "headers": {
+    "content-type": "text/html"
+  },
+  "text": "<html><body>Bad gateway {\"code\":\"AUTHORIZATION_INVALID\"}</body></html>"
+}

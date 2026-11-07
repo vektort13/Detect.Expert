@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-09",
+  "overrideSha256": "b7ade8ea3edf3490bc2f7c62c4ac3d9aa40f39a83cb76001f98581d5a4d926d7",
+  "integratedPrimary": 443,
+  "reviewedExpansionRules": 187,
+  "positiveCases": 187,
+  "negativeCases": 174,
+  "secretReads": 0,
+  "getterReads": 0,
+  "acceptance": "No attribution/purpose/constructor blocker found in reviewed primary expansion; final generated package and build validation remain owner responsibility."
+}

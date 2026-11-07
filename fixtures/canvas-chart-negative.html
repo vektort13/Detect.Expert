@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>canvas-chart-negative</title>
+  </head>
+  <body>
+    <h1>Chart negative control</h1>
+    <p>A bar chart: measureText to lay out labels, fillText to draw them, fillRect for bars. No readback of any kind.</p>
+    <canvas id="c" width="400" height="240"></canvas>
+    <pre id="result"></pre>
+    <script src="fixture-lib.js"></script>
+    <script>
+      (function () {
+        var F = window.__fixture;
+        var canvas = document.getElementById('c');
+        var ctx = canvas.getContext('2d');
+        var series = [12, 30, 22, 45, 18, 27, 39, 8];
+        var labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'];
+        var measureTextCalls = 0;
+        var fillTextCalls = 0;
+        var widthsPositive = true;
+        ctx.font = '12px sans-serif';
+        var barWidth = 40;
+        for (var i = 0; i < series.length; i++) {
+          var x = 20 + i * (barWidth + 6);
+          var h = series[i] * 4;
+          ctx.fillStyle = '#4a7';
+          ctx.fillRect(x, 200 - h, barWidth, h);
+          var metrics = ctx.measureText(labels[i]);
+          measureTextCalls++;
+          if (!(metrics.width > 0)) widthsPositive = false;
+          ctx.fillStyle = '#222';
+          ctx.fillText(labels[i], x + (barWidth - metrics.width) / 2, 216);
+          fillTextCalls++;
+          var valueLabel = String(series[i]);
+          var vm = ctx.measureText(valueLabel);
+          measureTextCalls++;
+          ctx.fillText(valueLabel, x + (barWidth - vm.width) / 2, 196 - h);
+          fillTextCalls++;
+        }
+        F.publish({ fixture: 'canvas-chart-negative', measureTextCalls: measureTextCalls, fillTextCalls: fillTextCalls, readback: false, widthsPositive: widthsPositive });
+      })();
+    </script>
+  </body>
+</html>

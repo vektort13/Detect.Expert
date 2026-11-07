@@ -1,0 +1,8 @@
+{
+  "provider": "maxmind",
+  "ip": "8.8.8.8",
+  "service": "geoip-city",
+  "status": 404,
+  "headers": {},
+  "text": ""
+}

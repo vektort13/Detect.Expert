@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>protect: synthetic replay vendor</title>
+  </head>
+  <body>
+    <!--
+      ADR-020 §E (S11): test profile only. Loads the synthetic vendor loader http://127.0.0.1:4174/replay/loader.js (an
+      enabled rule of the test replay table): it observes the document (S2) and, with ?sends=N, POSTs 2 KiB to its
+      endpoint collect.replay.example.org every 1.5 s. Expected: R3 (replay-like) without sends, R5 (replay-recording)
+      with at least 3 sends. Nothing reads a field value.
+    -->
+    <h1 id="title">Synthetic replay vendor</h1>
+    <pre id="result"></pre>
+    <script src="../../fixture-lib.js"></script>
+    <script>
+      (function () {
+        var F = window.__fixture;
+        var q = new URLSearchParams(location.search);
+        window.__replayVendorSends = Number(q.get('sends') || 0);
+        window.__replayVendorDone = function (n) {
+          F.publish({ fixture: 'protect-replay-vendor', sends: n });
+        };
+        var s = document.createElement('script');
+        s.src = 'http://127.0.0.1:4174/replay/loader.js';
+        document.head.appendChild(s);
+      })();
+    </script>
+  </body>
+</html>

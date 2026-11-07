@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:detect-expert:contracts:bridge-control:v1",
+  "title": "BridgeControl v1 - service worker -> ISOLATED bridge (chrome.tabs.sendMessage to one document)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "type",
+    "command"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "$ref": "urn:detect-expert:contracts:common:v1#/$defs/schemaVersion"
+    },
+    "type": {
+      "const": "bridge-control"
+    },
+    "command": {
+      "$ref": "urn:detect-expert:contracts:common:v1#/$defs/bridgeControlCommand"
+    }
+  }
+}

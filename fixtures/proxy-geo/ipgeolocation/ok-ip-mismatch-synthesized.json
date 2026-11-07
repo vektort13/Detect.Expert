@@ -1,0 +1,15 @@
+{
+  "provider": "ipgeolocation",
+  "ip": "8.8.8.8",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": {
+    "ip": "8.8.4.4",
+    "location": {
+      "country_code2": "US",
+      "country_name": "United States"
+    }
+  }
+}

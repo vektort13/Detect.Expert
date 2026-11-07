@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "properties": {
+    "ProtectModuleDisabled": {
+      "title": "Disable the protection module",
+      "description": "True disables the protection module. False or an absent policy does not enable it; activation requires user consent.",
+      "type": "boolean"
+    }
+  }
+}

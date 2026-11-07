@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>hostile-bridge</title>
+    <script src="hostile-boot.js"></script>
+  </head>
+  <body>
+    <h1>Hostile page: bridge flood</h1>
+    <p>One genuine readback, then 100 000 window messages that imitate the sensor channel: spoofed well-formed batches, oversized 100 KB strings, deeply nested objects, own __proto__ keys, forged tabId/frameId/documentId, fake ui-export-preview / ui-clear commands, garbage primitives. Then three more genuine readbacks so a fake clear would show up as a count drop. Records timing.</p>
+    <pre id="result"></pre>
+    <script src="fixture-lib.js"></script>
+    <script>
+      (function () {
+        var F = window.__fixture;
+        var CHANNEL = 'detect.expert/v1';
+        var TOTAL = 100000;
+        var canvas = document.createElement('canvas');
+        canvas.width = 120;
+        canvas.height = 40;
+        var ctx = canvas.getContext('2d');
+        ctx.font = '14px sans-serif';
+        ctx.fillText('flood', 2, 16);
+        var initial = ctx.getImageData(0, 0, 4, 4);
+        var readbacksBefore = initial instanceof ImageData ? 1 : 0;
+
+        var big = new Array(100 * 1024 + 1).join('A');
+        var nested = { leaf: true };
+        for (var d = 0; d < 200; d++) nested = { child: nested, n: d };
+        var protoObj = JSON.parse('{"channel":"detect.expert/v1","sensorBootId":"p","type":"sensor-batch","sensorSeq":1,"observations":[],"coverageDelta":[],"__proto__":{"polluted":true},"constructor":{"prototype":{"polluted":true}}}');
+        var obs = { techniqueId: 'DET-040', count: 1, countQuality: 'exact', phase: 'attempted', signalCodes: ['api-use'], intervalBucket: 1 };
+        var counts = { spoofed: 0, oversized: 0, nested: 0, proto: 0, forged: 0, fakeExport: 0, fakeClear: 0, garbage: 0 };
+        var garbage = [null, 42, 'sensor-batch', [], true, new Date(0), new ArrayBuffer(8), { type: 'sensor-batch' }, { channel: CHANNEL }];
+
+        var target;
+        function make(i) {
+          var kind = i % 100;
+          if (kind === 0) { counts.oversized++; return { channel: CHANNEL, sensorBootId: big, type: 'sensor-batch', sensorSeq: i, observations: [obs], coverageDelta: [big] }; }
+          if (kind === 1) { counts.nested++; return { channel: CHANNEL, sensorBootId: 'n', type: 'sensor-batch', sensorSeq: i, observations: [nested], coverageDelta: [] }; }
+          if (kind === 2) { counts.proto++; return protoObj; }
+          if (kind === 3) { counts.forged++; return { channel: CHANNEL, sensorBootId: window.__hostileBoot.bootId, type: 'sensor-batch', sensorSeq: i, observations: [obs], coverageDelta: [], tabId: target.tabId, frameId: target.frameId, documentId: target.documentId, documentKey: target.documentKey, integrity: 'browser-observed' }; }
+          if (kind === 4 || kind === 5) {
+            if (kind === 4) counts.fakeExport++; else counts.fakeClear++;
+            var request = { schemaVersion: 1, type: kind === 4 ? 'ui-export-preview' : 'ui-clear', tabId: target.tabId, documentKey: target.documentKey, reportRevision: target.reportRevision };
+            if (i % 200 >= 100) { request.channel = CHANNEL; request.sensorBootId = window.__hostileBoot.bootId; }
+            return request;
+          }
+          if (kind === 6) { counts.garbage++; return garbage[i % garbage.length]; }
+          counts.spoofed++;
+          return { channel: CHANNEL, sensorBootId: 'spoof-' + (i % 7), type: 'sensor-batch', sensorSeq: i, observations: [obs], coverageDelta: [] };
+        }
+
+        var out = { fixture: 'hostile-bridge', messages: TOTAL, mix: counts, sentinelSeen: false, readbacksBefore: readbacksBefore };
+        var t0 = performance.now();
+        var t1 = 0;
+        window.addEventListener('message', function (e) {
+          if (e.source === window && e.data && e.data.__fixtureSentinel === true) {
+            out.sentinelSeen = true;
+            out.drainMs = Math.round((performance.now() - t1) * 100) / 100;
+            genuine();
+          }
+        });
+        // F160: the harness starts the attack only after a real victim report is committed.
+        window.__runHostile = function (mode, victim, maxCount) {
+          target = victim;
+          t0 = performance.now();
+          if (mode === 'flood') {
+            for (var i = 0; i < TOTAL; i++) window.postMessage(make(i), '*');
+          } else {
+            window.__hostileBoot.attack(mode, maxCount);
+          }
+          t1 = performance.now();
+          out.postMs = Math.round((t1 - t0) * 100) / 100;
+          window.postMessage({ __fixtureSentinel: true }, '*');
+        };
+
+        function genuine() {
+          var readbacks = 0;
+          var samePixels = true;
+          for (var k = 0; k < 3; k++) {
+            var image = ctx.getImageData(0, 0, 4, 4);
+            if (image instanceof ImageData) readbacks++;
+            for (var p = 0; p < initial.data.length; p++) if (image.data[p] !== initial.data[p]) samePixels = false;
+          }
+          out.readbacks = readbacks;
+          out.samePixels = samePixels;
+          out.totalMs = Math.round((performance.now() - t0) * 100) / 100;
+          if (!window.__hostileBoot.restored) setTimeout(function () { F.publish(out); }, 1100);
+          else F.publish(out);
+        }
+      })();
+    </script>
+  </body>
+</html>

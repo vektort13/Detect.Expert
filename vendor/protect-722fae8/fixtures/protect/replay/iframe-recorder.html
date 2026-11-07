@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>protect: recorder in a frame</title>
+  </head>
+  <body>
+    <!--
+      ADR-020 §E (S11): the top page (shop.example.com) embeds this file from widget.example.org with ?frame=1; inside
+      the frame the recorder registers page-level listeners of the frame document, observes it and POSTs 2 KiB to
+      rec.example.net every 1.5 s × 4. Conjunctions are judged within one document. Expected: replay-like in the
+      cross-site frame. Nothing reads a field value.
+    -->
+    <h1 id="title">Recorder in a frame</h1>
+    <pre id="result"></pre>
+    <script src="../../fixture-lib.js"></script>
+    <script src="replay-sim.js"></script>
+    <script>
+      (function () {
+        var F = window.__fixture;
+        var q = new URLSearchParams(location.search);
+        if (q.get('frame') === '1') {
+          window.replaySim.listen('root');
+          window.replaySim.observe(document);
+          window.replaySim.sendSeries({ url: 'http://rec.example.net:' + location.port + '/replay/collect', count: 4, every: 1500, bytes: 2048 }).then(function (n) {
+            parent.postMessage({ replayFrameDone: n }, '*');
+          });
+          return;
+        }
+        var frame = document.createElement('iframe');
+        frame.src = 'http://widget.example.org:' + location.port + '/protect/replay/iframe-recorder.html?frame=1';
+        window.addEventListener('message', function (event) {
+          if (event.source === frame.contentWindow && event.data && typeof event.data.replayFrameDone === 'number') {
+            F.publish({ fixture: 'protect-replay-iframe', frameSends: event.data.replayFrameDone });
+          }
+        });
+        document.body.appendChild(frame);
+      })();
+    </script>
+  </body>
+</html>

@@ -38,7 +38,7 @@ Only the public exit IP that a manual proxy check found, plus your key, sent to 
 
 ### Where is my data stored, and how do I delete it?
 
-Detector reports sit in the browser's session storage and disappear when you close the browser, with size and time limits besides. What you save yourself (Pro reports, Antidetect profiles, proxy metadata, settings) is stored in the browser profile on disk. Each tool has its own delete or clear button, and removing the extension removes its storage. Files you exported stay where you put them. The proxy companion's files and encrypted profiles stay too, see the [companion README](../../companion/README.md#uninstall). The full inventory is in [docs/data-inventory.md](../data-inventory.md).
+Detector reports sit in the browser's session storage and disappear when you close the browser, with size and time limits besides. What you save yourself (Pro reports, Antidetect profiles, proxy metadata, settings) is stored in the browser profile on disk. Each tool has its own delete or clear button, and removing the extension removes its storage. Files you exported stay where you put them. The proxy companion's files and encrypted profiles stay too, see the [companion README](../../native/proxy/README.md#uninstall). The full inventory is in [docs/data-inventory.md](../data-inventory.md).
 
 ## What it can and can't do
 
@@ -96,7 +96,7 @@ English and Russian are written by hand. The other 19 languages are drafts that 
 
 ### What's the license?
 
-MIT, see [LICENSE](../../LICENSE). The companion's engines (Xray-core, go-openvpn) have their own licenses, listed in the [companion README](../../companion/README.md#licenses).
+MIT, see [LICENSE](../../LICENSE). The companion's engines (Xray-core, go-openvpn) have their own licenses, listed in the [companion README](../../native/proxy/README.md#licenses).
 
 ### I found a security problem.
 

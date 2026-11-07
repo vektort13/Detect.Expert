@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>canvas-tainted</title>
+  </head>
+  <body>
+    <h1>Tainted canvas</h1>
+    <p>Draws an image from the second fixture origin (served without CORS headers) onto a canvas, then attempts getImageData / toDataURL / toBlob. The original SecurityError must reach the page unchanged.</p>
+    <pre id="result"></pre>
+    <script src="fixture-lib.js"></script>
+    <script>
+      (function () {
+        var F = window.__fixture;
+        var out = { fixture: 'canvas-tainted', imageOrigin: F.otherOrigin(), imageLoaded: false };
+        var img = new Image();
+        img.onload = function () {
+          var canvas = document.createElement('canvas');
+          canvas.width = 32;
+          canvas.height = 32;
+          var ctx = canvas.getContext('2d');
+          ctx.font = '12px sans-serif';
+          ctx.fillText('tainted', 1, 12);
+          ctx.drawImage(img, 0, 0);
+          out.imageLoaded = true;
+          out.getImageData = F.attempt(function () {
+            var d = ctx.getImageData(0, 0, 4, 4);
+            return { isImageData: d instanceof ImageData };
+          });
+          out.toDataURL = F.attempt(function () {
+            var u = canvas.toDataURL();
+            return { isString: typeof u === 'string' };
+          });
+          out.toBlob = F.attempt(function () {
+            canvas.toBlob(function () {});
+            return 'called';
+          });
+          F.publish(out);
+        };
+        img.onerror = function () {
+          out.error = 'image failed to load from the second origin';
+          F.publish(out);
+        };
+        img.src = F.otherOrigin() + '/assets/dot.png';
+      })();
+    </script>
+  </body>
+</html>

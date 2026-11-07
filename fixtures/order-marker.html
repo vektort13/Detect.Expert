@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>P06: порядок скриптов</title>
+<script>
+// P06 / E02-01: this is the first page script, before every external script.
+window.__realm = {
+  wrappedAtFirstInline: !Function.prototype.toString.call(HTMLCanvasElement.prototype.toDataURL).includes('[native code]'),
+  calls: 0,
+  read: function () { document.createElement('canvas').toDataURL(); this.calls++; }
+};
+window.__realm.read();
+</script></head><body><h1>Маркер первого inline-скрипта</h1></body></html>

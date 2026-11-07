@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "note": "The raw IAB Global Vendor List, the IAB cookie disclosure snapshots and the Google ad-cookie table are third-party data without an open licence and are not published. Their size and sha256 are listed in notPublished; scripts/cookie-catalog.mjs --check verifies the derived artifacts against derivedArtifacts. To regenerate the catalogue, fetch the sources again with scripts/cookie-public-datasets.mjs.",
+  "notPublished": {
+    "google-adcookies.csv": {
+      "bytes": 8325,
+      "sha256": "21ac0e3e27e3f31b2e1cb04ba8ebffa41e57a94ab22d7fd667c4b2cfcc756b36"
+    },
+    "iab-gvl-source.json": {
+      "bytes": 406861,
+      "sha256": "63c42bc7ea4c671dd084b7fc47b1c27b38baef12d536d6a5ed588b111f621d58"
+    },
+    "iab-cookie-disclosure-snapshot.json": {
+      "bytes": 2900663,
+      "sha256": "b7048105b9e47a54a659618148766388caca43d3804dda132eea4783f4fa81f1"
+    },
+    "iab-cookie-disclosures.normalized.json": {
+      "bytes": 5545629,
+      "sha256": "aea364750cb3df45560feac2b904c214bdffefa86b6676e88ceec224870ecec9"
+    }
+  },
+  "derivedArtifacts": {
+    "packages/catalog/data/cookies.v1.json": "8e4680ab061d14040926884d8641aa118b712424976a7da777e8539576098b52",
+    "apps/production-extension/cookie-catalog.js": "6a447d65d9d5e3d219c81b945b351240ddca11a7a3cb81b0e22ed066f546ce97",
+    "apps/production-extension/COOKIE-CATALOG-LICENSE.txt": "23d91e036c8b259b58bb427fe813b468ae9a080db9493ed93ad2b99d353277f2",
+    "apps/production-extension/COOKIE-CATALOG-NOTICE.txt": "024a954b4bad335eae4cec3197a6f04eb24dbbe27fef026de68b07cb8466bfae"
+  }
+}

@@ -1,0 +1,227 @@
+/* ADR-052: dedicated findings window. The existing FirewallCard keeps its real evidence, scopes and decisions;
+   only this window's layout changes. Native outer bounds stay within the monitor work area. */
+body.protect-findings-page {
+  margin: 0;
+  min-width: 0;
+  background: var(--surface);
+}
+
+.protect-findings {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+  max-width: 100%;
+  padding: 14px 16px 16px;
+  overflow-wrap: anywhere;
+}
+
+.protect-findings__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-bottom: 1px solid var(--border);
+  padding-block-end: 10px;
+}
+
+.protect-findings__heading { min-width: 0; }
+.protect-findings__brand { color: var(--muted); font-size: 11px; font-weight: 650; }
+.protect-findings h1 { margin: 3px 0 0; font-size: 16px; line-height: 1.35; }
+.protect-findings h2 { margin: 0; font-size: 14px; line-height: 1.45; }
+.protect-findings__site { margin: 0; color: var(--muted); font-size: 13px; }
+.protect-findings__coverage { display: grid; gap: 5px; }
+.protect-findings__coverage > p, .protect-findings__coverage > ul { margin: 0; }
+.protect-findings__section { display: grid; gap: 8px; min-width: 0; padding: 12px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface-2); }
+.protect-findings__details { min-width: 0; }
+.protect-findings__details > summary { padding-block: 4px; color: var(--accent); cursor: pointer; font-size: 13px; }
+.protect-findings__details > .protect-island { display: block; margin-block-start: 10px; }
+.protect-findings__evidence > ul { padding-inline-start: 0; }
+.protect-findings .leaks__list { list-style: none; margin: 0; padding: 0; }
+.protect-findings .leaks__list > li + li { margin-block-start: 10px; }
+.protect-findings__footer { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+:root body .protect-findings__close { flex: none; width: 36px; height: 36px; min-height: 36px; padding: 0; font-size: 24px; line-height: 1; }
+.protect-findings__close:focus-visible, .protect-findings__details > summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.protect-findings .replay { margin: 0; }
+
+/* The rich firewall card is the window content, without a second card frame around the same finding.
+   These selectors outrank the shared surfaces.css that is composed later; the manual firewall popup is unchanged. */
+@media screen {
+  body.protect-findings-page { background: var(--page-fill, var(--surface)); }
+
+  :root body .protect-findings .protect-findings__transfers,
+  :root body .protect-findings .protect-findings__evidence {
+    display: grid;
+    gap: 16px;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  :root body .protect-findings .fw-card {
+    gap: 10px;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  :root body .protect-findings .fw-card__head {
+    grid-template-columns: 38px minmax(0, 1fr);
+    align-items: center;
+    gap: 10px;
+  }
+
+  :root body .protect-findings .fw-card__icon {
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--glass-line);
+    border-radius: 12px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    box-shadow: var(--glass-shadow);
+  }
+
+  :root body .protect-findings .fw-card__title {
+    font-size: 16px;
+    font-weight: 650;
+    line-height: 1.35;
+    letter-spacing: -.01em;
+  }
+
+  :root body .protect-findings .fw-card__site {
+    gap: 3px 10px;
+    align-items: baseline;
+    line-height: 1.4;
+  }
+
+  :root body .protect-findings .fw-card__brand {
+    font-size: 12px;
+    font-weight: 650;
+    letter-spacing: .02em;
+    text-transform: none;
+  }
+
+  :root body .protect-findings :is(.fw-alert, .fw-blocking, .fw-message) {
+    padding: 10px 12px;
+    border: 1px solid var(--glass-line);
+    border-radius: 13px;
+    background: var(--glass);
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  :root body .protect-findings :is(.fw-alert.state--attention, .fw-blocking, .fw-message.state--attention) {
+    border-color: var(--attention-border);
+    background: var(--attention-bg);
+    color: var(--attention);
+  }
+
+  :root body .protect-findings .fw-message.state--error {
+    border-color: var(--error-border);
+    background: var(--error-bg);
+    color: var(--error);
+  }
+
+  :root body .protect-findings .fw-chips { gap: 5px; }
+  :root body .protect-findings .fw-chip {
+    max-width: 100%;
+    padding: 3px 9px;
+    border-color: var(--glass-line);
+    border-radius: 999px;
+    background: var(--control-fill);
+    font-size: 12px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+  }
+
+  :root body .protect-findings .fw-rows {
+    gap: 0;
+    padding: 3px 11px;
+    border: 1px solid var(--glass-line);
+    border-radius: 14px;
+    background: var(--glass);
+    box-shadow: var(--glass-shadow);
+  }
+
+  :root body .protect-findings .fw-row {
+    grid-template-columns: minmax(80px, 30%) minmax(0, 1fr);
+    gap: 10px;
+    padding-block: 7px;
+    font-size: 12px;
+    line-height: 1.45;
+  }
+  :root body .protect-findings .fw-row + .fw-row { border-block-start: 1px solid var(--glass-line); }
+  :root body .protect-findings .fw-row__value { gap: 3px; }
+  :root body .protect-findings .fw-row__host { direction: ltr; unicode-bidi: isolate; }
+
+  :root body .protect-findings .fw-evidence__summary { padding-block: 5px; font-weight: 650; }
+  :root body .protect-findings .fw-evidence__body {
+    gap: 5px;
+    padding: 10px;
+    border-color: var(--glass-line);
+    border-radius: 12px;
+    background: var(--surface-2);
+    overflow-wrap: anywhere;
+  }
+
+  :root body .protect-findings :is(.fw-scope, .fw-receivers) { gap: 7px; }
+  :root body .protect-findings .fw-scope__options {
+    gap: 3px;
+    padding: 3px;
+    border-color: var(--glass-line);
+    border-radius: 13px;
+    background: var(--surface-2);
+  }
+  :root body .protect-findings .fw-scope__option { min-width: 0; min-height: 34px; padding: 6px; border-radius: 10px; }
+  :root body .protect-findings .fw-scope__label { min-width: 0; overflow-wrap: anywhere; }
+  :root body .protect-findings .fw-scope__option--checked { background: var(--surface); color: var(--accent); box-shadow: var(--glass-shadow); }
+
+  /* Retain the vendored sticky decision row and its short-viewport fallback, with equal-sized real actions. */
+  :root body .protect-findings .fw-decision {
+    gap: 8px;
+    padding-block: 8px;
+    border-top-color: var(--glass-line);
+    background: color-mix(in srgb, var(--surface) 96%, transparent);
+    backdrop-filter: blur(16px);
+  }
+  :root body .protect-findings .fw-action { min-height: 40px; padding: 9px 10px; border-radius: 12px; font-size: 13px; white-space: normal; }
+  :root body .protect-findings .fw-action:not(.button--primary) { background: var(--control-fill); }
+  :root body .protect-findings .fw-foot {
+    gap: 7px;
+    margin-block-start: 2px;
+    padding-block: 10px 2px;
+    border-block-start: 1px solid var(--glass-line);
+  }
+  :root body .protect-findings .fw-foot__counter { color: var(--text); font-weight: 600; }
+  :root body .protect-findings .fw-foot__actions { justify-content: space-between; gap: 6px 12px; }
+  :root body .protect-findings .fw-foot__actions .button--text { min-height: 28px; font-size: 12px; }
+
+  @media (max-width: 300px) {
+    :root body .protect-findings .fw-card__head { grid-template-columns: 30px minmax(0, 1fr); gap: 8px; }
+    :root body .protect-findings .fw-card__icon { width: 30px; height: 30px; }
+    :root body .protect-findings .fw-row { grid-template-columns: 1fr; gap: 3px; }
+  }
+
+  @media (prefers-reduced-transparency: reduce) {
+    :root body .protect-findings .fw-decision { backdrop-filter: none; background: var(--surface); }
+  }
+}
+
+@media (forced-colors: active) {
+  .protect-findings__section, .protect-findings__bar { border-color: CanvasText; }
+  body.protect-findings-page { background: Canvas; }
+  :root body.protect-findings-page .protect-findings :is(.fw-card__icon, .fw-alert, .fw-blocking, .fw-message, .fw-chip, .fw-rows, .fw-evidence__body, .fw-scope__options, .fw-scope__option, .fw-decision) {
+    border-color: CanvasText;
+    background: Canvas;
+    color: CanvasText;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+  :root body .protect-findings :is(.fw-scope__option--checked, .fw-scope__option:focus-within) { outline: 2px solid Highlight; outline-offset: -2px; }
+  :root body.protect-findings-page .protect-findings .fw-action { border: 1px solid ButtonText; background: ButtonFace; color: ButtonText; box-shadow: none; }
+  :root body.protect-findings-page .protect-findings .fw-row + .fw-row { border-color: CanvasText; }
+}

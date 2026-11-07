@@ -1,0 +1,13 @@
+/* ADR-074: compact selected-document observation; shared light/dark and RTL tokens. */
+.precursor-panel { margin-block: 12px; padding: 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); color: var(--text); min-width: 0; overflow-wrap: anywhere; font-size: 12px; line-height: 1.5; }
+.precursor-panel__heading { margin-block-end: 5px; font-size: 14px; }
+.precursor-panel__status { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+.precursor-panel__coverage { color: var(--muted); margin-inline-start: auto; }
+.precursor-panel__mode { color: var(--muted); margin-block-start: 3px; }
+.precursor-panel:has(.precursor-zone[data-zone-visible]) > .precursor-panel__mode { display: none; }
+.precursor-zone { margin-block-start: 6px; }
+.precursor-zone__details { color: var(--muted); font-size: 11px; }
+.precursor-zone__transition { display: inline-flex; align-items: baseline; gap: .3em; vertical-align: baseline; }
+.precursor-panel__configure { margin-block-start: 8px; border: 1px solid var(--border); border-radius: 6px; padding: 5px 9px; color: var(--text); background: var(--surface); cursor: pointer; font: inherit; }
+.precursor-panel__configure:hover { background: var(--surface-hover, var(--surface)); }
+.precursor-panel__configure:focus-visible { outline: 2px solid var(--accent, #337fff); outline-offset: 2px; }

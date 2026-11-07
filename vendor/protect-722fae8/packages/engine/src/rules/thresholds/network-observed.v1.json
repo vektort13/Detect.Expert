@@ -1,0 +1,13 @@
+{
+  "ruleVersion": "1",
+  "calibrated": false,
+  "windowMs": 10000,
+  "minLocalPortsPerTarget": 4,
+  "minLocalTargets": 8,
+  "minRandomSubdomains": 8,
+  "minRandomLabelChars": 12,
+  "minRandomLabelDigits": 2,
+  "minRandomLabelLetters": 2,
+  "patternConfidence": "low",
+  "maxConfidence": "low"
+}

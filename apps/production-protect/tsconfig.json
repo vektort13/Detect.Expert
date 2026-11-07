@@ -1,0 +1,61 @@
+{
+  "extends": "../../vendor/protect-722fae8/tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "types": [
+      "chrome"
+    ],
+    "paths": {
+      "@detect-expert/attribution": [
+        "../../vendor/protect-722fae8/packages/attribution/src/index.ts"
+      ],
+      "@detect-expert/background": [
+        "../../vendor/protect-722fae8/packages/background/src/index.ts"
+      ],
+      "@detect-expert/catalog": [
+        "../../vendor/protect-722fae8/packages/catalog/src/index.ts"
+      ],
+      "@detect-expert/catalog/synthetic": [
+        "../../vendor/protect-722fae8/packages/catalog/src/synthetic.ts"
+      ],
+      "@detect-expert/catalog/protect-tables": [
+        "../../vendor/protect-722fae8/packages/catalog/src/protect-tables/index.ts"
+      ],
+      "@detect-expert/catalog/protect-tables/synthetic": [
+        "../../vendor/protect-722fae8/packages/catalog/src/protect-tables/synthetic.ts"
+      ],
+      "@detect-expert/collector": [
+        "../../vendor/protect-722fae8/packages/collector/src/index.ts"
+      ],
+      "@detect-expert/contracts": [
+        "../../vendor/protect-722fae8/packages/contracts/src/index.ts"
+      ],
+      "@detect-expert/engine": [
+        "../../vendor/protect-722fae8/packages/engine/src/index.ts"
+      ],
+      "@detect-expert/export": [
+        "../../vendor/protect-722fae8/packages/export/src/index.ts"
+      ],
+      "@detect-expert/sensors": [
+        "../../vendor/protect-722fae8/packages/sensors/src/index.ts"
+      ],
+      "@detect-expert/ui": [
+        "../../vendor/protect-722fae8/packages/ui/src/index.ts"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "../../vendor/protect-722fae8/packages/ui/src/build-profile.d.ts",
+    "../../vendor/protect-722fae8/apps/extension/entrypoints/protect.ts",
+    "../../vendor/protect-722fae8/apps/extension/entrypoints/protect.main.ts",
+    "../../vendor/protect-722fae8/apps/extension/entrypoints/protect-on.ts",
+    "../../vendor/protect-722fae8/apps/extension/entrypoints/protect-policy.ts",
+    "../../vendor/protect-722fae8/apps/extension/entrypoints/gpc.main.ts"
+  ],
+  "exclude": [
+    "**/node_modules/**",
+    "**/dist/**"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "provider": "ipdata",
+  "ip": "24.24.24.24",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": {
+    "ip": "24.24.24.24",
+    "is_eu": false,
+    "city": "Syracuse",
+    "region": "New York",
+    "region_code": "NY",
+    "region_type": "state",
+    "country_name": "United States",
+    "country_code": "US",
+    "continent_name": "North America",
+    "continent_code": "NA",
+    "latitude": 43.0483,
+    "longitude": -76.1468,
+    "postal": "13261",
+    "calling_code": "1",
+    "flag": "https://ipdata.co/flags/us.png",
+    "emoji_flag": "🇺🇸",
+    "emoji_unicode": "U+1F1FA U+1F1F8"
+  }
+}

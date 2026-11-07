@@ -1,0 +1,33 @@
+{
+  "provider": "ipdata",
+  "ip": "8.8.4.4",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": {
+    "ip": "8.8.4.4",
+    "country_code": "US",
+    "asn": {
+      "asn": "AS15169",
+      "name": "Google LLC",
+      "type": "unknown"
+    },
+    "company": {
+      "name": "Example University",
+      "type": "edu"
+    },
+    "threat": {
+      "is_tor": true,
+      "is_vpn": true,
+      "is_icloud_relay": true,
+      "is_proxy": true,
+      "is_datacenter": true,
+      "is_anonymous": true,
+      "is_known_attacker": true,
+      "is_known_abuser": false,
+      "is_threat": true,
+      "is_bogon": false
+    }
+  }
+}

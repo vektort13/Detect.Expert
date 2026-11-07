@@ -1,0 +1,18 @@
+<!doctype html><meta charset="utf-8"><title>P01</title>
+<script>
+// P01: controlled page traffic; the extension never initiates these requests.
+const label = 'p01-' + crypto.randomUUID();
+const load = (src) => new Promise((resolve, reject) => {
+  const script = document.createElement('script');
+  script.src = src;
+  script.onload = () => resolve(true);
+  script.onerror = () => reject(new Error('fixture resource failed'));
+  document.head.append(script);
+});
+const canvas = document.createElement('canvas');
+canvas.toDataURL();
+Promise.all([
+  load('http://' + label + '.example.com:4174/privacy/network-resource.js?q=' + label),
+  load('http://127.0.0.1:4174/privacy/network-resource.js?q=' + label),
+]).then(() => { window.__fixtureResult = { label, loaded: 2 }; });
+</script>

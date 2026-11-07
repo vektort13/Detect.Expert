@@ -1,0 +1,14 @@
+diff --git a/cmd/openvpn2socks/resolver.go b/cmd/openvpn2socks/resolver.go
+index 0ea7aca..700d8d8 100644
+--- a/cmd/openvpn2socks/resolver.go
++++ b/cmd/openvpn2socks/resolver.go
+@@ -544,6 +544,9 @@ func (r *resolver) queryOverTunnel(ctx context.Context, server netip.AddrPort, h
+ 				_ = conn.SetDeadline(dl)
+ 			}
+ 			ips, err := r.queryOne(conn, host, qt)
++			if err != nil && !errors.Is(err, errDNSAuthoritativeNoData) && ctx.Err() == nil {
++				ips, err = queryTunnelTCP(ctx, server, host, qt, r.ns.DialContext)
++			}
+ 			ch <- result{ips, err, qt}
+ 		}(qt)
+ 	}

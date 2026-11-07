@@ -1,0 +1,46 @@
+{
+  "provider": "maxmind",
+  "ip": "8.8.8.8",
+  "service": "geoip-insights",
+  "status": 200,
+  "headers": {
+    "content-type": "application/vnd.maxmind.com-insights+json; charset=UTF-8; version=2.1"
+  },
+  "body": {
+    "traits": [],
+    "country": [
+      {
+        "iso_code": "US"
+      }
+    ],
+    "city": [
+      {
+        "names": {
+          "en": "X"
+        }
+      }
+    ],
+    "location": [
+      {
+        "time_zone": "UTC"
+      }
+    ],
+    "subdivisions": {
+      "0": {
+        "names": {
+          "en": "X"
+        }
+      }
+    },
+    "anonymizer": [
+      {
+        "is_public_proxy": true
+      }
+    ],
+    "maxmind": [
+      {
+        "queries_remaining": 5
+      }
+    ]
+  }
+}

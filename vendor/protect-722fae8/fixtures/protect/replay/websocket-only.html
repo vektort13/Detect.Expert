@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>protect: recorder over WebSocket</title>
+  </head>
+  <body>
+    <!--
+      ADR-020 §E (S11): a recorder with page-level listeners and a document observer that sends its data only over a
+      WebSocket (the stand's /ws handshake on rec.example.net; the server never reads frames), 6 frames 1.5 s apart.
+      WebSocket data is not visible to the module. Expected: signals-only with websocket-not-observed.
+    -->
+    <h1 id="title">Recorder over WebSocket</h1>
+    <pre id="result"></pre>
+    <script src="../../fixture-lib.js"></script>
+    <script src="replay-sim.js"></script>
+    <script>
+      (function () {
+        var F = window.__fixture;
+        window.replaySim.listen('root');
+        window.replaySim.observe(document);
+        window.replaySim.socket('http://rec.example.net:' + location.port).then(function (ws) {
+          return window.replaySim.sendSeries({ transport: 'ws', socket: ws, count: 6, every: 1500, bytes: 2048 });
+        }).then(function (n) {
+          F.publish({ fixture: 'protect-replay-websocket', frames: n });
+        }, function () {
+          F.publish({ fixture: 'protect-replay-websocket', frames: 0, error: 'ws' });
+        });
+      })();
+    </script>
+  </body>
+</html>

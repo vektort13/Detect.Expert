@@ -1,0 +1,1304 @@
+{
+  "ru": {
+    "firewall_launcher_title": {
+      "message": "Firewall"
+    },
+    "firewall_launcher_open": {
+      "message": "Открыть настройки Firewall"
+    },
+    "firewall_launcher_on": {
+      "message": "Вкл."
+    },
+    "firewall_launcher_off": {
+      "message": "Выкл."
+    },
+    "firewall_launcher_loading": {
+      "message": "Загрузка…"
+    },
+    "firewall_launcher_status": {
+      "message": "Состояние Firewall: $1"
+    },
+    "firewall_launcher_settings": {
+      "message": "Настройки Firewall"
+    },
+    "firewall_launcher_unavailable": {
+      "message": "Недоступен"
+    },
+    "protect_state_needs_consent": {
+      "message": "Приостановлено: подтвердите согласие"
+    },
+    "protect_state_needs_permission": {
+      "message": "Приостановлено: нужны разрешения"
+    },
+    "protect_state_organization_disabled": {
+      "message": "Отключён вашей организацией"
+    },
+    "protect_state_degraded": {
+      "message": "Работает частично"
+    },
+    "firewall_launcher_open_error": {
+      "message": "Не удалось открыть настройки Firewall. Повторите попытку."
+    },
+    "protect_state_off": {
+      "message": "Выкл."
+    },
+    "protect_state_active": {
+      "message": "Вкл."
+    },
+    "firewall_launcher_enable": {
+      "message": "Включить Firewall"
+    },
+    "firewall_launcher_disable": {
+      "message": "Выключить Firewall"
+    },
+    "firewall_launcher_updating": {
+      "message": "Изменение состояния Firewall…"
+    },
+    "firewall_launcher_toggle_error": {
+      "message": "Не удалось изменить состояние Firewall. Повторите попытку."
+    },
+    "fw_overlay_review_required": {
+      "message": "Подтвердите постоянное правило или общую настройку в открывшейся вкладке расширения."
+    }
+  },
+  "en": {
+    "firewall_launcher_title": {
+      "message": "Firewall"
+    },
+    "firewall_launcher_open": {
+      "message": "Open Firewall settings"
+    },
+    "firewall_launcher_on": {
+      "message": "On"
+    },
+    "firewall_launcher_off": {
+      "message": "Off"
+    },
+    "firewall_launcher_loading": {
+      "message": "Loading…"
+    },
+    "firewall_launcher_status": {
+      "message": "Firewall status: $1"
+    },
+    "firewall_launcher_settings": {
+      "message": "Firewall settings"
+    },
+    "firewall_launcher_unavailable": {
+      "message": "Unavailable"
+    },
+    "protect_state_needs_consent": {
+      "message": "Suspended: confirm consent"
+    },
+    "protect_state_needs_permission": {
+      "message": "Suspended: permissions required"
+    },
+    "protect_state_organization_disabled": {
+      "message": "Disabled by your organization"
+    },
+    "protect_state_degraded": {
+      "message": "Working partly"
+    },
+    "firewall_launcher_open_error": {
+      "message": "Unable to open Firewall settings. Try again."
+    },
+    "protect_state_off": {
+      "message": "Off"
+    },
+    "protect_state_active": {
+      "message": "On"
+    },
+    "firewall_launcher_enable": {
+      "message": "Turn on Firewall"
+    },
+    "firewall_launcher_disable": {
+      "message": "Turn off Firewall"
+    },
+    "firewall_launcher_updating": {
+      "message": "Updating Firewall…"
+    },
+    "firewall_launcher_toggle_error": {
+      "message": "Could not change the Firewall state. Try again."
+    },
+    "fw_overlay_review_required": {
+      "message": "Confirm the persistent rule or global setting in the extension tab that opened."
+    }
+  },
+  "zh_CN": {
+    "firewall_launcher_title": {
+      "message": "Firewall"
+    },
+    "firewall_launcher_open": {
+      "message": "打开 Firewall 设置"
+    },
+    "firewall_launcher_on": {
+      "message": "开启"
+    },
+    "firewall_launcher_off": {
+      "message": "关闭"
+    },
+    "firewall_launcher_loading": {
+      "message": "正在加载…"
+    },
+    "firewall_launcher_status": {
+      "message": "Firewall 状态：$1"
+    },
+    "firewall_launcher_settings": {
+      "message": "Firewall 设置"
+    },
+    "firewall_launcher_unavailable": {
+      "message": "不可用"
+    },
+    "protect_state_needs_consent": {
+      "message": "已暂停：请确认同意"
+    },
+    "protect_state_needs_permission": {
+      "message": "已暂停：需要权限"
+    },
+    "protect_state_organization_disabled": {
+      "message": "已被您的组织停用"
+    },
+    "protect_state_degraded": {
+      "message": "部分功能可用"
+    },
+    "firewall_launcher_open_error": {
+      "message": "无法打开 Firewall 设置。请重试。"
+    },
+    "protect_state_off": {
+      "message": "关闭"
+    },
+    "protect_state_active": {
+      "message": "开启"
+    },
+    "firewall_launcher_enable": {
+      "message": "开启 Firewall"
+    },
+    "firewall_launcher_disable": {
+      "message": "关闭 Firewall"
+    },
+    "firewall_launcher_updating": {
+      "message": "正在更新 Firewall…"
+    },
+    "firewall_launcher_toggle_error": {
+      "message": "无法更改 Firewall 状态。请重试。"
+    },
+    "fw_overlay_review_required": {
+      "message": "请在已打开的扩展程序标签页中确认持久规则或全局设置。"
+    }
+  },
+  "vi": {
+    "firewall_launcher_title": {
+      "message": "Firewall"
+    },
+    "firewall_launcher_open": {
+      "message": "Mở cài đặt Firewall"
+    },
+    "firewall_launcher_on": {
+      "message": "Bật"
+    },
+    "firewall_launcher_off": {
+      "message": "Tắt"
+    },
+    "firewall_launcher_loading": {
+      "message": "Đang tải…"
+    },
+    "firewall_launcher_status": {
+      "message": "Trạng thái Firewall: $1"
+    },
+    "firewall_launcher_settings": {
+      "message": "Cài đặt Firewall"
+    },
+    "firewall_launcher_unavailable": {
+      "message": "Không khả dụng"
+    },
+    "protect_state_needs_consent": {
+      "message": "Đã tạm dừng: hãy xác nhận đồng ý"
+    },
+    "protect_state_needs_permission": {
+      "message": "Đã tạm dừng: cần cấp quyền"
+    },
+    "protect_state_organization_disabled": {
+      "message": "Bị tổ chức của bạn vô hiệu hóa"
+    },
+    "protect_state_degraded": {
+      "message": "Hoạt động một phần"
+    },
+    "firewall_launcher_open_error": {
+      "message": "Không thể mở cài đặt Firewall. Hãy thử lại."
+    },
+    "protect_state_off": {
+      "message": "Tắt"
+    },
+    "protect_state_active": {
+      "message": "Bật"
+    },
+    "firewall_launcher_enable": {
+      "message": "Bật Firewall"
+    },
+    "firewall_launcher_disable": {
+      "message": "Tắt Firewall"
+    },
+    "firewall_launcher_updating": {
+      "message": "Đang cập nhật Firewall…"
+    },
+    "firewall_launcher_toggle_error": {
+      "message": "Không thể thay đổi trạng thái Firewall. Hãy thử lại."
+    },
+    "fw_overlay_review_required": {
+      "message": "Xác nhận quy tắc lâu dài hoặc cài đặt toàn cục trong thẻ tiện ích vừa mở."
+    }
+  },
+  "es": {
+    "firewall_launcher_title": {
+      "message": "Firewall"
+    },
+    "firewall_launcher_open": {
+      "message": "Abrir ajustes de Firewall"
+    },
+    "firewall_launcher_on": {
+      "message": "Activo"
+    },
+    "firewall_launcher_off": {
+      "message": "Inactivo"
+    },
+    "firewall_launcher_loading": {
+      "message": "Cargando…"
+    },
+    "firewall_launcher_status": {
+      "message": "Estado de Firewall: $1"
+    },
+    "firewall_launcher_settings": {
+      "message": "Ajustes de Firewall"
+    },
+    "firewall_launcher_unavailable": {
+      "message": "No disponible"
+    },
+    "protect_state_needs_consent": {
+      "message": "Suspendido: confirma tu consentimiento"
+    },
+    "protect_state_needs_permission": {
+      "message": "Suspendido: se necesitan permisos"
+    },
+    "protect_state_organization_disabled": {
+      "message": "Desactivado por tu organización"
+    },
+    "protect_state_degraded": {
+      "message": "Funciona parcialmente"
+    },
+    "firewall_launcher_open_error": {
+      "message": "No se pudieron abrir los ajustes de Firewall. Inténtalo de nuevo."
+    },
+    "protect_state_off": {
+      "message": "Inactivo"
+    },
+    "protect_state_active": {
+      "message": "Activo"
+    },
+    "firewall_launcher_enable": {
+      "message": "Activar Firewall"
+    },
+    "firewall_launcher_disable": {
+      "message": "Desactivar Firewall"
+    },
+    "firewall_launcher_updating": {
+      "message": "Actualizando Firewall…"
+    },
+    "firewall_launcher_toggle_error": {
+      "message": "No se pudo cambiar el estado de Firewall. Inténtalo de nuevo."
+    },
+    "fw_overlay_review_required": {
+      "message": "Confirma la regla permanente o el ajuste global en la pestaña de la extensión que se ha abierto."
+    }
+  },
+  "ar": {
+    "firewall_launcher_title": {
+      "message": "Firewall"
+    },
+    "firewall_launcher_open": {
+      "message": "فتح إعدادات Firewall"
+    },
+    "firewall_launcher_on": {
+      "message": "مفعّل"
+    },
+    "firewall_launcher_off": {
+      "message": "معطّل"
+    },
+    "firewall_launcher_loading": {
+      "message": "جارٍ التحميل…"
+    },
+    "firewall_launcher_status": {
+      "message": "حالة Firewall: $1"
+    },
+    "firewall_launcher_settings": {
+      "message": "إعدادات Firewall"
+    },
+    "firewall_launcher_unavailable": {
+      "message": "غير متاح"
+    },
+    "protect_state_needs_consent": {
+      "message": "متوقف مؤقتًا: أكّد موافقتك"
+    },
+    "protect_state_needs_permission": {
+      "message": "متوقف مؤقتًا: يلزم منح الأذونات"
+    },
+    "protect_state_organization_disabled": {
+      "message": "معطّل بواسطة مؤسستك"
+    },
+    "protect_state_degraded": {
+      "message": "يعمل جزئيًا"
+    },
+    "firewall_launcher_open_error": {
+      "message": "تعذّر فتح إعدادات Firewall. حاول مرة أخرى."
+    },
+    "protect_state_off": {
+      "message": "معطّل"
+    },
+    "protect_state_active": {
+      "message": "مفعّل"
+    },
+    "firewall_launcher_enable": {
+      "message": "تشغيل Firewall"
+    },
+    "firewall_launcher_disable": {
+      "message": "إيقاف Firewall"
+    },
+    "firewall_launcher_updating": {
+      "message": "جارٍ تحديث Firewall…"
+    },
+    "firewall_launcher_toggle_error": {
+      "message": "تعذر تغيير حالة Firewall. حاول مرة أخرى."
+    },
+    "fw_overlay_review_required": {
+      "message": "أكد القاعدة الدائمة أو الإعداد العام في علامة تبويب الإضافة التي فُتحت."
+    }
+  },
+  "uk": {
+    "firewall_launcher_title": {
+      "message": "Firewall"
+    },
+    "firewall_launcher_open": {
+      "message": "Відкрити налаштування Firewall"
+    },
+    "firewall_launcher_on": {
+      "message": "Увімк."
+    },
+    "firewall_launcher_off": {
+      "message": "Вимк."
+    },
+    "firewall_launcher_loading": {
+      "message": "Завантаження…"
+    },
+    "firewall_launcher_status": {
+      "message": "Стан Firewall: $1"
+    },
+    "firewall_launcher_settings": {
+      "message": "Налаштування Firewall"
+    },
+    "firewall_launcher_unavailable": {
+      "message": "Недоступний"
+    },
+    "protect_state_needs_consent": {
+      "message": "Призупинено: підтвердьте згоду"
+    },
+    "protect_state_needs_permission": {
+      "message": "Призупинено: потрібні дозволи"
+    },
+    "protect_state_organization_disabled": {
+      "message": "Вимкнено вашою організацією"
+    },
+    "protect_state_degraded": {
+      "message": "Працює частково"
+    },
+    "firewall_launcher_open_error": {
+      "message": "Не вдалося відкрити налаштування Firewall. Спробуйте ще раз."
+    },
+    "protect_state_off": {
+      "message": "Вимк."
+    },
+    "protect_state_active": {
+      "message": "Увімк."
+    },
+    "firewall_launcher_enable": {
+      "message": "Увімкнути Firewall"
+    },
+    "firewall_launcher_disable": {
+      "message": "Вимкнути Firewall"
+    },
+    "firewall_launcher_updating": {
+      "message": "Зміна стану Firewall…"
+    },
+    "firewall_launcher_toggle_error": {
+      "message": "Не вдалося змінити стан Firewall. Спробуйте ще раз."
+    },
+    "fw_overlay_review_required": {
+      "message": "Підтвердьте постійне правило або загальне налаштування у відкритій вкладці розширення."
+    }
+  },
+  "fr": {
+    "firewall_launcher_title": {
+      "message": "Firewall"
+    },
+    "firewall_launcher_open": {
+      "message": "Ouvrir les paramètres de Firewall"
+    },
+    "firewall_launcher_on": {
+      "message": "Actif"
+    },
+    "firewall_launcher_off": {
+      "message": "Inactif"
+    },
+    "firewall_launcher_loading": {
+      "message": "Chargement…"
+    },
+    "firewall_launcher_status": {
+      "message": "État de Firewall : $1"
+    },
+    "firewall_launcher_settings": {
+      "message": "Paramètres de Firewall"
+    },
+    "firewall_launcher_unavailable": {
+      "message": "Indisponible"
+    },
+    "protect_state_needs_consent": {
+      "message": "Suspendu : confirmez votre consentement"
+    },
+    "protect_state_needs_permission": {
+      "message": "Suspendu : autorisations requises"
+    },
+    "protect_state_organization_disabled": {
+      "message": "Désactivé par votre organisation"
+    },
+    "protect_state_degraded": {
+      "message": "Fonctionne partiellement"
+    },
+    "firewall_launcher_open_error": {
+      "message": "Impossible d’ouvrir les paramètres de Firewall. Réessayez."
+    },
+    "protect_state_off": {
+      "message": "Inactif"
+    },
+    "protect_state_active": {
+      "message": "Actif"
+    },
+    "firewall_launcher_enable": {
+      "message": "Activer Firewall"
+    },
+    "firewall_launcher_disable": {
+      "message": "Désactiver Firewall"
+    },
+    "firewall_launcher_updating": {
+      "message": "Mise à jour de Firewall…"
+    },
+    "firewall_launcher_toggle_error": {
+      "message": "Impossible de modifier l’état de Firewall. Réessayez."
+    },
+    "fw_overlay_review_required": {
+      "message": "Confirmez la règle permanente ou le réglage global dans l’onglet de l’extension qui vient de s’ouvrir."
+    }
+  },
+  "pt_BR": {
+    "firewall_launcher_title": {
+      "message": "Firewall"
+    },
+    "firewall_launcher_open": {
+      "message": "Abrir configurações do Firewall"
+    },
+    "firewall_launcher_on": {
+      "message": "Ativo"
+    },
+    "firewall_launcher_off": {
+      "message": "Inativo"
+    },
+    "firewall_launcher_loading": {
+      "message": "Carregando…"
+    },
+    "firewall_launcher_status": {
+      "message": "Status do Firewall: $1"
+    },
+    "firewall_launcher_settings": {
+      "message": "Configurações do Firewall"
+    },
+    "firewall_launcher_unavailable": {
+      "message": "Indisponível"
+    },
+    "protect_state_needs_consent": {
+      "message": "Suspenso: confirme seu consentimento"
+    },
+    "protect_state_needs_permission": {
+      "message": "Suspenso: permissões necessárias"
+    },
+    "protect_state_organization_disabled": {
+      "message": "Desativado pela sua organização"
+    },
+    "protect_state_degraded": {
+      "message": "Funciona parcialmente"
+    },
+    "firewall_launcher_open_error": {
+      "message": "Não foi possível abrir as configurações do Firewall. Tente novamente."
+    },
+    "protect_state_off": {
+      "message": "Inativo"
+    },
+    "protect_state_active": {
+      "message": "Ativo"
+    },
+    "firewall_launcher_enable": {
+      "message": "Ativar Firewall"
+    },
+    "firewall_launcher_disable": {
+      "message": "Desativar Firewall"
+    },
+    "firewall_launcher_updating": {
+      "message": "Atualizando Firewall…"
+    },
+    "firewall_launcher_toggle_error": {
+      "message": "Não foi possível alterar o estado do Firewall. Tente novamente."
+    },
+    "fw_overlay_review_required": {
+      "message": "Confirme a regra permanente ou a configuração global na aba da extensão que foi aberta."
+    }
+  },
+  "hi": {
+    "firewall_launcher_title": {
+      "message": "Firewall"
+    },
+    "firewall_launcher_open": {
+      "message": "Firewall की सेटिंग खोलें"
+    },
+    "firewall_launcher_on": {
+      "message": "चालू"
+    },
+    "firewall_launcher_off": {
+      "message": "बंद"
+    },
+    "firewall_launcher_loading": {
+      "message": "लोड हो रहा है…"
+    },
+    "firewall_launcher_status": {
+      "message": "Firewall की स्थिति: $1"
+    },
+    "firewall_launcher_settings": {
+      "message": "Firewall की सेटिंग"
+    },
+    "firewall_launcher_unavailable": {
+      "message": "उपलब्ध नहीं"
+    },
+    "protect_state_needs_consent": {
+      "message": "निलंबित: अपनी सहमति की पुष्टि करें"
+    },
+    "protect_state_needs_permission": {
+      "message": "निलंबित: अनुमतियाँ आवश्यक हैं"
+    },
+    "protect_state_organization_disabled": {
+      "message": "आपके संगठन ने बंद किया है"
+    },
+    "protect_state_degraded": {
+      "message": "आंशिक रूप से काम कर रहा है"
+    },
+    "firewall_launcher_open_error": {
+      "message": "Firewall की सेटिंग नहीं खुल सकीं। फिर से कोशिश करें।"
+    },
+    "protect_state_off": {
+      "message": "बंद"
+    },
+    "protect_state_active": {
+      "message": "चालू"
+    },
+    "firewall_launcher_enable": {
+      "message": "Firewall चालू करें"
+    },
+    "firewall_launcher_disable": {
+      "message": "Firewall बंद करें"
+    },
+    "firewall_launcher_updating": {
+      "message": "Firewall अपडेट हो रहा है…"
+    },
+    "firewall_launcher_toggle_error": {
+      "message": "Firewall की स्थिति नहीं बदली जा सकी। फिर से कोशिश करें।"
+    },
+    "fw_overlay_review_required": {
+      "message": "खुले हुए एक्सटेंशन टैब में स्थायी नियम या वैश्विक सेटिंग की पुष्टि करें।"
+    }
+  },
+  "ur": {
+    "firewall_launcher_title": {
+      "message": "Firewall"
+    },
+    "firewall_launcher_open": {
+      "message": "Firewall کی ترتیبات کھولیں"
+    },
+    "firewall_launcher_on": {
+      "message": "فعال"
+    },
+    "firewall_launcher_off": {
+      "message": "بند"
+    },
+    "firewall_launcher_loading": {
+      "message": "لوڈ ہو رہا ہے…"
+    },
+    "firewall_launcher_status": {
+      "message": "Firewall کی حالت: $1"
+    },
+    "firewall_launcher_settings": {
+      "message": "Firewall کی ترتیبات"
+    },
+    "firewall_launcher_unavailable": {
+      "message": "دستیاب نہیں"
+    },
+    "protect_state_needs_consent": {
+      "message": "معطل: اپنی رضامندی کی تصدیق کریں"
+    },
+    "protect_state_needs_permission": {
+      "message": "معطل: اجازتیں درکار ہیں"
+    },
+    "protect_state_organization_disabled": {
+      "message": "آپ کی تنظیم نے غیر فعال کیا ہے"
+    },
+    "protect_state_degraded": {
+      "message": "جزوی طور پر کام کر رہا ہے"
+    },
+    "firewall_launcher_open_error": {
+      "message": "Firewall کی ترتیبات نہیں کھل سکیں۔ دوبارہ کوشش کریں۔"
+    },
+    "protect_state_off": {
+      "message": "بند"
+    },
+    "protect_state_active": {
+      "message": "فعال"
+    },
+    "firewall_launcher_enable": {
+      "message": "Firewall آن کریں"
+    },
+    "firewall_launcher_disable": {
+      "message": "Firewall آف کریں"
+    },
+    "firewall_launcher_updating": {
+      "message": "Firewall اپ ڈیٹ ہو رہا ہے…"
+    },
+    "firewall_launcher_toggle_error": {
+      "message": "Firewall کی حالت تبدیل نہیں ہو سکی۔ دوبارہ کوشش کریں۔"
+    },
+    "fw_overlay_review_required": {
+      "message": "کھلنے والے ایکسٹینشن ٹیب میں مستقل اصول یا عمومی ترتیب کی تصدیق کریں۔"
+    }
+  },
+  "ja": {
+    "firewall_launcher_title": {
+      "message": "Firewall"
+    },
+    "firewall_launcher_open": {
+      "message": "Firewall の設定を開く"
+    },
+    "firewall_launcher_on": {
+      "message": "オン"
+    },
+    "firewall_launcher_off": {
+      "message": "オフ"
+    },
+    "firewall_launcher_loading": {
+      "message": "読み込み中…"
+    },
+    "firewall_launcher_status": {
+      "message": "Firewall の状態: $1"
+    },
+    "firewall_launcher_settings": {
+      "message": "Firewall の設定"
+    },
+    "firewall_launcher_unavailable": {
+      "message": "利用不可"
+    },
+    "protect_state_needs_consent": {
+      "message": "一時停止中: 同意を確認してください"
+    },
+    "protect_state_needs_permission": {
+      "message": "一時停止中: 権限が必要です"
+    },
+    "protect_state_organization_disabled": {
+      "message": "組織によって無効にされています"
+    },
+    "protect_state_degraded": {
+      "message": "一部の機能が動作しています"
+    },
+    "firewall_launcher_open_error": {
+      "message": "Firewall の設定を開けませんでした。もう一度お試しください。"
+    },
+    "protect_state_off": {
+      "message": "オフ"
+    },
+    "protect_state_active": {
+      "message": "オン"
+    },
+    "firewall_launcher_enable": {
+      "message": "Firewall を有効にする"
+    },
+    "firewall_launcher_disable": {
+      "message": "Firewall を無効にする"
+    },
+    "firewall_launcher_updating": {
+      "message": "Firewall を更新中…"
+    },
+    "firewall_launcher_toggle_error": {
+      "message": "Firewall の状態を変更できませんでした。もう一度お試しください。"
+    },
+    "fw_overlay_review_required": {
+      "message": "開いた拡張機能のタブで、永続ルールまたは全体設定を確認してください。"
+    }
+  },
+  "de": {
+    "firewall_launcher_title": {
+      "message": "Firewall"
+    },
+    "firewall_launcher_open": {
+      "message": "Firewall-Einstellungen öffnen"
+    },
+    "firewall_launcher_on": {
+      "message": "An"
+    },
+    "firewall_launcher_off": {
+      "message": "Aus"
+    },
+    "firewall_launcher_loading": {
+      "message": "Wird geladen…"
+    },
+    "firewall_launcher_status": {
+      "message": "Firewall-Status: $1"
+    },
+    "firewall_launcher_settings": {
+      "message": "Firewall-Einstellungen"
+    },
+    "firewall_launcher_unavailable": {
+      "message": "Nicht verfügbar"
+    },
+    "protect_state_needs_consent": {
+      "message": "Pausiert: Einwilligung bestätigen"
+    },
+    "protect_state_needs_permission": {
+      "message": "Pausiert: Berechtigungen erforderlich"
+    },
+    "protect_state_organization_disabled": {
+      "message": "Von Ihrer Organisation deaktiviert"
+    },
+    "protect_state_degraded": {
+      "message": "Teilweise aktiv"
+    },
+    "firewall_launcher_open_error": {
+      "message": "Die Firewall-Einstellungen konnten nicht geöffnet werden. Versuchen Sie es erneut."
+    },
+    "protect_state_off": {
+      "message": "Aus"
+    },
+    "protect_state_active": {
+      "message": "An"
+    },
+    "firewall_launcher_enable": {
+      "message": "Firewall einschalten"
+    },
+    "firewall_launcher_disable": {
+      "message": "Firewall ausschalten"
+    },
+    "firewall_launcher_updating": {
+      "message": "Firewall wird aktualisiert…"
+    },
+    "firewall_launcher_toggle_error": {
+      "message": "Der Firewall-Status konnte nicht geändert werden. Versuche es erneut."
+    },
+    "fw_overlay_review_required": {
+      "message": "Bestätige die dauerhafte Regel oder globale Einstellung im geöffneten Erweiterungstab."
+    }
+  },
+  "pl": {
+    "firewall_launcher_title": {
+      "message": "Firewall"
+    },
+    "firewall_launcher_open": {
+      "message": "Otwórz ustawienia Firewall"
+    },
+    "firewall_launcher_on": {
+      "message": "Wł."
+    },
+    "firewall_launcher_off": {
+      "message": "Wył."
+    },
+    "firewall_launcher_loading": {
+      "message": "Wczytywanie…"
+    },
+    "firewall_launcher_status": {
+      "message": "Stan Firewall: $1"
+    },
+    "firewall_launcher_settings": {
+      "message": "Ustawienia Firewall"
+    },
+    "firewall_launcher_unavailable": {
+      "message": "Niedostępny"
+    },
+    "protect_state_needs_consent": {
+      "message": "Wstrzymano: potwierdź zgodę"
+    },
+    "protect_state_needs_permission": {
+      "message": "Wstrzymano: wymagane uprawnienia"
+    },
+    "protect_state_organization_disabled": {
+      "message": "Wyłączony przez Twoją organizację"
+    },
+    "protect_state_degraded": {
+      "message": "Działa częściowo"
+    },
+    "firewall_launcher_open_error": {
+      "message": "Nie udało się otworzyć ustawień Firewall. Spróbuj ponownie."
+    },
+    "protect_state_off": {
+      "message": "Wył."
+    },
+    "protect_state_active": {
+      "message": "Wł."
+    },
+    "firewall_launcher_enable": {
+      "message": "Włącz Firewall"
+    },
+    "firewall_launcher_disable": {
+      "message": "Wyłącz Firewall"
+    },
+    "firewall_launcher_updating": {
+      "message": "Aktualizowanie Firewall…"
+    },
+    "firewall_launcher_toggle_error": {
+      "message": "Nie udało się zmienić stanu Firewall. Spróbuj ponownie."
+    },
+    "fw_overlay_review_required": {
+      "message": "Potwierdź trwałą regułę lub ustawienie globalne w otwartej karcie rozszerzenia."
+    }
+  },
+  "id": {
+    "firewall_launcher_title": {
+      "message": "Firewall"
+    },
+    "firewall_launcher_open": {
+      "message": "Buka pengaturan Firewall"
+    },
+    "firewall_launcher_on": {
+      "message": "Aktif"
+    },
+    "firewall_launcher_off": {
+      "message": "Nonaktif"
+    },
+    "firewall_launcher_loading": {
+      "message": "Memuat…"
+    },
+    "firewall_launcher_status": {
+      "message": "Status Firewall: $1"
+    },
+    "firewall_launcher_settings": {
+      "message": "Pengaturan Firewall"
+    },
+    "firewall_launcher_unavailable": {
+      "message": "Tidak tersedia"
+    },
+    "protect_state_needs_consent": {
+      "message": "Ditangguhkan: konfirmasikan persetujuan"
+    },
+    "protect_state_needs_permission": {
+      "message": "Ditangguhkan: izin diperlukan"
+    },
+    "protect_state_organization_disabled": {
+      "message": "Dinonaktifkan oleh organisasi Anda"
+    },
+    "protect_state_degraded": {
+      "message": "Berfungsi sebagian"
+    },
+    "firewall_launcher_open_error": {
+      "message": "Tidak dapat membuka pengaturan Firewall. Coba lagi."
+    },
+    "protect_state_off": {
+      "message": "Nonaktif"
+    },
+    "protect_state_active": {
+      "message": "Aktif"
+    },
+    "firewall_launcher_enable": {
+      "message": "Aktifkan Firewall"
+    },
+    "firewall_launcher_disable": {
+      "message": "Nonaktifkan Firewall"
+    },
+    "firewall_launcher_updating": {
+      "message": "Memperbarui Firewall…"
+    },
+    "firewall_launcher_toggle_error": {
+      "message": "Tidak dapat mengubah status Firewall. Coba lagi."
+    },
+    "fw_overlay_review_required": {
+      "message": "Konfirmasikan aturan permanen atau pengaturan global di tab ekstensi yang terbuka."
+    }
+  },
+  "mr": {
+    "firewall_launcher_title": {
+      "message": "Firewall"
+    },
+    "firewall_launcher_open": {
+      "message": "Firewall सेटिंग्ज उघडा"
+    },
+    "firewall_launcher_on": {
+      "message": "सुरू"
+    },
+    "firewall_launcher_off": {
+      "message": "बंद"
+    },
+    "firewall_launcher_loading": {
+      "message": "लोड होत आहे…"
+    },
+    "firewall_launcher_status": {
+      "message": "Firewall स्थिती: $1"
+    },
+    "firewall_launcher_settings": {
+      "message": "Firewall सेटिंग्ज"
+    },
+    "firewall_launcher_unavailable": {
+      "message": "उपलब्ध नाही"
+    },
+    "protect_state_needs_consent": {
+      "message": "स्थगित: तुमच्या संमतीची पुष्टी करा"
+    },
+    "protect_state_needs_permission": {
+      "message": "स्थगित: परवानग्या आवश्यक आहेत"
+    },
+    "protect_state_organization_disabled": {
+      "message": "तुमच्या संस्थेने बंद केले आहे"
+    },
+    "protect_state_degraded": {
+      "message": "अंशतः कार्यरत"
+    },
+    "firewall_launcher_open_error": {
+      "message": "Firewall सेटिंग्ज उघडता आल्या नाहीत. पुन्हा प्रयत्न करा."
+    },
+    "protect_state_off": {
+      "message": "बंद"
+    },
+    "protect_state_active": {
+      "message": "सुरू"
+    },
+    "firewall_launcher_enable": {
+      "message": "Firewall सुरू करा"
+    },
+    "firewall_launcher_disable": {
+      "message": "Firewall बंद करा"
+    },
+    "firewall_launcher_updating": {
+      "message": "Firewall अद्ययावत होत आहे…"
+    },
+    "firewall_launcher_toggle_error": {
+      "message": "Firewall ची स्थिती बदलता आली नाही. पुन्हा प्रयत्न करा."
+    },
+    "fw_overlay_review_required": {
+      "message": "उघडलेल्या विस्तार टॅबमध्ये कायमस्वरूपी नियम किंवा जागतिक सेटिंगची पुष्टी करा."
+    }
+  },
+  "te": {
+    "firewall_launcher_title": {
+      "message": "Firewall"
+    },
+    "firewall_launcher_open": {
+      "message": "Firewall సెట్టింగ్‌లను తెరవండి"
+    },
+    "firewall_launcher_on": {
+      "message": "ఆన్"
+    },
+    "firewall_launcher_off": {
+      "message": "ఆఫ్"
+    },
+    "firewall_launcher_loading": {
+      "message": "లోడ్ అవుతోంది…"
+    },
+    "firewall_launcher_status": {
+      "message": "Firewall స్థితి: $1"
+    },
+    "firewall_launcher_settings": {
+      "message": "Firewall సెట్టింగ్‌లు"
+    },
+    "firewall_launcher_unavailable": {
+      "message": "అందుబాటులో లేదు"
+    },
+    "protect_state_needs_consent": {
+      "message": "నిలిపివేయబడింది: సమ్మతిని నిర్ధారించండి"
+    },
+    "protect_state_needs_permission": {
+      "message": "నిలిపివేయబడింది: అనుమతులు అవసరం"
+    },
+    "protect_state_organization_disabled": {
+      "message": "మీ సంస్థ నిలిపివేసింది"
+    },
+    "protect_state_degraded": {
+      "message": "పాక్షికంగా పనిచేస్తోంది"
+    },
+    "firewall_launcher_open_error": {
+      "message": "Firewall సెట్టింగ్‌లను తెరవలేకపోయాము. మళ్లీ ప్రయత్నించండి."
+    },
+    "protect_state_off": {
+      "message": "ఆఫ్"
+    },
+    "protect_state_active": {
+      "message": "ఆన్"
+    },
+    "firewall_launcher_enable": {
+      "message": "Firewall ఆన్ చేయి"
+    },
+    "firewall_launcher_disable": {
+      "message": "Firewall ఆఫ్ చేయి"
+    },
+    "firewall_launcher_updating": {
+      "message": "Firewall నవీకరించబడుతోంది…"
+    },
+    "firewall_launcher_toggle_error": {
+      "message": "Firewall స్థితిని మార్చలేకపోయాం. మళ్లీ ప్రయత్నించండి."
+    },
+    "fw_overlay_review_required": {
+      "message": "తెరచిన ఎక్స్‌టెన్షన్ ట్యాబ్‌లో శాశ్వత నియమం లేదా సార్వత్రిక సెట్టింగ్‌ను నిర్ధారించండి."
+    }
+  },
+  "ko": {
+    "firewall_launcher_title": {
+      "message": "Firewall"
+    },
+    "firewall_launcher_open": {
+      "message": "Firewall 설정 열기"
+    },
+    "firewall_launcher_on": {
+      "message": "켜짐"
+    },
+    "firewall_launcher_off": {
+      "message": "꺼짐"
+    },
+    "firewall_launcher_loading": {
+      "message": "불러오는 중…"
+    },
+    "firewall_launcher_status": {
+      "message": "Firewall 상태: $1"
+    },
+    "firewall_launcher_settings": {
+      "message": "Firewall 설정"
+    },
+    "firewall_launcher_unavailable": {
+      "message": "사용 불가"
+    },
+    "protect_state_needs_consent": {
+      "message": "일시 중지됨: 동의를 확인하세요"
+    },
+    "protect_state_needs_permission": {
+      "message": "일시 중지됨: 권한이 필요합니다"
+    },
+    "protect_state_organization_disabled": {
+      "message": "조직에서 사용 중지함"
+    },
+    "protect_state_degraded": {
+      "message": "일부 기능만 작동 중"
+    },
+    "firewall_launcher_open_error": {
+      "message": "Firewall 설정을 열 수 없습니다. 다시 시도하세요."
+    },
+    "protect_state_off": {
+      "message": "꺼짐"
+    },
+    "protect_state_active": {
+      "message": "켜짐"
+    },
+    "firewall_launcher_enable": {
+      "message": "Firewall 켜기"
+    },
+    "firewall_launcher_disable": {
+      "message": "Firewall 끄기"
+    },
+    "firewall_launcher_updating": {
+      "message": "Firewall 업데이트 중…"
+    },
+    "firewall_launcher_toggle_error": {
+      "message": "Firewall 상태를 변경할 수 없습니다. 다시 시도하세요."
+    },
+    "fw_overlay_review_required": {
+      "message": "열린 확장 프로그램 탭에서 영구 규칙 또는 전체 설정을 확인하세요."
+    }
+  },
+  "ta": {
+    "firewall_launcher_title": {
+      "message": "Firewall"
+    },
+    "firewall_launcher_open": {
+      "message": "Firewall அமைப்புகளைத் திறக்கவும்"
+    },
+    "firewall_launcher_on": {
+      "message": "செயலில்"
+    },
+    "firewall_launcher_off": {
+      "message": "முடக்கம்"
+    },
+    "firewall_launcher_loading": {
+      "message": "ஏற்றுகிறது…"
+    },
+    "firewall_launcher_status": {
+      "message": "Firewall நிலை: $1"
+    },
+    "firewall_launcher_settings": {
+      "message": "Firewall அமைப்புகள்"
+    },
+    "firewall_launcher_unavailable": {
+      "message": "கிடைக்கவில்லை"
+    },
+    "protect_state_needs_consent": {
+      "message": "இடைநிறுத்தப்பட்டது: ஒப்புதலை உறுதிப்படுத்தவும்"
+    },
+    "protect_state_needs_permission": {
+      "message": "இடைநிறுத்தப்பட்டது: அனுமதிகள் தேவை"
+    },
+    "protect_state_organization_disabled": {
+      "message": "உங்கள் நிறுவனம் முடக்கியுள்ளது"
+    },
+    "protect_state_degraded": {
+      "message": "பகுதியாகச் செயல்படுகிறது"
+    },
+    "firewall_launcher_open_error": {
+      "message": "Firewall அமைப்புகளைத் திறக்க முடியவில்லை. மீண்டும் முயலவும்."
+    },
+    "protect_state_off": {
+      "message": "முடக்கம்"
+    },
+    "protect_state_active": {
+      "message": "செயலில்"
+    },
+    "firewall_launcher_enable": {
+      "message": "Firewall ஐ இயக்கு"
+    },
+    "firewall_launcher_disable": {
+      "message": "Firewall ஐ முடக்கு"
+    },
+    "firewall_launcher_updating": {
+      "message": "Firewall புதுப்பிக்கப்படுகிறது…"
+    },
+    "firewall_launcher_toggle_error": {
+      "message": "Firewall நிலையை மாற்ற முடியவில்லை. மீண்டும் முயற்சிக்கவும்."
+    },
+    "fw_overlay_review_required": {
+      "message": "திறக்கப்பட்ட நீட்டிப்புத் தாவலில் நிரந்தர விதி அல்லது பொதுவான அமைப்பை உறுதிப்படுத்தவும்."
+    }
+  },
+  "yue": {
+    "firewall_launcher_title": {
+      "message": "Firewall"
+    },
+    "firewall_launcher_open": {
+      "message": "打开 Firewall 设定"
+    },
+    "firewall_launcher_on": {
+      "message": "开启"
+    },
+    "firewall_launcher_off": {
+      "message": "关闭"
+    },
+    "firewall_launcher_loading": {
+      "message": "载入紧…"
+    },
+    "firewall_launcher_status": {
+      "message": "Firewall 状态：$1"
+    },
+    "firewall_launcher_settings": {
+      "message": "Firewall 设定"
+    },
+    "firewall_launcher_unavailable": {
+      "message": "未能使用"
+    },
+    "protect_state_needs_consent": {
+      "message": "已暂停：请确认同意"
+    },
+    "protect_state_needs_permission": {
+      "message": "已暂停：需要权限"
+    },
+    "protect_state_organization_disabled": {
+      "message": "你嘅机构已停用"
+    },
+    "protect_state_degraded": {
+      "message": "部分功能运作中"
+    },
+    "firewall_launcher_open_error": {
+      "message": "打开唔到 Firewall 设定，请再试一次。"
+    },
+    "protect_state_off": {
+      "message": "关闭"
+    },
+    "protect_state_active": {
+      "message": "开启"
+    },
+    "firewall_launcher_enable": {
+      "message": "開啟 Firewall"
+    },
+    "firewall_launcher_disable": {
+      "message": "關閉 Firewall"
+    },
+    "firewall_launcher_updating": {
+      "message": "更新緊 Firewall…"
+    },
+    "firewall_launcher_toggle_error": {
+      "message": "改唔到 Firewall 狀態。請再試一次。"
+    },
+    "fw_overlay_review_required": {
+      "message": "請喺已開啟嘅擴充功能分頁確認永久規則或全域設定。"
+    }
+  },
+  "wuu": {
+    "firewall_launcher_title": {
+      "message": "Firewall"
+    },
+    "firewall_launcher_open": {
+      "message": "打开 Firewall 设定"
+    },
+    "firewall_launcher_on": {
+      "message": "开启"
+    },
+    "firewall_launcher_off": {
+      "message": "关闭"
+    },
+    "firewall_launcher_loading": {
+      "message": "载入当中…"
+    },
+    "firewall_launcher_status": {
+      "message": "Firewall 状态：$1"
+    },
+    "firewall_launcher_settings": {
+      "message": "Firewall 设定"
+    },
+    "firewall_launcher_unavailable": {
+      "message": "勿能使用"
+    },
+    "protect_state_needs_consent": {
+      "message": "暂停了：请确认同意"
+    },
+    "protect_state_needs_permission": {
+      "message": "暂停了：需要权限"
+    },
+    "protect_state_organization_disabled": {
+      "message": "侬个机构已停用"
+    },
+    "protect_state_degraded": {
+      "message": "一部分功能好用"
+    },
+    "firewall_launcher_open_error": {
+      "message": "Firewall 设定打开勿来，请再试一趟。"
+    },
+    "protect_state_off": {
+      "message": "关闭"
+    },
+    "protect_state_active": {
+      "message": "开启"
+    },
+    "firewall_launcher_enable": {
+      "message": "开启 Firewall"
+    },
+    "firewall_launcher_disable": {
+      "message": "关闭 Firewall"
+    },
+    "firewall_launcher_updating": {
+      "message": "正在更新 Firewall…"
+    },
+    "firewall_launcher_toggle_error": {
+      "message": "Firewall 状态改勿动。请再试一趟。"
+    },
+    "fw_overlay_review_required": {
+      "message": "请到已经打开个扩展程序标签页里确认永久规则或者全局设置。"
+    }
+  }
+}

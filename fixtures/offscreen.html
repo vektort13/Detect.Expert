@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><title>OffscreenCanvas — проверка P04</title></head>
+<body>
+  <h1>OffscreenCanvas в Window и Worker</h1>
+  <p>Контролируемая проверка результатов страницы и пробела наблюдения в Worker.</p>
+  <pre id="result"></pre>
+  <script src="fixture-lib.js"></script>
+  <script>
+    (async function () {
+      const F = window.__fixture;
+      const canvas = new OffscreenCanvas(96, 32);
+      const ctx = canvas.getContext('2d');
+      ctx.fillText('P04-private-text-canary', 2, 16);
+      ctx.measureText('P04-private-text-canary');
+      const pixels = ctx.getImageData(0, 0, 96, 32);
+      const originalThen = Promise.prototype.then;
+      const originalCatch = Promise.prototype.catch;
+      let thenCalls = 0;
+      let catchCalls = 0;
+      const chainNames = (value) => {
+        const out = [];
+        for (let p = value; p !== null; p = Object.getPrototypeOf(p)) out.push(Object.getOwnPropertyNames(p));
+        return out;
+      };
+      const expectedChain = chainNames(Promise.resolve());
+      Promise.prototype.then = function () { thenCalls++; return Reflect.apply(originalThen, this, arguments); };
+      Promise.prototype.catch = function () { catchCalls++; return Reflect.apply(originalCatch, this, arguments); };
+      let p;
+      try { p = canvas.convertToBlob(); }
+      finally { Promise.prototype.then = originalThen; Promise.prototype.catch = originalCatch; }
+      const originalReference = p;
+      const ownNames = Object.getOwnPropertyNames(p);
+      const chain = chainNames(p);
+      const blob = await p;
+      const bytes = new Uint8Array(await blob.arrayBuffer());
+      window.__runWorker = async function () {
+        const element = document.createElement('canvas');
+        element.width = 96;
+        element.height = 32;
+        const transferred = element.transferControlToOffscreen();
+        const worker = new Worker('offscreen-worker.js');
+        try {
+          return await new Promise((resolve, reject) => {
+            worker.onmessage = (event) => resolve(event.data);
+            worker.onerror = () => reject(new Error('worker failed'));
+            worker.postMessage(transferred, [transferred]);
+          });
+        } finally { worker.terminate(); }
+      };
+      F.publish({
+        samePromise: p === p && p === originalReference,
+        isPromise: p instanceof Promise,
+        ownNames, chain, expectedChain, thenCalls, catchCalls,
+        sameChainAfterAwait: JSON.stringify(chainNames(p)) === JSON.stringify(chain),
+        pixels: { hash: F.fnv1a(pixels.data), length: pixels.data.length },
+        blob: { isBlob: blob instanceof Blob, type: blob.type, size: blob.size, hash: F.fnv1a(bytes) }
+      });
+    })();
+  </script>
+</body>
+</html>

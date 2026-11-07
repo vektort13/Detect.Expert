@@ -1,0 +1,8 @@
+{
+  "ruleVersion": "1",
+  "calibrated": false,
+  "minPrecisionFormatCalls": 6,
+  "repeatedReadbackCounterEvidence": 10,
+  "possibleConfidence": "low",
+  "maxConfidence": "low"
+}

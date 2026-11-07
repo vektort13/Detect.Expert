@@ -1,0 +1,22 @@
+# SW shutdown/restart — E02-03
+
+Интеграция 2026-09-12, REQ-009, ADR-004/005, F006/F115. pnpm test:extension: exit 0, 32 passed, Chromium 153.0.0.0 (Playwright 1.63.0, channel chromium, headless). Production Chrome support этим не установлен.
+
+| Точка отказа | Доказательство | Статус |
+| --- | --- | --- |
+| Receive, до save | CDP ServiceWorker.stopWorker блокирует запись snapshot с count=4 и watermark; повтор того же batchSeq/bridgeSessionId после запуска даёт count=4 | Пройден replay.spec.ts before-save |
+| Save, до ACK | Та же запись сохранена перед остановкой SW; повтор того же batchSeq/session не увеличивает count=4 | Пройден replay.spec.ts after-save |
+| TTL после остановки SW (P02, 2026-09-13) | `ttl.spec.ts`: закрытие вкладки с прерванным remove, CDP stop, +601000 мс только в test-профиле, пробуждение навигацией; inactive и stale bound snapshots удалены, reset marker/bindings/tab index согласованы | Пройдено: 2 browser-сценария; прогон P02, полный набор 47 passed |
+| Реальная квота session (P02, 2026-09-13) | `quota.spec.ts`: 9981776 B → 10485744 B при квоте 10485760 B; 3 настоящих отказа/3 попытки, LRU, cooldown без новых записей; после освобождения ACK/watermark 1, 33360 B | Пройдено; прогон P02, degraded/truncated и восстановление проверены |
+| 3. Закрытие renderer с неподтверждённым batch (P07) | `renderer-loss.spec.ts`: настоящий CDP stop до save, неподтверждённый batch, закрытие вкладки; после пробуждения подтверждено удаление snapshot и отсутствие проекции | **fixme**: текущая политика удаляет отчёты закрытой вкладки; нет истории/выбора закрытого документа в UI. Chromium не восстанавливает потерянную очередь renderer. Tombstone технически возможен, но требует отдельного решения о хранении и UI; gap закрытого документа не принят |
+| 4. Ring overflow (P07) | `ring-overflow.spec.ts`: 544 новых page-controlled агрегата при остановленном SW и удержанном sendMessage; 512 сохранены, 34 dirty evictions, новые записи №33–544 дошли; флаги `bridge-ring-overflow` + `channel-gap`, `dropped.ring=1`; повтор старого и подтверждённый новый batchSeq не удваивают итоги; UI показывает gap | Пройдено на headless Chromium; `ring` — нижняя граница вытеснений, не точное число потерянных наблюдений |
+| 5. Hydration до readiness (P07) | `hydration-buffer.spec.ts`: после CDP stop test-профиль удерживает readiness, listeners уже зарегистрированы; из 160 батчей 128 ждут, 32 получают ACK 0; после release `dropped.transport=32`, 128 последовательных commit с возрастающей revision и согласованными count/watermark | Пройдено; лимит `BUDGETS.maxOutOfOrderEntriesGlobal`, без изменения бюджетов |
+| 6. Retry exhaustion (P07) | `retry-exhaustion.spec.ts`: ошибки ответа настоящего SW, production backoff без ускорения; 7 вызовов за первые 30 с, всего 33 до suspend, 0 за следующие 30 с при новых наблюдениях; CDP restart + явный resume доставляют сохранённый gap | Пройдено; при постоянной недоступности SW gap остаётся в ISOLATED до восстановления, а не считается сохранённым |
+
+Подробный прогон P07, команды, review и ограничения: отчёт. Четыре новых сценария: три проходят, один выполняет проверку остановки/закрытия и отмечен `fixme` по описанной причине. Это evidence тестового Chromium, не подтверждение branded Chrome или реального crash ОС.
+
+Тесты действительно останавливают SW, а не создают fake runtime. ISOLATED probe требует не менее двух отправок с одинаковыми sequence/session; ожидание после повтора проверяет отсутствие позднего удвоения. Независимый review подтвердил обе точки синхронизации.
+
+Scope revoke в revoke.spec.ts теперь проходит: unregister, пустые данные, host/observedSince=null, no-access/revoked. Это выключение scope при сохранённом статическом test grant; настоящий chrome.permissions.remove optional grant с пользовательским жестом остаётся отдельной приёмкой F006.
+
+Irreducible oversized dedup snapshot: запись fail closed, последний persisted ACK watermark сохраняется; новый ACK не выдаётся. После исчерпания persistence recovery действует общий cooldown 5 s, не выполняются повторные записи/eviction; recovery проверен unit- и browser-тестом P02. Остановка worker не запускает TTL сама по себе: startup/event sweep реализован с амортизацией 30 с, точное удаление через 10 мин без событий остаётся Proposed alarms в ADR-003. P02 проверен на headless Chromium 153.0.8010.12, не устанавливает поддержку branded Chrome. Local-бандл отдельно проверен на отсутствие тестового hook/ключа часов.

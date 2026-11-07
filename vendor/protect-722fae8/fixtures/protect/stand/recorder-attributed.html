@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>protect stand: recorder with attribution</title>
+  </head>
+  <body>
+    <!--
+      ADR-020 §E, §F (S15, tests/extension/protect/stand-replay-attribution.spec.ts). Opened on shop.example.com; the
+      synthetic recorder (../replay/replay-sim.js) is loaded from cdn.rec.example.net — the registrable domain of the
+      receiver rec.example.net. It registers page-level keyboard and pointer / scroll listeners, observes the document
+      and POSTs 2 KiB of filler every 1.5 s × 6 (?count, ?every, ?bytes override). Nothing reads a field value.
+      With the MAIN listen / observe hooks (test profile: the S10 candidate configuration) the stack sample names the
+      recorder's script host, so S1 and S2 link to example.net, the same domain as the periodic receiver: R4 ->
+      replay-recording / medium, attribution sampled-stack. The release decision of E21-10 (listen off) cannot reach it.
+    -->
+    <h1 id="title">Session recorder (attributed)</h1>
+    <form action="#"><label>E-mail <input id="email" name="email" type="email" autocomplete="email" /></label></form>
+    <pre id="result"></pre>
+    <script src="../../fixture-lib.js"></script>
+    <script>
+      (function () {
+        'use strict';
+        var F = window.__fixture;
+        var q = new URLSearchParams(location.search);
+        var count = Number(q.get('count') || 6);
+        var every = Number(q.get('every') || 1500);
+        var bytes = Number(q.get('bytes') || 2048);
+        var script = document.createElement('script');
+        script.src = location.protocol + '//cdn.rec.example.net:' + location.port + '/protect/replay/replay-sim.js';
+        script.onload = function () {
+          var url = location.protocol + '//rec.example.net:' + location.port + '/replay/collect';
+          window.replaySim.listen('root');
+          window.replaySim.observe(document);
+          window.replaySim.sendSeries({ url: url, count: count, every: every, bytes: bytes }).then(function (n) {
+            F.publish({ fixture: 'protect-stand-recorder-attributed', sends: n });
+          });
+        };
+        script.onerror = function () {
+          F.publish({ fixture: 'protect-stand-recorder-attributed', sends: 0, error: 'recorder script failed' });
+        };
+        document.head.appendChild(script);
+      })();
+    </script>
+  </body>
+</html>

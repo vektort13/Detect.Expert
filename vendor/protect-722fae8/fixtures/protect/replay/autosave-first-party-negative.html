@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>protect: first-party autosave (negative)</title>
+  </head>
+  <body>
+    <!--
+      ADR-020 §E (S11): an editor with page-level listeners and a document observer that autosaves 4 KiB to its own
+      site (api.shop.example.com) every 1.5 s × 5. First-party sends are not assessed (S3 counts cross-site receivers
+      only). Expected: signals-only, no periodic receiver. Nothing reads a field value.
+    -->
+    <h1 id="title">First-party autosave</h1>
+    <pre id="result"></pre>
+    <script src="../../fixture-lib.js"></script>
+    <script src="replay-sim.js"></script>
+    <script>
+      (function () {
+        var F = window.__fixture;
+        var url = 'http://api.shop.example.com:' + location.port + '/replay/collect';
+        window.replaySim.listen('root');
+        window.replaySim.observe(document);
+        window.replaySim.sendSeries({ url: url, count: 5, every: 1500, bytes: 4096 }).then(function (n) {
+          F.publish({ fixture: 'protect-replay-autosave', sends: n });
+        });
+      })();
+    </script>
+  </body>
+</html>

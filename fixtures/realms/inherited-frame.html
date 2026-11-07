@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>P06 inherited origin</title></head><body>
+<h1>Inherited origin frame</h1><script>
+document.createElement('canvas').toDataURL();
+var mode = new URLSearchParams(location.search).get('mode');
+var frame = document.createElement('iframe');
+frame.id = 'child';
+if (mode === 'blob') {
+  frame.src = URL.createObjectURL(new Blob(['<!doctype html><html><head><title>P06 blob child</title></head><body>Blob child</body></html>'], { type: 'text/html' }));
+} else { frame.src = 'about:blank'; }
+document.body.appendChild(frame);
+</script></body></html>

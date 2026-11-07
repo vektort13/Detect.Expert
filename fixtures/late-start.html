@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>late-start</title>
+    <script>
+      // Readback at parse time, before any body content: a late injection (activeTab, "check from now on")
+      // necessarily misses these calls and must say so (late-start), not count them.
+      (function () {
+        var canvas = document.createElement('canvas');
+        canvas.width = 64;
+        canvas.height = 32;
+        var ctx = canvas.getContext('2d');
+        ctx.font = '12px sans-serif';
+        ctx.fillText('early', 1, 12);
+        var early = 0;
+        for (var i = 0; i < 2; i++) if (ctx.getImageData(0, 0, 4, 4) instanceof ImageData) early++;
+        window.__earlyReadbacks = early;
+        window.__earlyAt = performance.now();
+        window.__lateCanvas = canvas;
+        window.__lateCtx = ctx;
+      })();
+    </script>
+  </head>
+  <body>
+    <h1>Late start</h1>
+    <p>Two getImageData calls ran in a head script at parse time. window.__readbackAgain(n) performs later calls for the test.</p>
+    <pre id="result"></pre>
+    <script src="fixture-lib.js"></script>
+    <script>
+      (function () {
+        var F = window.__fixture;
+        var later = 0;
+        window.__readbackAgain = function (n) {
+          var before = later;
+          for (var i = 0; i < (n || 1); i++) if (window.__lateCtx.getImageData(0, 0, 4, 4) instanceof ImageData) later++;
+          return later - before;
+        };
+        F.publish({ fixture: 'late-start', earlyReadbacks: window.__earlyReadbacks, earlyAtMs: Math.round(window.__earlyAt) });
+      })();
+    </script>
+  </body>
+</html>

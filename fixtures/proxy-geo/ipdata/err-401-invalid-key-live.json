@@ -1,0 +1,9 @@
+{
+  "provider": "ipdata",
+  "ip": "8.8.8.8",
+  "status": 401,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "text": "{\"message\": \"You have not provided a valid API Key.\"}"
+}

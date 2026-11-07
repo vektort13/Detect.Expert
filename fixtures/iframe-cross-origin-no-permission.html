@@ -1,0 +1,7 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>P06: iframe без разрешения</title></head><body>
+<h1>Родительский документ</h1>
+<script>document.createElement('canvas').toDataURL();</script>
+<!-- Chrome host permissions do not distinguish ports; localhost is a separate ungranted host. -->
+<iframe id="child" src="http://localhost:4174/realms/frame-child.html"></iframe>
+</body></html>

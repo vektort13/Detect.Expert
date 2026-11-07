@@ -1,0 +1,13 @@
+/* Contextual Detector summary; shared typography and theme tokens own the palette. */
+.detector-pointer { min-width: 0; max-width: 100%; padding: 16px; border: 1px solid var(--border); border-radius: 12px; color: var(--text); background: var(--theme-panel-fill, var(--surface)); }
+.detector-pointer__heading { display: flex; align-items: center; gap: 10px; min-width: 0; margin: 0 0 14px; }
+.detector-pointer__icon { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 32px; height: 32px; border-radius: 9px; color: var(--accent); background: var(--accent-soft); }
+.detector-pointer__icon svg { display: block; }
+.detector-pointer__heading h3 { min-width: 0; margin: 0; overflow-wrap: anywhere; }
+.detector-pointer__cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 12px; min-width: 0; }
+.detector-pointer__card { display: grid; align-content: start; gap: 10px; min-width: 0; padding: 13px; border: 1px solid var(--border); border-radius: 9px; background: var(--surface); }
+.detector-pointer__label { min-width: 0; font-size: var(--ui-type-label-size, 13px); line-height: var(--ui-type-label-line, 1.45); font-weight: var(--ui-type-label-weight, 600); overflow-wrap: anywhere; }
+.detector-pointer__status { min-width: 0; margin: 0; color: var(--muted); overflow-wrap: anywhere; }
+.detector-pointer__movement { min-width: 0; color: var(--text); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+@media (max-width: 360px) { .detector-pointer { padding: 12px; } .detector-pointer__card { padding: 10px; } }
+@media (forced-colors: active) { .detector-pointer, .detector-pointer__card { color: CanvasText; background: Canvas; border-color: CanvasText; } .detector-pointer__icon { color: LinkText; background: Canvas; } .detector-pointer__status { color: CanvasText; } }

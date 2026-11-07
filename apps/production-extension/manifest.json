@@ -1,0 +1,61 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_extName__",
+  "version": "2.0.0",
+  "description": "__MSG_extDescription__",
+  "default_locale": "ru",
+  "minimum_chrome_version": "153",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "webRequest",
+    "webNavigation",
+    "sidePanel",
+    "alarms",
+    "declarativeNetRequestWithHostAccess",
+    "userScripts",
+    "proxy",
+    "debugger"
+  ],
+  "optional_host_permissions": [],
+  "optional_permissions": [
+    "history", "bookmarks", "downloads", "cookies", "tabs", "sessions", "topSites",
+    "readingList", "management", "privacy", "contentSettings", "system.cpu", "system.memory",
+    "system.storage", "system.display", "identity", "identity.email", "nativeMessaging", "clipboardWrite", "notifications"
+  ],
+  "storage": {
+    "managed_schema": "protect-managed-schema.json"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "__MSG_actionTitle__"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "incognito": "not_allowed",
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'; connect-src https://api.cloudflare.com https://geolite.info https://geoip.maxmind.com https://api.ipgeolocation.io https://api.ipdata.co http://ip-api.com https://pro.ip-api.com; base-uri 'none'; frame-ancestors 'none'"
+  },
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*",
+    "ws://*/*",
+    "wss://*/*"
+  ]
+}

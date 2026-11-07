@@ -1,0 +1,21 @@
+{
+  "provider": "ipdata",
+  "ip": "8.8.8.8",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": {
+    "ip": null,
+    "city": null,
+    "region": null,
+    "country_code": null,
+    "country_name": null,
+    "asn": null,
+    "company": null,
+    "carrier": null,
+    "threat": null,
+    "time_zone": null,
+    "latitude": null
+  }
+}

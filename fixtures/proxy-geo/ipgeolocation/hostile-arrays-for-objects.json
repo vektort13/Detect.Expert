@@ -1,0 +1,35 @@
+{
+  "provider": "ipgeolocation",
+  "ip": "8.8.8.8",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": {
+    "ip": [
+      "8.8.8.8"
+    ],
+    "location": [
+      {
+        "city": "X"
+      }
+    ],
+    "asn": [
+      {
+        "as_number": "AS1"
+      }
+    ],
+    "company": [],
+    "network": [],
+    "security": [
+      {
+        "is_proxy": true
+      }
+    ],
+    "time_zone": [
+      {
+        "name": "UTC"
+      }
+    ]
+  }
+}

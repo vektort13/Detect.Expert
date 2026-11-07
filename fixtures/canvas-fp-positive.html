@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>canvas-fp-positive</title>
+  </head>
+  <body>
+    <h1>Controlled positive canvas fixture</h1>
+    <p>Draws text in several fonts plus emoji, then reads the pixels back twice (getImageData + toDataURL), the way an open-source canvas collector does. Own minimal implementation; no vendor code.</p>
+    <pre id="result"></pre>
+    <script src="fixture-lib.js"></script>
+    <script>
+      (function () {
+        var F = window.__fixture;
+        var canvas = document.createElement('canvas');
+        canvas.width = 240;
+        canvas.height = 60;
+        var ctx = canvas.getContext('2d');
+        var fontsUsed = F.drawSample(ctx, 'detect.expert positive');
+        var out = { fixture: 'canvas-fp-positive', fontsUsed: fontsUsed, fillTextCalls: fontsUsed, getImageData: [], toDataURL: [] };
+        for (var k = 0; k < 2; k++) {
+          var img = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          out.getImageData.push({ isImageData: img instanceof ImageData, byteLength: img.data.length, hash: F.fnv1a(img.data) });
+          var url = canvas.toDataURL();
+          out.toDataURL.push({ isString: typeof url === 'string', prefixOk: url.indexOf('data:image/png') === 0, length: url.length, hash: F.fnv1a(url) });
+        }
+        out.stableAcrossReads = out.getImageData[0].hash === out.getImageData[1].hash && out.toDataURL[0].hash === out.toDataURL[1].hash;
+        F.publish(out);
+      })();
+    </script>
+  </body>
+</html>

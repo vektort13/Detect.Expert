@@ -1,0 +1,10 @@
+{
+  "provider": "maxmind",
+  "ip": "8.8.8.8",
+  "service": "geoip-insights",
+  "status": 200,
+  "headers": {
+    "content-type": "application/vnd.maxmind.com-insights+json; charset=UTF-8; version=2.1"
+  },
+  "text": "{\"country\":{\"iso_code\":\"US\",\"names\":{\"en\":\"Be\\u202erl\\u200bin\\u200e \\u2066(x)\\u2069\\ufeff\\u0007\\u2028end\"}},\"subdivisions\":[{\"names\":{\"en\":\"Be\\u202erl\\u200bin\\u200e \\u2066(x)\\u2069\\ufeff\\u0007\\u2028end\"}}],\"city\":{\"names\":{\"en\":\"Be\\u202erl\\u200bin\\u200e \\u2066(x)\\u2069\\ufeff\\u0007\\u2028end\"}},\"location\":{\"time_zone\":\"Europe/\\u202eParis\"},\"traits\":{\"ip_address\":\"8.8.8.8\",\"autonomous_system_organization\":\"Be\\u202erl\\u200bin\\u200e \\u2066(x)\\u2069\\ufeff\\u0007\\u2028end\",\"isp\":\"Be\\u202erl\\u200bin\\u200e \\u2066(x)\\u2069\\ufeff\\u0007\\u2028end\",\"user_type\":\"Be\\u202erl\\u200bin\\u200e \\u2066(x)\\u2069\\ufeff\\u0007\\u2028end\"}}"
+}

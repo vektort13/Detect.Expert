@@ -1,0 +1,362 @@
+{
+  "requirement": "P08 / E13-01",
+  "capturedAt": "2026-09-13T09:07:53.628Z",
+  "browser": "153.0.8010.12",
+  "source": "Собранные dist/test popup.html, Preact и CSS; фиксированные ответы канала SW через Playwright init script, без изменения сборки",
+  "locale": "ru",
+  "timezone": "UTC",
+  "screenshots": [
+    {
+      "file": "active-light-360.png",
+      "sha256": "2cebab8c2a75750bc0faaf4616b33ff834bced41c3170e2df083579ebe4855cf",
+      "bytes": 63734,
+      "width": 360,
+      "state": "active",
+      "theme": "light"
+    },
+    {
+      "file": "active-light-400.png",
+      "sha256": "eab0d9750661ec3ca6d60bcb572975b84a8a470b1dd4492d79645892fc160411",
+      "bytes": 62817,
+      "width": 400,
+      "state": "active",
+      "theme": "light"
+    },
+    {
+      "file": "active-dark-360.png",
+      "sha256": "56d6af94c552202afd285cc36bf9682c73837d6599070b3e4e704c2bf1cc5743",
+      "bytes": 65003,
+      "width": 360,
+      "state": "active",
+      "theme": "dark"
+    },
+    {
+      "file": "active-dark-400.png",
+      "sha256": "60490f5f128bcf491a0f3807dbebd72791bc1b9b5f07f2cb20abafc88a46be1c",
+      "bytes": 63966,
+      "width": 400,
+      "state": "active",
+      "theme": "dark"
+    },
+    {
+      "file": "partial-light-360.png",
+      "sha256": "fc8b991efff2e9c3110bef7d4cb0874073cad47d0278a438452842331fdc445a",
+      "bytes": 67205,
+      "width": 360,
+      "state": "partial",
+      "theme": "light"
+    },
+    {
+      "file": "partial-light-400.png",
+      "sha256": "367edc42bd3409f11ef3c332f6a3e4003fe95359642fad77a2858f672d80b44d",
+      "bytes": 65629,
+      "width": 400,
+      "state": "partial",
+      "theme": "light"
+    },
+    {
+      "file": "partial-dark-360.png",
+      "sha256": "deea20bd0ba37095de743dc62d97e12a2446c2add81cf1ab77eed653e0530d09",
+      "bytes": 68470,
+      "width": 360,
+      "state": "partial",
+      "theme": "dark"
+    },
+    {
+      "file": "partial-dark-400.png",
+      "sha256": "baf558fb8d5fde98d148f2819f88a7cea10c99f4368e8b8b3b6d1745bd14aee1",
+      "bytes": 66704,
+      "width": 400,
+      "state": "partial",
+      "theme": "dark"
+    },
+    {
+      "file": "late-start-light-360.png",
+      "sha256": "5614924639acaed36e006abf98de5a86c5a582331ae1584ac86858db0425847b",
+      "bytes": 66279,
+      "width": 360,
+      "state": "late-start",
+      "theme": "light"
+    },
+    {
+      "file": "late-start-light-400.png",
+      "sha256": "1452fb34a51895313acefd8acfbbbae1674d0064601269a4867c948a02241579",
+      "bytes": 65050,
+      "width": 400,
+      "state": "late-start",
+      "theme": "light"
+    },
+    {
+      "file": "late-start-dark-360.png",
+      "sha256": "5a0c522e0257114a28a6bbc9205d0374a6e2e3372cbcf091ccc10ce92163f450",
+      "bytes": 67692,
+      "width": 360,
+      "state": "late-start",
+      "theme": "dark"
+    },
+    {
+      "file": "late-start-dark-400.png",
+      "sha256": "996f35c4fd2fa9563c2336ed73abf53261bc0d961aec3520e83f258d7a478394",
+      "bytes": 66304,
+      "width": 400,
+      "state": "late-start",
+      "theme": "dark"
+    },
+    {
+      "file": "paused-light-360.png",
+      "sha256": "59b26c0602a33836dbbca20e6c6f487643114bb7900cb883a5578baeae791456",
+      "bytes": 62920,
+      "width": 360,
+      "state": "paused",
+      "theme": "light"
+    },
+    {
+      "file": "paused-light-400.png",
+      "sha256": "e4f626ab502b768307d7cb42200ed04e44208aa53dee4e89ddcba5877ad3558f",
+      "bytes": 62227,
+      "width": 400,
+      "state": "paused",
+      "theme": "light"
+    },
+    {
+      "file": "paused-dark-360.png",
+      "sha256": "0ecd7349e5e2bafd0bae2009c7b20ca2743de5ac83f5b1f042ae464a07f5ce0c",
+      "bytes": 64184,
+      "width": 360,
+      "state": "paused",
+      "theme": "dark"
+    },
+    {
+      "file": "paused-dark-400.png",
+      "sha256": "2287f9c4dc1ab3a37c8076fe6fb99cd77ca09031ae98c38168baf60ad458e3d7",
+      "bytes": 63374,
+      "width": 400,
+      "state": "paused",
+      "theme": "dark"
+    },
+    {
+      "file": "unsupported-light-360.png",
+      "sha256": "b1d66048c13e31a3d5fc639272722c6cab84200b94a5bb3a7cca588031161f56",
+      "bytes": 64880,
+      "width": 360,
+      "state": "unsupported",
+      "theme": "light"
+    },
+    {
+      "file": "unsupported-light-400.png",
+      "sha256": "638a7c65cc0d4180a7b423f9d2b6df8febf5f6cf4dc0260c9ba5de5a1f60878b",
+      "bytes": 63646,
+      "width": 400,
+      "state": "unsupported",
+      "theme": "light"
+    },
+    {
+      "file": "unsupported-dark-360.png",
+      "sha256": "55ba2c7b9f4c00aa5927195ae5b2414357fb1e0f7072b49be9e76ce59731225d",
+      "bytes": 66094,
+      "width": 360,
+      "state": "unsupported",
+      "theme": "dark"
+    },
+    {
+      "file": "unsupported-dark-400.png",
+      "sha256": "b81bf48891d7abc6f9d66b85094edaa8f9533141c70bdbf2866c61a0a25eb674",
+      "bytes": 64749,
+      "width": 400,
+      "state": "unsupported",
+      "theme": "dark"
+    },
+    {
+      "file": "no-access-light-360.png",
+      "sha256": "2e65979f8a902f90fa45e82bcc2ea0da6aa47f855fe37a054e562e31d99f4000",
+      "bytes": 83192,
+      "width": 360,
+      "state": "no-access",
+      "theme": "light"
+    },
+    {
+      "file": "no-access-light-400.png",
+      "sha256": "89b74d8d7edb972170872de5cd8ec528a0a2d7ab287333ee74d42e06586cd283",
+      "bytes": 82264,
+      "width": 400,
+      "state": "no-access",
+      "theme": "light"
+    },
+    {
+      "file": "no-access-dark-360.png",
+      "sha256": "3453d166be64e335a0455def02515580a1c5ed07237fd747ca2880483c17d3f0",
+      "bytes": 84791,
+      "width": 360,
+      "state": "no-access",
+      "theme": "dark"
+    },
+    {
+      "file": "no-access-dark-400.png",
+      "sha256": "b14787f9c5be46dcabb3a3912da9d6ad844c16103eec76532dfb3aed33abbf4c",
+      "bytes": 83831,
+      "width": 400,
+      "state": "no-access",
+      "theme": "dark"
+    },
+    {
+      "file": "degraded-light-360.png",
+      "sha256": "3fccdc71c691fadd2760fb7f419766ba743ff59f7b1d551bfa63fce9d4db8f33",
+      "bytes": 66990,
+      "width": 360,
+      "state": "degraded",
+      "theme": "light"
+    },
+    {
+      "file": "degraded-light-400.png",
+      "sha256": "adb016628425f72d30d5b5e31385086a68f119f4534621448d49c9d48e6b4661",
+      "bytes": 66069,
+      "width": 400,
+      "state": "degraded",
+      "theme": "light"
+    },
+    {
+      "file": "degraded-dark-360.png",
+      "sha256": "07991bce297eba4f50430cfea8d6a6cb742900ababde327c011b9d55f6c4d447",
+      "bytes": 68185,
+      "width": 360,
+      "state": "degraded",
+      "theme": "dark"
+    },
+    {
+      "file": "degraded-dark-400.png",
+      "sha256": "f607a4732446042a6b0c8eb7cca1d03e1cfcea9bb420d57447ca2784761d7219",
+      "bytes": 67095,
+      "width": 400,
+      "state": "degraded",
+      "theme": "dark"
+    },
+    {
+      "file": "restricted-light-360.png",
+      "sha256": "938921b147c2c3dcc7a74d951fc9043bbb47ea74d2e40815366ac6e7f9859489",
+      "bytes": 24770,
+      "width": 360,
+      "state": "restricted",
+      "theme": "light"
+    },
+    {
+      "file": "restricted-light-400.png",
+      "sha256": "5f02addddd3f4d9ecac4bd2791ade69c17f8a2d9f296600a76f05fef0c92882c",
+      "bytes": 24725,
+      "width": 400,
+      "state": "restricted",
+      "theme": "light"
+    },
+    {
+      "file": "restricted-dark-360.png",
+      "sha256": "667976e7d324dc4185e15659ee758ae559c0fc2d6cfe01fde211f69d40bc11c9",
+      "bytes": 25191,
+      "width": 360,
+      "state": "restricted",
+      "theme": "dark"
+    },
+    {
+      "file": "restricted-dark-400.png",
+      "sha256": "dc632066f110c0b80884c0568fb6a30e0e98c5e41eeb8d2afc61184e7bfe629d",
+      "bytes": 25201,
+      "width": 400,
+      "state": "restricted",
+      "theme": "dark"
+    },
+    {
+      "file": "off-light-360.png",
+      "sha256": "a899791bcd1861d9fa22075c6cedc91df0ef00d43b860cf08ff5332e62565717",
+      "bytes": 42268,
+      "width": 360,
+      "state": "off",
+      "theme": "light"
+    },
+    {
+      "file": "off-light-400.png",
+      "sha256": "1d2f4a84db5cefabe2604946f1859af434a05b4b09b7d00b3f125e32f9a55b6f",
+      "bytes": 42475,
+      "width": 400,
+      "state": "off",
+      "theme": "light"
+    },
+    {
+      "file": "off-dark-360.png",
+      "sha256": "d3fe74422fa1f40838aba11cee0a143ff35fa6f1161c26a614d8db49aba9e69e",
+      "bytes": 43113,
+      "width": 360,
+      "state": "off",
+      "theme": "dark"
+    },
+    {
+      "file": "off-dark-400.png",
+      "sha256": "ff021c220f63d79a7537a38f2cecc98f6ace1a53b7b1079eef44fd6dbf9cf97e",
+      "bytes": 43409,
+      "width": 400,
+      "state": "off",
+      "theme": "dark"
+    },
+    {
+      "file": "loading-light-360.png",
+      "sha256": "ff64d38409e98afc09284750d416609de3b8443bade96087d0450856b34d3dd6",
+      "bytes": 17604,
+      "width": 360,
+      "state": "loading",
+      "theme": "light"
+    },
+    {
+      "file": "loading-light-400.png",
+      "sha256": "ae437234751e4bd1d066ca6054297ddb03cd62ba1138ce273e03b23bdf333c41",
+      "bytes": 17772,
+      "width": 400,
+      "state": "loading",
+      "theme": "light"
+    },
+    {
+      "file": "loading-dark-360.png",
+      "sha256": "c2426312ca27783d75ccf7d79a0e1e2a9de64c64121781c038a9e5d2372a0a6c",
+      "bytes": 17919,
+      "width": 360,
+      "state": "loading",
+      "theme": "dark"
+    },
+    {
+      "file": "loading-dark-400.png",
+      "sha256": "95ab6c7d25507aa10285fe379bb7e8ac4b332e3cabc56e57defa3eb00f950539",
+      "bytes": 18102,
+      "width": 400,
+      "state": "loading",
+      "theme": "dark"
+    },
+    {
+      "file": "empty-light-360.png",
+      "sha256": "e5efbcaa6435d627d56b72ad6dba236a458c27dfe92a8c0a5b66bb69b7da5a9d",
+      "bytes": 50700,
+      "width": 360,
+      "state": "empty",
+      "theme": "light"
+    },
+    {
+      "file": "empty-light-400.png",
+      "sha256": "294453d591066de97e48537fffffcfaa379fe08af39f0b39a2a29187ca3f01f8",
+      "bytes": 49713,
+      "width": 400,
+      "state": "empty",
+      "theme": "light"
+    },
+    {
+      "file": "empty-dark-360.png",
+      "sha256": "9d4ff9b1ea537642dab0ef27e913563e5004ad3de96c66adf5968ea9d7fc5b81",
+      "bytes": 52200,
+      "width": 360,
+      "state": "empty",
+      "theme": "dark"
+    },
+    {
+      "file": "empty-dark-400.png",
+      "sha256": "a782770200d72b585fae6c3b2ab91bf248cf353993b748c8251e35642a6d477b",
+      "bytes": 50986,
+      "width": 400,
+      "state": "empty",
+      "theme": "dark"
+    }
+  ]
+}

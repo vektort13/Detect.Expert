@@ -1,0 +1,1171 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-09",
+  "techniqueRefs": [
+    "DET-059",
+    "REQ-001",
+    "REQ-002",
+    "REQ-004",
+    "REQ-005",
+    "REQ-008",
+    "REQ-011",
+    "REQ-012",
+    "REQ-015",
+    "ADR-028"
+  ],
+  "baseLedger": "social-network-sources-2026-10.json",
+  "scope": "Offline passive URL classification. General provider/widget resources do not imply tracking or account state. SDK/pixel profiles describe attempted page resource loads; no response outcome or successful delivery is read.",
+  "knownProviders": 45,
+  "sources": [
+    {
+      "id": "x-ads",
+      "url": "https://business.x.com/en/help/troubleshooting/faqs-about-pixels",
+      "supports": "Publishes static.ads-twitter.com/uwt.js; hosted SDK contains analytics.twitter.com, analytics.x.com and t.co /i/adsct + /i/adsctp templates."
+    },
+    {
+      "id": "x-hosted",
+      "url": "https://static.ads-twitter.com/uwt.js",
+      "supports": "Public tag HTTP 200; fixed collector templates read transiently, without execution."
+    },
+    {
+      "id": "reddit-pixel",
+      "url": "https://business.reddithelp.com/articles/Knowledge/reddit-pixel",
+      "supports": "Documents Reddit pixel CSP domains www.redditstatic.com, alb.reddit.com and pixel-config.reddit.com."
+    },
+    {
+      "id": "reddit-hosted",
+      "url": "https://www.redditstatic.com/ads/pixel.js",
+      "supports": "Public tag HTTP 200; fixed alb.reddit.com/rp.gif and /rp endpoints."
+    },
+    {
+      "id": "line-hosted",
+      "url": "https://d.line-scdn.net/n/line_tag/public/release/v1/lt.js",
+      "supports": "Public LINE Tag HTTP 200; fixed tr.line.me/tag.gif endpoint."
+    },
+    {
+      "id": "quora-doc",
+      "url": "https://business.quora.com/marketing-advertising-resources/quora-pixel-conversion-tracking-setup",
+      "supports": "Quora Pixel conversion/retargeting tag; installation on publisher sites."
+    },
+    {
+      "id": "quora-hosted",
+      "url": "https://a.quora.com/qevents.js",
+      "supports": "Public tag HTTP 200; fixed q.quora.com/_/ad/{pixel-id}/pixel template."
+    },
+    {
+      "id": "disqus",
+      "url": "https://help.disqus.com/en/articles/1717112-universal-embed-code",
+      "supports": "Official tenant.disqus.com/embed.js publisher integration."
+    },
+    {
+      "id": "yandex",
+      "url": "https://yandex.ru/support/metrica/en/code/counter-initialize",
+      "supports": "Official mc.yandex.ru/metrika/tag.js resource."
+    },
+    {
+      "id": "yandex-alternate",
+      "url": "https://yandex.ru/support/metrica/en/general/alternative-domain",
+      "supports": "Official mc.yandex.com alternate tag and /watch/{counter-id} image."
+    },
+    {
+      "id": "yandex-legacy",
+      "url": "https://yandex.com/support/metrica/en/general/tag-info",
+      "supports": "Official tag.js/watch.js builds; legacy resource classification does not claim present collection success."
+    },
+    {
+      "id": "mailru",
+      "url": "https://top-fwz1.mail.ru/js/code.js",
+      "supports": "Public tag HTTP 200; fixed /counter endpoint. Top.Mail.ru shutdown/migration is separately recorded."
+    },
+    {
+      "id": "mailru-migration",
+      "url": "https://top.mail.ru/help/ru/",
+      "supports": "Official help lists migration to MyTracker; deprecated tag requests are observations, not proof of a running service."
+    },
+    {
+      "id": "bing",
+      "url": "https://bat.bing.com/bat.js",
+      "supports": "Public UET tag HTTP 200; builds bat.bing.com/action/{advertiser-id}. Values and cookies are not read."
+    },
+    {
+      "id": "google-tag",
+      "url": "https://developers.google.com/tag-platform/gtagjs",
+      "supports": "Official www.googletagmanager.com/gtag/js and Google Analytics/Ads domains."
+    },
+    {
+      "id": "google-csp",
+      "url": "https://developers.google.com/tag-platform/security/guides/csp",
+      "supports": "Official GTM gtm.js loader and Analytics/Ads/Floodlight domains."
+    },
+    {
+      "id": "google-collect",
+      "url": "https://developers.google.com/analytics/devguides/collection/ga4/troubleshoot",
+      "supports": "Official google-analytics.com/g/collect and analytics.google.com/g/collect endpoints."
+    },
+    {
+      "id": "google-analytics-hosted",
+      "url": "https://www.google-analytics.com/analytics.js",
+      "supports": "Public legacy SDK HTTP 200, GoogleAnalyticsObject and /collect constants."
+    },
+    {
+      "id": "google-ga-hosted",
+      "url": "https://www.google-analytics.com/ga.js",
+      "supports": "Public legacy SDK HTTP 200, google-analytics.com and /__utm.gif constants."
+    },
+    {
+      "id": "google-ads-hosted",
+      "url": "https://www.googleadservices.com/pagead/conversion.js",
+      "supports": "Public SDK HTTP 200; Google/DoubleClick conversion constants. No unverified conversion collector path is activated."
+    },
+    {
+      "id": "google-sunset",
+      "url": "https://developers.google.com/analytics/legacy/universal-analytics",
+      "supports": "Official Universal Analytics sunset notice; legacy resource classification does not imply delivered events."
+    },
+    {
+      "id": "naver",
+      "url": "https://naver.github.io/conversion-tracking/pages/01_script_guide_wcstrans/",
+      "supports": "Official Naver conversion guide publishes wcs.naver.net/wcslog.js."
+    },
+    {
+      "id": "naver-hosted",
+      "url": "https://wcs.naver.net/wcslog.js",
+      "supports": "Public script HTTP 200; collector host wcs.naver.com confirmed; exact event path left generic."
+    },
+    {
+      "id": "kakao-pixel",
+      "url": "https://kakaobusiness.gitbook.io/main/tool/pixel-sdk/install",
+      "supports": "Official Kakao Pixel integration publishes t1.daumcdn.net/kas/static/kp.js."
+    },
+    {
+      "id": "kakao-hosted",
+      "url": "https://t1.daumcdn.net/kas/static/kp.js",
+      "supports": "Public tag HTTP 200; fixed bc.ad.daum.net/bc collector."
+    },
+    {
+      "id": "kakao-sdk",
+      "url": "https://developers.kakao.com/docs/en/javascript/getting-started",
+      "supports": "Official t1.kakaocdn.net/kakao_js_sdk/{version}/kakao.min.js SDK."
+    },
+    {
+      "id": "baidu",
+      "url": "https://tongji.baidu.com/static/tongji/Instruction.pdf",
+      "supports": "Official Baidu Analytics manual publishes hm.baidu.com/hm.js. General Tieba resources remain service requests."
+    },
+    {
+      "id": "bluesky",
+      "url": "https://github.com/bluesky-social/social-app/blob/main/bskyweb/README.embed.md",
+      "supports": "Official static/embed.js and /embed/{did}/app.bsky.feed.post/{rkey} templates."
+    },
+    {
+      "id": "sharethis",
+      "url": "https://sharethis.com/support/installation/share-buttons-html-website/",
+      "supports": "Official sharing/following widget integration; general SDK load is separate from confirmed tracking collection."
+    },
+    {
+      "id": "sharethis-hosted",
+      "url": "https://platform-api.sharethis.com/js/sharethis.js",
+      "supports": "Public widget HTTP 200; fixed resource confirmed, no event-specific collector rule."
+    },
+    {
+      "id": "douyin",
+      "url": "https://open.douyin.com/platform/resource/docs/develop/guide/douyin-sdk/js",
+      "supports": "Official unpkg.byted-static.com/bridge/douyin_open/{version}/lib/douyin_open.umd.js integration."
+    },
+    {
+      "id": "wechat",
+      "url": "https://main.qcloudimg.com/raw/document/product/pdf/884_31869_cn.pdf",
+      "supports": "Tencent official technical PDF publishes res.wx.qq.com/open/js/jweixin-1.4.0.js."
+    },
+    {
+      "id": "mastodon",
+      "url": "https://joinmastodon.org/reports/Mastodon%20Annual%20Report%202023.pdf",
+      "supports": "Official operated mastodon.social and mastodon.online instances only. Arbitrary federated hosts cannot be inferred from URL shape."
+    },
+    {
+      "id": "addthis",
+      "url": "https://oci-origin.addthis.com/",
+      "supports": "Official Oracle/AddThis termination notice effective May 31, 2023; generic legacy resource requests only."
+    },
+    {
+      "id": "whatsapp",
+      "url": "https://faq.whatsapp.com/5913398998672934",
+      "supports": "Official WhatsApp click-to-chat wa.me/{phone}; no phone, text or contact is retained."
+    },
+    {
+      "id": "viber",
+      "url": "https://developers.viber.com/docs/all/",
+      "supports": "Official Viber provider domain; browser HTTPS service requests only, no app deeplink execution."
+    },
+    {
+      "id": "threads",
+      "url": "https://github.com/facebook/meta-embeds-for-wordpress/blob/main/README.md",
+      "supports": "Official Meta repository publishes threads.com/embed.js and instagram.com/embed.js."
+    },
+    {
+      "id": "vimeo",
+      "url": "https://github.com/vimeo/player.js/blob/master/README.md",
+      "supports": "Official player.vimeo.com/api/player.js and /video/{video-id} embeds."
+    },
+    {
+      "id": "dailymotion",
+      "url": "https://developers.dailymotion.com/v0/docs/player-library-script",
+      "supports": "Official geo.dailymotion.com/libs/player/{player-id}.js resource."
+    },
+    {
+      "id": "dailymotion-embed",
+      "url": "https://faq.dailymotion.com/hc/en-us/articles/19886643105554-Embed-relevant-videos-with-Contextual-video-matching",
+      "supports": "Official geo.dailymotion.com/player/{player-id}.js."
+    },
+    {
+      "id": "dailymotion-frame",
+      "url": "https://developers.dailymotion.com/me/reference/migration-guide-new-embed-endpoint",
+      "supports": "Official geo.dailymotion.com/player.html frame and old /embed/video/{id} migration."
+    },
+    {
+      "id": "soundcloud",
+      "url": "https://developers.soundcloud.com/docs/api/html5-widget",
+      "supports": "Official w.soundcloud.com/player/api.js and /player/ iframe."
+    }
+  ],
+  "fixtures": [
+    {
+      "service": "x",
+      "url": "https://static.ads-twitter.com/uwt.js",
+      "requestType": "script",
+      "kind": "tracking-sdk",
+      "endpoint": "sdk",
+      "sourceRefs": [
+        "x-hosted"
+      ]
+    },
+    {
+      "service": "reddit",
+      "url": "https://www.redditstatic.com/ads/pixel.js",
+      "requestType": "script",
+      "kind": "tracking-sdk",
+      "endpoint": "sdk",
+      "sourceRefs": [
+        "reddit-hosted"
+      ]
+    },
+    {
+      "service": "line",
+      "url": "https://d.line-scdn.net/n/line_tag/public/release/v1/lt.js",
+      "requestType": "script",
+      "kind": "tracking-sdk",
+      "endpoint": "sdk",
+      "sourceRefs": [
+        "line-hosted"
+      ]
+    },
+    {
+      "service": "quora",
+      "url": "https://a.quora.com/qevents.js",
+      "requestType": "script",
+      "kind": "tracking-sdk",
+      "endpoint": "sdk",
+      "sourceRefs": [
+        "quora-hosted"
+      ]
+    },
+    {
+      "service": "yandex",
+      "url": "https://mc.yandex.ru/metrika/tag.js",
+      "requestType": "script",
+      "kind": "tracking-sdk",
+      "endpoint": "sdk",
+      "sourceRefs": [
+        "yandex"
+      ]
+    },
+    {
+      "service": "yandex",
+      "url": "https://mc.yandex.com/metrika/tag.js",
+      "requestType": "script",
+      "kind": "tracking-sdk",
+      "endpoint": "sdk",
+      "sourceRefs": [
+        "yandex-alternate"
+      ]
+    },
+    {
+      "service": "yandex",
+      "url": "https://mc.yandex.ru/metrika/watch.js",
+      "requestType": "script",
+      "kind": "tracking-sdk",
+      "endpoint": "sdk",
+      "sourceRefs": [
+        "yandex-legacy"
+      ]
+    },
+    {
+      "service": "yandex",
+      "url": "https://mc.yandex.com/metrika/watch.js",
+      "requestType": "script",
+      "kind": "tracking-sdk",
+      "endpoint": "sdk",
+      "sourceRefs": [
+        "yandex-legacy"
+      ]
+    },
+    {
+      "service": "mailru",
+      "url": "https://top-fwz1.mail.ru/js/code.js",
+      "requestType": "script",
+      "kind": "tracking-sdk",
+      "endpoint": "sdk",
+      "sourceRefs": [
+        "mailru"
+      ]
+    },
+    {
+      "service": "microsoft",
+      "url": "https://bat.bing.com/bat.js",
+      "requestType": "script",
+      "kind": "tracking-sdk",
+      "endpoint": "sdk",
+      "sourceRefs": [
+        "bing"
+      ]
+    },
+    {
+      "service": "google",
+      "url": "https://www.googletagmanager.com/gtag/js?id=FIXTURE",
+      "requestType": "script",
+      "kind": "tracking-sdk",
+      "endpoint": "sdk",
+      "sourceRefs": [
+        "google-tag"
+      ]
+    },
+    {
+      "service": "google",
+      "url": "https://www.google-analytics.com/analytics.js",
+      "requestType": "script",
+      "kind": "tracking-sdk",
+      "endpoint": "sdk",
+      "sourceRefs": [
+        "google-analytics-hosted"
+      ]
+    },
+    {
+      "service": "google",
+      "url": "https://www.google-analytics.com/ga.js",
+      "requestType": "script",
+      "kind": "tracking-sdk",
+      "endpoint": "sdk",
+      "sourceRefs": [
+        "google-ga-hosted"
+      ]
+    },
+    {
+      "service": "google",
+      "url": "https://www.googleadservices.com/pagead/conversion.js",
+      "requestType": "script",
+      "kind": "tracking-sdk",
+      "endpoint": "sdk",
+      "sourceRefs": [
+        "google-ads-hosted"
+      ]
+    },
+    {
+      "service": "naver",
+      "url": "https://wcs.naver.net/wcslog.js",
+      "requestType": "script",
+      "kind": "tracking-sdk",
+      "endpoint": "sdk",
+      "sourceRefs": [
+        "naver"
+      ]
+    },
+    {
+      "service": "baidu",
+      "url": "https://hm.baidu.com/hm.js?FIXTURE",
+      "requestType": "script",
+      "kind": "tracking-sdk",
+      "endpoint": "sdk",
+      "sourceRefs": [
+        "baidu"
+      ]
+    },
+    {
+      "service": "kakao",
+      "url": "https://t1.daumcdn.net/kas/static/kp.js",
+      "requestType": "script",
+      "kind": "tracking-sdk",
+      "endpoint": "sdk",
+      "sourceRefs": [
+        "kakao-pixel"
+      ]
+    },
+    {
+      "service": "google",
+      "url": "https://www.googletagmanager.com/gtm.js?id=FIXTURE",
+      "requestType": "script",
+      "kind": "sdk-load",
+      "endpoint": "sdk",
+      "sourceRefs": [
+        "google-csp"
+      ]
+    },
+    {
+      "service": "kakao",
+      "url": "https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js",
+      "requestType": "script",
+      "kind": "sdk-load",
+      "endpoint": "sdk",
+      "sourceRefs": [
+        "kakao-sdk"
+      ]
+    },
+    {
+      "service": "wechat",
+      "url": "https://res.wx.qq.com/open/js/jweixin-1.4.0.js",
+      "requestType": "script",
+      "kind": "sdk-load",
+      "endpoint": "sdk",
+      "sourceRefs": [
+        "wechat"
+      ]
+    },
+    {
+      "service": "sharethis",
+      "url": "https://platform-api.sharethis.com/js/sharethis.js#property=FIXTURE",
+      "requestType": "script",
+      "kind": "sdk-load",
+      "endpoint": "sdk",
+      "sourceRefs": [
+        "sharethis-hosted"
+      ]
+    },
+    {
+      "service": "douyin",
+      "url": "https://unpkg.byted-static.com/bridge/douyin_open/1.0.7/lib/douyin_open.umd.js",
+      "requestType": "script",
+      "kind": "sdk-load",
+      "endpoint": "sdk",
+      "sourceRefs": [
+        "douyin"
+      ]
+    },
+    {
+      "service": "instagram",
+      "url": "https://www.instagram.com/embed.js",
+      "requestType": "script",
+      "kind": "sdk-load",
+      "endpoint": "sdk",
+      "sourceRefs": [
+        "threads"
+      ]
+    },
+    {
+      "service": "threads",
+      "url": "https://www.threads.com/embed.js",
+      "requestType": "script",
+      "kind": "sdk-load",
+      "endpoint": "sdk",
+      "sourceRefs": [
+        "threads"
+      ]
+    },
+    {
+      "service": "threads",
+      "url": "https://threads.com/embed.js",
+      "requestType": "script",
+      "kind": "sdk-load",
+      "endpoint": "sdk",
+      "sourceRefs": [
+        "threads"
+      ]
+    },
+    {
+      "service": "vimeo",
+      "url": "https://player.vimeo.com/api/player.js",
+      "requestType": "script",
+      "kind": "sdk-load",
+      "endpoint": "sdk",
+      "sourceRefs": [
+        "vimeo"
+      ]
+    },
+    {
+      "service": "dailymotion",
+      "url": "https://geo.dailymotion.com/libs/player/fixture.js",
+      "requestType": "script",
+      "kind": "sdk-load",
+      "endpoint": "sdk",
+      "sourceRefs": [
+        "dailymotion"
+      ]
+    },
+    {
+      "service": "dailymotion",
+      "url": "https://geo.dailymotion.com/player/fixture.js",
+      "requestType": "script",
+      "kind": "sdk-load",
+      "endpoint": "sdk",
+      "sourceRefs": [
+        "dailymotion-embed"
+      ]
+    },
+    {
+      "service": "soundcloud",
+      "url": "https://w.soundcloud.com/player/api.js",
+      "requestType": "script",
+      "kind": "sdk-load",
+      "endpoint": "sdk",
+      "sourceRefs": [
+        "soundcloud"
+      ]
+    },
+    {
+      "service": "x",
+      "url": "https://analytics.twitter.com/i/adsct",
+      "requestType": "image",
+      "kind": "tracking-pixel",
+      "endpoint": "pixel",
+      "sourceRefs": [
+        "x-hosted"
+      ]
+    },
+    {
+      "service": "x",
+      "url": "https://analytics.twitter.com/i/adsctp",
+      "requestType": "image",
+      "kind": "tracking-pixel",
+      "endpoint": "pixel",
+      "sourceRefs": [
+        "x-hosted"
+      ]
+    },
+    {
+      "service": "x",
+      "url": "https://analytics.x.com/i/adsct",
+      "requestType": "image",
+      "kind": "tracking-pixel",
+      "endpoint": "pixel",
+      "sourceRefs": [
+        "x-hosted"
+      ]
+    },
+    {
+      "service": "x",
+      "url": "https://analytics.x.com/i/adsctp",
+      "requestType": "image",
+      "kind": "tracking-pixel",
+      "endpoint": "pixel",
+      "sourceRefs": [
+        "x-hosted"
+      ]
+    },
+    {
+      "service": "x",
+      "url": "https://t.co/i/adsct",
+      "requestType": "image",
+      "kind": "tracking-pixel",
+      "endpoint": "pixel",
+      "sourceRefs": [
+        "x-hosted"
+      ]
+    },
+    {
+      "service": "x",
+      "url": "https://t.co/i/adsctp",
+      "requestType": "image",
+      "kind": "tracking-pixel",
+      "endpoint": "pixel",
+      "sourceRefs": [
+        "x-hosted"
+      ]
+    },
+    {
+      "service": "reddit",
+      "url": "https://alb.reddit.com/rp.gif",
+      "requestType": "image",
+      "kind": "tracking-pixel",
+      "endpoint": "pixel",
+      "sourceRefs": [
+        "reddit-hosted"
+      ]
+    },
+    {
+      "service": "reddit",
+      "url": "https://alb.reddit.com/rp",
+      "requestType": "image",
+      "kind": "tracking-pixel",
+      "endpoint": "pixel",
+      "sourceRefs": [
+        "reddit-hosted"
+      ]
+    },
+    {
+      "service": "line",
+      "url": "https://tr.line.me/tag.gif",
+      "requestType": "image",
+      "kind": "tracking-pixel",
+      "endpoint": "pixel",
+      "sourceRefs": [
+        "line-hosted"
+      ]
+    },
+    {
+      "service": "quora",
+      "url": "https://q.quora.com/_/ad/fixture-id/pixel",
+      "requestType": "image",
+      "kind": "tracking-pixel",
+      "endpoint": "pixel",
+      "sourceRefs": [
+        "quora-hosted"
+      ]
+    },
+    {
+      "service": "yandex",
+      "url": "https://mc.yandex.ru/watch/12345",
+      "requestType": "image",
+      "kind": "tracking-pixel",
+      "endpoint": "pixel",
+      "sourceRefs": [
+        "yandex-alternate"
+      ]
+    },
+    {
+      "service": "yandex",
+      "url": "https://mc.yandex.com/watch/12345",
+      "requestType": "image",
+      "kind": "tracking-pixel",
+      "endpoint": "pixel",
+      "sourceRefs": [
+        "yandex-alternate"
+      ]
+    },
+    {
+      "service": "mailru",
+      "url": "https://top-fwz1.mail.ru/counter",
+      "requestType": "image",
+      "kind": "tracking-pixel",
+      "endpoint": "pixel",
+      "sourceRefs": [
+        "mailru"
+      ]
+    },
+    {
+      "service": "microsoft",
+      "url": "https://bat.bing.com/action/0",
+      "requestType": "image",
+      "kind": "tracking-pixel",
+      "endpoint": "pixel",
+      "sourceRefs": [
+        "bing"
+      ]
+    },
+    {
+      "service": "google",
+      "url": "https://www.google-analytics.com/g/collect",
+      "requestType": "image",
+      "kind": "tracking-pixel",
+      "endpoint": "pixel",
+      "sourceRefs": [
+        "google-collect"
+      ]
+    },
+    {
+      "service": "google",
+      "url": "https://region1.google-analytics.com/g/collect",
+      "requestType": "image",
+      "kind": "tracking-pixel",
+      "endpoint": "pixel",
+      "sourceRefs": [
+        "google-collect"
+      ]
+    },
+    {
+      "service": "google",
+      "url": "https://analytics.google.com/g/collect",
+      "requestType": "image",
+      "kind": "tracking-pixel",
+      "endpoint": "pixel",
+      "sourceRefs": [
+        "google-collect"
+      ]
+    },
+    {
+      "service": "google",
+      "url": "https://www.google-analytics.com/collect",
+      "requestType": "image",
+      "kind": "tracking-pixel",
+      "endpoint": "pixel",
+      "sourceRefs": [
+        "google-analytics-hosted"
+      ]
+    },
+    {
+      "service": "google",
+      "url": "https://www.google-analytics.com/__utm.gif",
+      "requestType": "image",
+      "kind": "tracking-pixel",
+      "endpoint": "pixel",
+      "sourceRefs": [
+        "google-ga-hosted"
+      ]
+    },
+    {
+      "service": "kakao",
+      "url": "https://bc.ad.daum.net/bc",
+      "requestType": "image",
+      "kind": "tracking-pixel",
+      "endpoint": "pixel",
+      "sourceRefs": [
+        "kakao-hosted"
+      ]
+    },
+    {
+      "service": "disqus",
+      "url": "https://fixture.disqus.com/embed.js",
+      "requestType": "script",
+      "kind": "embedded-content",
+      "endpoint": "embed",
+      "sourceRefs": [
+        "disqus"
+      ]
+    },
+    {
+      "service": "disqus",
+      "url": "https://disqus.com/embed/comments/",
+      "requestType": "sub_frame",
+      "kind": "embedded-content",
+      "endpoint": "embed",
+      "sourceRefs": [
+        "disqus"
+      ]
+    },
+    {
+      "service": "bluesky",
+      "url": "https://embed.bsky.app/static/embed.js",
+      "requestType": "script",
+      "kind": "embedded-content",
+      "endpoint": "embed",
+      "sourceRefs": [
+        "bluesky"
+      ]
+    },
+    {
+      "service": "bluesky",
+      "url": "https://embed.bsky.app/embed/did:plc:fixture/app.bsky.feed.post/fixture",
+      "requestType": "sub_frame",
+      "kind": "embedded-content",
+      "endpoint": "embed",
+      "sourceRefs": [
+        "bluesky"
+      ]
+    },
+    {
+      "service": "vimeo",
+      "url": "https://player.vimeo.com/video/12345",
+      "requestType": "sub_frame",
+      "kind": "embedded-content",
+      "endpoint": "embed",
+      "sourceRefs": [
+        "vimeo"
+      ]
+    },
+    {
+      "service": "dailymotion",
+      "url": "https://geo.dailymotion.com/player.html",
+      "requestType": "sub_frame",
+      "kind": "embedded-content",
+      "endpoint": "embed",
+      "sourceRefs": [
+        "dailymotion-frame"
+      ]
+    },
+    {
+      "service": "dailymotion",
+      "url": "https://www.dailymotion.com/embed/video/fixture",
+      "requestType": "sub_frame",
+      "kind": "embedded-content",
+      "endpoint": "embed",
+      "sourceRefs": [
+        "dailymotion-frame"
+      ]
+    },
+    {
+      "service": "soundcloud",
+      "url": "https://w.soundcloud.com/player/",
+      "requestType": "sub_frame",
+      "kind": "embedded-content",
+      "endpoint": "embed",
+      "sourceRefs": [
+        "soundcloud"
+      ]
+    },
+    {
+      "service": "soundcloud",
+      "url": "https://w.soundcloud.com/player",
+      "requestType": "sub_frame",
+      "kind": "embedded-content",
+      "endpoint": "embed",
+      "sourceRefs": [
+        "soundcloud"
+      ]
+    },
+    {
+      "service": "quora",
+      "url": "https://www.quora.com/",
+      "requestType": "image",
+      "kind": "service-request",
+      "endpoint": "service",
+      "sourceRefs": [
+        "quora-doc"
+      ]
+    },
+    {
+      "service": "disqus",
+      "url": "https://disqus.com/",
+      "requestType": "image",
+      "kind": "service-request",
+      "endpoint": "service",
+      "sourceRefs": [
+        "disqus"
+      ]
+    },
+    {
+      "service": "yandex",
+      "url": "https://mc.yandex.ru/favicon.ico",
+      "requestType": "image",
+      "kind": "service-request",
+      "endpoint": "service",
+      "sourceRefs": [
+        "yandex"
+      ]
+    },
+    {
+      "service": "mailru",
+      "url": "https://top.mail.ru/",
+      "requestType": "image",
+      "kind": "service-request",
+      "endpoint": "service",
+      "sourceRefs": [
+        "mailru-migration"
+      ]
+    },
+    {
+      "service": "kakao",
+      "url": "https://developers.kakao.com/",
+      "requestType": "image",
+      "kind": "service-request",
+      "endpoint": "service",
+      "sourceRefs": [
+        "kakao-sdk"
+      ]
+    },
+    {
+      "service": "naver",
+      "url": "https://www.naver.com/",
+      "requestType": "image",
+      "kind": "service-request",
+      "endpoint": "service",
+      "sourceRefs": [
+        "naver"
+      ]
+    },
+    {
+      "service": "baidu",
+      "url": "https://tieba.baidu.com/",
+      "requestType": "image",
+      "kind": "service-request",
+      "endpoint": "service",
+      "sourceRefs": [
+        "baidu"
+      ]
+    },
+    {
+      "service": "bluesky",
+      "url": "https://bsky.app/",
+      "requestType": "image",
+      "kind": "service-request",
+      "endpoint": "service",
+      "sourceRefs": [
+        "bluesky"
+      ]
+    },
+    {
+      "service": "sharethis",
+      "url": "https://sharethis.com/",
+      "requestType": "image",
+      "kind": "service-request",
+      "endpoint": "service",
+      "sourceRefs": [
+        "sharethis"
+      ]
+    },
+    {
+      "service": "douyin",
+      "url": "https://open.douyin.com/",
+      "requestType": "image",
+      "kind": "service-request",
+      "endpoint": "service",
+      "sourceRefs": [
+        "douyin"
+      ]
+    },
+    {
+      "service": "wechat",
+      "url": "https://mp.weixin.qq.com/",
+      "requestType": "image",
+      "kind": "service-request",
+      "endpoint": "service",
+      "sourceRefs": [
+        "wechat"
+      ]
+    },
+    {
+      "service": "mastodon",
+      "url": "https://mastodon.social/",
+      "requestType": "image",
+      "kind": "service-request",
+      "endpoint": "service",
+      "sourceRefs": [
+        "mastodon"
+      ]
+    },
+    {
+      "service": "mastodon",
+      "url": "https://mastodon.online/",
+      "requestType": "image",
+      "kind": "service-request",
+      "endpoint": "service",
+      "sourceRefs": [
+        "mastodon"
+      ]
+    },
+    {
+      "service": "addthis",
+      "url": "https://s7.addthis.com/js/300/addthis_widget.js",
+      "requestType": "image",
+      "kind": "service-request",
+      "endpoint": "service",
+      "sourceRefs": [
+        "addthis"
+      ]
+    },
+    {
+      "service": "whatsapp",
+      "url": "https://wa.me/PHONE_CANARY?text=MESSAGE_CANARY",
+      "requestType": "image",
+      "kind": "service-request",
+      "endpoint": "service",
+      "sourceRefs": [
+        "whatsapp"
+      ]
+    },
+    {
+      "service": "viber",
+      "url": "https://invite.viber.com/?TOKEN_CANARY",
+      "requestType": "image",
+      "kind": "service-request",
+      "endpoint": "service",
+      "sourceRefs": [
+        "viber"
+      ]
+    },
+    {
+      "service": "threads",
+      "url": "https://www.threads.com/",
+      "requestType": "image",
+      "kind": "service-request",
+      "endpoint": "service",
+      "sourceRefs": [
+        "threads"
+      ]
+    },
+    {
+      "service": "vimeo",
+      "url": "https://vimeo.com/",
+      "requestType": "image",
+      "kind": "service-request",
+      "endpoint": "service",
+      "sourceRefs": [
+        "vimeo"
+      ]
+    },
+    {
+      "service": "dailymotion",
+      "url": "https://www.dailymotion.com/",
+      "requestType": "image",
+      "kind": "service-request",
+      "endpoint": "service",
+      "sourceRefs": [
+        "dailymotion"
+      ]
+    },
+    {
+      "service": "soundcloud",
+      "url": "https://soundcloud.com/",
+      "requestType": "image",
+      "kind": "service-request",
+      "endpoint": "service",
+      "sourceRefs": [
+        "soundcloud"
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "service": "vk",
+      "resource": "openapi.js",
+      "status": "unverified",
+      "classification": "service-request"
+    },
+    {
+      "service": "addthis",
+      "resource": "addthis_widget.js",
+      "status": "terminated-legacy",
+      "classification": "service-request"
+    },
+    {
+      "service": "mastodon",
+      "resource": "arbitrary instance URL",
+      "status": "unknown",
+      "classification": null
+    },
+    {
+      "service": "naver",
+      "resource": "collector path",
+      "status": "unverified",
+      "classification": "service-request"
+    },
+    {
+      "service": "google",
+      "resource": "Ads conversion collector path",
+      "status": "unverified-current-path",
+      "classification": "service-request"
+    }
+  ],
+  "researchNetwork": {
+    "runtimeConnections": false,
+    "activeLoginOrHistoryProbes": false,
+    "accountRequests": false,
+    "codeExecution": false,
+    "codeRetained": false,
+    "boundedHostedCodeReadsArtifact": ".tmp/social-primary-verify.json",
+    "readLimitBytes": 1048576,
+    "resourceCount": 12,
+    "boundedHostedCodeReads": [
+      {
+        "service": "x",
+        "url": "https://static.ads-twitter.com/uwt.js",
+        "status": 200,
+        "bytes": 62021,
+        "retained": "fixed public resource facts only",
+        "executed": false
+      },
+      {
+        "service": "reddit",
+        "url": "https://www.redditstatic.com/ads/pixel.js",
+        "status": 200,
+        "bytes": 88449,
+        "retained": "fixed public resource facts only",
+        "executed": false
+      },
+      {
+        "service": "line",
+        "url": "https://d.line-scdn.net/n/line_tag/public/release/v1/lt.js",
+        "status": 200,
+        "bytes": 33383,
+        "retained": "fixed public resource facts only",
+        "executed": false
+      },
+      {
+        "service": "quora",
+        "url": "https://a.quora.com/qevents.js",
+        "status": 200,
+        "bytes": 42061,
+        "retained": "fixed public resource facts only",
+        "executed": false
+      },
+      {
+        "service": "microsoft",
+        "url": "https://bat.bing.com/bat.js",
+        "status": 200,
+        "bytes": 55631,
+        "retained": "fixed public resource facts only",
+        "executed": false
+      },
+      {
+        "service": "mailru",
+        "url": "https://top-fwz1.mail.ru/js/code.js",
+        "status": 200,
+        "bytes": 48997,
+        "retained": "fixed public resource facts only",
+        "executed": false
+      },
+      {
+        "service": "naver",
+        "url": "https://wcs.naver.net/wcslog.js",
+        "status": 200,
+        "bytes": 25430,
+        "retained": "fixed public resource facts only",
+        "executed": false
+      },
+      {
+        "service": "kakao",
+        "url": "https://t1.daumcdn.net/kas/static/kp.js",
+        "status": 200,
+        "bytes": 88226,
+        "retained": "fixed public resource facts only",
+        "executed": false
+      },
+      {
+        "service": "sharethis",
+        "url": "https://platform-api.sharethis.com/js/sharethis.js",
+        "status": 200,
+        "bytes": 223608,
+        "retained": "fixed public resource facts only",
+        "executed": false
+      },
+      {
+        "service": "google",
+        "url": "https://www.google-analytics.com/analytics.js",
+        "status": 200,
+        "bytes": 52310,
+        "retained": "fixed public resource facts only",
+        "executed": false
+      },
+      {
+        "service": "google",
+        "url": "https://www.google-analytics.com/ga.js",
+        "status": 200,
+        "bytes": 46274,
+        "retained": "fixed public resource facts only",
+        "executed": false
+      },
+      {
+        "service": "google",
+        "url": "https://www.googleadservices.com/pagead/conversion.js",
+        "status": 200,
+        "bytes": 67968,
+        "retained": "fixed public resource facts only",
+        "executed": false
+      }
+    ]
+  },
+  "fixtureVerification": {
+    "command": "node --test scripts/test/social-network-detector.test.mjs scripts/test/social-network-observer.test.mjs scripts/test/social-sensor-runtime.test.mjs scripts/test/social-expansion-independent-review.test.mjs",
+    "result": {
+      "passed": 98,
+      "failed": 0,
+      "skipped": 0
+    },
+    "productionRuleFamilies": {
+      "trackingSdk": 19,
+      "generalSdk": 15,
+      "trackingPixel": 14,
+      "embeddedContent": 9
+    },
+    "expansionPositiveFixtures": 78,
+    "negativeFixtures": "Host-suffix confusion, wrong paths, resource types, shared CDNs, unknown federated instances, ordinary OAuth/navigation, opaque options, native receiver branding and redaction are asserted in tests. Bridge rate regression checks one pending slot, queued 499/500 ms boundary and a full 400 ms response deadline after posting.",
+    "serialisationCheck": "Passed for both MAIN bundles and bridge after root synchronization.",
+    "independentReview": "scripts/test/social-expansion-independent-review.test.mjs"
+  }
+}

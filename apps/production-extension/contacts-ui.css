@@ -1,0 +1,55 @@
+/* Owner's local contact directory, using the shared theme and type tokens. */
+:root body .management-shell .contacts-workspace { display: grid; gap: 28px; min-width: 0; padding: 0; border: 0; background: transparent; box-shadow: none; }
+.contacts-header { display: flex; align-items: center; min-width: 0; }
+.contacts-group { display: grid; gap: 14px; min-width: 0; }
+.contacts-group__header { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.contacts-group__header h3 { margin: 0; }
+.contacts-group__icon { display: grid; place-items: center; flex: none; width: 36px; height: 36px; border: 1px solid color-mix(in srgb, var(--accent) 20%, var(--border)); border-radius: 11px; color: var(--accent); background: var(--accent-soft, var(--surface-2)); }
+.contacts-group--social .contacts-group__icon { color: var(--theme-custom, var(--accent)); background: var(--theme-custom-bg, var(--surface-2)); }
+.contacts-icon { display: block; flex: none; width: 22px; height: 22px; }
+.contacts-count { flex: none; min-width: 26px; text-align: center; font-variant-numeric: tabular-nums; }
+.contacts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: 12px; min-width: 0; }
+.contacts-social-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); align-items: start; gap: 20px; min-width: 0; }
+.contacts-social-group, .contacts-social-list { display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; gap: 12px; min-width: 0; }
+.contacts-social-group { --contact-service: #229ed9; }
+.contacts-social-group--discord { --contact-service: #5865f2; }
+.contacts-social-group--github { --contact-service: #8250df; }
+.contacts-social-group--youtube { --contact-service: #ff0033; }
+.contacts-social-group__header { display: flex; align-items: center; gap: 10px; min-width: 0; padding: 10px 12px; border: 1px solid color-mix(in srgb, var(--contact-service) 24%, var(--border)); border-radius: 12px; background: color-mix(in srgb, var(--contact-service) 7%, var(--surface)); }
+.contacts-social-group__header h4 { min-width: 0; margin: 0; overflow-wrap: anywhere; }
+.contacts-social-group__header .contacts-count { margin-inline-start: auto; }
+.contacts-social-group__header .contacts-mark { width: 34px; height: 34px; border-radius: 10px; }
+.contacts-social-group__header .contacts-mark img { width: 24px; height: 24px; }
+.contacts-card { display: grid; grid-template-columns: minmax(0, 1fr) 44px; align-items: center; gap: 10px; min-width: 0; padding: 16px; border: 1px solid var(--border); border-radius: 15px; background: var(--theme-panel-fill, var(--surface)); box-shadow: var(--theme-panel-shadow, none); transition: border-color 160ms ease, box-shadow 160ms ease; }
+.contacts-card:hover, .contacts-card:focus-within { border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); box-shadow: var(--theme-active-glow, var(--theme-panel-shadow)); }
+.contacts-card__link { display: grid; grid-template-columns: 44px minmax(0, 1fr) 14px; align-items: center; gap: 12px; min-width: 0; min-height: 72px; color: var(--text); text-decoration: none; border-radius: 7px; }
+.contacts-card__body { display: grid; gap: 7px; min-width: 0; }
+.contacts-card__title { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 9px; min-width: 0; margin: 0; color: var(--text); }
+.contacts-card__url { display: block; min-width: 0; max-width: 100%; color: var(--muted); white-space: normal; overflow-wrap: anywhere; word-break: break-word; unicode-bidi: isolate; text-align: start; }
+.contacts-card__open { width: 14px; height: 14px; color: var(--muted); }
+.contacts-mark { --contact-ink: light-dark(#2463c9, #9cc5ff); display: grid; place-items: center; flex: none; width: 44px; height: 44px; border: 1px solid color-mix(in srgb, var(--contact-ink) 20%, var(--border)); border-radius: 13px; color: var(--contact-ink); background: color-mix(in srgb, var(--contact-ink) 10%, var(--surface)); }
+.contacts-mark--violet { --contact-ink: light-dark(#8552ba, #d6b6f3); }
+.contacts-mark--indigo { --contact-ink: light-dark(#535ab7, #b9bdf6); }
+.contacts-mark--amber { --contact-ink: light-dark(#996117, #edca83); }
+.contacts-mark--teal { --contact-ink: light-dark(#087f82, #8ad9d8); }
+.contacts-mark--brand { background: #fff; border-color: #dde4ed; forced-color-adjust: none; }
+.contacts-group--social .contacts-mark--brand { border-color: color-mix(in srgb, var(--contact-ink) 20%, var(--border)); background: color-mix(in srgb, var(--contact-ink) 9%, var(--surface)); }
+.contacts-mark--telegram { --contact-ink: light-dark(#229ed9, #8cd9ff); }
+.contacts-mark--discord { --contact-ink: light-dark(#5865f2, #b7bdff); }
+.contacts-mark--github { --contact-ink: light-dark(#8250df, #d4bbff); }
+.contacts-mark--youtube { --contact-ink: light-dark(#e62646, #ffabc0); }
+.contacts-mark--vector { background: transparent; border-color: transparent; forced-color-adjust: none; }
+.contacts-mark img { display: block; width: 28px; height: 28px; object-fit: contain; }
+.contacts-mark--brand.contacts-mark--rose img { width: 30px; }
+.contacts-language { display: inline-flex; align-items: center; gap: 5px; color: var(--muted); }
+.contacts-language :is(img, .contacts-flag) { display: block; flex: none; width: 18px; height: 13px; object-fit: cover; border-radius: 2px; forced-color-adjust: none; }
+:root body .management-shell .contacts-copy { display: grid; place-items: center; flex: none; width: 44px; min-width: 44px; height: 44px; min-height: 44px; padding: 0; border: 1px solid var(--border); border-radius: 11px; color: var(--muted); background: var(--surface-2); box-shadow: none; cursor: pointer; }
+:root body .management-shell .contacts-copy:hover:not(:disabled) { color: var(--accent); border-color: var(--accent); box-shadow: var(--theme-active-glow); }
+:root body .management-shell .is-copied .contacts-copy { color: var(--theme-positive, #16704a); border-color: var(--theme-positive-border, var(--border)); background: var(--theme-positive-bg, var(--surface-2)); }
+.contacts-copy .contacts-icon { width: 19px; height: 19px; }
+.contacts-copy:disabled { cursor: default; opacity: .55; }
+.contacts-error { grid-column: 1 / -1; min-width: 0; color: var(--error); overflow-wrap: anywhere; }
+.contacts-card__link:focus-visible, .contacts-copy:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+@media (max-width: 600px) { :root body .management-shell .contacts-workspace { gap: 22px; } .contacts-card { padding: 12px; } .contacts-card__link { gap: 10px; grid-template-columns: 40px minmax(0, 1fr); } .contacts-card__open { display: none; } .contacts-mark { width: 40px; height: 40px; border-radius: 11px; } }
+@media (prefers-reduced-motion: reduce) { .contacts-card { transition: none; } }
+@media (forced-colors: active) { .contacts-card, .contacts-group__icon, .contacts-mark { border-color: CanvasText; } .contacts-card:hover, .contacts-card:focus-within { outline: 1px solid Highlight; box-shadow: none; } }

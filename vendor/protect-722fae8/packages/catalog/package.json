@@ -1,0 +1,17 @@
+{
+  "name": "@detect-expert/catalog",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Vendor catalog: governance constants, compiler, frozen index and matcher (ADR-009 v1.1). Local data only; no remote rules.",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.ts",
+    "./synthetic": "./src/synthetic.ts",
+    "./protect-tables": "./src/protect-tables/index.ts",
+    "./protect-tables/synthetic": "./src/protect-tables/synthetic.ts"
+  },
+  "dependencies": {
+    "@detect-expert/contracts": "workspace:*"
+  }
+}

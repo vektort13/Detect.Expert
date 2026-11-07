@@ -1,0 +1,97 @@
+{
+  "task": "P06",
+  "requirement": [
+    "REQ-006",
+    "REQ-009",
+    "REQ-013"
+  ],
+  "at": "2026-09-13T07:09:26.207Z",
+  "platform": "win32",
+  "arch": "x64",
+  "osRelease": "10.0.26200",
+  "browser": "Chrome/153.0.8010.12",
+  "runtimeVersion": "153.0.8010.12",
+  "observations": {
+    "statuses": [
+      {
+        "status": "Failure",
+        "prerenderStatus": "PrerenderingDisabledByDevTools"
+      }
+    ],
+    "navigation": [
+      {
+        "kind": "before",
+        "tabId": 1335786107,
+        "frameId": 0,
+        "documentId": null,
+        "parentDocumentId": null,
+        "lifecycle": "active",
+        "path": "blank",
+        "error": null
+      },
+      {
+        "kind": "committed",
+        "tabId": 1335786107,
+        "frameId": 0,
+        "documentId": "E71A50DC47D3D38C0CD663BEDB3A9FAE",
+        "parentDocumentId": null,
+        "lifecycle": "active",
+        "path": "blank",
+        "error": null
+      },
+      {
+        "kind": "completed",
+        "tabId": 1335786107,
+        "frameId": 0,
+        "documentId": "E71A50DC47D3D38C0CD663BEDB3A9FAE",
+        "parentDocumentId": null,
+        "lifecycle": "active",
+        "path": "blank",
+        "error": null
+      },
+      {
+        "kind": "before",
+        "tabId": 1335786107,
+        "frameId": 0,
+        "documentId": null,
+        "parentDocumentId": null,
+        "lifecycle": "active",
+        "path": "/prerender.html",
+        "error": null
+      },
+      {
+        "kind": "committed",
+        "tabId": 1335786107,
+        "frameId": 0,
+        "documentId": "836E2C876DB9F2883720E33B5962A65B",
+        "parentDocumentId": null,
+        "lifecycle": "active",
+        "path": "/prerender.html",
+        "error": null
+      }
+    ],
+    "before": {
+      "reportRevision": 0,
+      "documentKey": "1335786107:0:836E2C876DB9F2883720E33B5962A65B",
+      "host": null,
+      "coverageState": "no-access",
+      "coverageFlags": [
+        "no-host-permission"
+      ],
+      "techniques": [],
+      "findings": [],
+      "vendors": [],
+      "dropped": {
+        "observations": 0,
+        "batches": 0,
+        "findings": 0,
+        "hosts": 0,
+        "counters": 0,
+        "transport": 0
+      },
+      "observedSince": null,
+      "scopeMode": "site"
+    },
+    "verified": false
+  }
+}

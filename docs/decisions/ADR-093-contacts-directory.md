@@ -1,0 +1,13 @@
+# ADR-093 — Contacts directory
+
+2026-10-31. The owner supplied five website destinations and ten social links, including five YouTube language channels, and requested icons and per-link copying in the existing Contacts tab.
+
+The directory is a frozen local list. Native anchors open the exact HTTPS destinations only on user action, with `noopener noreferrer`. Images are existing bundled project/social artwork; purpose icons and the missing Chinese flag are local inline SVG. No favicons, remote assets, background requests, reports or service clients are added.
+
+Copy uses `navigator.clipboard.writeText` synchronously in the original button click. It never reads the clipboard, requests new permissions, opens a destination or writes feature settings. The controller serializes physical writes, bounds visible pending feedback to four seconds, rejects overlap while a timed-out native operation remains unsettled, and fences late feedback by active view generation/disposal. Only a successful, current native completion displays the copied checkmark. Errors are localized action results.
+
+The two main groups use existing shared themes, typography and responsive layout. By the owner's subsequent request, Social networks contains four service subsections: Telegram3, Discord1, GitHub1 and YouTube5. Each has a named header and one vertical link list; the outer adaptive grid has one to four columns, including three at intermediate widths. Website cards retain their original layout. Existing native anchors and a single page-level clipboard controller are reused. Heading hierarchy is h3 Social/h4 service/h5 social card, with h4 website cards and the existing typography classes.
+
+Contacts-only colored SVG variants live in icons/contacts, derived from the existing licensed Font Awesome vectors by adding only a root fill. Shared brand artwork, country flags and the original Detect Expert mark are unchanged. Service colors and local plate backgrounds use the existing theme surface; there are no remote icons, filters or extra links in group headers. The fifteen link titles and copy feedback have all21 UI localizations; YouTube languages retain their autonyms and flags. Contacts gains no status dot or master switch. Main navigation, other workspaces, runtime, manifests, contracts and Protect remain unchanged. Evidence for grouping and colors: внутренний отчёт.
+
+Validation: controller semantic regressions, native link/icon/copy checks, localized Contacts layouts at all seven browser zoom levels, narrow viewports and theme variants. Exact scope and delivered-package hashes are recorded in внутренний отчёт.

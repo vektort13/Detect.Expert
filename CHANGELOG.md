@@ -18,13 +18,13 @@ A big release. Detect.Expert grows from an observation-only analyzer into the an
   - A library of up to 128 profiles with tags and notes, a 7-day trash and temporary identities.
   - An optional mode that keeps the Detector's sensors off while Antidetect is on.
   - It does not change your IP address, the TLS fingerprint or the browser engine, and the interface says so.
-- **Firewall** (Chrome, opt-in, off until you accept a consent screen): compares typed text with outgoing requests in memory, stops later requests by your decisions, spots session-recording signs, can send Global Privacy Control, optional local history.
+- **Firewall** (Chrome, opt-in, off until you switch it on): compares typed text with outgoing requests in memory, stops later requests by your decisions, spots session-recording signs, can send Global Privacy Control, optional local history.
 - **Cookies workspace:** browse, create, edit and delete cookies across stores; import and export JSON, Netscape and Cookie-Editor files; password-encrypted export; preview before writing and undo.
 - **Proxy manager:** SOCKS5, HTTP, HTTPS, VLESS and OpenVPN profiles, a kill switch, routing for all traffic or selected domains, manual checks with a history, bulk import and your own country tag per profile.
 - **Proxy companion for Windows (x64):** password-authenticated SOCKS5, HTTP/HTTPS with a login, VLESS (Xray-core) and a userspace OpenVPN; per-user install, DPAPI-protected profiles, executables signed by Vektor T13 Technologies B.V.
 - **Proxy Manager Geolocation API:** optional country, city, network and proxy/VPN flags for a proxy's exit IP from MaxMind, ipgeolocation.io, ipdata or ip-api.com, with your own key.
 - **Autosurfer** (Chrome): your own queue of up to 200 URLs in a separate window, real scrolling and pointer movement, local resource measurements, and a catalog of 8,329 sites filterable by country, category and tracking system.
-- **Browser Debug:** read-only views of 15 data sets of your own browser, each behind its own permission.
+- **Browser Debug:** a window into 15 data sets of your own browser, each behind its own permission. Mostly reading, but some sets can also change things (history entry, bookmarks, tab pin and mute, privacy settings, site permissions).
 - **Integrations:** read a Cloudflare zone's Precursor mode with your own token.
 
 ### Changed

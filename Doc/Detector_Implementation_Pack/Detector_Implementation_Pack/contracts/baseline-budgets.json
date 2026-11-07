@@ -1,0 +1,24 @@
+{
+  "status": "proposed-not-benchmarked",
+  "version": 1,
+  "maxBatchEvents": 32,
+  "maxBatchBytes": 16384,
+  "maxStringChars": 512,
+  "maxBatchesPerSecondPerDocument": 20,
+  "maxBatchesPerSecondPerTab": 100,
+  "maxBatchesPerSecondGlobal": 200,
+  "maxBridgeRecordsPerDocument": 512,
+  "flushMsRange": [
+    250,
+    500
+  ],
+  "maxReportSerializedBytes": 102400,
+  "maxSessionTotalBytes": 4194304,
+  "inactiveDocumentTtlSeconds": 600,
+  "maxDiagnosticsBytesIncludedInTotal": 1048576,
+  "diagnosticStorage": "session",
+  "diagnosticTtlSeconds": 86400,
+  "maxOutOfOrderEntriesGlobal": 128,
+  "outOfOrderTtlMs": 2000,
+  "maxMathStackSamplesPerTwoSeconds": 8
+}

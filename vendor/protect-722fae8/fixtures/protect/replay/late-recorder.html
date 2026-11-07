@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>protect: late session recorder</title>
+  </head>
+  <body>
+    <!--
+      ADR-020 §E (S11): the recorder starts 3 s after load (?delay overrides): registrations made long after
+      document_start are still observed by the MAIN hooks; then 4 POSTs of 2 KiB to rec.example.net every 1.5 s.
+      Expected: replay-like once the series is complete. Nothing reads a field value.
+    -->
+    <h1 id="title">Late session recorder</h1>
+    <pre id="result"></pre>
+    <script src="../../fixture-lib.js"></script>
+    <script src="replay-sim.js"></script>
+    <script>
+      (function () {
+        var F = window.__fixture;
+        var q = new URLSearchParams(location.search);
+        var delay = Number(q.get('delay') || 3000);
+        var url = 'http://rec.example.net:' + location.port + '/replay/collect';
+        F.publish({ fixture: 'protect-replay-late', started: false });
+        window.replaySim.wait(delay).then(function () {
+          window.replaySim.listen('root');
+          window.replaySim.observe(document);
+          return window.replaySim.sendSeries({ url: url, count: 4, every: 1500, bytes: 2048 });
+        }).then(function (n) {
+          F.publish({ fixture: 'protect-replay-late', started: true, sends: n });
+        });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>P06: документ prerender</title>
+<script>
+window.__realm = { prerenderingAtFirstInline: document.prerendering, activations: 0 };
+document.addEventListener('prerenderingchange', function () { window.__realm.activations++; });
+document.createElement('canvas').getContext('2d').getImageData(0, 0, 1, 1);
+</script></head><body><h1>Документ prerender</h1></body></html>

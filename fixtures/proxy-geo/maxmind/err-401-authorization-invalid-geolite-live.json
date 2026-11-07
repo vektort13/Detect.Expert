@@ -1,0 +1,10 @@
+{
+  "provider": "maxmind",
+  "ip": "8.8.8.8",
+  "service": "geolite-city",
+  "status": 401,
+  "headers": {
+    "content-type": "application/vnd.maxmind.com-error+json; charset=UTF-8; version=2.1"
+  },
+  "text": "{\"code\":\"AUTHORIZATION_INVALID\",\"error\":\"Your account ID or license key could not be authenticated.\"}"
+}

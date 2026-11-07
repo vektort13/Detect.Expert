@@ -1,0 +1,7 @@
+{
+  "fixtureCases": 336,
+  "positiveRules": 184,
+  "zeroValueReads": true,
+  "domainNegativePairs": 73,
+  "currentPrimaryMergeCompiled": 440
+}

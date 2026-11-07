@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>protect: attribution canaries</title>
+  </head>
+  <body>
+    <!--
+      ADR-020 §F, REQ-005 (S10): privacy stand of the attribution path (tests/extension/protect/attribution-send.spec.ts,
+      second test). Open it as http://shop.example.com:<port>/privacy/protect-attribution-canary.html?CANARY-QUERY-7a1c9e3f#CANARY-FRAGMENT-2d5f8b1a.
+      Canaries a careless attribution would carry: the page's own query and fragment (inline frames), the query and
+      fragment of an external script URL, a path id, function names on the stack and the receiver's query. Values from
+      fixtures/privacy/canaries.json (query-param, fragment, path-id, stack-frame). Nothing reads a field value.
+    -->
+    <h1>Attribution canaries</h1>
+    <form action="#"><label>Password <input id="password" type="password" autocomplete="current-password" /></label></form>
+    <pre id="result"></pre>
+    <script src="../fixture-lib.js"></script>
+    <script>
+      (function () {
+        var F = window.__fixture;
+        var port = location.port;
+        var receiver = 'http://collect-canary.example.net:' + port + '/attr/canary/CANARY-PATH-ID-5566?q=CANARY-QUERY-7a1c9e3f#CANARY-FRAGMENT-2d5f8b1a';
+        function canaryStackFrame_8e1d() {
+          fetch(receiver, { mode: 'no-cors' });
+          navigator.sendBeacon(receiver, 'CANARY-QUERY-7a1c9e3f');
+          document.getElementById('password').addEventListener('input', function canaryStackFrame_8e1d_listener() {});
+        }
+        canaryStackFrame_8e1d();
+        var s = document.createElement('script');
+        s.src = 'http://cdn.tracker-a.example.org:' + port + '/protect/attribution/tracker-a.js?CANARY-QUERY-7a1c9e3f#CANARY-FRAGMENT-2d5f8b1a';
+        s.onload = function () {
+          window.trackerA.sendFetch();
+          setTimeout(function () { F.publish({ fixture: 'protect-attribution-canary', sent: 3 }); }, 300);
+        };
+        document.head.appendChild(s);
+      })();
+    </script>
+  </body>
+</html>

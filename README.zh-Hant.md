@@ -61,12 +61,12 @@
 |---|---|---|---|
 | 🔎 | **Detector / Forensics** | 觀察網頁呼叫了哪些瀏覽器 API（Canvas、WebGL、音訊、WebRTC、螢幕、CPU、語音、瀏覽器與裝置等），再歸納成技術項目。每個結果旁邊都附上涵蓋狀態，所以「沒找到」不會被誤當成「根本沒有」。另外也列出已辨識的防護與身分識別服務、第三方請求、Cookie、社群元件、追蹤信標（GA4、Google Ads、Meta、TikTok、Yandex、LinkedIn）、Tag Manager 載入鏈和背景活動。Pro 錄製會產生請求圖和可列印的報告，存下來的報告只放在你的硬碟。 | Chrome、Firefox |
 | 🧱 | **API Guard** | 12 個群組、158 個瀏覽器 API。每個都能選：依預設集、允許、封鎖，或自訂值（有 56 個 API 支援自訂值）。有整體預設集、依網站的規則，也能匯入匯出 JSON。 | Chrome、Firefox |
-| 🔥 | **Firewall** | 選用功能，要先通過同意畫面才會啟用。只在記憶體裡比對你輸入的內容與送出的請求，能依你的決定擋掉後續請求、偵測工作階段錄製的跡象、送出 Global Privacy Control 訊號，也可以另外開啟本機的「誰認得你」紀錄。 | Chrome |
+| 🔥 | **Firewall** | 選用功能，預設關閉，要你自己打開才會啟用。只在記憶體裡比對你輸入的內容與送出的請求，能依你的決定擋掉後續請求、偵測工作階段錄製的跡象、送出 Global Privacy Control 訊號，也可以另外開啟本機的「誰認得你」紀錄。 | Chrome |
 | 🎭 | **Antidetect** | 快速設定有三種預設集，再加上「裝置」「作業系統」「瀏覽器」「網路」四個分頁。會產生一台前後一致的虛擬裝置，替 Canvas、音訊、WebGL 和 Math 的結果加上依設定檔金鑰產生的雜訊，讓請求標頭（User-Agent、Accept-Language、Client Hints）保持一致，並處理 WebRTC 的中繼資料。設定檔最多存 128 個，回收筒保留 7 天。你的 IP、TLS 指紋和瀏覽器引擎它都不會動。 | Chrome、Firefox（標頭改寫僅限 Chrome） |
 | 🧭 | **自動瀏覽器（Autosurfer）** | 在獨立視窗裡照你自己的網址佇列（最多 200 個）逐一造訪：可隨機排序、循環、走站內連結、設停留時間，還會真的捲動頁面與移動游標，並在本機量測資源用量。內建 8,329 個網站的目錄，可依國家、類別和追蹤系統篩選。它不會點擊、不會打字，也不碰 CAPTCHA。執行時 Chrome 會顯示它自己的除錯提示列。 | Chrome |
 | 🍪 | **Cookies** | 瀏覽、新增、編輯、刪除所有儲存區的 Cookie。可匯入匯出 JSON、Netscape 與 Cookie-Editor 檔案，也有用密碼加密（AES-256-GCM）的匯出。寫入前可預覽，寫完還能復原。值預設是隱藏的，要看再按。 | Chrome、Firefox |
 | 🌐 | **代理管理員 + 輔助程式** | 支援 SOCKS5、HTTP、HTTPS、VLESS 和 OpenVPN 設定檔，有 Kill Switch（斷線保護）、全部流量或只走指定網域的路由、附歷程的手動檢查、批次匯入，以及選用的地理位置查詢。Windows 輔助程式負責密碼驗證、VLESS 和使用者空間的 OpenVPN。 | Chrome、Firefox（輔助程式：Windows x64） |
-| 🧰 | **Browser Debug** | 以唯讀方式檢視你自己瀏覽器的 15 組資料：歷史記錄、書籤、下載、Cookie 中繼資料、分頁、工作階段、隱私設定、網站權限等等。每一組都會各自要求權限。 | Chrome、Firefox（資料組較少） |
+| 🧰 | **Browser Debug** | 檢視你自己瀏覽器的 15 組資料：歷史記錄、書籤、下載、Cookie 中繼資料、分頁、工作階段、隱私設定、網站權限等等。大多是讀取，但有些資料組也能修改（新增一筆歷史記錄、刪除書籤、切換隱私設定），手冊裡逐一列出。每一組都會各自要求權限。 | Chrome、Firefox（資料組較少） |
 | ☁️ | **整合** | 用你自己的權杖讀取 Cloudflare 區域的 Precursor 模式；另有選用的代理出口 IP 地理位置查詢（MaxMind、ipgeolocation.io、ipdata、ip-api.com），用你自己的金鑰。 | Chrome、Firefox |
 | 🗺️ | **導覽與命令面板** | 設定頁 12 個區段各有一段簡短導覽（共 49 步），按 `Ctrl K` 可開命令面板。導覽不會改任何設定，很實用。 | Chrome、Firefox |
 | 🌍 | **21 種語言、6 種主題** | 英文、俄文、阿拉伯文、德文、西班牙文、法文、印地文、印尼文、日文、韓文、馬拉地文、波蘭文、葡萄牙文（巴西）、坦米爾文、泰盧固文、烏克蘭文、烏爾都文、越南文、簡體中文、粵語和吳語。 | Chrome、Firefox |
@@ -92,7 +92,7 @@
   </tr>
   <tr>
     <td><img src="assets/screens/07-autosurfer.png" alt="Autosurfer"><br><sub><b>Autosurfer。</b>可依類別與追蹤系統篩選的網站目錄。</sub></td>
-    <td><img src="assets/screens/08-browser-debug.png" alt="Browser Debug"><br><sub><b>Browser Debug。</b>你自己瀏覽器的資料，唯讀。</sub></td>
+    <td><img src="assets/screens/08-browser-debug.png" alt="Browser Debug"><br><sub><b>Browser Debug。</b>你自己瀏覽器的資料，集中在一處。</sub></td>
   </tr>
   <tr>
     <td><img src="assets/screens/09-popup.png" alt="彈出視窗" width="300"><br><sub><b>彈出視窗。</b>同一份報告，就放在你正在看的網頁旁邊。</sub></td>
@@ -110,9 +110,9 @@
 
 | 檔案 | 說明 | SHA-256 |
 |---|---|---|
-| `Detect.Expert-2.0.0-chrome.zip` | Chrome 安裝包 | — <!-- SHA256 --> |
-| `Detect.Expert-2.0.0-firefox.zip` | Firefox 安裝包 | — <!-- SHA256 --> |
-| `Detect.Expert-Proxy-Companion-windows-x64.zip` | 選用的代理輔助程式（Windows 10/11 x64） | — <!-- SHA256 --> |
+| `Detect.Expert-2.0.0-chrome.zip` | Chrome 安裝包 | `76f5118e6787ee44a2f3e6dbbb406d64006a33c0e056fbdc1b0abf8cc7984a20` |
+| `Detect.Expert-2.0.0-firefox.zip` | Firefox 安裝包 | `ef6f17283711ffd4569cc0a72493ea1c67854a39b1a2e9919d08cafd37107528` |
+| `Detect.Expert-Proxy-Companion-windows-x64.zip` | 選用的代理輔助程式（Windows 10/11 x64） | `4bb7b2c8457bc6fa9bf4dd79f3a5086d272c140918819d49846bf2a5d502cf4b` |
 
 想驗證下載檔，在 PowerShell 執行：`Get-FileHash .\Detect.Expert-2.0.0-chrome.zip -Algorithm SHA256`。
 
@@ -143,7 +143,7 @@ SOCKS5 密碼驗證、需要帳號的 HTTP/HTTPS 代理、VLESS 和 OpenVPN 都�
 powershell -ExecutionPolicy Bypass -File .\Install.ps1 -ChromeExtensionId obbkkjmpgaajcggbhajpdeeadkkchbeo
 ```
 
-這個 ID 是 Chrome Web Store 版本的。自己載入的未封裝版本 ID 不一樣，可以在擴充功能的 Proxy 分頁和 `chrome://extensions` 看到。完整步驟、簽章驗證、解除安裝和授權說明請看 [companion/README.zh-Hant.md](companion/README.zh-Hant.md) 與[輔助程式指南](docs/guides/proxy-companion.md)（英文；俄文版是 `*.ru.md`）。
+這個 ID 是 Chrome Web Store 版本的。自己載入的未封裝版本 ID 不一樣，可以在擴充功能的 Proxy 分頁和 `chrome://extensions` 看到。完整步驟、簽章驗證、解除安裝和授權說明請看 [companion/README.zh-Hant.md](native/proxy/README.zh-Hant.md) 與[輔助程式指南](docs/guides/proxy-companion.md)（英文；俄文版是 `*.ru.md`）。
 
 ## 你的資料會怎樣
 
@@ -212,6 +212,8 @@ pnpm release:verify    # 先跑檢查，再在 release/ 產生兩個發行用 ZI
 ```
 
 ## 文件
+
+**圖解手冊：**每個重要功能都有逐步說明與截圖，目前只有英文版：[docs/manual/README.md](docs/manual/README.md)。
 
 指南：[快速開始](docs/guides/getting-started.md)、[代理輔助程式](docs/guides/proxy-companion.md)、[常見問題](docs/guides/faq.md)。每一份都有俄文版（`*.ru.md`），英文為預設。
 

@@ -1,0 +1,35 @@
+{
+  "$comment": "Synthetic privacy contacts of the test profile only (ADR-020 §I, S14): reserved .test hosts, never production (release-verify rejects SYNTHETIC_PROTECT_TABLES in dist/local). vendor-sim.test answers by e-mail, portal-only.test only through a request form. Read by scripts/protect-tables/privacy-contacts.mjs.",
+  "schemaVersion": 1,
+  "contactsVersion": "synthetic-2026-10-17",
+  "contacts": [
+    {
+      "contactId": "vendor-sim",
+      "entityName": "Vendor Sim (synthetic)",
+      "domains": ["vendor-sim.test"],
+      "channel": "email",
+      "address": "privacy@vendor-sim.test",
+      "jurisdictions": ["gdpr-eu-eea", "gdpr-uk", "ccpa-ca", "pdl-ru-152"],
+      "source": "https://www.vendor-sim.test/privacy-policy",
+      "accessedAt": "2026-10-16",
+      "reviewedAt": "2026-10-17",
+      "reviewers": ["synthetic-reviewer"],
+      "productionEnabled": false,
+      "notes": "synthetic"
+    },
+    {
+      "contactId": "portal-only",
+      "entityName": "Portal Only (synthetic)",
+      "domains": ["portal-only.test"],
+      "channel": "portal",
+      "address": "https://privacy.portal-only.test/request",
+      "jurisdictions": ["gdpr-eu-eea", "gdpr-uk", "ccpa-ca"],
+      "source": "https://www.portal-only.test/privacy",
+      "accessedAt": "2026-10-16",
+      "reviewedAt": "2026-10-17",
+      "reviewers": ["synthetic-reviewer"],
+      "productionEnabled": false,
+      "notes": "synthetic"
+    }
+  ]
+}

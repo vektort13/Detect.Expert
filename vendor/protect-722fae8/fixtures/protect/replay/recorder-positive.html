@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>protect: session recorder (positive)</title>
+  </head>
+  <body>
+    <!--
+      ADR-020 §E (S11): positive stand (shop.example.com). replay-sim.js from the same site registers page-level keyboard
+      and pointer / scroll listeners and observes the document, then POSTs 2 KiB of filler to rec.example.net every 1.5 s
+      × 6 (?count, ?every, ?bytes, ?delay override). Nothing reads a field value. Expected: replay-like / low, 3 signals,
+      periodic receiver example.net, input masking not confirmed.
+    -->
+    <h1 id="title">Session recorder (positive)</h1>
+    <form action="#"><label>E-mail <input id="email" name="email" type="email" autocomplete="email" /></label></form>
+    <pre id="result"></pre>
+    <script src="../../fixture-lib.js"></script>
+    <script src="replay-sim.js"></script>
+    <script>
+      (function () {
+        var F = window.__fixture;
+        var q = new URLSearchParams(location.search);
+        var count = Number(q.get('count') || 6);
+        var every = Number(q.get('every') || 1500);
+        var bytes = Number(q.get('bytes') || 2048);
+        var delay = Number(q.get('delay') || 0);
+        var url = 'http://rec.example.net:' + location.port + '/replay/collect';
+        window.replaySim.wait(delay).then(function () {
+          window.replaySim.listen('root');
+          window.replaySim.observe(document);
+          return window.replaySim.sendSeries({ url: url, count: count, every: every, bytes: bytes });
+        }).then(function (n) {
+          F.publish({ fixture: 'protect-replay-positive', sends: n });
+        });
+      })();
+    </script>
+  </body>
+</html>

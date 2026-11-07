@@ -1,0 +1,14 @@
+Detect.Expert proxy companion - engines
+=======================================
+
+Files in this directory belong to the build of the bundled OpenVPN client and of the Xray engine:
+
+- openvpn-*.patch and *.go.txt are modifications of, and additions to, go-openvpn
+  (https://github.com/n0madic/go-openvpn, pinned commit in pins.json). They are derivative works of that
+  project and are licensed under AGPL-3.0-or-later (SPDX headers in the files), not under the MIT license of the
+  rest of the repository. The full text of the AGPL-3.0 is in the file LICENSE of this directory (the built companion
+  package carries it, together with the upstream sources, in its source/ directory).
+- Xray-core (https://github.com/XTLS/Xray-core), pinned version in pins.json, is used unmodified as a separate
+  executable under MPL-2.0.
+- The companion starts both engines as separate processes (configuration on standard input, SOCKS on loopback);
+  it does not link them.

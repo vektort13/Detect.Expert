@@ -1,0 +1,225 @@
+/* ADR-066: inline profile generation, reusable library and a bounded configuration preview. */
+/* ADR-103: editor rows, a profile list and an overview card; tokens fall back to the legacy palette. */
+.fingerprint-profiles, .fingerprint-profiles * { box-sizing: border-box; }
+.fingerprint-profiles {
+  --fp-line: var(--rd-line, var(--border)); --fp-line-2: var(--rd-line-2, var(--border)); --fp-control: var(--rd-control, var(--border));
+  --fp-surface: var(--rd-surface, var(--surface)); --fp-surface-2: var(--rd-surface-2, var(--surface-2)); --fp-sunken: var(--rd-sunken, var(--surface-2));
+  --fp-text: var(--rd-text, var(--text)); --fp-text-2: var(--rd-text-2, var(--muted)); --fp-text-3: var(--rd-text-3, var(--muted));
+  --fp-accent: var(--rd-accent, var(--accent)); --fp-accent-soft: var(--rd-accent-soft, color-mix(in srgb, var(--accent) 12%, transparent));
+  --fp-ok: var(--rd-ok, #137348); --fp-ok-bg: var(--rd-ok-bg, color-mix(in srgb, #137348 13%, transparent));
+  --fp-off: var(--rd-off, var(--muted)); --fp-off-bg: var(--rd-off-bg, var(--surface-2));
+  --fp-warn: var(--rd-warn, #ad873a); --fp-err: var(--rd-err, var(--error, #b3261e)); --fp-err-bg: var(--rd-err-bg, color-mix(in srgb, #b3261e 12%, transparent));
+  --fp-shadow: var(--rd-shadow-1, 0 1px 2px rgb(16 24 40 / .06));
+  --fp-status-column: 10.5rem; --fp-actions-column: 6.25rem;
+  min-width: 0;
+}
+.fingerprint-header, .fingerprint-toolbar, .fingerprint-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; min-width: 0; }
+.fingerprint-header > div { flex: 1 1 220px; min-width: 0; }
+.fingerprint-heading { display: flex; align-items: center; gap: 9px; min-width: 0; margin: 0; line-height: 1.4; }
+/* Light and dark hues follow the chosen theme (the root color-scheme set by the theme controller), not the operating system. */
+.fingerprint-icon { display: inline-grid; place-items: center; flex: none; width: 31px; height: 31px; color: light-dark(#525dc1, #b3b9ff); background: #525dc115; border-radius: 9px; }
+.fingerprint-icon svg { display: block; }
+.fingerprint-icon--generate { color: light-dark(#8a55b4, #d4acf2); background: #8a55b415; }
+.fingerprint-icon--library { color: light-dark(#1b7f82, #7bced0); background: #1b7f8215; }
+.fingerprint-icon--preview { color: light-dark(#3973bd, #9ac2f6); background: #3973bd15; }
+.fingerprint-note { min-width: 0; margin: 0; color: var(--fp-text-3); font-size: 12px; line-height: 1.6; overflow-wrap: anywhere; }
+.fingerprint-visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.fingerprint-generator, .fingerprint-library, .fingerprint-preview { display: grid; align-content: start; gap: 15px; min-width: 0; padding: 17px; border: 1px solid var(--fp-line); border-radius: 16px; background: var(--fp-surface); }
+.fingerprint-generator { container: fp-generator / inline-size; }
+.fingerprint-library { container: fp-library / inline-size; }
+.fingerprint-controls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; min-width: 0; }
+.fingerprint-field { display: grid; gap: 6px; min-width: 0; color: var(--fp-text-2); font-size: 12px; line-height: 1.45; }
+.fingerprint-profiles :is(input:not([type=checkbox]), select, textarea) { box-sizing: border-box; width: 100%; min-width: 0; max-width: 100%; padding: 9px 10px; border: 1px solid var(--fp-control); border-radius: 10px; color: var(--fp-text); background: var(--fp-surface); font: 400 13px/1.45 var(--font); }
+.fingerprint-profiles textarea { resize: vertical; min-height: 110px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 12px; tab-size: 2; }
+.fingerprint-profiles :is(input, select, textarea):disabled { opacity: .65; }
+.fingerprint-toolbar > .fingerprint-note { flex: 1 1 260px; }
+
+/* Generator: AdsPower-style label column with segmented choices. */
+.fingerprint-form { display: grid; gap: 0; min-width: 0; border-block: 1px solid var(--fp-line); }
+.fingerprint-form-row { display: grid; grid-template-columns: minmax(6.5rem, 9.5rem) minmax(0, 1fr); align-items: center; gap: 8px 16px; min-width: 0; padding-block: 11px; border-block-end: 1px solid var(--fp-line); }
+.fingerprint-form-row:last-child { border-block-end: 0; }
+.fingerprint-form-label { min-width: 0; color: var(--fp-text-2); font-size: 13px; font-weight: 600; line-height: 1.4; overflow-wrap: anywhere; }
+.fingerprint-form-row > select { max-width: 22rem; }
+.fingerprint-segmented { display: inline-flex; flex-wrap: wrap; justify-self: start; gap: 2px; min-width: 0; max-width: 100%; padding: 3px; border-radius: 10px; background: var(--fp-sunken); }
+:root body .fingerprint-profiles .fingerprint-segment { min-width: 0; min-height: 30px; max-width: 100%; padding: 5px 11px; border: 1px solid transparent; border-radius: 8px; color: var(--fp-text-2); background: transparent; background-image: none; box-shadow: none; font: 600 12.5px/1.3 var(--rd-font, var(--font)); text-align: center; overflow-wrap: anywhere; cursor: pointer; transition: color .12s ease, background-color .12s ease, border-color .12s ease; }
+:root[data-ui-theme] body .fingerprint-profiles .fingerprint-segmented > .fingerprint-segment:not(:disabled):not([aria-disabled=true]):hover { color: var(--fp-text); border-color: transparent; background: color-mix(in srgb, var(--fp-surface) 60%, transparent); box-shadow: none; }
+:root body .fingerprint-profiles .fingerprint-segment[aria-checked=true], :root[data-ui-theme] body .fingerprint-profiles .fingerprint-segmented > .fingerprint-segment[aria-checked=true]:not(:disabled):not([aria-disabled=true]):hover { color: var(--fp-text); border-color: var(--fp-line); background: var(--fp-surface); box-shadow: var(--fp-shadow); }
+/* ADR-110 addendum: a switch that cannot be used in the chosen preset (the font list noise outside Strict) stays visible but dimmed. */
+.fingerprint-segmented.is-locked { opacity: .55; }
+:root body .fingerprint-profiles .fingerprint-segmented.is-locked > .fingerprint-segment { cursor: not-allowed; }
+.fingerprint-generator__actions { justify-content: flex-end; }
+:root body .fingerprint-profiles .fingerprint-generator__actions .button { display: inline-flex; align-items: center; justify-content: center; gap: 7px; }
+@container fp-generator (max-width: 30rem) {
+  .fingerprint-form-row { grid-template-columns: minmax(0, 1fr); gap: 7px; }
+  .fingerprint-form-row > select { max-width: none; }
+  .fingerprint-generator__actions > .button { flex: 1 1 100%; }
+}
+
+/* ADR-107: the saved-profiles library rules live in fingerprint-library-ui.css (linked right after this file). */
+.fingerprint-export { display: grid; gap: 10px; min-width: 0; padding: 12px; border: 1px solid var(--fp-line); border-radius: 11px; background: var(--fp-surface); }
+
+/* Status pills: soft, with a dot whose fill marks the state. */
+.fingerprint-pill { display: inline-flex; align-items: center; gap: 6px; min-width: 0; max-width: 100%; min-height: 22px; padding: 2px 9px; border-radius: 999px; color: var(--fp-off); background: var(--fp-off-bg); font-size: 12px; font-weight: 600; line-height: 1.35; overflow-wrap: anywhere; }
+.fingerprint-pill::before { content: ""; flex: none; width: 7px; height: 7px; border-radius: 50%; box-shadow: inset 0 0 0 1.5px currentColor; }
+.fingerprint-pill--ok { color: var(--fp-ok); background: var(--fp-ok-bg); }
+.fingerprint-pill--ok::before { background: currentColor; box-shadow: none; }
+.fingerprint-pill--preview { color: var(--fp-accent); background: var(--fp-accent-soft); }
+
+/* Preview: overview list, change list, consistency notes, editor, transfer and footer. */
+.fingerprint-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 10.5rem), 1fr)); gap: 0 16px; min-width: 0; margin: 0; padding: 4px 12px; border-radius: 11px; background: var(--fp-surface-2); }
+.fingerprint-summary__row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 10px; min-width: 0; padding-block: 8px; border-block-end: 1px solid var(--fp-line); }
+.fingerprint-summary dt { min-width: 0; color: var(--fp-text-3); font-size: 12px; line-height: 1.4; overflow-wrap: anywhere; }
+.fingerprint-summary dd { min-width: 0; margin: 0; color: var(--fp-text); font-size: 13px; font-weight: 600; line-height: 1.4; font-variant-numeric: tabular-nums; }
+.fingerprint-pagination { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; color: var(--fp-text-3); font-size: 12px; }
+.fingerprint-changes { min-width: 0; max-height: 300px; overflow: auto; padding: 2px; border-radius: 9px; overscroll-behavior: contain; }
+.fingerprint-changes ul { display: grid; gap: 9px; padding: 0; margin: 0; list-style: none; }
+.fingerprint-changes li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 4px 9px; min-width: 0; padding-block-end: 9px; border-block-end: 1px solid var(--fp-line); font-size: 12px; line-height: 1.45; }
+.fingerprint-changes li > code:last-child { grid-column: 1 / -1; padding: 6px 8px; border-radius: 7px; color: var(--fp-text); background: var(--fp-surface-2); white-space: pre-wrap; }
+.fingerprint-profiles code { min-width: 0; overflow-wrap: anywhere; font-size: 11px; }
+.fingerprint-issues { display: grid; gap: 10px; padding: 12px 14px; margin: 0; border: 1px solid var(--fp-line); border-inline-start: 3px solid var(--fp-warn); border-radius: 10px; background: var(--fp-surface); list-style: none; }
+.fingerprint-issues li { display: grid; gap: 4px; color: var(--fp-text-2); font-size: 12px; line-height: 1.55; overflow-wrap: anywhere; }
+.fingerprint-editor { display: grid; gap: 12px; min-width: 0; padding: 12px; border: 1px solid var(--fp-line); border-radius: 11px; background: var(--fp-surface); }
+.fingerprint-editor:not([open]) > :not(summary) { display: none; }
+.fingerprint-editor summary { color: var(--fp-accent); font-size: 13px; font-weight: 600; cursor: pointer; }
+.fingerprint-editor[open] summary { margin-block-end: 12px; }
+.fingerprint-editor > .button { margin-block-start: 10px; justify-self: start; }
+.fingerprint-editor .fingerprint-controls { margin-block-end: 12px; }
+.fingerprint-transfer { justify-content: flex-start; }
+.fingerprint-footer { align-items: center; padding-block-start: 12px; border-block-start: 1px solid var(--fp-line); }
+.fingerprint-footer > .fingerprint-note { flex: 1 1 200px; }
+.fingerprint-error, .fingerprint-warning { margin: 0; padding: 11px 13px; border: 1px solid var(--fp-line); border-radius: 11px; color: var(--fp-text); background: var(--fp-surface-2); font-size: 13px; line-height: 1.55; overflow-wrap: anywhere; }
+.fingerprint-error { color: var(--fp-err); border-color: currentColor; }
+.fingerprint-warning { border-inline-start: 3px solid var(--fp-warn); }
+.fingerprint-profiles :focus-visible { outline: 3px solid var(--focus, var(--fp-accent)); outline-offset: 3px; }
+.fingerprint-profiles :is(.fingerprint-segment, .fingerprint-row__main, .fingerprint-row-action):focus-visible { outline-width: 2px; outline-offset: 1px; }
+@media (prefers-reduced-motion: reduce) { .fingerprint-profiles *, :root body .fingerprint-profiles :is(.fingerprint-segment, .fingerprint-row-action) { transition: none; } }
+@media (max-width: 480px) { .fingerprint-controls { grid-template-columns: minmax(0, 1fr); } .fingerprint-generator, .fingerprint-library, .fingerprint-preview { padding: 12px; } .fingerprint-changes li { grid-template-columns: minmax(0, 1fr); } .fingerprint-footer > .fingerprint-toolbar { width: 100%; justify-content: flex-end; } }
+@media (forced-colors: active) {
+  .fingerprint-generator, .fingerprint-library, .fingerprint-preview, .fingerprint-confirm, .fingerprint-export, .fingerprint-summary, .fingerprint-issues, .fingerprint-editor, .fingerprint-error, .fingerprint-warning, .fingerprint-empty, .fingerprint-pill, .fingerprint-count, .fingerprint-segmented { color: CanvasText; background: Canvas; border-color: CanvasText; }
+  .fingerprint-pill, .fingerprint-count, .fingerprint-segmented { border: 1px solid CanvasText; }
+  .fingerprint-icon, .fingerprint-note, .fingerprint-field, .fingerprint-issues li, .fingerprint-form-label, .fingerprint-row__meta, .fingerprint-row__avatar, .fingerprint-summary dt { color: CanvasText; background: transparent; }
+  .fingerprint-profiles :is(input:not([type=checkbox]), select, textarea) { color: FieldText; background: Field; border-color: FieldText; }
+  .fingerprint-profiles :is(input, select, textarea):disabled { color: GrayText; opacity: 1; }
+  :root body .fingerprint-profiles :is(.fingerprint-segment, .fingerprint-row-action, .fingerprint-row__main) { color: ButtonText; background: ButtonFace; border-color: ButtonText; }
+  :root body .fingerprint-profiles .fingerprint-segment[aria-checked=true] { color: HighlightText; background: Highlight; border-color: Highlight; }
+  .fingerprint-segmented.is-locked { opacity: 1; }
+  :root body .fingerprint-profiles .fingerprint-segmented.is-locked > .fingerprint-segment { color: GrayText; border-color: GrayText; }
+  .fingerprint-row.is-selected { border-inline-start-color: Highlight; background: Canvas; }
+  .fingerprint-changes li, .fingerprint-footer, .fingerprint-row, .fingerprint-form, .fingerprint-form-row, .fingerprint-library__columns, .fingerprint-summary__row { border-color: CanvasText; }
+  .fingerprint-changes li > code:last-child { color: CanvasText; background: Canvas; }
+  .fingerprint-editor summary { color: LinkText; }
+  .fingerprint-profiles :focus-visible { outline-color: Highlight; }
+}
+
+/* Internal management layout; launcher rendering keeps its original rules. */
+/* Generator and library sit side by side only when each keeps a single-line control row (the library has the full Antidetect width). */
+.management-shell .fingerprint-profiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 38rem), 1fr)); align-items: start; gap: 14px; }
+.management-shell .fingerprint-profiles > :is(.fingerprint-header, .fingerprint-preview, .fingerprint-error, .fingerprint-warning, .fingerprint-note) { grid-column: 1 / -1; }
+.management-shell .fingerprint-header { gap: 10px 16px; }
+.management-shell .fingerprint-header > div { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.management-shell .fingerprint-profiles .fingerprint-heading { gap: 7px; overflow-wrap: anywhere; }
+.management-shell .fingerprint-profiles .fingerprint-icon { width: 27px; height: 27px; border-radius: 7px; }
+.management-shell .fingerprint-profiles .fingerprint-icon svg { width: 18px; height: 18px; }
+.management-shell .fingerprint-profiles .fingerprint-scope { padding: 3px 8px; border-radius: 999px; color: var(--fp-text-3); background: var(--fp-sunken); font-size: 12px; font-weight: 600; line-height: 1.35; }
+.management-shell .fingerprint-profiles :is(.fingerprint-generator, .fingerprint-library, .fingerprint-preview) { gap: 12px; padding: 14px; border-radius: 12px; }
+.management-shell .fingerprint-profiles .fingerprint-controls { grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); gap: 10px 12px; }
+.management-shell .fingerprint-profiles .fingerprint-field { gap: 5px; font-size: 12px; }
+.management-shell .fingerprint-profiles :is(input:not([type=checkbox]), select, textarea) { min-height: 36px; padding: 7px 9px; border-radius: 8px; }
+.management-shell .fingerprint-profiles .fingerprint-search input { padding-inline-start: 33px; }
+.management-shell .fingerprint-profiles .fingerprint-form-row { padding-block: 9px; }
+.management-shell .fingerprint-profiles .fingerprint-note { font-size: 12px; line-height: 1.45; }
+.management-shell .fingerprint-profiles :is(.fingerprint-toolbar, .fingerprint-name-row, .fingerprint-library__toolbar) { gap: 8px; }
+.management-shell .fingerprint-profiles .fingerprint-library-list { max-height: 28rem; }
+.management-shell .fingerprint-profiles .fingerprint-summary { padding-inline: 12px; }
+.management-shell .fingerprint-profiles .fingerprint-changes { max-height: 340px; }
+.management-shell .fingerprint-profiles .fingerprint-changes li { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 4px 10px; padding-block-end: 8px; }
+.management-shell .fingerprint-profiles :is(.fingerprint-editor, .fingerprint-confirm, .fingerprint-export) { padding: 11px; border-radius: 9px; }
+.management-shell .fingerprint-profiles .fingerprint-editor[open] summary { margin-block-end: 10px; }
+.management-shell .fingerprint-profiles .fingerprint-footer { gap: 8px 14px; padding-block-start: 10px; }
+.management-shell .fingerprint-profiles .fingerprint-footer > .fingerprint-toolbar { margin-inline-start: auto; }
+.management-shell .fingerprint-profiles .fingerprint-issues { gap: 8px; padding: 10px 12px; border-radius: 9px; }
+@media (max-width: 480px) {
+  .management-shell .fingerprint-profiles :is(.fingerprint-generator, .fingerprint-library, .fingerprint-preview) { padding: 11px; }
+  .management-shell .fingerprint-profiles .fingerprint-changes li { grid-template-columns: minmax(0, 1fr); }
+  .management-shell .fingerprint-profiles .fingerprint-toolbar > .button { flex: 1 1 auto; }
+  .management-shell .fingerprint-profiles .fingerprint-footer > .fingerprint-toolbar { width: 100%; }
+}
+
+/* ADR-107: value sources, hints under their controls, the explainer and actions, combobox status and highlight, Apply reasons and
+   the before/after change list. Severity is always a word and an icon, never colour alone. */
+.management-shell .fingerprint-profiles {
+  --fp-warn-text: color-mix(in srgb, var(--fp-warn) 55%, var(--fp-text));
+  --fp-info-text: color-mix(in srgb, var(--fp-accent) 70%, var(--fp-text));
+}
+.management-shell .fingerprint-profiles .fp-source { display: inline-flex; flex: none; align-items: center; min-height: 20px; max-width: 100%; padding: 1px 8px; border-radius: 999px; color: var(--fp-text-2); background: var(--fp-sunken); font-size: 11px; font-weight: 600; line-height: 1.35; overflow-wrap: anywhere; }
+.management-shell .fingerprint-profiles .fp-source--region { color: var(--fp-info-text); background: var(--fp-accent-soft); }
+.management-shell .fingerprint-profiles .fp-source--custom { color: var(--fp-text); background: var(--fp-surface); box-shadow: inset 0 0 0 1px var(--fp-line-2); }
+.management-shell .fingerprint-profiles .fingerprint-form-label:has(> .fp-source) { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+.management-shell .fingerprint-profiles .fp-slider__head { flex-wrap: wrap; row-gap: 6px; }
+.management-shell .fingerprint-profiles .fp-slider__head > .fp-source { margin-inline-end: auto; }
+.management-shell .fingerprint-profiles .fp-slider__value { max-width: 100%; white-space: normal; text-align: center; overflow-wrap: anywhere; }
+.management-shell .fingerprint-profiles .fp-fit { display: grid; justify-items: start; gap: 6px; min-width: 0; }
+.management-shell .fingerprint-profiles .fingerprint-form > :is(.fp-field-issues, .fp-retarget) { margin-block: 8px; }
+.management-shell .fingerprint-profiles .fingerprint-issues:not(:has(.fp-issue--warning)) { border-inline-start-color: var(--fp-accent); }
+.management-shell .fingerprint-profiles .fp-field-issues { gap: 8px; padding: 9px 11px; }
+.management-shell .fingerprint-profiles .fp-issue { display: grid; gap: 4px; min-width: 0; }
+.management-shell .fingerprint-profiles .fp-issue__severity { display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px; font-weight: 700; line-height: 1.35; }
+.management-shell .fingerprint-profiles .fp-issue--warning .fp-issue__severity { color: var(--fp-warn-text); }
+.management-shell .fingerprint-profiles .fp-issue--info .fp-issue__severity { color: var(--fp-info-text); }
+.management-shell .fingerprint-profiles .fp-issue__severity svg { flex: none; }
+.management-shell .fingerprint-profiles .fp-issue__message { color: var(--fp-text); }
+.management-shell .fingerprint-profiles .fp-issue__explain { color: var(--fp-text-2); font-variant-numeric: tabular-nums; }
+.management-shell .fingerprint-profiles .fp-issue__rows code { color: var(--fp-text-3); }
+.management-shell .fingerprint-profiles .fp-issue__actions { display: flex; flex-wrap: wrap; gap: 4px 10px; min-width: 0; }
+.management-shell .fingerprint-profiles .fp-issue__action { min-height: 28px; padding: 3px 8px; white-space: normal; overflow-wrap: anywhere; }
+.management-shell .fingerprint-profiles .fp-issue__note { color: var(--fp-text-3); font-size: 11.5px; line-height: 1.45; }
+.management-shell .fingerprint-profiles .fp-combobox { position: relative; }
+.management-shell .fingerprint-profiles .fp-combobox__option { position: relative; padding-inline-end: 30px; }
+.management-shell .fingerprint-profiles .fp-combobox__option.is-highlighted { color: var(--fp-text); background: var(--fp-surface-2); box-shadow: inset 0 0 0 2px var(--rd-focus, var(--fp-accent)); }
+.management-shell .fingerprint-profiles .fp-combobox__option.is-selected { color: var(--fp-info-text); font-weight: 600; }
+.management-shell .fingerprint-profiles .fp-combobox__check { position: absolute; inset-inline-end: 9px; inset-block-start: 50%; display: inline-grid; color: var(--fp-accent); translate: 0 -50%; }
+.management-shell .fingerprint-profiles .fp-combobox__status { position: absolute; z-index: 20; inset-inline: 0; inset-block-start: calc(100% + 6px); margin: 0; padding: 8px 11px; border: 1px solid var(--fp-line); border-radius: 10px; color: var(--fp-text-2); background: var(--fp-surface); box-shadow: var(--rd-shadow-2, var(--fp-shadow)); font-size: 12.5px; line-height: 1.4; }
+/* The live region stays in the accessibility tree while empty (so «No results» is announced), only out of sight. */
+.management-shell .fingerprint-profiles .fp-combobox__status:empty { width: 1px; height: 1px; padding: 0; border: 0; overflow: hidden; clip-path: inset(50%); box-shadow: none; }
+.management-shell .fingerprint-profiles .fp-apply-reasons { display: grid; flex: 1 1 14rem; gap: 2px; min-width: 0; }
+.management-shell .fingerprint-profiles .fp-apply-reasons:not(:has(.fp-apply-reason:not(:empty))) { display: none; }
+.management-shell .fingerprint-profiles .fp-apply-reason { margin: 0; color: var(--fp-text-2); font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
+.management-shell .fingerprint-profiles .fp-apply-reason:empty { display: none; }
+.management-shell .fingerprint-profiles .fp-apply-reason--fields { color: var(--fp-warn-text); }
+/* Apply stays focusable while it cannot run (aria-disabled); the theme dims it, this keeps the inline variant from lighting up. */
+.management-shell .fingerprint-profiles :is(.button, .antidetect-apply)[aria-disabled=true] { cursor: not-allowed; }
+.management-shell .fingerprint-profiles .antidetect-apply[aria-disabled=true], .management-shell .fingerprint-profiles .antidetect-apply[aria-disabled=true]:hover { opacity: .5; background: var(--rd-accent-soft); }
+.management-shell .fingerprint-profiles .fp-change__values { display: flex; flex-wrap: wrap; grid-column: 1 / -1; align-items: center; gap: 6px; min-width: 0; }
+.management-shell .fingerprint-profiles .fp-change__values > code { flex: 1 1 10rem; padding: 6px 8px; border-radius: 7px; background: var(--fp-surface-2); white-space: pre-wrap; }
+.management-shell .fingerprint-profiles .fp-change__before { color: var(--fp-text-3); }
+.management-shell .fingerprint-profiles .fp-change__after { color: var(--fp-text); }
+.management-shell .fingerprint-profiles .fp-change__arrow { display: inline-block; flex: none; color: var(--fp-text-3); }
+.management-shell .fingerprint-profiles .fp-change__arrow:dir(rtl) { transform: scaleX(-1); }
+.management-shell .fingerprint-profiles .fp-change.is-conflict { padding-inline-start: 8px; border-inline-start: 3px solid var(--fp-warn); }
+.management-shell .fingerprint-profiles .fp-change__conflict { display: inline-flex; align-items: center; gap: 4px; margin-inline-start: 8px; padding: 0 7px; border-radius: 999px; color: var(--fp-warn-text); background: color-mix(in srgb, var(--fp-warn) 14%, transparent); font-size: 11px; font-weight: 700; line-height: 1.6; }
+@media (forced-colors: active) {
+  .management-shell .fingerprint-profiles :is(.fp-source, .fp-change__conflict, .fp-combobox__status) { color: CanvasText; background: Canvas; border: 1px solid CanvasText; box-shadow: none; }
+  .management-shell .fingerprint-profiles :is(.fp-issue__severity, .fp-apply-reason, .fp-issue__explain, .fp-issue__note) { color: CanvasText; }
+  .management-shell .fingerprint-profiles .fp-combobox__option.is-highlighted { color: HighlightText; background: Highlight; box-shadow: none; outline: 2px solid Highlight; }
+  .management-shell .fingerprint-profiles .fp-combobox__option.is-selected:not(.is-highlighted) { color: CanvasText; background: Canvas; }
+  .management-shell .fingerprint-profiles .fp-change.is-conflict { border-inline-start-color: CanvasText; }
+  .management-shell .fingerprint-profiles :is(.button, .antidetect-apply)[aria-disabled=true] { color: GrayText; border-color: GrayText; opacity: 1; }
+}
+
+/* ADR-107 round 5: the banner of an active temporary profile. It is shown in every view of the panel (quick setup and the three levels). */
+.management-shell .fingerprint-profiles .fp-temporary { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; min-width: 0; padding: 10px 14px; border: 1px solid var(--fp-accent); border-inline-start-width: 4px; border-radius: 12px; background: var(--fp-accent-soft); }
+.management-shell .fingerprint-profiles .fp-temporary__icon { display: inline-flex; flex: none; color: var(--fp-accent); }
+.management-shell .fingerprint-profiles .fp-temporary__text { display: grid; flex: 1 1 18rem; gap: 2px; min-width: 0; }
+.management-shell .fingerprint-profiles .fp-temporary__text strong { color: var(--fp-text); font-size: 13.5px; font-weight: 650; line-height: 1.4; overflow-wrap: anywhere; }
+.management-shell .fingerprint-profiles .fp-temporary__text span { color: var(--fp-text-2); font-size: 12.5px; line-height: 1.45; overflow-wrap: anywhere; }
+.management-shell .fingerprint-profiles .fp-temporary__buttons { display: flex; flex-wrap: wrap; gap: 8px; margin-inline-start: auto; min-width: 0; }
+.management-shell .fingerprint-profiles .fp-temporary__buttons .button { min-height: 36px; max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+@media (max-width: 480px) {
+  .management-shell .fingerprint-profiles .fp-temporary { padding: 10px 12px; }
+  .management-shell .fingerprint-profiles .fp-temporary__buttons { width: 100%; margin-inline-start: 0; }
+  .management-shell .fingerprint-profiles .fp-temporary__buttons .button { flex: 1 1 8rem; }
+}
+@media (forced-colors: active) {
+  .management-shell .fingerprint-profiles .fp-temporary { color: CanvasText; background: Canvas; border-color: CanvasText; }
+  .management-shell .fingerprint-profiles :is(.fp-temporary__icon, .fp-temporary__text strong, .fp-temporary__text span) { color: CanvasText; }
+}

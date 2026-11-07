@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-09",
+  "scope": "Passive observed resource/provider classification, not a list of working login leaks.",
+  "techniqueRefs": ["DET-059", "REQ-001", "REQ-002", "REQ-004", "REQ-005", "REQ-011", "REQ-012"],
+  "sources": [
+    { "id": "samesite", "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie", "supports": "Lax excludes image, fetch, script and iframe subresources; top-level safe navigation is separate." },
+    { "id": "webrequest", "url": "https://developer.chrome.com/docs/extensions/reference/api/webRequest", "supports": "initiator is an origin, not a requesting script URL; documentId is an authoritative browser document identity." },
+    { "id": "fedcm", "url": "https://developer.chrome.com/docs/identity/fedcm/overview", "supports": "Passive FedCM UI mode can start without user activation; active mode requires it. Calling identity get is not evidence of login probing." },
+    { "id": "login-status", "url": "https://developer.chrome.com/docs/identity/fedcm/implement/identity-provider", "supports": "Login Status API informs browser state; login-status-api rows record only API use, without the supplied status or accounts." },
+    { "id": "meta-sdk", "url": "https://connect.facebook.net/en_US/sdk.js", "supports": "Fixed Meta SDK resource; HEAD 200 observed, no script executed." },
+    { "id": "meta-pixel", "url": "https://connect.facebook.net/en_US/fbevents.js", "supports": "Fixed Meta Pixel resource and facebook.com/tr endpoint in official hosted code; HTTP 200, transient bounded source inspection, no code execution." },
+    { "id": "meta-sdk-ru", "url": "https://connect.facebook.net/ru_RU/sdk.js", "supports": "Localized public SDK resource; HEAD 200 observed." },
+    { "id": "meta-pixel-ru", "url": "https://connect.facebook.net/ru_RU/fbevents.js", "supports": "Localized public Pixel resource; HEAD 200 observed." },
+    { "id": "x-widgets", "url": "https://blog.x.com/engineering/en_us/a/2016/how-twitter-deploys-its-widgets-javascript", "supports": "platform.twitter.com/widgets.js is the published widget loader." },
+    { "id": "linkedin", "url": "https://learn.microsoft.com/en-us/linkedin/marketing/conversions/deduplication", "supports": "snap.licdn.com/li.lms-analytics/insight.min.js and px.ads.linkedin.com/collect are documented tag and image-pixel resources." },
+    { "id": "pinterest", "url": "https://developer.pinterest.com/docs/track-conversions/pinterest-tag/", "supports": "s.pinimg.com/ct/core.js and ct.pinterest.com/v3 are documented tag and image-pixel resources." },
+    { "id": "tiktok", "url": "https://ads.tiktok.com/gateway/docs/index?doc_id=1701890973258754&language=ENGLISH", "supports": "analytics.tiktok.com/i18n/pixel/events.js is the official published loader." },
+    { "id": "snapchat", "url": "https://github.com/Snapchat/snapchat-google-tag-manager/blob/main/template.tpl", "supports": "Official Snapchat template publishes sc-static.net/scevent.min.js and permits tr.snapchat.com." },
+    { "id": "snapchat-pixel", "url": "https://sc-static.net/scevent.min.js", "supports": "Official hosted code contains the fixed /p endpoint; HTTP 200, transient bounded source inspection, no code execution." },
+    { "id": "telegram", "url": "https://core.telegram.org/widgets/login/", "supports": "Telegram login/widget integration; authorization responses and account fields are deliberately not read." },
+    { "id": "telegram-resource", "url": "https://telegram.org/js/telegram-widget.js", "supports": "Published fixed widget resource; HEAD 200 observed." },
+    { "id": "vk", "url": "https://dev.vk.com/ru/widgets/community", "supports": "VK widget documentation reference; document content unavailable in this run. openapi.js is excluded from the specific SDK matcher and remains a generic observed VK service request.", "verification": "unavailable", "resourceCheckStatus": 418 },
+    { "id": "linkedin-dc", "url": "https://business.linkedin.com/content/dam/lem/business/en/advertise/ads/brand-awareness/how-linkedin-turns-up-the-heat-on-their-own-marketing-campaigns.pdf", "supports": "Older official LinkedIn publication documents the dc.ads.linkedin.com/collect image-pixel endpoint. No current server response or execution claim." },
+    { "id": "google", "url": "https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid", "supports": "accounts.google.com/gsi/client is the published Google Identity Services loader." },
+    { "id": "google-legacy", "url": "https://developers.google.com/identity/gsi/web/guides/migration", "supports": "apis.google.com/js/platform.js, api.js and api:client.js are documented legacy loader resources." },
+    { "id": "github-oauth", "url": "https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps", "supports": "github.com/login/oauth/authorize is an ordinary OAuth authorization flow; navigation is not labeled a login leak." },
+    { "id": "discord-oauth", "url": "https://docs.discord.com/developers/topics/oauth2", "supports": "discord.com/oauth2/authorize is an ordinary authorization flow; requested parameters and tokens are not retained." }
+  ],
+  "researchNetwork": {
+    "runtimeConnections": false,
+    "activeLoginOrHistoryProbes": false,
+    "accountRequests": false,
+    "resourceHeadChecks": 7,
+    "resourceHeadStatuses": [200, 200, 200, 200, 418, 200, 200],
+    "boundedHostedCodeReads": [
+      { "url": "https://connect.facebook.net/en_US/fbevents.js", "status": 200, "bytes": 428908, "retained": "fixed endpoint fact only" },
+      { "url": "https://sc-static.net/scevent.min.js", "status": 200, "bytes": 59319, "retained": "fixed endpoint fact only" }
+    ]
+  }
+}

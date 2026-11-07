@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>Фаервол: второй сайт</title>
+  </head>
+  <body>
+    <!-- ADR-020 §C (S08). Served at shop.example.org: the same sender and receiver as leak-form.html on another site
+         (a site-level rule of www.example.com must not stop these requests; a receiver rule «везде» must). -->
+    <h1 id="title">Магазин</h1>
+    <label>E-mail <input id="email" name="email" type="email" autocomplete="off" /></label>
+    <script>
+      (function () {
+        var s = document.createElement('script');
+        s.src = location.protocol + '//cdn.example.org:' + location.port + '/protect/firewall/fw-sender.js';
+        document.head.appendChild(s);
+      })();
+    </script>
+  </body>
+</html>

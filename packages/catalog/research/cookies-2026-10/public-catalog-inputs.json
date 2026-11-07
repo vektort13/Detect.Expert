@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-09",
+  "files": [
+    {
+      "file": "cookie-audit-LICENSE",
+      "bytes": 1100,
+      "sha256": "861b5a60b114f2404e2c2d15e647de6e096dca7e1437b98fbc6444e2d8a2bc05"
+    },
+    {
+      "file": "cookie-audit-src-known-cookies.js",
+      "bytes": 65869,
+      "sha256": "c33a8a37ec8d4e6a73c5570b15f6bd106b0bd8804fc5179a53a8ef6555d2559a"
+    },
+    {
+      "file": "cookieblock-LICENSE",
+      "bytes": 1076,
+      "sha256": "6136e7d6d5b5893ffee3e16969dae063a5f9cf0ef84fbaadf23dcd8aa3ae5fe8"
+    },
+    {
+      "file": "cookieblock-src-LICENSE",
+      "bytes": 1554,
+      "sha256": "5f0850cb4f13993892094d518ff3fb10dafc278d2798e34aad714f0d5da09fc2"
+    },
+    {
+      "file": "cookieblock-src-ext_data-known_cookies.json",
+      "bytes": 9759,
+      "sha256": "77ad8681f17f3fe81681f91fa4e849d50fd4c4b9fe4daff673072efe8d1ddcbc"
+    },
+    {
+      "file": "cookieblock-src-ext_data-resources-cookie_name_patterns.txt",
+      "bytes": 3010,
+      "sha256": "979c8db46b936aedeeff1f05e53c7bb43006be4d9bd871da80408be8939c6f37"
+    },
+    {
+      "file": "iab-cookie-disclosure-retry.json",
+      "bytes": 4993,
+      "sha256": "ca66b3b983acc281d186d5ce01de1fde648afd21a04d9372a52d5273f92635f4"
+    },
+    {
+      "file": "iab-cookie-disclosure-snapshot.json",
+      "bytes": 2900663,
+      "sha256": "b7048105b9e47a54a659618148766388caca43d3804dda132eea4783f4fa81f1"
+    },
+    {
+      "file": "iab-cookie-disclosures.normalized.json",
+      "bytes": 5545629,
+      "sha256": "aea364750cb3df45560feac2b904c214bdffefa86b6676e88ceec224870ecec9"
+    },
+    {
+      "file": "iab-gvl-source.json",
+      "bytes": 406861,
+      "sha256": "63c42bc7ea4c671dd084b7fc47b1c27b38baef12d536d6a5ed588b111f621d58"
+    },
+    {
+      "file": "public-cookie-baseline.json",
+      "bytes": 1161951,
+      "sha256": "b14c5b7268f0b12a56f6e2930659198ae30d9bb13ebad5d3bc990e32549e8322"
+    },
+    {
+      "file": "public-cookie-candidates.normalized.json",
+      "bytes": 438925,
+      "sha256": "d83ba2e7cddb631af1766b8c3c6bde3af0075c461b144b17da82c906472d6594"
+    },
+    {
+      "file": "public-datasets-manifest.json",
+      "bytes": 2976,
+      "sha256": "dd6277f62e74b4f478b169b41ca807784a743876e04bd3a4d92954a2c504bf35"
+    },
+    {
+      "file": "shodan-cookie-counts.json",
+      "bytes": 12390,
+      "sha256": "6b9145c383d4a01bca946bb599c8fb2d38bb68cae7074fbe3db43b2c2acb7b85"
+    },
+    {
+      "file": "vendor-primary-expansion.json",
+      "bytes": 134331,
+      "sha256": "773411de7385d20de5bdedd341f2af2e21ef3740f648097f280d00e8b3bb7385"
+    }
+  ],
+  "licensedSources": [
+    {
+      "repo": "diShine-digital-agency/cookie-audit",
+      "commit": "7df2b25ebc98cc206dcce08b566734b80a10725e",
+      "upstreamPath": "LICENSE",
+      "file": "cookie-audit-LICENSE",
+      "url": "https://raw.githubusercontent.com/diShine-digital-agency/cookie-audit/7df2b25ebc98cc206dcce08b566734b80a10725e/LICENSE",
+      "sha256": "861b5a60b114f2404e2c2d15e647de6e096dca7e1437b98fbc6444e2d8a2bc05",
+      "bytes": 1100,
+      "license": "MIT"
+    },
+    {
+      "repo": "diShine-digital-agency/cookie-audit",
+      "commit": "7df2b25ebc98cc206dcce08b566734b80a10725e",
+      "upstreamPath": "src/known-cookies.js",
+      "file": "cookie-audit-src-known-cookies.js",
+      "url": "https://raw.githubusercontent.com/diShine-digital-agency/cookie-audit/7df2b25ebc98cc206dcce08b566734b80a10725e/src/known-cookies.js",
+      "sha256": "c33a8a37ec8d4e6a73c5570b15f6bd106b0bd8804fc5179a53a8ef6555d2559a",
+      "bytes": 65869,
+      "license": "MIT"
+    },
+    {
+      "repo": "dibollinger/CookieBlock",
+      "commit": "cb3091a75ff75c6287e663f61de65ada0bf1b9aa",
+      "upstreamPath": "LICENSE",
+      "file": "cookieblock-LICENSE",
+      "url": "https://raw.githubusercontent.com/dibollinger/CookieBlock/cb3091a75ff75c6287e663f61de65ada0bf1b9aa/LICENSE",
+      "sha256": "6136e7d6d5b5893ffee3e16969dae063a5f9cf0ef84fbaadf23dcd8aa3ae5fe8",
+      "bytes": 1076,
+      "license": "MIT"
+    },
+    {
+      "repo": "dibollinger/CookieBlock",
+      "commit": "cb3091a75ff75c6287e663f61de65ada0bf1b9aa",
+      "upstreamPath": "src/LICENSE",
+      "file": "cookieblock-src-LICENSE",
+      "url": "https://raw.githubusercontent.com/dibollinger/CookieBlock/cb3091a75ff75c6287e663f61de65ada0bf1b9aa/src/LICENSE",
+      "sha256": "5f0850cb4f13993892094d518ff3fb10dafc278d2798e34aad714f0d5da09fc2",
+      "bytes": 1554,
+      "license": "MIT"
+    },
+    {
+      "repo": "dibollinger/CookieBlock",
+      "commit": "cb3091a75ff75c6287e663f61de65ada0bf1b9aa",
+      "upstreamPath": "src/ext_data/known_cookies.json",
+      "file": "cookieblock-src-ext_data-known_cookies.json",
+      "url": "https://raw.githubusercontent.com/dibollinger/CookieBlock/cb3091a75ff75c6287e663f61de65ada0bf1b9aa/src/ext_data/known_cookies.json",
+      "sha256": "77ad8681f17f3fe81681f91fa4e849d50fd4c4b9fe4daff673072efe8d1ddcbc",
+      "bytes": 9759,
+      "license": "MIT"
+    },
+    {
+      "repo": "dibollinger/CookieBlock",
+      "commit": "cb3091a75ff75c6287e663f61de65ada0bf1b9aa",
+      "upstreamPath": "src/ext_data/resources/cookie_name_patterns.txt",
+      "file": "cookieblock-src-ext_data-resources-cookie_name_patterns.txt",
+      "url": "https://raw.githubusercontent.com/dibollinger/CookieBlock/cb3091a75ff75c6287e663f61de65ada0bf1b9aa/src/ext_data/resources/cookie_name_patterns.txt",
+      "sha256": "979c8db46b936aedeeff1f05e53c7bb43006be4d9bd871da80408be8939c6f37",
+      "bytes": 3010,
+      "license": "MIT"
+    }
+  ],
+  "iabSpecification": "https://github.com/InteractiveAdvertisingBureau/GDPR-Transparency-and-Consent-Framework/blob/703fc2964ba8fe1086b18a3c509c46a48c1aee1c/TCFv2/Vendor%20Device%20Storage%20%26%20Operational%20Disclosures.md",
+  "iabSource": {
+    "kind": "iab-device-storage-disclosure",
+    "gvlArchive": "https://vendor-list.consensu.org/v3/archives/vendor-list-v180.json",
+    "gvlSha256": "a6d0aa4394647333cbe0a8350b84b5cb5a6dc83829cc8cd090312d2b87fdc8aa",
+    "vendorListVersion": 180,
+    "specification": "https://github.com/InteractiveAdvertisingBureau/GDPR-Transparency-and-Consent-Framework/blob/703fc2964ba8fe1086b18a3c509c46a48c1aee1c/TCFv2/Vendor%20Device%20Storage%20%26%20Operational%20Disclosures.md",
+    "specificationCommit": "703fc2964ba8fe1086b18a3c509c46a48c1aee1c",
+    "licenseNote": "Vendor-published factual device-storage declarations intended for public processing; no general open-data licence is asserted. Descriptions are independently composed from declared purpose IDs. No raw document bodies are retained.",
+    "baseline": {
+      "file": "public-cookie-baseline.json",
+      "records": 2522,
+      "sha256": "b14c5b7268f0b12a56f6e2930659198ae30d9bb13ebad5d3bc990e32549e8322"
+    },
+    "publicSuffixListSha256": "4b673689999dbaca60b93fa3e1da5752505ef9717b1c4dc44acbfdafd35679ea"
+  },
+  "runtimePolicy": "All added registry and MIT records are community confidence; primary documentation remains authoritative. IAB owner is explicitly the declaring vendor. Unscoped records supply name references only.",
+  "primaryNameConstraints": {
+    "amp_": "10-character name: amp_ plus first 6 hexadecimal API-key characters",
+    "AMP_": "14-character name: AMP_ plus first 10 hexadecimal API-key characters",
+    "pi_opt_in": "Numeric account suffix; no substring matching"
+  }
+}

@@ -1,0 +1,30 @@
+.inspector-header-controls { display: flex; align-items: center; flex: 0 0 auto; height: 30px; border: 1px solid var(--border); border-radius: 9px; background: var(--surface); }
+.inspector-settings-button, .inspector-pin-button { position: relative; display: flex; align-items: center; justify-content: center; flex: 0 0 28px; width: 28px; height: 28px; min-height: 28px; padding: 0; border: 0; border-inline-end: 1px solid var(--border); border-radius: 8px 0 0 8px; background: transparent; color: var(--muted); cursor: pointer; }
+.inspector-settings-button:hover, .inspector-pin-button:hover { color: var(--accent); background: var(--surface-2); }
+.inspector-settings-button:focus-visible, .inspector-pin-button:focus-visible { position: relative; z-index: 1; outline-offset: 2px; }
+.inspector-header-controls .language-picker__trigger { position: relative; min-height: 28px; height: 28px; padding: 0 6px; gap: 4px; border: 0; border-radius: 0 8px 8px 0; font-size: 12px; line-height: 14px; }
+.inspector-header-controls .language-flag { width: 20px; height: 14px; flex-basis: 20px; }
+.inspector-header-controls .language-picker__trigger .language-flag { width: 18px; height: 12px; flex-basis: 18px; }
+.inspector-header-controls .ui-action-icon { flex: 0 0 16px; width: 16px; height: 16px; }
+.inspector-header-controls .language-picker__trigger > svg:not(.language-flag) { width: 8px; height: 8px; }
+/* ADR-042: compact visuals retain a taller pointer target within the title row. */
+.inspector-settings-button::before, .inspector-pin-button::before, .inspector-header-controls .language-picker__trigger::before { content: ""; position: absolute; inset-block: -2px; inset-inline: 0; }
+.ui-action-icon { display: block; flex: 0 0 20px; width: 20px; height: 20px; }
+.button.ui-button-icon { display: flex; align-items: center; justify-content: center; gap: 8px; }
+.ui-button-icon > span { min-width: 0; overflow-wrap: anywhere; }
+@container brand (max-width: 320px) {
+  .inspector-brand__main { gap: 8px; }
+  .inspector-brand__logo { width: 32px; flex-basis: 32px; }
+  .inspector-brand__title-row { gap: 6px; }
+  .inspector-brand__title-row h1 { font-size: 20px; letter-spacing: -.5px; }
+  .inspector-brand__links { margin-inline-start: 40px; }
+}
+@container brand (max-width: 280px) {
+  .inspector-brand__logo { width: 28px; flex-basis: 28px; }
+  .inspector-brand__title-row h1 { font-size: 18px; }
+  .inspector-brand__links { margin-inline-start: 36px; }
+}
+@container brand (max-width: 260px) {
+  .inspector-brand__title-row h1 { min-width: 0; flex: 1; white-space: normal; }
+  .inspector-header-controls .language-picker__trigger > span { display: none; }
+}

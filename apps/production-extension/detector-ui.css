@@ -1,0 +1,35 @@
+/* The Inspector keeps its own components/renderer inside this Options-only host. */
+:root:has(.management-panel--detector:not([hidden])) { scrollbar-gutter: stable; }
+.management-shell .detector-workspace { display: grid; gap: 16px; min-width: 0; max-width: 100%; }
+.management-shell .detector-workspace[hidden] { display: none !important; }
+.management-shell .detector-workspace__header { display: grid; align-items: start; gap: 16px; min-width: 0; }
+.management-shell .detector-workspace__source { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; min-width: 0; width: 100%; }
+.management-shell .detector-workspace__header h2 { margin: 0; font-size: 24px; line-height: 1.3; }
+.management-shell .detector-workspace__source-field { display: grid; grid-template-columns: 32px minmax(0, 1fr); flex: 1 1 260px; align-items: end; gap: 8px; min-width: 0; }
+.management-shell .detector-workspace__source-arrow { grid-column: 1; grid-row: 1; width: 32px; height: 38px; color: var(--accent); pointer-events: none; }
+.management-shell .detector-workspace__source-arrow:dir(rtl) { transform: scaleX(-1); }
+.management-shell .detector-workspace__source label { display: grid; grid-column: 2; grid-row: 1; gap: 5px; min-width: 0; font-size: 12px; color: var(--muted); }
+.management-shell .detector-workspace__source select { box-sizing: border-box; width: 100%; min-width: 0; max-width: 100%; min-height: 38px; padding: 8px 10px; border: 1px solid var(--control-border, var(--border)); border-radius: 8px; color: var(--text); background: var(--surface); font: inherit; }
+.management-shell .detector-workspace__host { min-width: 0; max-width: 100%; }
+.management-shell .detector-workspace__host[hidden] { display: none !important; }
+.management-shell .detector-workspace__master { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 12px; min-width: 0; padding: 16px 20px; border: 1px solid var(--border); border-radius: 16px; background: var(--theme-panel-fill, var(--surface)); box-shadow: var(--theme-panel-shadow); }
+.management-shell .detector-workspace__master h2 { min-width: 0; overflow-wrap: anywhere; }
+.management-shell .detector-workspace__source .button { min-height: 38px; white-space: normal; overflow-wrap: anywhere; }
+.management-shell .detector-workspace__guide { position: relative; display: grid; grid-template-columns: auto minmax(0,1fr) auto; align-items: center; gap: 18px; min-width: 0; padding: clamp(18px,2vw,28px); border: 1px solid var(--border); border-radius: 18px; background: var(--theme-panel-fill,var(--surface)); box-shadow: var(--theme-panel-shadow); }
+.management-shell .detector-workspace__guide--source { border-color: color-mix(in srgb,var(--accent) 45%,var(--border)); background: linear-gradient(115deg,var(--accent-soft),var(--surface) 70%); }
+.management-shell .detector-workspace__guide-icon { display: grid; place-items: center; flex: none; width: 52px; height: 52px; color: var(--accent); border-radius: 15px; background: var(--accent-soft); }
+.management-shell .detector-workspace__guide-copy { min-width: 0; }
+.management-shell .detector-workspace__guide h3 { margin: 0; overflow-wrap: anywhere; }
+.management-shell .detector-workspace__guide p { margin: 6px 0 0; color: var(--muted); overflow-wrap: anywhere; }
+.management-shell .detector-workspace__guide-actions { display: flex; flex-wrap: wrap; gap: 8px; min-width: 0; max-width: 100%; }
+.management-shell .detector-workspace__guide-actions .button { white-space: normal; overflow-wrap: anywhere; max-width: 100%; }
+.management-shell .detector-workspace__source:has(select:focus-visible) { border-radius: 10px; }
+.management-shell .detector-workspace__host > .app.inspector { width: 100%; min-width: 0; max-width: none; padding: 0; margin: 0; }
+.management-shell .detector-inspector-operator { display: flex; justify-content: flex-end; align-items: center; min-width: 0; gap: 12px; }
+.management-shell .detector-workspace__error, .management-shell .detector-workspace__status { min-width: 0; margin: 0; font-size: 13px; line-height: 1.5; overflow-wrap: anywhere; }
+.management-shell .detector-workspace__error { color: var(--error); }
+.management-shell .detector-workspace__status { color: var(--muted); }
+.management-shell .detector-workspace :focus-visible { outline: 2px solid var(--focus, var(--accent)); outline-offset: 3px; }
+@media (max-width: 760px) { .management-shell .detector-workspace__guide { grid-template-columns: auto minmax(0,1fr); gap: 12px; } .management-shell .detector-workspace__guide-actions { grid-column: 1/-1; } }
+@media (max-width: 560px) { .management-shell .detector-workspace__source, .management-shell .detector-workspace__source-field { flex-basis: 100%; } .management-shell .detector-workspace__source .button { flex: 1 1 140px; } .management-shell .detector-workspace__header h2 { font-size: 22px; } }
+@media (forced-colors: active) { .management-shell .detector-workspace__guide, .management-shell .detector-workspace__master { background: Canvas; color: CanvasText; border-color: CanvasText; box-shadow: none; } .management-shell .detector-workspace__guide-icon { background: Canvas; color: LinkText; } }

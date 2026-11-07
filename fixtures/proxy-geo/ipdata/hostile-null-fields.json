@@ -1,0 +1,40 @@
+{
+  "provider": "ipdata",
+  "ip": "8.8.8.8",
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": {
+    "ip": null,
+    "city": null,
+    "region": null,
+    "country_code": null,
+    "country_name": null,
+    "asn": {
+      "asn": null,
+      "name": null,
+      "type": null
+    },
+    "company": {
+      "name": null,
+      "type": null
+    },
+    "carrier": {
+      "name": null
+    },
+    "threat": {
+      "is_proxy": null,
+      "is_vpn": null,
+      "is_tor": null,
+      "is_datacenter": null,
+      "is_icloud_relay": null,
+      "is_known_attacker": null,
+      "is_known_abuser": null,
+      "is_threat": null
+    },
+    "time_zone": {
+      "name": null
+    }
+  }
+}

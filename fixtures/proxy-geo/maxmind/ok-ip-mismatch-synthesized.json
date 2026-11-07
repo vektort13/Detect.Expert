@@ -1,0 +1,24 @@
+{
+  "provider": "maxmind",
+  "ip": "8.8.8.8",
+  "service": "geoip-city",
+  "status": 200,
+  "headers": {
+    "content-type": "application/vnd.maxmind.com-city+json; charset=UTF-8; version=2.1"
+  },
+  "body": {
+    "country": {
+      "iso_code": "US",
+      "names": {
+        "en": "United States"
+      }
+    },
+    "traits": {
+      "ip_address": "8.8.4.4",
+      "network": "8.8.4.0/24"
+    },
+    "maxmind": {
+      "queries_remaining": 7
+    }
+  }
+}

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>CANARY-TITLE-8c1d</title>
+  </head>
+  <body>
+    <h1>Privacy canaries</h1>
+    <p>Every value from canaries.json is placed where a careless sensor would pick it up: canvas text, measured text, font name, cookie, query, fragment, path id, local IP, Math argument, stack frame name, form text, localStorage, title. The scan asserts that none of them reaches extension storage or the export preview.</p>
+    <p id="ip-text">Local address: 192.168.77.213</p>
+    <input id="form" type="text" value="CANARY-FORM-3c9a" />
+    <pre id="result"></pre>
+    <script src="../fixture-lib.js"></script>
+    <script>
+      (function () {
+        var F = window.__fixture;
+        var used = {};
+        function use(id, value) {
+          used[id] = value;
+          return value;
+        }
+
+        document.cookie = 'canary=' + use('cookie-value', 'CANARY-COOKIE-4b8d2e6f') + '; path=/';
+        try { localStorage.setItem('canary', use('storage-value', 'CANARY-STORAGE-5e7b')); } catch (e) {}
+        try { localStorage.setItem('canary-ip', '192.168.77.213'); } catch (e) {}
+        use('local-ip', '192.168.77.213');
+        use('title-text', document.title);
+        use('form-text', document.getElementById('form').value);
+        var parsed = new URL('http://192.168.77.213/internal/CANARY-PATH-ID-5566?x=1');
+        if (parsed.hostname !== '192.168.77.213') used['local-ip'] = 'unexpected';
+
+        var canvas = document.createElement('canvas');
+        canvas.width = 200;
+        canvas.height = 50;
+        var ctx = canvas.getContext('2d');
+        ctx.font = '14px "' + use('font-name', 'CanaryFont-6d2b') + '", sans-serif';
+        ctx.fillText(use('canvas-text', 'CANARY-CANVAS-TEXT-9f3e7a1c'), 2, 16);
+        ctx.strokeText('CANARY-CANVAS-TEXT-9f3e7a1c', 2, 36);
+        var width = ctx.measureText(use('measured-text', 'CANARY-MEASURE-1f4e')).width;
+
+        var mathArg = 0.7318221;
+        use('math-arg', String(mathArg));
+        var m = Math.sin(mathArg) + Math.cos(mathArg) + Math.tan(mathArg);
+
+        function canaryStackFrame_8e1d() {
+          use('stack-frame', 'canaryStackFrame_8e1d');
+          return ctx.getImageData(0, 0, 8, 8) instanceof ImageData;
+        }
+        var readback = canaryStackFrame_8e1d();
+        var dataUrlIsString = typeof canvas.toDataURL() === 'string';
+
+        var query = new URLSearchParams(location.search).get('q');
+        use('query-param', query || 'CANARY-QUERY-7a1c9e3f');
+        history.pushState({}, '', '/privacy/canary-page.html/account/CANARY-PATH-ID-5566/settings?q=CANARY-QUERY-7a1c9e3f');
+        use('path-id', 'CANARY-PATH-ID-5566');
+        location.hash = '#' + use('fragment', 'CANARY-FRAGMENT-2d5f8b1a');
+        readback = canaryStackFrame_8e1d() && readback;
+
+        F.publish({
+          fixture: 'privacy-canary-page',
+          used: used,
+          queryFromUrl: query,
+          readback: readback,
+          dataUrlIsString: dataUrlIsString,
+          widthPositive: width > 0,
+          mathFinite: isFinite(m)
+        });
+      })();
+    </script>
+  </body>
+</html>

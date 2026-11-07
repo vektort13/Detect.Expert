@@ -1,0 +1,117 @@
+/* Module «Защита» (ADR-020 §B, §D; S07): «Передача введённых данных» in the popup and the side panel. Built into
+   protect.css after base.css. Extension palette only (ui.css tokens; light + dark follow prefers-color-scheme there).
+   Severity is a color of the record's edge and never a word (docs/ui-copy.md §6.14.B): high → --error*,
+   medium → --attention*, low / info → --muted. Text keeps the regular --text color for contrast. */
+
+.leaks {
+  display: grid;
+  gap: var(--space-2);
+  margin-block: var(--space-2);
+}
+
+.leaks__title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.leaks__coverage,
+.leaks__empty,
+.leaks__more {
+  margin: 0;
+}
+
+.leaks__list,
+.leaks__notes,
+.leak__limits {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--space-2);
+}
+
+.leaks__notes,
+.leak__limits {
+  gap: var(--space-1);
+}
+
+.leak {
+  border: 1px solid var(--border);
+  border-inline-start-width: 4px;
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+.leak--high {
+  border-color: var(--error-border);
+  border-inline-start-color: var(--error);
+}
+
+.leak--medium {
+  border-color: var(--attention-border);
+  border-inline-start-color: var(--attention);
+}
+
+.leak--low,
+.leak--info {
+  border-inline-start-color: var(--muted);
+}
+
+/* list-item keeps the native disclosure marker (the only affordance of a collapsed record). */
+.leak__summary {
+  display: list-item;
+  list-style-position: inside;
+  padding: var(--space-2) var(--space-3);
+  cursor: pointer;
+}
+
+.leak__summary:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.leak__title {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.leak__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-block-start: var(--space-1);
+}
+
+.leak__chip {
+  display: inline-block;
+  padding: 1px var(--space-2);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.leak__body {
+  display: grid;
+  gap: var(--space-1);
+  padding: 0 var(--space-3) var(--space-3);
+}
+
+.leak__line {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.leak__delivery {
+  font-weight: 600;
+}
+
+@media (forced-colors: active) {
+  .leak,
+  .leak__chip {
+    border-color: CanvasText;
+  }
+}

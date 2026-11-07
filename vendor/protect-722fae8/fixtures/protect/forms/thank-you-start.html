@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>forms: thank-you start</title>
+  </head>
+  <body>
+    <h1 id="title">Заказ звонка (форма отправляется на свой сайт)</h1>
+    <!-- A same-site form POST navigates to thank-you.html. The site keeps sha256(e-mail) for its "conversion pixel"
+         (sessionStorage of its own origin, standing in for server-side rendering); the pixel fires on the next page:
+         third-party-at-submit with value-from-previous-document. -->
+    <form id="form" method="post" action="thank-you.html">
+      <label>E-mail <input id="email" type="email" name="email" autocomplete="email" /></label>
+      <button id="submit" type="submit">Заказать</button>
+    </form>
+    <script src="lib.js"></script>
+    <script>
+      document.getElementById('form').addEventListener('submit', function () {
+        var value = document.getElementById('email').value.trim().toLowerCase();
+        sessionStorage.setItem('forms-conversion', window.formsLib.sha256Hex(value));
+        sessionStorage.setItem('forms-rp', window.formsLib.params.get('rp') || '4174');
+        window.formsLib.note('submit');
+      });
+    </script>
+  </body>
+</html>

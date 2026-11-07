@@ -1,0 +1,23 @@
+/* ADR-090: one visual master style, retaining each existing action and consent. */
+:root body .management-shell .workspace-master [role="switch"] { min-width: 88px; min-height: 38px; padding: 5px 10px 5px 5px; gap: 9px; border-radius: 999px; }
+:root body .management-shell .workspace-master [role="switch"]::before { content: ''; flex: 0 0 24px; width: 24px; height: 24px; border: 1px solid color-mix(in srgb, currentColor 35%, transparent); border-radius: 50%; background: #fff; box-shadow: 0 1px 4px #0002; }
+:root body .management-shell .workspace-master [role="switch"][aria-checked="true"] { padding-inline: 10px 5px; }
+:root body .management-shell .workspace-master [role="switch"][aria-checked="true"]::before { order: 2; }
+/* Replace legacy label spacing with the shared flex knob, keeping state text on one line. */
+:root body #root .management-shell .workspace-master [role="switch"] { width: max-content; flex-wrap: nowrap; white-space: nowrap; overflow-wrap: normal; word-break: normal; }
+:root body #root .management-shell .workspace-master [role="switch"] > span:not(.sr-only):not(.blocking-master__dot):not(.workspace-master-dot) { flex: 0 0 auto; padding: 0; white-space: nowrap; overflow-wrap: normal; word-break: normal; }
+.management-shell .workspace-master [role="switch"] :is(.blocking-master__dot, .workspace-master-dot) { display: none; }
+.management-shell .workspace-master--firewall { display: block; }
+.management-shell .workspace-master--firewall :is([data-protect-island], .blocking-launcher) { width: 100%; max-width: none; min-width: 0; margin: 0; padding: 0; border: 0; background: transparent; box-shadow: none; }
+/* ADR-111: the title, the Tour button (the shell's toolSlot; absent where there is no tour layer) and the 46 px switch are three children of one row, in this order in the
+   DOM and on the screen, so the Tab key follows the eye. The title takes the free room; the other two keep their size and stay at the inline end. */
+.management-shell .workspace-master--firewall .blocking-launcher__controls { display: flex; flex-wrap: nowrap; align-items: center; gap: 8px; min-width: 0; }
+.management-shell .workspace-master--firewall .blocking-launcher__controls > :not(.blocking-launcher__open) { flex: none; }
+:root body .management-shell .workspace-master--firewall .blocking-launcher__open { display: block; flex: 1 1 auto; width: auto; min-width: 0; min-height: 38px; margin: 0; padding: 0; border: 0; color: var(--text); background: transparent; box-shadow: none; text-align: start; font-size: 18px; line-height: 1.35; font-weight: 700; }
+.management-shell .workspace-master--firewall .blocking-launcher__chevron { display: none; }
+.management-shell .workspace-master--firewall [data-protect-inline-consent] { margin-block-start: 16px; }
+/* The Options header owns power; the separate confirmed purge action stays available. */
+.management-shell .management-firewall [data-protect-island="options-page"] [data-protect-section="full"] > .actions:has(> [data-protect-enable]),
+.management-shell .management-firewall [data-protect-island="options-page"] [data-protect-section="full"] > [data-protect-disable] { display: none; }
+.management-shell .management-firewall { display: grid; gap: 18px !important; }
+@media (forced-colors: active) { :root body .management-shell .workspace-master [role="switch"]::before { background: ButtonFace; border-color: ButtonText; box-shadow: none; } }

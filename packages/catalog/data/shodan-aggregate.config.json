@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "researchOnly": true,
+  "apiBaseUrl": "https://api.shodan.io",
+  "countPath": "/shodan/host/count",
+  "documentationUrl": "https://developer.shodan.io/api",
+  "sourceAccessedAt": "2026-10-09",
+  "catalogPath": "packages/catalog/data/antifraud.v1.json",
+  "outputDirectory": "packages/catalog/research/antifraud-2026-10/shodan",
+  "maximumSelectedHosts": 100,
+  "defaultRequestLimit": 100,
+  "maximumRequestLimit": 200,
+  "minimumRequestIntervalMs": 1000,
+  "requestTimeoutMs": 10000,
+  "maximumCredentialBytes": 65536,
+  "maximumResponseBytes": 65536,
+  "maximumResponseChunks": 4096
+}

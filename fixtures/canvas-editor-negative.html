@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>canvas-editor-negative</title>
+  </head>
+  <body>
+    <h1>Editor negative control</h1>
+    <p>300 fillText calls driven by a loop that simulates user brush strokes (a text-stamp brush). No readback at load. One toBlob export on button click, also exposed as window.exportImage().</p>
+    <canvas id="c" width="480" height="320"></canvas>
+    <button id="export" type="button">Export PNG</button>
+    <pre id="result"></pre>
+    <script src="fixture-lib.js"></script>
+    <script>
+      (function () {
+        var F = window.__fixture;
+        var canvas = document.getElementById('c');
+        var ctx = canvas.getContext('2d');
+        ctx.font = '18px sans-serif';
+        var seed = 7;
+        function rnd() {
+          seed = (seed * 1103515245 + 12345) & 0x7fffffff;
+          return seed / 0x7fffffff;
+        }
+        var strokes = 0;
+        for (var i = 0; i < 300; i++) {
+          var x = 20 + rnd() * 440;
+          var y = 20 + rnd() * 280;
+          ctx.fillStyle = 'hsl(' + Math.floor(rnd() * 360) + ',70%,50%)';
+          ctx.fillText('●', x, y);
+          strokes++;
+        }
+        var exports = 0;
+        function exportImage() {
+          return new Promise(function (resolve) {
+            canvas.toBlob(function (blob) {
+              exports++;
+              var r = { type: blob ? blob.type : null, size: blob ? blob.size : null, exports: exports };
+              window.__exportResult = r;
+              resolve(r);
+            }, 'image/png');
+          });
+        }
+        window.exportImage = exportImage;
+        document.getElementById('export').addEventListener('click', function () {
+          exportImage();
+        });
+        F.publish({ fixture: 'canvas-editor-negative', fillTextCalls: strokes, readbackAtLoad: false });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>bfcache-a</title>
+  </head>
+  <body>
+    <h1>BFCache page A</h1>
+    <p>Performs one readback, records every pageshow (persisted flag), and links to page B. Going back should restore this document from BFCache (no unload handlers, no open connections).</p>
+    <p><a id="to-b" href="bfcache-b.html">Go to B</a></p>
+    <pre id="result"></pre>
+    <script src="fixture-lib.js"></script>
+    <script>
+      (function () {
+        var F = window.__fixture;
+        var canvas = document.createElement('canvas');
+        canvas.width = 120;
+        canvas.height = 40;
+        var ctx = canvas.getContext('2d');
+        ctx.font = '14px sans-serif';
+        ctx.fillText('bfcache', 2, 16);
+        var readbacks = 0;
+        function readback() {
+          if (ctx.getImageData(0, 0, 4, 4) instanceof ImageData) readbacks++;
+        }
+        readback();
+        var out = { fixture: 'bfcache-a', readbacks: readbacks, pageshow: [], pagehide: [] };
+        window.addEventListener('pageshow', function (e) {
+          out.pageshow.push({ persisted: e.persisted });
+          F.publish(out);
+        });
+        window.addEventListener('pagehide', function (e) {
+          out.pagehide.push({ persisted: e.persisted });
+        });
+        window.__readbackAgain = function (n) {
+          var before = readbacks;
+          for (var i = 0; i < (n || 1); i++) readback();
+          out.readbacks = readbacks;
+          F.publish(out);
+          return readbacks - before;
+        };
+        F.publish(out);
+      })();
+    </script>
+  </body>
+</html>

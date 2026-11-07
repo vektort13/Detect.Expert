@@ -1,0 +1,170 @@
+{
+  "task": "P06",
+  "requirement": [
+    "REQ-006",
+    "REQ-009",
+    "REQ-013"
+  ],
+  "at": "2026-09-13T07:09:14.243Z",
+  "platform": "win32",
+  "arch": "x64",
+  "osRelease": "10.0.26200",
+  "browser": "Chrome/153.0.8010.12",
+  "runtimeVersion": "153.0.8010.12",
+  "observations": {
+    "scripts": [
+      {
+        "allFrames": true,
+        "id": "detector-isolated-v1",
+        "js": [
+          "bridge.js"
+        ],
+        "matchOriginAsFallback": true,
+        "matches": [
+          "http://127.0.0.1/*"
+        ],
+        "persistAcrossSessions": true,
+        "runAt": "document_start",
+        "world": "ISOLATED"
+      },
+      {
+        "allFrames": true,
+        "id": "detector-main-v1",
+        "js": [
+          "hook.early.js"
+        ],
+        "matchOriginAsFallback": true,
+        "matches": [
+          "http://127.0.0.1/*"
+        ],
+        "persistAcrossSessions": true,
+        "runAt": "document_start",
+        "world": "MAIN"
+      }
+    ],
+    "earlyMarker": true,
+    "lateMarker": false,
+    "earlyReport": {
+      "reportRevision": 1,
+      "documentKey": "1843558370:0:BD3B381950611BB1C1E0796113A9D650",
+      "host": null,
+      "coverageState": "active",
+      "coverageFlags": [],
+      "techniques": [
+        {
+          "techniqueId": "DET-001",
+          "count": 1,
+          "countQuality": "exact",
+          "phases": [
+            "returned-sync"
+          ],
+          "signalCodes": [
+            "api-use"
+          ],
+          "evidenceSource": "page-hook",
+          "integrity": "page-controlled",
+          "interpretation": "api-use",
+          "interpretationConfidence": "unassessed",
+          "attributionConfidence": "unknown",
+          "firstBucket": 0,
+          "lastBucket": 0
+        }
+      ],
+      "findings": [
+        {
+          "findingId": "canvas-readback-after-text-v2-DET-001-api-use",
+          "ruleId": "canvas-readback-after-text",
+          "ruleVersion": "2",
+          "techniqueId": "DET-001",
+          "interpretation": "api-use",
+          "interpretationConfidence": "unassessed",
+          "evidenceIds": [
+            "DET-001|returned-sync|api-use"
+          ],
+          "counterEvidenceCodes": [],
+          "limitationCodes": [
+            "page-controlled-evidence",
+            "purpose-unknown",
+            "catalog-disabled"
+          ],
+          "vendorMatchIds": [],
+          "coverageRef": "cov-active-0000"
+        }
+      ],
+      "vendors": [],
+      "dropped": {
+        "observations": 0,
+        "batches": 0,
+        "findings": 0,
+        "hosts": 0,
+        "counters": 0,
+        "transport": 0
+      },
+      "observedSince": 1789283353638,
+      "scopeMode": "site"
+    },
+    "lateReport": {
+      "reportRevision": 4,
+      "documentKey": "1843558371:0:61D9104C638523DBD38D0B01BC084AF2",
+      "host": null,
+      "coverageState": "late-start",
+      "coverageFlags": [
+        "late-start",
+        "hook-failed"
+      ],
+      "techniques": [
+        {
+          "techniqueId": "DET-001",
+          "count": 1,
+          "countQuality": "exact",
+          "phases": [
+            "returned-sync"
+          ],
+          "signalCodes": [
+            "api-use"
+          ],
+          "evidenceSource": "page-hook",
+          "integrity": "page-controlled",
+          "interpretation": "api-use",
+          "interpretationConfidence": "unassessed",
+          "attributionConfidence": "unknown",
+          "firstBucket": 0,
+          "lastBucket": 0
+        }
+      ],
+      "findings": [
+        {
+          "findingId": "canvas-readback-after-text-v2-DET-001-api-use",
+          "ruleId": "canvas-readback-after-text",
+          "ruleVersion": "2",
+          "techniqueId": "DET-001",
+          "interpretation": "api-use",
+          "interpretationConfidence": "unassessed",
+          "evidenceIds": [
+            "DET-001|returned-sync|api-use"
+          ],
+          "counterEvidenceCodes": [],
+          "limitationCodes": [
+            "page-controlled-evidence",
+            "purpose-unknown",
+            "catalog-disabled"
+          ],
+          "vendorMatchIds": [],
+          "coverageRef": "cov-late-start-0003"
+        }
+      ],
+      "vendors": [],
+      "dropped": {
+        "observations": 0,
+        "batches": 0,
+        "findings": 0,
+        "hosts": 0,
+        "counters": 0,
+        "transport": 0
+      },
+      "observedSince": 1789283354223,
+      "scopeMode": "active-tab"
+    },
+    "grant": "static loopback grant exercises injection ordering; actual toolbar activeTab is covered by P05"
+  }
+}

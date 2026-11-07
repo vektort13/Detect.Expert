@@ -1,0 +1,93 @@
+/* ADR-107 round 5, ADR-111: the guided tours of the Options sections. The ring and the dimming are ONE box-shadowed element laid over the target
+   (no clip paths, nothing that covers the page for assistive technology); the popover is a non-modal dialog beside it, or docked to
+   the bottom edge in narrow windows. Every colour is a palette token of redesign.css, so each of the seven palettes keeps its own
+   contrast-checked pairs (scripts/test/ui-tour-css.test.mjs). Right-to-left: logical properties only; coordinates come from the
+   script in physical pixels. Forced colors drop the dimming and keep a system-colour ring; print shows nothing. */
+
+/* ---- entry points: the block inside the Antidetect activation checklist (the header button of every section is styled with the header
+   cluster in workspace-controls-ui.css) ---- */
+.management-shell .ui-tour-entry {
+  box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; min-width: 0;
+  padding: 10px 12px; border-radius: var(--rd-radius, 10px); background: var(--rd-surface);
+}
+.management-shell .ui-tour-entry__hint { flex: 1 1 16rem; min-width: 0; margin: 0; color: var(--rd-text-2); font-size: 12.5px; line-height: 1.5; overflow-wrap: anywhere; }
+.management-shell .ui-tour-entry__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; min-width: 0; }
+.management-shell .ui-tour-entry__actions .button { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+
+/* ---- the layer ---- */
+.ui-tour { --ui-tour-scrim: rgb(6 10 20 / .6); position: fixed; inset: 0; z-index: 9000; pointer-events: none; }
+/* Takes the presses meant for the page behind, so a stray click cannot change a setting while the tour is open. Assistive technology
+   is not affected: nothing is inert or hidden, and the page stays in the reading order. */
+.ui-tour__shield { position: fixed; inset: 0; background: transparent; pointer-events: auto; cursor: default; }
+.ui-tour__scrim { position: fixed; inset: 0; background: var(--ui-tour-scrim); pointer-events: none; }
+.ui-tour__ring {
+  position: fixed; box-sizing: border-box; border-radius: 12px; pointer-events: none;
+  /* inner halo in the surface colour, the accent ring, then the dimming of everything outside */
+  box-shadow: 0 0 0 2px var(--rd-surface), 0 0 0 5px var(--rd-accent), 0 0 0 100vmax var(--ui-tour-scrim);
+}
+
+/* ---- the popover ---- */
+.ui-tour__popover {
+  position: fixed; z-index: 1; box-sizing: border-box; width: min(26rem, calc(100vw - 24px)); max-height: calc(100vh - 24px); max-height: calc(100dvh - 24px); overflow: auto;
+  padding: 16px 18px 0; border: 1px solid var(--rd-line-2); border-radius: var(--rd-radius-lg, 14px);
+  background: var(--rd-surface); color: var(--rd-text); box-shadow: var(--rd-shadow-2); text-align: start; pointer-events: auto;
+  font-family: var(--rd-font, inherit); overscroll-behavior: contain;
+}
+.ui-tour__popover[data-ui-tour-ready="false"] { opacity: 0; pointer-events: none; }
+.ui-tour__popover:focus { outline: none; }
+.ui-tour__popover:focus-visible { outline: 2px solid var(--rd-focus); outline-offset: 2px; }
+.ui-tour__popover[data-ui-tour-mode="dock"] {
+  inset-inline: 8px; inset-block: auto 8px; width: auto; max-height: min(58vh, 30rem);
+}
+.ui-tour__popover[data-ui-tour-mode="dock"][data-ui-tour-dock="top"] { inset-block: 8px auto; }
+.ui-tour__popover .button:focus-visible { outline: 3px solid var(--rd-focus); outline-offset: 2px; }
+.ui-tour__eyebrow { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0 0 6px; color: var(--rd-text-3); font-size: 12px; line-height: 1.4; font-weight: 600; letter-spacing: .02em; }
+.ui-tour__counter { flex: none; padding: 1px 9px; border-radius: 999px; background: var(--rd-accent-soft); color: var(--rd-accent); font-variant-numeric: tabular-nums; }
+.ui-tour__title { margin: 0 0 6px; color: var(--rd-text); font: 650 17px/1.35 var(--rd-font-display, var(--rd-font, inherit)); overflow-wrap: anywhere; }
+.ui-tour__body { margin: 0; color: var(--rd-text-2); font-size: 14px; line-height: 1.55; overflow-wrap: anywhere; }
+.ui-tour__notes { margin: 10px 0 0; padding: 8px 10px; list-style: none; border-radius: 8px; background: var(--rd-warn-bg); color: var(--rd-warn); font-size: 13px; line-height: 1.45; }
+.ui-tour__notes li { margin: 0; font-size: 13px; line-height: 1.45; overflow-wrap: anywhere; }
+.ui-tour__notes li + li { margin-block-start: 4px; }
+/* A long text scrolls, the buttons do not: the row sticks to the bottom edge of the popover (which has no bottom padding of its own, so the
+   edge is unambiguous) and paints over the text that passes under it. */
+.ui-tour__actions {
+  position: sticky; inset-block-end: 0; z-index: 1; display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  margin-block-start: 6px; margin-inline: -18px; padding: 8px 18px 14px; background: var(--rd-surface);
+}
+.ui-tour__popover[data-ui-tour-mode="dock"] .ui-tour__actions { padding-block-end: calc(14px + env(safe-area-inset-bottom, 0px)); }
+.ui-tour__popover[data-ui-tour-mode="dock"][data-ui-tour-dock="top"] .ui-tour__actions { padding-block-end: 14px; }
+.ui-tour__spacer { flex: 1 1 0; min-width: 0; }
+.ui-tour__actions .button { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+.ui-tour__actions .button[aria-disabled="true"] { opacity: .6; cursor: progress; }
+
+/* ---- motion: the ring glides to the next part only when motion is welcome ---- */
+@media (prefers-reduced-motion: no-preference) {
+  .ui-tour__ring { transition: left .18s var(--rd-ease-out, ease-out), top .18s var(--rd-ease-out, ease-out), width .18s var(--rd-ease-out, ease-out), height .18s var(--rd-ease-out, ease-out); }
+  .ui-tour__popover { transition: opacity .12s ease-out; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ui-tour__ring, .ui-tour__popover { transition: none; }
+}
+
+/* ---- more contrast: stronger frames, solid dimming ---- */
+@media (prefers-contrast: more) {
+  .ui-tour { --ui-tour-scrim: rgb(0 0 0 / .72); }
+  .ui-tour__popover { border: 2px solid var(--rd-text); }
+  .ui-tour__ring { box-shadow: 0 0 0 3px var(--rd-surface), 0 0 0 7px var(--rd-text), 0 0 0 100vmax var(--ui-tour-scrim); }
+  .ui-tour__popover:focus-visible, .ui-tour__popover .button:focus-visible { outline-width: 4px; }
+}
+
+/* ---- forced colors: system colours, no dimming (shadows are not drawn), a plain outline for the ring ---- */
+@media (forced-colors: active) {
+  .ui-tour__scrim { background: transparent; }
+  .ui-tour__ring { box-shadow: none; outline: 4px solid Highlight; outline-offset: 2px; }
+  .ui-tour__popover { border: 2px solid CanvasText; background: Canvas; color: CanvasText; box-shadow: none; }
+  .ui-tour__eyebrow, .ui-tour__body, .ui-tour__title { color: CanvasText; }
+  .ui-tour__counter, .ui-tour__notes { border: 1px solid CanvasText; background: Canvas; color: CanvasText; }
+  .ui-tour__actions { background: Canvas; }
+  .ui-tour__popover:focus-visible, .ui-tour__popover .button:focus-visible { outline: 3px solid Highlight; }
+  .management-shell .ui-tour-entry { border: 1px solid CanvasText; background: Canvas; color: CanvasText; }
+  .management-shell .ui-tour-entry__hint { color: CanvasText; }
+}
+
+@media print { .ui-tour { display: none; } }

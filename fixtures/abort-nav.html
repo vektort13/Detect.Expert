@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>abort-nav</title>
+  </head>
+  <body>
+    <h1>Aborted navigation</h1>
+    <p>One readback at load. The link points to /slow (the fixture server answers after 5 s) so the test can start and then abort the navigation. The report of this document must survive the abort.</p>
+    <p><a id="slow" href="/slow">Navigate to /slow</a></p>
+    <pre id="result"></pre>
+    <script src="fixture-lib.js"></script>
+    <script>
+      (function () {
+        var F = window.__fixture;
+        var canvas = document.createElement('canvas');
+        canvas.width = 120;
+        canvas.height = 40;
+        var ctx = canvas.getContext('2d');
+        ctx.font = '14px sans-serif';
+        ctx.fillText('abort', 2, 16);
+        var readbacks = 0;
+        function readback() {
+          if (ctx.getImageData(0, 0, 4, 4) instanceof ImageData) readbacks++;
+        }
+        readback();
+        window.__readbackAgain = function (n) {
+          var before = readbacks;
+          for (var i = 0; i < (n || 1); i++) readback();
+          return readbacks - before;
+        };
+        F.publish({ fixture: 'abort-nav', readbacks: readbacks });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Local regression coverage for Detect.Expert's tunnel-only DNS policy.
+package main
+
+import (
+	"context"
+	"errors"
+	"net/netip"
+	"sync/atomic"
+	"testing"
+)
+
+func TestDetectDNSFailsClosed(t *testing.T) {
+	for _, name := range []string{"timeout", "servfail", "authoritative", "cancelled"} {
+		t.Run(name, func(t *testing.T) {
+			r := newTestResolver(t)
+			r.override = netip.MustParseAddrPort("192.0.2.53:53")
+			var systemCalls atomic.Int32
+			r.systemLookupFn = func(context.Context, string, string) ([]netip.Addr, error) {
+				systemCalls.Add(1)
+				return []netip.Addr{netip.MustParseAddr("203.0.113.1")}, nil
+			}
+			r.queryOverTunnelFn = func(context.Context, netip.AddrPort, string) ([]netip.Addr, error) {
+				switch name {
+				case "authoritative":
+					return nil, errDNSAuthoritativeNoData
+				case "cancelled":
+					return nil, context.Canceled
+				default:
+					return nil, errors.New(name)
+				}
+			}
+			ips, err := r.LookupIP(t.Context(), "must-stay-in-tunnel.invalid")
+			if err == nil || len(ips) != 0 {
+				t.Fatalf("DNS failure yielded addresses: %v, err=%v", ips, err)
+			}
+			if systemCalls.Load() != 0 {
+				t.Fatalf("system resolver invoked %d times", systemCalls.Load())
+			}
+		})
+	}
+}

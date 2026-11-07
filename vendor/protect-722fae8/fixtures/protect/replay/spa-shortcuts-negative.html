@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>protect: SPA shortcuts (negative)</title>
+  </head>
+  <body>
+    <!--
+      ADR-020 §E (S11): a single-page app with keyboard shortcuts (keydown on the document), infinite scroll (scroll on
+      the window), a document observer for its router, pushState navigations and GET data loads from api.example.org
+      every 1.5 s × 4. No periodic POST to another site. Expected: signals-only, no periodic receiver.
+    -->
+    <h1 id="title">SPA shortcuts</h1>
+    <main id="view">home</main>
+    <pre id="result"></pre>
+    <script src="../../fixture-lib.js"></script>
+    <script src="replay-sim.js"></script>
+    <script>
+      (function () {
+        var F = window.__fixture;
+        var noop = function () {};
+        document.addEventListener('keydown', noop);
+        window.addEventListener('scroll', noop, { passive: true });
+        new MutationObserver(noop).observe(document.body, { childList: true, subtree: true });
+        var url = 'http://api.example.org:' + location.port + '/replay/collect';
+        var routes = 0;
+        var next = function () {
+          routes++;
+          history.pushState({ r: routes }, '', '#/route-' + routes);
+          document.getElementById('view').textContent = 'route ' + routes;
+        };
+        window.replaySim.sendSeries({ url: url, count: 4, every: 1500, method: 'GET' }).then(function (n) {
+          next();
+          next();
+          F.publish({ fixture: 'protect-replay-spa', loads: n, routes: routes });
+        });
+      })();
+    </script>
+  </body>
+</html>

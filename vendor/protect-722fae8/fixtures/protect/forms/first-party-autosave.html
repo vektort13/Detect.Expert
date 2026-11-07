@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>forms: first-party autosave</title>
+  </head>
+  <body>
+    <h1 id="title">Черновик заявки (автосохранение на свой сервер)</h1>
+    <!-- The site saves the draft to its own origin while the user types (POST JSON {"draft": {"email": ...}}) before
+         any submission: first-party-before-submit, JSON field draft.email; no third party receives anything. -->
+    <form id="form" action="#" onsubmit="return false">
+      <label>E-mail <input id="email" type="email" name="email" autocomplete="email" /></label>
+    </form>
+    <script src="lib.js"></script>
+    <script>
+      var field = document.getElementById('email');
+      var timer = null;
+      function save() {
+        fetch('/fsink/draft', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ draft: { email: field.value } }) }).catch(function () {});
+        window.formsLib.note('autosave');
+      }
+      field.addEventListener('input', function () {
+        clearTimeout(timer);
+        timer = setTimeout(save, 400);
+      });
+      field.addEventListener('blur', function () {
+        clearTimeout(timer);
+        if (field.value.length > 0) save();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "provider": "ipgeolocation",
+  "ip": "8.8.8.8",
+  "status": 401,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "text": "{\"message\":\"You cannot query IPGeolocation API on a database plan subscription.\"}"
+}

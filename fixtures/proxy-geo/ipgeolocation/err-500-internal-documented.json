@@ -1,0 +1,9 @@
+{
+  "provider": "ipgeolocation",
+  "ip": "8.8.8.8",
+  "status": 500,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "text": "{\"message\":\"Something went wrong while processing your request. Please try again or contact technical support at support@ipgeolocation.io\"}"
+}

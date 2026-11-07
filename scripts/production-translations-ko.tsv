@@ -1,0 +1,763 @@
+# key|한국어
+consent_startup|백그라운드에서 저장된 동의를 확인하는 동안, 축약된 리소스 및 헤더 메타데이터만 짧게 메모리에 보관합니다. 이전 동의가 확인된 경우에만 사용하며, 그 외에는 폐기합니다. 나중에 동의해도 복원하지 않습니다.
+consent_title|기기 내 데이터 처리
+consent_intro|동의하기 전까지 관찰은 꺼져 있습니다. Detect.Expert는 웹사이트의 API 사용을 분석하기 위해 기기에서 데이터를 처리합니다. 보고서와 원격 측정 데이터는 개발자에게 전송하지 않습니다.
+consent_reports|방문 및 리소스 메타데이터, API 활동과 횟수는 브라우저 세션 저장소에 보관합니다. 별도 WebRTC 기록에는 설정된 ICE 서버의 호스트명, IP와 포트가 포함됩니다. Pro 기록은 사용자가 시작해야 실행됩니다. 설정은 로컬 저장소에 남습니다.
+consent_previews|로컬 미리보기에는 페이지가 이미 읽은 Canvas/WebGL 이미지, 정확한 기술적 API 값, WebRTC 인증서 지문과 Google X-Client-Data가 포함될 수 있습니다. 이미지와 페이지 제목에는 개인정보나 민감한 정보가 있을 수 있습니다. 이미지와 Google ID는 제한된 메모리에만 보관하며, 선택된 기술적 매개변수와 반환값은 실행 중인 로컬 Pro 기록에 포함될 수 있습니다.
+consent_controls|활성화하면 브라우저가 허용한 사이트를 선택한 범위에서 자동으로 관찰합니다. 범위를 줄이거나 끄고, 결과를 일시 중지하거나 삭제하며, 설정에서 동의를 철회할 수 있습니다. 이미 열린 페이지는 새로고침해야 합니다. 선택적 API 차단은 별도로 켜야 합니다. 저장한 JSON/PDF 파일은 사용자가 관리합니다.
+consent_enable|로컬 분석 활성화
+consent_decline|관찰을 끈 상태로 유지
+consent_revoke|동의 철회 및 세션 삭제
+consent_error|동의를 확인하지 못했습니다. 관찰을 사용할 수 없습니다. 다시 시도하세요.
+consent_saved|이 기기에서 현재 버전의 데이터 처리 안내에 동의했습니다.
+consent_policy|개인정보 처리방침 (오프라인 사용 가능)
+google_ids_title|Google / Chrome ID
+google_ids_meaning|Chrome 실험 ID이며, 기기나 사용자의 고유 ID로 확인된 것은 아닙니다. 이 값만으로 추적이나 CAPTCHA의 원인을 알 수 없습니다.
+google_ids_source|브라우저에서 관찰한 송신 헤더(onSendHeaders)이며, 서버 수신 여부는 확인되지 않았습니다. 정확한 값은 RAM/Light에만 남으며 저장소, Pro/PDF와 내보내기에 포함되지 않습니다.
+google_ids_destination|대상
+google_ids_not_present|이 대상에 대한 마지막 관찰 요청의 헤더에 X-Client-Data가 없었습니다.
+google_ids_unavailable|현재 헤더 값을 사용할 수 없습니다. 헤더가 전송되지 않았다는 뜻은 아닙니다.
+google_ids_too_large|헤더가 미리보기의 4096자 제한을 초과하여 값을 보관하지 않았습니다.
+google_ids_invalid|헤더가 중복되거나 지원하지 않는 형식이어서 값을 보관하지 않았습니다.
+google_ids_decode_unknown|관찰한 헤더를 그대로 표시합니다. protobuf 내용을 해석하지 못했습니다.
+google_ids_variations|실험 ID
+google_ids_triggers|서버 측 트리거 ID
+google_ids_none|해석된 필드에 없음
+google_ids_decode_limited|알 수 없는 필드 또는 ID 256개 제한으로 일부만 해석했습니다. 실험 이름과 고유성은 추정하지 않습니다.
+google_ids_empty|현재 메모리 보관 기간에 이 문서의 해당 Google 요청을 관찰하지 못했습니다.
+google_ids_limited|일부 요청이나 값이 생략되거나 만료되었습니다. 표시된 목록은 불완전합니다.
+google_ids_scope_title|관찰 제한
+google_ids_scope|대상과 요청 출처에 접근할 수 있는 지정된 HTTPS Google 주소만 관찰합니다. 최대 8개 호스트의 마지막 헤더이며 전역 브라우저 ID가 아닙니다. 탐색 관찰에는 기존 전체 사이트 접근 권한과 2초 이내의 명확한 브라우저 이벤트가 필요합니다. Chrome 내부 트래픽과 접근 불가 프레임은 포함되지 않습니다. 값은 10분 후 만료되며 삭제, 일시 중지, 접근 변경 또는 서비스 워커 재시작 시 사라집니다. Chrome은 보통 시크릿 모드에서 실험 헤더를 보내지 않습니다. 플래그, 쿠키와 CAPTCHA 점수는 읽지 않습니다.
+api_note_webrtc|호출과 상태 읽기만으로 연결, 하드웨어 식별이나 추적을 확인할 수 없습니다. 일반 앱도 인증서를 생성하고 짧은 offer/read/close 순서를 사용합니다.
+rtc_values_returned|웹사이트에 반환된 선택 필드
+rtc_values_snapshot|추가 로컬 네이티브 스냅샷
+rtc_values_limited|개인정보 또는 데이터 제한으로 일부 필드나 관찰을 생략했습니다.
+rtc_values_empty|이 관찰에서 사용할 수 있는 선택 필드가 없습니다.
+rtc_values_certificate|이 지문은 기기가 아닌 인증서를 식별합니다. 재사용하면 연결 간 연관성이 생길 수 있지만 추적이 입증되는 것은 아닙니다. 로컬 메모리 미리보기에만 남습니다.
+rtc_values_storage|직접 전달된 인증서 객체만 인식합니다. IndexedDB 쓰기 요청이 반환되어도 트랜잭션 완료나 재방문 시 유지 여부는 알 수 없습니다. 중첩된 레코드는 검사하지 않습니다.
+rtc_values_scope|선택된 동기 결과만 관찰합니다. Promise 결과, 통계 순회, 전체 SDP, ICE 비밀번호, 기기 ID와 네트워크 DTLS 핸드셰이크는 검사하지 않습니다. 추가 인증서 스냅샷은 따로 표시합니다. 값은 저장소, Pro와 내보내기에서 제외됩니다.
+inspector_group_media_capabilities|코덱 및 미디어 기능
+inspector_group_media_devices|카메라, 마이크 및 미디어 기기
+inspector_group_speech|음성 및 음성 인식
+inspector_group_drm|보호된 재생 / DRM
+inspector_group_device_access|주변기기 접근
+inspector_group_browser_capabilities|브라우저 기능
+inspector_group_builtin_ai|내장 AI 및 번역
+inspector_group_recognition|이미지 및 필기 인식
+inspector_group_app_integration|플랫폼 통합
+inspector_group_response_headers|관찰한 응답 헤더
+api_activity_capability|기능 확인
+api_activity_list|목록 요청
+api_activity_access|접근 요청
+api_activity_state|상태 조회
+api_activity_operation|API 작업
+api_note_media_capabilities|플레이어, 편집기와 통화 앱도 코덱 호환성을 확인합니다. RTP getCapabilities는 연결을 생성하지 않습니다. 선택된 반환 코덱 필드는 로컬 미리보기에만 표시될 수 있으며, 하드웨어 모델이나 재생 성공을 확인하지 않습니다.
+api_note_media_devices|기기 목록 조회, 설정 확인과 캡처 요청은 서로 다릅니다. 호출만으로 권한이나 녹화를 확인할 수 없습니다. 선택된 트랙 설정은 로컬에 표시될 수 있지만 기기 ID, 이름과 미디어 내용은 제외합니다.
+api_note_speech|음성 및 접근성 기능도 음성 목록과 인식 가능 여부를 조회합니다. 음성 목록, 언어와 오디오는 읽지 않습니다. install 호출만으로 패키지 다운로드 완료를 확인할 수 없습니다.
+api_note_drm|DRM과 HDCP 확인은 보호된 재생에 사용됩니다. 요청만으로 추적, 라이선스 전달이나 기기의 보호 수준을 확인할 수 없습니다. 구성과 라이선스는 검사하지 않습니다.
+api_note_device_access|getDevices/getPorts는 사이트에서 사용할 수 있는 목록을, requestDevice/requestPort는 선택이나 접근을 요청합니다. 호출 횟수는 기기 수가 아닙니다. ID와 응답 내용은 제외합니다.
+api_note_browser_capabilities|환경과 권한 상태 확인을 관찰합니다. cpuPerformance는 CPU 측정값이 아닌 범주를 반환합니다. 인수와 목록은 읽지 않으며, 반복 조회만으로 서로 다른 권한의 열거나 지문 수집을 확인할 수 없습니다.
+api_note_builtin_ai|AI 사용 가능 여부, 생성과 사용은 서로 다릅니다. 호출만으로 GPU, 모델 다운로드나 데이터 전송을 확인할 수 없습니다. 텍스트, 언어 쌍과 출력은 읽지 않으며 Promise 완료 여부는 알 수 없습니다.
+api_note_recognition|인식 기능은 브라우저와 플랫폼에 따라 다릅니다. 기능 조회나 detect 호출만으로 얼굴이나 사용자의 인식을 확인할 수 없습니다. 이미지, 필기, 텍스트와 형식 목록은 읽지 않습니다.
+api_note_app_integration|앱, 파일, 잠금과 백그라운드 API는 일반적인 용도로도 사용됩니다. 호출만으로 앱 설치, 탭 수, 파일 접근이나 Trusted Types 적용을 확인할 수 없습니다. 내용, 경로와 콜백은 검사하지 않습니다.
+headers_note|접근 가능한 문서에서 브라우저가 관찰한 완료 응답의 정보입니다. 각 헤더는 응답당 한 번 계산합니다. 값, 보고 주소와 세션 키는 제외하며 브라우저의 적용 여부는 확인하지 않습니다.
+headers_observation|브라우저에서 선택된 응답 헤더를 관찰했습니다.
+headers_interpretation|헤더의 존재만으로 데이터 전송이나 은밀한 추적을 확인할 수 없습니다.
+headers_truncated|일부 응답이나 힌트 이름을 생략하여 관찰이 불완전합니다. 횟수는 최소값입니다.
+headers_hints|요청된 Client Hint 이름
+headers_client_hints_note|서버가 Client Hint를 요청합니다. 실제 전송은 확인되지 않았습니다.
+headers_policy_note|정책은 기능을 제한하며 권한을 부여하지 않습니다.
+headers_reporting_note|브라우저 보고 설정이며 실제 보고서 전송을 확인한 것은 아닙니다.
+headers_session_note|세션 결합 방식입니다. 값과 키는 숨기며 등록 여부는 확인하지 않습니다.
+headers_dictionary_note|압축 사전 선언입니다. 사용 여부는 확인되지 않았습니다.
+api_webnn_coverage_note|지원되는 경우 일부 그래프 연산자를 포함한 44개 API 진입점을 관찰합니다. WebNN 전체를 포함하지 않습니다. Worker와 내부 계산은 관찰하지 않으며, 항목이 없다고 호출이 없었다는 뜻은 아닙니다.
+inspector_group_webnn|WebNN / 신경망
+api_note_webnn|WebNN 기능 확인으로 호환 모델을 선택할 수 있습니다. 컨텍스트 요청, build와 dispatch만으로 선택된 하드웨어, 완료나 지문 수집을 확인할 수 없습니다. 옵션, 지원 행렬, 텐서 내용과 Worker 활동은 검사하지 않습니다.
+api_preview_webnn|페이지가 이미 읽은 스칼라 메타데이터만 표시합니다. 텐서 형태와 데이터, 지원 행렬 내용은 제외하며 비동기 완료는 알 수 없습니다. 횟수는 호출 수이며 그래프 노드나 완료된 추론 수가 아닙니다.
+api_preview_audio|샘플 레이트, 지연 시간과 채널 수를 표시할 수 있습니다. 샘플과 해시는 제외하며 호출만으로 지문 수집이나 마이크 접근을 확인할 수 없습니다.
+api_preview_webgpu|브라우저 반환 정보는 제한되거나 일반화될 수 있습니다. GPU 모델을 독립적으로 검증한 정보가 아닙니다. 능동적인 GPU 검사나 셰이더 시간 측정은 수행하지 않습니다.
+api_preview_wasm|JavaScript API 결과만 표시합니다. 모듈 바이트와 내부 실행은 검사하지 않으며 CPU, 아키텍처와 SIMD는 확인하지 않습니다.
+api_preview_window_management|페이지가 이미 읽은 화면과 창의 값입니다. getScreenDetails 호출만으로 권한 부여나 전체 모니터 목록의 확보를 확인할 수 없습니다.
+api_preview_compute_pressure|페이지가 읽은 대략적인 상태입니다. 정확한 타임스탬프는 숨기며 다른 탭의 활동이나 냉각 특성은 확인하지 않습니다.
+api_preview_idle_detection|페이지가 읽은 최신 상태입니다. start 호출만으로 활성 구독을 확인할 수 없습니다. 재실 기록이나 이탈 및 복귀 시간은 기록하지 않습니다.
+api_preview_display|페이지에 실제 반환된 최신 크기와 배율입니다. 확장 프로그램이 직접 모니터 목록을 요청하지 않습니다.
+api_preview_cpu|hardwareConcurrency는 브라우저가 추정한 사용 가능한 논리 프로세서 수이며 물리 CPU 코어 수가 아닙니다.
+api_preview_memory|Device Memory는 메모리의 대략적인 범주이며 실제 설치된 RAM 용량이 아닙니다.
+api_results_title|최신 결과
+api_results_note|최근 관찰 결과의 로컬 미리보기입니다. 선택된 기술적 매개변수와 서로 다른 반환값은 실행 중인 로컬 Pro 기록에 포함됩니다.
+api_result_returned|반환됨
+api_result_setter|Setter 반환값
+api_result_missing|결과를 관찰하지 못했습니다.
+api_result_object|객체입니다. 내용은 읽지 않았습니다.
+api_result_async|비동기 완료를 관찰하지 않았습니다.
+api_result_exception|예외 내용은 읽지 않았습니다.
+api_result_sensitive|미리보기에서 제외된 값입니다.
+api_result_limit|미리보기 제한을 초과한 값입니다.
+api_result_unsupported|지원하지 않는 결과 형식입니다.
+api_results_truncated|캡처나 전달 제한으로 일부 결과를 사용할 수 없습니다.
+api_results_unavailable|현재 결과 미리보기를 사용할 수 없습니다.
+protection_title|선택적 API 차단
+protection_enable|전체 차단 활성화
+protection_risk|API 거부로 웹사이트, 로그인, 편집기와 통화가 작동하지 않을 수 있습니다. 사용자 규칙으로 브라우저가 더 구별될 수 있습니다. 익명성이나 완전한 보호를 보장하지 않습니다.
+protection_consent|웹사이트가 작동하지 않을 위험을 이해하며 차단을 활성화하겠습니다.
+protection_preset|전체 프리셋
+protection_custom|선택한 규칙만
+protection_limited|제한적
+protection_strict|엄격
+protection_site|정확한 호스트명
+protection_global|전체 규칙
+protection_add_site|추가
+protection_no_host|웹사이트를 사용할 수 없음
+protection_host_note|이 정확한 호스트명의 HTTP와 HTTPS, 모든 포트에 적용합니다. 하위 도메인과 외부 프레임은 자체 규칙을 사용합니다. 탭 전체의 예외가 아닙니다.
+protection_site_off|이 호스트명에서 지원되는 모든 API 허용
+protection_remove_site|호스트명별 규칙 삭제
+protection_search|API 찾기
+protection_configured|차단 설정됨
+protection_inherit|상속
+protection_allow|허용
+protection_block|차단
+protection_high_risk|오작동 위험 높음
+protection_stopped|처리기가 중지되었습니다. 새로고침이 필요합니다.
+protection_partial|처리기가 일부만 지원한다고 보고했습니다.
+protection_missing|이 API의 설치를 확인하지 못했습니다. 관찰 범위를 알 수 없습니다.
+protection_denied|보고된 거부 횟수
+protection_removed|API 진입점이 제거되었습니다. 새로고침하여 복원하세요.
+protection_no_rows|일치하는 API 없음
+protection_limits|목록의 API와 허용된 HTTP(S) 문서에만 적용합니다. Worker, 상속된 출처의 프레임, 저장된 참조와 페이지 간섭은 포함하지 못합니다. JavaScript Client Hint를 차단해도 HTTP 헤더는 제거되지 않습니다. 횟수는 페이지가 제어하는 MAIN 환경의 정보이며 보호를 입증하지 않습니다.
+protection_error|설정이나 등록을 확인하지 못했습니다. 새로고침하고 다시 시도하세요. 차단이 실행 중이라고 가정하지 마세요.
+protection_ready|새 문서에 적용하도록 등록되었습니다. 규칙 변경 후 열린 페이지를 새로고침하세요.
+protection_inactive|새 문서의 차단이 등록되지 않았습니다. 모드, 규칙과 허용된 관찰 범위를 확인하세요.
+protection_dirty|저장하지 않은 변경사항
+protection_save|규칙 저장
+protection_save_reload|저장 후 새로고침
+protection_refresh|새로고침 및 미저장 변경 취소
+protection_restore_reload|이 호스트명 허용 후 새로고침
+protection_feature_window_management|여러 모니터의 정보
+protection_feature_compute_pressure|연산 부하
+protection_feature_idle_detection|유휴 상태 감지
+protection_feature_local_fonts|로컬 글꼴 접근
+protection_feature_canvas_readback|Canvas 읽기 및 캡처
+protection_feature_webgl|WebGL 컨텍스트 생성
+protection_feature_webgpu|WebGPU 어댑터 접근
+protection_feature_audio|Web Audio 생성자
+protection_feature_webrtc|WebRTC 연결
+protection_feature_webassembly|WebAssembly
+protection_feature_battery|배터리 상태
+protection_feature_network_information|네트워크 정보
+protection_feature_keyboard|Keyboard API
+protection_feature_client_hints|JavaScript Client Hint
+protection_feature_clipboard_read|클립보드 읽기
+visual_webgl_image_count|이미지: $N$
+visual_webgl_empty|이 문서에서 지원되는 WebGL 이미지를 캡처하지 못했습니다. 매개변수와 확장 조회는 픽셀을 반환하지 않습니다. 미리보기에는 지원되는 형식과 캡처 제한 내에서 페이지가 이미지를 읽거나 내보내야 합니다.
+visual_gallery_count|캔버스: $N$
+visual_canvas_id|캔버스 $N$
+visual_readbacks|관찰한 읽기: $N$
+visual_previous|이전 이미지
+visual_next|다음 이미지
+visual_actions|관찰한 작업
+visual_gallery_note|캔버스별 첫 번째 지원 이미지를 표시합니다. 이름은 픽셀 비교가 아닌 관찰한 호출을 나타냅니다. 2D만으로 CPU 렌더링을, WebGL만으로 하드웨어 가속을 확인할 수 없습니다. 일반 그래픽도 같은 작업을 사용합니다.
+visual_gallery_limited|캡처 시간, 형식, 전달이나 메모리 제한으로 일부 이미지나 갱신을 생략했습니다. 이 갤러리는 불완전합니다.
+visual_op_text|텍스트 그리기
+visual_op_image_copy|이미지 복사
+visual_op_cropped_copy|잘라낸 이미지 복사
+visual_op_recombined_copy|잘라낸 캔버스에서 복사
+visual_op_flip_back_copy|원본과 복사의 Y축 반전
+visual_op_canvas_reset|캔버스 초기화
+visual_op_pixel_write|픽셀 데이터 쓰기
+visual_op_fill|채우기 또는 지우기
+visual_op_gradient|그라데이션 생성
+visual_op_pattern|패턴 생성
+visual_op_path|경로 그리기
+visual_op_transform|좌표 변환
+visual_op_flip_x|X축 반전 요청
+visual_op_flip_y|Y축 반전 요청
+visual_op_fractional|소수 변환 인수
+visual_op_alpha|알파 설정
+visual_op_composite|합성 모드 설정
+visual_op_repeat_readback|반복 이미지 읽기
+visual_op_multiple_readback_formats|여러 읽기 API
+visual_op_texture_upload|텍스처 업로드
+visual_op_2d_to_webgl|2D 캔버스를 WebGL 텍스처로
+visual_op_webgl_to_2d|WebGL 캔버스를 2D로 복사
+visual_op_webgl_to_webgl|WebGL 캔버스를 WebGL 텍스처로
+visual_op_shader|셰이더 또는 프로그램 작업
+visual_op_gpu_draw|WebGL 그리기
+visual_op_gpu_sync|WebGL finish / flush
+visual_op_gl_parameters|GL 매개변수 조회
+visual_op_timer_extension|타이머 확장 요청
+visual_op_timer_query|GPU 타이머 조회 호출
+visual_op_query_read|조회 상태 또는 결과 읽기
+visual_op_occlusion_query|가림 조회 호출
+visual_op_bitmap_transfer|ImageBitmap 전송
+visual_op_offscreen_transfer|OffscreenCanvas 전송
+visual_op_bitmap_create|ImageBitmap 생성 요청
+visual_op_svg_source|인라인 SVG 이미지 원본
+api_note_audio|컨텍스트 생성, 노드 작업, 오프라인 렌더링 호출과 데이터 읽기를 따로 표시합니다. 렌더링 완료는 관찰하지 않습니다. 샘플, 스펙트럼, 매개변수 값과 해시는 보관하지 않습니다. 플레이어와 편집기도 같은 API를 사용하므로 호출만으로 지문 수집이나 마이크 접근을 확인할 수 없습니다.
+extension_targets_title|확장 프로그램 리소스 접근
+extension_targets_note|페이지 환경에서 이 확장 프로그램 리소스를 참조했습니다. 존재 여부를 확인하거나 일반 통합 기능에 사용할 수 있습니다. 설치, 결과와 호출자 식별은 알 수 없으며 페이지가 제어하는 데이터입니다.
+extension_targets_unknown|알 수 없는 대상
+extension_targets_unknown_note|횟수는 접근 수이며 고유 확장 프로그램 수가 아닙니다. 알 수 없는 대상 ID와 리소스 경로는 보관하지 않습니다.
+extension_targets_reference|src 설정만으로 요청 전송을 확인할 수 없습니다.
+extension_targets_limited|일부 접근이 누락될 수 있어 목록이 불완전합니다.
+extension_targets_privacy|개인정보 보호 도구만
+extension_targets_empty_filter|이 범주의 대상이 목록에 없습니다.
+local_ports_requested|요청된 로컬 포트
+local_ports_unknown|이 시도의 포트 번호는 보관하지 않았습니다.
+local_ports_incomplete|일부 포트 번호가 누락될 수 있어 목록이 불완전합니다.
+api_actions_title|페이지 작업
+api_actions_note|이 문서에서 관찰한 개별 호출이나 속성 읽기입니다. 단계를 따로 표시합니다. 호출만으로 접근 성공이나 지문 수집을 확인할 수 없으며, 페이지가 이 관찰 정보를 위조할 수 있습니다.
+api_action_get|속성 접근
+api_action_set|속성 할당
+api_window_events_note|리스너 횟수는 제거를 포함한 등록·삭제 호출과 핸들러 할당이며 활성 리스너나 전달된 이벤트 수가 아닙니다. 창과 전체 화면 호출만으로 배치를 확인할 수 없습니다. 인수와 옵션은 검사하지 않습니다.
+api_pressure_limits_note|sampleInterval=0은 상태 변화 시 알림을 요청하며 일정한 빈도를 보장하지 않습니다. 옵션, 콜백 전달과 구독 기간은 검사하지 않습니다. 전달은 포커스, 정책과 브라우저 제한에 따라 다릅니다.
+api_action_call|메서드 호출
+api_action_construct|생성자 호출
+api_action_async|비동기 호출
+api_note_webgpu|어댑터 정보, 기능 및 한도 접근, 셰이더나 파이프라인 생성을 구분합니다. 브라우저는 GPU 정보를 제한하거나 일반화할 수 있습니다. 값을 보관하지 않으며 호출만으로 정확한 GPU 모델, 전체 프로필이나 셰이더 실행 시간을 확인할 수 없습니다.
+api_note_wasm|페이지가 WebAssembly API로 코드를 검증, 컴파일, 인스턴스화하거나 메모리에 접근했습니다. 모듈 바이트, 결과와 내부 실행은 검사하지 않습니다. CPU 시간, SIMD 기능, 아키텍처, 위조된 User-Agent나 Lockdown Mode는 확인하지 않습니다.
+api_note_client_hints|getHighEntropyValues는 추가 브라우저나 시스템 정보를 요청합니다. Chrome은 보통 권한 요청 창을 표시하지 않지만 정책과 구현에 따라 응답이 제한될 수 있습니다. 일반 호환성 확인도 같은 필드를 요청하므로 호출이 지문 수집을 입증하지 않습니다.
+api_note_window_management|getScreenDetails는 화면 정보를 요청하며 window-management 권한이 필요할 수 있습니다. screens, currentScreen과 개별 속성 접근을 따로 표시합니다. 모니터 수, 이름과 위치는 보관하지 않습니다. 요청만으로 권한 부여나 작업 환경을 알 수 없습니다.
+api_note_compute_pressure|Compute Pressure는 대략적인 CPU 부하 상태를 제공할 수 있습니다. 구현에 따라 이 탭 이외의 부하도 반영할 수 있습니다. Observer 생성, observe/takeRecords 호출과 레코드 읽기는 별개입니다. 값을 보관하지 않으며 다른 탭의 활동, 냉각 특성이나 사용자의 부재를 확인하지 않습니다.
+api_note_idle_detection|Idle Detection은 권한을 받은 후 활동과 화면 잠금 상태를 제공할 수 있습니다. 감지기 생성이나 start 호출만으로 활성 구독을 확인할 수 없습니다. 표시된 상태 읽기에는 실제 값이 없으며 재실, 잠금 상태와 이탈·복귀 시간은 기록하지 않습니다.
+api_hints_unknown|관찰 전용 모드에서는 요청 필드를 알 수 없습니다. 센서는 인수를 다시 읽거나 페이지가 제어하는 컬렉션을 순회하지 않습니다.
+api_mechanism_client_hints|확장 시스템 정보
+api_mechanism_window_management|화면 및 창 관리
+api_mechanism_compute_pressure|CPU 부하 관찰
+api_mechanism_idle_detection|활동 및 화면 잠금 확인
+inspector_group_activity|상호작용 및 재실 API
+extName|Detect.Expert — Fingerprint Protection & Forensics
+extDescription|브라우저 API, 지문 수집 신호와 식별 서비스를 로컬에서 분석하며 API 차단을 설정할 수 있습니다.
+actionTitle|Detect.Expert: 브라우저 API 분석
+popupTitle|이 페이지의 확인 작업
+sidepanelTitle|이 페이지의 관찰
+optionsTitle|Detect.Expert 설정
+coverageTitle|관찰 범위
+coverageOff|범위를 선택하지 않아 관찰하지 않습니다. ‘감지되지 않음’은 ‘해당 기간에 접근 가능한 영역에서 관찰하지 못함’을 뜻합니다.
+scopeLabel|관찰 범위
+scope_start_title|무엇을 관찰할까요?
+scope_start_hint|아래에서 관찰 범위를 선택하세요.
+action_reload_page|페이지 새로고침
+error_reload|탭을 새로고침하지 못했습니다. 페이지를 열고 다시 시도하세요.
+coverage_restart_desc|센서를 다시 시작하기 전에 문서를 새로고침한 뒤 확장 프로그램을 열어 관찰을 다시 켜세요. 로딩부터 관찰하려면 새로고침 전에 ‘이 사이트에서 항상’을 선택하세요.
+scopeOff|꺼짐
+scopeActiveTab|지금부터 현재 탭
+scopeSite|이 사이트에서 항상
+scopeAllSites|모든 사이트
+statusLoading|불러오는 중…
+statusUnavailable|사용 불가
+vendorsSectionTitle|인식된 보호 및 식별 서비스
+vendorsEmpty|일치 항목을 관찰하지 못했습니다. 일치하지 않는다고 사기 방지 기능이 없다는 뜻은 아닙니다.
+disclaimerNoVerdict|사이트의 안전성을 판정하지 않습니다. 기본 모니터링은 관찰만 수행하며 선택적 API 차단은 명시적으로 켜야 합니다.
+coverage_active_title|관찰 중
+coverage_active_desc|구현된 센서를 문서 시작 시 설치했습니다. 모든 감지 방식을 관찰한다는 뜻은 아닙니다.
+coverage_partial_title|부분 관찰
+coverage_partial_desc|문서의 일부만 관찰합니다: $DETAIL$. 접근 불가 영역에서 발견이 없다는 사실은 의미가 없습니다.
+coverage_late_start_title|관찰이 늦게 시작됨
+coverage_late_start_desc|페이지 실행 후 센서를 설치하여 초기 호출을 놓쳤을 수 있습니다. 처음부터 분석하려면 페이지를 새로고침하세요.
+coverage_late_start_active_tab_desc|활성화 이후 문서가 교체될 때까지의 호출을 관찰합니다. 초기 호출을 놓쳤을 수 있습니다. 로딩부터 관찰하려면 ‘이 사이트에서 항상’을 선택하고 새로고침하세요.
+coverage_paused_title|관찰 일시 중지
+coverage_paused_desc|관찰을 일시 중지했습니다. 페이지는 계속 작동합니다.
+coverage_paused_reload|센서를 완전히 제거하려면 페이지를 새로고침하세요.
+coverage_unsupported_title|이 페이지에서 관찰을 사용할 수 없음
+coverage_unsupported_desc|Chrome 내부 페이지, 웹 스토어, 다른 확장 프로그램과 일부 특수 프레임은 관찰을 지원하지 않습니다.
+coverage_unsupported_chrome_desc|이 Chrome 버전($VERSION$)은 지원하지 않습니다. 관찰을 사용할 수 없습니다.
+coverage_no_access_title|이 페이지에 접근할 수 없음
+coverage_no_access_desc|$HOST$에 접근할 수 없습니다. 관찰이 없다는 사실은 의미가 없습니다. 시작하려면 관찰 수준을 선택하세요.
+coverage_revoked_desc|$HOST$ 접근 권한이 철회되었습니다. 새 데이터를 수집하지 않습니다. 센서를 완전히 제거하려면 새로고침하세요.
+coverage_degraded_title|관찰 제한됨
+coverage_degraded_desc|이벤트 한도를 초과하여 일부 데이터를 버렸습니다($DROPPED$). 이 기간을 완전하게 관찰했다고 볼 수 없습니다.
+coverage_context_changed|문맥이 변경되어 $HOST$ 보고서를 표시합니다.
+coverage_managed_desc|일부 설정은 조직에서 관리합니다.
+coverage_blind_spots_title|알려진 관찰 공백
+coverage_blind_spots_desc|미구현: Math, 미디어 기기, CSSOM, WebGPU 읽기, Generic Sensor, HTTP 검증자, CNAME 패턴과 Worker/Worklet 생성. 지원되는 Web Audio와 WebAssembly JS 호출만 관찰합니다. Wasm·Worker·CSS의 내부 동작, DNS 해석, TLS와 서버 측 검사는 범위 밖입니다. 사이트는 확장 프로그램을 알아챌 수 있습니다.
+inspector_group_dns|DNS 확인
+card_dns_probe_pattern|DNS 테스트 가능성
+inspector_dns_desc|짧은 시간에 한 도메인의 서로 다른 하위 도메인 요청을 관찰했습니다. DNS 테스트, CDN과 캐시 무효화에서도 나타날 수 있습니다. 횟수는 제한된 관찰 구간의 최소값입니다. 실제 DNS 질의, 리졸버 주소와 DNS 유출은 확인하지 않았습니다.
+coverage_flags_title|관찰 범위 제한
+coverage_partial_detail_unknown|이유가 명시되지 않음
+coverage_flag_late_start|센서가 늦게 설치됨
+coverage_flag_hook_failed|센서가 설치 제한을 보고함; 진단 정보는 페이지가 제어함
+coverage_flag_throttled|이벤트 흐름 제한됨
+coverage_flag_unsupported_realm|일부 실행 환경을 지원하지 않음
+coverage_flag_channel_gap|페이지 채널의 공백이나 충돌; 데이터는 페이지가 제어함
+coverage_flag_truncated|메모리 한도로 세부 정보 생략
+coverage_flag_paused|관찰 일시 중지됨
+coverage_flag_revoked|접근 권한 철회됨
+coverage_flag_protocol_mismatch|센서 버전이 오래됨; 페이지를 새로고침하세요
+coverage_flag_descriptor_nonconfigurable|보호된 속성 설명자로 일부 API를 관찰할 수 없음
+coverage_flag_bridge_ring_overflow|전달 버퍼가 넘쳐 일부 데이터 손실
+coverage_flag_budget_exceeded|문서 관찰 데이터 한도 초과; 일부 정보를 보관하지 않음
+coverage_flag_no_host_permission|권한으로 네트워크 관찰 제한됨
+coverage_flag_restricted_page|제한된 브라우저 페이지
+coverage_flag_worker_not_observed|Worker를 관찰하지 않음
+state_scope_off_title|관찰 꺼짐
+state_no_report_title|아직 보고서 없음
+state_no_report_desc|이 문서의 관찰 정보가 아직 없습니다. 관찰을 켜기 전에 열린 페이지라면 새로고침하세요.
+state_unsupported_chrome_title|지원하지 않는 Chrome 버전
+state_sw_unavailable_title|백그라운드가 응답하지 않음
+state_sw_unavailable_desc|확장 프로그램 백그라운드가 응답하지 않았습니다. 이 창을 닫았다가 다시 여세요. 계속되면 확장 프로그램을 다시 시작하세요.
+status_active|관찰 중
+status_partial|부분 관찰
+status_late_start|늦게 시작
+status_paused|일시 중지
+status_unsupported|사용 불가
+status_no_access|접근 불가
+status_degraded|제한됨
+status_off|꺼짐
+status_no_report|보고서 없음
+status_error|오류
+host_unknown|알 수 없는 호스트
+observed_since|$TIME$부터 관찰
+document_label|문서
+empty_no_findings|이 기간에 관찰한 영역에서 발견된 항목이 없음
+empty_no_findings_hint|사이트 안전성 평가가 아닙니다. 위의 관찰 영역을 확인하세요.
+findings_title|확장 프로그램이 관찰한 내용
+techniques_title|관찰한 기술
+techniques_none|접근 가능한 영역에서 기술을 관찰하지 못했습니다.
+more_in_panel|사이드 패널에 $N$개 더 있음
+level_observation|관찰
+level_interpretation|해석
+level_purpose|일반적인 용도
+card_api_use_label|API 사용
+card_api_use_generic|$API$ 사용 — $COUNT$
+card_api_use_canvas_export|Canvas 내보내기 호출($API$) — $COUNT$
+card_api_use_canvas_readback|Canvas 픽셀 읽기 호출($API$) — $COUNT$
+card_api_use_canvas_text|Canvas 텍스트 측정 또는 그리기 호출 — $COUNT$
+card_api_use_offscreen|문서에서 OffscreenCanvas 사용 — $COUNT$
+card_api_use_math|Math.* 연속 호출 — $COUNT$
+card_api_use_webrtc|WebRTC API 사용($API$) — $COUNT$
+card_api_use_local_probe|로컬 연결 시도 — $COUNT$
+card_api_use_dns|고유 하위 도메인 요청 — $COUNT$
+card_api_use_attempt_only|시도만 확인됨: 호출에서 예외가 발생해 페이지에 결과를 반환하지 않음
+card_api_use_generic_note|API 호출 자체는 일반적인 동작이며 추적을 입증하지 않습니다.
+card_api_use_purpose|이 방식은 일반적으로 브라우저를 인식하는 데 사용할 수 있습니다.
+card_purpose_local_probe|로컬 연결은 일반 앱 통합이나 로컬 서비스 확인에 사용할 수 있습니다. 페이지의 목적은 확인되지 않았습니다.
+card_purpose_dns|이와 같은 연속 요청은 일반적으로 DNS 리졸버 테스트에 사용할 수 있습니다.
+card_fp_label|지문 계산 징후
+card_fp_generic|호출 순서가 지문 구성과 유사함
+card_fp_canvas_sequence|텍스트를 그린 후 반복 읽기가 지문 구성과 유사함
+card_fp_math_sequence|일련의 수치 확인이 알려진 패턴과 유사함
+card_fp_local_probe|같은 로컬 주소의 여러 포트에 연속 연결을 시도하여 포트 스캔과 유사합니다.
+inspector_group_local_probe|로컬 포트 확인
+inspector_local_probe_desc|로컬 주소나 포트에 대한 연결 시도를 관찰했습니다. 단일 시도는 스캔을 입증하지 않습니다. 포트가 열렸거나 서비스에 연결되었는지는 알 수 없습니다.
+card_local_probe_attempt|로컬 연결 시도
+card_local_probe_pattern|포트 스캔 가능성
+card_fp_dns_pattern|고유 하위 도메인에 연속 요청하는 패턴을 관찰했습니다. DNS 테스트에서 나타날 수 있습니다. 사용된 리졸버는 알 수 없습니다.
+card_fp_webrtc|페이지가 WebRTC를 사용했습니다. 이 방식은 네트워크 정보에 접근할 수 있습니다.
+card_fp_not_proven|이 관찰만으로 목적, 고유성과 결과 전송은 확인되지 않습니다.
+card_fp_alternatives|일반적인 설명: $ALTERNATIVES$
+card_fp_insufficient|결론을 내리기 위한 데이터 부족
+confidence_low|해석 신뢰도 낮음
+confidence_medium|해석 신뢰도 보통
+confidence_high|해석 신뢰도 높음
+confidence_unassessed|신뢰도 평가 안 됨
+card_vendor_found|$VENDOR$ 통합 징후 발견
+card_vendor_purpose|서비스 용도: $PURPOSE$. 사이트 안전성 평가가 아닙니다.
+card_vendor_threatmetrix_purpose|위험 평가 및 디지털 식별
+card_vendor_purpose_generic|봇 방지, 위험 평가 또는 식별
+card_vendor_rules|규칙: $RULES$; 일치 출처: $SOURCE$
+card_vendor_match_documented_resource|문서화된 리소스와 일치
+card_vendor_match_multi_signal|여러 독립적인 신호
+card_vendor_match_weak_signal|통합 요소 발견 (약한 신호이며 페이지가 위조할 수 있음)
+card_vendor_match_none|일치 없음
+card_vendor_not_linked|이 서비스와 페이지의 다른 관찰 사이에 연관성이 확인되지 않았습니다.
+card_vendor_resource_note|요청한 리소스가 일치했습니다. 서비스 코드의 실행이나 관찰한 API 호출의 원인이라는 사실은 입증하지 않습니다.
+card_vendor_unknown|알 수 없는 서비스 제공자
+card_vendor_no_trust|인식된 서비스는 사이트 안전성 평가가 아니며 이 서비스가 모든 확인 작업을 수행한다는 뜻도 아닙니다.
+integrity_browser_observed|브라우저가 관찰함
+integrity_page_controlled|페이지 환경의 데이터이며 위조 가능
+integrity_derived|확장 프로그램이 도출함
+evidence_browser_network|브라우저 네트워크 이벤트
+evidence_browser_navigation|브라우저 탐색
+evidence_page_hook|페이지 환경의 API 후크
+evidence_page_dom|페이지 DOM
+evidence_derived|도출됨
+attribution_exact_resource|호출 출처: 정확한 리소스
+attribution_sampled_stack|스택 표본의 호출 출처 (부정확할 수 있음)
+attribution_frame_only|프레임만 확인됨
+attribution_unknown|호출 출처 불명
+count_exact|정확한 횟수
+count_sampled|표본 횟수
+count_lower_bound|최소값; 데이터 손실 발생
+count_value_sampled|약 $N$회 (표본)
+count_value_lower_bound|최소 $N$회
+phase_attempted|시도됨
+phase_returned_sync|결과 반환됨
+phase_threw_sync|예외 발생
+phase_async_returned|비동기 결과
+phase_settlement_unobserved|완료를 관찰하지 못함
+detail_show|세부 정보
+detail_api|API
+detail_technique|기술
+detail_category|범주
+detail_evidence|데이터 출처
+detail_rule|규칙
+detail_finding_id|발견 항목
+detail_evidence_ids|관찰
+detail_counts|횟수
+detail_phases|단계
+detail_limitations|제한
+detail_alternatives|일반적인 설명
+detail_attribution|출처 귀속
+detail_none|없음
+category_graphics|그래픽, 기하 정보, 글꼴
+category_audio|오디오, 미디어 및 계산
+category_environment|브라우저 환경, 화면 및 지역 설정
+category_permissions|권한, 기기 및 상호작용
+category_storage|저장소 및 식별자
+category_network|네트워크 (관찰 범위가 불완전함)
+action_pause|현재 문서 관찰 일시 중지
+action_resume|관찰 재개
+action_reload|처음부터 분석하도록 새로고침
+action_clear|이 문서의 보고서 삭제
+action_export|내보내기 (미리보기)
+action_refresh|새로고침
+action_apply|적용
+action_cancel|취소
+action_dismiss|닫기
+open_sidepanel|사이드 패널 열기
+open_options|설정
+export_preview_title|내보내기 미리보기
+export_preview_desc|아래의 축약된 필드만 포함합니다. 전체 URL, 쿠키 값, API 결과와 입력 내용은 없습니다.
+export_host_warning|파일에 페이지 호스트가 포함됩니다: $HOST$. 불필요하게 공유하지 마세요.
+export_fields_title|파일 필드
+export_json_title|전체 JSON 내용
+export_save|파일 저장
+export_document_changed|문서가 변경되었습니다. 미리보기를 다시 여세요.
+export_unavailable|페이지 접근 권한이나 보고서가 없어 내보낼 수 없습니다.
+export_saved|파일을 저장했습니다.
+export_not_implemented|백그라운드가 아직 내보내기 미리보기를 지원하지 않습니다.
+mode_off|꺼짐
+mode_off_desc|백그라운드 관찰이 꺼져 있어 보고서를 만들지 않습니다.
+mode_active_tab|지금부터 확인
+mode_active_tab_desc|활성화 이후 관찰합니다. 초기 호출을 놓쳤을 수 있습니다.
+mode_site|이 사이트에서 항상
+mode_site_desc|다음 로딩부터 허용된 문서의 초기 호출을 관찰합니다. 외부 네트워크는 일부만 보일 수 있습니다.
+mode_all|모든 사이트 관찰
+mode_all_desc|가장 넓은 접근 범위입니다. Worker, DNS나 서버 로직의 전체 관찰을 보장하지 않습니다.
+scope_permission_denied|권한이 부여되지 않았습니다. 관찰 범위는 변경하지 않았습니다.
+scope_permission_granted_reload|접근이 허용되었습니다. 처음부터 분석하려면 새로고침하세요.
+scope_site_host_unknown|현재 페이지의 호스트를 알 수 없습니다. 먼저 ‘지금부터 확인’을 켜거나 설정에 호스트를 입력하세요.
+scope_host_input_label|사이트 호스트
+scope_host_invalid|example.com과 같은 호스트를 입력하세요
+scope_current|현재 범위: $MODE$
+scope_hosts_list|항상 관찰하는 사이트
+scope_hosts_none|없음
+scope_granted_all|브라우저가 전체 사이트 접근을 허용했습니다.
+scope_error|범위를 변경하지 못했습니다: $CODE$
+scope_applied|관찰 범위를 변경했습니다.
+scope_applied_reload|관찰 범위를 변경했습니다. 로딩부터 관찰하려면 페이지를 새로고침하세요.
+options_onboarding_title|확장 프로그램의 기능
+onboarding_limits|기본 관찰은 API 결과를 보존합니다. 선택적 API 차단은 명시적으로 켜기 전까지 비활성화되어 있으며 웹사이트를 고장 낼 수 있습니다. 래퍼는 감지 가능하고 실행 시간이 늘어납니다. 전체 관찰을 보장하지 않습니다.
+onboarding_no_server|확장 프로그램은 분석 결과를 전송하거나 개발자 서버에 연결하지 않습니다.
+options_clear_session|세션 데이터 삭제
+options_clear_session_desc|세션 메모리의 모든 문서 보고서를 삭제합니다. 설정은 유지됩니다.
+options_clear_done|세션 데이터를 삭제했습니다.
+options_clear_unavailable|이 빌드에서는 아직 사용할 수 없는 작업입니다.
+options_inventory_title|저장하는 데이터
+inventory_session|문서 보고서는 세션 메모리(chrome.storage.session)에만 보관합니다. 비활성 상태가 10분을 넘으면 다음 확장 프로그램 이벤트에서 삭제합니다. 확인은 최소 30초 간격으로 수행하며 정확히 10분에 삭제하지는 않습니다. 탭을 닫아도 삭제가 실행됩니다. 브라우저를 다시 시작하면 세션이 지워집니다.
+inventory_local|관찰 범위, 선택한 사이트와 인터페이스 언어 설정은 삭제할 때까지 chrome.storage.local에 보관합니다.
+inventory_never|오디오 샘플, Math 인수와 결과, 전체 URL, 쿠키 값, 요청 헤더와 본문, 키 입력, 폼 텍스트, 클라이언트와 상대의 IP 주소는 저장하지 않습니다. Canvas/WebGL 이미지는 메모리에만 남습니다. 설정된 ICE 서버 주소는 별도의 제한된 세션 저장소에 보관합니다.
+inventory_export|Light 모드(JSON): 내보내기 파일에는 미리보기에 표시된 필드만 포함됩니다. 명시적으로 포함하지 않으면 페이지 호스트는 제외됩니다. 이미지와 WebRTC 연결 정보는 내보내지 않습니다.
+inventory_sync|Chrome 계정 동기화, 디스크와 외부 서버는 사용하지 않습니다.
+inventory_link|전체 데이터 목록: 프로젝트 저장소의 docs/data-inventory.md.
+tab_overview|개요
+tab_techniques|기술
+tab_sources|출처
+tab_limits|제한
+group_techniques|기술
+group_services|서비스
+group_third_party|외부 출처
+counts_unavailable|표시할 데이터 없음
+search_label|기술 및 API 검색
+search_placeholder|기술, API 또는 규칙
+search_empty|검색어와 일치하는 항목 없음
+sources_hosts_title|호스트 (브라우저가 관찰함)
+sources_none|이 보고서에 외부 호스트 목록이 없습니다. 사이트와 요청 출처 모두에 권한이 있어야 네트워크 이벤트를 볼 수 있습니다.
+sources_requests|요청: $N$
+dropped_title|제한으로 생략됨
+dropped_observations|관찰
+dropped_batches|배치
+dropped_findings|발견 항목
+dropped_hosts|호스트
+dropped_counters|횟수
+dropped_transport|전달
+error_invalid_request|잘못된 요청
+error_unauthorized_sender|허가되지 않은 발신자
+error_not_found|보고서를 찾을 수 없습니다. 문서가 변경되었을 수 있습니다.
+error_stale_revision|보고서가 변경되어 작업을 취소했습니다.
+error_document_mismatch|문서가 변경되어 작업을 취소했습니다.
+error_no_access|페이지 접근 불가
+error_not_implemented|아직 지원하지 않는 작업
+error_unavailable|백그라운드가 응답하지 않았습니다.
+scope_active_tab_toolbar|현재 탭 관찰을 시작하려면 Chrome 도구 모음 버튼으로 확장 프로그램을 열고 ‘지금부터 확인’을 선택하세요.
+export_include_host|내보내기에 페이지 호스트 포함:
+vendors_catalog_unavailable|서비스 카탈로그가 비활성화되어 서비스를 인식하지 않았습니다.
+limitation_page_controlled_evidence|페이지 환경에서 가져온 관찰 정보이며 페이지가 위조할 수 있습니다.
+limitation_purpose_unknown|API 호출의 목적을 알 수 없습니다.
+limitation_uniqueness_not_established|결과의 고유성과 안정성을 검사하지 않았습니다.
+limitation_readback_attempted_failed|최소 한 번의 읽기 시도에서 예외가 발생했습니다. 읽기 성공을 확인하지는 못했습니다.
+limitation_uncalibrated_threshold|규칙 임계값을 사례 집합으로 아직 보정하지 않았습니다.
+limitation_coverage_incomplete|관찰 범위가 불완전하며 일부 호출을 놓쳤을 수 있습니다.
+limitation_catalog_disabled|서비스 카탈로그가 비활성화되어 관찰과 제공자 간 연결을 확인하지 않았습니다.
+limitation_text_ops_undifferentiated|텍스트 측정과 그리기를 함께 계산합니다. 각각의 횟수는 알 수 없습니다.
+limitation_no_time_window|문서의 전체 유지 기간에 대한 횟수이며 짧은 별도 구간의 활동은 표시하지 않습니다.
+alternative_high_volume_rendering|일반 편집이나 차트 렌더링에서도 많은 텍스트 작업이 발생할 수 있습니다.
+coverage_flag_network_limited|사용 가능한 권한으로 네트워크 관찰이 제한됨
+coverage_flag_frames_inaccessible|일부 프레임의 관찰이 제한되거나 아직 확인되지 않음
+aria_live_update|보고서가 갱신되었습니다. 발견 항목: $N$; 관찰 상태 — $STATE$
+badge_tooltip|이 탭과 프레임에서 관찰한 기술: $N$
+coverage_sensor_disabled_desc|센서 $SENSOR$가 비활성화되어 있습니다($REASON$). 이 API 호출은 관찰하지 않습니다.
+card_vendor_first_party|사이트 자체 도메인의 엔드포인트에서 제공자 서명을 관찰함
+options_diagnostics_title|확장 프로그램 진단
+options_diagnostics_desc|버전과 백그라운드 사용 가능 여부만 포함합니다. 페이지 주소와 보고서 데이터는 제외됩니다.
+options_diagnostics_preview|진단 보고서 미리보기
+frame_document_label|표시 중인 문서
+frame_main|주 문서
+frame_child|삽입된 페이지 $N$
+frame_separate_hint|선택한 문서의 관찰 정보입니다. 문서는 합치지 않습니다.
+frame_limit_hint|처음 128개 문서만 표시합니다. 추가 삽입 페이지가 있을 수 있습니다.
+visual_title|페이지가 읽은 이미지
+visual_consent|관찰 시작 후 처음 60초 동안 페이지가 이미 읽은 지원 이미지를 자동 캡처합니다. 이미지는 메모리에만 남으며 보고서와 내보내기에서 제외됩니다.
+visual_enable|60초 동안 이미지 표시
+visual_enable_reload|활성화 후 페이지 새로고침
+visual_disable|이미지 숨기기 및 삭제
+visual_reload_scope|페이지 로딩 확인을 캡처하려면 먼저 이 사이트의 항상 관찰을 선택하세요.
+visual_remaining|이미지 미리보기 활성화됨: $N$초 남음
+visual_waiting|페이지가 지원되는 Canvas 또는 WebGL 이미지를 읽기를 기다립니다. 페이지 자체의 확인을 반복하려면 새로고침하세요. 관찰 시작 전의 이미지는 복원할 수 없습니다. 미리보기가 비어 있어도 확인 작업이 없었다는 뜻은 아닙니다.
+visual_untrusted|출처: 페이지가 제어하는 픽셀. 페이지가 이미지를 바꿀 수 있으며 이미지 하나로 지문 수집이나 사이트 안전성을 확인할 수 없습니다.
+visual_canvas|Canvas 이미지
+visual_webgl|WebGL 이미지
+visual_source|$API$ · $WIDTH$ × $HEIGHT$ px
+visual_decode_error|받은 이미지를 표시하지 못했습니다. 형식이나 크기를 지원하지 않습니다.
+inspector_total|관찰한 세부 기술
+inspector_other_documents|다른 문서의 기술
+inspector_other_documents_desc|행을 열어 해당 문서를 볼 수 있습니다. 횟수, 이미지와 내보내기는 각각 유지됩니다.
+inspector_other_documents_limit|처음 $N$개의 다른 문서를 확인합니다. 추가 프레임은 문서 선택기로 확인하세요.
+inspector_group|기술
+inspector_found|발견
+inspector_group_canvas|Canvas
+inspector_group_webgl|WebGL
+inspector_group_webgpu|WebGPU
+inspector_group_clientrects|ClientRects / DOM 기하 정보
+inspector_group_svg_geometry|SVG 기하 정보
+inspector_group_fonts|글꼴
+inspector_group_css_styles|CSS 스타일
+inspector_clientrects_desc|사각형과 크기 측정은 지문 수집이나 일반 페이지 배치에 사용될 수 있습니다. 횟수만으로 목적을 확인할 수 없습니다. 정확한 좌표는 보관하지 않습니다.
+inspector_api_family_desc|API 목록은 해당 계열을 설명합니다. 이 횟수로 개별 메서드나 속성을 구분하거나 호출의 목적을 확인할 수 없습니다.
+inspector_group_math|Math
+inspector_group_audio|오디오 / 미디어
+inspector_group_environment|브라우저 / 기기
+inspector_group_display|화면 / 디스플레이
+inspector_group_cpu|CPU 코어
+inspector_group_memory|RAM
+inspector_group_performance|성능 / 시간 측정
+inspector_display_desc|화면, 창과 모니터 정보 요청입니다. 해상도, 크기와 배율을 보관하지 않으며 요청만으로 모니터 목록 접근을 확인할 수 없습니다.
+inspector_cpu_desc|hardwareConcurrency는 브라우저가 추정한 사용 가능한 논리 프로세서 수입니다. 값 없이 읽기를 기록하며 물리 CPU 코어 수는 확인하지 않습니다.
+inspector_memory_desc|Device Memory는 정확한 설치 RAM이 아닌 대략적인 메모리 범주입니다. 값을 보관하지 않고 읽기만 기록합니다.
+inspector_performance_desc|타이머와 Performance API는 벤치마크, 애니메이션과 분석에 사용됩니다. 측정 결과 없이 호출만 기록하며 목적은 확인하지 않습니다.
+inspector_group_permissions|권한 / 센서
+inspector_group_storage|저장소
+inspector_group_network|네트워크
+inspector_group_webrtc|WebRTC
+rtc_title|관찰한 연결
+rtc_scope_note|이 문서와 관찰 기간에만 해당합니다. 후크 설치 이전이나 접근 불가 환경의 연결은 누락될 수 있습니다.
+rtc_total|보관: $SHOWN$ · 관찰한 객체: $TOTAL$
+rtc_connection|연결 $N$
+rtc_created_unknown|이 객체의 생성은 관찰하지 못했습니다.
+rtc_closed_retained|close()를 관찰했습니다. 종료 후에도 기록을 보관합니다.
+rtc_connected_observed|이 연결에서 연결된 상태를 관찰했습니다.
+rtc_connected_unobserved|연결된 상태를 관찰하지 못했습니다.
+rtc_configuration_changes|성공한 재설정 호출: $N$
+rtc_state_new|마지막 상태: new
+rtc_state_connecting|마지막 상태: connecting
+rtc_state_connected|마지막 상태: connected
+rtc_state_disconnected|마지막 상태: disconnected
+rtc_state_failed|마지막 상태: failed
+rtc_state_closed|마지막 상태: closed
+rtc_state_unknown|알 수 없는 상태
+rtc_duration_open|종료를 관찰하지 못함
+rtc_duration_under_1s|유지 시간 1초 미만
+rtc_duration_1_10s|유지 시간 1–10초
+rtc_duration_10s_plus|유지 시간 10초 이상
+rtc_duration_unknown|유지 시간 불명
+rtc_server_configured|설정된 서버
+rtc_server_candidate|이 서버를 통해 수집된 ICE 후보
+rtc_server_error|이 서버의 ICE 수집 오류
+rtc_servers_unknown|서버 정보를 관찰하지 못했습니다. 서버가 설정되거나 사용되지 않았다는 뜻은 아닙니다.
+rtc_servers_limited|서버 정보가 불완전합니다. 연결별 최대 8개 엔드포인트를 보관합니다.
+rtc_evidence_note|설정되었다고 접속한 것은 아닙니다. 후보나 수집 오류만으로 선택된 경로나 데이터 전송을 확인할 수 없습니다. 연결 상태는 연결 전체에 적용됩니다. 이 정보는 페이지가 제어합니다.
+rtc_empty|이 문서와 기간에 사용 가능한 연결 정보가 없습니다. API 횟수에는 관찰이 있을 수 있습니다.
+rtc_capture_limited|연결 기록이 불완전합니다. 생략된 객체: $N$. 캡처 제한으로 갱신도 누락될 수 있습니다.
+rtc_export_note|이 별도 로컬 기록은 마지막 갱신 후 최대 10분간 보관합니다. 열람해도 기간이 연장되지 않습니다. 서버와 연결 정보는 JSON 내보내기에 포함되지 않습니다.
+inspector_webrtc_desc|WebRTC API 호출을 관찰했습니다. 일반 음성·영상 통화와 데이터 교환에도 사용하므로 호출만으로 지문 수집이나 IP 주소 노출을 확인할 수 없습니다.
+card_api_use_webrtc_network|WebRTC 네트워크 정보 요청($API$) — $COUNT$
+card_purpose_webrtc|WebRTC는 음성·영상 통신과 데이터 교환을 지원합니다. 이 관찰로 호출의 목적은 확인되지 않습니다.
+inspector_page|페이지 호스트
+inspector_document|문서 / 프레임
+inspector_script|스크립트
+inspector_script_unknown|불명 — 이 보고서는 호출 스크립트가 아닌 문서를 식별합니다.
+inspector_empty|이 문서에서 지원되는 기술을 아직 관찰하지 못했습니다. 확장 프로그램 설치 전에 열린 페이지라면 새로고침하세요.
+inspector_coverage|관찰 범위
+inspector_image_waiting|이 페이지가 지원 이미지를 읽기를 기다립니다. 이전이나 매우 이른 인라인 읽기와 큰 이미지는 누락될 수 있습니다. 페이지 자체의 확인을 반복하려면 새로고침하세요.
+language_label|인터페이스 언어
+language_change_failed|언어를 저장하지 못했습니다. 다시 시도하세요.
+inspector_spotted|발견한 기술
+inspector_subtitle|사기 방지 엔지니어
+mode_light_tab|Light 모드
+mode_pro_tab|Pro 모드
+mode_save_error|이 보기 설정을 저장하지 못했습니다. 확장 프로그램을 다시 열면 초기화될 수 있습니다.
+pro_title|도메인 기록
+pro_current_domain|현재 도메인
+pro_session_domain|기록 도메인
+pro_ready|기록 준비됨
+pro_recording|기록 중
+pro_stopped|기록 중지됨
+pro_start|기록 시작
+pro_start_new|새 기록 시작
+pro_stop|기록 중지
+pro_generate_pdf|PDF 생성
+pro_pdf_hint|보고서를 열어 확인하거나 브라우저 인쇄 창에서 PDF로 저장하세요.
+pro_pdf_error|보고서 미리보기를 열지 못했습니다. 다시 시도하세요.
+pro_start_note|최대 10분간 이 탭과 관련 탭에서 이 사이트의 방문 페이지를 기록합니다. 이 창을 닫아도 기록은 계속됩니다. 이전 활동은 복원하지 않습니다. 시작 후 새로고침하여 로딩 시의 확인을 관찰하세요.
+pro_replace_note|새 기록을 시작하면 이전 세션이 교체됩니다. 필요하면 먼저 보고서를 저장하세요.
+pro_unavailable|이 페이지에서는 기록을 시작할 수 없습니다. 관찰이 켜진 접근 가능한 HTTP 또는 HTTPS 사이트를 여세요.
+pro_other_domain|기록 도메인 밖의 페이지입니다. 활동을 이 세션에 추가하지 않습니다.
+pro_elapsed|경과 시간
+pro_time_limit|최대 기록 시간: 10분
+pro_pages_total|페이지 방문
+pro_domains_total|외부 도메인
+pro_resources_total|리소스 그룹
+pro_requests_total|요청
+pro_pages_title|기록한 페이지 방문
+pro_pages_empty|아직 기록한 페이지 방문이 없습니다.
+pro_visit|방문 $N$
+pro_document_reports|문서 보고서: $N$
+pro_visit_totals|기술 $TECHNIQUES$개 · 리소스 그룹 $RESOURCES$개
+pro_observed_techniques|관찰한 기술 ID
+pro_no_techniques|이 방문에서 지원 API 기술을 기록하지 못했습니다. 확인 작업이 없었다는 뜻은 아닙니다.
+pro_visit_resources|이 방문의 리소스
+pro_resource_type|유형
+pro_resource_requests|요청
+pro_resource_completed|완료
+pro_resource_failed|실패
+pro_resource_redirects|리디렉션
+pro_resource_status|HTTP 상태
+pro_show_more|리소스 더 보기
+pro_open_report|보고서 미리보기 열기
+pro_limits_title|기록 제한
+pro_limits_note|관찰 범위는 페이지 접근과 지원 센서에 따라 다릅니다. API 사용과 리소스 로딩만으로 추적, 코드 실행이나 사이트 안전성을 확인할 수 없습니다. 민감한 요청 내용, 이미지와 WebRTC 연결 정보는 보고서에서 제외됩니다.
+pro_dropped|생략: 페이지 $PAGES$개, 리소스 $RESOURCES$개, 문서 $DOCUMENTS$개, 이벤트 $EVENTS$개.
+pro_stop_manual|사용자가 중지했습니다.
+pro_stop_timeout|10분 기록 제한에 도달했습니다.
+pro_stop_tab_closed|기록 중인 탭이 닫혔습니다.
+pro_stop_access_revoked|페이지 접근 권한이 철회되어 기록을 중지했습니다.
+pro_stop_storage_error|세션 데이터를 저장하지 못해 기록을 중지했습니다. 보관한 보고서는 불완전할 수 있습니다.
+pro_stop_limit|기록 데이터 한도에 도달했습니다. 보관한 보고서는 불완전합니다.
+report_title|시나리오 분석 보고서
+report_preview|PDF 미리보기
+report_save|PDF로 저장
+report_print_hint|브라우저 인쇄 창에서 ‘PDF로 저장’을 선택하세요. 아래에 표시된 보고서가 PDF에 포함됩니다.
+report_recording|기록 중에는 내보낼 수 없습니다. 먼저 기록을 중지하세요.
+report_unavailable|이 기록을 더 이상 사용할 수 없습니다.
+report_summary|요약
+report_started|분석 시작
+report_finished|분석 종료
+report_duration|기간
+report_pages|페이지
+report_domains|외부 도메인
+report_resources|리소스 그룹
+report_requests|관찰한 요청
+report_techniques|관찰한 기술
+report_vendors|인식한 서비스
+report_map|상호작용 지도
+report_map_note|각 페이지 방문에서 관찰한 리소스 요청을 연결로 표시합니다. 소유 관계, 직접적인 스크립트 의존성이나 데이터 전송을 입증하지 않습니다.
+report_page|페이지
+report_documents|문서 및 프레임
+report_resource_list|리소스 그룹 목록
+report_first_party|같은 사이트
+report_third_party|외부
+report_unknown|알 수 없는 관계
+report_resource_type|리소스 유형
+report_requests_count|요청
+report_statuses|HTTP 상태 코드
+report_result|관찰한 기술
+report_no_methods|이 기간에 접근 가능한 영역에서 지원 메서드를 관찰하지 못했습니다.
+report_no_resources|이 페이지의 리소스 요청을 캡처하지 못했습니다.
+report_no_vendors|지원되는 서비스 서명과 일치하지 않았습니다.
+report_scope|기록 범위 및 제한
+report_scope_note|기록된 탐색 시나리오에서 관찰한 활동만 포함합니다. 미방문 페이지, 지원하지 않는 환경과 브라우저 권한 밖의 요청은 포함하지 않습니다. API 사용만으로 지문 수집이나 안전성을 판정할 수 없습니다.
+report_redaction|URL에서 로그인 정보, 쿼리 문자열과 프래그먼트를 제외합니다. 민감하거나 식별 가능한 경로 부분은 대체합니다. 이미지, 폼 내용, 요청·응답 본문, 쿠키와 ICE 연결 정보는 포함하지 않습니다.
+report_dropped|수집 제한
+report_dropped_note|기록 한도에 도달했습니다. 횟수는 최소값이며 보고서가 불완전할 수 있습니다.
+report_generation|로컬 보고서 · 업로드 없음
+report_print_failed|인쇄 창을 열지 못했습니다. 다시 시도하세요.
+report_title_unknown|제목 없는 페이지
+report_map_more|추가 도메인은 리소스 목록에 표시됩니다.
+report_completed|완료
+report_failed|실패
+report_redirects|리디렉션
+report_first_seen|최초 관찰
+report_last_seen|마지막 관찰
+report_latency|관찰한 요청의 총 소요 시간
+report_resource_groups_note|리소스는 정리된 URL 템플릿과 유형별로 묶습니다. 서로 다른 원래 URL이 합쳐질 수 있으므로 그룹 합계가 정확한 파일 수는 아닙니다.
+pro_limit_started_mid_page|페이지가 열린 뒤 기록을 시작했습니다. 초기 확인 작업이 누락될 수 있으며 버퍼의 관찰은 백그라운드 수신 시간으로 분류합니다.
+pro_limit_service_worker_restarted|기록 중 백그라운드 워커가 재시작했습니다. 진행 중인 네트워크 활동은 불완전할 수 있습니다.
+pro_limit_navigation_gap|일부 활동을 페이지 방문에 확실하게 연결하지 못했습니다.
+pro_limit_resource_limit|리소스 그룹 한도에 도달하여 일부 그룹을 생략했습니다.
+pro_limit_page_limit|페이지 방문 한도에 도달하여 일부 방문을 생략했습니다.
+pro_limit_document_limit|문서 한도에 도달하여 일부 프레임 보고서를 생략했습니다.
+pro_limit_event_limit|이벤트 버퍼 한도에 도달하여 일부 활동을 생략했습니다.
+pro_limit_storage_error|일부 기록 데이터를 저장하지 못했습니다.
+pro_limit_permission_limited|브라우저 권한으로 기록 활동이 제한되었습니다.
+pro_limit_unsupported_contexts|미방문 페이지, 접근 불가 프레임, 지원하지 않는 Worker와 서버 측 활동은 포함하지 않습니다.
+pro_limit_redacted_urls|URL을 정리된 템플릿별로 묶습니다. 식별 가능한 경로 부분, 쿼리 문자열과 프래그먼트는 제외합니다.
+inventory_pro|Pro 모드는 정리된 페이지 URL, 제목, 리소스 메타데이터와 감지 결과를 최대 10분간 따로 기록합니다. 로컬 세션은 교체, 삭제나 브라우저 세션 종료까지 남습니다. PDF에는 분석 도메인과 표시된 보고서 정보가 포함됩니다. Light/Pro 보기 설정은 로컬에 저장합니다.
+action_clear_results|결과 삭제
+light_clear_results_note|이 페이지와 프레임의 결과를 삭제합니다. 로딩을 다시 관찰하려면 새로고침하세요.
+pro_report_ready|보고서가 준비되었습니다
+pro_report_ready_note|보고서를 열어 확인하거나 브라우저 인쇄 창에서 PDF로 저장하세요.
+pro_report_open|보고서 열기
+pro_stop_clear|중지 및 삭제
+pro_clear_results_note|현재 기록과 보고서를 삭제하여 새 분석을 시작할 수 있습니다.
+results_cleared|결과를 삭제했습니다.
+vendors_scope_page|현재 페이지와 접근 가능한 하위 문서
+vendors_scope_recording|기록한 방문 전체에서 인식됨
+vendors_mechanism|완료된 스크립트 요청과 WebRTC 서버 주소를 검토된 카탈로그 규칙과 비교합니다. 다른 브라우저 API를 어떤 서비스가 호출했는지는 확인하지 않습니다.
+vendors_catalog_coverage|카탈로그: 제품 $1개 · 스크립트 규칙 $2개 · WebRTC 서버 규칙 $3개. 다른 통합, 수정된 통합이나 자체 호스팅 통합은 인식되지 않을 수 있습니다.
+vendors_details|인식 세부 정보
+vendor_match_rtc_server|WebRTC 서버 일치
+vendor_rtc_resource_note|페이지에서 관찰한 WebRTC 서버가 카탈로그 주소와 일치합니다. 이것만으로 서비스 SDK 실행, 연결의 해당 서버 사용이나 데이터 전송을 확인할 수 없습니다. 연결 정보는 설정, 후보와 연결 상태를 구분합니다.
+inspector_group_wasm|WebAssembly
+inspector_group_interaction|마우스 및 포인터 활동
+inspector_wasm_desc|페이지가 JavaScript WebAssembly API로 모듈을 컴파일, 검증하거나 인스턴스화했습니다. 호출만으로 모듈 내부 계산, 목적이나 비동기 완료 성공을 알 수 없습니다. Worker 활동은 이 페이지 후크의 범위 밖입니다.
+inspector_interaction_desc|리스너 등록 시도나 포인터 좌표 읽기를 관찰했습니다. API 호출만으로 활성 리스너, 실제 움직임이나 행동 프로파일링을 확인할 수 없습니다. 좌표, 궤적과 생체 정보는 기록하지 않습니다.
+interaction_listener_attempt|움직임 리스너 등록 시도를 관찰했습니다. 중복되거나 취소된 등록도 횟수에 포함될 수 있습니다.
+interaction_coordinate_read|포인터 좌표 읽기를 관찰했습니다. 클릭, 드래그와 합성 이벤트 읽기도 포함될 수 있습니다.
+permission_checks_title|관찰한 권한 확인
+permission_checks_note|현재 브라우저 설정이 아닌, 관찰 기간에 웹사이트가 읽은 상태입니다. 페이지 정책의 허용은 권한 부여와 별개이며 하드웨어 접근을 입증하지 않습니다. 여러 상태는 시간에 따른 변화를 나타낼 수 있습니다.
+permission_checks_reads|관찰한 읽기
+permission_kind_permission|권한 상태
+permission_kind_policy|페이지 정책
+permission_result_granted|부여됨
+permission_result_denied|거부됨
+permission_result_prompt|요청 필요 / 아직 부여되지 않음
+permission_result_allowed|페이지 정책에서 허용
+permission_result_blocked|페이지 정책에서 차단
+permission_name_camera|카메라
+permission_name_microphone|마이크
+permission_name_geolocation|위치
+permission_name_notifications|알림
+permission_name_clipboard_read|클립보드 읽기
+permission_name_clipboard_write|클립보드 쓰기
+permission_name_persistent_storage|영구 저장소
+permission_name_background_sync|백그라운드 동기화
+permission_name_midi|MIDI 기기
+permission_name_sensors|센서 (묶음)
+permission_name_payment_handler|결제 처리기
+permission_name_screen_wake_lock|화면 절전 방지
+permission_name_window_management|창 관리
+permission_name_local_fonts|로컬 글꼴
+permission_name_display_capture|화면 캡처
+permission_name_storage_access|저장소 접근
+permission_name_unknown|알 수 없는 권한

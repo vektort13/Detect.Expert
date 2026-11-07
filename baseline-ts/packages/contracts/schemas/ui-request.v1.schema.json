@@ -1,0 +1,248 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:detect-expert:contracts:ui-request:v1",
+  "title": "UiRequest v1 — extension UI pages -> service worker (privileged channel; sender verified separately)",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "type",
+        "tabId"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/schemaVersion"
+        },
+        "type": {
+          "const": "ui-get-report"
+        },
+        "tabId": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/nonNegInt"
+        },
+        "frameId": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "type",
+        "tabId",
+        "documentKey",
+        "reportRevision"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/schemaVersion"
+        },
+        "type": {
+          "const": "ui-pause"
+        },
+        "tabId": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/nonNegInt"
+        },
+        "documentKey": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/documentKey"
+        },
+        "reportRevision": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/nonNegInt"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "type",
+        "tabId",
+        "documentKey",
+        "reportRevision"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/schemaVersion"
+        },
+        "type": {
+          "const": "ui-resume"
+        },
+        "tabId": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/nonNegInt"
+        },
+        "documentKey": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/documentKey"
+        },
+        "reportRevision": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/nonNegInt"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "type",
+        "tabId",
+        "documentKey",
+        "reportRevision"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/schemaVersion"
+        },
+        "type": {
+          "const": "ui-clear"
+        },
+        "tabId": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/nonNegInt"
+        },
+        "documentKey": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/documentKey"
+        },
+        "reportRevision": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/nonNegInt"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "type",
+        "scopeMode",
+        "host"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/schemaVersion"
+        },
+        "type": {
+          "const": "ui-set-scope"
+        },
+        "scopeMode": {
+          "const": "site"
+        },
+        "host": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/host"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "type",
+        "scopeMode"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/schemaVersion"
+        },
+        "type": {
+          "const": "ui-set-scope"
+        },
+        "scopeMode": {
+          "type": "string",
+          "enum": [
+            "off",
+            "active-tab",
+            "all-sites"
+          ]
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "type",
+        "tabId",
+        "documentKey",
+        "reportRevision"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/schemaVersion"
+        },
+        "type": {
+          "const": "ui-export-preview"
+        },
+        "tabId": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/nonNegInt"
+        },
+        "documentKey": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/documentKey"
+        },
+        "reportRevision": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/nonNegInt"
+        },
+        "includeHost": {
+          "type": "boolean"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "type"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/schemaVersion"
+        },
+        "type": {
+          "const": "ui-get-scope"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "type",
+        "tabId"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/schemaVersion"
+        },
+        "type": {
+          "const": "ui-inject-now"
+        },
+        "tabId": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/nonNegInt"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "type"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "$ref": "urn:detect-expert:contracts:common:v1#/$defs/schemaVersion"
+        },
+        "type": {
+          "const": "ui-clear-session"
+        }
+      }
+    }
+  ]
+}
